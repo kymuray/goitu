@@ -1,0 +1,103 @@
+/*@license For license information please refer to shared-ui-global-navigation-picker.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[9543],{64198:function(e,n,t){t.d(n,{LC:function(){return Z},wv:function(){return K}});var a=t(56195),l=t(11466),r=t(58624),i=t(60156),c=t(80240),o=t(95519),s=t(2557),m=t(522),u=t(99828),d=t(37292),g=t(78241),p=t(93870),f=t(71061),v=t(43888),y=t(934),E=t(89438),N=t(42534),k=t(27102),b=t(23726),_=t(26690),h=t(64341),S=t(97778),P=t(70882),T=t(53017),C=t(46559),I=t(34372),L=t(74071),O=Object.defineProperty,x=Object.defineProperties,A=Object.getOwnPropertyDescriptors,D=Object.getOwnPropertySymbols,w=Object.prototype.hasOwnProperty,$=Object.prototype.propertyIsEnumerable,F=(e,n,t)=>n in e?O(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t,M=(e,n)=>{for(var t in n||(n={}))w.call(n,t)&&F(e,t,n[t]);if(D)for(var t of D(n))$.call(n,t)&&F(e,t,n[t]);return e},q=(e,n)=>x(e,A(n)),K=(e=>(e.MENU_ITEM="MENU_ITEM",e.NAV_LINK="NAV_LINK",e))(K||{}),B=/\{value\}/g,z=(e,n)=>{const t=n.replace(/\s/,"");return e.replace(B,t)},R=_.gql`
+  fragment CurrencySelectorFragment on CurrencySelector {
+    disabled
+    heading
+    queryParameterName
+    options {
+      name
+      selected
+      value
+    }
+    onChangeAnalytics {
+      linkName
+      referrerId
+    }
+  }
+`,j=e=>{const{data:n,updateQueryParams:t}=e,{disabled:l,heading:r,queryParameterName:i,options:c,onChangeAnalytics:o}=n,s=c.find(e=>!0===e.selected),[m,u]=a.useState((null==s?void 0:s.value)||""),d=(0,S.useClickTracker)();a.useEffect(()=>u((null==s?void 0:s.value)||""),[s]);return c.length?a.createElement(I._,{id:"currency-selector",label:r,value:m,onChange:e=>{var n;const a=e.target.value,l=(null==o?void 0:o.referrerId)?z(null==o?void 0:o.referrerId,a):"";d(l,null!=(n=null==o?void 0:o.linkName)?n:""),u(a),t(i,a,(null==s?void 0:s.value)||null)},disabled:l},c.map(e=>a.createElement("option",{key:e.value,value:e.value},e.name))):null};j.displayName="CurrencySelector",j.fragment=q(M({},R),{__typename:"CurrencySelector"});var Q=_.gql`
+  fragment LanguageSelectorFragment on LanguageSelector {
+    heading
+    queryParameterName
+    options {
+      name
+      selected
+      value
+    }
+    onChangeAnalytics {
+      linkName
+      referrerId
+    }
+  }
+`,V=e=>{const{data:n,updateQueryParams:t}=e,{heading:l,options:r,queryParameterName:i,onChangeAnalytics:c}=n,o=r.find(e=>!0===e.selected),[s,m]=a.useState((null==o?void 0:o.value)||""),u=(0,S.useClickTracker)();a.useEffect(()=>m((null==o?void 0:o.value)||""),[o]);return r.length?a.createElement(I._,{id:"language-selector",label:l,value:s,onChange:e=>{var n;const{selectedIndex:a}=e.target.options,{name:l}=r[a],s=(null==c?void 0:c.referrerId)?z(null==c?void 0:c.referrerId,l):"";u(s,null!=(n=null==c?void 0:c.linkName)?n:"");const d=e.target.value;m(d),t(i,d,(null==o?void 0:o.value)||null)},"aria-label":l},r.map(e=>a.createElement("option",{key:e.value,value:e.value},e.name))):null};V.displayName="LanguageSelector",V.fragment=q(M({},Q),{__typename:"LanguageSelector"});var U=_.gql`
+  fragment PosSelectorFragment on PosSelector {
+    disabled
+    heading
+    options {
+      name
+      selected
+      value
+    }
+    onChangeAnalytics {
+      linkName
+      referrerId
+    }
+  }
+`,H=e=>{const{refetch:n,data:t}=e,{heading:l,options:r,onChangeAnalytics:i,disabled:c}=t,o=r.find(e=>!0===e.selected),[s,m]=a.useState((null==o?void 0:o.value)||""),u=(0,S.useClickTracker)();return r.length?a.createElement(I._,{id:"site-selector","data-stid":"site-selector",label:l,value:s,onChange:e=>{var t;const{selectedIndex:a}=e.target.options,{name:l}=r[a],c=(null==i?void 0:i.referrerId)?z(null==i?void 0:i.referrerId,l):"";u(c,null!=(t=null==i?void 0:i.linkName)?t:"");const o=e.target.value;m(o),n({selectedSiteId:Number(o)})},disabled:c,"aria-label":l},r.map(e=>a.createElement("option",{key:e.value,value:e.value},e.name))):null};H.displayName="PosSelector",H.fragment=q(M({},U),{__typename:"PosSelector"});var G=_.gql`
+  fragment OneKeyMessagingFragment on Picker {
+    oneKeyMessagingHeading
+    oneKeyMessagingSubHeading
+  }
+`,W=({data:e})=>{const{oneKeyMessagingHeading:n,oneKeyMessagingSubHeading:t}=e;return a.createElement(a.Fragment,null,n&&a.createElement(N.N,{padding:{inline:"four",blockstart:"six"}},a.createElement(m.X,null,a.createElement(u.C,null,a.createElement(N.N,{margin:{inlinestart:"two",inlineend:"three"}},a.createElement(s.LD,{name:"warning"}))),a.createElement(u.C,null,a.createElement("div",{"data-stid":"picker-one-key-heading"},a.createElement(L.M,{size:6},n))))),t&&a.createElement(N.N,{padding:{inline:"six",blockstart:"six"}},a.createElement("div",{"data-stid":"picker-one-key-subheading"},a.createElement(k.D,{size:400},t))))};W.displayName="OneKeyMessaging",W.fragment=G;var X=_.gql`
+  query LocalePreferencesQuery(
+    $context: ContextInput!
+    $lineOfBusiness: GlobalNavigationLineOfBusiness
+    $pickerTriggerPlacementType: PickerTriggerPlacementType
+    $selectedSiteId: Int
+    $pageName: String
+  ) {
+    localePreferences(
+      context: $context
+      lineOfBusiness: $lineOfBusiness
+      pickerTriggerPlacementType: $pickerTriggerPlacementType
+      selectedSiteId: $selectedSiteId
+      pageName: $pageName
+    ) {
+      heading
+      closeDialogText
+      submitText
+      bannerText
+      ...OneKeyMessagingFragment
+      urlToSubmit
+      queryParamsToSubmit {
+        key
+        value
+      }
+      trigger {
+        iconName
+        text
+        flagName
+        trackingEvent
+        displayType
+      }
+      preferences {
+        __typename
+        ...CurrencySelectorFragment
+        ...LanguageSelectorFragment
+        ...PosSelectorFragment
+      }
+      impressionAnalytics {
+        linkName
+        referrerId
+      }
+      saveAnalytics {
+        linkName
+        referrerId
+      }
+    }
+  }
+  ${j.fragment}
+  ${V.fragment}
+  ${H.fragment}
+  ${W.fragment}
+`,Y=[j,V,H],J=({content:e})=>a.createElement(r.O,{fullWidth:!0},a.createElement(N.N,{padding:{block:"one"}},a.createElement(m.X,{alignItems:"center",space:"two"},a.createElement(u.C,null,a.createElement(N.N,{margin:{inlinestart:"four",inlineend:"six"}},a.createElement(s.LD,{name:"info_outline"}))),a.createElement(u.C,null,a.createElement("div",{"data-stid":"picker-banner-text"},a.createElement(k.D,null,e)))))),Z=e=>{var n,t;const{skipSsr:r,lineOfBusiness:m,pickerTriggerPlacementType:u,inverseTheme:k,pageName:I}=e,{context:L}=(0,h.R)(),O={context:L,lineOfBusiness:m,pickerTriggerPlacementType:u,pageName:I},{data:x,error:A,loading:D,refetch:w,networkStatus:$}=(0,_.useQuery)(X,{context:{shouldLogPerformance:!0},variables:O,ssr:!r}),[F,q,K]=(0,P.useDialog)("disp-settings-picker"),B=a.useRef(null),z=(0,S.useClickTracker)(),R=(0,T.useExperiment)("Shared_UI_Remove_Deprecated_UITK_Nav_Button").exposure.bucket>0,j=a.useCallback(()=>{q.closeDialog()},[q]),Q={},V=(e,n,t)=>{n===t?delete Q[e]:Q[e]=n},U=()=>{var e,n,t;q.closeDialog();const a=null==(e=null==x?void 0:x.localePreferences)?void 0:e.saveAnalytics;(null==a?void 0:a.referrerId)&&z(a.referrerId,(null==a?void 0:a.linkName)||"Picker button");const r=null==(n=null==x?void 0:x.localePreferences)?void 0:n.urlToSubmit,i=(null==(t=null==x?void 0:x.localePreferences)?void 0:t.queryParamsToSubmit)||[],c={};i.forEach(e=>{c[e.key]=e.value});const o=Object.keys(i).length>0,s=Object.keys(Q).length>0;if(r||o||s)if(r){const e=l.As(M(M({},c),Q));window.location.href=e?`${r}?${e}`:r}else{const e=l.qg(window.location.search),n=l.As(M(M(M({},e),c),Q));window.location.search=n}};if(D&&!(2===$||4===$)||A||!x)return null;const{localePreferences:H}=x,{preferences:G,trigger:Z,heading:ee,closeDialogText:ne,submitText:te,bannerText:ae,impressionAnalytics:le}=H;if(!G||!G.length)return null;const re=()=>{z(Z.trackingEvent,""),q.toggleDialog()},ie=a.createElement(a.Fragment,null,Z.iconName&&a.createElement(N.N,{margin:{inlineend:"one"}},a.createElement(s.LD,{name:Z.iconName,size:s.So.SMALL})),a.createElement(N.N,{margin:{inline:"one"}},a.createElement("span",null,Z.text)),Z.flagName&&a.createElement(N.N,{margin:{inlinestart:"one"}},a.createElement(g.n,{id:Z.flagName,name:Z.flagName,title:Z.flagName,description:Z.flagName}))),ce=a.createElement(a.Fragment,null,Z.iconName&&a.createElement(N.N,{padding:{inlineend:"two"}},a.createElement(s.LD,{id:Z.iconName,name:Z.iconName,size:s.So.SMALL,title:Z.iconName,description:Z.iconName})),Z.text,Z.flagName&&a.createElement(N.N,{padding:{inlinestart:"two"}},a.createElement(g.n,{name:Z.flagName}))),oe=a.createElement(a.Fragment,null,Z.iconName&&a.createElement(s.LD,{name:Z.iconName,size:s.So.SMALL}),Z.text,Z.flagName&&a.createElement(g.n,{name:Z.flagName})),se=a.createElement(v.K,{isVisible:F},a.createElement(K,null,a.createElement(C.LM,null,a.createElement(C.NP,null,a.createElement(y.t,{isVisible:F,returnFocusOnClose:!0,type:"full",triggerRef:B},a.createElement(b.p,{toolbarTitle:ee,key:"picker-dialog-toolbar",navigationContent:{onClick:j,navIconLabel:ne,navType:"close"}}),ae&&a.createElement(J,{content:ae}),a.createElement(W,{data:x.localePreferences}),a.createElement(E.Y,null,G.map(e=>{if(!e)return null;const n=Y.find(n=>n.fragment.__typename===e.__typename);return n?a.createElement(N.N,{margin:{block:"three"},key:`selector-${e.__typename}`},a.createElement("div",null,a.createElement(n,{refetch:w,data:e,updateQueryParams:V}))):null}),a.createElement(p.O,{type:f.Q.BUTTON},a.createElement(i.t,{isFullWidth:!0,size:c.V.LARGE,onClick:U},te))))),a.createElement(C.zQ,null,a.createElement(y.t,{isVisible:F,returnFocusOnClose:!0,type:"centered",centeredSheetSize:"small",triggerRef:B},a.createElement(b.p,{toolbarTitle:ee,key:"picker-dialog-toolbar",navigationContent:{onClick:j,navIconLabel:ne,navType:"close"}}),ae&&a.createElement(J,{content:ae}),a.createElement(W,{data:x.localePreferences}),a.createElement(E.Y,null,G.map(e=>{if(!e)return null;const n=Y.find(n=>n.fragment.__typename===e.__typename);return n?a.createElement(N.N,{margin:{block:"three"},key:`selector-${e.__typename}`},a.createElement("div",null,a.createElement(n,{refetch:w,data:e,updateQueryParams:V}))):null}),a.createElement(i.t,{isFullWidth:!0,size:c.V.LARGE,onClick:U},te)))))));return a.createElement(a.Fragment,null,"GLOBAL_NAV_LINK"===Z.displayType?a.createElement(N.N,{padding:{block:"three",inline:"six"}},a.createElement(d.i,{className:"uitk-list-item",onClick:re,"data-stid":"link-type-picker-trigger",domRef:B},a.createElement("button",{type:"button"},oe))):a.createElement(N.N,{margin:R?{small:{inline:"one"},large:{inline:"two"}}:void 0},a.createElement(o.q,{className:R?void 0:"global-navigation-nav-button",onClick:re,"data-stid":"button-type-picker-trigger",domRef:B,inverse:k},null===Z.iconName?ie:ce)),F&&((null==le?void 0:le.referrerId)?a.createElement(S.IntersectionTracker,{referrerId:null!=(n=null==le?void 0:le.referrerId)?n:"",linkName:null!=(t=null==le?void 0:le.linkName)?t:""},se):se))};Z.displayName="sharedui-Picker"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-global-navigation-picker.d9ece4a59f76dfc62c84.js.map

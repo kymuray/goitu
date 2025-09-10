@@ -1,0 +1,544 @@
+/*@license For license information please refer to shared-ui-global-navigation-header.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[5162],{49193:function(e,t,n){n.d(t,{Y9:function(){return Rt},zh:function(){return ve}});var a=n(56195),r=n(84132),i=n(44647),l=n(99828),o=n(522),m=n(42534),c=n(26690),d=n(64341),s=n(22980),u=n(53017),g=n(64198),p=n(63085),E=n(4364),_=n(59162),y=n(60094),v=n.n(y),f=n(27102),k=n(13902),H=n(53529),S=n(11466),h=n(97778),I=n(87993),N=n(30169),L=n(95519),b=n(80240),x=n(2557),A=n(50734),w=n(82319),T=n(18704),C=n(77134),F=n(50180),$=n(97107),M=n(19472),P=n(43888),D=n(934),O=n(89438),B=n(23726),R=n(70882),z=n(46559),U=n(37292),q=n(25229),W=n(49733),G=n(87818),V=n(76639),K=n(96201),X=n(54589),j=n(41559),Y=n(22142),Q=n(87698),Z=n(96394),J=n(7138),ee=n(70833),te=n(98622),ne=n(1226),ae=n(47540),re=n(74855),ie=Object.defineProperty,le=Object.defineProperties,oe=Object.getOwnPropertyDescriptors,me=Object.getOwnPropertySymbols,ce=Object.prototype.hasOwnProperty,de=Object.prototype.propertyIsEnumerable,se=(e,t,n)=>t in e?ie(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,ue=(e,t)=>{for(var n in t||(t={}))ce.call(t,n)&&se(e,n,t[n]);if(me)for(var n of me(t))de.call(t,n)&&se(e,n,t[n]);return e},ge=(e,t)=>le(e,oe(t)),pe=(e,t)=>{var n={};for(var a in e)ce.call(e,a)&&t.indexOf(a)<0&&(n[a]=e[a]);if(null!=e&&me)for(var a of me(e))t.indexOf(a)<0&&de.call(e,a)&&(n[a]=e[a]);return n},Ee=a.createContext(!1),_e=()=>a.useContext(Ee),ye=e=>{const{skipSsr:t,lineOfBusiness:n,pickerTriggerPlacementType:r,pageName:i}=e,l=_e();return a.createElement(g.LC,{skipSsr:t,pickerTriggerPlacementType:r,lineOfBusiness:n,key:"Picker",inverseTheme:l,pageName:i})},ve=(e=>(e.ACTIVITY="ACTIVITY",e.CAR="CAR",e.CRUISE="CRUISE",e.FLIGHT="FLIGHT",e.HOTEL="HOTEL",e.PACKAGE="PACKAGE",e.UNKNOWN="UNKNOWN",e))(ve||{}),fe="dark",ke="(prefers-color-scheme: dark)";var He=a.createContext("Unknown"),Se=()=>a.useContext(He),he=c.gql`
+  fragment HeaderLinkActionFragment on HeaderLinkAction {
+    analytics {
+      linkName
+      referrerId
+    }
+    linkTarget
+    isRelative
+    resource {
+      __typename
+      ...HeaderLinkHttpURIFragment
+    }
+  }
+  fragment HeaderLinkHttpURIFragment on HttpURI {
+    value
+    relativePath
+  }
+`,Ie=e=>{if(null==e?void 0:e.resource){const t=e.resource,n="_blank"===e.linkTarget?"noopener":"";if(e.isRelative&&(null==t?void 0:t.relativePath))return{href:t.relativePath,target:e.linkTarget,rel:n};if(!e.isRelative&&(null==t?void 0:t.value))return{href:t.value,target:e.linkTarget,rel:n}}return{}},Ne=c.gql`
+  fragment HeaderOpenVirtualAgentActionFragment on HeaderOpenVirtualAgentAction {
+    conversationProperties {
+      launchPoint
+    }
+    analytics {
+      linkName
+      referrerId
+    }
+    fallbackAction {
+      __typename
+      ... on HeaderLinkAction {
+        __typename
+        linkTarget
+        analytics {
+          linkName
+          referrerId
+        }
+        isRelative
+        resource {
+          ... on HttpURI {
+            value
+            relativePath
+          }
+        }
+      }
+    }
+  }
+`,Le=c.gql`
+  fragment HeaderLocaleLinkActionFragment on HeaderLocaleLinkAction {
+    analytics {
+      linkName
+      referrerId
+    }
+    langid
+    locale
+  }
+`,be=(e,t,n)=>{const{__typename:a,analytics:r}=t||{},i={},l=(0,h.useClickTracker)();switch(r&&(i.onClickCapture=()=>l(r.referrerId,r.linkName,!1)),a){case"HeaderLinkAction":return ue(ue({},Ie(t)),i);case"HeaderOpenVirtualAgentAction":return ue(ue({},((e,t,n)=>{var a;return(null==(a=null==n?void 0:n.virtualAgentControlState)?void 0:a.isInitialized)?{onClick:()=>{var n;(0,H.Jx)({conversationProperties:{launchPoint:(null==(n=t.conversationProperties)?void 0:n.launchPoint)||"HeaderDefaultLaunchPoint",pageName:e}})}}:(null==t?void 0:t.fallbackAction)&&"HeaderLinkAction"===t.fallbackAction.__typename?Ie(t.fallbackAction):{}})(e,t,n)),i);case"HeaderLocaleLinkAction":return ue(ue({},(e=>({onClick:()=>{const t=S.qg(window.location.search);window.location.search=S.As(ue(ue({},t),{locale:e.locale}))}}))(t)),i);default:return{}}},xe=({buttonType:e,text:t,actionProps:n,size:r,isFullWidth:i})=>{const l=_e(),o=void 0===i||i;return t&&n?a.createElement(a.Fragment,null,"PRIMARY"===e&&a.createElement(I.y,ge(ue({isFullWidth:o},n),{size:r,inverse:l}),t),"SECONDARY"===e&&a.createElement(N.y,ge(ue({isFullWidth:o},n),{size:r,inverse:l}),t),"TERTIARY"===e&&a.createElement(L.q,ge(ue({isFullWidth:o},n),{size:r,inverse:l}),t)):null},Ae=c.gql`
+  fragment HeaderButtonFragment on HeaderButton {
+    __typename
+    buttonType
+    linkTarget
+    text
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+    }
+  }
+  ${he}
+`,we=({data:e,size:t,isFullWidth:n})=>{const{testId:r,headerAction:i}=e,l=Se(),[o]=(0,k.A9)(),m=pe(be(l,i,o),[]);return a.createElement(xe,ge(ue({},e),{actionProps:m,"data-stid":r,size:t,isFullWidth:n}))};we.displayName="HeaderButton",we.fragment=ge(ue({},Ae),{__typename:"HeaderButton"});var Te=c.gql`
+  fragment BSABannerFragment on HeaderBanner {
+    __typename
+    text
+    subText
+    button {
+      ...HeaderButtonFragment
+    }
+  }
+
+  ${we.fragment}
+`,Ce=e=>{const{data:t}=e,{text:n,subText:i,button:c}=t,d=_e();return a.createElement(r.m,null,a.createElement(m.N,{padding:{inline:"six",blockstart:"six",blockend:"two"}},a.createElement(o.X,{justifyContent:"space-between"},a.createElement(l.C,null,a.createElement("div",null,a.createElement(f.D,ue({size:300,weight:"medium"},d&&{theme:"inverse"}),n),a.createElement(f.D,ue({size:300,weight:"bold"},d&&{theme:"inverse"}),i))),a.createElement(l.C,null,c&&a.createElement("div",null,a.createElement(we,{data:c}))))))};Ce.displayName="BSABanner",Ce.fragment=ge(ue({},Te),{__typename:"HeaderBanner"});var Fe=c.gql`
+  fragment HeaderNavLinkFragment on HeaderNavLink {
+    __typename
+    icon {
+      __typename
+      id
+      description
+    }
+    text
+    newTabText
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+      ...HeaderOpenVirtualAgentActionFragment
+      ...HeaderLocaleLinkActionFragment
+    }
+  }
+  ${he}
+  ${Ne}
+  ${Le}
+`,$e=({data:e})=>{const{icon:t,text:n,headerAction:r,testId:i}=e,o=Se(),c=_e(),[d]=(0,k.A9)(),s=(0,u.useExperiment)("Shared_UI_Remove_Deprecated_UITK_Nav_Button").exposure.bucket>0,g=pe(be(o,r,d),[]);return a.createElement(l.C,{key:n,grow:0,minWidth:s?void 0:"zero"},a.createElement(m.N,{margin:s?{small:{inline:"one"},large:{inline:"two"}}:void 0},a.createElement(L.q,ge(ue({size:n?b.V.MEDIUM:b.V.LARGE,className:s?void 0:"global-navigation-nav-button"},g),{"data-stid":i,inverse:c}),[t?a.createElement(x.LD,{key:"header-nav-link-icon",id:`header-nav-link-${t.id}`,name:t.id,description:t.description}):null,n||null].filter(e=>null!==e))))};$e.displayName="HeaderNavLink",$e.fragment=ge(ue({},Fe),{__typename:"HeaderNavLink"});var Me=a.createContext("NOT_VISIBLE"),Pe=e=>{const{shouldRender:t,children:n}=e;return a.createElement(a.Fragment,null,t&&n)},De=e=>{const{icon:t,secondaryIcon:n,text:r,actionProps:i,testId:o,triggerRef:c}=e;return r||t?(i.href||(i.href="#"),a.createElement(l.C,{key:r,grow:0,minWidth:"zero"},a.createElement("div",{className:"uitk-list"},a.createElement(U.i,{className:"uitk-list-item"},a.createElement("a",ge(ue({role:i.href?"link":"button","aria-label":r,"data-stid":o},i),{ref:c}),a.createElement(f.D,{size:300,theme:"standard"},t&&a.createElement(m.N,{padding:{inlineend:"three"}},a.createElement(x.LD,{id:`menu-link-${t.id}`,name:t.id,description:t.description})),r,n&&a.createElement(m.N,{padding:{inlinestart:"six"}},a.createElement(x.LD,{id:`menu-link-${n.id}`,name:n.id,description:n.description,size:x.So.SMALL})))))))):null},Oe=c.gql`
+  fragment HeaderMenuLinkFragment on HeaderMenuLink {
+    __typename
+    icon {
+      __typename
+      id
+      description
+    }
+    secondaryIcon {
+      __typename
+      id
+      description
+    }
+    text
+    newTabText
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+      ...HeaderOpenVirtualAgentActionFragment
+      ...HeaderLocaleLinkActionFragment
+    }
+  }
+  ${he}
+  ${Ne}
+  ${Le}
+`,Be=({data:e})=>{const{text:t,newTabText:n,icon:r,secondaryIcon:i,headerAction:l,testId:o}=e,m=Se(),[c]=(0,k.A9)(),d=pe(be(m,l,c),[]);return a.createElement(De,{text:t,newTabText:n,icon:r,secondaryIcon:i,actionProps:d,testId:o})};Be.displayName="HeaderMenuLink",Be.fragment=ge(ue({},Oe),{__typename:"HeaderMenuLink"});var Re=c.gql`
+  fragment HeaderSeparatorFragment on HeaderSeparator {
+    __typename
+    type
+  }
+`,ze=e=>{const{data:t}=e;return t&&t.type?a.createElement(a.Fragment,null,"HORIZONTAL_RULE"===t.type&&a.createElement(q.j,null)):null};ze.displayName="HeaderSeparator",ze.fragment=ge(ue({},Re),{__typename:"HeaderSeparator"});var Ue=c.gql`
+  fragment HeaderDialogFragment on HeaderDialog {
+    __typename
+    id
+    icon {
+      __typename
+      id
+      description
+    }
+    iconPosition
+    text
+    items {
+      __typename
+      ...HeaderMenuLinkFragment
+      ...HeaderSeparatorFragment
+    }
+    trackingEvent
+  }
+
+  ${Be.fragment}
+  ${ze.fragment}
+`,qe=[Be,ze],We=e=>{const{data:{id:t,text:n,icon:r,items:i,trackingEvent:l}}=e,[o,m,c]=(0,R.useDialog)(t),d=a.useRef(null),s=(0,h.useClickTracker)(),u={onClick:()=>{s(l,""),m.toggleDialog()}},g=a.useCallback(()=>{m.closeDialog()},[m]);return a.createElement(a.Fragment,null,a.createElement(De,{text:n,newTabText:"",icon:r,actionProps:u,testId:t,triggerRef:d}),o&&a.createElement(P.K,{isVisible:o},a.createElement(c,null,a.createElement(z.LM,null,a.createElement(z.NP,null,a.createElement(D.t,{ariaLabel:n,isVisible:!0,returnFocusOnClose:!0,type:"full",triggerRef:d},a.createElement(B.p,{toolbarTitle:n,key:`dialog-toolbar-${t}`,navigationContent:{onClick:g,navIconLabel:"Close",navType:"close"}}),a.createElement(O.Y,null,i.map((e,t)=>{if(!e)return null;const n=qe.find(t=>t.fragment.__typename===e.__typename);return n?a.createElement(n,{key:`${e.__typename}-${t}`,data:e}):null})))),a.createElement(z.zQ,null,a.createElement(D.t,{isVisible:!0,returnFocusOnClose:!0,type:"centered",centeredSheetSize:"small",triggerRef:d},a.createElement(B.p,{toolbarTitle:n,key:`dialog-toolbar-${t}`,navigationContent:{onClick:g,navIconLabel:"Close",navType:"close"}}),a.createElement(O.Y,null,i.map((e,t)=>{if(!e)return null;const n=qe.find(t=>t.fragment.__typename===e.__typename);return n?a.createElement(n,{key:`${e.__typename}-${t}`,data:e}):null}))))))))};We.displayName="HeaderDialog",We.fragment=ge(ue({},Ue),{__typename:"HeaderDialog"});var Ge=e=>{var t,n;const{icon:r,text:i,communicationCenter:l,hasNotification:o}=e,m=i&&(null==r?void 0:r.description)?a.createElement("div",{"aria-hidden":"true"},i):i,c=r?a.createElement(x.LD,{key:"trigger-icon",id:`header-menu-${r.id}`,name:r.id,description:null!=(t=null==r?void 0:r.description)?t:"",title:null!=(n=null==r?void 0:r.description)?n:"",size:x.So.SMALL}):null,d=o?a.createElement(G.P,{display:"inline-block",type:"relative"},c,l):c;return a.createElement(a.Fragment,null,[m||null,r?d:null].filter(e=>null!==e))},Ve=c.gql`
+  fragment MemberProfileFragment on HeaderMenu {
+    subText
+    memberTheme
+    signInLinkAction {
+      __typename
+      resource {
+        value
+      }
+    }
+  }
+  fragment IconFragment on Icon {
+    __typename
+    id
+    description
+  }
+`,Ke=e=>["zh_CN","es_MX"].indexOf(e.locale)>-1?"truncate-2-lines":"truncate",Xe=e=>{var t,n,r;const{context:i}=(0,d.R)(),{data:{subText:m,memberTheme:c,signInLinkAction:s},icon:u,text:g,avatar:p,hasNotification:E,inverse:_,children:y}=e,v="IDENTIFIED"===(null==(t=i.identity)?void 0:t.authState),k="ANONYMOUS"===(null==(n=i.identity)?void 0:n.authState),H=g&&(null==u?void 0:u.description)?a.createElement("div",{"aria-hidden":"true"},g):g,S=(null==p?void 0:p.image)?{src:p.image.url,alt:p.image.description||""}:void 0,h=u?a.createElement(x.LD,{key:"trigger-icon",id:`header-menu-${u.id}`,name:u.id,description:null!=(r=u.description)?r:""}):null;let I;p?I=a.createElement(j.X,{icon:"person",image:S,text:p.text?p.text:void 0,size:x.So.SMALL,theme:c}):u&&(I=a.createElement(K.A,{key:u.id,id:u.id,name:u.id,title:u.description,size:x.So.LARGE,theme:c}));const N=k?h:a.createElement(z.LM,null,a.createElement(z.NP,null,a.createElement(a.Fragment,null,I)),a.createElement(z.rw,null,a.createElement(G.P,{display:"inline-block",type:"relative","data-testid":"memberprofile-mediumview"},a.createElement(o.X,{space:"two",alignItems:"center"},a.createElement(l.C,null,I),g&&a.createElement(o.X,{direction:"column",alignItems:"start"},a.createElement(l.C,{maxWidth:"37x"},c?a.createElement(X.Q,{theme:c},g):a.createElement(f.D,{theme:_?"inverse":"default"},g)),a.createElement(l.C,null,v?a.createElement(U.i,null,a.createElement("a",{href:null==s?void 0:s.resource.value},m)):c?a.createElement(X.Q,{align:"left",size:200,theme:c,overflow:Ke(i)},m):a.createElement(f.D,{theme:_?"inverse":"default"},m)))))));return a.createElement(a.Fragment,null,[a.createElement(G.P,{key:"member-profile",display:"inline-block",type:"relative"},N,E&&y),k&&H||null].filter(e=>null!==e))};Xe.displayName="sharedui-MemberProfile",Xe.fragment=Ve;var je=c.gql`
+  fragment HeaderMenuDropdownTriggerFragment on HeaderMenu {
+    ...MemberProfileFragment
+    avatar {
+      ...EGDSAvatarFragment
+    }
+    menuId
+    icon {
+      ...IconFragment
+    }
+    iconPosition
+    triggerAnalytics {
+      referrerId
+      linkName
+    }
+  }
+  fragment EGDSAvatarFragment on EGDSAvatar {
+    border
+    image {
+      aspectRatio
+      description
+      url
+    }
+    text
+  }
+  fragment IconFragment on Icon {
+    __typename
+    id
+    description
+  }
+  ${Xe.fragment}
+`,Ye=e=>{var t;const n=_e(),r=(0,h.useClickTracker)(),{data:i,text:l,open:o,omitNavButtonClass:c,hasNotification:d}=e,{icon:s,iconPosition:u,triggerAnalytics:g,menuId:p,avatar:E}=i;let _=c?void 0:"global-navigation-nav-button";d&&(_+=" uitk-button-only-icon");const y=a.createElement(G.P,{cloneElement:!0,type:"absolute",position:{right:"zero",top:"zero"}},a.createElement(h.IntersectionTracker,{trackOnce:!0,referrerId:"CommunicationCenter.MainNav.Impressions.isUnseenIndicatorExist",linkName:"CommunicationCenter Main Nav Unseen Impression"},a.createElement(W.z,{visible:!0}))),v=o?w._.COLLAPSE:w._.EXPAND,f="memberProfileGuest"===p||"memberProfileTierInfo"===p||"memberProfileSignedIn"===p;return a.createElement(m.N,{margin:c&&l?{small:{inline:"one"},large:{inline:"two"}}:void 0},a.createElement(V.z,{title:null!=(t=null==s?void 0:s.description)?t:"",size:l?b.V.MEDIUM:b.V.LARGE,className:_,tabIndex:0,analytics:(null==g?void 0:g.referrerId)?{id:g.referrerId?`${g.referrerId}.${v}`:"Header.Menu",description:"Header Menu Item",callback:(e,t)=>r(e,t)}:void 0,largeIcon:"LEFT"===u,inverse:n,"data-testid":"header-menu-button"},f?a.createElement(Xe,{data:i,text:l,icon:s,hasNotification:d,menuId:p,inverse:n,avatar:E},y):a.createElement(Ge,{icon:s,text:l,communicationCenter:y,hasNotification:d})))};Ye.displayName="sharedui-HeaderMenuDropdownTrigger",Ye.fragment=je;var Qe=c.gql`
+  fragment HeaderMenuIllustrationFragment on HeaderMenuIllustration {
+    __typename
+    illustration {
+      id
+      url
+      description
+    }
+  }
+`,Ze=e=>{const{data:{illustration:{id:t,url:n,description:r}}}=e;return a.createElement(m.N,{padding:{blockstart:"six",blockend:"three"}},a.createElement("div",{"data-stid":t},a.createElement(o.X,{justifyContent:"center"},a.createElement(l.C,{maxWidth:"30x"},a.createElement(Y.r,{alt:r,url:n})))))};Ze.displayName="HeaderMenuIllustration",Ze.fragment=ge(ue({},Qe),{__typename:"HeaderMenuIllustration"});var Je=c.gql`
+  fragment HeaderMenuImageFragment on Image {
+    __typename
+    url
+    description
+  }
+`,et=({data:e})=>{const{url:t,description:n}=e;return a.createElement(Q.D,{url:t,description:n,size:Z.K.EXTRA_SMALL})};et.fragment=ge(ue({},Je),{__typename:"Image"}),et.displayName="HeaderMenuImage";var tt=c.gql`
+  fragment HeaderMenuImagesFragment on HeaderMenuImages {
+    __typename
+    images {
+      __typename
+      ...HeaderMenuImageFragment
+    }
+  }
+
+  ${et.fragment}
+`,nt=({data:e})=>{const{images:t}=e;return a.createElement(m.N,{margin:{blockend:"six"}},a.createElement(o.X,{space:"three",justifyContent:"center"},t.map(e=>a.createElement(et,{key:e.description,data:e}))))};nt.fragment=ge(ue({},tt),{__typename:"HeaderMenuImages"}),nt.displayName="HeaderMenuImages";var at=(e,t)=>{var n;const{pathname:r,search:i,hash:l}=(0,J.zy)(),{context:o}=(0,d.R)(),m=null==o?void 0:o.siteId,c="ANONYMOUS"===(null==(n=null==o?void 0:o.identity)?void 0:n.authState);return(0,a.useMemo)(()=>{const n=`${r}${i}${l}`,a=30031===m?`&redirectUrl=targeturl=${encodeURIComponent(n)}&referrerId=wl_prod`:`&uurl=${encodeURIComponent(`e3id=redr&rurl=${n}`)}`;let o=e;if(!o){o=`/user/${t?c?"signin?":"logout?":"createaccount?fromheader=true&"}abax=14261.0&ckoflag=0`}return`${o}${-1!==o.indexOf("?")?"":"?"}${a}`},[e,t,l,c,r,i,m])},rt=c.gql`
+  fragment HeaderSignInButtonFragment on HeaderSignInButton {
+    __typename
+    buttonType
+    linkTarget
+    text
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+    }
+  }
+  ${he}
+`,it=({data:e})=>{const{testId:t,headerAction:n,buttonType:r}=e,i=Se(),[l]=(0,k.A9)(),o=pe(be(i,n,l),[]),c=at((null==o?void 0:o.href)||"",!0);return(null==o?void 0:o.href)&&c&&(o.href=c),a.createElement(m.N,{margin:"TERTIARY"===r?void 0:{inline:"six",blockend:"two"}},a.createElement("div",null,a.createElement(xe,ge(ue({},e),{actionProps:o,"data-stid":t}))))};it.displayName="HeaderSignInButton",it.fragment=ge(ue({},rt),{__typename:"HeaderSignInButton"});var lt=c.gql`
+  fragment HeaderSignOutMenuLinkFragment on HeaderSignOutMenuLink {
+    __typename
+    icon {
+      __typename
+      id
+      description
+    }
+    text
+    newTabText
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+    }
+  }
+  ${he}
+`,ot=({data:e})=>{const{text:t,icon:n,newTabText:r,headerAction:i,testId:l}=e,o=Se(),[m]=(0,k.A9)(),c=pe(be(o,i,m),[]),d=at((null==c?void 0:c.href)||"",!0);return(null==c?void 0:c.href)&&d&&(c.href=d),a.createElement(De,{text:t,icon:n,newTabText:r,actionProps:c,testId:l})};ot.displayName="HeaderSignOutMenuLink",ot.fragment=ge(ue({},lt),{__typename:"HeaderSignOutMenuLink"});var mt=c.gql`
+  fragment HeaderSignUpButtonFragment on HeaderSignUpButton {
+    __typename
+    buttonType
+    linkTarget
+    text
+    testId
+    headerAction {
+      __typename
+      ...HeaderLinkActionFragment
+    }
+  }
+  ${he}
+`,ct=({data:e})=>{const{testId:t,headerAction:n}=e,r=Se(),[i]=(0,k.A9)(),l=pe(be(r,n,i),[]),o=at((null==l?void 0:l.href)||"",!0);return(null==l?void 0:l.href)&&o&&(l.href=o),a.createElement(m.N,{margin:{inline:"six",blockend:"six"}},a.createElement("div",null,a.createElement(xe,ge(ue({},e),{actionProps:l,"data-stid":t}))))};ct.displayName="HeaderSignUpButton",ct.fragment=ge(ue({},mt),{__typename:"HeaderSignUpButton"});var dt=c.gql`
+  fragment HeaderTextFragment on HeaderText {
+    __typename
+    textType
+    text
+    subText
+    textSize
+  }
+`,st={SMALL:500,LARGE:600},ut=e=>{const{data:{textType:t,text:n,subText:r,textSize:i}}=e,c=_e();if(!n)return null;const d=a.createElement(m.N,{padding:{blockstart:"three",blockend:"three",inline:"six"}},a.createElement(o.X,{alignItems:"start",direction:"column",space:"one"},"HEADING"===t&&a.createElement(l.C,null,a.createElement(f.D,{size:500,align:"center",weight:"medium",theme:"standard"},n)),"HEADING"===t&&r&&a.createElement(l.C,{grow:0},a.createElement(ee.s,null,r)))),s=a.createElement(m.N,{padding:{blockstart:"three",blockend:"six",inline:"six"}},a.createElement(o.X,{alignItems:"center",direction:"column",space:"four"},"HEADING"===t&&a.createElement(l.C,null,a.createElement(m.N,{margin:{blockstart:"two"}},a.createElement(f.D,{size:st[null!=i?i:"SMALL"],align:"center",weight:"medium",theme:"standard"},n))),"HEADING"===t&&r&&a.createElement(l.C,{grow:0},a.createElement(f.D,ue({align:"center",weight:"medium",size:500},c&&{theme:"inverse"}),r))));return a.createElement(u.Experiment,{name:"GlobalNav_OneKey_FeatureGate"},a.createElement(u.ExperimentControl,null,d),a.createElement(u.ExperimentVariant,{bucket:1},a.createElement(u.Experiment,{name:"GlobalNav_IsOneKey_Sites"},a.createElement(u.ExperimentControl,null,d),a.createElement(u.ExperimentVariant,{bucket:1},s))))};ut.displayName="HeaderText",ut.fragment=ge(ue({},dt),{__typename:"HeaderText"});var gt=c.gql`
+  fragment HeaderMenuFragment on HeaderMenu {
+    __typename
+    text
+    ...HeaderMenuDropdownTriggerFragment
+    icon {
+      ...IconFragment
+    }
+    iconPosition
+    menuPosition
+    impressionAnalytics {
+      referrerId
+      linkName
+    }
+    triggerAnalytics {
+      referrerId
+      linkName
+    }
+    autoOpen
+    menuCookies {
+      name
+      value
+    }
+    menuState {
+      ... on HeaderNotificationCenterState {
+        __typename
+      }
+    }
+    items {
+      __typename
+      ...HeaderTextFragment
+      ...HeaderButtonFragment
+      ...HeaderDialogFragment
+      ...HeaderSignInButtonFragment
+      ...HeaderSignUpButtonFragment
+      ...HeaderMenuLinkFragment
+      ...HeaderSignOutMenuLinkFragment
+      ...HeaderSeparatorFragment
+      ...HeaderMenuIllustrationFragment
+      ...HeaderMenuImagesFragment
+      ... on HeaderPicker {
+        __typename
+        skipSsr
+      }
+      ... on NotificationCenter {
+        __typename
+        skipSsr
+      }
+      ... on CommunicationCenter {
+        __typename
+        skipSsr
+      }
+      ... on HeaderLoyaltyMemberStatus {
+        __typename
+        skipSsr
+      }
+      ... on HeaderMemberWallet {
+        __typename
+        skipSsr
+      }
+      ... on HeaderCreditCardAccountPlacement {
+        __typename
+        skipSsr
+      }
+      ... on HeaderLoyaltyAccountSummaryWidget {
+        __typename
+        skipSsr
+      }
+    }
+  }
+  ${Ye.fragment}
+  ${ut.fragment}
+  ${we.fragment}
+  ${We.fragment}
+  ${it.fragment}
+  ${ct.fragment}
+  ${Be.fragment}
+  ${ot.fragment}
+  ${ze.fragment}
+  ${Ze.fragment}
+  ${nt.fragment}
+`,pt=[ut,we,nt,We,it,ct,Be,ot,ze,Ze],Et=e=>{const{data:t,componentsMap:n}=e,{text:r,items:i,menuPosition:o,autoOpen:c,menuCookies:d,menuState:s,impressionAnalytics:g}=t,p=a.useContext(Me),E=(0,h.useClickTracker)(),{exposure:_}=(0,u.useExperiment)("EG_Cobrand_Credit_Card_Web_Switch"),y=1===_.bucket,v=(0,u.useExperiment)("Shared_UI_Remove_Deprecated_UITK_Nav_Button").exposure.bucket>0,[f,k]=a.useState(c),[H,S]=a.useState(c),I="VISIBLE"===p&&"HeaderNotificationCenterState"===(null==s?void 0:s.__typename);a.useEffect(()=>{null==d||d.forEach(e=>{document.cookie=`${e.name}=${e.value}; path=/;`})},[d]);return a.createElement(l.C,{minWidth:void 0,key:r,grow:0},a.createElement(A.p,{isOpen:H,onTriggerClick:()=>{f||H||k(!0),S(!H),!H&&I&&E("Web.Notification.NC.Header.Open.isUnseenIndicatorExist","notification center unseen tracking")}},a.createElement(w.N,{disableLocalAnalytics:!!g},a.createElement("div",null,a.createElement(Ye,{text:r,open:H,omitNavButtonClass:v,hasNotification:I,data:t}))),a.createElement(T.K,{width:375,position:"LEFT"===o?T.C.LEFT:T.C.RIGHT,intersectionObserverRoot:"body",autoPosition:!0},a.createElement(h.IntersectionTracker,{trackOnce:!0,referrerId:(null==g?void 0:g.referrerId)||"Header.Menu",linkName:(null==g?void 0:g.linkName)||""},a.createElement(Ee.Provider,{value:!1},a.createElement("div",null,i.map((e,t)=>{if(!e)return null;const r=n[e.__typename]||((e,t,n,r)=>new Map([["HeaderLoyaltyAccountSummaryWidget",a.createElement(Pe,{key:t,shouldRender:n},a.createElement(m.N,{padding:{inline:"three"}},a.createElement("div",null,a.createElement(M.i,{inputs:{strategy:M.I.SHOW_TRAVELER_INFO_AND_REWARDS_LINK,viewId:"HeaderView"}}))))],["HeaderMemberWallet",a.createElement(Pe,{key:t,shouldRender:n},a.createElement(F.m,{skipSsr:!0}))],["HeaderCreditCardAccountPlacement",a.createElement(Pe,{key:t,shouldRender:n&&r},a.createElement(m.N,{padding:{inline:"three"}},a.createElement("div",null,a.createElement($.Zn,{skipSsr:!0,inputs:{variant:$.L9.SMALL,sourcePage:$.o_.GLOBAL_NAV}}))))],["HeaderLoyaltyMemberStatus",a.createElement(Pe,{key:t,shouldRender:n},a.createElement(C.z,{skipSsr:!0}))]]).get(e))(e.__typename,`${e.__typename}-${t}`,f,y);if(r)return r;const i=pt.find(t=>t.fragment.__typename===e.__typename);return i?a.createElement(i,{key:`${e.__typename}-${t}`,data:e}):null})))))))};Et.displayName="HeaderMenu",Et.fragment=ge(ue({},gt),{__typename:"HeaderMenu"});var _t=c.gql`
+  fragment HeaderPlainTextFragment on HeaderPlainText {
+    text
+  }
+`,yt=({data:{text:e}})=>a.createElement(l.C,{grow:0,key:`global-nav-header-plain-text-${e}`},a.createElement(f.D,{weight:"medium"},e));yt.displayName="HeaderPlainText",yt.fragment=ge(ue({},_t),{__typename:"HeaderPlainText"});var vt=[$e,Et,yt],ft=c.gql`
+  fragment HeaderSectionLanguageToggleFragment on HeaderSection {
+    __typename
+    alignment
+    sectionData {
+      ...HeaderNavLinkFragment
+      __typename
+    }
+  }
+
+  ${$e.fragment}
+`,kt=e=>{const{data:{sectionData:t,alignment:n},componentsMap:r}=e;return t?a.createElement(l.C,{grow:1},a.createElement(o.X,{alignItems:"center",justifyContent:"end",wrap:"nowrap"},t.map((e,t)=>{const n=`${e.__typename}-${t}`,i=vt.find(t=>t.fragment.__typename===e.__typename);return i?a.createElement(i,{key:n,data:e,componentsMap:r}):null}))):null};kt.displayName="HeaderSectionLanguageToggle",kt.fragment=ge(ue({},ft),{__typename:"HeaderSection"});var Ht=c.gql`
+  fragment HeaderLogoFragment on HeaderLogo {
+    __typename
+    imgSrc {
+      description
+      url
+    }
+    action {
+      resource {
+        value
+      }
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+  }
+`,St=({data:e})=>{const{imgSrc:t,action:n}=e;if(!t.url)return null;const{url:r,description:i}=t;return a.createElement(te.z,{imgSrc:r,href:n.resource.value,altText:i})};St.fragment=ge(ue({},Ht),{__typename:"HeaderLogo"}),St.displayName="HeaderLogo";var ht=c.gql`
+  fragment HeaderSectionLogosFragment on HeaderSection {
+    __typename
+    alignment
+    sectionData {
+      ...HeaderLogoFragment
+    }
+  }
+
+  ${St.fragment}
+`,It=[St],Nt=e=>{const{data:{sectionData:t}}=e;return t?a.createElement(a.Fragment,null,t.map((e,t)=>{const n=It.find(t=>t.fragment.__typename===e.__typename);return n?a.createElement(m.N,{padding:{inlineend:"three"},key:t},a.createElement(l.C,null,a.createElement(n,{data:e}))):null})):null};Nt.fragment=ge(ue({},ht),{__typename:"HeaderSection"}),Nt.displayName="HeaderSectionLogos";var Lt=c.gql`
+  fragment HeaderSectionNavigationFragment on HeaderSection {
+    __typename
+    alignment
+    sectionData {
+      ...HeaderNavLinkFragment
+      ...HeaderMenuFragment
+    }
+  }
+
+  ${$e.fragment}
+  ${Et.fragment}
+`,bt=e=>{const{data:{sectionData:t,alignment:n},componentsMap:r}=e;if(!t)return null;return a.createElement(l.C,{minWidth:void 0,grow:1},a.createElement(m.N,{padding:{inlinestart:"one"}},a.createElement(o.X,{id:"primary-navigation",alignItems:"center",justifyContent:"START"===n?"start":"end",wrap:"nowrap"},t.map((e,t)=>{const n=vt.find(t=>t.fragment.__typename===e.__typename);return n?a.createElement(n,{key:`${e.__typename}-${t}`,data:e,componentsMap:r}):null}))))};bt.fragment=ge(ue({},Lt),{__typename:"HeaderSection"}),bt.displayName="HeaderSectionNavigation";var xt=c.gql`
+  fragment HeaderSectionSecondaryNavigationFragment on HeaderSection {
+    __typename
+    alignment
+    sectionData {
+      ...HeaderSignInButtonFragment
+      ...HeaderNavLinkFragment
+      ...HeaderMenuFragment
+      ...HeaderPlainTextFragment
+      ... on HeaderPicker {
+        __typename
+        skipSsr
+      }
+      ... on NotificationCenter {
+        __typename
+        skipSsr
+      }
+      ... on CommunicationCenter {
+        __typename
+        skipSsr
+      }
+      ... on MobileAppDownloadButton {
+        __typename
+        skipSsr
+      }
+    }
+  }
+
+  ${it.fragment}
+  ${$e.fragment}
+  ${Et.fragment}
+  ${yt.fragment}
+`,At=e=>{const{data:{sectionData:t,alignment:n},componentsMap:r}=e;if(!t)return null;return a.createElement(l.C,{minWidth:void 0,grow:1},a.createElement(o.X,{alignItems:"center",justifyContent:"START"===n?"start":"end",wrap:"nowrap"},t.map((e,t)=>{const n=`${e.__typename}-${t}`,i=r[e.__typename];if(i)return a.createElement(a.Fragment,{key:n},i);if("HeaderSignInButton"===e.__typename)return a.createElement(a.Fragment,{key:n},a.createElement(it,{key:n,data:e}));const l=vt.find(t=>t.fragment.__typename===e.__typename);return l?a.createElement(l,{key:n,data:e,componentsMap:r}):null})))};At.displayName="HeaderSectionSecondaryNavigation",At.fragment=ge(ue({},xt),{__typename:"HeaderSection"});var wt=c.gql`
+  fragment SubHeaderButtonFragment on HeaderButton {
+    ...HeaderButtonFragment
+  }
+  ${we.fragment}
+`,Tt=({data:e})=>a.createElement(we,{data:e,size:b.V.SMALL,isFullWidth:!1});Tt.displayName="SubHeaderButton",Tt.fragment=wt;var Ct=c.gql`
+  fragment SubHeaderLogoFragment on SubHeaderLogo {
+    __typename
+    text
+    imgSrc {
+      description
+      url
+    }
+    action {
+      resource {
+        ... on HttpURI {
+          value
+          relativePath
+        }
+      }
+      analytics {
+        linkName
+        referrerId
+      }
+      useRelativePath
+    }
+  }
+`,Ft=e=>{const{data:t}=e,{text:n,imgSrc:r,action:i}=t,m=_e();let c;return"HttpURI"===i.resource.__typename&&(c=i.useRelativePath?i.resource.relativePath:i.resource.value),a.createElement(l.C,null,a.createElement(o.X,{alignItems:"center",space:"one"},a.createElement(l.C,null,a.createElement(f.D,ue({size:200,weight:"medium",whiteSpace:"nowrap"},m&&{theme:"inverse"}),n)),a.createElement(l.C,null,a.createElement(Q.D,{url:r.url,size:Z.K.SMALL,description:r.description}))))};Ft.displayName="SubHeaderLogo",Ft.fragment=Ct;var $t=c.gql`
+  fragment SubHeaderFragment on SubHeader {
+    __typename
+    text
+    logo {
+      ...SubHeaderLogoFragment
+    }
+    button {
+      ...SubHeaderButtonFragment
+    }
+    partnerLoyaltyPoints {
+      skipSsr
+    }
+  }
+  ${Ft.fragment}
+  ${Tt.fragment}
+`,Mt=e=>{const{data:t}=e,{logo:n,text:r,button:i,partnerLoyaltyPoints:l}=t,o=_e(),c=i?"right":"center",d=[n?"max-content":null,r?"1fr":null,i||l?r?"max-content":"1fr":null].filter(e=>null!==e),s=[i?"max-content":null,l?"1fr":null].filter(e=>null!==e);return a.createElement(m.N,{padding:{inline:"six"}},a.createElement(ne.w,{justifyContent:"space-between",columns:d,space:"three",alignItems:"center"},n&&a.createElement(ae.T,null,a.createElement("div",null,n&&a.createElement(Ft,{data:n}))),r&&a.createElement(ae.T,null,a.createElement("div",null,a.createElement(f.D,ue({"data-stid":"subheader-text",align:c,overflow:"truncate-2-lines"},o&&{theme:"inverse"}),r))),(i||l)&&a.createElement(ae.T,{justifySelf:"end"},a.createElement("div",null,a.createElement(ne.w,{columns:s,space:"three",alignItems:"center"},i&&a.createElement(ae.T,null,a.createElement("div",null,a.createElement(Tt,{data:i}))),l&&a.createElement(ae.T,null,a.createElement("div",null,a.createElement(re.K,{inputs:{},skipSsr:l.skipSsr,inverseTheme:o}))))))))};Mt.displayName="SubHeader",Mt.fragment=$t;var Pt=({context:{siteId:e,locale:t,identity:n}})=>{const c="ANONYMOUS"===(null==n?void 0:n.authState),d=(0,u.useExperiment)("Shared_UI_Remove_Deprecated_UITK_Nav_Button").exposure.bucket>0;return a.createElement(r.m,null,a.createElement(i.q,null,a.createElement(m.N,{padding:{inlinestart:"six",small:{inlineend:"three"},medium:{inlineend:"three"},large:{inlineend:"two"},extra_large:{inlineend:"two"}}},a.createElement(o.X,null,a.createElement(a.Fragment,null,a.createElement(l.C,{grow:1},a.createElement(te.z,{imgSrc:`/_dms/header/logo.svg?locale=${t}&siteid=${e}`,href:"/",altText:"logo"})),a.createElement(l.C,{grow:1},a.createElement(o.X,{justifyContent:"end"},a.createElement(l.C,null,a.createElement(L.q,{className:d?void 0:"global-navigation-nav-button",href:c?"/user/signin?ckoflag=0":"/user/account","aria-label":"Sign In"},a.createElement(x.LD,{id:"header-nav-link-account",name:"account_circle",description:"account",title:"account icon"}))))))))))};Pt.displayName="sharedui-HeaderFallback";var Dt=c.gql`
+  query GlobalHeaderQuery(
+    $context: ContextInput!
+    $viewSize: HeaderViewSize
+    $lineOfBusiness: GlobalNavigationLineOfBusiness
+    $layout: HeaderLayout
+    $marketing: HeaderMarketingInput
+    $minimal: Boolean = false
+    $theme: String
+    $pageName: String
+  ) {
+    globalHeader(
+      context: $context
+      viewSize: $viewSize
+      lineOfBusiness: $lineOfBusiness
+      layout: $layout
+      marketing: $marketing
+      minimal: $minimal
+      theme: $theme
+      pageName: $pageName
+    ) {
+      logos {
+        ...HeaderSectionLogosFragment
+      }
+      primaryNavigation @skip(if: $minimal) {
+        ...HeaderSectionNavigationFragment
+      }
+      secondaryNavigation @skip(if: $minimal) {
+        ...HeaderSectionSecondaryNavigationFragment
+      }
+      languageToggle @include(if: $minimal) {
+        ...HeaderSectionLanguageToggleFragment
+      }
+      bsaBanner {
+        ...BSABannerFragment
+      }
+      subHeader {
+        ...SubHeaderFragment
+      }
+      viewSize
+      inverseThemePrimaryRow
+      inverseThemeSecondaryRow
+      externalSharedUIComponents @skip(if: $minimal) {
+        ... on GoogleOneTap {
+          skipSsr
+        }
+      }
+      redDotState @client
+    }
+  }
+
+  ${Nt.fragment}
+  ${bt.fragment}
+  ${At.fragment}
+  ${kt.fragment}
+  ${Ce.fragment}
+  ${Mt.fragment}
+`,Ot=e=>{switch(!0){case e>1199:return"EXTRA_LARGE";case e>991:return"LARGE";case e>575:return"MEDIUM";case e>0:return"SMALL";default:return null}},Bt=(e,{width:t,serverViewSize:n})=>{const a={viewSize:Ot(t),calculated:!0};return a.viewSize===n?!0===e.calculated?e:ge(ue({},e),{calculated:!0}):a},Rt=({lineOfBusiness:e,layout:t,marketing:n,minimal:y,fullWidth:f,pageName:k,skipSsr:H,className:S,showAppDownloadPlacements:h=!0})=>{const{context:I}=(0,d.R)(),{warning:N,error:L}=(0,p.useLogger)(),[b,x]=a.useReducer(Bt,{viewSize:null,calculated:!1}),A=(()=>{const[e,t]=(0,a.useState)(null);return(0,a.useEffect)(()=>{const e=document.body.getAttribute("data-theme-dark"),n=n=>{t(n.matches&&e?fe:null)};return e&&window.matchMedia(ke).matches&&t(fe),window.matchMedia(ke).addEventListener("change",n),()=>{window.matchMedia(ke).removeEventListener("change",n)}},[]),e})(),w={context:I,viewSize:b.viewSize,lineOfBusiness:e,layout:t,marketing:n,minimal:null!=y&&y,theme:A,pageName:k},{data:T,error:C,loading:F,networkStatus:$,previousData:M}=(0,c.useQuery)(Dt,{context:{shouldLogPerformance:!0},variables:w,ssr:!H}),P=(()=>{function e(){return{width:window.innerWidth,height:window.innerHeight}}const[t,n]=(0,a.useState)(e);return(0,a.useEffect)(()=>{const t=v()(()=>{n(e())},200);return window.addEventListener("resize",t),()=>window.removeEventListener("resize",t)},[]),t})();a.useEffect(()=>{if(T){const{globalHeader:{viewSize:e}}=T,t=Ot(P.width);!1===b.calculated&&e!==t&&N("HEADER_BAD_VIEWSIZE_GUESS",`Bad viewSize server side guess. Client: ${t} Server: ${e} `),x({width:P.width,serverViewSize:e})}},[T,b.calculated,N,P]);const D="SMALL"===b.viewSize||!b.viewSize&&("APP_PHONE"===I.device.type||"MOBILE_PHONE"===I.device.type),O="MEDIUM"===b.viewSize||!b.viewSize&&("APP_TABLET"===I.device.type||"MOBILE_TABLET"===I.device.type),B=ue({HeaderPicker:a.createElement(ye,{pickerTriggerPlacementType:D||O?g.wv.MENU_ITEM:g.wv.NAV_LINK,lineOfBusiness:e,key:"Picker",pageName:k}),CommunicationCenter:a.createElement(u.Experiment,{name:"CL_conversations_WEB"},a.createElement(u.ExperimentControl,null,a.createElement(E.t,{inputs:D?{viewSize:b.viewSize,lineOfBusiness:e}:{},key:"CommunicationCenter"})),a.createElement(u.ExperimentVariant,{bucket:1},a.createElement(E.t,{inputs:D?{viewSize:b.viewSize,lineOfBusiness:e}:{},key:"CommunicationCenter",messageCountEnabled:!0})))},h&&{MobileAppDownloadButton:a.createElement(u.Experiment,{name:"MAD_NavigationBar_test"},a.createElement(u.ExperimentControl,null),a.createElement(u.ExperimentVariant,{bucket:1},a.createElement(s.O,{inputs:{optionalPageId:k},key:"MobileAppDownloadButton"})))}),R={GoogleOneTap:_.P},z=4===$||2===$,U=T||M;if(F&&!z||C||!U)return C&&I?(L("HEADER_SHOWING_FALLBACK_UI"),a.createElement(Pt,{context:I})):null;const{globalHeader:{logos:q,primaryNavigation:W,secondaryNavigation:G,languageToggle:V,bsaBanner:K,subHeader:X,inverseThemePrimaryRow:j,inverseThemeSecondaryRow:Y,externalSharedUIComponents:Q}}=U,Z=null==U?void 0:U.globalHeader.redDotState;return a.createElement(He.Provider,{value:k||"Unknown"},a.createElement(Me.Provider,{value:Z||"NOT_VISIBLE"},K&&a.createElement(Ee.Provider,{value:!0===j},a.createElement(Ce,{data:K})),a.createElement(r.m,{className:S},a.createElement(Ee.Provider,{value:!0===j},a.createElement(i.q,{fullWidth:f||void 0},a.createElement(l.C,{grow:1},a.createElement(m.N,{padding:{inlinestart:"six",small:{inlineend:"three"},medium:{inlineend:"three"},large:{inlineend:"two"},extra_large:{inlineend:"two"}},margin:"unset"},a.createElement(o.X,{wrap:"nowrap",alignItems:"center"},q&&a.createElement(Nt,{key:`header-logo-${q.__typename}`,data:q}),W&&a.createElement(bt,{key:`primary-navigation-${W.__typename}`,data:W,componentsMap:B}),G&&a.createElement(At,{key:`secondary-navigation-${G.__typename}`,data:G,componentsMap:B}),V&&a.createElement(kt,{key:`language-toggle-${V.__typename}`,data:V,componentsMap:B})))))),X&&a.createElement(Ee.Provider,{value:!0===Y},a.createElement(i.q,{secondary:!0,fullWidth:f||void 0},a.createElement(Mt,{data:X}))),null==Q?void 0:Q.map((e,t)=>{const n=`${e.__typename}-${t}`,r=R[e.__typename];return r?a.createElement(a.Fragment,{key:n},a.createElement(r,{skipSsr:e.skipSsr})):null}))))};Rt.displayName="sharedui-Header"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-global-navigation-header.568886ebfab709c9931d.js.map

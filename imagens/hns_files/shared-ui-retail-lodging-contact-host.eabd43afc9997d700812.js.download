@@ -1,0 +1,402 @@
+/*@license For license information please refer to shared-ui-retail-lodging-contact-host.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[1680],{31993:function(e,t,n){n.d(t,{t:function(){return at}});var a=n(56195),r=n(26690),l=n(64341),i=n(31009),o=n(89438),s=n(87993),c=n(2557),d=n(522),u=n(99828),m=n(74071),p=n(69287),g=n(51213),y=n(1226),v=n(47540),E=n(87818),h=n(49858),f=n(42534),I=n(73492),C=n(27102),S=n(97778),_=n(20637),k=n(79963),b=n(75739),D=n(22587),T=n(92919),x=n(24109),F=n(37292),q=n(46559),N=n(95519),A=n(43888),w=n(934),O=n(7484),B=n(80240),M=n(13902),L=n(13311),G=n(47958),$=n(90237),P=n(56934),R=n(72402),V=n(29366),H=n(70882),U=n(53017),z=({refetchQuery:e})=>{const{formatText:t}=(0,g.useLocalization)();return a.createElement(d.X,{space:"two",direction:"column",alignItems:"center",alignContent:"center",justifyContent:"center",style:{minHeight:"672px"}},a.createElement(u.C,null,a.createElement("div",{"data-stid":"done-icon"},a.createElement(c.LD,{name:"error",size:c.So.MEDIUM,theme:"default"}))),a.createElement(u.C,null,a.createElement(a.Fragment,null,a.createElement(m.M,{size:5,tag:"h5"},t("inquiry-form.error.title")),a.createElement(p.u,null,t("inquiry-form.error.message")))),a.createElement(s.y,{onClick:()=>{e()}},t("inquiry-form.error.button.text")))};z.displayName="ContactHostCTAError";var W=({rows:e,columns:t,type:n="sticky"})=>a.createElement(y.w,{rows:e,columns:t},a.createElement(E.P,{type:n},a.createElement(h.R,{type:"block",cornerRadius:"defaultValue"}))),j=()=>a.createElement("div",{style:{minHeight:"672px"},className:"contact-host-skeleton"},a.createElement(y.w,{space:"four"},a.createElement(W,{rows:["24px"],columns:["152px"],type:"relative"}),a.createElement(y.w,{rows:["48px"],columns:2,space:"four"},a.createElement(v.T,{colSpan:1},a.createElement(E.P,{type:"sticky"},a.createElement(h.R,{type:"block",cornerRadius:"defaultValue"}))),a.createElement(v.T,{colSpan:1},a.createElement(E.P,{type:"sticky"},a.createElement(h.R,{type:"block",cornerRadius:"defaultValue"})))),a.createElement(W,{rows:["48px"],type:"sticky"})),a.createElement(f.N,{padding:{blockstart:"eight"}},a.createElement(y.w,{space:"four"},a.createElement(W,{rows:["24px"],columns:["152px"],type:"relative"}),a.createElement(W,{rows:["144px"],type:"relative"}))));j.displayName="ContactHostCTAInquirySkeleton";var Q="message",K="optInForMarketing";function X(e,t,n){if(void 0!==n){if(String(n)!==t)return{isValueUpdated:!0,currentValue:String(t)}}return{isValueUpdated:!1,currentValue:String(t)}}var J=e=>({adults:e.adults||2,children:e.children.map(e=>{const[,t]=e.split("_");return{age:t?+t:1}})}),Y=e=>"amenities"===e.id&&"PETS"===e.value||"house_rules_group"===e.id&&"pets_allowed"===e.value,Z=r.gql`
+  fragment LodgingPolicyPopoverFragment on RatePlanMessage {
+    __typename
+    ... on LodgingPolicyPopover {
+      policyPrimaryText {
+        ...LodgingEGDSInlineLinkFragment
+      }
+      policyPrimaryStylizedText {
+        ...EGDSStylizedTextFragment
+      }
+      policySecondaryText {
+        ...EGDSStylizedTextFragment
+      }
+      sheetContent {
+        text
+      }
+    }
+  }
+  ${_.pPw.fragment}
+  ${_.Z37.fragment}
+`,ee=({data:e,isSmallViewSize:t,visible:n,toggleVisibility:r,triggerRef:l})=>{var i;return a.createElement(E.P,{type:"absolute",position:t?{zindex:"layer1"}:{right:"center",bottom:"six",zindex:"layer1"}},a.createElement(A.K,{isVisible:n},a.createElement(w.t,{isVisible:n,type:t?"bottom":"popover",triggerRef:l,onDismiss:r,width:360,"data-testid":"lodging-policy-popover"},a.createElement(O.t,null,a.createElement(N.q,{type:"button",onClick:r},a.createElement(c.LD,{name:"close",title:"Close Sheet",id:"sheet-close-button"}))),"LodgingPolicyPopover"===(null==e?void 0:e.__typename)&&a.createElement(o.Y,{padded:!0},null==(i=null==e?void 0:e.sheetContent)?void 0:i.map((e,t)=>a.createElement(p.u,{key:t},e.text))))))};ee.displayName="LodgingPolicyPopover",ee.fragment=Z;var te=ee,ne=r.gql`
+  fragment OffersInquiryFormBookNowMessagingFragment on OffersInquiryFormBookNowMessaging {
+    availabilityMessage {
+      ...LodgingEnrichedMessageFragment
+    }
+    availabilityMessageSubText {
+      ...LodgingEnrichedMessageFragment
+    }
+    lodgingPrepareCheckout {
+      checkoutButton {
+        primary
+        accessibility
+        action {
+          analytics {
+            referrerId
+            linkName
+          }
+          ... on UILinkAction {
+            resource {
+              value
+            }
+          }
+        }
+      }
+      action {
+        checkoutOptions {
+          type
+          value
+        }
+        offerTokens {
+          token
+          lineOfBusiness
+        }
+        totalPrice {
+          amount
+          currencyInfo {
+            code
+          }
+        }
+        adaptExSuccessEvents {
+          ...LodgingAdaptExAnalyticsEventFragment
+        }
+        analyticsList {
+          eventType
+          linkName
+          referrerId
+          uisPrimeMessages {
+            messageContent
+            schemaName
+          }
+        }
+        lodgingRecommendationClickstreamEvent {
+          recommendationResponseId
+        }
+        propertyNaturalKeys {
+          id
+          businessModelType
+          checkIn {
+            month
+            day
+            year
+          }
+          checkOut {
+            month
+            day
+            year
+          }
+          inventoryType
+          noCreditCard
+          petsIncluded
+          ratePlanId
+          roomTypeId
+          ratePlanType
+          rooms {
+            childAges
+            numberOfAdults
+          }
+          shoppingPath
+        }
+        moreDetailsAnalyticsList {
+          eventType
+          linkName
+          referrerId
+          uisPrimeMessages {
+            messageContent
+            schemaName
+          }
+        }
+        __typename
+      }
+    }
+    reserveSubText {
+      ...LodgingPolicyPopoverFragment
+    }
+  }
+  ${_.UKE.fragment}
+  ${_.pPw.fragment}
+  ${te.fragment}
+  ${_.AKj}
+`,ae=({data:e})=>{var t;const{reserveSubText:n,availabilityMessage:r,availabilityMessageSubText:l,lodgingPrepareCheckout:i}=e,o=!!i,s=(0,q.s5)({[q.OB.SMALL]:!0,[q.OB.MEDIUM]:!0,[q.OB.LARGE]:!1}),[c,m]=a.useState(!1),p=a.useRef(null),g=()=>{m(!c)};return a.createElement(E.P,{type:"relative"},a.createElement(T.g,{border:o},a.createElement(x.E,{padded:!1},a.createElement(f.N,{padding:{block:"four",inline:"six"}},a.createElement(x.E,{padded:!1},a.createElement(d.X,{direction:s?"column":"row",alignItems:"center",justifyContent:"space-between",space:"three",wrap:"nowrap"},a.createElement(u.C,{grow:1,alignSelf:"center",minWidth:s?void 0:"88x"},a.createElement(d.X,{direction:"column",alignItems:s?"center":void 0},r&&a.createElement(u.C,null,a.createElement(f.N,{padding:{inline:"two"}},a.createElement("div",null,a.createElement(_.UKE,{data:r,textSize:400})))),l&&a.createElement(u.C,null,a.createElement(f.N,{padding:{inline:s?void 0:"eight"}},a.createElement("div",null,a.createElement(_.UKE,{data:l,textSize:300})))))),a.createElement(u.C,null,a.createElement(d.X,{alignItems:s?"center":"end",justifyContent:"end",direction:"column"},i&&a.createElement(k.XE,{data:i,priceDetailsPropertyNaturalKeys:[]}),n&&"LodgingPolicyPopover"===n.__typename&&a.createElement(E.P,{type:"relative"},a.createElement(f.N,{margin:{inlineend:"one",blockstart:"one"}},a.createElement(F.i,{onClick:g,domRef:p,inline:!0},a.createElement("button",{type:"button"},(null==n?void 0:n.policyPrimaryStylizedText)&&a.createElement(_.Z37,{data:null==n?void 0:n.policyPrimaryStylizedText})))),a.createElement(f.N,null,(null==(t=null==n?void 0:n.policySecondaryText)?void 0:t.text)&&a.createElement(C.D,{theme:"default",size:200,inline:!0},n.policySecondaryText.text)))))))))),"LodgingPolicyPopover"===(null==n?void 0:n.__typename)&&a.createElement(te,{isSmallViewSize:s,visible:c,toggleVisibility:g,triggerRef:p,data:n}))};ae.displayName="OffersInquiryFormBookNowMessaging",ae.fragment=ne;var re=(0,M.RK)(new L.tk),le=e=>{const{doneButton:t,handleClick:n}=e;return t?a.createElement(f.N,{padding:"six"},a.createElement("div",null,a.createElement(d.X,{alignItems:"center",justifyContent:"center"},a.createElement(u.C,{alignSelf:"center"},a.createElement(s.y,{"data-stid":"contact-host-done-button","aria-label":t.accessibility||"",onClick:n,isFullWidth:!0,size:B.V.LARGE},t.primary))))):null},ie=e=>{const{doneButton:t,handleClick:n,primaryCta:r}=e;if("InquirySaveToTripAction"===(null==r?void 0:r.__typename)){const{tripsSaveItem:e}=r;return a.createElement(f.N,{padding:"six"},a.createElement("div",null,a.createElement(d.X,{alignItems:"center",justifyContent:"center"},a.createElement(u.C,{alignSelf:"center",maxWidth:"full_width"},a.createElement(re,null,a.createElement(L.GG,{data:e,source:L.kL.LODGING_DETAILS,saveItemCallback:n}))))))}return"InquirySuccessDoneAction"===(null==r?void 0:r.__typename)||t?a.createElement(le,{doneButton:(null==r?void 0:r.button)||t,handleClick:n}):null},oe=r.gql`
+  fragment ConfirmationScreenUIPrimaryButtonFragment on UIPrimaryButton {
+    accessibility
+    primary
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+      }
+    }
+    disabled
+  }
+`,se=r.gql`
+  fragment ConfirmationScreenIconFragment on Icon {
+    description
+    id
+    token
+    size
+    spotLight
+    theme
+    title
+  }
+`,ce=r.gql`
+  fragment ConfirmationScreenHeaderInfoFragment on GraphicText {
+    accessibility
+    graphic {
+      ...ConfirmationScreenIconFragment
+    }
+    primaryHeadings
+  }
+
+  ${se}
+`,de=r.gql`
+  fragment InquiryActionButtonFragment on InquiryActionButton {
+    ... on InquirySaveToTripAction {
+      tripsSaveItem {
+        ...TripsSaveItemFragment
+      }
+    }
+    ... on InquirySuccessDoneAction {
+      button {
+        ...ConfirmationScreenUIPrimaryButtonFragment
+      }
+    }
+  }
+  ${L.GG.fragment}
+  ${oe}
+`,ue={default:"default",emphasis:"emphasis",inverse:"inverse",negative:"negative",positive:"positive",secondary:"secondary"},me={POSITIVE:"positive",STANDARD:"standard",WARNING:"warning",INFO:"info"},pe=({header:e,justifyHeaderContent:t})=>a.createElement(d.X,{space:"two",alignItems:"center",justifyContent:t},a.createElement(u.C,null,a.createElement("div",{"data-stid":"done-icon"},a.createElement(c.LD,{name:"done",size:c.So.MEDIUM,theme:"positive",spotlight:"standard"}))),a.createElement(u.C,null,a.createElement(f.N,null,a.createElement(m.M,{size:5},e))));pe.displayName="ConfirmationScreenDeprecatedHeader";var ge=(e,t)=>{let n={name:"done",size:c.So.MEDIUM,theme:"positive",spotlight:"positive"};if("Icon"===(null==e?void 0:e.__typename)){const{token:a,size:r,theme:l,spotLight:i}=e;n={name:a,size:r?c.So[r]:n.size,spotlight:i?me[i]:n.spotlight,theme:l?ue[l]:n.theme,description:t||void 0}}return n},ye=({headerInfo:e,justifyHeaderContent:t})=>{if(!e)return null;const{accessibility:n,graphic:r,primaryHeadings:l}=e;return a.createElement(d.X,{space:"two",alignItems:"center",justifyContent:t},a.createElement(u.C,null,a.createElement("div",{"data-stid":"done-icon"},a.createElement(c.LD,{...ge(r,n)}))),a.createElement(d.X,{direction:"column"},l.map(e=>a.createElement(a.Fragment,{key:e},a.createElement(u.C,null,a.createElement(f.N,null,a.createElement(q.LM,null,a.createElement(q.rw,null,a.createElement(m.M,{size:5},e)),a.createElement(q.NP,null,a.createElement(m.M,{size:4,typeStyle:{customStyle:"headline-large"}},e)))))))))};ye.displayName="ConfirmationScreenEnrichedHeader";var ve=e=>{const{header:t,headerInfo:n,justifyHeaderContent:r}=e;return n?a.createElement(ye,{headerInfo:n,justifyHeaderContent:r}):a.createElement(pe,{header:t,justifyHeaderContent:r})};ve.displayName="ConfirmationScreenHeader";var Ee=r.gql`
+  fragment ConfirmationScreenFragment on InquiryResponse {
+    __typename
+    header
+    body
+    headerInfo {
+      ...ConfirmationScreenHeaderInfoFragment
+    }
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+      }
+    }
+    doneButton {
+      ...ConfirmationScreenUIPrimaryButtonFragment
+    }
+    primaryCta {
+      ...InquiryActionButtonFragment
+    }
+  }
+
+  ${ce}
+  ${de}
+  ${oe}
+`,he=({data:e,onDialogClose:t})=>{var n,r;const{body:l,header:i,doneButton:o,analytics:s,headerInfo:c,primaryCta:m}=e,p=(0,S.useClickTracker)(),g=null==(r=null==(n=null==s?void 0:s.uisPrimeMessages)?void 0:n[0])?void 0:r.messageContent,E=[{messageContent:g?JSON.parse(`{"productId":${g}}`):"{}",schemaName:"hotelProduct"}],h=()=>{const e="InquirySuccessDoneAction"===(null==m?void 0:m.__typename)&&m.button.analytics?m.button.analytics:(null==o?void 0:o.analytics)?o.analytics:void 0;if(e){const{referrerId:t,linkName:n}=e;p(t,n,void 0,E)}null==t||t()};(0,a.useEffect)(()=>{s&&p(s.referrerId,s.linkName,void 0,E)},[]);const I=()=>a.createElement(f.N,{margin:{blockstart:"four",inlinestart:"six"}},a.createElement(d.X,{justifyContent:"center"},a.createElement(u.C,{maxWidth:"180x"},a.createElement("div",null,null==l?void 0:l.map((e,t)=>a.createElement(f.N,{margin:"two",key:t},a.createElement(C.D,{size:400},e)))))));return a.createElement(q.LM,null,a.createElement(q.rw,null,a.createElement(a.Fragment,null,a.createElement(v.T,null,a.createElement(f.N,null,a.createElement(ve,{header:i,headerInfo:c,justifyHeaderContent:"center"}))),a.createElement(u.C,null,I()),a.createElement(ie,{primaryCta:m,doneButton:o,handleClick:h}))),a.createElement(q.NP,null,a.createElement(y.w,{columns:1,rows:["1fr","1fr"]},a.createElement(v.T,null,a.createElement(f.N,{margin:{block:"two"}},a.createElement("div",null))),a.createElement(v.T,null,a.createElement("div",null,a.createElement(f.N,null,a.createElement(ve,{header:i,headerInfo:c,justifyHeaderContent:"start"})),a.createElement(u.C,null,I()),a.createElement(ie,{primaryCta:m,doneButton:o,handleClick:h}))))))};he.displayName="ConfirmationScreen",he.fragment=Ee;var fe=r.gql`
+  fragment InquiryFormButtonFragment on UIPrimaryButton {
+    __typename
+    primary
+    accessibility
+    analytics {
+      linkName
+      referrerId
+    }
+    disabled
+  }
+`,Ie=({data:e,localDisabled:t,onClick:n,showLoader:r})=>{const l=(0,S.useClickTracker)(),{primary:i,analytics:o,accessibility:c,disabled:d}=e;if(!i)return null;return a.createElement(s.y,{type:"button",onClick:()=>{o&&l(o.referrerId,o.linkName),n()},disabled:t||d,isFullWidth:!0,size:B.V.LARGE,"aria-label":c||""},r?a.createElement(G.v,{isDarkBackground:!0}):e.primary)};Ie.displayName="InquiryFormButton",Ie.fragment=fe;var Ce=r.gql`
+  fragment OffersInquiryFormDisclaimerFragment on OffersInquiryFormLayout {
+    disclaimer {
+      __typename
+      ...LodgingEGDSTextFragment
+    }
+  }
+  ${_.$hU.fragment}
+`,Se=({data:e})=>{const{disclaimer:t}=e;return t&&0!==t.length?a.createElement(f.N,{margin:{block:"four"}},a.createElement("div",null,t.map((e,t)=>a.createElement("span",{key:t},a.createElement(_.$hU,{key:e.__typename,data:e}))))):null};Se.fragment=Ce,Se.displayName="InquiryFormDisclaimer";var _e=()=>{const{formatText:e}=(0,g.useLocalization)();return a.createElement(v.T,null,a.createElement(f.N,null,a.createElement(d.X,{space:"two",alignItems:"center",justifyContent:"start"},a.createElement(u.C,null,a.createElement("div",{"data-stid":"done-icon"},a.createElement(c.LD,{name:"error",size:c.So.MEDIUM,spotlight:"warning"}))),a.createElement(u.C,null,a.createElement(f.N,null,a.createElement(m.M,{size:6},e("trip.error.detail.message")))))))};_e.displayName="MutationErrorScreen";$.aF.SUN,$.aF.MON,$.aF.TUE,$.aF.WED,$.aF.THU,$.aF.FRI,$.aF.SAT;var ke=e=>({day:e.getDate(),month:e.getMonth()+1,year:e.getFullYear()}),be=r.gql`
+  fragment EGDSMaxLengthInputValidationFragment on EGDSMaxLengthInputValidation {
+    errorMessage
+    maxLength
+  }
+`,De=e=>t=>((e,t)=>e&&e.length>t.maxLength?{invalid:t.errorMessage}:{})(t,e);De.fragment=be;var Te=r.gql`
+  fragment EGDSRequiredInputValidationFragment on EGDSRequiredInputValidation {
+    errorMessage
+  }
+`,xe=e=>t=>((e,t)=>e&&(null==e?void 0:e.trim())?{}:{invalid:t.errorMessage})(t,e);xe.fragment=Te;var Fe=r.gql`
+  fragment EGDSInputValidationFragment on EGDSInputValidation {
+    ...EGDSMaxLengthInputValidationFragment
+    ...EGDSRequiredInputValidationFragment
+  }
+
+  ${xe.fragment}
+  ${De.fragment}
+`,qe=(e=[])=>{const t=e?(e=>e.map(e=>{switch(e.__typename){case"EGDSMaxLengthInputValidation":return{...e,validate:De(e)};case"EGDSRequiredInputValidation":return{...e,validate:xe(e)};default:return{validate:()=>({})}}}))(e):[];return{actOnServerDefinedValidation:e=>{let n={};return t.forEach(t=>{n.invalid||(n=t.validate(e))}),n}}},Ne=(e,t,n,a=[])=>({id:e,typename:t,value:n,validations:a}),Ae=(e,t,n,r)=>{var l,i,o,s,c,d,u,m,p,g,y;const v=null==(i=null==(l=null==t?void 0:t.inquiryFormInput)?void 0:l.primaryPropertyCriteriaInput)?void 0:i.dateRange,E=null==(c=null==(s=null==(o=null==t?void 0:t.searchCriteria)?void 0:o.primary)?void 0:s.rooms[0])?void 0:c.children,h={adults:(null==(m=null==(u=null==(d=null==t?void 0:t.searchCriteria)?void 0:d.primary)?void 0:u.rooms[0])?void 0:m.adults)||2,children:(null==E?void 0:E.map(({age:e})=>`1_${e}`))||[],isPetsIncluded:(null==(y=null==(g=null==(p=null==t?void 0:t.searchCriteria)?void 0:p.secondary)?void 0:g.selections)?void 0:y.some(Y))||!1},f=v?{end:v.checkOutDate,start:v.checkInDate}:null,[I,C]=(0,a.useState)((S=e.formInput,_=v,k=h,{formValue:null==S?void 0:S.reduce((e,t)=>{var n,a,r;const l={...e};if("EGDSBasicCheckBox"===t.__typename){const e=null!=(n=t.egdsElementId)?n:K;l[e]={...Ne(e,t.__typename,"CHECKED"===t.state),checked:"CHECKED"===t.state}}else if("EGDSTextAreaInputField"===t.__typename){const e=null!=(a=t.egdsElementId)?a:Q;l[e]=Ne(e,t.__typename,null!=(r=t.value)?r:"",t.validations)}return l},{}),datePickerAvailability:_,travelerSelector:k}));var S,_,k;const b=(0,a.useCallback)(({travelerSelectorValue:e})=>{const t={...I,travelerSelector:e};C(t)},[I]),D=(0,a.useCallback)(({checkInDate:e,checkOutDate:t})=>{const n={...I,datePickerAvailability:{...null==I?void 0:I.datePickerAvailability,checkInDate:e,checkOutDate:t}};C(n)},[I]),T=(e,t,n)=>{var a;return{[e.id]:{...null==(a=n.formValue)?void 0:a[e.id],error:t}}},x=(0,a.useCallback)(()=>{const e=[],t=Object.values((null==I?void 0:I.formValue)||{}).reduce((t,n)=>{const a={...t},{actOnServerDefinedValidation:r}=qe(n.validations),{currentValue:l}=X(n.typename,n.value),i=r(l);return(null==i?void 0:i.invalid)?(e.push({inputId:n.id,message:i.invalid}),{...a,formValue:{...a.formValue,...T(n,i,a)}}):a},I);return C(t),!e.length},[I]),F=(0,a.useMemo)(()=>{var t;return null==(t=e.formInput)?void 0:t.filter(e=>"EGDSBasicCheckBox"===e.__typename||"EGDSTextAreaInputField"===e.__typename)},[e.formInput]),q=(0,a.useMemo)(()=>{const{travelerSelector:e}=I;return{...J(e),petsIncluded:null==e?void 0:e.isPetsIncluded}},[I]);return{setControlValue:({id:e,value:t,error:n})=>{C(a=>{var r;return{...a,formValue:{...a.formValue,[e]:{...null==(r=null==a?void 0:a.formValue)?void 0:r[e],value:t,error:n}}}})},setCheckboxControl:({id:e,value:t})=>{C(n=>{var a;return{...n,formValue:{...n.formValue,[e]:{...null==(a=null==n?void 0:n.formValue)?void 0:a[e],checked:t}}}})},setDatePickerAvailabilityValue:D,updateStoreWithTravelerUrlData:e=>{b({travelerSelectorValue:e});const t=[J(e)],a=e.isPetsIncluded;null==r||r({rooms:t,petsIncluded:a}),null==n||n(t,a,void 0,!1)},onChangeDatePickerValueAvailability:(e,t)=>{const a={checkInDate:e?ke(e):null,checkOutDate:t?ke(t):null};D(a);const l=(null==a?void 0:a.checkInDate)&&(null==a?void 0:a.checkOutDate)?{selectedStartDate:a.checkInDate,selectedEndDate:a.checkOutDate}:void 0;null==r||r({dateRange:l,dateChange:!0}),null==n||n(void 0,void 0,l,!0)},setTravelerSelectorValue:b,formInputs:F,travelerSelectorInitialState:q,dateRangeAvailability:f,formState:I,validate:x}},we=a.createContext({}),Oe=r.gql`
+  fragment EGDSContactHostBasicCheckBoxFragment on EGDSBasicCheckBox {
+    egdsElementId
+    description
+    enabled
+    checkedAnalytics {
+      linkName
+      referrerId
+    }
+    uncheckedAnalytics {
+      linkName
+      referrerId
+    }
+    checkboxLabel: label {
+      text
+    }
+    name
+    required
+    state
+  }
+`,Be=({data:e,checked:t,onChange:n})=>{var r,l;const[i,o]=a.useState(t),s=(0,S.useClickTracker)(),c=a.useCallback(t=>{if(e.checkedAnalytics&&!i){const{referrerId:t,linkName:n}=e.checkedAnalytics;s(t,n)}if(e.uncheckedAnalytics&&i){const{referrerId:t,linkName:n}=e.uncheckedAnalytics;s(t,n)}o(t.currentTarget.checked),n&&n(t)},[e.checkedAnalytics,e.uncheckedAnalytics,i,n,s]);return e.egdsElementId?a.createElement(P.x,{id:e.egdsElementId,checked:t,description:null!=(r=e.description)?r:void 0,disabled:!e.enabled,name:null!=(l=e.name)?l:void 0,onChange:c,required:e.required},e.checkboxLabel.text):null};Be.displayName="EGDSBasicCheckBox",Be.fragment={...Oe,__typename:"EGDSBasicCheckBox"};var Me=r.gql`
+  fragment EGDSInputTextFragment on EGDSTextInputField {
+    __typename
+    egdsElementId
+    inputDisabled: disabled
+    label
+    readOnly
+    value
+    placeholder
+    validations {
+      ...EGDSInputValidationFragment
+    }
+  }
+  ${Fe}
+`,Le=e=>{const{data:t,value:n,errorMessage:r,onChange:l,onBlur:i}=e,{egdsElementId:o,label:s,placeholder:c,inputDisabled:d}=t;return a.createElement(R.V,{id:o||"",invalid:r,value:n||"",label:s,disabled:d||!1,required:!1,placeholder:null!=c?c:void 0,onBlur:i,onChange:l})};Le.displayName="EGDSInputText",Le.fragment=Me;var Ge=r.gql`
+  fragment InquiryFormTextAreaFragment on EGDSTextAreaInputField {
+    egdsElementId
+    label
+    readOnly
+    errorMessage
+    minRows
+    maxRows
+    value
+    placeholder
+    validations {
+      ...EGDSInputValidationFragment
+    }
+  }
+  ${Fe}
+`,$e=e=>{const{data:t,value:n,errorMessage:r,onChange:l,onBlur:i,instructions:o}=e,{egdsElementId:s,minRows:c,maxRows:d,label:u,placeholder:m}=t,[p,g]=(0,a.useState)(!0);return(0,a.useEffect)(()=>{g(!r)},[r]),a.createElement("div",null,a.createElement(V._,{id:s||"",invalid:p?"":o,value:n,name:u,label:u,required:!1,minRows:c||void 0,maxRows:d||void 0,placeholder:null!=m?m:void 0,onBlur:i,onChange:l,instruction:p?o:""}))};$e.displayName="EGDSTextAreaInputField",$e.fragment=Ge;var Pe=e=>{const t=null==e?void 0:e.find(e=>"EGDSMaxLengthInputValidation"===e.__typename);return"EGDSMaxLengthInputValidation"===(null==(n=t)?void 0:n.__typename)?null==t?void 0:t.maxLength:Number.MAX_SAFE_INTEGER;var n},Re=e=>{var t,n,r,l,i,o,s;const{inquiryFormValueManager:c}=a.useContext(we),{inputComponent:d}=e,u="validations"in d?d.validations:void 0;const m="egdsElementId"in d&&null!=(t=d.egdsElementId)?t:"",p=null==c?void 0:c.formState;if(!e.inputComponent||!p||!m)return null;const{__typename:g}=d,y=null!=(l=null==(r=null==(n=p.formValue)?void 0:n[m])?void 0:r.value)?l:"",v=null==(o=null==(i=p.formValue)?void 0:i[m])?void 0:o.error,{actOnServerDefinedValidation:E}=qe(u||[]),h=(e,t)=>{null==c||c.setControlValue({id:m,value:e,typename:g,error:t})},f=e=>{const t=e.target.value,n=t.trim().replace(/\s+/g," ");const a=E(n),{currentValue:r}=X(0,n,y);h(r,a)},I=e=>{if("checkbox"===e.target.type&&"checked"in e.target)null==c||c.setCheckboxControl({id:m,value:e.target.checked,typename:g});else{const t=e.target.value,n=E(t)||[];h(t,n)}};if("EGDSTextAreaInputField"===d.__typename){const e=((e,t,n)=>({primary:n||"",secondary:`${e?e.length:0}/${Pe(t)}`}))(y,null!=u?u:[],null!=(s=null==v?void 0:v.invalid)?s:"");return{value:y,invalid:"",instructions:e,onChange:I,onBlur:f}}return{value:y,invalid:"",onChange:I,onBlur:f}},Ve=r.gql`
+  fragment OffersInquiryFormInputElementFragment on OffersInquiryFormInputElement {
+    __typename
+    ...EGDSContactHostBasicCheckBoxFragment
+    ...EGDSInputTextFragment
+    ...InquiryFormTextAreaFragment
+  }
+  ${Be.fragment}
+  ${$e.fragment}
+  ${Le.fragment}
+`,He=({data:e,formValues:t})=>{var n,r;const{formatText:l}=(0,g.useLocalization)(),i=(e,t)=>{var n,a,r;const l=null!=(n=e.egdsElementId)?n:"",i=null==t?void 0:t[l];return{checked:null!=(a=null==i?void 0:i.checked)&&a,value:null!=(r=null==i?void 0:i.value)?r:"",errorMessage:null==i?void 0:i.error}},o=Re({inputComponent:e});switch(e.__typename){case"EGDSTextAreaInputField":return a.createElement(a.Fragment,null,a.createElement(f.N,{margin:{blockend:"four"}},a.createElement(m.M,{size:4,typeStyle:{customStyle:"headline-large"}},l("message-host-inquiry-form.title"))),a.createElement($e,{data:e,value:i(e,t.formValue).value,onBlur:null==o?void 0:o.onBlur,onChange:null==o?void 0:o.onChange,errorMessage:null!=(r=null==(n=i(e,t.formValue).errorMessage)?void 0:n.invalid)?r:"",instructions:null==o?void 0:o.instructions}));case"EGDSBasicCheckBox":return a.createElement(Be,{data:e,checked:i(e,t.formValue).checked,onChange:e=>{null==o||o.onChange(e)}});default:return null}};He.displayName="InquiryFormField",He.fragment=Ve;var Ue=({inquiryFormContext:e,children:t})=>a.createElement(we.Provider,{value:e},t),ze=r.gql`
+  fragment OffersInquiryFormLayoutFragment on OffersInquiryFormLayout {
+    header
+    footer
+    featuredMessage {
+      ...EGDSStandardMessagingCardFragment
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+    formInput {
+      ...OffersInquiryFormInputElementFragment
+    }
+    ...OffersInquiryFormDisclaimerFragment
+    submitButton {
+      ...InquiryFormButtonFragment
+    }
+    bookNowMessaging {
+      ...OffersInquiryFormBookNowMessagingFragment
+    }
+  }
+  ${Ie.fragment}
+  ${He.fragment}
+  ${Se.fragment}
+  ${_.T5e.fragment}
+  ${ae.fragment}
+`,We=r.gql`
+  mutation InquiryFormMutation($context: ContextInput!, $inquiryRequestInput: InquiryRequestInput!) {
+    submitInquiry(context: $context, inquiryRequest: $inquiryRequestInput) {
+      ...ConfirmationScreenFragment
+    }
+  }
+  ${he.fragment}
+`,je=e=>{var t,n,i,o,s,c;const{data:p,inputs:y,triggerRef:v,answeringTravellerQuestionInputs:E,isLoading:h,updateVariables:T,updateInquiryUpdatedFields:x}=e,F=(null==y?void 0:y.propertyId)||"",q=Ae(p,y,T,x),{formatText:N}=(0,g.useLocalization)(),{dateRangeAvailability:A,validate:w,onChangeDatePickerValueAvailability:O,updateStoreWithTravelerUrlData:B,formState:M,travelerSelectorInitialState:L,formInputs:G}=q,[$,{data:P,error:R,loading:V}]=(0,r.useMutation)(We),{context:H}=(0,l.R)(),U=(0,S.useEgClickstream)(),z=a.useRef(null),W=a.useRef(null),j=a.useRef(void 0),Q=e=>{j.current=e};return a.useEffect(()=>{window.sendTWPayload&&window.sendTWPayload(Q)},[]),(null==(t=null==p?void 0:p.formInput)?void 0:t.length)&&(null==p?void 0:p.submitButton)?(null==(n=null==P?void 0:P.submitInquiry)?void 0:n.doneButton)||(null==(i=null==P?void 0:P.submitInquiry)?void 0:i.primaryCta)?a.createElement(he,{data:null==P?void 0:P.submitInquiry}):((null==R?void 0:R.graphQLErrors.length)&&U({event:{schema_name:"event",event_name:"ContactHostMessageFailed",event_type:"Impression",event_version:"1.0.0"}}),a.createElement(a.Fragment,null,a.createElement(f.N,{padding:{inlineend:"six",blockend:"three"}},a.createElement(d.X,{alignItems:"start",justifyContent:"start",space:"four",direction:"column"},a.createElement(u.C,null,a.createElement(m.M,{tag:"h2",size:5},p.header)),p.featuredMessage&&a.createElement(u.C,{grow:1},a.createElement(_.T5e,{data:p.featuredMessage})))),!h&&a.createElement(f.N,{margin:{blockend:"four"}},p.bookNowMessaging&&a.createElement("div",null,a.createElement(u.C,{grow:1},a.createElement(ae,{data:p.bookNowMessaging})))),a.createElement(Ue,{inquiryFormContext:{inquiryFormValueManager:q}},a.createElement(I.m,{"data-stid":"lodging-inquiry-form",hasRequiredFieldIndicator:!0},a.createElement(f.N,{margin:{blockstart:"four"}},a.createElement(b.D2,{startDateRef:z,endDateRef:W,skipSsr:!0,onSubmit:O,inputs:{eid:F,dateRange:A},isNestDialog:!0})),y&&a.createElement(f.N,{margin:{blockstart:"four"}},a.createElement("div",null,a.createElement(k.FP,{inputs:y,initialState:L,isNestDialog:!0,dialogId:"internal-contact-host-traveler-selector",updateStoreWithTravelerUrlData:B,triggerRef:v}))),E&&a.createElement(D.EK,{inputs:E,skipSsr:!0,isNestDialog:!0,dialogId:"internal-traveller-questions"}),a.createElement(d.X,{tag:"div",direction:"column",space:"one","data-stid":"inquiry-form-container"},null==G?void 0:G.map((e,t)=>a.createElement(f.N,{key:`InquiryFormField-${t}`,margin:{blockstart:"four"}},a.createElement("div",null,a.createElement(u.C,{maxWidth:"half_width"},a.createElement(He,{data:e,formValues:M})))))),(null==R?void 0:R.graphQLErrors)&&(null==R?void 0:R.graphQLErrors.length)>0&&a.createElement(_e,null),p.disclaimer?a.createElement(Se,{data:p}):null,!(null==(c=null==(s=null==(o=null==y?void 0:y.searchCriteria)?void 0:o.primary)?void 0:s.rooms[0])?void 0:c.adults)&&a.createElement(C.D,{theme:"negative"},N("hotels.search.validation.invalidGuests.text")),a.createElement(f.N,{margin:{blockstart:"six"}},a.createElement("div",null,a.createElement(Ie,{onClick:()=>{const e=((e,t)=>{var n;const a={};Object.values((null==e?void 0:e.formValue)||{}).forEach(e=>{"EGDSBasicCheckBox"===e.typename?a[e.id]=e.checked:a[e.id]=e.value});let r,l,i=null;const{travelerSelector:o,datePickerAvailability:s}=e;(null==s?void 0:s.checkInDate)&&(null==s?void 0:s.checkOutDate)&&(i={checkInDate:s.checkInDate,checkOutDate:s.checkOutDate}),o&&(r=[J(o)],l=o.isPetsIncluded);const c={rooms:r,destination:{propertyIds:[t]},dateRange:i};return{...a,message:(null==(n=a.message)?void 0:n.toString())||"",primaryPropertyCriteriaInput:c,petsIncluded:l}})(M,F);w()&&$({variables:{context:H,inquiryRequestInput:e},context:{headers:{"X-EG-TW-PAYLOAD-ID":j.current}}}).then(e=>{let t,n,a;const{datePickerAvailability:r,travelerSelector:l}=M;(null==r?void 0:r.checkInDate)&&(null==r?void 0:r.checkOutDate)&&(t={selectedStartDate:r.checkInDate,selectedEndDate:r.checkOutDate}),l&&(n=[J(l)],a=l.isPetsIncluded),x({dateRange:t,rooms:n,petsIncluded:a})})},localDisabled:V,data:p.submitButton,showLoader:V}))),p.footer&&a.createElement(f.N,{margin:{blockstart:"two"}},a.createElement(C.D,{size:200,align:"center",theme:"standard"},p.footer)))))):null};je.fragment=ze,je.displayName="InquiryFormCTA";var Qe=r.gql`
+  query ContactHostContentQuery(
+    $context: ContextInput!
+    $inquiryFormInput: OffersInquiryFormInput
+    $propertyId: String!
+    $searchCriteria: PropertySearchCriteriaInput
+    $shoppingContext: ShoppingContextInput
+    $travelAdTrackingInfo: PropertyTravelAdTrackingInfoInput
+    $searchOffer: SearchOfferInput
+    $referrer: String
+  ) {
+    contactHostContent(
+      context: $context
+      inquiryFormInput: $inquiryFormInput
+      propertyId: $propertyId
+      referrer: $referrer
+      searchCriteria: $searchCriteria
+      searchOffer: $searchOffer
+      shoppingContext: $shoppingContext
+      travelAdTrackingInfo: $travelAdTrackingInfo
+    ) {
+      ...OffersInquiryFormLayoutFragment
+      __typename
+    }
+  }
+  ${je.fragment}
+`,Ke=({inputs:e,skipSsr:t,updateInquiryUpdatedFields:n,answeringTravellerQuestionInputs:i})=>{const{context:o}=(0,l.R)(),[s,c]=(0,a.useState)(void 0),d={...e,context:o};(0,a.useEffect)(()=>{c(d)},[]);const{previousData:u,data:m,error:p,loading:g,refetch:y}=(0,r.useQuery)(Qe,{context:{shouldLogPerformance:!0},variables:d,ssr:!t,notifyOnNetworkStatusChange:!0}),v=(0,a.useRef)(null);if(p)return a.createElement(z,{refetchQuery:y});if(g&&!m&&!u)return a.createElement(j,null);const E=(null==m?void 0:m.contactHostContent)||(null==u?void 0:u.contactHostContent);return E?a.createElement(je,{data:E,isLoading:g,inputs:e,updateVariables:(e,t,n,a)=>{var r,l;if((null==(r=null==s?void 0:s.inquiryFormInput)?void 0:r.primaryPropertyCriteriaInput)&&(null==(l=null==s?void 0:s.searchCriteria)?void 0:l.primary)){const r={...s,inquiryFormInput:{...s.inquiryFormInput,primaryPropertyCriteriaInput:{...s.inquiryFormInput.primaryPropertyCriteriaInput,...void 0!==e&&{rooms:e},...a&&{dateRange:n?{checkInDate:n.selectedStartDate,checkOutDate:n.selectedEndDate}:null}},...void 0!==t&&{petsIncluded:t}},searchCriteria:{...s.searchCriteria,primary:{...s.searchCriteria.primary,...void 0!==e&&{rooms:e},...a&&{dateRange:n?{checkInDate:n.selectedStartDate,checkOutDate:n.selectedEndDate}:null}}}};c(r),y(r)}},updateInquiryUpdatedFields:n,triggerRef:v,answeringTravellerQuestionInputs:i}):null};Ke.displayName="ContactHostCTAContent";var Xe=({actionId:e,onFieldsChangeCallback:t})=>{const[n,r]=(0,a.useState)(void 0),l=(0,i.RN)(e),[o]=(0,H.useDialog)((null==l?void 0:l.overlayId)||"");(0,a.useEffect)(()=>{if(l&&!o&&n){const{dateRange:e,petsIncluded:a,rooms:l,dateChange:i=!1}=n,o={dateChange:i,dateRange:e?{selectedStartDate:e.selectedStartDate,selectedEndDate:e.selectedEndDate}:void 0,rooms:l,...void 0!==a&&{petsIncluded:a}};t(o),null==window||window.dispatchEvent(new CustomEvent("availabilityChangeDates",{detail:{dateRangeInput:{checkInDate:null==e?void 0:e.selectedStartDate,checkOutDate:null==e?void 0:e.selectedEndDate}}})),r(void 0)}},[o,n]);return{inquiryUpdatedFields:n,updateInquiryUpdatedFields:e=>{r(t=>({...t,...e}))}}},Je=({data:e,onFieldsChangeCallback:t,contactHostCTAContentInputs:n,answeringTravellerQuestionInputs:r})=>{var l;const{actions:s}=e,c=(null==(l=null==s?void 0:s.find(e=>"ShoppingNavigateToOverlay"===e.__typename))?void 0:l.actionId)||"",{updateInquiryUpdatedFields:d}=Xe({actionId:c,onFieldsChangeCallback:t});return a.createElement(i.e3,{actionId:c,useToolbar:!0,renderNavigateBar:!0,centeredSheetSize:"medium"},a.createElement(o.Y,{padded:!0},a.createElement(Ke,{inputs:n,answeringTravellerQuestionInputs:r,updateInquiryUpdatedFields:d})))};Je.fragment=i._Q,Je.displayName="ContactHostCTAOverlay";var Ye=r.gql`
+  fragment ContactHostCTAButtonFragment on ContactHostCTA {
+    button {
+      ...ShoppingActionButtonFragment
+    }
+  }
+  ${i.Rx.fragment}
+`,Ze=({data:e})=>{const{button:t}=e,n=(0,q.s5)({[q.OB.SMALL]:!0,[q.OB.MEDIUM]:!1});return t&&t.primary?a.createElement(i.Rx,{data:t,"data-stid":`contact-host-${t.buttonType}-button`,isFullWidth:n}):null};Ze.fragment=Ye,Ze.displayName="ContactHostCTAButton";var et=r.gql`
+  fragment ContactHostCTASectionFragment on ContactHostCTA {
+    ...ContactHostCTAButtonFragment
+    header
+  }
+
+  ${Ze.fragment}
+`,tt=({data:e})=>{const{header:t,button:n}=e,r=1===(0,U.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,l=1===(0,U.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,i=r||l;if(!n)return null;return t?a.createElement(T.g,null,a.createElement(x.E,{padded:!i},a.createElement(f.N,{padding:{small:{inline:"three"},medium:{inline:i?"unset":"three"},large:{inline:i?"unset":"three"},blockstart:i?"four":"three",blockend:i?"four":"three"}},a.createElement(y.w,{space:"four",columns:{medium:1,large:3}},a.createElement(v.T,{colSpan:{medium:1,large:1},rowSpan:{medium:1,large:1}},a.createElement(m.M,{tag:"h3",typeStyle:i?void 0:{customStyle:"headline-large"},size:i?5:4},t)),a.createElement(v.T,{colSpan:1},a.createElement("div",null,a.createElement(Ze,{data:e}))))))):a.createElement(Ze,{data:e})};tt.fragment=et,tt.displayName="ContactHostCTASection";var nt=r.gql`
+  query ContactHostCTAQuery(
+    $context: ContextInput!
+    $buttonType: ShoppingButtonType!
+    $inquiryFormInput: OffersInquiryFormInput!
+    $propertyId: String!
+    $headerIncluded: Boolean!
+    $position: String
+    $location: ContactHostCTALocation
+  ) {
+    contactHostCTA(
+      context: $context
+      buttonType: $buttonType
+      inquiryFormInput: $inquiryFormInput
+      propertyId: $propertyId
+      headerIncluded: $headerIncluded
+      position: $position
+      location: $location
+    ) {
+      ...ContactHostCTASectionFragment
+      contents {
+        contentId
+        content {
+          __typename
+          ... on ShoppingLoadSharedUI {
+            componentName
+          }
+        }
+      }
+      shoppingJoinListContainer {
+        ...ShoppingJoinListContainerFragment
+      }
+    }
+  }
+  ${tt.fragment}
+  ${i.DU.fragment}
+  ${i._Q}
+`,at=({inputs:e,skipSsr:t,onFieldsChangeCallback:n,contactHostCTAContentInputs:o,answeringTravellerQuestionInputs:s})=>{const{context:c}=(0,l.R)(),d={...e,context:c},{data:u,error:m}=(0,r.useQuery)(nt,{context:{shouldLogPerformance:!0},variables:d,ssr:!t}),p=null==u?void 0:u.contactHostCTA;if(m||!(null==p?void 0:p.button)||!(null==p?void 0:p.shoppingJoinListContainer))return null;const{shoppingJoinListContainer:g}=p;return a.createElement(i._T,{id:"contact-host",shoppingJoinListContainer:g},a.createElement(tt,{data:p}),a.createElement(Je,{data:g,contactHostCTAContentInputs:o,answeringTravellerQuestionInputs:s,onFieldsChangeCallback:n}))};at.displayName="sharedui-ContactHostCTA";var rt={__typename:"EGDSTextInputField",label:"firstName",placeholder:"First name",value:"Peru",readOnly:!0,egdsElementId:"firstNameField",inputDisabled:!0,validations:null},lt={__typename:"EGDSTextInputField",label:"lastName",placeholder:"Last name",value:"Test",readOnly:!0,egdsElementId:"lastNameField",inputDisabled:!0,validations:null},it={__typename:"EGDSTextInputField",label:"email",placeholder:"Email address",value:"aperu55@devmail.wvrgroup.internal",readOnly:!0,egdsElementId:"emailField",inputDisabled:!0,validations:null},ot={__typename:"EGDSTextAreaInputField",label:"Leave a message",readOnly:!1,egdsElementId:"message",errorMessage:"",placeholder:"Let us know about your plans and any special requirements so that we can make your stay more comfortable",value:null,minRows:2,maxRows:6,validations:[{__typename:"InvalidTypename",errorMessage:""},{__typename:"EGDSMaxLengthInputValidation",errorMessage:"Maximum message length is 20",maxLength:20},{__typename:"EGDSRequiredInputValidation",errorMessage:"Please enter a message."}]},st={__typename:"EGDSBasicCheckBox",state:"UNCHECKED",description:null,egdsElementId:"optInForMarketing",checkboxLabel:{__typename:"EGDSPlainText",text:"Tick the box if you do not want to receive emails from Vrbo with commercial offers and other information"},enabled:!0,required:!1,name:"newsLetterSubscribe",checkedAnalytics:{__typename:"ClientSideAnalytics",linkName:"",referrerId:""},uncheckedAnalytics:{__typename:"ClientSideAnalytics",linkName:"",referrerId:""}},ct={__typename:"EGDSBasicTravelerSelector",title:"",doneButton:{__typename:"UIPrimaryButton",accessibility:null,action:null,egdsElementId:null,icon:null,disabled:!1,primary:"Done",analytics:{__typename:"ClientSideAnalytics",linkName:"Travelers results updated",referrerId:"Hotels.Traveler.Done",uisPrimeMessages:[],eventType:"CLICK"}},travelers:{__typename:"EGDSTravelers",pets:{enabled:!0,label:{text:"I am traveling with pets",__typename:"EGDSPlainText"},state:"UNCHECKED",__typename:"EGDSBasicCheckBox"},adults:{__typename:"EGDSTravelerStepInput",increaseText:"Adults +",decreaseText:"Adults -",key:null,label:"Adults",min:1,max:4,value:1,step:1,subLabel:null},children:{__typename:"EGDSTravelerChildren",ages:[{__typename:"EGDSTravelerChildAgeSelect",disabled:!1,readOnly:!1,icon:null,errorMessage:null,value:0,label:"Child 1 age",options:[{label:"0",selected:!1,value:"0",__typename:"EGDSBasicOption"},{label:"1",selected:!1,value:"1",__typename:"EGDSBasicOption"},{label:"2",selected:!1,value:"2",__typename:"EGDSBasicOption"},{label:"5",selected:!1,value:"5",__typename:"EGDSBasicOption"},{label:"17",selected:!1,value:"17",__typename:"EGDSBasicOption"}]},{__typename:"EGDSTravelerChildAgeSelect",disabled:!1,readOnly:!1,icon:null,errorMessage:null,value:null,label:"Child 2 age",options:[{label:"0",selected:!1,value:"0",__typename:"EGDSBasicOption"},{label:"1",selected:!1,value:"1",__typename:"EGDSBasicOption"},{label:"2",selected:!1,value:"2",__typename:"EGDSBasicOption"},{label:"5",selected:!1,value:"5",__typename:"EGDSBasicOption"},{label:"17",selected:!1,value:"17",__typename:"EGDSBasicOption"}]},{__typename:"EGDSTravelerChildAgeSelect",disabled:!1,readOnly:!1,icon:null,errorMessage:null,value:null,label:"Child 3 age",options:[{label:"0",selected:!1,value:"0",__typename:"EGDSBasicOption"},{label:"1",selected:!1,value:"1",__typename:"EGDSBasicOption"},{label:"2",selected:!1,value:"2",__typename:"EGDSBasicOption"},{label:"5",selected:!1,value:"5",__typename:"EGDSBasicOption"},{label:"17",selected:!1,value:"17",__typename:"EGDSBasicOption"}]}],count:{__typename:"EGDSTravelerStepInput",increaseText:"Children +",decreaseText:"Children -",key:null,label:"Children",min:0,max:3,value:0,step:1,subLabel:"Ages 0 to 17"}}},validations:[]},dt={models:[{key:"travelers",source:"travelers",__typename:"TemplateModel"}],templates:[{category:"ZERO",template:"${travelers} travelers",__typename:"CardinalTemplate"},{category:"ONE",template:"${travelers} traveler",__typename:"CardinalTemplate"},{category:"TWO",template:"${travelers} travelers",__typename:"CardinalTemplate"},{category:"FEW",template:"${travelers} travelers",__typename:"CardinalTemplate"},{category:"MANY",template:"${travelers} travelers",__typename:"CardinalTemplate"},{category:"OTHER",template:"${travelers} travelers",__typename:"CardinalTemplate"}],secondaryTemplates:[{category:"ZERO",template:"${travelers} travelers with pets",__typename:"CardinalTemplate"},{category:"ONE",template:"${travelers} traveler with pets",__typename:"CardinalTemplate"},{category:"TWO",template:"${travelers} travelers with pets",__typename:"CardinalTemplate"},{category:"FEW",template:"${travelers} travelers with pets",__typename:"CardinalTemplate"},{category:"MANY",template:"${travelers} travelers with pets",__typename:"CardinalTemplate"},{category:"OTHER",template:"${travelers} travelers with pets",__typename:"CardinalTemplate"}],text:"3 travelers",__typename:"EGDSCardinalLocalizedText"}}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-lodging-contact-host.eabd43afc9997d700812.js.map

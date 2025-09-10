@@ -1,0 +1,143 @@
+/*@license For license information please refer to shared-ui-retail-product-spotlight.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[6864],{98159:function(e,t,n){n.d(t,{L:function(){return ve}});var a=n(56195),l=n(26690),r=n(64341),i=n(42534),o=n(97778),c=n(79066),m=n(46559),u=n(43888),s=n(70882),d=n(522),g=n(99828),p=n(74071),h=n(32380),E=n(89962),S=n(89438),v=n(934),y=n(23726),f=n(69287),b=n(9010),x=n(36145),C=n(92919),I=n(24109),F=n(2557),w=n(27102),P=n(1226),k=n(47540),A=Object.defineProperty,N=Object.defineProperties,L=Object.getOwnPropertyDescriptors,T=Object.getOwnPropertySymbols,_=Object.prototype.hasOwnProperty,$=Object.prototype.propertyIsEnumerable,D=(e,t,n)=>t in e?A(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,O=(e,t)=>{for(var n in t||(t={}))_.call(t,n)&&D(e,n,t[n]);if(T)for(var n of T(t))$.call(t,n)&&D(e,n,t[n]);return e},R=(e,t)=>N(e,L(t)),z={INFO:"info",POSITIVE:"positive",STANDARD:"standard",WARNING:"warning"},q=e=>{switch(e){case"BULLETED":return"default";case"NUMBERED":return"tiered-numbered";default:return"no-bullet"}},M="see-spotlight-attributes-action-id",j=l.gql`
+  fragment AttributeListFragment on ShoppingProductContentItemTexts {
+    type
+    contents
+  }
+`,B=({data:e})=>{const{type:t,contents:n}=e;return n&&0!==n.length?a.createElement(h.y,{bullet:q(t)},n.map((e,t)=>a.createElement(E.x,{key:`spotlight-attribute-list-content-${t}`},e))):null};B.fragment=j,B.displayName="sharedui-AttributeList";var G=l.gql`
+  fragment AttributeItemFragment on ShoppingProductContent {
+    header {
+      text
+    }
+    items {
+      ... on ShoppingProductContentItemTexts {
+        ...AttributeListFragment
+      }
+    }
+  }
+  ${B.fragment}
+`;function H(e){return"ShoppingProductContentItemTexts"===e.__typename}var V=({data:e})=>{const{header:t,items:n}=e,l=(0,a.useMemo)(()=>null==n?void 0:n.filter(H),[n]);return(null==t?void 0:t.text)&&(null==n?void 0:n.length)?a.createElement(g.C,null,a.createElement("div",null,a.createElement(p.M,{tag:"h3",size:6},t.text),l.map((e,t)=>a.createElement(B,{data:e,key:`spotlight-attribute-list-${t}-${e.type}`})))):null};V.fragment=G,V.displayName="sharedui-AttributeItem";var X=l.gql`
+  fragment SpotlightAttributesFragment on ShoppingProductContentSectionGroupContent {
+    ... on ShoppingProductContentSection {
+      subSections {
+        elements {
+          elements {
+            ... on ShoppingProductContent {
+              ...AttributeItemFragment
+            }
+          }
+        }
+      }
+    }
+  }
+  ${V.fragment}
+`,U=({data:e})=>{const t="ShoppingProductContentSection"===e.__typename?e.subSections:[];return(null==t?void 0:t.length)?a.createElement(a.Fragment,null,t.map((e,t)=>{var n;return a.createElement("div",{key:`spotlight-attributes-${t}`},null==(n=e.elements)?void 0:n.map((e,t)=>{var n;return a.createElement(d.X,{direction:"column",space:"six",key:`spotlight-attribute-lists-${t}`},null==(n=e.elements)?void 0:n.map((e,t)=>a.createElement(V,{data:e,key:`spotlight-attribute-item-${t}`})))}))})):null};U.fragment=X,U.displayName="sharedui-SpotlightAttributes";var W=l.gql`
+  fragment SpotlightLinkContainerFragment on ShoppingProductContentSectionGroup {
+    sections {
+      action {
+        __typename
+        ... on ShoppingLink {
+          ...ShoppingLinkFragment
+          analyticsPayload
+        }
+      }
+    }
+  }
+  ${c.B8.fragment}
+`,K=({data:e,triggerRef:t,handleLinkClick:n})=>{const{sections:l}=e,r=(0,o.useEgClickstream)(),i=l.find(e=>(null==e?void 0:e.action)&&"actionId"in e.action&&e.action.actionId===M),m=(0,a.useCallback)(()=>{if((null==i?void 0:i.action)&&"ShoppingLink"===i.action.__typename&&i.action.analyticsPayload){const e=(0,c.Ft)("spotlight.opened",i.action.analyticsPayload);r(e)}n()},[n,i,r]);return l&&l.length&&(null==i?void 0:i.action)&&"ShoppingLink"===(null==i?void 0:i.action.__typename)?a.createElement(c.B8,{data:null==i?void 0:i.action,inline:!1,triggerRef:t,onClick:m}):null};K.fragment=W,K.displayName="sharedui-SpotlightLinkContainer";var Q=l.gql`
+  fragment SpotlightOverlayFragment on ShoppingOverlayContainer {
+    overlay {
+      ... on EGDSSheet {
+        closeText
+        closeAccessibility
+      }
+    }
+  }
+`,J=({data:e,triggerRef:t,onClose:n,children:l})=>{var r;const{overlay:i}=e,o=a.createRef(),c="EGDSSheet"===i.__typename?i:void 0,u={returnFocusOnClose:!0,triggerRef:t,isVisible:!0},s=a.createElement(a.Fragment,null,a.createElement(y.p,{toolbarTitle:(null==c?void 0:c.closeText)||"",navigationContent:{onClick:n,navType:"close",navButtonId:"spotlight-overlay-close",id:"spotlight-overlay-close-id",navIconLabel:null!=(r=null==c?void 0:c.closeAccessibility)?r:""},contentDomRef:o}),a.createElement(S.Y,{contentDomRef:o},l));return a.createElement(m.LM,null,a.createElement(m.NP,null,a.createElement(v.t,R(O({},u),{type:"full"}),s)),a.createElement(m.rw,null,a.createElement(v.t,R(O({},u),{type:"centered",centeredSheetSize:"medium"}),s)))};J.fragment=Q,J.displayName="sharedui-SpotlightOverlay";var Y=l.gql`
+  fragment SeeAllAttributesFragment on ShoppingProductContentSectionGroup {
+    shoppingJoinListContainer {
+      actions {
+        ... on ShoppingNavigateToOverlay {
+          overlayId
+          actionId
+        }
+      }
+      overlays {
+        overlayId
+        contentId
+        ...SpotlightOverlayFragment
+      }
+    }
+    ...SpotlightLinkContainerFragment
+    contents {
+      contentId
+      content {
+        ...SpotlightAttributesFragment
+      }
+    }
+  }
+  ${K.fragment}
+  ${J.fragment}
+  ${U.fragment}
+`,Z=l.gql`
+  fragment SpotlightSeeAttributesFragment on ProductSpotlight {
+    seeAllAttributesContainer {
+      ...SeeAllAttributesFragment
+    }
+  }
+  ${Y}
+`,ee=({data:e})=>{var t,n;const[l,r,i]=(0,s.useDialog)("product-spotlight","pwaOverlay"),{seeAllAttributesContainer:o}=e,c=a.useRef(null),m=a.useCallback(()=>{r.openDialog({closeAllDialogs:!0})},[r]);if(!o||!(null==(t=o.sections)?void 0:t.length))return null;const{shoppingJoinListContainer:d,contents:g}=o,{actions:p,overlays:h}=d||{},E=null==p?void 0:p.find(e=>"ShoppingNavigateToOverlay"===(null==e?void 0:e.__typename)&&e.actionId===M),S="ShoppingNavigateToOverlay"===(null==E?void 0:E.__typename)?null==E?void 0:E.overlayId:null,v=null==h?void 0:h.find(e=>e.overlayId===S),y=null==v?void 0:v.contentId,f=null==g?void 0:g.find(e=>e.contentId===y);return a.createElement(a.Fragment,null,a.createElement(K,{data:o,triggerRef:c,handleLinkClick:m}),v&&a.createElement(u.K,{isVisible:l},a.createElement(i,null,a.createElement(J,{data:v,triggerRef:c,onClose:r.closeDialog},null==(n=null==f?void 0:f.content)?void 0:n.map((e,t)=>a.createElement(U,{data:e,key:`spotlight-attributes-${t}`}))))))};ee.fragment=Z,ee.displayName="sharedui-SpotlightSeeAttributes";var te=l.gql`
+  fragment SpotlightDescriptionFragment on ProductSpotlight {
+    description
+  }
+`,ne=({data:e,spaceRequired:t=!0})=>{const{description:n}=e;return n?a.createElement(i.N,{margin:{block:t?void 0:"unset"}},a.createElement(f.u,{size:2},n)):null};ne.fragment=te,ne.displayName="sharedui-SpotlightDescription";var ae=l.gql`
+  fragment SpotlightHeadingFragment on ProductSpotlight {
+    heading {
+      text
+      accessibility
+    }
+  }
+`,le=({data:e})=>{const{heading:t}=e;return t&&t.text?a.createElement(p.M,{tag:"h3",size:5},null==t?void 0:t.text):null};le.fragment=ae,le.displayName="sharedui-SpotlightHeading";var re=l.gql`
+  fragment SpotlightImageFragment on ProductImage {
+    url
+    description
+    aspectRatio
+    fitment
+  }
+`,ie=({data:e})=>{const{url:t,description:n,aspectRatio:l,fitment:r}=e;if(!t)return null;const i=l?c.Sj[l]:b.l.R3_4,o=c.wU[r];return a.createElement(b.M,{ratio:i,imageFit:o,roundcorner:!0},a.createElement(x.F,{src:t,alt:n||"",placeholderImage:!0}))};ie.fragment=re,ie.displayName="sharedui-SpotlightImage";var oe=l.gql`
+  fragment SpotlightReviewSummaryFragment on ProductSpotlight {
+    reviewSummary {
+      text
+      subText
+      leadingIcon {
+        ...EGDSIconFragment
+      }
+    }
+  }
+  ${c.YF.fragment}
+`,ce=({data:e,inFullSize:t})=>{const{reviewSummary:n}=e;if(!n||!n.subText)return null;const{leadingIcon:l,text:r,subText:i}=n,o=(null==l?void 0:l.spotLight)?z[l.spotLight]:"standard";return a.createElement(C.g,{padded:!0,backgroundTheme:"secondary"},a.createElement(d.X,{space:"four",blockSize:t?"full_size":void 0,alignItems:"center"},l&&a.createElement(g.C,{grow:0},a.createElement(I.E,{padded:!1},a.createElement(F.LD,{name:l.id,spotlight:o}))),a.createElement(g.C,{grow:1},a.createElement(I.E,{padded:!1},a.createElement(w.D,{size:200,weight:"medium"},r),a.createElement(f.u,{size:2},i," ")))))};ce.fragment=oe,ce.displayName="sharedui-SpotlightReviewSummary";var me=({data:e})=>{const{images:t}=e;if(!t||!t.length||0===t.length)return null;const n=(null==t?void 0:t.length)||0,l=n>1?t.slice(1):[],r=n>1?["auto","30x"]:["auto"],i=1===n?["auto"]:["256px"];return a.createElement(P.w,{columns:r,space:"four",rows:i},a.createElement(k.T,null,a.createElement(ie,{data:t[0]})),l&&t.length>1&&a.createElement(k.T,null,a.createElement(P.w,{rows:["30x","30x"],space:"four"},l.map((e,t)=>a.createElement(k.T,{key:`spotlight-tile-${t}`},a.createElement(ie,{data:e}))))))},ue=({data:e,rowSize:t=["256px"]})=>{const{images:n}=e;return n&&n.length&&0!==n.length?a.createElement(P.w,{rows:t},a.createElement(k.T,null,a.createElement(ie,{data:n[0]}))):null},se=({data:e,columnSize:t=["30x","30x"],rowSize:n=["30x"]})=>{const{images:l}=e,r=l&&l.length>1?null==l?void 0:l.slice(1):[];if(!r||!r.length||0===r.length)return null;const i=r.length>1?t:t[0];return a.createElement(P.w,{columns:i,rows:n,space:"four"},r.map((e,t)=>a.createElement(k.T,{key:`spotlight-thumbnail-tile-${t}`},a.createElement(ie,{data:e}))))};se.displayName="shared-ui-SpotlightImageThumbnails",me.displayName="shared-ui-SpotlightTiles",ue.displayName="shared-ui-SpotlightHeroImage";var de=({data:e})=>a.createElement(d.X,{direction:"column",space:"six"},a.createElement(g.C,null,a.createElement(d.X,{direction:"column",space:"four"},a.createElement(g.C,null,a.createElement(le,{data:e})),a.createElement(g.C,null,a.createElement(me,{data:e})),a.createElement(g.C,null,a.createElement(ne,{data:e,spaceRequired:!1})),a.createElement(g.C,null,a.createElement(ce,{data:e})))),a.createElement(g.C,null,a.createElement(ee,{data:e})));de.displayName="shared-ui-SpotlightSmallView";var ge=({data:e})=>{const{images:t,reviewSummary:n}=e,l=(null==t?void 0:t.length)||0,r=l>0?["48x","auto"]:["auto"],i=1!==l||n?["256px"]:["48x"];return a.createElement(P.w,{columns:r,space:"six"},a.createElement(k.T,null,a.createElement(ue,{data:e,rowSize:i})),a.createElement(k.T,null,a.createElement(d.X,{direction:"column",space:"six"},a.createElement(g.C,null,a.createElement("div",null,a.createElement(le,{data:e}),a.createElement(ne,{data:e}))),a.createElement(g.C,null,a.createElement(se,{data:e})),a.createElement(g.C,null,a.createElement(ce,{data:e})),a.createElement(g.C,null,a.createElement(ee,{data:e})))))};ge.displayName="shared-ui-SpotlightMediumView";var pe=({data:e})=>{const{images:t,reviewSummary:n}=e,l=(null==t?void 0:t.length)||0,r=l>0?["300px","auto"]:["auto"],i=l>1?[`${l>2?"320px":"152px"}`,"auto"]:["1fr"],o=1!==l||n?["400px"]:["300px"],c=l>2?["152px"]:["auto"];return a.createElement(P.w,{columns:r,space:"six"},a.createElement(k.T,null,a.createElement(ue,{data:e,rowSize:o})),a.createElement(k.T,null,a.createElement(d.X,{direction:"column",space:"six"},a.createElement(g.C,{maxWidth:"104x"},a.createElement("div",null,a.createElement(le,{data:e}),a.createElement(ne,{data:e}))),(l>1||n)&&a.createElement(g.C,null,a.createElement(P.w,{columns:i,space:"four",rows:c},a.createElement(k.T,null,a.createElement(se,{data:e,columnSize:["152px","152px"],rowSize:["152px"]})),a.createElement(k.T,null,a.createElement(ce,{data:e,inFullSize:!0})))),a.createElement(g.C,null,a.createElement(ee,{data:e})))))};pe.displayName="shared-ui-SpotlightLargeView";var he=l.gql`
+  fragment ProductSpotlightFragment on ProductSpotlight {
+    analyticsPayload
+    images {
+      ...SpotlightImageFragment
+    }
+    ...SpotlightReviewSummaryFragment
+    ...SpotlightHeadingFragment
+    ...SpotlightDescriptionFragment
+    ...SpotlightSeeAttributesFragment
+  }
+  ${ce.fragment}
+  ${ie.fragment}
+  ${le.fragment}
+  ${ne.fragment}
+  ${ee.fragment}
+`,Ee=({data:e,isFullWidth:t})=>{const{analyticsPayload:n}=e,l=a.createElement(m.LM,null,a.createElement(m.NP,null,a.createElement(de,{data:e})),a.createElement(m.rw,null,a.createElement(ge,{data:e})),a.createElement(m.zQ,null,a.createElement(a.Fragment,null,t?a.createElement(pe,{data:e}):a.createElement(ge,{data:e}))));return a.createElement(i.N,{margin:{block:"four"}},a.createElement("div",null,n?a.createElement(o.EgClickstreamImpressionTracker,{eventData:(0,c.Ft)("spotlight.presented",n)},l):l))};Ee.fragment=he,Ee.displayName="sharedui-SpotlightContainer";var Se=l.gql`
+  query SpotlightQuery($productIdentifier: ProductIdentifierInput!, $context: ContextInput!) {
+    productSpotlight(productIdentifier: $productIdentifier, context: $context) {
+      ...ProductSpotlightFragment
+    }
+  }
+
+  ${Ee.fragment}
+`,ve=({inputs:e,skipSsr:t,prefetchedData:n,isFullWidth:i})=>{const{data:o,error:c,loading:m}=((e,t,n)=>{const{context:a}=(0,r.R)(),i=R(O({},e),{context:a});return(0,l.useQuery)(Se,{context:{shouldLogPerformance:!0},variables:i,ssr:!t,skip:void 0!==n})})(e,t,n),u=((e,t)=>(0,a.useMemo)(()=>null!=t?t:e,[e,t]))(null==o?void 0:o.productSpotlight,n);return m||c||!u?null:a.createElement(Ee,{data:u,isFullWidth:i})};ve.displayName="sharedui-Spotlight"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-spotlight.f1f79132876c3241bcd4.js.map

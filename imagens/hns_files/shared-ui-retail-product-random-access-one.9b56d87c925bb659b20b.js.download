@@ -1,0 +1,513 @@
+/*@license For license information please refer to shared-ui-retail-product-random-access-one.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[8187],{84530:function(e,t,n){n.d(t,{Wx:function(){return ce},dy:function(){return Gt},ug:function(){return Yt}});var a=n(56195),l=n(26690),i=n(64341),r=n(7138),o=n(92919),c=n(63744),m=n(24109),d=n(9010),s=n(36145),u=n(97778),p=n(79066),g=n(80240),E=n(70882),v=n(14338),f=n(8724),y=n(522),b=n(99828),x=n(42534),h=n(2557),I=n(37292),T=n(37965),C=n(87993),k=n(30169),S=n(95519),N=n(76606),A=n(28662),R=n(90072),F=n(4988),L=n(27102),D=n(1226),O=n(47540),$=n(43888),_=n(934),w=n(89438),M=n(23726),V=n(5938),P=n(76462),W=n(12389),q=n(53877),U=n(96384),K=n(32462),G=n(22142),z=n(32380),B=n(89962),Y=n(74071),H=n(69287),j=Object.defineProperty,X=Object.defineProperties,J=Object.getOwnPropertyDescriptors,Z=Object.getOwnPropertySymbols,Q=Object.prototype.hasOwnProperty,ee=Object.prototype.propertyIsEnumerable,te=(e,t,n)=>t in e?j(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,ne=(e,t)=>{for(var n in t||(t={}))Q.call(t,n)&&te(e,n,t[n]);if(Z)for(var n of Z(t))ee.call(t,n)&&te(e,n,t[n]);return e},ae=(e,t)=>X(e,J(t)),le=(e,t,n)=>{e.forEach(e=>{var a;if(!n[e.id])return;const l=ae(ne({},e.element),{children:[]});if(delete n[e.id],null==(a=null==e?void 0:e.childrenIds)?void 0:a.length){const t=[];e.childrenIds.forEach(e=>{t.push(ae(ne({},n[e]),{children:[]}))}),le(t,l.children,n)}t.push(l)})},ie=e=>{var t,n;if(!e.randomAccessOne)return null;const a=[],l=[...null!=(n=null==(t=e.randomAccessOne)?void 0:t.mapping)?n:[]];return le(l,a,(e=>{const t={};return e.forEach(e=>{t[e.id]=e}),t})(l)),a};function re(e,t,n){if(!e.includes(t))return e;return e.split(t)[n]||""}function oe(e){if(!e)return null;return(null==e?void 0:e.startsWith("#"))?null==e?void 0:e.slice(1).trim():null}var ce=(e=>(e.ACTIVITY_ID="ACTIVITY_ID",e.CART_ID="CART_ID",e.CAR_OFFER_TOKEN="CAR_OFFER_TOKEN",e.CHECKOUT_SESSION_ID="CHECKOUT_SESSION_ID",e.ENTITY_ID="ENTITY_ID",e.LEGACY_ORDER_ID="LEGACY_ORDER_ID",e.OFFER_ID="OFFER_ID",e.ORDER_ID="ORDER_ID",e.PROPERTY_ID="PROPERTY_ID",e.SAILING_TOKEN="SAILING_TOKEN",e))(ce||{}),me={primary:"primary",secondary:"secondary",highlight:"highlight","global-loyalty-extra-high":"global-loyalty-extra-high","global-loyalty-high":"global-loyalty-high","global-loyalty-low":"global-loyalty-low","global-loyalty-middle":"global-loyalty-middle","global-loyalty-standard":"global-loyalty-standard",default:void 0},de={FOUR_ONE:d.l.R4_1,FOUR_THREE:d.l.R4_3,ONE_ONE:d.l.R1_1,SIXTEEN_NINE:d.l.R16_9,THREE_FOUR:d.l.R3_4,THREE_TWO:d.l.R3_2,TWENTY_ONE_NINE:d.l.R21_9},se={CONTAIN:"contain",COVER:"cover"},ue={EAGER:"eager",LAZY:"lazy",OFF:"off"},pe={TRUE:!0,FALSE:!1,ALL:["all"],MAX:["max"],START_START:["startstart","startstart"],START_END:["startend","startend"],END_START:["endstart","endstart"],END_END:["endend","endend"]},ge=(e,t,n,a,l=!1)=>{e(t,n,l,a)},Ee=l.gql`
+  fragment ExperimentalSpacingFragment on ExperimentalSpacing {
+    margin
+    padding
+    marginSpace
+    paddingSpace
+    inlineMarginSpace
+    inlinePaddingSpace
+  }
+`,ve=()=>a.createElement("div",null,"ExperimentalSpacing.fragment");ve.displayName="ExperimentalSpacing",ve.fragment=Ee;var fe=l.gql`
+  fragment ExperimentalAnalyticsFragment on ExperimentalAnalytics {
+    client {
+      eventType
+      linkName
+      referrerId
+      uisPrimeMessages {
+        __typename
+        schemaName
+        messageContent
+      }
+    }
+    appendToReferrerId
+  }
+`,ye=()=>a.createElement("div",null,"ExperimentalAnalytics.fragment");ye.displayName="ExperimentalAnalytics",ye.fragment=fe;var be=l.gql`
+  fragment ExperimentalTabFragment on ExperimentalTab {
+    title
+    target
+    disabled
+    analytics {
+      __typename
+      appendToReferrerId
+      ...ExperimentalAnalyticsFragment
+    }
+  }
+
+  ${ye.fragment}
+`,xe=()=>a.createElement("div",null,"ExperimentalTab.fragment");xe.displayName="ExperimentalTab",xe.fragment=be;var he=l.gql`
+  fragment ExperimentalSubTitleFragment on ExperimentalInfoSectionSubTitle {
+    text {
+      text
+      theme
+      weight
+      size
+      accessibility
+    }
+    icon {
+      ...EGDSIconFragment
+    }
+    illustration {
+      url
+      description
+    }
+    spaceV2
+    overflowV2
+  }
+
+  ${p.YF.fragment}
+`,Ie=()=>a.createElement("div",null,"ExperimentalSubTitle.fragment");Ie.displayName="ExperimentalSubtitle",Ie.fragment=he;var Te=l.gql`
+  fragment ExperimentalLinkActionFragment on ExperimentalLinkAction {
+    url
+    target
+    clickEvent {
+      eventType
+      referrerId
+      linkName
+    }
+    modal {
+      id
+      queryKey
+    }
+  }
+`,Ce=()=>a.createElement("div",null,"ExperimentalLinkAction.fragment");Ce.displayName="ExperimentalLinkAction",Ce.fragment=Te;var ke=l.gql`
+  fragment ExperimentalScriptFragment on ExperimentalScript {
+    variables {
+      name
+      expression
+    }
+    expression
+  }
+`,Se=()=>a.createElement("div",null,"ExperimentalScript.fragment");Se.displayName="ExperimentalScript",Se.fragment=ke;var Ne=({modalId:e,queryKey:t,text:n,onClick:l})=>{const[,i]=(0,E.useDialog)(e,t);return a.createElement(c.w,null,a.createElement(g.u,{role:"button",tag:"a",onClick:()=>{i.openDialog(),l&&l()}},n))},Ae=l.gql`
+  fragment CardConfigFragment on ExperimentalCardConfig {
+    featuredImage {
+      description
+      url
+      aspectRatio
+    }
+    link {
+      text
+      action {
+        ...ExperimentalLinkActionFragment
+      }
+    }
+    overflow
+    padded
+    border
+    selected
+    background
+  }
+
+  ${Ce.fragment}
+`,Re=({templateComponent:e})=>{var t,n,l,i,r,p,g,E,f,y,b,x,h,I,T,C;const{children:k}=e,S=(null==e?void 0:e.config).card,N=S.background?me[S.background]:void 0,A=(null==(t=S.featuredImage)?void 0:t.aspectRatio)?de[S.featuredImage.aspectRatio]:d.l.R16_9,R=(0,u.useClickTracker)();return S?a.createElement(o.g,{"data-view-id":null==(n=e.metadata)?void 0:n.id,padded:null!=(l=S.padded)&&l,border:null!=(i=S.border)&&i,overflow:null!=(r=S.overflow)&&r,backgroundTheme:N},S.featuredImage&&a.createElement(d.M,{ratio:A},a.createElement(s.F,{alt:S.featuredImage.description,src:S.featuredImage.url})),(null==(g=null==(p=S.link)?void 0:p.action)?void 0:g.url)&&a.createElement(c.w,null,a.createElement("a",{href:null==(E=S.link.action)?void 0:E.url},S.link.text)),(null==(y=null==(f=S.link)?void 0:f.action)?void 0:y.modal)&&a.createElement(Ne,{modalId:null==(x=null==(b=S.link)?void 0:b.action)?void 0:x.modal.id,queryKey:(null==(I=null==(h=S.link)?void 0:h.action)?void 0:I.modal.queryKey)||void 0,text:null==(T=S.link)?void 0:T.text,onClick:()=>{var e,t,n,a;return(null==(t=null==(e=S.link)?void 0:e.action)?void 0:t.clickEvent)&&(e=>{if(e){const{referrerId:t,linkName:n}=e;ge(R,t,n)}})(null==(a=null==(n=S.link)?void 0:n.action)?void 0:a.clickEvent)}}),k&&k.length>0?a.createElement(m.E,{padded:null!=(C=S.padded)&&C},a.createElement(v._A,{templateComponents:k})):a.createElement("div",null)):null};Re.displayName="Card",Re.fragment=Ae;var Fe={carouselHeaderText:"ExperimentalCarousel",carouselName:"ExperimentalCarousel",loop:!0,itemsVisible:{sm:1,md:1,lg:1,xl:1},pageBy:1,pagingInset:!0,pagingOverlay:!1,wrapItems:!0,navigationIconId:{next:"next-button-gallery",prev:"prev-button-gallery"},buttonText:{nextButton:"Show next card",prevButton:"Show previous card"},children:null},Le=l.gql`
+  fragment CarouselConfigFragment on ExperimentalCarouselConfig {
+    hideNav
+    itemsVisible {
+      sm
+      md
+      lg
+      xl
+    }
+    nextButton
+    prevButton
+    imagesList {
+      description
+      url
+    }
+    peek
+    alwaysShowPaging
+    analytics {
+      viewed {
+        eventType
+        linkName
+        referrerId
+      }
+      scrollEvent {
+        eventType
+        linkName
+        referrerId
+      }
+    }
+    naturalWidth
+  }
+`,De=({templateComponent:e})=>{var t,n,l,i,r,o,c;const{children:m}=e,p=null==e?void 0:e.config,g=null==e?void 0:e.metadata,E=p.carousel,y=(0,u.useClickTracker)(),b=(0,u.useClickstreamAnalytics)(),x=ae(ne({},Fe),{itemsVisible:{sm:(null==(t=null==E?void 0:E.itemsVisible)?void 0:t.sm)||Fe.itemsVisible.sm,md:(null==(n=null==E?void 0:E.itemsVisible)?void 0:n.md)||Fe.itemsVisible.md,lg:(null==(l=null==E?void 0:E.itemsVisible)?void 0:l.lg)||Fe.itemsVisible.lg,xl:(null==(i=null==E?void 0:E.itemsVisible)?void 0:i.xl)||Fe.itemsVisible.xl},hideNav:null==E?void 0:E.hideNav,peek:null==E?void 0:E.peek,pagingPersistent:null==E?void 0:E.alwaysShowPaging,buttonText:{prevButton:(null==E?void 0:E.prevButton)||Fe.buttonText.prevButton,nextButton:(null==E?void 0:E.nextButton)||Fe.buttonText.nextButton},itemsMaxHeight:!0,naturalWidthItems:null==E?void 0:E.naturalWidth,onIndexChange:()=>{var e,t;(null==(e=null==E?void 0:E.analytics)?void 0:e.viewed)&&((e,t,n,a=u.ITrackType.EVENT)=>{const{track:l}=e,{uisPrimeMessages:i,referrerId:r,linkName:o}=t,c=[{schemaName:"referrer",messageContent:{eventType:n,linkName:o,referrerId:r}}];null==i||i.forEach(e=>{c.push({schemaName:e.schemaName,messageContent:JSON.parse(e.messageContent)})}),l(a,{data:c})})(b,null==(t=E.analytics)?void 0:t.viewed,"impression")},analytics:{callback(e){var t,n,a,l,i;(null==(t=null==E?void 0:E.analytics)?void 0:t.scrollEvent)&&(e.endsWith("scrollRight")?ge(y,`${null==(n=E.analytics.scrollEvent)?void 0:n.referrerId}.scrollRight`,`${null==(a=E.analytics.scrollEvent)?void 0:a.linkName}`):e.endsWith("scrollLeft")&&ge(y,`${null==(l=E.analytics.scrollEvent)?void 0:l.referrerId}.scrollLeft`,`${null==(i=E.analytics.scrollEvent)?void 0:i.linkName}`))},id:"fasttrack-carousel-id",description:"fasttrack-carousel-description"},carouselHeaderText:(null==(r=g.accessibilityNode)?void 0:r.description)||Fe.carouselHeaderText}),h=null==(o=null==E?void 0:E.imagesList)?void 0:o.map((e,t)=>a.createElement(d.M,{ratio:d.l.R16_9,roundcorner:!0,key:`carousel-item-${t}`},a.createElement(s.F,{alt:e.description,src:e.url}))),I=null==m?void 0:m.map((e,t)=>a.createElement(v._A,{key:`carousel-child-${t}`,templateComponents:[e]}));return h||I?a.createElement("div",{"data-view-id":null==(c=e.metadata)?void 0:c.id},a.createElement(f._N,ne({},x),h,I)):null};De.displayName="Carousel",De.fragment=Le;var Oe={BASELINE:"end",CENTER:"center",END:"end",START:"start",STRETCH:"stretch"},$e={CENTER:"center",END:"end",START:"start"},_e={ROW:"row",COLUMN:"column"},we={HALF:"half",ONE:"one",TWO:"two",THREE:"three",FOUR:"four",SIX:"six",TWELVE:"twelve",SIXTEEN:"sixteen",UNSET:"unset"},Me={HALF:"half",ONE:"one",TWO:"two",THREE:"three",FOUR:"four",SIX:"six",TWELVE:"twelve",SIXTEEN:"xlarge",UNSET:"half"},Ve=l.gql`
+  fragment ImpressionTrackerFragment on ExperimentalImpressionTracker {
+    analytics {
+      eventType
+      linkName
+      referrerId
+      uisPrimeMessages {
+        __typename
+        schemaName
+        messageContent
+      }
+    }
+    trackOnce
+  }
+`,Pe=({impression:e,children:t})=>a.createElement(u.IntersectionTracker,{trackOnce:e.trackOnce,linkName:e.analytics.linkName,referrerId:e.analytics.referrerId},t||a.createElement("span",null));Pe.displayName="ImpressionWrapper",Pe.fragment=Ve;var We=({modalId:e,queryKey:t,buttonText:n,onClick:l,type:i,children:o,isFullWidth:c})=>{const m=e.includes("/")?re(e,"/",0):e,d=e.includes("/")?re(e,"/",1):"",[,s]=(0,E.useDialog)(m,t),u=function(){const e=(0,r.Zp)(),t=(0,r.zy)();return(0,a.useCallback)((n,a,l)=>{if(t&&n.includes("=")){const i=n.split("="),r=new URLSearchParams(t.search);r.set(l,a),(null==i?void 0:i[0])&&i[1]&&r.set(i[0],String(i[1])),e(`${t.pathname}?${r}`,{replace:!0})}},[e,t])}(),p=()=>{d?u(d,m,t||"pwaDialog"):s.openDialog(),l&&l()};switch(i){case"PRIMARY":return a.createElement(C.y,{type:"button",tag:"a",key:`button-jumplink-${m}`,onClick:p,isFullWidth:c},o);case"SECONDARY":return a.createElement(k.y,{type:"button",key:`button-jumplink-${m}`,onClick:p,isFullWidth:c},o);case"TERTIARY":return a.createElement(S.q,{type:"button",tag:"a",key:`button-jumplink-${m}`,onClick:p,isFullWidth:c},o);case"EGDSImage":return a.createElement(N.d,null,a.createElement("button",{onClick:p,type:"button"},a.createElement("span",{className:"is-visually-hidden"},n)));default:return a.createElement(I.i,{onClick:p},a.createElement("button",{type:"button",style:{alignItems:"center"}},o))}},qe=l.gql`
+  fragment TextInfoLinkFragment on ExperimentalAction {
+    typeV2
+    data {
+      text
+      action {
+        url
+        target
+        scrollOffsetSection
+        modal {
+          id
+          queryKey
+        }
+      }
+      icon {
+        ...EGDSIconFragment
+      }
+      iconPosition
+      inlineSpaceV2
+    }
+    analytics {
+      ...ExperimentalAnalyticsFragment
+    }
+  }
+
+  ${p.YF.fragment}
+  ${ye.fragment}
+`,Ue=e=>a.createElement(h.LD,{name:e.id,size:e.size?h.So[e.size]:h.So.MEDIUM}),Ke=(e,t)=>{if(e){const{client:n,appendToReferrerId:a}=e;ge(t,`${n.referrerId}${a}`,n.linkName)}},Ge=({icon:e,iconPosition:t,inlineSpaceV2:n,text:l})=>a.createElement(a.Fragment,null,e&&"LEADING"===t&&a.createElement(x.N,{margin:{inlineend:null!=n?n:"unset"}},Ue(e)),l,e&&"TRAILING"===t&&a.createElement(x.N,{margin:{inlinestart:null!=n?n:"unset"}},Ue(e))),ze=(e,t,n,l)=>{var i;switch(e.typeV2){case"JUMPLINK":{const i=a=>{const l=oe(e.data.action.url);if(e.analytics&&Ke(e.analytics,t),l){a.preventDefault();const{scrollOffsetSection:t}=e.data.action;n(l,t?[{sectionName:t}]:[])}};return a.createElement(I.i,{key:`jumplink-key-${e.typeV2}-${l}`,onClick:i},a.createElement("a",{href:`${e.data.action.url}`},Ge(e.data)))}case"MODAL":return(null==(i=e.data.action.modal)?void 0:i.id)?a.createElement(We,{key:`modal-trigger-${e.typeV2}-${l}`,modalId:e.data.action.modal.id,queryKey:e.data.action.modal.queryKey||void 0,buttonText:e.data.text,onClick:()=>e.analytics&&Ke(e.analytics,t)},Ge(e.data)):null;default:return a.createElement(I.i,{key:`redirect-key-${e.typeV2}-${l}`,onClick:()=>e.analytics&&Ke(e.analytics,t)},a.createElement("a",{href:`${e.data.action.url}`},Ge(e.data)))}},Be=({config:e})=>{const{infoSection:t}=e,{container:n}=e,l=(0,u.useClickTracker)(),{scrollTo:i}=(0,T.xC)();return a.createElement(a.Fragment,null,(null==t?void 0:t.links)&&t.links.length>0&&t.links.map((e,t)=>ze(e,l,i,t)),(null==n?void 0:n.action)&&n.action.data&&ze(n.action,l,i))};Be.displayName="TextInfoLink",Be.fragment=qe;var Ye=l.gql`
+  fragment ContainerFragment on ExperimentalContainerConfig {
+    action {
+      ...TextInfoLinkFragment
+    }
+    flex {
+      direction
+      horizontal
+      vertical
+      padding {
+        top
+        bottom
+        start
+        end
+      }
+      spaceBetween
+    }
+    impression {
+      ...ImpressionTrackerFragment
+    }
+  }
+
+  ${Be.fragment}
+  ${Pe.fragment}
+`,He=({templateComponent:e})=>{var t,n,l,i,r,o,c,m,d;const{children:s}=e,u=null==e?void 0:e.config,p=u.container,g=null==(t=u.container)?void 0:t.flex,E=null==(n=u.container)?void 0:n.impression,f="STRETCH"===(null==(l=null==p?void 0:p.flex)?void 0:l.vertical),h="CENTER"===(null==(i=null==p?void 0:p.flex)?void 0:i.vertical),I=p.flex&&s&&(null==s?void 0:s.length)>0&&a.createElement(x.N,{padding:{blockstart:(null==g?void 0:g.padding)?we[null==(r=null==g?void 0:g.padding)?void 0:r.top]:void 0,blockend:(null==g?void 0:g.padding)?we[null==(o=null==g?void 0:g.padding)?void 0:o.bottom]:void 0,inlinestart:(null==g?void 0:g.padding)?we[null==(c=null==g?void 0:g.padding)?void 0:c.start]:void 0,inlineend:(null==g?void 0:g.padding)?we[null==(m=null==g?void 0:g.padding)?void 0:m.end]:void 0}},a.createElement(y.X,{"data-view-id":null==(d=e.metadata)?void 0:d.id,space:(null==g?void 0:g.spaceBetween)?Me[null==g?void 0:g.spaceBetween]:"two",style:f||h?{height:"100%",width:"100%"}:{},direction:(null==g?void 0:g.direction)?_e[null==g?void 0:g.direction]:void 0,justifyContent:(null==g?void 0:g.horizontal)?$e[null==g?void 0:g.horizontal]:void 0,alignItems:(null==g?void 0:g.vertical)?Oe[null==g?void 0:g.vertical]:void 0,alignContent:h?"center":void 0},a.createElement(b.C,{grow:1},f?a.createElement("div",{style:{alignContent:"flex-end"}},a.createElement(v._A,{templateComponents:s})):a.createElement(v._A,{templateComponents:s})),p.impression&&a.createElement(b.C,null,a.createElement(Pe,{impression:E},null))));return p?a.createElement(a.Fragment,null,p.impression&&(null==s?void 0:s.length)&&!I&&a.createElement(Pe,{impression:E},a.createElement(v._A,{templateComponents:s})),I,p.action&&a.createElement(Be,{config:u})):null};He.displayName="ContainerWrapper",He.fragment=Ye;var je=l.gql`
+  fragment ExpandoFragment on ExperimentalExpandoConfig {
+    isList
+    expandLabel
+    collapseLabel
+    linesToShow
+    itemsToShow
+    hideScrim
+    analytics {
+      ...ExperimentalAnalyticsFragment
+    }
+  }
+
+  ${ye.fragment}
+`,Xe=({templateComponent:e})=>{var t,n;const{children:l}=e,i=(null==e?void 0:e.config).expando,r=(0,u.useClickTracker)(),[o,c]=a.useState(!1),m=()=>{if(null==i?void 0:i.analytics){const{client:e,appendToReferrerId:t}=i.analytics;ge(r,`${e.referrerId}${t}`,e.linkName)}};if(null==l?void 0:l.length){const r=a.createElement(v._A,{templateComponents:l});return i.isList?a.createElement(A.f,{"data-view-id":null==(t=e.metadata)?void 0:t.id},a.createElement(R.U,{isIndented:!1,expandoTitle:a.createElement(L.D,null,i.expandLabel),expandoDescription:r,onToggle:()=>{c(!o),m()},key:"expando-list-item"})):a.createElement(F.A,{"data-view-id":null==(n=e.metadata)?void 0:n.id,isVisible:o,handleClick:()=>{c(e=>!e),m()},lines:i.linesToShow||3,items:i.itemsToShow||3,hideScrim:!0,expandLabel:i.expandLabel,collapseLabel:i.collapseLabel||i.expandLabel},r)}return null};Xe.displayName="ExpandoWrapper",Xe.fragment=je;var Je=l.gql`
+  fragment IntersectionTrackerFragment on ExperimentalIntersectionTracker {
+    analytics {
+      eventType
+      linkName
+      referrerId
+      uisPrimeMessages {
+        __typename
+        schemaName
+        messageContent
+      }
+    }
+    trackOnce
+  }
+`,Ze=({templateComponent:e})=>{const{children:t}=e,n=(null==e?void 0:e.config).intersection;return(null==t?void 0:t.length)?a.createElement(u.IntersectionTracker,{trackOnce:n.trackOnce,linkName:n.analytics.linkName,referrerId:n.analytics.referrerId},a.createElement(v._A,{templateComponents:t})):null};Ze.displayName="IntersectionWrapper",Ze.fragment=Je;var Qe=l.gql`
+  fragment LayoutGridFragment on ExperimentalLayoutGrid {
+    columns
+    columnWidth
+    rowHeight
+    spaceV2
+    gridItem {
+      colSpan
+      rowSpan
+    }
+  }
+`,et=({templateComponent:e})=>{var t,n,l,i,r;const{children:o}=e,c=(null==e?void 0:e.config).grid,m=(null==(t=null==c?void 0:c.columnWidth)?void 0:t.filter(e=>"string"==typeof e))||null,d=(null==(n=null==c?void 0:c.rowHeight)?void 0:n.filter(e=>"string"==typeof e))||null;return c?a.createElement(D.w,{"data-view-id":null==(l=e.metadata)?void 0:l.id,columns:m||(null==c?void 0:c.columns),space:null!=(i=null==c?void 0:c.spaceV2)?i:void 0,rows:d||void 0},null==(r=c.gridItem)?void 0:r.map((e,t)=>{const n=null==o?void 0:o[t],{colSpan:l,rowSpan:i}=e;return null!=n?a.createElement(O.T,{colSpan:l,rowSpan:i||l,key:`layout-grid-item-${t}`},d||m?a.createElement(v._A,{templateComponents:[n]}):a.createElement("div",null,a.createElement(v._A,{templateComponents:[n]}))):null})):null};et.displayName="LayoutGrid",et.fragment=Qe;var tt=l.gql`
+  fragment ExperimentalImageFragment on ExperimentalImage {
+    source
+    description
+    aspectRatio
+    imageFit
+    lazyLoading
+    placeholder
+    roundedCorner
+    useBlank
+    events {
+      ...ExperimentalAnalyticsFragment
+    }
+    actions {
+      typeV2
+      data {
+        action {
+          ...ExperimentalLinkActionFragment
+        }
+        text
+      }
+    }
+  }
+
+  ${Ce.fragment}
+  ${ye.fragment}
+`,nt=({config:e})=>{var t,n;const{media:l}=e,i=(0,u.useClickTracker)();if(!(null==l?void 0:l.image))return null;const{image:r}=l,o=()=>{var e;if(null==r?void 0:r.events)return null==(e=r.events)?void 0:e.map(e=>{const{client:{referrerId:t,linkName:n}}=e;ge(i,t,n)})},c=null==(t=r.source)?void 0:t.includes("ra=fill");return a.createElement(d.M,{imageFit:se[r.imageFit],ratio:de[r.aspectRatio||"SIXTEEN_NINE"],roundcorner:pe[r.roundedCorner||"FALSE"]},a.createElement(s.F,{alt:r.description||"",lazyLoading:ue[r.lazyLoading||"LAZY"],blankDefault:r.useBlank,placeholderImage:r.placeholder,src:r.source,additionalProps:{fetchPriority:c?"high":"low"}}),null==(n=null==r?void 0:r.actions)?void 0:n.map((e,t)=>{var n;return"MODAL"===e.typeV2&&(null==(n=e.data.action.modal)?void 0:n.id)?a.createElement(We,{key:`modal-trigger-image-${e.typeV2}-${t}`,type:"EGDSImage",modalId:e.data.action.modal.id,queryKey:e.data.action.modal.queryKey||void 0,buttonText:r.description||"",onClick:o}):null}))};nt.displayName="ImageWrapper",nt.fragment=tt;var at=l.gql`
+  fragment MediaConfigFragment on ExperimentalMediaConfig {
+    image {
+      ...ExperimentalImageFragment
+    }
+  }
+
+  ${nt.fragment}
+`,lt=({templateComponent:e})=>{var t;const n=null==e?void 0:e.config;if(!n.media)return null;const{image:l}=n.media;return a.createElement(a.Fragment,null,l&&a.createElement(nt,{"data-view-id":null==(t=e.metadata)?void 0:t.id,config:n}))};lt.displayName="Media",lt.fragment=at;var it={BACK:"back",CLOSE:"close",EXPAND_DOWN:"expand_down",EXPAND_UP:"expand_up"},rt={ONE:1,THREE:3,TWO:2,FOUR:4,SIX:6,EIGHT:8,TWELVE:12},ot=({isDialogOpen:e,closeCallback:t,onCloseClick:n,ref:l,modal:i,children:r})=>a.createElement($.K,{isVisible:e,closeCallback:t},a.createElement(_.t,{fullWidth:i.fullWidth,isExpanded:i.isExpanded,type:"bottom",isVisible:e,triggerRef:l},a.createElement(a.Fragment,null,i.toolbar&&a.createElement(M.p,{navigationContent:{onClick:n,navType:it[i.toolbar.navType],navIconLabel:i.toolbar.closeLabel,navButtonId:"bottom-toolbar-close-button"},toolbarTitle:i.toolbar.title}),a.createElement(w.Y,null,r)))),ct=({isDialogOpen:e,closeCallback:t,onCloseClick:n,ref:l,modal:i,children:r,DialogComponent:o})=>a.createElement($.K,{isVisible:e,closeCallback:t},a.createElement(o,null,a.createElement(_.t,{type:"centered",isVisible:e,triggerRef:l},a.createElement(a.Fragment,null,i.toolbar&&a.createElement(M.p,{navigationContent:{onClick:n,navType:it[i.toolbar.navType],navIconLabel:i.toolbar.closeLabel,navButtonId:"centered-toolbar-close-button"},toolbarTitle:i.toolbar.title}),a.createElement(w.Y,null,r))))),mt=({isDialogOpen:e,closeCallback:t,onCloseClick:n,ref:l,modal:i,children:r,DialogComponent:o})=>a.createElement($.K,{isVisible:e,closeCallback:t},a.createElement(o,null,a.createElement(_.t,{type:"full",isVisible:e,triggerRef:l},a.createElement(a.Fragment,null,i.toolbar&&a.createElement(M.p,{navigationContent:{onClick:n,navType:it[i.toolbar.navType],navIconLabel:i.toolbar.closeLabel,navButtonId:"full-toolbar-close-button"},toolbarTitle:i.toolbar.title}),a.createElement(w.Y,null,r))))),dt=({isDialogOpen:e,closeCallback:t,onCloseClick:n,ref:l,modal:i,children:r})=>a.createElement($.K,{isVisible:e,closeCallback:t},a.createElement(_.t,{type:"popover",isVisible:e,triggerRef:l,position:{inline:"leading",block:"trailing"}},a.createElement(a.Fragment,null,i.toolbar&&a.createElement(M.p,{navigationContent:{onClick:n,navType:it[i.toolbar.navType],navIconLabel:i.toolbar.closeLabel,navButtonId:"popover-toolbar-close-button"},toolbarTitle:i.toolbar.title}),a.createElement(w.Y,null,r)))),st=({isDialogOpen:e,closeCallback:t,onCloseClick:n,ref:l,modal:i,children:r})=>a.createElement($.K,{isVisible:e,closeCallback:t},a.createElement(_.t,{overflow:!0,type:"side",sideSheetLayout:{columns:rt[i.sideSheetLayout],position:"trailing"},isVisible:e,triggerRef:l},a.createElement(a.Fragment,null,i.toolbar&&a.createElement(M.p,{navigationContent:{onClick:n,navType:it[i.toolbar.navType],navIconLabel:i.toolbar.closeLabel,navButtonId:"toolbar-close-button"},toolbarTitle:i.toolbar.title}),a.createElement(w.Y,null,r)))),ut=l.gql`
+  fragment ModalConfigFragment on ExperimentalModalConfig {
+    modalId {
+      id
+      queryKey
+    }
+    type
+    fullWidth
+    isExpanded
+    position
+    sideSheetLayout
+    toolbar {
+      title
+      navType
+      closeLabel
+      analytics {
+        ...ExperimentalAnalyticsFragment
+      }
+    }
+  }
+
+  ${ye.fragment}
+`,pt=({templateComponent:e})=>{const{children:t}=e,n=(null==e?void 0:e.config).modal,l=(0,u.useClickTracker)(),[i,r,o]=(0,E.useDialog)(n.modalId.id,n.modalId.queryKey||void 0),c=a.createRef();if(!(null==t?void 0:t.length))return null;const m=()=>{var e;if(null==(e=n.toolbar)?void 0:e.analytics){const{client:e,appendToReferrerId:t}=n.toolbar.analytics;ge(l,`${e.referrerId}${t}`,e.linkName)}},d=()=>{r.closeDialog()};switch(n.type){case"SIDE":return a.createElement(st,{isDialogOpen:i,closeCallback:m,onCloseClick:d,ref:c,modal:n},a.createElement(v._A,{templateComponents:t}));case"CENTERED":return a.createElement(ct,{isDialogOpen:i,DialogComponent:o,closeCallback:m,onCloseClick:d,ref:c,modal:n},a.createElement(v._A,{templateComponents:t}));case"FULL":return a.createElement(mt,{isDialogOpen:i,DialogComponent:o,closeCallback:m,onCloseClick:d,ref:c,modal:n},a.createElement(v._A,{templateComponents:t}));case"POPOVER":return a.createElement(dt,{isDialogOpen:i,closeCallback:m,onCloseClick:d,ref:c,modal:n},a.createElement(v._A,{templateComponents:t}));default:return a.createElement(ot,{isDialogOpen:i,closeCallback:m,onCloseClick:d,ref:c,modal:n},a.createElement(v._A,{templateComponents:t}))}};pt.displayName="ExperimentalModal",pt.fragment=ut;var gt=l.gql`
+  fragment RatingFragment on ExperimentalRatingConfig {
+    iconId
+    rating
+    accessibility
+  }
+`,Et=({templateComponent:e})=>{var t,n;const l=(null==e?void 0:e.config).rating;return a.createElement(V.v,{"data-view-id":null==(t=e.metadata)?void 0:t.id,icon:"STAR"===(null==l?void 0:l.iconId)?"star":"alternate",rating:String(null==l?void 0:l.rating),a11yText:null!=(n=null==l?void 0:l.accessibility)?n:void 0})};Et.displayName="RatingWrapper",Et.fragment=gt;var vt=l.gql`
+  ${Se.fragment}
+`,ft=({templateComponent:e})=>{const{children:t}=e;return(null==t?void 0:t.length)?a.createElement(v._A,{templateComponents:t}):null};ft.displayName="ScriptWrapper",ft.fragment=vt;var yt=l.gql`
+  fragment SpacingFragment on ExperimentalSpacing {
+    margin
+    padding
+    marginSpace
+    paddingSpace
+    inlineMarginSpace
+    inlinePaddingSpace
+  }
+`,bt=({templateComponent:e})=>{var t;const{children:n}=e,l=(null==e?void 0:e.config).spacing,{margin:i,padding:r,marginSpace:o,paddingSpace:c,inlineMarginSpace:m,inlinePaddingSpace:d}=l||{},s=i||(o?we[o]:void 0),u=r||(c?we[c]:void 0);return a.createElement(x.N,{margin:{block:s,inline:m?we[m]:"unset"},padding:{block:u,inline:d?we[d]:"unset"}},a.createElement("div",{"data-view-id":null==(t=e.metadata)?void 0:t.id},(null==n?void 0:n.length)?a.createElement(v._A,{templateComponents:n}):null))};bt.displayName="SpacingWrapper",bt.fragment=yt;var xt=l.gql`
+  fragment TabsConfigFragment on ExperimentalTabsConfig {
+    selectedIndex
+    border
+    type
+    scrollTo
+    isJumpLink
+    tabs {
+      ...ExperimentalTabFragment
+    }
+  }
+
+  ${xe.fragment}
+`,ht=({templateComponent:e})=>{var t,n;const{children:l}=e,i=(null==e?void 0:e.config).tabs,r=(0,u.useClickTracker)(),[o,c]=a.useState(i.selectedIndex),[d]=a.useState(i.tabs.map(()=>a.createRef()));if(0===i.tabs.length||!l)return null;const s=e=>{c(e);const t=i.tabs[e];if(null==t?void 0:t.analytics){const{analytics:e}=t;e&&ge(r,`${e.client.referrerId}${e.appendToReferrerId}`,e.client.linkName)}};return i.isJumpLink?a.createElement(a.Fragment,null,a.createElement(P.D,{zIndex:900,"data-view-id":null==(t=e.metadata)?void 0:t.id},a.createElement(W.IN,{selectedTab:o,onTabSelect:e=>s(e),navigationType:W.so.JUMPLINK,tabsType:W.Ah.NATURAL,scrollOffsetSelf:!0},i.tabs.map((e,t)=>a.createElement(q.X,{id:e.target,key:`uitk-tab-key-${e.target}`,name:e.title,targetRef:d[t],targetURI:`?jumpTargetTab=#${e.target}`})))),i.tabs.map((e,t)=>{const n=l[t];return n&&a.createElement(m.E,{key:`experimental-tab-${t}`},a.createElement("div",{id:e.target,ref:d[t]},a.createElement(v._A,{templateComponents:[n]})))})):a.createElement(W.IN,{"data-view-id":null==(n=e.metadata)?void 0:n.id,selectedTab:o,onTabSelect:e=>s(e),navigationType:W.so.DEFAULT},i.tabs.map((e,t)=>{const n=l[t];return n&&a.createElement(q.X,{key:`experimental-tab-${t}`,name:e.title,targetURI:`?equalTargetTab=#${e.target}`,id:e.target,tabLinkAttr:{id:`tab-${t}`}},a.createElement(v._A,{templateComponents:[n]}))}))};ht.displayName="ExperimentalTabs",ht.fragment=xt;var It={NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default",LOYALTY:"loyalty",INVERSE:"inverse",EMPHASIS:"emphasis"},Tt={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},Ct={half:"half",one:"one",two:"two",three:"three",four:"four",six:"six",twelve:"six"},kt={8:8,2:2,3:3,1:1,4:4,5:5,6:6,7:7},St={100:100,200:200,300:300,400:400,500:500,600:600,700:700,800:800,900:900},Nt={STANDARD:U.mc.STANDARD,EMPHASIS:U.mc.EMPHASIS,INFO:U.mc.INFO,FEATURED:U.mc.FEATURED,BRAND:U.mc.BRAND,WARNING:U.mc.WARNING,POSITIVE:U.mc.POSITIVE},At={TRUNCATE:"truncate",TRUNCATE_FOUR_LINES:"truncate-4-lines",TRUNCATE_THREE_LINES:"truncate-3-lines",TRUNCATE_TWO_LINES:"truncate-2-lines",WRAP:"wrap"},Rt={EXTRA_SMALL:h.So.EXTRA_SMALL,SMALL:h.So.SMALL,MEDIUM:h.So.MEDIUM,LARGE:h.So.LARGE,XLARGE:h.So.XLARGE,MEDIUM_LARGE:h.So.MEDIUM},Ft={1:1,2:2,3:3},Lt={INFO:"info",POSITIVE:"positive",STANDARD:"standard",WARNING:"warning"},Dt=l.gql`
+  fragment ExperimentalButtonFragment on ExperimentalButton {
+    type
+    action {
+      ...TextInfoLinkFragment
+    }
+    isFullWidth
+  }
+
+  ${Be.fragment}
+`,Ot=({type:e,link:t,onClick:n,children:l,isFullWidth:i})=>{switch(e){case"PRIMARY":return a.createElement(C.y,{role:"button",type:"button",tag:"a",key:`button-${t}`,href:`${t}`,onClick:n,isFullWidth:i},l);case"SECONDARY":return a.createElement(k.y,{role:"button",type:"button",tag:"a",key:`button-${t}`,href:`${t}`,onClick:n,isFullWidth:i},l);case"TERTIARY":return a.createElement(S.q,{role:"button",type:"button",tag:"a",key:`button-${t}`,href:`${t}`,onClick:n,isFullWidth:i},l);default:return null}},$t=({config:e})=>{var t;const{infoSection:n}=e,l=(0,u.useClickTracker)(),{scrollTo:i}=(0,T.xC)(),r=e=>{if(e){const{client:t,appendToReferrerId:n}=e;ge(l,`${t.referrerId}${n}`,t.linkName)}},o=e=>a.createElement(h.LD,{name:e.id}),c=({icon:e,iconPosition:t,inlineSpaceV2:n,text:l})=>{const i=t||"LEADING";return a.createElement(a.Fragment,null,e&&"LEADING"===i&&a.createElement(x.N,{margin:{inlineend:null!=n?n:"unset"}},o(e)),l,e&&"TRAILING"===i&&a.createElement(x.N,{margin:{inlinestart:null!=n?n:"unset"}},o(e)))};return a.createElement(a.Fragment,null,(null==n?void 0:n.buttons)&&n.buttons.length>0&&(null==(t=n.buttons)?void 0:t.map((e,t)=>{var n;const{type:l,action:{typeV2:o,data:m,analytics:d},isFullWidth:s}=e;switch(o){case"JUMPLINK":{const e=()=>{const e=oe(m.action.url);if(d&&r(d),e){const{scrollOffsetSection:t}=m.action;i(e,t?[{sectionName:t}]:[])}};return m.action.url&&a.createElement(Ot,{key:`button-jumplink-${l}-${t}`,type:l,link:`#${m.action.url}`,isFullWidth:s,onClick:e},c(m))}case"REDIRECT":return m.action.url&&a.createElement(Ot,{key:`button-redirect-${l}-${t}`,type:l,link:m.action.url,isFullWidth:s,onClick:()=>d&&r(d)},c(m));case"MODAL":return(null==(n=m.action.modal)?void 0:n.id)?a.createElement(We,{type:l,key:`button-modal-${l}-${t}`,modalId:m.action.modal.id,queryKey:m.action.modal.queryKey||void 0,buttonText:m.text,isFullWidth:s,onClick:()=>d&&r(d)},c(m)):null;default:return null}})))};$t.displayName="Buttons",$t.fragment=Dt;var _t=l.gql`
+  fragment TextInfoSectionFragment on ExperimentalInfoSection {
+    badge {
+      accessibility
+      text
+      theme
+      graphic {
+        ... on Icon {
+          ...EGDSIconFragment
+        }
+      }
+    }
+    title {
+      text {
+        text
+        size
+        accessibility
+      }
+      attributes {
+        tag
+        ariaHidden
+      }
+      icon {
+        ...EGDSIconFragment
+      }
+      illustration {
+        id
+        url
+        description
+      }
+      spacing {
+        ...ExperimentalSpacingFragment
+      }
+      overflowV2
+    }
+    subTitle {
+      ...ExperimentalSubTitleFragment
+    }
+    descriptions {
+      showAsList
+      texts
+      paragraphSize
+      inheritParagraphStyling
+    }
+    links {
+      ...TextInfoLinkFragment
+    }
+    seoData
+    buttons {
+      type
+      action {
+        ...TextInfoLinkFragment
+      }
+      isFullWidth
+    }
+  }
+
+  ${Be.fragment}
+  ${ve.fragment}
+  ${p.YF.fragment}
+  ${Ie.fragment}
+`,wt=e=>{if(!e)return{customStyle:"headline-extra-large"};const t=kt[e];return t&&[3,4].includes(t)?{customStyle:4===t?"headline-large":"headline-extra-large"}:void 0},Mt=({templateComponent:e})=>{var t,n,l,i,r,o,c,m;const d=null==e?void 0:e.config;if(!d.infoSection)return null;const{badge:s,title:u,subTitle:p,descriptions:g,links:E,buttons:v,seoData:f}=d.infoSection,y=(null==s?void 0:s.theme)?Nt[s.theme]:U.mc.EMPHASIS,b=(null==s?void 0:s.accessibility)?s.accessibility:void 0,I=(e=>{if(!e)return null;let t;try{t=JSON.parse(e)}catch(l){return null}const n=(e,t)=>Object.entries(e).flatMap(([e,l])=>{if("@type"===e||"@context"===e)return null;const i=t?`${t}.${e}`:e;return Array.isArray(l)?l.map((t,l)=>"object"==typeof t&&null!==t&&t["@type"]?a.createElement("div",{key:`${i}[${l}]`,itemProp:e,itemScope:!0,itemType:`https://schema.org/${t["@type"]}`},n(t)):"object"==typeof t&&null!==t?a.createElement("div",{key:`${i}[${l}]`},n(t)):a.createElement("meta",{key:`${i}[${l}]`,itemProp:e,content:String(t)})):"object"==typeof l&&null!==l?l["@type"]?a.createElement("div",{key:i,itemProp:e,itemScope:!0,itemType:`https://schema.org/${l["@type"]}`},n(l)):n(l,e):a.createElement("meta",{key:i,itemProp:e,content:String(l)})});return a.createElement(a.Fragment,null,n(t))})(f);return a.createElement("div",{"data-view-id":null==(t=e.metadata)?void 0:t.id},(null==s?void 0:s.text)&&s.text.length>0&&a.createElement(K.G,{text:s.text,theme:y,a11yText:b},s.graphic&&"Icon"===s.graphic.__typename&&s.graphic.id&&a.createElement(h.LD,{id:s.graphic.id,name:s.graphic.id,size:Rt[s.graphic.size||"SMALL"]})),((null==u?void 0:u.text)||(null==u?void 0:u.icon)||(null==u?void 0:u.illustration))&&(T=null==u?void 0:u.spacing,C=a.createElement(Y.M,{tag:(null==(n=null==u?void 0:u.attributes)?void 0:n.tag)?u.attributes.tag:"h1",size:(null==(l=null==u?void 0:u.text)?void 0:l.size)?kt[null==u?void 0:u.text.size]:3,typeStyle:(null==(i=null==u?void 0:u.text)?void 0:i.size)?wt(u.text.size):void 0,"aria-hidden":null==(r=u.attributes)?void 0:r.ariaHidden,overflow:(null==u?void 0:u.overflowV2)?At[null==u?void 0:u.overflowV2]:void 0,title:(null==(o=null==u?void 0:u.text)?void 0:o.accessibility)||void 0},u.icon&&a.createElement(h.LD,{name:u.icon.id,size:Rt[u.icon.size||"SMALL"],title:u.icon.title||"",id:u.icon.id,spotlight:u.icon.spotLight?Lt[u.icon.spotLight]:void 0}),u.illustration&&a.createElement(G.r,{alt:u.illustration.description,url:u.illustration.url}),null==(c=u.text)?void 0:c.text),(null==T?void 0:T.margin)?a.createElement(x.N,{margin:{blockend:T.margin}},a.createElement("div",null,C)):C),p&&p.length>0&&p.map((e,t)=>{var n,l,i,r,o,c,m,d,s;const u=(null==(n=e.text)?void 0:n.theme)?It[null==(l=e.text)?void 0:l.theme]:void 0,p=(null==(i=e.text)?void 0:i.weight)?Tt[null==(r=e.text)?void 0:r.weight]:void 0,g=e.spaceV2?Ct[e.spaceV2]:void 0;return a.createElement(L.D,{size:(null==(o=e.text)?void 0:o.size)?St[null==e?void 0:e.text.size]:300,spacing:g,theme:u,weight:p,key:`text-item-${t}`,overflow:(null==e?void 0:e.overflowV2)?At[null==e?void 0:e.overflowV2]:void 0},e.icon&&a.createElement(h.LD,{name:e.icon.id,size:Rt[e.icon.size||"SMALL"],title:e.icon.title||"",id:e.icon.id,spotlight:e.icon.spotLight?Lt[e.icon.spotLight]:void 0}),e.illustration&&a.createElement(G.r,{alt:e.illustration.description,url:e.illustration.url}),a.createElement("span",{"aria-hidden":!!(null==(c=e.text)?void 0:c.accessibility)},null==(m=e.text)?void 0:m.text),(null==(d=e.text)?void 0:d.accessibility)&&a.createElement("span",{className:"is-visually-hidden"},null==(s=e.text)?void 0:s.accessibility))}),(null==g?void 0:g.texts)&&g.texts.length>0&&(g.inheritParagraphStyling?a.createElement(a.Fragment,null,g.texts.map((e,t)=>a.createElement(H.u,{key:`paragraph-item-${t}`,size:Ft[g.paragraphSize]},e))):a.createElement(z.y,{bullet:g.showAsList?"default":"no-bullet",spacing:!1},null==(m=g.texts)?void 0:m.map((e,t)=>a.createElement(B.x,{key:g.showAsList?`list-item-${t}`:`no-bullet-list-item-${t}`},e)))),E&&E.length>0&&a.createElement(Be,{config:d}),v&&v.length>0&&a.createElement($t,{config:d}),f&&I);var T,C};Mt.displayName="TextInfoSection",Mt.fragment=_t;var Vt=l.gql`
+  ${p.wK.fragment}
+`,Pt=({templateComponent:e})=>{var t;const n=(null==e?void 0:e.config).textIconTooltip;return a.createElement(p.wK,{"data-view-id":null==(t=e.metadata)?void 0:t.id,data:n})};Pt.displayName="TextInfoTooltipWrapper",Pt.fragment=Vt;var Wt=(new Map).set("Card",Re).set("InfoSection",Mt).set("Grid",et).set("Carousel",De).set("Spacing",bt).set("Rating",Et).set("Expando",Xe).set("IntersectionTracker",Ze).set("TextIconTooltip",Pt).set("Tabs",ht).set("Modal",pt).set("Media",lt).set("Script",ft).set("Container",He),qt=new Map([...Wt]),Ut=l.gql`
+  fragment ExperimentalConfigFragment on ExperimentalConfig {
+    card {
+      ...CardConfigFragment
+    }
+    infoSection {
+      ...TextInfoSectionFragment
+    }
+    grid {
+      ...LayoutGridFragment
+    }
+    spacing {
+      ...SpacingFragment
+    }
+    carousel {
+      ...CarouselConfigFragment
+    }
+    rating {
+      ...RatingFragment
+    }
+    expando {
+      ...ExpandoFragment
+    }
+    intersection {
+      ...IntersectionTrackerFragment
+    }
+    textIconTooltip {
+      ...ProductTextInfoSectionFragment
+    }
+    tabs {
+      ...TabsConfigFragment
+    }
+    modal {
+      ...ModalConfigFragment
+    }
+    media {
+      ...MediaConfigFragment
+    }
+    script {
+      ...ExperimentalScriptFragment
+    }
+    container {
+      ...ContainerFragment
+    }
+  }
+
+  ${Re.fragment}
+  ${bt.fragment}
+  ${Mt.fragment}
+  ${De.fragment}
+  ${et.fragment}
+  ${Et.fragment}
+  ${Xe.fragment}
+  ${Ze.fragment}
+  ${Pt.fragment}
+  ${ht.fragment}
+  ${pt.fragment}
+  ${lt.fragment}
+  ${Se.fragment}
+  ${He.fragment}
+`,Kt=()=>a.createElement("div",null,"ExperimentalConfig.fragment");Kt.displayName="ExperimentalConfig",Kt.fragment=Ut;var Gt=l.gql`
+  query RandomAccessOneExperimentalQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!, $featureId: String!) {
+    randomAccessOne(context: $context, featureId: $featureId, productIdentifier: $productIdentifier) {
+      id
+      mapping {
+        ...ExperimentalComponentWrapperFragment
+      }
+      metadata {
+        ...ExperimentalExperimentalMetadataFragment
+      }
+    }
+  }
+
+  fragment ExperimentalExperimentalMetadataFragment on ExperimentalMetadata {
+    id
+    name
+    signalEvents {
+      id
+      successEvent {
+        linkName
+        referrerId
+        uisPrimeMessages {
+          messageContent
+          schemaName
+        }
+      }
+    }
+  }
+
+  fragment ExperimentalComponentWrapperFragment on ExperimentalComponentWrapper {
+    id
+    childrenIds
+    element {
+      ...ComponentFragment
+    }
+  }
+
+  fragment ComponentFragment on ExperimentalComponent {
+    type
+    typeClass
+    metadata {
+      ...ExperimentalMetadataFragment
+    }
+    config {
+      ...ExperimentalConfigFragment
+    }
+  }
+
+  fragment ExperimentalMetadataFragment on ExperimentalMetadata {
+    id
+    accessibilityNode {
+      description
+    }
+  }
+
+  ${Kt.fragment}
+`,zt=e=>a.createElement(v.W5,{library:qt},a.createElement(v._A,{templateComponents:e})),Bt=e=>{var t;const{inputs:n,skipSsr:a,batchKey:r,loadingPlaceholder:o,renderFallback:c,prefetchedData:m}=e,{context:d}=(0,i.R)(),s=ae(ne({},n),{context:d}),{data:u,error:p,loading:g}=(0,l.useQuery)(Gt,{context:{useApq:!0,batchKey:null!=r?r:"default-random-access-experience-batch-key",shouldLogPerformance:!0},variables:s,ssr:!a,skip:!!(null==m?void 0:m.__typename)});if(g)return o||null;const E=m||(null==u?void 0:u.randomAccessOne),v=!(null==(t=null==E?void 0:E.mapping)?void 0:t.length);if(p||v)return c||null;const f=ie({randomAccessOne:E});return f?zt(f):null};Bt.displayName="sharedui-RandomAccessOneFetch";var Yt=e=>{const{mockData:t}=e;if(t){const e=ie(t);return e?zt(e):null}return a.createElement(Bt,ne({},e))};Yt.displayName="sharedui-RandomAccessOne"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-random-access-one.9b56d87c925bb659b20b.js.map

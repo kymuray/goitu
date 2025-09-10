@@ -1,0 +1,99 @@
+/*@license For license information please refer to shared-ui-retail-shopping-tools-egds-price-calendar.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[4501],{68034:function(e,t,a){a.d(t,{D:function(){return oe}});var n=a(56195),r=a(60094),l=a.n(r),i=a(14986),o=a(64341),d=a(97778),s=a(86405),c=a(2533),u=a(63085),g=a(522),m=a(99828),h=a(42534),f=a(46559),D=a(27102),v=a(26690),E=a(2557),S=a(87698),C=Object.defineProperty,p=Object.getOwnPropertySymbols,y=Object.prototype.hasOwnProperty,x=Object.prototype.propertyIsEnumerable,T=(e,t,a)=>t in e?C(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,I=(e,t)=>{for(var a in t||(t={}))y.call(t,a)&&T(e,a,t[a]);if(p)for(var a of p(t))x.call(t,a)&&T(e,a,t[a]);return e},F=e=>{const t=e?"ROUND_TRIP":"ONE_WAY",a=e?"RT":"OW";return{onChangeEndDate:{referrerId:`${t}_FC_onChangeEndDateCB`,linkName:"Returning date Change"},onChangeMonth:{referrerId:`${t}_FC_onChangeMonthCB`,linkName:"Month changed"},onChangeStartDate:{referrerId:`${t}_FC_onChangeStartDateCB`,linkName:"Departing date Change"},onOpen:{referrerId:`${t}_FC_onOpenCB`,linkName:"Open Date Picker"},onSubmit:{referrerId:`${t}_FC_onSubmitCB`,linkName:"Save Dates"},onDoneButton:{referrerId:"FLT.FareCalendar.Done",linkName:"Done Button Clicked"},onDismiss:{referrerId:`${t}_FC_onDismissCB`,linkName:"Close Date Picker"},onChangeFlexStartDate:(e,t)=>{const n=O(A(e),A(t));return{referrerId:`FLT.${a}.FareCalendar.DateChange.OB.${n}`,linkName:"Outbound Date Change"}},onChangeFlexEndDate:(e,t)=>{const n=O(A(e),A(t));return{referrerId:`FLT.${a}.FareCalendar.DateChange.IB.${n}`,linkName:"Inbound Date Change"}}}},N={PRICE_CALENDAR_QUERY_ERROR:new u.SystemEvent(u.SystemEventLevel.ERROR,"PRICE_CALENDAR_QUERY_ERROR")},R=new Date,L=864e5,_=new Date(Date.now()+28512e6),b=(e,t)=>{var a,n;return"flights"===e?null==(a=null==t?void 0:t.flightsPriceCalendar)?void 0:a.disclaimerText:null==(n=null==t?void 0:t.flightsPriceCalendar)?void 0:n.disclaimerText},k=(e,t)=>{var a;if("flights"===e)return null==(a=null==t?void 0:t.flightsPriceCalendar)?void 0:a.calendarPrices},M=(e,t)=>{const a={defaults:{dateText:{textWeight:"bold",textTheme:null,textValue:null,amountValue:null},analytics:{referrerId:"",linkName:""}}},n=k(e,t);return n&&n.forEach(e=>{var t,n;a[`${e.date}`]={dateText:{textWeight:e.theme?"bold":null,textTheme:null!=(n=null==(t=e.theme)?void 0:t.toLowerCase())?n:null,textValue:e.label,amountValue:e.amount},analytics:{referrerId:null==e?void 0:e.selectAnalytics.referrerId,linkName:null==e?void 0:e.selectAnalytics.linkName}}}),a},A=e=>e?new Date(`${e}T00:00:00`):new Date,$=e=>{const t=e.toLocaleDateString("en-US",{year:"numeric",month:"2-digit",day:"2-digit"}).split("/");return`${t[2]}-${t[0]}-${t[1]}`},P=(e,t)=>{const a=new Date(e.getFullYear(),e.getMonth(),e.getDate());return a.setDate(a.getDate()+t),a},O=(e,t)=>{const a=Math.floor((t.getTime()-e.getTime())/L);return a>0?`+${a}`:`${a}`},G=e=>e.locale?e.locale.replace("_","-"):"en-US",w=v.gql`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    size
+    text
+    theme
+    weight
+  }
+`,U={EMPHASIS:"emphasis",LOYALTY:"loyalty",INVERSE:"inverse",NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default"},z={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},B=({data:{text:e,weight:t,theme:a},size:r,inline:l,align:i})=>{const o=a?U[a]:void 0,d=t?z[t]:void 0;return n.createElement(D.D,{weight:d,size:r,inline:l,theme:o,align:i},e)};B.fragment=w,B.displayName="EGDSStylizedText";var Y=({data:e})=>n.createElement(g.X,{direction:"column",alignContent:"center",justifyContent:"center"},e.map((e,t)=>"string"==typeof e?n.createElement(m.C,{alignSelf:"center",key:`disclaimer-${t}`},n.createElement(D.D,{align:"center",size:200,weight:"regular"},e)):"EGDSStylizedText"===(null==e?void 0:e.__typename)?n.createElement(m.C,{alignSelf:"center",key:`alert-disclaimer-${t}`},n.createElement(B,{data:e,size:200,align:"center"})):null)),V={padding:{blockend:"three"}},j={padding:{blockend:"four"}},q=({data:e})=>e&&e.length?n.createElement(g.X,{justifyContent:"center"},n.createElement(m.C,null,n.createElement(f.LM,null,n.createElement(f.NP,null,n.createElement(h.N,{padding:V.padding},n.createElement("div",null,n.createElement(Y,{data:e})))),n.createElement(f.zQ,null,n.createElement(h.N,{padding:j.padding},n.createElement("div",null,n.createElement(Y,{data:e}))))))):null,Q=v.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+  }
+`,X=v.gql`
+  fragment IconFragment on Icon {
+    id
+    title
+    token
+    description
+    size
+  }
+`,H={EXTRA_SMALL:E.So.EXTRA_SMALL,SMALL:E.So.SMALL,MEDIUM:E.So.MEDIUM,MEDIUM_LARGE:E.So.MEDIUM,LARGE:E.So.LARGE,XLARGE:E.So.XLARGE},W=e=>{const{data:t}=e,{id:a,title:r,description:l,size:i}=t,o=H[null!=i?i:"LARGE"];return n.createElement(E.LD,{id:a,name:a,title:null!=r?r:l,description:l,size:o})};W.displayName="Icon",W.fragment=X;var J=v.gql`
+  fragment MarkFragment on Mark {
+    description
+    id
+  }
+`,K=({data:e,className:t})=>n.createElement(S.D,{className:t,description:e.description,id:e.id,name:e.id});K.displayName="Mark",K.fragment=J;var Z=v.gql`
+  fragment UIGraphicFragment on UIGraphic {
+    ... on Icon {
+      ...IconFragment
+    }
+
+    ... on Mark {
+      ...MarkFragment
+    }
+  }
+  ${W.fragment}
+  ${K.fragment}
+`,ee=({data:e,markOptions:t})=>{switch(e.__typename){case"Icon":return n.createElement(W,{data:e});case"Mark":return n.createElement(K,I({data:e},t));default:return null}};ee.displayName="UIGraphic",ee.fragment=Z;var te=v.gql`
+  fragment EGDSGraphicTextFragment on EGDSGraphicText {
+    accessibility
+    text
+    graphic {
+      ...UIGraphicFragment
+    }
+    trailingGraphics {
+      ...UIGraphicFragment
+    }
+  }
+  ${ee.fragment}
+`,ae=({inline:e,size:t,graphicSpacing:a,data:r})=>{const{accessibility:l,text:i,graphic:o,trailingGraphics:d}=r,s=l&&l.length>0,c=s?n.createElement(n.Fragment,null,n.createElement("span",{"aria-hidden":s},i),n.createElement("span",{className:"is-visually-hidden"},l)):i;return n.createElement(D.D,{inline:e},n.createElement(h.N,{padding:null==a?void 0:a.padding,margin:null==a?void 0:a.margin},n.createElement(ee,{data:o})),n.createElement(h.N,{padding:{inline:"one"}},n.createElement(D.D,{inline:!0,size:t},c)),null==d?void 0:d.map((e,t)=>n.createElement(ee,{data:e,key:`trailing-graphic-${t}`})))};ae.displayName="EGDSGraphicText",ae.fragment=te;var ne=v.gql`
+  query FlightsPriceCalendar(
+    $context: ContextInput!
+    $flightsSearchContext: FlightsSearchContextInput!
+    $journeyCriteria: [FlightsJourneyCriteriaInput!]!
+    $queryState: FlightsQueryState
+    $searchFilterValuesList: [FlightsSearchFilterValuesInput!]
+    $searchPreferences: FlightsSearchPreferencesInput
+  ) {
+    flightsPriceCalendar(
+      context: $context
+      flightsSearchContext: $flightsSearchContext
+      journeyCriteria: $journeyCriteria
+      queryState: $queryState
+      searchFilterValuesList: $searchFilterValuesList
+      searchPreferences: $searchPreferences
+    ) {
+      alertText {
+        ...EGDSGraphicTextFragment
+      }
+      disclaimerText
+      coverageAnalytics {
+        linkName
+        referrerId
+      }
+      calendarPrices {
+        date
+        label
+        selectAnalytics {
+          ...ClientSideAnalyticsFragment
+        }
+        amount
+        theme
+        weight
+        alertText {
+          ...EGDSStylizedTextFragment
+        }
+        disclaimerText
+        additionalDisclaimerText
+      }
+      disablePrice
+    }
+  }
+
+  ${B.fragment}
+  ${ae.fragment}
+  ${Q}
+`,re=e=>{const{context:t}=(0,o.R)();return(0,v.useLazyQuery)(ne,{ssr:!1,fetchPolicy:"cache-first",variables:I({context:t},e)})},le=(e,t)=>{const a=(()=>{const e=new Date;return new Date(e.getFullYear(),e.getMonth(),e.getDate())})(),n=e<a?a:e;let r;return t&&(r=P(n,14)),{effectiveStartDate:n,effectiveEndDate:r}},ie=(e,t)=>{const[a,r]=n.useState(void 0),[l,i]=n.useState(void 0),[o,d]=n.useState(void 0),[s,c]=n.useState(!1),[g,m]=n.useState(!0),[h,f]=n.useState(!1),D=(e=>{if("flights"===e)return re})(e),[v,{data:E,error:S}]=D(t),C=((e,t)=>{if("flights"===e)return(e=>{const{journeyCriteria:t,flightsSearchContext:a}=e;return{flightsSearchContext:a,origin:t[0].origin,destination:t[0].destination}})(t)})(e,t),p=(0,u.useLoggerEvents)(N),y=n.useRef(0);n.useEffect(()=>{var t;if(E){const n=((e,t)=>{const{disablePrice:a}=e.flightsPriceCalendar||{};return t&&a})(E,g)||h;if(!n){const n=s?I(I({},M(e,E)),a):M(e,E),l=((e,t)=>{const a={defaults:{alertText:null,disclaimerText:b(e,t),additionalDisclaimerText:null}},n=k(e,t);return n&&n.forEach(e=>{a[`${e.date}`]={alertText:null==e?void 0:e.alertText,disclaimerText:null==e?void 0:e.disclaimerText,additionalDisclaimerText:null==e?void 0:e.additionalDisclaimerText}}),a})(e,E);r(n),i(l),d(null==(t=E.flightsPriceCalendar)?void 0:t.coverageAnalytics)}g&&(m(!g),f(n))}S&&p.PRICE_CALENDAR_QUERY_ERROR.log({error:S,message:"Price Calendar Query Error"})},[E,e,S,y.current]);return[(a,n=!1,r=!1)=>{if(c(r),h)return;if(!((e,t)=>{if("flights"===e){const{journeyCriteria:e}=t;return!!((null==e?void 0:e.length)&&e[0].origin&&e[0].destination)}})(e,t))return;const{effectiveStartDate:l,effectiveEndDate:i}=le(a,n),o=(e=>{const{lobName:t,effectiveStartDate:a,effectiveEndDate:n,flightsSearchContext:r,origin:l,destination:i}=e;if("flights"===t){const e=((e,t,a,n)=>{let r=[{departureDate:{day:e.getDate(),month:e.getMonth()+1,year:e.getFullYear()},destination:a,origin:t}];return n&&(r=[{departureDate:{day:e.getDate(),month:e.getMonth()+1,year:e.getFullYear()},destination:a,origin:t},{departureDate:{day:n.getDate(),month:n.getMonth()+1,year:n.getFullYear()},destination:t,origin:a}]),r})(a,l,i,n);return{journeyCriteria:e,flightsSearchContext:r}}})(I({lobName:e,effectiveStartDate:l,effectiveEndDate:i},C));v({variables:o}),y.current+=1},a,e=>{((e,t)=>{e.forEach(e=>{t[e]&&t[e]()})})(e,{dayData:()=>r(void 0),isPriceDisabled:()=>f(!1),isFirstQuery:()=>m(!0)})},l,o]},oe=({lobName:e,queryInputs:t,priceCalendarPassthroughProps:a})=>{var r;const{submitButtonLabel:u,initialStartDate:g,initialEndDate:m,dateLabel:h,dialogId:f,onOpen:D,onClose:v,onDateChange:E,onDoneButtonClick:S}=a,[C,p,y,x,T]=ie(e,t),[N,L]=n.useState(g),[b,k]=n.useState(m),[M,O]=n.useState(!1),[w,U]=n.useState(!1),[z,B]=n.useState([null==(r=null==x?void 0:x.defaults)?void 0:r.disclaimerText]),Y=new Date,V=(0,d.useClickTracker)(),j=((e,t)=>{if("flights"===e)return"ROUND_TRIP"===t.flightsSearchContext.tripType})(e,t),{context:Q}=(0,o.R)(),X=n.useRef(null),H=((e,t)=>F(t))(0,j),[W,J]=n.useState(!1),K=e=>{e&&V(e.referrerId,e.linkName)};n.useEffect(()=>{L(g),k(m)},[g,m]),n.useEffect(()=>{var e,t,a,n,r,l,i,o;j&&W&&N&&(null==(e=null==x?void 0:x[N])?void 0:e.additionalDisclaimerText)?B([x[N].additionalDisclaimerText]):j&&!W&&w&&b&&(null==(t=null==x?void 0:x[b])?void 0:t.alertText)&&(null==(a=null==x?void 0:x[b])?void 0:a.disclaimerText)?B([x[b].alertText,x[b].disclaimerText]):!j&&N&&M&&(null==(n=null==x?void 0:x[N])?void 0:n.alertText)&&(null==(r=null==x?void 0:x[N])?void 0:r.disclaimerText)?B([null==(l=null==x?void 0:x[N])?void 0:l.alertText,null==(i=null==x?void 0:x[N])?void 0:i.disclaimerText]):(null==x?void 0:x[N])||j||M?B([null==(o=null==x?void 0:x.defaults)?void 0:o.disclaimerText]):B(z)},[N,b,j,W,x]),n.useEffect(()=>{W&&C(A(N),!0,!1)},[W]);const Z=n.useMemo(()=>({data:z}),[z]),ee=({month:e,year:t},a)=>{const n=a&&Y.getMonth()===e?Y.getDate():1;W||C(new Date(t,e,n),!1,!1),K(H.onChangeMonth)};(0,s._H)(c.Jm,c.ht,{onSuccess:()=>{var e;null==(e=X.current)||e.click()}});const te=l()(e=>{(null==p?void 0:p[$(e)])||W&&j||C(e,!1,!0)},1e3),ae={locale:G(Q),startDate:N,endDate:j&&b?b:"",inputLabel1:h,dayNameLength:"narrow",handleShape:"circle",dayData:p,onOpen:()=>{null==D||D();const e=A(N);var t;(t=e).getMonth()!==R.getMonth()||t.getFullYear()!==R.getFullYear()?C(new Date(e.getFullYear(),e.getMonth(),1),!1,!1):C(Y,!1,!1),K(H.onOpen)},onNextClicked:({month:e,year:t})=>{ee({month:e,year:t},!1)},onPrevClicked:({month:e,year:t})=>{ee({month:e,year:t},!0)},onDateRangeChange:(e,t)=>{var a,n,r,l,i,o,d,s,c;const u=null!=(r=null==(n=null==(a=null==p?void 0:p[e])?void 0:a.dateText)?void 0:n.amountValue)?r:void 0;if(t){k(t),U(t!==b);const a=null!=(o=null==(i=null==(l=null==p?void 0:p[t])?void 0:l.dateText)?void 0:i.amountValue)?o:void 0;null==E||E(e,t,u,a),K(H.onChangeFlexEndDate(b||"",t)),K(H.onChangeEndDate)}else if(j){C(A(e),!0,!1),L(e),O(e!==N);const t=$(P(A(e),1));k(t);const a=null!=(c=null==(s=null==(d=null==p?void 0:p[t])?void 0:d.dateText)?void 0:s.amountValue)?c:void 0;null==E||E(e,t,u,a),K(H.onChangeFlexStartDate(N,e)),K(H.onChangeStartDate)}else L(e),O(e!==N),k(""),null==E||E(e,"",u),K(H.onChangeFlexStartDate(N,e)),K(H.onChangeStartDate)},onClose:()=>{const e=N?A(N):new Date,t=b?A(b):void 0;null==v||v(e,t),K(H.onSubmit),K(H.onDismiss),(null==T?void 0:T.referrerId)&&(null==T?void 0:T.linkName)&&V(T.referrerId,T.linkName);const a=b||N;a&&(null==p?void 0:p[a])&&V(p[a].analytics.referrerId,p[a].analytics.linkName),O(!1),U(!1),y(["dayData","isPriceDisabled","isFirstQuery"])},onSubmit:(e,t)=>{const a=e?A(e):new Date,n=t?A(t):void 0;null==v||v(a,n,!1),K(H.onDoneButton),null==S||S(a,n)},dateFormatOptions:{month:"short",day:"numeric"},alertTemplateData:Z,alertTemplateComponent:q,useSingleTrigger:j,isSingleDateSelection:!j,enableSameDayDateRange:!1,numMonthsToDisplay:2,maxDate:_,submitButtonLabel:u,allowClearDates:!1,dialogId:f,onScrollHandler:te,onSelectionModeChange:e=>{J(e)},startDateRef:X};return n.createElement("div",{"data-testid":"egds-price-calendar"},n.createElement(i.L,I({},ae)))};oe.displayName="sharedui-EGDSPriceCalendar"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-shopping-tools-egds-price-calendar.ecd62749e15288702efe.js.map

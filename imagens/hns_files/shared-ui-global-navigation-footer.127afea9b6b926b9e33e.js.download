@@ -1,0 +1,194 @@
+/*@license For license information please refer to shared-ui-global-navigation-footer.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[1340],{291:function(e,t,n){n.d(t,{w:function(){return ie}});var a=n(56195),r=n(92919),o=n(26598),l=n(522),i=n(99828),m=n(42534),c=n(74071),s=n(26690),g=n(64341),d=n(53017),u=n(56806),p=n(87993),y=n(30169),E=n(95519),F=n(27102),_=n(87698),k=n(96394),f=n(37292),h=n(47540),v=n(1226),S=n(25229),N=n(97778),b=n(32380),x=n(89962),w=Object.defineProperty,C=Object.defineProperties,T=Object.getOwnPropertyDescriptors,I=Object.getOwnPropertySymbols,L=Object.prototype.hasOwnProperty,D=Object.prototype.propertyIsEnumerable,j=(e,t,n)=>t in e?w(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,z=(e,t)=>{for(var n in t||(t={}))L.call(t,n)&&j(e,n,t[n]);if(I)for(var n of I(t))D.call(t,n)&&j(e,n,t[n]);return e},M=(e,t)=>C(e,T(t)),X=s.gql`
+  fragment FooterButtonFragment on FooterButton {
+    __typename
+    type
+    url
+    text
+    trackingEvent
+  }
+`,$=e=>{const{data:t,analyticsCallback:n}=e,{type:r,url:o,text:i,trackingEvent:m}=t;if(!i)return null;const c={href:o};return m&&n&&(c.onClickCapture=()=>n(m,i)),a.createElement(l.X,{justifyContent:"center"},"PRIMARY"===r&&a.createElement(p.y,z({},c),a.createElement(F.D,{size:300},i)),"SECONDARY"===r&&a.createElement(y.y,z({},c),a.createElement(F.D,{size:300},i)),"TERTIARY"===r&&a.createElement(E.q,z({},c),a.createElement(F.D,{size:300},i)))};$.displayName="FooterButton",$.fragment=M(z({},X),{__typename:"FooterButton"});var q=s.gql`
+  fragment FooterSeparatorFragment on FooterSeparator {
+    __typename
+    separatorType: type
+  }
+`,O=e=>{const{data:{separatorType:t}}=e;return a.createElement(a.Fragment,null,"HORIZONTAL_RULE"===t&&a.createElement("hr",null))};O.displayName="FooterSeparator",O.fragment=M(z({},q),{__typename:"FooterSeparator"});var A=s.gql`
+  fragment FooterSectionButtonsFragment on FooterSectionButtons {
+    __typename
+    data {
+      ... on FooterButton {
+        __typename
+        type
+        url
+        text
+        trackingEvent
+      }
+      ... on FooterSeparator {
+        __typename
+        separatorType: type
+      }
+    }
+  }
+`,B=[$,O],W=e=>{const{data:t,analyticsCallback:n}=e,{data:r}=t;return a.createElement(l.X,{direction:"column",tag:"ul",className:"no-bullet"},r.map((e,t)=>{if(!e)return null;const r=B.find(t=>t.fragment.__typename===(null==e?void 0:e.__typename));return r?a.createElement(i.C,{key:`${t}-${e.__typename}`,minWidth:"full_width"},a.createElement("li",null,a.createElement(r,{data:e,analyticsCallback:n}))):null}))};W.displayName="FooterSectionButtons",W.fragment=M(z({},A),{__typename:"FooterSectionButtons"});var P=s.gql`
+  fragment FooterSectionCobrandFragment on FooterSectionCobrand {
+    __typename
+    data {
+      ... on FooterCobrandLogo {
+        text
+        mark {
+          url {
+            value
+          }
+          description
+        }
+      }
+    }
+  }
+`,R=e=>{const{data:t}=e,{data:n}=t;return a.createElement(m.N,{padding:{block:"three"}},a.createElement(l.X,{direction:"row",alignItems:"start",justifyContent:"start"},n.map(e=>{var t,n,r;return(null==e?void 0:e.text)&&(null==(t=null==e?void 0:e.mark.url)?void 0:t.value)?a.createElement(i.C,{key:null==(n=null==e?void 0:e.mark.url)?void 0:n.value},a.createElement(l.X,{direction:"row",alignItems:"center",justifyContent:"center",space:"one"},a.createElement(F.D,null,e.text),a.createElement(_.D,{url:null==(r=null==e?void 0:e.mark.url)?void 0:r.value,description:null==e?void 0:e.mark.description,size:k.K.MEDIUM}))):null})))};R.displayName="FooterSectionCobrand",R.fragment=M(z({},P),{__typename:"FooterSectionCobrand"});var H=s.gql`
+  fragment FooterSectionImagesFragment on FooterSectionImages {
+    __typename
+    data {
+      ... on FooterImage {
+        imgSrc
+        url
+        target
+        newWindowText
+        altText
+      }
+    }
+  }
+`,U=e=>{const{data:t}=e,{data:n}=t;return a.createElement(m.N,{padding:{blockstart:"three"}},a.createElement(l.X,{direction:"row",alignItems:"center",justifyContent:"center"},n.map((e,t)=>{const n="_blank"===(null==e?void 0:e.target);return e&&e.imgSrc?a.createElement(m.N,{padding:{inline:"two"},key:t},a.createElement(i.C,null,a.createElement("a",{href:e.url,target:e.target||void 0,rel:n?"noopener":void 0},a.createElement("img",{"aria-label":n&&e.newWindowText?e.newWindowText:void 0,src:e.imgSrc,alt:e.altText||void 0})))):null})))};U.displayName="FooterSectionImages",U.fragment=M(z({},H),{__typename:"FooterSectionImages"});var G=s.gql`
+  fragment FooterSectionLinksFragment on FooterSectionLinks {
+    __typename
+    data {
+      ... on FooterLink {
+        url
+        text
+        trackingEvent
+        target
+      }
+    }
+  }
+`,K=e=>{const{data:t,analyticsCallback:n}=e,{data:r}=t;return a.createElement(l.X,{className:"no-bullet",direction:"row",alignItems:"center",justifyContent:"center",wrap:"wrap",tag:"ul"},r.map((e,t)=>e&&e.url?a.createElement(m.N,{padding:{inlineend:"three"},key:t},a.createElement(i.C,{className:"global-navigation-footer-navlink"},a.createElement("li",null,a.createElement(f.i,{size:"small",theme:"default",onClickCapture:()=>{return t=e.trackingEvent,a="footer link item",void(t&&n&&n(t,a));var t,a}},a.createElement("a",{target:e.target||void 0,href:e.url},e.text))))):null))};K.displayName="FooterSectionLinks",K.fragment=M(z({},G),{__typename:"FooterSectionLinks"});var Y=s.gql`
+  fragment FooterSectionTextFragment on FooterSectionText {
+    __typename
+    data {
+      ... on FooterText {
+        text
+      }
+    }
+  }
+`,Q=e=>{const{data:t}=e,{data:n}=t;return a.createElement(m.N,{padding:{blockstart:"three"}},a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"center",wrap:"wrap",tag:"ul"},n.map((e,t)=>e&&e.text?a.createElement(i.C,{key:t,className:"global-navigation-footer-text"},a.createElement("li",null,a.createElement(F.D,{weight:"regular",align:"center",overflow:"wrap",size:200,spacing:"two"},e.text))):null)))};Q.displayName="FooterSectionText",Q.fragment=M(z({},Y),{__typename:"FooterSectionText"});var Z=s.gql`
+  fragment NorthstarFooterSectionImagesFragment on NorthstarFooterSectionImages {
+    __typename
+    data {
+      ... on NorthstarFooterImage {
+        imgSrc
+        url
+        altText
+        target
+        newWindowText
+      }
+    }
+  }
+`,J=e=>{var t;const{data:n,condensed:r}=e,{data:o}=n;if(0===o.length)return null;const c=r&&"Expedia Group Logo"!==(null==(t=o[0])?void 0:t.altText),s=1===o.length,g=s?"div":"li";return a.createElement(l.X,{className:"no-bullet",direction:c?"column":"row",alignItems:"center",justifyContent:"start",wrap:"wrap",tag:s?"div":"ul"},o.map((e,t)=>{const n="_blank"===(null==e?void 0:e.target);return e&&e.imgSrc?a.createElement(m.N,{key:t,padding:{block:"three",inlineend:"two"}},a.createElement(i.C,null,a.createElement(g,null,a.createElement("a",{href:e.url,target:e.target||void 0,rel:"_blank"===e.target?"noopener":void 0},a.createElement("img",{"aria-label":n&&e.newWindowText?e.newWindowText:void 0,src:e.imgSrc,alt:e.altText||void 0,width:"100%",loading:"lazy"}))))):null}))};J.displayName="NorthstarFooterSectionImages",J.fragment=M(z({},Z),{__typename:"NorthstarFooterSectionImages"});var V=s.gql`
+  fragment NorthstarFooterMinimalLinksFragment on NorthstarMinimalFooterSectionLinks {
+    __typename
+    data {
+      ...NorthstarFooterMinimalImageFragment
+      ...NorthstarFooterMinimalLinkFragment
+    }
+  }
+  fragment NorthstarFooterMinimalImageFragment on NorthstarFooterImage {
+    imgSrc
+    url
+    altText
+    target
+    __typename
+  }
+  fragment NorthstarFooterMinimalLinkFragment on FooterLink {
+    target
+    text
+    trackingEvent
+    url
+    __typename
+  }
+`,ee=e=>{var t;const{data:n}=e,{data:r}=n,o=r.length,c=(0,N.useClickTracker)();if(0===o)return null;if(1===o&&"NorthstarFooterImage"===(null==(t=r[0])?void 0:t.__typename))return a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"center",justifyContent:"center",tag:"ul"},a.createElement("a",{key:1,href:r[0].url,target:"_blank",rel:"noopener"},a.createElement("img",{src:r[0].imgSrc,alt:r[0].altText||void 0,width:"100%",loading:"lazy"})));return a.createElement(a.Fragment,null,a.createElement(m.N,{padding:"three"},a.createElement(i.C,null,a.createElement(v.w,{className:"no-bullet uitk-layout-grid-columns-large-5",columns:{small:2,medium:4},rows:{small:3,medium:2,large:1,auto_fit:"zero"},space:"three",alignItems:"start",justifyContent:"center",tag:"ul"},o>1&&r.map((e,t)=>"NorthstarFooterImage"===e.__typename?((e,t)=>a.createElement(h.T,{key:t,colStart:{large:1},rowStart:{large:1},colSpan:2},a.createElement(m.N,{padding:{blockend:"two"}},a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"start",justifyContent:"start",tag:"ul"},a.createElement("a",{key:t,href:e.url,target:e.target||void 0,rel:"_blank"===e.target?"noopener":void 0},a.createElement("img",{src:e.imgSrc,alt:e.altText||void 0,width:"100%",loading:"lazy"}))))))(e,t):a.createElement(h.T,{rowStart:{medium:2,large:1},alignSelf:"start",key:t},((e,t)=>a.createElement(l.X,{justifyContent:"start"},a.createElement(f.i,{key:t,size:"small",theme:"default",inline:!0,onClickCapture:()=>c(e.trackingEvent||"","footer link item")},a.createElement("a",{target:e.trackingEvent||void 0,href:e.url},e.text))))(e,t)))))),o>1&&a.createElement("div",null,a.createElement(S.j,{blockMargin:"six"})))};ee.displayName="NorthstarMinimalFooterSectionLinks",ee.fragment=M(z({},V),{__typename:"NorthstarMinimalFooterSectionLinks"});var te=s.gql`
+  fragment NorthstarFooterSectionLinksFragment on NorthstarFooterSectionLinks {
+    __typename
+    data {
+      ...NorthstarFooterImageFragment
+      ...NorthstarFooterSectionFragment
+      ...NorthstarFooterSectionLinkFragment
+    }
+    minimal
+  }
+  fragment NorthstarFooterImageFragment on NorthstarFooterImage {
+    imgSrc
+    url
+    altText
+    target
+    __typename
+    newWindowText
+  }
+  fragment NorthstarFooterSectionFragment on NorthstarFooterSection {
+    text
+    __typename
+    data {
+      ... on NorthstarFooterSectionLink {
+        target
+        text
+        trackingEvent
+        url
+        __typename
+      }
+    }
+  }
+  fragment NorthstarFooterSectionLinkFragment on NorthstarFooterSectionLink {
+    target
+    text
+    trackingEvent
+    url
+    __typename
+  }
+`,ne=e=>{var t;const{data:n}=e,{data:r}=n,o=r.length,s=(0,N.useClickTracker)();if(0===o)return null;if(1===o&&"NorthstarFooterImage"===(null==(t=r[0])?void 0:t.__typename))return a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"center",justifyContent:"center",tag:"ul"},a.createElement("a",{key:1,href:r[0].url,target:"_blank",rel:"noopener"},a.createElement("img",{src:r[0].imgSrc,alt:r[0].altText||void 0,width:"100%",loading:"lazy"})));return a.createElement(a.Fragment,null,a.createElement(i.C,{minWidth:"full_width"},a.createElement(m.N,{padding:{blockend:"two"}},a.createElement(v.w,{space:"large",autoFlow:"row"},o>0&&r.map((e,t)=>"NorthstarFooterImage"===(null==e?void 0:e.__typename)?((e,t)=>{const n="_blank"===(null==e?void 0:e.target);return e&&e.imgSrc?a.createElement(h.T,{key:t,colStart:{large:1},rowStart:{large:1},colSpan:2},a.createElement("div",null,a.createElement(m.N,{padding:{blockstart:"two"}},a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"start",justifyContent:"start"},a.createElement("a",{href:e.url,target:e.target||void 0},a.createElement("img",{"aria-label":n&&e.newWindowText?e.newWindowText:void 0,src:e.imgSrc,alt:e.altText||void 0,width:"100%",loading:"lazy"})))))):null})(e,t):"NorthstarFooterSectionLink"===(null==e?void 0:e.__typename)?((e,t)=>null===e?null:a.createElement(h.T,{key:t,rowStart:{small:2,medium:2,large:2},alignSelf:"start"},a.createElement(f.i,{size:"small",theme:"default",onClickCapture:()=>s(e.trackingEvent||"","footer link item")},a.createElement("a",{target:e.trackingEvent||void 0,href:e.url},e.text))))(e,t):a.createElement(h.T,{key:t,rowStart:{medium:2,large:2},alignSelf:"start"},(e=>null===e||null===e.data?null:e.data.length>0?a.createElement("div",null,a.createElement(m.N,{padding:{blockstart:"two"}},a.createElement(c.M,{tag:"h3",size:7},null==e?void 0:e.text)),a.createElement(b.y,{type:"unordered",bullet:"no-bullet"},e.data.map((e,t)=>{var n;return a.createElement(m.N,{key:t,padding:{blockstart:"two"}},a.createElement(x.x,null,a.createElement(l.X,null,a.createElement(f.i,{size:"small",theme:"default",onClickCapture:()=>s(e.trackingEvent||"","footer link item")},a.createElement("a",{"aria-label":null!=(n=e.text)?n:void 0,href:e.url,target:e.target||void 0},e.text)))))}))):null)(e)))))),o>0&&a.createElement("div",null,a.createElement(S.j,{blockMargin:"six"})))};ne.displayName="NorthstarFooterSectionLinks",ne.fragment=M(z({},te),{__typename:"NorthstarFooterSectionLinks"});var ae=s.gql`
+  fragment NorthstarFooterSectionTextFragment on NorthstarFooterSectionText {
+    __typename
+    data {
+      ... on NorthstarFooterText {
+        text
+      }
+    }
+    minimal
+  }
+`,re=e=>{const{data:t}=e,{data:n}=t;if(0===n.length)return null;const r=1===n.length,o=r?"div":x.x;return a.createElement(l.X,{className:"no-bullet",direction:"column",alignItems:"center",wrap:"wrap",tag:r?"div":"ul"},n.map((e,t)=>e&&e.text?a.createElement(i.C,{key:t,minWidth:"full_width"},a.createElement(o,null,a.createElement(F.D,{weight:"regular",align:"left",overflow:"wrap",size:200},a.createElement("span",{dangerouslySetInnerHTML:{__html:e.text}})))):null))};re.displayName="NorthstarFooterSectionText",re.fragment=M(z({},ae),{__typename:"NorthstarFooterSectionText"});var oe=s.gql`
+  query FooterQuery($context: ContextInput!, $minimal: Boolean, $condensed: Boolean) {
+    globalFooter(context: $context, minimal: $minimal, condensed: $condensed) {
+      footerHeadingLabel
+      sectionData {
+        __typename
+        ...FooterSectionButtonsFragment
+        ...FooterSectionCobrandFragment
+        ...FooterSectionLinksFragment
+        ...FooterSectionTextFragment
+        ...FooterSectionImagesFragment
+        ...NorthstarFooterSectionLinksFragment
+        ...NorthstarFooterSectionTextFragment
+        ...NorthstarFooterSectionImagesFragment
+        ...NorthstarFooterMinimalLinksFragment
+      }
+      minimal
+      condensed
+    }
+  }
+  ${W.fragment}
+  ${R.fragment}
+  ${K.fragment}
+  ${Q.fragment}
+  ${U.fragment}
+  ${ne.fragment}
+  ${re.fragment}
+  ${J.fragment}
+  ${ee.fragment}
+`,le=[ne,re,J,ee,W,R,K,Q,U],ie=e=>{const t=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,n=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=t||n,{minimal:y,condensed:E,skipSsr:F,analyticsCallback:_,page:k}=e,{context:f}=(0,g.R)(),h={context:f,minimal:y,condensed:E},{data:v,error:S,loading:N}=(0,s.useQuery)(oe,{context:{shouldLogPerformance:!0},variables:h,ssr:!F});if(N||S||!(null==v?void 0:v.globalFooter))return null;const{globalFooter:b}=v;return a.createElement(r.g,{backgroundTheme:"secondary"},b.footerHeadingLabel&&a.createElement(c.M,{tag:"h2",className:"is-visually-hidden",size:4},b.footerHeadingLabel),Array.isArray(b.sectionData)&&b.sectionData.length>0&&a.createElement(o.G,null,a.createElement(m.N,{padding:{inlinestart:"six",blockstart:p?"eight":"six",small:{inlineend:"three",blockend:"sixteen"},medium:{inlineend:"three",blockend:"twelve"},large:{inlineend:"two",blockend:"twelve"},extra_large:{inlineend:"two",blockend:"twelve"}},margin:{small:{blockend:"six"},medium:{blockend:"unset"},large:{blockend:"unset"},extra_large:{blockend:"unset"}}},a.createElement(l.X,{direction:"column"},a.createElement(u.X,{inputs:{sponsoredContentContext:{pageName:k||"Unknown",sponsoredContentId:"PGF"}},spacingProps:{padding:{blockend:"six"}}}),b.sectionData.map((e,t)=>{if(!e)return null;const n=le.find(t=>t.fragment.__typename===e.__typename);return n?a.createElement(i.C,{key:t},a.createElement(n,{key:t,data:e,minimal:b.minimal,condensed:b.condensed,analyticsCallback:_})):null})))))};ie.displayName="sharedui-Footer"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-global-navigation-footer.127afea9b6b926b9e33e.js.map

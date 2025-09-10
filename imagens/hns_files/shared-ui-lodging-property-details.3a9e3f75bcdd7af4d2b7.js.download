@@ -1,0 +1,1132 @@
+/*@license For license information please refer to shared-ui-lodging-property-details.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[855],{63998:function(e,t,n){n.d(t,{CE:function(){return pl},I:function(){return mt},I$:function(){return fl},LO:function(){return El},W4:function(){return Cl},X7:function(){return Sl},ax:function(){return pt},e7:function(){return vl},fQ:function(){return gl},jV:function(){return _l},m8:function(){return hl},p4:function(){return Al},ro:function(){return xl},t0:function(){return Il},tQ:function(){return Mt},u2:function(){return kl},uk:function(){return ul},yh:function(){return yl},zv:function(){return bl}});var a=n(56195),l=n(89118),r=n(17717),i=n(84655),o=n(80240),c=n(2557),s=n(22142),d=n(99828),m=n(522),u=n(1226),p=n(47540),g=n(934),E=n(49858),v=n(42534),y=n(74071),h=n(69287),f=n(23726),k=n(53331),b=n(26690),I=n(64341),x=n(97778),S=n(53017),_=n(20637),C=n(37965),A=n(3511),T=n(46559),P=n(89438),N=n(43888),L=n(27102),w=n(70833),D=n(78955),F=n(87552),M=n(97103),R=n(4997),$=n(46286),O=n(8724),z=n(86405),W=n(72233),q=n(92919),V=n(85692),B=n(64612),H=n(32380),U=n(89962),G=n(24109),Q=n(9010),j=n(63081),X=n(65346),K=n(39938),Y=n(84530),J=n(25229),Z=n(96895),ee=n(4988),te=n(71224),ne=n(62926),ae=n(95635),le=n(27738),re=n(28662),ie=n(90072),oe=n(37292),ce=n(70882),se=n(20465),de=n(30169),me=n(87698),ue=n(96394),pe=n(13902),ge=n(13311),Ee=n(63085),ve=n(87818),ye=n(36145),he=n(7138),fe=n(79216),ke=n(52986),be=n(10295),Ie=n(87993),xe=n(68638),Se=n(95519),_e=n(7484),Ce=n(16984),Ae=n(7647),Te=n(88357),Pe=n(94616),Ne=n(32837),Le=n(51213),we=n(53529),De=n(52677),Fe=n(32462),Me=n(96384),Re=n(64097),$e=n(63744),Oe=n(75919),ze=n(71323),We=n(4149),qe=e=>!0;var Ve=b.gql`
+  fragment PlaceDisplayFragment on PlacesDialog {
+    placesDialogEGDSTextsContentSection {
+      heading {
+        text
+      }
+      subHeading {
+        text
+      }
+      clearSavedPlaceIcon {
+        id
+        description
+      }
+    }
+  }
+`,Be=e=>{var t,n,l;const{data:r,savedFeature:i,saveCustomPlace:o}=e,s=null==(n=null==(t=null==r?void 0:r.placesDialogEGDSTextsContentSection)?void 0:t.heading)?void 0:n.text,u=null==(l=null==r?void 0:r.placesDialogEGDSTextsContentSection)?void 0:l.clearSavedPlaceIcon;return a.createElement(a.Fragment,null,a.createElement(v.N,{padding:{blockstart:"one",blockend:"one"}},s&&a.createElement(y.M,{tag:"h3",size:5},s)),a.createElement(v.N,{margin:{blockstart:"four"}},a.createElement(m.X,{justifyContent:"space-between",alignContent:"center",alignItems:"center"},a.createElement(d.C,{grow:1},a.createElement(c.LD,{name:"place",size:c.So.SMALL})),a.createElement(d.C,{grow:10},a.createElement("div",null,a.createElement(L.D,{weight:"bold"},i.name),a.createElement(v.N,null,a.createElement(w.s,null,i.description)))),a.createElement(d.C,{grow:1},a.createElement("button",{onClick:()=>o(void 0),type:"button"},a.createElement(c.LD,{id:null==u?void 0:u.id,name:"close",size:c.So.SMALL,title:null==u?void 0:u.description}))))))};Be.fragment=Ve,Be.displayName="placeDisplay";var He=b.gql`
+  fragment PlacesTypeaheadFragment on PlacesDialogTypeAheadContentSection {
+    content {
+      label
+      placeholder
+      renderType
+      typeaheadPlaceholder
+      typeaheadEmptyResultPlaceholder
+      typeaheadInfo {
+        client
+        regionType
+        isDestination
+        maxNumberOfResults
+        personalize
+        lineOfBusiness
+        packageType
+        typeaheadFeatures
+        proximityMaxMiles
+      }
+    }
+  }
+`,Ue=e=>{var t,n,l,r,i,o,c,s,d,m,u;const{data:p,handleChange:g,typeaheadLogger:E,strictFullscreen:v,renderType:y,propertyCoordinates:h}=e,{context:f}=(0,I.R)(),{identity:k,locale:b,siteId:x}=f,_=Number(null==k?void 0:k.expUserId)||-1,{duaid:C}=k||{},A=null==p?void 0:p.content,T=null!=(t=null==A?void 0:A.label)?t:"",P=null!=(n=null==A?void 0:A.placeholder)?n:"",N=null!=(l=null==A?void 0:A.typeaheadEmptyResultPlaceholder)?l:"",{exposure:L}=(0,S.useExperiment)("Custom_Place_on_PDP_Map_iteration_2",!1),w=1===L.bucket,R=`consistent_display|ta_hierarchy|postal_code|contextual_ta${w&&"|google"}`,{exposure:$,logExperiment:O}=(0,S.useExperiment)("OnClick_Suggestion_in_Typeahead_on_PDP_Map",!0),z=1===$.bucket?`${null==h?void 0:h.latitude},${null==h?void 0:h.longitude}`:null,W=new F.Z({client:null!=(i=null==(r=null==A?void 0:A.typeaheadInfo)?void 0:r.client)?i:"pdpmap",domain:void 0,dest:!0,expuserid:_,features:R,guid:C,lob:"HOTELS",locale:b,maxResults:null!=(c=null==(o=null==A?void 0:A.typeaheadInfo)?void 0:o.maxNumberOfResults)?c:10,regionType:null!=(d=null==(s=null==A?void 0:A.typeaheadInfo)?void 0:s.regionType)?d:1787,proximityMaxMiles:null==(m=null==A?void 0:A.typeaheadInfo)?void 0:m.proximityMaxMiles,siteId:x,personalize:!0,typeaheadLogger:E,fetchLocation:w,googleApiVersion:null==(u=(0,M.I)())?void 0:u.version,latlongSearchCenterPoint:z,xPageId:"page.Hotels.Infosite.Information,DETAILS,HOTELS",recentHistoryEnabled:!1});return a.createElement(D.B,{onClick:()=>O($),adapter:W,icon:"place",name:"placesTypeAhead",onUpdate:g,stid:"typeahead-adaptive",value:"",strictFullscreen:v,typeaheadPlaceholder:P,typeaheadEmptyResultPlaceholder:N,id:"placesTypeAhead",label:T,renderType:y})};Ue.fragment=He,Ue.displayName="PlacesTypeahead";var Ge=b.gql`
+  fragment PlacesSearchFragment on PlacesDialog {
+    placesDialogTypeAheadContentSection {
+      heading {
+        text
+      }
+      subHeading {
+        text
+      }
+      ...PlacesTypeaheadFragment
+    }
+  }
+  ${Ue.fragment}
+`,Qe=e=>{var t,n;const{data:l,handleChange:r,typeaheadLogger:i,propertyCoordinates:o}=e,c=null==l?void 0:l.placesDialogTypeAheadContentSection,s=null==(t=null==c?void 0:c.heading)?void 0:t.text,d=null==(n=null==c?void 0:c.subHeading)?void 0:n.text;return a.createElement(a.Fragment,null,a.createElement(v.N,{padding:{blockstart:"one",blockend:"one"}},s&&a.createElement(y.M,{tag:"h3",size:5},s)),a.createElement(v.N,{padding:{blockstart:"one",blockend:"three"}},d&&a.createElement(y.M,{tag:"h4"},a.createElement(L.D,{weight:"regular",inline:!0},d))),c&&a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(Ue,{data:c,handleChange:r,typeaheadLogger:i,strictFullscreen:!0,renderType:D.W.DIALOG,propertyCoordinates:o})),a.createElement(T.zQ,null,a.createElement(Ue,{data:c,handleChange:r,typeaheadLogger:i,propertyCoordinates:o}))))};Qe.fragment=Ge,Qe.displayName="PlacesSearch";var je=e=>Array.from(new Set(e.flatMap(e=>e)||[])),Xe=b.gql`
+  fragment PlacesSwitchesFragment on PlacesDialog {
+    placesDialogUITogglesContentSection {
+      subHeading {
+        text
+      }
+      content {
+        ...SwitchToggleFragment
+      }
+    }
+  }
+  fragment SwitchToggleFragment on FilterOption {
+    checked
+    checkedLabel
+    enabled
+    uncheckedLabel
+    filteredValues
+    uncheckedAnalytics {
+      linkName
+      referrerId
+    }
+    checkedAnalytics {
+      linkName
+      referrerId
+    }
+  }
+`;function Ke(e){return"FilterOption"===e.__typename}var Ye=(e,t)=>e.map(e=>e.join(",")).indexOf(t.join(",")),Je=e=>{var t,n,a,l,r,i,o,c;return{off:(null==(l=null==(a=null==(n=null==(t=null==e?void 0:e.placesDialogUITogglesContentSection)?void 0:t.content)?void 0:n.filter(Ke))?void 0:a.filter(e=>!e.checked))?void 0:l.map(e=>e.filteredValues))||[],on:(null==(c=null==(o=null==(i=null==(r=null==e?void 0:e.placesDialogUITogglesContentSection)?void 0:r.content)?void 0:i.filter(Ke))?void 0:o.filter(e=>e.checked))?void 0:c.map(e=>e.filteredValues))||[]}},Ze=({data:e,toggledFilters:t,setToggledFilters:n})=>{var l;const[r,i]=a.useState(void 0);a.useEffect(()=>{if(t)i(t);else{const t=Je(e);n(t),i(t)}},[t,n,i,e]);const o=a.useCallback((e,t)=>{const{on:a=[],off:l=[]}=r||{},o=Ye(l,t),c=Ye(a,t),s=!0===e?{off:o<0?l:[...l.slice(0,o),...l.slice(o+1)],on:c<0?[...a,t]:a}:{off:o<0?[...l,t]:l,on:c<0?a:[...a.slice(0,c),...a.slice(c+1)]};n(s),i(s)},[r,n,i]);if(!e||!e.placesDialogUITogglesContentSection)return null;const c=null==(l=e.placesDialogUITogglesContentSection.subHeading)?void 0:l.text,{content:s}=e.placesDialogUITogglesContentSection;return a.createElement(a.Fragment,null,a.createElement(v.N,{padding:{blockstart:"six"}},c&&a.createElement(y.M,{tag:"h4"},a.createElement(L.D,{weight:"regular",inline:!0},c))),null==s?void 0:s.filter(Ke).map((e,n)=>{const{filteredValues:l,...r}=e,i=void 0!==t?((e,t)=>Ye(e.on,t)>=0)(t,l):void 0;return a.createElement(v.N,{padding:{blockstart:"three",blockend:"two"},key:`switch-${n}`},a.createElement(_.aFc,{data:r,checked:i,handleToggle:e=>o(e,l)}))}))};Ze.fragment=Xe,Ze.displayName="placesSwitches";var et=b.gql`
+  fragment PlacesDialogFragment on PlacesDialog {
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        closeText
+      }
+    }
+    trigger {
+      icon {
+        description
+        token
+      }
+      disabled
+    }
+    ...PlacesSearchFragment
+    ...PlaceDisplayFragment
+    ...PlacesSwitchesFragment
+  }
+  ${Qe.fragment}
+  ${Be.fragment}
+  ${Ze.fragment}
+`,tt=({data:e,setSavedFeature:t,savedFeature:n,typeaheadLogger:l,toggledFilters:r,setToggledFilters:i,onClosePlacesDialog:o,showPlacesDialog:c,propertyCoordinates:s})=>{var d,u,p,E,v;const{trackMapCustomPlaceAdded:y,trackMapCustomPlaceRemoved:h}=(0,A.we)(),k=e=>{e?y(e):n&&h(n),t(e)},b=null==(u=null==(d=null==e?void 0:e.trigger)?void 0:d.icon)?void 0:u.description,I=null!=(v=null==(E=null==(p=null==e?void 0:e.dialog)?void 0:p.toolbar)?void 0:E.closeText)?v:"",x=a.createElement(m.X,{direction:"column",blockSize:"full_size"},a.createElement(f.p,{navigationContent:{onClick:o,navIconLabel:I},toolbarTitle:b}),a.createElement(P.Y,null,n&&a.createElement(Be,{data:e,savedFeature:n,saveCustomPlace:k}),!n&&a.createElement(Qe,{data:e,handleChange:e=>{const{data:t}=e;if(!t)return null;const n=(0,A.Uy)(e);k(n),o()},typeaheadLogger:l,propertyCoordinates:s}),a.createElement(Ze,{toggledFilters:r,setToggledFilters:i,data:e})));return a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(N.K,{isVisible:c},a.createElement(g.t,{isVisible:c,type:"side",sideSheetLayout:{position:"leading",columns:12},triggerRef:null},x))),a.createElement(T.zQ,null,a.createElement(N.K,{isVisible:c},a.createElement(g.t,{isVisible:c,type:"side",sideSheetLayout:{position:"leading",columns:6},triggerRef:null},x))),a.createElement(T.TD,null,a.createElement(N.K,{isVisible:c},a.createElement(g.t,{isVisible:c,type:"side",sideSheetLayout:{position:"leading",columns:4},triggerRef:null},x))))};tt.fragment=et,tt.displayName="PlacesDialog";var nt=b.gql`
+  fragment MapActionsFragment on PropertyInfoMap {
+    callToAction {
+      action {
+        targetRef
+      }
+      button {
+        primary
+      }
+      event {
+        eventName
+        eventType
+        eventVersion
+      }
+    }
+    dialogs {
+      ...PlacesDialogFragment
+    }
+  }
+  ${tt.fragment}
+`,at=b.gql`
+  query MapQuery(
+    $context: ContextInput!
+    $propertyId: String!
+    $shoppingContext: ShoppingContextInput
+    $searchCriteria: PropertySearchCriteriaInput
+  ) {
+    propertyInfo(context: $context, propertyId: $propertyId, shoppingContext: $shoppingContext, searchCriteria: $searchCriteria) {
+      id
+      summary {
+        map(searchCriteria: $searchCriteria, shoppingContext: $shoppingContext) {
+          egdsBasicMap {
+            ...DynamicMapFragment
+          }
+          mapCards {
+            ... on EGDSImageCard {
+              ...MapCardContentFragment
+            }
+            ... on LodgingCard {
+              ...LodgingCardFragment
+            }
+          }
+          toolbar {
+            title
+            icon {
+              description
+            }
+          }
+          ...MapActionsFragment
+        }
+        location {
+          coordinates {
+            latitude
+            longitude
+          }
+        }
+      }
+    }
+  }
+  ${_.jjC.fragment}
+  ${A.kT.fragment}
+  ${A.Qd.fragment}
+  ${nt}
+`,lt=e=>"EGDSMapFeature"===e.__typename,rt=(e,t,n)=>{const a=e.find(e=>e.qualifier===n);a?a.features.push(t):e.push({features:[t],qualifier:n})},it=(e,t,n,a)=>{const l=[],r=[],i=[],o=[],c=[],s=e.listFeatures();t.forEach(e=>{const{id:t,type:d,qualifiers:m=[]}=e,u=[s.find(e=>e.id===t&&e.type===d)].filter(qe)[0];if(u){const{qualifiers:s=[]}=u,p=m.filter(e=>n.includes(e))||[],g=m.filter(e=>!n.includes(e))||[];p.length>0&&!m.some(e=>a.includes(e))?(r.push({id:t,type:d}),l.push(e)):i.push({id:t,type:d}),s&&s.length>0&&(p.forEach(t=>{s.includes(t)&&rt(c,e,t)}),g.forEach(t=>{s.includes(t)||rt(o,e,t)}))}}),o.forEach(t=>e.addQualifierToFeatures(t.features,t.qualifier)),c.forEach(t=>e.removeQualifierFromFeatures(t.features,t.qualifier)),e.addQualifierToFeatures(r,k.lL.HIDDEN),e.removeQualifierFromFeatures(i,k.lL.HIDDEN)},ot=e=>{var t,n,P,N,L,w,D,F,M;const{context:$}=(0,I.R)(),{locale:O}=$,{inputs:z,beforeInit:W,onInit:q,egMapsConfig:V,onClose:B,setSavedFeature:H,savedFeature:U,typeaheadLogger:G,clientPadding:Q,triggerRef:j,skipSsr:X}=e,[K,Y]=a.useState(U),[J,Z]=a.useState(void 0),[ee,te]=a.useState(!1),ne=a.useRef(!0),{exposure:ae}=(0,S.useExperiment)("SIMILAR_PROPERTIES_MAP_VIEW_WEB"),{exposure:le}=(0,S.useExperiment)("Enable_Clickable_POIs_on_Maps",!0),re=1===ae.bucket,ie=1===le.bucket,oe={...z,context:$},{data:ce,error:se,loading:de}=(0,b.useQuery)(at,{context:{shouldLogPerformance:!0},variables:oe,ssr:!X}),me=a.useRef(),ue=(0,x.useClickTracker)(),[pe,ge]=a.useState(),{propertyInfo:Ee}=null!=ce?ce:{},ve=null==(n=null==(t=null==Ee?void 0:Ee.summary)?void 0:t.location)?void 0:n.coordinates,ye=Ee?Ee.id.toString():"",he=null==(P=null==Ee?void 0:Ee.summary)?void 0:P.map,fe=null==he?void 0:he.egdsBasicMap,ke=null==(N=null==fe?void 0:fe.config)?void 0:N.mapId,be=null==fe?void 0:fe.markers,Ie=null==he?void 0:he.mapCards,xe=a.useMemo(()=>be?(0,A.JX)(null==be?void 0:be.map(e=>e)):[],[be]),Se=a.useMemo(()=>({id:ye,type:"PRODUCT"}),[ye]),{onClose:_e}=function(e){const{trackMapInit:t,trackMapPresented:n,trackMapContentPresented:a,trackMapHidden:l}=(0,A.we)();return{trackMapInit:t,trackMapPresented:n,trackMapContentPresented:a,onClose:()=>{e&&e(),l()}}}(B),Ce=a.useCallback(e=>null==Ie?void 0:Ie.find(t=>"LodgingCard"===t.__typename?(null==t?void 0:t.id)===e:(null==t?void 0:t.imageCardId)===e),[Ie]),Ae=a.useCallback(e=>{let t=!0;if(ne.current&&K){(0,A.dG)(e,xe,K,ve,Q),t=!1;const{id:n,type:a}=K;ge({idAndType:{id:n,type:a},timestamp:Date.now()}),ne.current=!1}const{off:n=[],on:a=[]}=J||{};if(it(e,xe,je(n),je(a)),ee&&re){const n=(0,A.Jh)(e);if(n){const{id:a,type:l}=n;e.markFeatureOver(a,l),t&&ge({idAndType:{id:a,type:l},timestamp:Date.now()})}}},[K,xe,ve,J,ee,re,Q]);a.useEffect(()=>{var e,t,n;if((null==U?void 0:U.lng)&&(null==U?void 0:U.lat)&&(null==(t=null==(e=z.searchCriteria)?void 0:e.primary.destination)?void 0:t.coordinates)){const e=(0,r.zx)([U.lng,U.lat]),t=(0,r.zx)([z.searchCriteria.primary.destination.coordinates.longitude,z.searchCriteria.primary.destination.coordinates.latitude]);(0,l.A)(e,t,{units:"miles"})>=80&&((null==(n=null==pe?void 0:pe.idAndType)?void 0:n.type)&&!(0,A.em)(pe.idAndType.type)&&ge({timestamp:Date.now()}),Y(void 0))}},[]),a.useEffect(()=>{K||(ne.current=!0),H&&H(K)},[K]),a.useEffect(()=>{if(H&&K&&void 0!==K.lng&&void 0!==K.lat&&ve){const e=(0,r.zx)([K.lng,K.lat]),t=(0,r.zx)([ve.longitude,ve.latitude]);(0,l.A)(e,t,{units:"miles"})>=80&&(H(void 0),Y(void 0))}},[ve]),a.useEffect(()=>{if(me.current){const{off:e=[],on:t=[]}=J||{};it(me.current,xe,je(e),je(t))}},[xe,K,J]);const Te=a.useCallback(e=>{W&&W(e)},[]),Pe=a.useCallback(e=>{me.current=e,te(!0),q&&q(e)},[]),Ne=a.useMemo(()=>ke?{gmapsAddConfig:{mapId:ke}}:void 0,[ke]),Le=a.useMemo(()=>(0,R.h1)({googleMaps:Ne,locale:O,markers:{product:{markerType:{available:"price",[k.lL.FOCAL]:"pin",[`${k.lL.OBFUSCATED_PIN}#${k.lL.FOCAL}`]:"pinObfuscate",[`${k.lL.OBFUSCATED_PRICE}#${k.lL.FOCAL}`]:"priceObfuscate"}},property:{markerType:{available:"price",[k.lL.FOCAL]:"pin",[`${k.lL.OBFUSCATED_PIN}#${k.lL.FOCAL}`]:"pinObfuscate",[`${k.lL.OBFUSCATED_PRICE}#${k.lL.FOCAL}`]:"priceObfuscate"}},place:{show:{[`unknown#${k.lL.HIDDEN}`]:!1},textLabel:{show:{[k.lL.METRO_STATION]:!1}}}}},V||{}),[O,Ne,V]),we=a.useMemo(()=>{if(K)return[K]},[K]),De=a.useCallback((e,t)=>{var n;if(!e)return null;{const{id:t}=e,a=`${t}`,l=Ce(a);if(l){const e=null==(n=null==be?void 0:be.filter(lt).find(e=>a===e.id))?void 0:n.clientSideAnalytics;return e&&ue(e.referrerId,e.linkName),l}}},[Ce,be]),Fe=a.useMemo(()=>({placeCardsManagement:{onMarkerSelected:()=>({__typename:"AdditionalPlaceMarkerInfo",directionsTo:Se})},productCardsManagement:{onMarkerSelected:De,cardDefinition:{LodgingCard:_.jjC,LodgingCardView:_.K_G}},onCardDismiss:()=>{var e;return null==(e=me.current)?void 0:e.clearSelectedFeature()}}),[De,Se]),{button:Me,action:Re,event:$e}=(null==he?void 0:he.callToAction)||{},Oe=null==Me?void 0:Me.primary,{trackMapDialogOpened:ze,trackMapDialogClosed:We}=(0,A.we)(),[qe,Ve]=a.useState(),Be=!re,He=(null==he?void 0:he.dialogs)&&(null==he?void 0:he.dialogs[0]),Ue=null==(w=null==(L=null==He?void 0:He.trigger)?void 0:L.icon)?void 0:w.description,[Ge,Qe]=a.useState(!1),{scrollTo:Xe}=(0,C.xC)(),Ke=(0,x.useEgClickstream)(),Ye=()=>{const{eventName:e="",eventType:t="",eventVersion:n=""}=$e||{};if(e&&t&&n&&Ke){const a=(0,A.Vw)({eventName:e,eventType:t,eventVersion:n});Ke((0,A.$s)(a,{}))}},Ze=a.createElement(d.C,null,a.createElement(v.N,{margin:{blockend:"three"}},Oe&&a.createElement(i.W,{size:o.V.LARGE,onClick:()=>{Ye(),_e();const{targetRef:e}=Re||{};e&&setTimeout(()=>{Xe(e,[{sectionName:"navigation"}])},1e3)},name:Oe},Oe)));a.useEffect(()=>{const e=Je(He);e.off.length>0&&Ve(e)},[]),a.useEffect(()=>{qe&&Z(qe)},[qe]);const et=a.createElement(v.N,{margin:{blockend:"three"}},a.createElement(i.W,{size:o.V.LARGE,onClick:()=>{Qe(!0),ze()}},a.createElement(c.LD,{name:"place"}),Ue)),nt=He&&a.createElement(tt,{data:He,setSavedFeature:Y,savedFeature:K,typeaheadLogger:G,toggledFilters:qe,setToggledFilters:Ve,onClosePlacesDialog:()=>{Qe(!1),We()},showPlacesDialog:Ge,propertyCoordinates:ve});let rt;rt=se?(null==se?void 0:se.networkError)?a.createElement(a.Fragment,null,a.createElement(f.p,{toolbarType:"transparent",navigationContent:{onClick:_e,navType:"close",navIconLabel:"close map"}}),a.createElement(u.w,{blockSize:"full_size",alignItems:"center",justifyItems:"center",alignContent:"center"},a.createElement(p.T,null),a.createElement(p.T,{alignSelf:"center",justifySelf:"center"},a.createElement(m.X,{alignItems:"center",direction:"column"},a.createElement(d.C,null,a.createElement(v.N,{margin:"two"},a.createElement(s.r,{alt:"Map Illustration",url:"https://a.travel-assets.com/egds/illustrations/map__xsmall.svg"}))),a.createElement(d.C,null,a.createElement(y.M,{size:5,tag:"h5"},"We couldn’t load the map")),a.createElement(d.C,null,a.createElement(h.u,null,"Check your internet connection and try again.")))),a.createElement(p.T,null))):a.createElement(a.Fragment,null,a.createElement(f.p,{toolbarType:"transparent",navigationContent:{onClick:_e,navType:"close",navIconLabel:"close map"}}),a.createElement(u.w,{blockSize:"full_size",alignItems:"center",justifyItems:"center",alignContent:"center"},a.createElement(p.T,null),a.createElement(p.T,{alignSelf:"center",justifySelf:"center"},a.createElement(m.X,{alignItems:"center",direction:"column"},a.createElement(d.C,null,a.createElement(v.N,{margin:"two"},a.createElement(s.r,{alt:"Map Illustration",url:"https://a.travel-assets.com/egds/illustrations/map__xsmall.svg"}))),a.createElement(d.C,null,a.createElement(y.M,{size:5,tag:"h5"},"We couldn’t load the map")),a.createElement(d.C,null,a.createElement(v.N,{margin:"three"},a.createElement(i.W,{onClick:_e},"Return to property"))))),a.createElement(p.T,null))):!de&&ce&&fe?a.createElement(a.Fragment,null,(null==he?void 0:he.toolbar)?a.createElement(f.p,{toolbarTitle:(null==(D=null==he?void 0:he.toolbar)?void 0:D.title)||"",navigationContent:{onClick:_e,navType:"close",navIconLabel:null==(M=null==(F=null==he?void 0:he.toolbar)?void 0:F.icon)?void 0:M.description}}):null,a.createElement(A.kT,{data:fe,supplementalFeatures:we,onInit:Pe,beforeInit:Te,egMapsConfig:Le,clientPadding:null!=Q?Q:"24px 0px 24px",onFeaturesPushed:Ae,updateViewport:!1,selectedFeatureId:ye,height:"100%",cardsManagementHooks:Fe,baseMapPoiClickable:ie,selectedFeature:pe},a.createElement(A.h0,{zIndex:A.LV,overlayElementId:"mapActions",position:A._c.BOTTOM_CENTER,alignSelf:"center"},a.createElement(m.X,{space:"four",justifyContent:"center"},He&&a.createElement(d.C,null,!Ge&&et),Be&&Ze)),nt)):a.createElement(a.Fragment,null,a.createElement(f.p,{navigationContent:{onClick:_e,navType:"close",navIconLabel:"close map"}}),a.createElement(E.R,{cornerRadius:0,type:"block"}));const ot={returnFocusOnClose:!0,triggerRef:j,isVisible:!0};return a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(g.t,{...ot,type:"full"},rt)),a.createElement(T.rw,null,a.createElement(g.t,{...ot,type:"centered",height:1200,centeredSheetSize:"medium"},rt)))};ot.displayName="sharedui-Map";var ct=ot,st={reserveAdaptExSuccessEvents:[],amenitiesAdaptExSuccessEvents:[]},dt=[st,()=>{}],mt=(0,a.createContext)(dt),{Provider:ut}=mt,pt=({children:e})=>{const t=(0,a.useState)(st);return a.createElement(ut,{value:t},e)},gt=(e,t,n)=>{const a=t||"",{payloadId:l,eventType:r,eventTarget:i}=e;n(x.ITrackType.EVENT,{data:(0,_.T4o)({campaignId:a,payloadId:l,eventType:r||"",eventTarget:i||""})})},Et="1.0.0",vt="Impression",yt=(e,t,n="")=>({event:{event_name:e,event_version:t,...n&&{event_type:n}}}),ht=({data:e})=>{if("ShoppingProductContentGraphicsItem"!==e.__typename)return null;const t={clientPayload:yt("highlights.presented",Et,vt),serverPayload:e.clickStreamAnalytics},n=(null==e?void 0:e.text)&&(null==e?void 0:e.subText)&&a.createElement(q.g,{backgroundTheme:"secondary",padded:!0},a.createElement(m.X,{direction:"column",space:"one",alignItems:"start",blockSize:"full_size"},a.createElement(L.D,{size:300,weight:"medium",inline:!0},e.text),a.createElement(L.D,{size:300,weight:"regular",inline:!0},e.subText)));return n?a.createElement(x.EgClickstreamImpressionTracker,{eventData:t},a.createElement(p.T,null,n)):null},ft=({data:e,isPropertyBookable:t})=>{var n,l,r;const{track:i}=(0,x.useClickstreamAnalytics)(),o=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,c=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,s=o||c,{bucket:d}=(0,S.useExperiment)("Top_of_PDP_Redesign",!1).exposure,m=(0,T.eg)({viewSizes:T.pf})===T.pf.SMALL,u=d&&!m,{adaptExAttemptEvents:p,campaignId:g,adaptExSuccessEvents:E}=(null==e?void 0:e.adaptExCampaignEvents)||{};(0,z._H)("ADAPTEX_HIGHLIGHTS_PROGRESSION_EVENT",W.QK,{onSuccess:()=>{if(null==E?void 0:E.length){const e=E.filter(e=>"progression"===e.eventType);e[0]&&gt(e[0],g,i)}}}),(0,a.useEffect)(()=>{t&&(null==p?void 0:p.length)&&p.forEach(e=>{gt(e,g,i)})},[t,p,i,g]);if(!(null==(l=null==(n=e.content)?void 0:n.items)?void 0:l.length)||!(null==(r=e.content)?void 0:r.header))return null;const{header:h,items:f}=e.content,k=a.createElement(O._N,{carouselName:"ProductHighlightsCarousel",carouselHeaderText:"",itemsMaxHeight:!0,itemsVisible:{sm:1,md:3,lg:3},pagingPersistent:!1,peek:!0,wrapItems:!0,navigationIconId:{next:"next-button",prev:"prev-button"},buttonText:{nextButton:"",prevButton:""}},f.map((e,t)=>a.createElement(ht,{data:e,key:`product-highlights-carousel-item-${t}`})));return a.createElement(v.N,{padding:{blockstart:s?"eight":"unset",blockend:s?"unset":"eight"}},a.createElement("div",null,a.createElement(y.M,{tag:"h2",size:5,className:u?"is-visually-hidden":""},h.text),a.createElement(v.N,{padding:{blockstart:u?"unset":"four"}},k)))};ft.displayName="ProductHighlightsCarousel";var kt=({isColumnView:e,data:t})=>{if("ShoppingProductContentGraphicsItem"!==t.__typename)return null;const{referrerId:n,linkName:l}=(null==t?void 0:t.impressionAnalytics)||{},r=(null==t?void 0:t.text)&&a.createElement(q.g,{backgroundTheme:"secondary",padded:!0},a.createElement(m.X,{direction:"row",space:"four",alignItems:"center",blockSize:"full_size"},(null==t?void 0:t.leadingIcon)&&a.createElement(c.LD,{name:t.leadingIcon.id,size:c.So.MEDIUM}),a.createElement(L.D,null,t.text)));return a.createElement(p.T,{colSpan:e?void 0:{small:4,medium:3,large:3}},a.createElement("div",null,n&&l?a.createElement(x.IntersectionTracker,{trackOnce:!0,referrerId:n,linkName:l,className:"uitk-layout-flex-block-size-full-size"},r):r))},bt=({data:e,className:t})=>{var n,l,r;const{track:i}=(0,x.useClickstreamAnalytics)(),{context:o}=(0,I.R)(),{ref:c,inView:s}=(0,V.Wx)({triggerOnce:!0}),d=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,m=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=d||m,{bucket:g}=(0,S.useExperiment)("Top_of_PDP_Redesign",!1).exposure,E="MOBILE_PHONE"===(null==(n=null==o?void 0:o.device)?void 0:n.type),h=g&&!E,{adaptExAttemptEvents:f,campaignId:k,adaptExSuccessEvents:b}=(null==e?void 0:e.adaptExCampaignEvents)||{};if((0,z._H)("ADAPTEX_HIGHLIGHTS_PROGRESSION_EVENT",W.QK,{onSuccess:()=>{if(null==b?void 0:b.length){const e=b.filter(e=>"progression"===e.eventType);e[0]&&gt(e[0],k,i)}}}),(0,a.useEffect)(()=>{s&&(null==f?void 0:f.length)&&f.forEach(e=>{gt(e,k,i)})},[f,s,i,k]),!(null==(l=e.content)?void 0:l.items)||!(null==(r=e.content)?void 0:r.header))return null;const{header:_,items:C}=e.content,A=a.createElement(u.w,{space:"four",alignItems:"stretch",justifyContent:"center",rows:C.length,columns:4,dataTestId:"row-view"},C.map((e,t)=>a.createElement(kt,{data:e,isColumnView:!1,key:`product-highlights-list-element-${t}`}))),P=a.createElement(u.w,{space:"four",alignItems:"stretch",justifyContent:"center",columns:3,rows:void 0,dataTestId:"column-view"},C.map((e,t)=>a.createElement(kt,{data:e,isColumnView:!0,key:`product-highlights-list-element-${t}`})));return a.createElement(v.N,{padding:{blockstart:p?"eight":void 0,blockend:p?void 0:"eight"}},a.createElement("div",{ref:c,className:t},a.createElement(y.M,{tag:"h2",size:5,className:h?"is-visually-hidden":""},_.text),a.createElement(v.N,{padding:{blockstart:h?"unset":"four"}},a.createElement("div",null,a.createElement(T.LM,null,a.createElement(T.NP,null,A),a.createElement(T.rw,null,P),a.createElement(T.zQ,null,A))))))};bt.displayName="ProductHighlightsList";var It=({isColumnView:e,data:t})=>{if("ShoppingProductContentGraphicsItem"!==t.__typename)return null;const n={clientPayload:yt("highlights.presented",Et,vt),serverPayload:t.clickStreamAnalytics},l=(null==t?void 0:t.text)&&(null==t?void 0:t.subText)&&a.createElement(q.g,{backgroundTheme:"primary",padded:!1},a.createElement(v.N,{padding:{inline:"two"}},a.createElement(m.X,{direction:e?"column":"row",space:"four",alignItems:"center",blockSize:"full_size"},(null==t?void 0:t.leadingIcon)&&a.createElement(d.C,null,a.createElement("div",null,a.createElement(c.LD,{spotlight:"standard",name:t.leadingIcon.id,size:c.So.MEDIUM}))),a.createElement(d.C,null,a.createElement("div",null,a.createElement(L.D,{size:300,weight:"medium",align:e?"center":"left"},t.text),a.createElement(L.D,{size:300,weight:"regular",align:e?"center":"left"},t.subText))))));return l?a.createElement(x.EgClickstreamImpressionTracker,{eventData:n},a.createElement(p.T,{colSpan:e?void 0:{small:2,medium:3,large:3}},l)):null},xt=({data:e,isPropertyBookable:t})=>{var n,l,r;const{track:i}=(0,x.useClickstreamAnalytics)(),{ref:o,inView:c}=(0,V.Wx)({triggerOnce:!0}),s=(0,T.eg)({viewSizes:T.pf})===T.pf.SMALL,d=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,m=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=d||m,{bucket:g}=(0,S.useExperiment)("Top_of_PDP_Redesign",!1).exposure,E=g&&!s,{adaptExAttemptEvents:h,campaignId:f,adaptExSuccessEvents:k}=(null==e?void 0:e.adaptExCampaignEvents)||{};if((0,z._H)("ADAPTEX_HIGHLIGHTS_PROGRESSION_EVENT",W.QK,{onSuccess:()=>{if(null==k?void 0:k.length){const e=k.filter(e=>"progression"===e.eventType);e[0]&&gt(e[0],f,i)}}}),(0,a.useEffect)(()=>{t&&c&&(null==h?void 0:h.length)&&h.forEach(e=>{gt(e,f,i)})},[t,h,c,i,f]),!(null==(l=null==(n=e.content)?void 0:n.items)?void 0:l.length)||!(null==(r=e.content)?void 0:r.header))return null;const{header:b,items:I}=e.content,_=a.createElement(u.w,{space:"four",alignItems:"start",justifyContent:"center",rows:I.length,dataTestId:"row-view"},I.map((e,t)=>a.createElement(It,{data:e,isColumnView:!1,key:`product-highlights-list-element-${t}`}))),C=a.createElement(u.w,{space:"six",alignItems:"start",justifyContent:"center",columns:3,rows:void 0,dataTestId:"column-view"},I.map((e,t)=>a.createElement(It,{data:e,isColumnView:!0,key:`product-highlights-list-element-${t}`})));return a.createElement(v.N,{padding:{blockstart:p?"eight":"unset",blockend:p?"unset":"eight"}},a.createElement("div",{ref:o},a.createElement(y.M,{tag:"h2",size:5,className:E?"is-visually-hidden":""},b.text),a.createElement(v.N,{padding:{blockstart:E?"unset":"four"}},a.createElement("div",null,a.createElement(T.LM,null,a.createElement(T.NP,null,_),a.createElement(T.rw,null,C),a.createElement(T.zQ,null,C))))))};xt.displayName="ProductHighlightsSpotlightList";var St=({data:e})=>{var t,n,l;const r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=r||i;if(!(null==(n=null==(t=e.content)?void 0:t.items)?void 0:n.length)||!(null==(l=e.content)?void 0:l.header))return null;const{content:s}=e,{header:u,items:p}=s,{impressionAnalytics:{referrerId:g,linkName:E}}=s,h=a.createElement(v.N,{padding:{blockstart:o?"eight":void 0,blockend:o?void 0:"six"}},a.createElement("div",null,a.createElement(q.g,{backgroundTheme:B.g5.SECONDARY,tag:"section"},a.createElement(v.N,{padding:"four"},a.createElement("div",null,u&&a.createElement(v.N,{margin:{blockend:"three"}},a.createElement(m.X,{space:"two",alignItems:"center"},u.icon&&a.createElement(d.C,null,a.createElement(c.LD,{spotlight:"positive",name:u.icon.id,id:u.icon.id,description:u.icon.description})),u.text&&a.createElement(d.C,null,a.createElement("div",null,a.createElement(v.N,{padding:{blockend:"one"}},a.createElement(y.M,{size:5},u.text)),u.subText&&a.createElement(L.D,null,u.subText))))),(null==p?void 0:p.length)>0&&a.createElement(m.X,{space:"two",direction:"column"},p.map((e,t)=>((e,t)=>"EGDSPlainText"===(null==e?void 0:e.__typename)?a.createElement(d.C,{key:`product-highlight-section-item-${t}`},a.createElement(v.N,{margin:{inline:"one"}},a.createElement(H.y,{spacing:!1},a.createElement(U.x,{key:`product-highlight-section-item-text${t}`},e.text)))):null)(e,t))))))));return g&&E?a.createElement(x.IntersectionTracker,{trackOnce:!0,referrerId:g,linkName:E},h):h},_t=b.gql`
+  fragment ShoppingAdaptExEventsFragment on ShoppingAdaptExEvent {
+    banditDisplayed
+    eventTarget
+    eventType
+    payloadId
+  }
+`,Ct=b.gql`
+  fragment ProductHighlightsSectionFragment on ProductHighlightsSection {
+    highlightsType
+    content {
+      header {
+        text
+        subText
+        icon {
+          id
+          description
+          spotLight
+        }
+      }
+      items {
+        ... on EGDSPlainText {
+          text
+          __typename
+        }
+        ... on ShoppingProductContentGraphicsItem {
+          impressionAnalytics {
+            referrerId
+            linkName
+          }
+          leadingIcon {
+            id
+            description
+          }
+          text
+          subText
+          clickStreamAnalytics
+          __typename
+        }
+      }
+      impressionAnalytics {
+        event
+        referrerId
+        linkName
+      }
+    }
+    adaptExCampaignEvents {
+      campaignId
+      adaptExAttemptEvents {
+        ...ShoppingAdaptExEventsFragment
+      }
+      adaptExSuccessEvents {
+        ...ShoppingAdaptExEventsFragment
+      }
+    }
+  }
+  ${_t}
+`,At=({data:e,isPropertyBookable:t})=>{switch(e.highlightsType){case"HIGHLIGHTS_LIST":return a.createElement(bt,{data:e});case"HIGHLIGHTS_CAROUSEL":return a.createElement(ft,{data:e,isPropertyBookable:t});case"HIGHLIGHTS_SPOTLIGHT_LIST":return a.createElement(xt,{data:e,isPropertyBookable:t});case"FAMILY_HIGHLIGHTS":return a.createElement(St,{data:e});default:return null}};At.displayName="ProductHighlightsSection",At.fragment=Ct;var Tt=b.gql`
+  fragment ProductUniquenessFragment on ProductUniqueness {
+    impression {
+      ... on ClientSideImpressionEventAnalytics {
+        linkName
+        referrerId
+        event
+        uisPrimeMessages {
+          messageContent
+          schemaName
+        }
+      }
+    }
+    title {
+      ...LodgingEGDSGraphicTextFragment
+    }
+    details {
+      ...EGDSSpannableListFragment
+    }
+  }
+
+  ${_.TLj.fragment}
+  ${_.EWg.fragment}
+`,Pt="PAGE_SPEC",Nt=new RegExp(Pt,"g"),Lt=(e,t)=>e.uisPrimeMessages.map(({messageContent:e,schemaName:n})=>({messageContent:JSON.parse(e.includes(Pt)&&t?e.replace(Nt,t):e),schemaName:n})),wt=({data:e,className:t,onClickReviews:n,triggerRef:l,pageId:r})=>{const{title:i,details:o,impression:c}=e,s=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,d=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,m=s||d,g=a.createElement(v.N,{padding:{blockstart:m?"eight":void 0,blockend:m?void 0:"six"}},a.createElement("div",null,a.createElement(u.w,{columns:4},a.createElement(p.T,{colSpan:{small:4,medium:3}},a.createElement("div",null,a.createElement(q.g,{backgroundTheme:"secondary",padded:!0},a.createElement("div",null,a.createElement(v.N,{padding:"two"},a.createElement("div",null,i&&a.createElement(_.TLj,{customTextSize:400,flexLayout:!0,data:i,textProps:{weight:"medium",theme:"default"}}),o&&a.createElement(v.N,{padding:{blockstart:"two",inline:"two"}},a.createElement("div",null,a.createElement(_.EWg,{trackingPrefix:r,handleInlineLinkClick:n,triggerRef:l,data:o}))))))))))));return c.referrerId&&c.linkName?a.createElement(x.IntersectionTracker,{referrerId:`${r?`${r}.${c.referrerId}`:c.referrerId}`,linkName:c.linkName,additionalUisPrimeMicroMessages:c.uisPrimeMessages?Lt(c,r):{},trackOnce:!0},g):g};wt.displayName="ProductUniqueness",wt.fragment=Tt;var Dt=()=>{const e=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,t=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,n=e||t;return a.createElement(v.N,{padding:{blockstart:n?"eight":"unset",blockend:n?"unset":"eight"}},a.createElement("div",{className:"loading-skeleton"},a.createElement(q.g,{padded:!1},a.createElement(v.N,{padding:{inline:"two"}},a.createElement(m.X,{space:"four",direction:"column"},a.createElement(d.C,null,a.createElement(j.l,{animation:!0,type:"primary"})),a.createElement(d.C,{style:{width:"320px"}},a.createElement(G.E,{padded:!1},a.createElement(Q.M,{ratio:Q.l.R21_9,style:{height:"100px"}},a.createElement(X.U,{animation:!0,type:"rounded"})))))))))},Ft=b.gql`
+  query ProductHighlightsQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    productHighlights(context: $context, productIdentifier: $productIdentifier) {
+      ... on ProductUniqueness {
+        ...ProductUniquenessFragment
+      }
+      ... on ProductHighlightsSection {
+        ...ProductHighlightsSectionFragment
+      }
+    }
+  }
+
+  ${wt.fragment}
+  ${At.fragment}
+`,Mt=({inputs:e,onClickReviews:t,triggerRef:n,pageId:l,skipSsr:r,isPropertyBookable:i})=>{var o,c;const s=(0,$.kY)(),{context:d}=(0,I.R)(),m={...e,context:d},{data:u,error:p,loading:g}=(0,b.useQuery)(Ft,{fetchPolicy:"no-cache",variables:m,skip:null==(o=null==s?void 0:s.product)?void 0:o.productHighlights,ssr:!r,context:{batchKey:"default-product-details-experience-batch-key",shouldLogPerformance:!0}}),E=(null==u?void 0:u.productHighlights)||(null==(c=null==s?void 0:s.product)?void 0:c.productHighlights),v=1===(0,S.useExperiment)("PDP_Highlights_Adaptex_Iteration_2",!1).exposure.bucket;if(g&&v)return a.createElement(Dt,null);if(p||!E)return null;switch(E.__typename){case"ProductUniqueness":return a.createElement(wt,{data:E,onClickReviews:t,triggerRef:n,pageId:l});case"ProductHighlightsSection":return a.createElement(At,{data:E,isPropertyBookable:i});default:return null}};Mt.displayName="sharedui-ProductHighlights";var Rt=e=>{var t;const{amenityClosures:n}=e,l={columns:2},r={...l,space:"two"},i={...l,space:"three"};return n&&(null==(t=null==n?void 0:n.infoItems)?void 0:t.length)>0&&a.createElement(v.N,{padding:{blockend:"four"}},a.createElement("div",null,a.createElement(_.N6d,{data:n,small:{...r,prefix:"temporaryClosures"},large:{...i,prefix:"temporaryClosures"}})))},$t=({highlight:e})=>{const t={columns:2,prefix:"highlightedAmenities",space:"two"},n=e=>({...t,columns:e?1:2}),l={...t,space:"two"};return e.map((t,r)=>{const i=e.length>1&&0===r;return t.infoItems.length>0&&a.createElement(v.N,{key:`highlightedAmenities-section-${r}`,padding:{blockend:"six"}},a.createElement("div",null,a.createElement(_.N6d,{data:t,small:n(i),large:l})))})},Ot=e=>{const{property:t}=e;return t.map((e,t)=>{var n;return(null==(n=e.infoItems)?void 0:n.length)>0?a.createElement(v.N,{key:`propertyAmenities-section-${t}`,padding:{blockend:"four"}},a.createElement("div",null,a.createElement(_.xiA,{data:e,prefix:"propertyAmenities",contentType:_.TyX.AMENITIES_DIALOG,headingSize:7,className:"uitk-spacing-padding-inlinestart-six",listItemPadding:{blockend:"two",inlinestart:"half"}}))):null})},zt=b.gql`
+  fragment PropertyTakeoverAmenitiesFragment on PropertyTakeoverAmenities {
+    amenityClosures {
+      ...PropertyInfoContentFragment
+    }
+    highlight {
+      ...PropertyInfoContentFragment
+    }
+    property {
+      ...PropertyInfoContentFragment
+    }
+  }
+
+  ${_.N6d.fragment}
+`,Wt=a.forwardRef((e,t)=>{const{data:n}=e,{amenityClosures:l,highlight:r,property:i}=n;return 0===r.length&&0===i.length?null:a.createElement("div",{ref:t},a.createElement(K.v,{direction:"vertical"},a.createElement(Rt,{amenityClosures:l}),a.createElement($t,{highlight:r}),a.createElement(Ot,{property:i})))});Wt.fragment=zt,Wt.displayName="PropertyTakeoverAmenities";b.gql`
+  query PropertyAmenitiesQuery(
+    $context: ContextInput!
+    $propertyId: String!
+    $shoppingContext: ShoppingContextInput
+    $searchCriteria: PropertySearchCriteriaInput
+  ) {
+    propertyInfo(context: $context, propertyId: $propertyId, shoppingContext: $shoppingContext) {
+      summary {
+        amenities(searchCriteria: $searchCriteria) {
+          takeover {
+            ...PropertyTakeoverAmenitiesFragment
+          }
+          viewAmenitiesAdaptExAttemptEvents {
+            campaignId
+            events {
+              payloadId
+              eventType
+              eventTarget
+              banditDisplayed
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ${Wt.fragment}
+`;var qt=(0,a.createContext)({isRandomAccessOne:!1,data:void 0,templateId:""}),Vt=({data:e,children:t})=>{const n=a.useMemo(()=>{var t,n,a;return{isRandomAccessOne:!!(null==(n=null==(t=null==e?void 0:e.randomAccessOne)?void 0:t.mapping)?void 0:n.length),templateId:null==(a=null==e?void 0:e.randomAccessOne)?void 0:a.id,data:e}},[e]);return a.createElement(qt.Provider,{value:n},t)},Bt=b.gql`
+  fragment AmenitiesSimplifiedViewFragment on PropertyInfo {
+    __typename
+    summary {
+      __typename
+      amenities(searchCriteria: $searchCriteria) {
+        __typename
+        topAmenities {
+          ...PropertyInfoContentFragment
+        }
+      }
+    }
+  }
+
+  ${_.N6d.fragment}
+`,Ht=e=>{var t,n;const{data:l}=e,r=null==(n=null==(t=null==l?void 0:l.summary)?void 0:t.amenities)?void 0:n.topAmenities,i=null==r?void 0:r.infoItems;if(!r||!i||0===i.length)return null;return a.createElement(v.N,{margin:{blockend:"three"},padding:{blockend:"four"}},a.createElement("div",null,a.createElement(_.N6d,{data:r,small:{columns:2,space:"two",subset:6,prefix:"highlightedAmenities"},large:{columns:6,rows:1,space:"three",subset:6,prefix:"highlightedAmenities"}})))};Ht.displayName="AmenitiesSimplifiedView",Ht.fragment=Bt;var Ut=b.gql`
+  fragment AmenityDescriptionJumpLinkFragment on PropertyInfoSection {
+    action {
+      ...LodgingJumpLinkFragment
+    }
+  }
+  ${_.HSO.fragment}
+`,Gt=({data:{action:e}})=>e?a.createElement(_.HSO,{data:e}):null;Gt.displayName="AmenityDescriptionJumpLink",Gt.fragment=Ut;var Qt=b.gql`
+  fragment AmenityContentFragment on PropertyInfoContent {
+    __typename
+    header {
+      text
+    }
+    infoItems {
+      ... on PropertyInfoItem {
+        text
+      }
+    }
+    icon {
+      __typename
+      iconId: id
+    }
+    structuredData {
+      __typename
+      itemprop
+      itemscope
+      itemtype
+    }
+  }
+`,jt=({data:e,showSpaceBefore:t,expandoList:n})=>{const{header:l,infoItems:r,icon:i,structuredData:o}=e,s=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,u=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=s||u;if(!l)return null;const g="amenityFeature"===(null==o?void 0:o.itemprop),E="availableLanguage"===(null==o?void 0:o.itemprop);return a.createElement(v.N,{margin:{blockend:"four"}},a.createElement("div",null,a.createElement(d.C,{maxWidth:"full_width"},a.createElement(ne.S,{forceNoBreak:!0},a.createElement("div",{itemProp:null==o?void 0:o.itemprop,itemScope:null==o?void 0:o.itemscope,itemType:null==o?void 0:o.itemtype},a.createElement(v.N,{padding:{inlinestart:t?"twelve":"unset"},margin:{inlinestart:t?"two":"unset"}},a.createElement(m.X,{space:"two"},!(p||n)&&a.createElement(d.C,null,a.createElement(v.N,{padding:{inlineend:"three"}},a.createElement(c.LD,{name:(null==i?void 0:i.iconId)||"",size:c.So.MEDIUM}))),a.createElement("span",{itemProp:g?"name":void 0},a.createElement(y.M,{tag:"h3",size:p||n?6:5},l.text)))),(null==r?void 0:r.length)>0&&(n?a.createElement(v.N,{padding:{blockstart:"two",inlinestart:t?"twelve":"unset"},margin:{inlinestart:t?"two":"unset"}},a.createElement(H.y,{spacing:!1,bullet:"default",size:2,type:"unordered","data-stid":"am-content-list"},r.filter(e=>"PropertyInfoItem"===e.__typename).map((e,t)=>a.createElement(U.x,{key:`amenities-content-item-${t}`,"data-stid":`amenities-content-item-${t}`},a.createElement(L.D,{size:300,theme:"standard"},e.text),g&&a.createElement("meta",{itemProp:"value",content:e.text}))))):a.createElement(v.N,{padding:{inlinestart:p?"unset":"twelve"}},a.createElement("ul",{className:"no-bullet"},r.filter(e=>"PropertyInfoItem"===e.__typename).map((e,t)=>a.createElement(v.N,{margin:{blockstart:"two"},key:t},a.createElement("li",{itemProp:E?"name":void 0},a.createElement(L.D,{size:300,theme:"standard"},e.text),g&&a.createElement("meta",{itemProp:"value",content:e.text}))))))))))))};jt.displayName="AmenityContent",jt.fragment=Qt;var Xt={INFO:"info",POSITIVE:"positive",WARNING:"warning",STANDARD:"standard"},Kt=b.gql`
+  fragment AmenityHeadingSectionFragment on LodgingHeader {
+    __typename
+    text
+    subText
+    icon {
+      ...IconFragment
+    }
+  }
+  ${_.Int.fragment}
+`,Yt=({data:e,headingSize:t=4,headingTag:n="h2",showIcon:l=!1})=>{const{text:r,subText:i,icon:o}=e,s=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,u=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=s||u;if(!r)return null;const g=t&&[3,4].includes(t)?{customStyle:4===t?"headline-large":"headline-extra-large"}:void 0;return a.createElement(a.Fragment,null,(null==o?void 0:o.id)&&l?a.createElement(m.X,{space:(null==o?void 0:o.id)?"two":void 0,alignItems:"center"},a.createElement(d.C,null,a.createElement(c.LD,{id:o.id,name:o.id,description:null==o?void 0:o.description,size:(null==o?void 0:o.iconSize)?c.So[o.iconSize]:c.So.MEDIUM,spotlight:o.spotLight?Xt[o.spotLight]:void 0})),a.createElement(d.C,null,a.createElement(y.M,{tag:n,typeStyle:p?void 0:g,size:p?5:t,tabIndex:-1},r))):a.createElement(a.Fragment,null,a.createElement(y.M,{tag:n,typeStyle:p?void 0:g,size:p?5:t,tabIndex:-1},r),i&&a.createElement(L.D,{spacing:"two"},i)))};Yt.displayName="AmenityHeading",Yt.fragment=Kt;var Jt=b.gql`
+  fragment PropertyDetailsAmenitySectionFragment on PropertyInfoSection {
+    __typename
+    header {
+      ...AmenityHeadingSectionFragment
+    }
+    contents {
+      ...AmenityContentFragment
+    }
+    expando {
+      collapseButton {
+        text
+        accessibilityLabel
+        analytics {
+          eventType
+          referrerId
+          linkName
+        }
+      }
+      expandButton {
+        text
+        accessibilityLabel
+        analytics {
+          eventType
+          referrerId
+          linkName
+        }
+      }
+      items
+      ... on LodgingExpandoPeek {
+        expanded
+      }
+    }
+    ...AmenityDescriptionJumpLinkFragment
+  }
+
+  ${Yt.fragment}
+  ${jt.fragment}
+  ${Gt.fragment}
+`,Zt=({data:e,isExpandoSection:t,displayThreshold:n,isFullyCollapsible:l,expandoList:r})=>{var i,o,c,s,d,m,g;const{context:E}=(0,I.R)(),y="MOBILE_PHONE"===(null==(i=null==E?void 0:E.device)?void 0:i.type),{contents:h,header:f,expando:k}=e||{},[b,S]=a.useState(!1),_=(0,x.useClickTracker)();if(!(null==h?void 0:h.length))return null;const{expandButton:C,collapseButton:A,items:P}=k||{},N=b?null==(c=null==A?void 0:A.analytics)?void 0:c.referrerId:null==(o=null==C?void 0:C.analytics)?void 0:o.referrerId,L=b?null==(d=null==A?void 0:A.analytics)?void 0:d.linkName:null==(s=null==C?void 0:C.analytics)?void 0:s.linkName,w={id:null!=N?N:"",description:null!=L?L:"",callback:(e,t)=>{_(e,t)}},D=k&&P&&P>0,F=()=>P&&P<0?n:P&&P>0&&y?P:0;return a.createElement(a.Fragment,null,t||D?a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(a.Fragment,null,f&&a.createElement(v.N,{padding:{blockend:"six"}},a.createElement("div",null,a.createElement(Yt,{data:f}))),a.createElement(ee.A,{analytics:w,isVisible:b,handleClick:()=>S(e=>!e),expandLabel:null==C?void 0:C.text,collapseLabel:null==A?void 0:A.text,items:F(),hideScrim:!D},a.createElement("div",null,h.map((e,t)=>a.createElement(jt,{key:`amenity-content-${t}`,data:e})))))),a.createElement(T.zQ,null,a.createElement(u.w,{columns:{medium:3},space:"six"},f&&a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(Yt,{data:f}))),a.createElement(p.T,{colSpan:2},a.createElement(ee.A,{analytics:w,isVisible:b,handleClick:()=>S(e=>!e),expandLabel:null==C?void 0:C.text,collapseLabel:null==A?void 0:A.text,expandA11yLabel:null!=(m=null==C?void 0:C.accessibilityLabel)?m:"",collapseA11yLabel:null!=(g=null==A?void 0:A.accessibilityLabel)?g:"",items:F(),hideScrim:!0},a.createElement(te.f,{minWidth:"half_width",columns:2,space:"twelve"},h.map((e,t)=>a.createElement(jt,{key:`amenity-content-${t}`,data:e})))))))):a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(a.Fragment,null,f&&!l&&a.createElement(v.N,{padding:{blockend:"six"}},a.createElement("div",null,a.createElement(Yt,{data:f}))),h.map((e,t)=>{var n;return a.createElement(jt,{key:`amenity-content-${t}`,data:e,expandoList:r,showSpaceBefore:!(!r||!(null==(n=null==f?void 0:f.icon)?void 0:n.id))})}))),a.createElement(T.zQ,null,a.createElement(u.w,{columns:{medium:r?1:3},space:"six"},f&&!l&&a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(Yt,{data:f}))),a.createElement(p.T,{colSpan:l?void 0:2,colStart:l&&0!==n?2:void 0,colEnd:l&&0!==n?4:void 0},a.createElement(te.f,{minWidth:"half_width",columns:2,space:"twelve"},h.map((e,t)=>{var n;return a.createElement(jt,{key:`amenity-content-${t}`,data:e,showSpaceBefore:!(!r||!(null==(n=null==f?void 0:f.icon)?void 0:n.id)),expandoList:r})})))))))};Zt.displayName="AmenitySection",Zt.fragment=Jt;var en=({title:e,body:t,expando:n,isListWithIcon:l=!1})=>{var r,i,o,c;const s=(0,x.useClickTracker)(),{expandButton:d,collapseButton:m,expanded:u}=n||{},[p,g]=(0,a.useState)(!!u),E=p?null==(i=null==m?void 0:m.analytics)?void 0:i.referrerId:null==(r=null==d?void 0:d.analytics)?void 0:r.referrerId,v=p?null==(c=null==m?void 0:m.analytics)?void 0:c.linkName:null==(o=null==d?void 0:d.analytics)?void 0:o.linkName,y=a.useCallback(()=>{E&&v&&s(E,v),g(e=>!e)},[p]);return l?a.createElement(ae.e,null,a.createElement(le.x,{isVisible:p,isIndented:!1,onToggle:y,triggerPosition:"trailing",expandoTitle:e,expandoDescription:t})):a.createElement(re.f,null,a.createElement(ie.U,{isVisible:p,onToggle:()=>{E&&v&&s(E,v),g(e=>!e)},triggerPosition:"trailing",expandoTitle:e,expandoDescription:t}))},tn=b.gql`
+  fragment PropertyDetailsAmenityDescriptionFragment on PropertyInfo {
+    __typename
+    summary {
+      __typename
+      amenities(searchCriteria: $searchCriteria) {
+        __typename
+        amenities {
+          ...PropertyDetailsAmenitySectionFragment
+        }
+        viewAmenitiesAdaptExAttemptEvents {
+          campaignId
+          events {
+            payloadId
+            eventType
+            eventTarget
+            banditDisplayed
+          }
+        }
+        reserveAdaptExSuccessEvents {
+          campaignId
+          events {
+            payloadId
+            eventType
+            eventTarget
+            banditDisplayed
+          }
+        }
+      }
+    }
+  }
+
+  ${Zt.fragment}
+`,nn=e=>{var t;const{data:n,isExpandoSection:l,displayThreshold:r,disableSectionSeparator:i,showBorder:o=!1,showSeparator:c=!1,displayBlockStart:s=!0,disableInlineSpacing:d=!1}=e,m=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,u=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=m||u,{amenities:g,viewAmenitiesAdaptExAttemptEvents:E}=(null==(t=null==n?void 0:n.summary)?void 0:t.amenities)||{},y=null==g?void 0:g.length,h=s?"six":void 0,f=0===r&&l,[,k]=(0,Z.DH)(),{track:b}=(0,x.useClickstreamAnalytics)(),{ref:I,inView:C}=(0,V.Wx)({triggerOnce:!0,threshold:.1});return(0,a.useEffect)(()=>{C&&(null==E?void 0:E.length)&&k(()=>{E.forEach(e=>{var t,n,a;b(x.ITrackType.EVENT,{data:(0,_.T4o)({campaignId:e.campaignId,payloadId:(null==(t=e.events[0])?void 0:t.payloadId)||"",eventType:(null==(n=e.events[0])?void 0:n.eventType)||"",eventTarget:(null==(a=e.events[0])?void 0:a.eventTarget)||""})})})})},[E,C,b]),g&&y?a.createElement(v.N,{padding:o?"unset":{blockstart:p&&f?"four":h,blockend:p||f?void 0:"six",small:{inline:"three"},medium:{inline:p||d?"unset":"three"},large:{inline:p||d?"unset":"six"}}},a.createElement(q.g,{ref:I,style:{borderRadius:f?"0px":"1rem"}},g.map((e,t)=>{var n;const s=t===y-1,d=s?void 0:"bottom",m=e.header?a.createElement(Yt,{data:e.header,headingSize:f?6:4,headingTag:f?"h3":"h2",showIcon:f}):null,u=Boolean(m)&&(0===(null==(n=null==e?void 0:e.expando)?void 0:n.items)||0===r),p=a.createElement(v.N,{margin:u&&!f?{small:{blockstart:"six"},large:{blockstart:"unset"}}:void 0},a.createElement(G.E,{border:i?void 0:d,padded:!1},a.createElement(Zt,{data:e,isExpandoSection:u?void 0:l,displayThreshold:r,isFullyCollapsible:u,expandoList:f}),a.createElement(Gt,{data:e}))),g=f?void 0:"six",E=a.createElement(v.N,{margin:s&&!f?void 0:{blockend:u&&o?"two":g},padding:o?{inline:"six",block:"three"}:{blockend:s||c?"unset":"three"},key:`amenity-section-${t}`},u?a.createElement("div",null,a.createElement(en,{title:m,body:p,expando:e.expando,isListWithIcon:!!f}),c&&a.createElement(J.j,{blockMargin:"four"})):p);return o?a.createElement(q.g,{border:!0,key:`amenity-section-${t}`},E):E}))):null};nn.displayName="AmenityDescription",nn.fragment=tn;var an=b.gql`
+  fragment BookByPhoneFragment on PropertyInfo {
+    telesales {
+      telesalesNumber {
+        phoneNumber
+        value
+      }
+      description {
+        value
+      }
+      tracking {
+        linkName
+        referrerId
+      }
+    }
+  }
+`,ln=e=>{const{data:t,className:n}=e,l=(0,x.useClickTracker)(),r=a.useCallback((e,t)=>{l(t,e)},[l]);if(!(null==t?void 0:t.telesales))return null;const{telesales:i}=t,{telesalesNumber:o,description:c,tracking:s}=i,{phoneNumber:d,value:u}=o,p=c.value,{linkName:g,referrerId:E}=s;return a.createElement(m.X,{justifyContent:"center",className:n},a.createElement(v.N,{padding:{inlineend:"two"}},a.createElement(h.u,{size:1},p)),a.createElement(oe.i,{onClick:()=>r(g,E),inline:!0},a.createElement("a",{href:u},a.createElement("span",{"data-stid":"telesales-number"},d))))};ln.displayName="BookByPhone",ln.fragment=an;var rn=e=>{const{callToAction:{promptId:t,contextValues:n,callToAction:l},withHorizontalLine:r=!1,align:i="left"}=e,o=(0,x.useClickTracker)(),[,s]=(0,ce.useDialog)(t,"cdfPromptDialog");if("EGDSStandardLink"!==l.__typename)return null;const d=null==l?void 0:l.action.analytics,m=null==l?void 0:l.text,u=null==l?void 0:l.icon,p=a.createElement(a.Fragment,null,a.createElement(oe.i,{onClick:()=>{s.openDialog(),o(d.referrerId,d.linkName)},align:i},a.createElement("button",{type:"button"},a.createElement(c.LD,{name:(null==u?void 0:u.id)||"",key:null==u?void 0:u.id,size:(null==u?void 0:u.size)&&c.So[u.size]}),m)),r&&a.createElement("div",null,a.createElement(J.j,{blockMargin:"eight"}))),g={referrerId:`${null==d?void 0:d.referrerId}.impressed`,linkName:"Direct feedback call to action"},E=a.createElement(a.Fragment,null,p,a.createElement(se.jE,{contextValues:n,inputs:{promptId:t}}));return(null==d?void 0:d.referrerId)?a.createElement(x.IntersectionTracker,{trackOnce:!0,referrerId:g.referrerId,linkName:g.linkName},E):E};rn.displayName="DirectFeedbackCallToAction";var on=b.gql`
+  fragment __PropertyDirectFeedbackPromptIdFragment on PropertyInfo {
+    directFeedback {
+      __typename
+      callToAction {
+        callToAction {
+          ... on EGDSStandardLink {
+            action {
+              analytics {
+                linkName
+                referrerId
+              }
+            }
+            icon {
+              id
+              size
+            }
+            text
+          }
+        }
+        promptId
+        contextValues {
+          key
+          value
+        }
+      }
+    }
+  }
+`,cn=({data:{directFeedback:e},withHorizontalLine:t,align:n})=>{var l;return(null==(l=null==e?void 0:e.callToAction)?void 0:l.promptId)?a.createElement(rn,{callToAction:null==e?void 0:e.callToAction,withHorizontalLine:t,align:n}):null};cn.displayName="PropertyDirectFeedbackCallToAction",cn.fragment=on;var sn=b.gql`
+  fragment FaqFragment on PropertyFAQ {
+    question {
+      text
+    }
+    answer {
+      text
+    }
+  }
+`,dn=({data:e,rfrr:t,showWithExpando:n=!0,inlineSpacingStart:l})=>{const{question:r,answer:i}=e||{},[o,c]=a.useState(!1),s=(0,x.useClickTracker)(),d=a.useCallback(()=>{c(!o)},[o]),m=a.useCallback((e,t)=>{s(e,t)},[s]);return(null==r?void 0:r.text)&&(null==i?void 0:i.text)?n?a.createElement(ie.U,{expandoTitle:a.createElement(y.M,{tag:"h3",size:6,className:"uitk-type-bold"},r.text),expandoDescription:a.createElement("div",{dangerouslySetInnerHTML:{__html:i.text}}),isVisible:o,onToggle:d,analytics:{id:`${t}.${o?"close":"open"}`,description:"See frequently asked questions",callback:m}}):a.createElement(v.N,{margin:{inlinestart:l?"two":void 0},padding:{blockend:"six",inlinestart:l?"twelve":void 0}},a.createElement("div",null,a.createElement(y.M,{tag:"h3",size:6},r.text),a.createElement(v.N,{padding:{blockstart:"two"}},a.createElement(L.D,{weight:"regular",theme:"standard"},a.createElement("div",{dangerouslySetInnerHTML:{__html:i.text}}))))):null};dn.displayName="Faq",dn.fragment=sn;var mn=({faqs:e})=>{const t=(e=>{if(!e||!e.length)return null;const t={"@context":"https://schema.org","@type":"FAQPage",mainEntity:e.map(e=>{const t=e.answer.text.replace(/"/g,'\\"');return{name:e.question.text,"@type":"Question",acceptedAnswer:{"@type":"Answer",text:t}}})};return JSON.stringify(t)})(e);return t?a.createElement("script",{type:"application/ld+json",dangerouslySetInnerHTML:{__html:t}}):null},un=b.gql`
+  fragment FrequentlyAskedQuestionsFragment on PropertyInfo {
+    id
+    frequentlyAskedQuestions {
+      title {
+        text
+        subText
+        icon {
+          id
+          title
+          description
+          size
+          spotLight
+        }
+      }
+      askAQuestion {
+        primary
+        analytics {
+          referrerId
+          linkName
+        }
+      }
+      faqs {
+        ...FaqFragment
+      }
+      expando {
+        ... on LodgingExpandoPeek {
+          expanded
+        }
+        collapseButton {
+          text
+          accessibilityLabel
+          analytics {
+            eventType
+            referrerId
+            linkName
+          }
+        }
+        expandButton {
+          text
+          accessibilityLabel
+          analytics {
+            eventType
+            referrerId
+            linkName
+          }
+        }
+        items
+      }
+    }
+  }
+  ${dn.fragment}
+`,pn=e=>{var t,n,l,r,i,o,s,g;const{context:E}=(0,I.R)(),f="MOBILE_PHONE"===(null==(t=null==E?void 0:E.device)?void 0:t.type),{data:k,displayThreshold:b,showExpandoPeek:_,showBorder:C=!1,showSeparator:A}=e,T=null==k?void 0:k.frequentlyAskedQuestions,P=null==T?void 0:T.title.text,N=null==T?void 0:T.title.subText,L=null==T?void 0:T.faqs,w=null==(n=null==T?void 0:T.title)?void 0:n.icon,[,{openDialog:D}]=(0,ce.useDialog)("6fa1b1cb-a4b4-4e36-8560-b9349b8d72e9","cdfPromptDialog"),F=null==(l=null==T?void 0:T.askAQuestion)?void 0:l.primary,{referrerId:M,linkName:R}=(null==(r=null==T?void 0:T.askAQuestion)?void 0:r.analytics)||{},{expando:$}=T||{},{expandButton:O,collapseButton:z,items:W}=$||{},V=$&&"expanded"in $?$.expanded:null,B=0===b&&_,[H,U]=a.useState(Boolean(B&&V)),Q=H?null==(o=null==z?void 0:z.analytics)?void 0:o.referrerId:null==(i=null==O?void 0:O.analytics)?void 0:i.referrerId,j=H?null==(g=null==z?void 0:z.analytics)?void 0:g.linkName:null==(s=null==O?void 0:O.analytics)?void 0:s.linkName,X=(0,x.useClickTracker)(),K=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,Y=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,Z=K||Y,te=$&&W&&W>0,ne=(0,a.useCallback)(()=>{D(),M&&R&&X(M,R)},[R,M,X,D]);if(!L||0===L.length)return null;const ie=L.slice(0),oe={id:null!=Q?Q:"",description:null!=j?j:"",callback:(e,t)=>{X(e,t)}},me=ie.map((e,t)=>a.createElement(dn,{key:`faq-${t}`,data:e,rfrr:`HOT.HIS.question.${t}`,showWithExpando:!B,inlineSpacingStart:!!(null==w?void 0:w.id)})),ue=a.createElement(m.X,{space:(null==w?void 0:w.id)?"two":void 0,alignItems:"center"},(null==w?void 0:w.id)&&a.createElement(d.C,null,a.createElement(c.LD,{id:w.id,name:w.id,description:null==w?void 0:w.description,size:(null==w?void 0:w.size)?c.So[w.size]:c.So.MEDIUM,spotlight:w.spotLight?Xt[w.spotLight]:void 0})),a.createElement(d.C,null,a.createElement(v.N,null,a.createElement(y.M,{tag:"h3",size:6},P)))),pe=a.createElement(a.Fragment,null,a.createElement(ae.e,null,a.createElement(le.x,{analytics:oe,triggerPosition:"trailing",isIndented:!1,isVisible:H,onToggle:()=>{U(!H)},expandoDescription:a.createElement("div",null,me,a.createElement(mn,{faqs:ie})),expandoTitle:ue})),A&&a.createElement(J.j,{blockMargin:"four"}));return B?pe:a.createElement(v.N,{padding:C?{inline:"six",block:"three"}:{blockstart:Z?"four":"six",blockend:Z?void 0:"six",small:{inline:Z?"three":void 0},large:{inline:Z?"unset":"six"},extra_large:{inline:Z?"unset":"six"}}},a.createElement(q.g,{border:C},a.createElement(G.E,{padded:!(C||Z)},a.createElement(se.jE,{inputs:{promptId:"6fa1b1cb-a4b4-4e36-8560-b9349b8d72e9"},contextValues:[{key:"property_id",value:k.id}]}),a.createElement(u.w,{space:"six",columns:{small:1,medium:1,large:3}},a.createElement(p.T,{colSpan:{small:1,medium:1,large:1}},P&&a.createElement(m.X,{direction:"column"},a.createElement(v.N,{margin:{blockend:"four"}},a.createElement(y.M,{tag:"h2",size:Z?5:4,typeStyle:Z?void 0:{customStyle:"headline-large"}},P)),N&&a.createElement(a.Fragment,null,a.createElement(v.N,{margin:{blockstart:"one",blockend:"one"}},a.createElement(d.C,null,a.createElement(h.u,{size:1},N))),a.createElement(d.C,{alignSelf:"start"},a.createElement(v.N,{margin:{blockstart:"two"}},a.createElement(de.y,{id:"ask-a-question",onClick:ne},F)))))),a.createElement(p.T,{colSpan:{small:1,medium:1,large:2}},_||te?a.createElement(ee.A,{analytics:oe,collapseLabel:(null==z?void 0:z.text)||void 0,collapseA11yLabel:(null==z?void 0:z.accessibilityLabel)||void 0,expandLabel:(null==O?void 0:O.text)||void 0,expandA11yLabel:(null==O?void 0:O.accessibilityLabel)||void 0,isVisible:H,items:W&&W<0?b:W&&W>0&&f?W:0,handleClick:()=>U(!H),hideScrim:!te},a.createElement(re.f,null,me)):a.createElement(re.f,null,me))),a.createElement(mn,{faqs:ie}))))};pn.displayName="FrequentlyAskedQuestions",pn.fragment=un;var gn=a.createContext({}),En=()=>a.useContext(gn),vn=b.gql`
+  fragment InventorySourceFragment on PropertyInfo {
+    summary {
+      propertySource {
+        accessibilityLabel
+        label
+        graphic {
+          __typename
+          ... on Mark {
+            description
+            id
+            size
+            token
+            url {
+              value
+            }
+          }
+        }
+        text
+      }
+    }
+  }
+`,yn=({data:e})=>{var t;const{text:n,graphic:l}=(null==(t=null==e?void 0:e.summary)?void 0:t.propertySource)||{},r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=r||i;if(!n||""===n)return null;const{id:c,description:s,url:u}="Mark"===(null==l?void 0:l.__typename)&&l||{};return a.createElement(v.N,{padding:{blockstart:o?"eight":"unset",blockend:o?"unset":"four"}},a.createElement("div",null,a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(q.g,{border:!0},a.createElement(v.N,{padding:"four"},a.createElement(m.X,{space:"one",direction:"column"},a.createElement(d.C,null,a.createElement(v.N,{padding:{blockend:"one"}},a.createElement("div",null,(null==u?void 0:u.value)?a.createElement(me.D,{url:u.value,size:ue.K.EXTRA_SMALL,description:s}):a.createElement(me.D,{name:c,size:ue.K.MEDIUM,description:s})))),a.createElement(d.C,null,a.createElement(L.D,{size:300,"data-stid":"inventory-source"},n)))))),a.createElement(T.zQ,null,a.createElement(q.g,{border:!0},a.createElement(v.N,{padding:"four"},a.createElement(m.X,{space:"two",alignItems:"center"},a.createElement(d.C,null,(null==u?void 0:u.value)?a.createElement(me.D,{url:u.value,size:ue.K.EXTRA_SMALL,description:s}):a.createElement(v.N,{padding:{blockend:"one"}},a.createElement("div",null,a.createElement(me.D,{name:c,size:ue.K.MEDIUM,description:s})))),a.createElement(d.C,null,a.createElement(L.D,{size:300,overflow:"truncate","data-stid":"property-source"},n)))))))))};yn.fragment=vn,yn.displayName="InventorySource";var hn=b.gql`
+  fragment PropertyNumberFragment on PropertyInfo {
+    propertyIdDisplay(identifier: $identifier) {
+      ...EGDSSpannableTextFragment
+    }
+  }
+  ${_.$BV.fragment}
+`,fn={large:{block:"three",inlinestart:"three"}},kn={blockstart:"four"},bn=e=>{const{data:t}=e,n=null==t?void 0:t.propertyIdDisplay;return n?a.createElement(v.N,{margin:fn,padding:kn,border:["blockstart"]},a.createElement(m.X,{justifyContent:"center"},a.createElement(d.C,null,a.createElement("div",null,a.createElement(_.$BV,{data:n}))))):null};bn.fragment=hn,bn.displayName="PropertyNumber";var In=b.gql`
+  fragment RelevantAmenitiesItemFragment on PropertyInfoSection {
+    header {
+      text
+      icon {
+        id
+        token
+      }
+      impressionAnalytics {
+        event
+        referrerId
+        linkName
+      }
+    }
+    contents {
+      items {
+        text
+      }
+    }
+    expando {
+      collapseButton {
+        text
+        accessibilityLabel
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+      expandButton {
+        text
+        accessibilityLabel
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+  }
+`,xn=({data:e})=>{var t,n,l,r;const{header:i,contents:o,expando:s}=e,g=(0,x.useClickTracker)(),[E,h]=a.useState(!1),f=o.map(e=>e.items.map((e,t)=>e&&a.createElement(U.x,{key:`amenities-list-item-${t}`},e.text))),k=(e={})=>a.createElement(v.N,{margin:{inlinestart:"eight"}},a.createElement(H.y,{...e},f)),b=k(),I=(0,u.I)(k),S=a.createElement(q.g,{border:!0},a.createElement(v.N,{padding:"three"},a.createElement(re.f,null,a.createElement(ie.U,{isVisible:E,expandoTitle:a.createElement(m.X,{space:"two"},(null==i?void 0:i.icon)&&a.createElement(d.C,null,a.createElement(c.LD,{name:null==i?void 0:i.icon.id,id:null==i?void 0:i.icon.token})),a.createElement(d.C,null,a.createElement(y.M,null,null==i?void 0:i.text," ",`(${f.flat().length})`))),expandoDescription:a.createElement(T.LM,null,a.createElement(T.NP,null,b),a.createElement(T.rw,null,a.createElement(I,{columns:2}))),triggerPosition:"trailing",onToggle:()=>{h(e=>!e)},analytics:(()=>{var e,t;const n=null==(e=null==s?void 0:s.collapseButton)?void 0:e.analytics,a=null==(t=null==s?void 0:s.expandButton)?void 0:t.analytics;if(!n||!a)return;const l=E?n:a;return{id:l.referrerId,description:l.linkName,callback:(e,t)=>{g(e,t)}}})(),"data-testid":"expando-list-item"})))),_=a.createElement("div",null,a.createElement(y.M,{tag:"h6",size:6},null==i?void 0:i.text),a.createElement(H.y,{bullet:"no-bullet"},f));return f&&0!==f.length?a.createElement(x.IntersectionTracker,{referrerId:null!=(n=null==(t=null==i?void 0:i.impressionAnalytics)?void 0:t.referrerId)?n:"",linkName:null!=(r=null==(l=null==i?void 0:i.impressionAnalytics)?void 0:l.linkName)?r:""},a.createElement(p.T,{colSpan:{small:3,medium:1}},s?S:_)):null};xn.displayName="RelevantAmenitiesItem",xn.fragment=In;var Sn=b.gql`
+  fragment RelevantAmenitiesFragment on PropertyInfo {
+    __typename
+    summary {
+      __typename
+      amenities(searchCriteria: $searchCriteria) {
+        __typename
+        relevantAmenities {
+          ...RelevantAmenitiesItemFragment
+        }
+      }
+    }
+  }
+
+  ${xn.fragment}
+`,_n=({data:e,className:t})=>{var n,l,r,i;const{summary:o}=e;if(0===(null==(l=null==(n=null==o?void 0:o.amenities)?void 0:n.relevantAmenities)?void 0:l.length))return null;const c=null!=(i=null==(r=null==o?void 0:o.amenities)?void 0:r.relevantAmenities)?i:null,s=()=>null==c?void 0:c.every(e=>null==e?void 0:e.expando),d=null==c?void 0:c.map((e,t)=>{var n,l,r;return e&&e.header&&e.header.text&&0!==(null==(n=e.contents)?void 0:n.length)&&0!==(null==(r=null==(l=e.contents[0])?void 0:l.items)?void 0:r.length)?e&&a.createElement(xn,{data:e,key:`amenities-list-${t}`}):null}).filter(e=>null!==e);return a.createElement(a.Fragment,null,d&&d.length>0&&a.createElement("div",{className:t},a.createElement(v.N,{margin:{block:"two"}},a.createElement(u.w,{columns:s()?1:3,space:s()?"three":"six"},d))))};_n.displayName="RelevantAmenities",_n.fragment=Sn;var Cn={SAVE_TRIP_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME:new Ee.SystemEvent(Ee.SystemEventLevel.INFO,"SAVE_TRIP_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME")};var An=b.gql`
+  fragment SaveTripItemFragment on PropertyInfo {
+    saveTripItem(searchCriteria: $searchCriteria) {
+      ...TripsSaveItemFragment
+    }
+  }
+
+  ${_.M6C.fragment}
+`,Tn=(0,pe.RK)(new ge.tk),Pn=({data:e,searchCriteria:t})=>{const n=function(){const e=(0,Ee.useLoggerEvents)(Cn);return({originalAttributes:t,searchCriteria:n})=>function(e,t,n){return(null==t?void 0:t.dateRange)&&e?"TripsSaveStayAttributes"===e.__typename?{...e,checkInDate:{__typename:"Date",...t.dateRange.checkInDate},checkoutDate:{__typename:"Date",...t.dateRange.checkOutDate},roomConfiguration:t.rooms.map(e=>({__typename:"PropertyRoom",numberOfAdults:e.adults,childAges:e.children?e.children.map(e=>e.age):[]}))}:(n.SAVE_TRIP_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME.log({}),e):e}(t,n,e)}(),{tripSaveItemData:l,setTripSaveItemData:r}=(0,ge.hI)();if((0,a.useEffect)(()=>{l!==e.saveTripItem&&r(e.saveTripItem)},[e.saveTripItem,l,r]),!e.saveTripItem)return null;const i=n({originalAttributes:e.saveTripItem.attributes,searchCriteria:t});return a.createElement(Tn,null,a.createElement(ge.GG,{data:{...e.saveTripItem,attributes:i},source:ge.kL.LODGING_DETAILS}))};Pn.fragment=An,Pn.displayName="SaveTripItem";var Nn=b.gql`
+  fragment ShareDescriptionFragment on ShoppingShareContent {
+    description
+    image {
+      url
+      altText
+    }
+  }
+`,Ln=({image:e})=>a.createElement(Q.M,{className:"uitk-card-roundcorner-all",ratio:Q.l.R4_3},a.createElement(ye.F,{alt:null==e?void 0:e.altText,blankDefault:!1,placeholderImage:!0,src:null==e?void 0:e.url})),wn=({data:e})=>{const{image:t,description:n}=e,l=(0,T.eg)({viewSizes:T.pf});return a.createElement(m.X,{alignItems:"start",space:"three"},a.createElement(d.C,{minWidth:l===T.pf.SMALL?100:200},a.createElement("div",null,a.createElement(Ln,{image:t}))),a.createElement(d.C,{minWidth:300,grow:1},a.createElement(L.D,{spacing:"one",overflow:"truncate-2-lines",size:500},n)))};wn.displayName="ShareDescriptionSection",wn.fragment=Nn;var Dn=wn,Fn=(e,t,n,a)=>{const l=new URLSearchParams(t.search),r=new URLSearchParams;return n.forEach(t=>{switch(t){case"rm":((e,t)=>{e.forEach((e,n)=>n.startsWith("rm")&&t.append(n,e))})(l,r);break;case"referrerId":r.append(t,e.referrerId);break;default:{const e=l.get(t);null!==e&&r.append(t,e);break}}}),`https://${a}${t.pathname}?${r.toString()}`},Mn=b.gql`
+  fragment ShareOptionsFragment on ShoppingShareContent {
+    urlParameterKeys
+    shareLinks {
+      ... on ShoppingCopyLink {
+        __typename
+        icon {
+          id
+          description
+        }
+        name
+        copiedUrl
+        analytics {
+          linkName
+          referrerId
+        }
+        toast {
+          text
+        }
+        referrerId
+      }
+      ... on ShoppingSocialMediaLink {
+        __typename
+        graphic {
+          ... on Icon {
+            ...IconFragment
+            __typename
+          }
+          ... on Mark {
+            ...MarkFragment
+            __typename
+          }
+        }
+        name
+        analytics {
+          linkName
+          referrerId
+        }
+        url
+        encodedUrlParameterKey
+        referrerId
+      }
+    }
+  }
+`,Rn=({shareLink:e})=>{const{__typename:t}=e;return a.createElement(a.Fragment,null,"ShoppingCopyLink"===t&&e.icon&&a.createElement(c.LD,{name:e.icon.id,size:c.So.SMALL}),"ShoppingSocialMediaLink"===t&&e.graphic&&a.createElement(me.D,{url:e.graphic.url.value,size:4,orientation:"portrait"}))},$n=({data:e,domain:t})=>{const{shareLinks:n,urlParameterKeys:l}=e,r=(0,x.useClickTracker)(),[i,s]=a.useState(null),u=(0,he.zy)(),p=async e=>{var n;const{analytics:a,__typename:i}=e;switch(a&&r(a.referrerId,a.linkName),i){case"ShoppingCopyLink":{s(e.toast.text),setTimeout(()=>s(null),4e3);const a=((e,t,n,a)=>""===e.copiedUrl?Fn(e,t,n,a):e.copiedUrl)(e,u,l,t);await(null==(n=null==navigator?void 0:navigator.clipboard)?void 0:n.writeText(a));break}case"ShoppingSocialMediaLink":{const n=((e,t,n,a)=>{const l=new URL(e.url),r=new URLSearchParams(l.search);if(null===r.get("href")&&null===r.get("url")){const r=encodeURIComponent(Fn(e,t,n,a));return`${l}&${e.encodedUrlParameterKey}=${r}`}return e.url})(e,u,l,t);window.open(`${n}`,"_blank");break}default:return null}};return a.createElement(a.Fragment,null,a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(v.N,{padding:{blockstart:"six"}},a.createElement(fe.I,null,null==n?void 0:n.map((e,t)=>{const{name:n}=e;return a.createElement(ke.P,{key:`shareLink-optionSmall-${t}`},a.createElement(be.x,null,a.createElement(o.u,{type:"button",onClick:()=>p(e)},n)),a.createElement(m.X,{space:"three"},a.createElement(d.C,{shrink:0,alignSelf:"center"},a.createElement(Rn,{shareLink:e})),a.createElement(d.C,{grow:1},a.createElement(L.D,{size:500},n))))})))),a.createElement(T.zQ,null,a.createElement(m.X,{space:"two"},n.map((e,t)=>{const{name:n}=e;return a.createElement(d.C,{key:`shareLink-option-${t}`},a.createElement(v.N,{margin:{blockstart:"six"}},a.createElement(Ie.y,{onClick:()=>p(e),inverse:!0,type:"button"},a.createElement(Rn,{shareLink:e}),n)))})))),a.createElement(xe.N,{show:!!i},a.createElement(v.N,{margin:{inline:"one",blockend:"one"}},a.createElement(c.LD,{name:"check_circle",size:c.So.SMALL})),i))};$n.displayName="ShareOptionsSection",$n.fragment=Mn;var On=$n,zn=b.gql`
+  fragment ShareDialogFragment on ShoppingShareLinkAction {
+    sheet {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      closeText
+    }
+    content {
+      ...ShareDescriptionFragment
+      ...ShareOptionsFragment
+    }
+  }
+  ${Dn.fragment}
+  ${On.fragment}
+`,Wn=({data:e,DialogComponent:t,isDialogOpen:n,triggerRef:l,domain:r})=>{const{content:i}=e;return a.createElement(N.K,{isVisible:n},a.createElement(t,null,a.createElement(g.t,{isVisible:n,type:"bottom",triggerRef:l},a.createElement(P.Y,{padded:!1},a.createElement(v.N,{padding:"six"},i&&a.createElement("div",null,a.createElement(Dn,{data:i}),a.createElement(On,{data:i,domain:r})))))))};Wn.displayName="ShareDialog",Wn.fragment=zn;var qn=Wn,Vn=b.gql`
+  fragment ShareDialogPopOverFragment on ShoppingShareLinkAction {
+    sheet {
+      closeAnalytics {
+        __typename
+      }
+      closeText
+    }
+    content {
+      ...ShareDescriptionFragment
+      ...ShareOptionsFragment
+    }
+  }
+  ${Dn.fragment}
+  ${On.fragment}
+`,Bn=({data:e,isDialogOpen:t,closeDialog:n,triggerRef:l,domain:r})=>{const{content:i}=e;return e?a.createElement(N.K,{isVisible:t},a.createElement(g.t,{position:{inline:"leading",block:"trailing"},isVisible:t,type:"popover",triggerRef:l,onDismiss:n,width:495},a.createElement(_e.t,{alignment:"top"},a.createElement(Se.q,{type:"button",onClick:n},a.createElement(c.LD,{name:"close",size:c.So.MEDIUM,title:"close",id:"sheet-close-button"}))),a.createElement(P.Y,{padded:!1},a.createElement(v.N,{padding:{blockend:"six",inlineend:"six",inlinestart:"six"}},i&&a.createElement("div",null,a.createElement(Dn,{data:i}),a.createElement(On,{data:i,domain:r})))))):null};Bn.displayName="ShareDialogPopover",Bn.fragment=Vn;var Hn=Bn,Un=b.gql`
+  fragment ShoppingShareLinksFragment on PropertyInfo {
+    shoppingShareLinks {
+      action {
+        ...ShareDialogFragment
+      }
+      button {
+        primary
+        analytics {
+          referrerId
+          linkName
+        }
+        icon {
+          id
+          description
+        }
+      }
+    }
+  }
+  ${qn.fragment}
+`,Gn=({data:e,dialogId:t,domain:n})=>{var l;const r=(0,x.useClickTracker)(),[s,d,m]=(0,ce.useDialog)(t||"sheet-share-actions");if(!(null==(l=null==e?void 0:e.shoppingShareLinks)?void 0:l.action))return null;const{action:u,button:p}=e.shoppingShareLinks,{primary:g}=p,E=g||"",y=a.createRef();return a.createElement(ve.P,{type:"relative"},a.createElement(v.N,{padding:"two"},a.createElement(i.W,{onClick:()=>{const{analytics:e}=p;e&&r(e.referrerId,e.linkName),d.openDialog()},domRef:y,role:"button",name:E,"aria-label":E,size:o.V.SMALL},p.icon&&a.createElement(c.LD,{name:p.icon.id,size:c.So.SMALL}))),u&&a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(qn,{data:u,isDialogOpen:s,triggerRef:y,DialogComponent:m,domain:n})),a.createElement(T.zQ,null,a.createElement(Hn,{data:u,isDialogOpen:s,closeDialog:()=>{var e;if(null==(e=null==u?void 0:u.sheet)?void 0:e.closeAnalytics){const{closeAnalytics:e}=u.sheet;r(e.referrerId,e.linkName)}d.closeDialog()},triggerRef:y,domain:n}))))};Gn.displayName="ShareActions",Gn.fragment=Un;var Qn=b.gql`
+  fragment SpaceOverviewInfoFragment on PropertyInfoContent {
+    infoItems {
+      ... on PropertyInfoItem {
+        primary {
+          graphic {
+            ... on Icon {
+              description
+              iconId: id
+              size
+            }
+          }
+        }
+        text
+      }
+    }
+  }
+`,jn=({data:e})=>{const t=(0,T.eg)({viewSizes:T.pf}),n=e.infoItems&&t===T.pf.SMALL&&e.infoItems.length%2==0?"half_width":void 0,l=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,i=l||r;return a.createElement(m.X,{wrap:"wrap"},a.createElement(a.Fragment,null,e.infoItems.filter(e=>"PropertyInfoItem"===e.__typename).map((e,t)=>{var l,r;return a.createElement(d.C,{key:`${e.__typename}-${t}`,grow:1,minWidth:n},a.createElement(L.D,{size:300,inline:!0,spacing:i?void 0:"three",theme:"standard"},(null==(l=e.primary)?void 0:l.graphic)&&"Icon"===(null==(r=e.primary)?void 0:r.graphic.__typename)&&a.createElement(v.N,{margin:{inlineend:"two"}},a.createElement(c.LD,{name:e.primary.graphic.iconId,"aria-hidden":"true"})),e.text))})))};jn.fragment=Qn,jn.displayName="SpaceOverviewInfo";var Xn=b.gql`
+  fragment SpaceOverviewTitleFragment on PropertyInfoContent {
+    header {
+      text
+    }
+  }
+`,Kn=({data:e})=>{const{header:t}=e;return(null==t?void 0:t.text)?a.createElement(y.M,{tag:"h3",size:5},t.text):null};Kn.fragment=Xn,Kn.displayName="SpaceOverviewTitle";var Yn=b.gql`
+  fragment SpaceOverviewFragment on PropertyInfo {
+    propertyHighlightedDetails {
+      ...SpaceOverviewTitleFragment
+      ...SpaceOverviewInfoFragment
+    }
+  }
+
+  ${Kn.fragment}
+  ${jn.fragment}
+`,Jn=({data:e,className:t})=>{var n;const{propertyHighlightedDetails:l}=e,r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=r||i;return(null==(n=null==l?void 0:l.infoItems)?void 0:n.length)?a.createElement(v.N,{margin:{blockend:o?"unset":"four",blockstart:o?"eight":void 0}},a.createElement("div",{className:t},a.createElement(Kn,{data:l}),a.createElement(jn,{data:l}))):null};Jn.fragment=Yn,Jn.displayName="SpaceOverview";var Zn="searchId",ea=({propertyId:e,searchCriteria:t,isLuxuryProperty:n=!1})=>{var l;const r=1===(0,S.useExperiment)("Check_in_out_time_with_navigation_",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,o=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,c=i||o,s=r?{small:{blockend:c?"two":"unset"},medium:{blockend:c?"two":"unset"},large:{blockend:c?"two":"unset",inlinestart:"three"}}:"unset",u=r&&n?{large:{inlinestart:"one"}}:"unset",{context:p}=(0,I.R)(),g=(null==(l=null==p?void 0:p.device)?void 0:l.type)===_.bq3.MOBILE_TABLET?"half_width":"full_width";return a.createElement(m.X,null,a.createElement(d.C,{minWidth:g},a.createElement(v.N,{margin:s,padding:u},a.createElement("div",null,a.createElement(S.Experiment,{name:"Check_in_out_time_with_navigation_",logExposure:!0},a.createElement(S.ExperimentControl,null),a.createElement(S.ExperimentVariant,{bucket:1},a.createElement("div",null,a.createElement(Y.ug,{inputs:{featureId:"check-in-check-out-v2",productIdentifier:{id:e,type:Y.Wx.PROPERTY_ID,travelSearchCriteria:{property:t}}},batchKey:"default-product-details-experience-batch-key"}))))))))},ta=({propertyId:e,searchCriteria:t,showSection:n,isLuxury:l})=>{const r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=r||i;return n?a.createElement(p.T,{colSpan:{small:1,medium:1,large:4}},a.createElement("div",null,a.createElement(v.N,{margin:{large:{inlinestart:l?"four":"three",blockstart:o?"unset":"three"}},padding:{large:{inlinestart:l?"one":"unset",inlineend:"unset"}}},a.createElement("div",null,a.createElement(Pe.Pl,{inputs:{productIdentifier:{id:e,type:Pe.Wx.PROPERTY_ID,travelSearchCriteria:{property:t}}}}))))):null},na=({hideHeader:e,propertyId:t,searchCriteria:n,isLuxuryProperty:l=!1,headingEmphasis:r})=>a.createElement("div",{"data-stid":"content-hotel-title"},!e&&a.createElement(Ne.UL,{inputs:{productIdentifier:{id:t,type:Ne.Wx.PROPERTY_ID,travelSearchCriteria:{property:n}}},headingEmphasis:r,isLuxuryProperty:l})),aa=b.gql`
+  fragment AmenitiesDialogFragment on PropertyAmenities {
+    amenitiesDialog {
+      toolbar {
+        clientSideAnalytics {
+          linkName
+          referrerId
+        }
+        icon {
+          iconId: id
+          description
+        }
+        title
+      }
+    }
+    takeover {
+      ...PropertyTakeoverAmenitiesFragment
+    }
+    viewAmenitiesAdaptExAttemptEvents {
+      campaignId
+      events {
+        payloadId
+        eventType
+        eventTarget
+        banditDisplayed
+      }
+    }
+  }
+
+  ${Wt.fragment}
+`,la=({type:e,title:t,description:n,takeover:l,closeDialog:r,isDialogOpen:i,triggerRef:o=null,forwardRef:c=null})=>a.createElement(N.K,{isVisible:i},a.createElement(g.t,{returnFocusOnClose:!0,triggerRef:o,isVisible:i,type:e},a.createElement(f.p,{navigationContent:{onClick:r,navType:"close",navIconLabel:n}}),a.createElement(P.Y,null,a.createElement(v.N,{padding:{blockend:"six"}},a.createElement(y.M,{tag:"h2",size:5},t)),a.createElement(Wt,{data:l,ref:c})))),ra=({closeDialog:e,data:t,isDialogOpen:n,triggerRef:l,dialogPreviouslyViewed:r})=>{var i,o,c;const{amenitiesDialog:s,takeover:d,viewAmenitiesAdaptExAttemptEvents:m}=t,{track:u}=(0,x.useClickstreamAnalytics)(),{ref:p,inView:g}=(0,V.Wx)({triggerOnce:!0,threshold:0});if((0,a.useEffect)(()=>{!r&&g&&m&&m.forEach(e=>{var t,n,a;u(x.ITrackType.EVENT,{data:(0,_.T4o)({campaignId:e.campaignId,payloadId:(null==(t=e.events[0])?void 0:t.payloadId)||"",eventType:(null==(n=e.events[0])?void 0:n.eventType)||"",eventTarget:(null==(a=e.events[0])?void 0:a.eventTarget)||""})})})},[m,g,u,r]),!s||!d)return null;const E={title:null==(i=s.toolbar)?void 0:i.title,description:null==(c=null==(o=s.toolbar)?void 0:o.icon)?void 0:c.description,takeover:d,isDialogOpen:n,closeDialog:e,triggerRef:l,forwardRef:p,dialogPreviouslyViewed:r};return a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(la,{type:"full",...E})),a.createElement(T.rw,null,a.createElement(la,{type:"centered",...E})))};ra.displayName="AmenitiesDialog",ra.fragment=aa;var ia={REVIEWS:["HOT.HIS.UGC.ViewAllResults","Display detailed reviews"],AMENITIES:["HOT.HIS.ViewAllAmenities","View all amenities"],MAP_IMAGE:["HOT.HIS.Map.StaticMap","Click static map"],MAP_LINK:["HOT.HIS.ClickAddressCTALinkViewMap","ClickAddressCTALinkViewMap"],CLEANING_AND_SAFETY_LINK:["HOT.HIS.ViewAllCleanliness","Click on see all cleanliness link"],NEAR_BY_POIS_LINK:["HOT.HIS.SeeMoreLocationDetails","See more location details"]},oa=b.gql`
+  fragment AmenitiesLinkFragment on PropertyAmenities {
+    amenitiesDialog {
+      trigger {
+        value
+        accessibilityLabel
+        icon {
+          iconId: id
+        }
+      }
+    }
+  }
+`,ca=({data:e,onClick:t,triggerRef:n})=>{const[l,r]=ia.AMENITIES,i=(0,x.useClickTracker)(),{formatText:o}=(0,Le.useLocalization)(),s=o("seeAllButton.text"),d=a.useCallback(e=>{e.preventDefault(),i(l,r,!0),t()},[i,l,r,t]),{amenitiesDialog:m}=e;if(!m)return null;const{value:u,accessibilityLabel:p,icon:g}=m.trigger,E=s||u,y=(null==g?void 0:g.iconId)||"";return a.createElement(v.N,{padding:{blockstart:"three",blockend:"unset"}},a.createElement(oe.i,{align:"left",onClick:d,domRef:n},a.createElement("button",{type:"button"},a.createElement("span",{"aria-hidden":!0},E),p&&a.createElement("span",{className:"is-visually-hidden"},p),a.createElement(c.LD,{name:y}))))};ca.displayName="AmenitiesLink",ca.fragment=oa;var sa=({children:e,data:t})=>{var n,l,r,i;const o=null==(l=null==(n=t.summary)?void 0:n.amenities)?void 0:l.topAmenities,c=null==(i=null==(r=t.summary)?void 0:r.amenities)?void 0:i.propertyContentPreferences,s=null==o?void 0:o.infoItems;if(!o||!s||0===s.length)return null;const{AmenitiesLink:d}=function(e){if(!e)return{};const t={};return a.Children.forEach(e,e=>{var n,a;const l=null==(n=null==e?void 0:e.type)?void 0:n.displayName;l&&(t[l]||(t[l]=[]),null==(a=t[l])||a.push(e))}),t}(e),m={...{overflow:"wrap",prefix:"cleaningAndSafety",space:"four",subset:s.length},columns:2};return a.createElement(C.Rn,{name:"About"},c&&a.createElement(v.N,{padding:{blockend:"six"},margin:{blockstart:"two"}},a.createElement("div",null,a.createElement(_.j9c,{data:c}))),a.createElement(_.N6d,{data:o,small:m,large:m}),d)};sa.displayName="AmenityView";var da=b.gql`
+  fragment SummaryAmenitiesFragment on PropertyInfo {
+    summary {
+      amenities(searchCriteria: $searchCriteria) {
+        topAmenities {
+          ...PropertyInfoContentFragment
+        }
+        propertyContentPreferences {
+          ...PropertyContentFragment
+        }
+        amenitiesAdaptExSuccessEvents {
+          ...LodgingAdaptExAnalyticsEventFragment
+        }
+        relevantAmenities {
+          ...RelevantAmenitiesItemFragment
+        }
+        ...AmenitiesLinkFragment
+        ...AmenitiesDialogFragment
+      }
+    }
+  }
+
+  ${_.Xy0}
+  ${_.j9c.fragment}
+  ${ca.fragment}
+  ${ra.fragment}
+  ${_.AKj}
+  ${_n.fragment}
+`,ma=({data:e,className:t})=>{var n,l,r,i;const{amenities:o}=e.summary||{},[c,s,d]=(0,ce.useDialog)("amenities-dialog","pwaDialog"),m=(0,x.useClickTracker)(),u=a.useRef(null),[p,g]=a.useState(!1);if(!(null==(l=null==(n=null==o?void 0:o.topAmenities)?void 0:n.infoItems)?void 0:l.length))return null;const E=null==(i=null==(r=null==o?void 0:o.amenitiesDialog)?void 0:r.toolbar)?void 0:i.clientSideAnalytics,v=(null==o?void 0:o.amenitiesDialog)&&a.createElement(ca,{key:"amenities-link",data:o,onClick:s.openDialog,triggerRef:u}),y=a.createElement("div",{className:t,"data-stid":"hotel-amenities-list"},a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(sa,{data:e},v)),a.createElement(T.zQ,null,a.createElement(sa,{data:e},v))));return a.createElement(a.Fragment,null,a.createElement(C.Rn,{name:"PopularAmenities"},y),(null==o?void 0:o.amenitiesDialog)&&a.createElement(N.K,{isVisible:c},a.createElement(d,null,a.createElement(ra,{data:o,closeDialog:()=>{s.closeDialog(),g(!0),E&&m(E.referrerId,E.linkName,!0)},isDialogOpen:c,triggerRef:u,dialogPreviouslyViewed:p}))))};ma.displayName="SummaryAmenities",ma.fragment=da;var ua=b.gql`
+  fragment SummaryChatbotLaunchFragment on PropertyInfo {
+    summary {
+      lodgingChatbot {
+        header {
+          text
+        }
+        action {
+          primary
+        }
+        content
+      }
+    }
+  }
+`,pa=({data:e,applicationName:t,pageName:n})=>{var l,r,i,o,c,s;const{header:u,action:p,content:g}=(null==(l=e.summary)?void 0:l.lodgingChatbot)||{},{context:E}=(0,I.R)(),{propertyId:h,searchCriteria:f}=En(),[k,b]=(0,a.useState)(!1),[S,_]=(0,a.useState)(!1),[C,A,P]=(0,ce.useDialog)("virtual-agent-control-exit-survey-feedback"),w=(0,x.useClickTracker)(),{info:D}=(0,Ee.useLogger)(),F=((e,t,n)=>({schemaName:"chatbot",messageContent:{chatbotEntryPoint:e,chatbotName:t,propertyId:n}}))("VR-SHOPPING",t,h);let{currency:M}=E;const{identity:R}=E;let $=null==R?void 0:R.expUserId;const O={VAC_WidgetOpened:"chatbot.presented",VAC_WidgetClosed:"chatbot.hidden",VAC_ConversationCreated:"chatbot_conversation.created",VAC_ChatMsgReceived:"chatbot_user_message.submitted",VAC_ChatMsgSent:"chatbot_response_message.presented"};if(!u)return null;null==M&&(M=void 0),null==$&&($=void 0);const z=e=>`${e.year}-${e.month}-${e.day}`,W=()=>{if(k)try{window.virtualAgentControl.openChatWidget()}catch(e){D("Virtual agent control not loaded")}else w("HOT.HIS.ChatbotLaunch","chatbot_entrypoint.selected",void 0,[F]),b(!0)};return a.createElement("div",null,a.createElement(T.LM,null,a.createElement(T.zQ,null,a.createElement(m.X,{justifyContent:"center",wrap:"wrap"},a.createElement(d.C,{minWidth:"full_width",alignSelf:"center"},a.createElement(v.N,{padding:{inline:"three"}},a.createElement(L.D,{size:300,align:"center"},g))),a.createElement(d.C,null,a.createElement(v.N,{margin:{block:"four"}},a.createElement("div",null,a.createElement(de.y,{onClick:W},null==p?void 0:p.primary)))))),a.createElement(T.NP,null,a.createElement(q.g,{overflow:!1,padded:!0},a.createElement(G.E,{padded:!1},a.createElement(y.M,{size:5,tag:"h2"},null==u?void 0:u.text)),a.createElement(G.E,{padded:!1},a.createElement(L.D,{spacing:"four"},g)),a.createElement(v.N,{padding:{blockstart:"four"}},a.createElement(G.E,{padded:!1},a.createElement(de.y,{onClick:W},null==p?void 0:p.primary)))))),k&&a.createElement(we.ki,{applicationName:t,pageName:n,clientOverrides:{enableAutoOpenChatWidget:!0,conversationProperties:{listingId:String(h),checkin:z(null==(r=null==f?void 0:f.primary.dateRange)?void 0:r.checkInDate),checkout:z(null==(i=null==f?void 0:f.primary.dateRange)?void 0:i.checkOutDate),children:null==(c=null==(o=null==f?void 0:f.primary.rooms[0])?void 0:o.children)?void 0:c.length,adults:null==(s=null==f?void 0:f.primary.rooms[0])?void 0:s.adults,pets:0,device:"WEB",currency:M,bookNow:"",havId:$,site:"expedia",hostname:window.location.hostname,chatbotName:"shopping-pwa.pdp",chatbotEntryPoint:"VR-SHOPPING"},subscribedEvents:[...Object.keys(O)],eventHandler:e=>{w(e.type,O[e.type],void 0,[F]),"VAC_WidgetClosed"===e.type&&_(!0)}},inputs:{}}),S&&a.createElement(De.g,{chatbotEntryPoint:"chat-now-button",chatbotName:"shopping-pwa",timeoutMs:1e4,onDismiss:()=>_(!1),inputs:{propertyId:String(h)}}),C&&a.createElement(N.K,{isVisible:C},a.createElement(P,null,a.createElement(De.d,{inputs:{propertyId:String(h)},onDismiss:A.closeDialog}))))};pa.fragment=ua,pa.displayName="SummaryChatbotLaunch";var ga=b.gql`
+  fragment SummaryVipBadgeFragment on PropertyInfo {
+    summary {
+      overview {
+        vipMessaging
+      }
+    }
+  }
+`,Ea=({data:e,className:t})=>{var n,l;return(null==(l=null==(n=e.summary)?void 0:n.overview)?void 0:l.vipMessaging)?a.createElement("div",{className:t},a.createElement(Fe.G,{text:e.summary.overview.vipMessaging,theme:Me.mc.EMPHASIS})):null};Ea.fragment=ga,Ea.displayName="VipBadge";var va=b.gql`
+  fragment SummaryFragment on PropertyInfo {
+    ...SummaryAmenitiesFragment
+    ...SummaryChatbotLaunchFragment
+    ...RelevantAmenitiesFragment
+    ...InventorySourceFragment
+  }
+
+  ${ma.fragment}
+  ${pa.fragment}
+  ${_n.fragment}
+  ${yn.fragment}
+`,ya=({children:e})=>a.createElement(a.Fragment,null,e),ha=({children:e})=>a.createElement(a.Fragment,null,e),fa=({data:e,onClickReviews:t,children:n,hideHeader:l=!1,pageId:r,showHighlights:i=!1,searchId:o="",disableMapAndLocationInsights:c=!1,isPropertyBookable:s,highlightsSearchCriteria:d,skipSsr:m,isMultiItem:g=!1,isLuxuryProperty:E=!1,headingEmphasis:y=!1,...h})=>{const f=1===(0,S.useExperiment)("Template_API_Network_Call").exposure.bucket,{isRandomAccessOne:k,templateId:b,data:I}=(0,a.useContext)(qt),x=En(),{propertyId:C,shoppingContext:A}=x;let{searchCriteria:T}=En();const P=null==e?void 0:e.summary;T=(0,a.useMemo)(()=>((e,t)=>{var n,a,l;const r=null==(a=null==(n=null==e?void 0:e.secondary)?void 0:n.selections)?void 0:a.some(e=>e.id===Zn);return e&&!r&&t?{...e,secondary:{...null==e?void 0:e.secondary,selections:[...(null==(l=null==e?void 0:e.secondary)?void 0:l.selections)||[],{id:Zn,value:t}]}}:e})(T,o),[T,o]);const N=1===(0,S.useExperiment)("Headline_Vision",!0).exposure.bucket,L=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,w=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,D=L||w,F={id:C,type:Ce.Wx.PROPERTY_ID,travelSearchCriteria:{property:T},shoppingContext:A},M=(e,t=!1)=>a.createElement(ta,{propertyId:C,searchCriteria:T,showSection:e,isLuxury:t,...h});return!f||g&&!E?k&&"guest-choice-v2"===b?a.createElement(v.N,{margin:{blockstart:D?"eight":"three",small:{inline:"three",blockend:D?void 0:"three"},medium:{inline:"unset",blockend:D?void 0:"eight"}},key:"guest-choice-v2-section"},a.createElement("div",{"data-stid":"guest-choice-v2-container"},a.createElement(u.w,{columns:{small:1,medium:1,large:12}},a.createElement(p.T,{colSpan:{small:1,medium:1,large:8}},a.createElement("div",{"data-stid":"guest-choice-v2-card"},a.createElement(Y.ug,{inputs:{featureId:"guest-choice-v2",productIdentifier:F},mockData:I}),a.createElement(v.N,{margin:{blockstart:"six"},padding:{medium:{inline:"six"}}},a.createElement("div",{"data-stid":"standout-stays-amenities-highlights"},i&&a.createElement(Mt,{inputs:{productIdentifier:{id:C,type:Ce.Wx.PROPERTY_ID,travelSearchCriteria:{property:d||F.travelSearchCriteria.property}}},skipSsr:m,onClickReviews:t,pageId:r,isPropertyBookable:s}),a.createElement(Il,{inputs:x,skipSsr:!0}),a.createElement(Ce.oT,{inputs:{productIdentifier:F},refTargetName:"About"}))))),a.createElement(p.T,{colSpan:{small:1,medium:1,large:4}},a.createElement("div",null,a.createElement(ea,{propertyId:C,searchCriteria:T,isLuxuryProperty:E}),M(!c,!1)))))):E?a.createElement(v.N,{margin:{blockstart:D?"eight":"three",small:{inline:"three",blockend:D?void 0:"three"},medium:{inline:"unset",blockend:D?void 0:"eight"}},padding:{large:{inlineend:"six"}},key:"standout-stays-section"},a.createElement("div",{"data-stid":"standout-stays-container"},a.createElement(u.w,{columns:{small:1,medium:1,large:12}},a.createElement(p.T,{colSpan:{small:1,medium:1,large:8}},a.createElement(v.N,{margin:{large:{inlineend:"one"}}},a.createElement("div",{"data-stid":"standout-stays-card"},a.createElement(q.g,{padded:!0,backgroundTheme:"highlight"},a.createElement(G.E,{padded:!0},a.createElement(v.N,{margin:{small:{block:"one",inline:"one"},large:{block:"three",inline:"three"}}},a.createElement("div",null,a.createElement(na,{hideHeader:l,propertyId:C,searchCriteria:T,isLuxuryProperty:E,headingEmphasis:y}),a.createElement(v.N,{padding:{blockstart:"two",inline:"unset"}},a.createElement(Te.Pc,{inputs:{productIdentifier:F},isLuxuryProperty:E})),a.createElement(Ae.T,{inputs:{productIdentifier:F}}))))),a.createElement(v.N,{margin:{blockstart:"six"}},a.createElement("div",{"data-stid":"standout-stays-amenities-highlights"},i&&a.createElement(Mt,{inputs:{productIdentifier:{id:C,type:Ce.Wx.PROPERTY_ID,travelSearchCriteria:{property:d||F.travelSearchCriteria.property}}},skipSsr:m,onClickReviews:t,pageId:r,isPropertyBookable:s}),a.createElement(Il,{inputs:x,skipSsr:!0}),a.createElement(v.N,{margin:{large:{blockend:"unset"},medium:{blockend:"six"},small:{blockend:"six"}}},a.createElement("div",null,a.createElement(Ce.oT,{inputs:{productIdentifier:F},refTargetName:"About"})))))))),a.createElement(p.T,{colSpan:{small:1,medium:1,large:4}},a.createElement("div",null,a.createElement(ea,{propertyId:C,searchCriteria:T}),M(!c,!0)))))):a.createElement(v.N,{margin:{blockstart:D?"eight":void 0,small:{blockend:D?void 0:"three"},medium:{blockend:D?void 0:"eight"}},padding:{large:{inline:D?"unset":"six"},small:{inline:"three"},blockend:"unset"}},a.createElement(q.g,{className:"uitk-flat-border-top",overflow:!0},a.createElement(G.E,{padded:!D},a.createElement(u.w,{columns:{small:1,medium:1,large:12}},a.createElement(p.T,{colSpan:{small:1,medium:1,large:8}},a.createElement("div",null,a.createElement(v.N,{padding:{large:{inlineend:"three"}}},a.createElement("div",null,N?a.createElement(v.N,{padding:{blockend:D?void 0:"six"}},a.createElement("div",null,a.createElement(v.N,{padding:{blockend:"two"}},a.createElement("div",{"data-stid":"headline-vision-top-of-pdp-card"},a.createElement(Y.ug,{inputs:{featureId:"headline-top-of-pdp",productIdentifier:F}}))),(0,_.wzg)(n,ha))):a.createElement(a.Fragment,null,a.createElement(na,{hideHeader:l,propertyId:C,searchCriteria:T,headingEmphasis:y}),a.createElement("div",null,(0,_.wzg)(n,ha)),a.createElement("div",null,a.createElement(Te.Pc,{inputs:{productIdentifier:F}}))),i&&a.createElement(Mt,{inputs:{productIdentifier:{id:C,type:Ce.Wx.PROPERTY_ID,travelSearchCriteria:{property:d||F.travelSearchCriteria.property}}},skipSsr:m,onClickReviews:t,pageId:r,isPropertyBookable:s}),P&&a.createElement(a.Fragment,null,(0,_.wzg)(n,ya)),a.createElement(Il,{inputs:x,skipSsr:!0}),a.createElement(v.N,{margin:{large:{blockend:"unset"},medium:{blockend:"six"},small:{blockend:"six"}}},a.createElement("div",null,a.createElement(Ce.oT,{inputs:{productIdentifier:F},refTargetName:"About"}))))))),a.createElement(p.T,{colSpan:{small:1,medium:1,large:4}},a.createElement("div",null,a.createElement(ea,{propertyId:C,searchCriteria:T}),M(!c,!1)))),P&&a.createElement(v.N,{padding:{blockend:"three"}},a.createElement(_n,{data:e}))))):P?a.createElement(v.N,{padding:{blockend:"three"}},a.createElement(_n,{data:e||{}})):null};fa.displayName="Summary",fa.fragment=va;var ka=()=>a.createElement(v.N,{margin:{blockstart:"three"},padding:{blockend:"three"}},a.createElement("div",null,a.createElement(v.N,{margin:{blockend:"two"}},a.createElement(j.l,{animation:!1,type:"primary"})),a.createElement(j.l,{animation:!1,type:"secondary"}))),ba=b.gql`
+  fragment BookWithConfidenceFragment on PropertyInfo {
+    bookWithConfidence {
+      banner {
+        ...ShoppingBannerFragment
+      }
+    }
+  }
+  ${_.nCN.fragment}
+`,Ia=({data:e})=>{var t;const n=null==(t=null==e?void 0:e.bookWithConfidence)?void 0:t.banner;return n?a.createElement("div",null,a.createElement(_.nCN,{data:n})):null};Ia.fragment=ba,Ia.displayName="BookWithConfidence";var xa={small:{block:"three",inline:"six"},large:{block:"three",inline:"six"}},Sa={small:{block:"six",inline:"three"},large:{block:"six",inline:"six"}},_a={small:{inline:"three"},large:{inline:"six"}},Ca={small:{blockstart:"four",blockend:"unset",inline:"three"},large:{blockstart:"four",blockend:"unset",inline:"unset"}},Aa=b.gql`
+  fragment WhatsAroundSecondaryButtonFragment on UISecondaryButton {
+    primary
+    action {
+      ... on UILinkAction {
+        resource {
+          value
+        }
+        target
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+  }
+`,Ta=({data:e})=>{const{primary:t,action:n}=e,l=(0,x.useClickTracker)();if(!n||"UILinkAction"!==n.__typename)return null;return a.createElement(v.N,{margin:{blockstart:"two"}},a.createElement(de.y,{tag:"a",href:n.resource.value,onClick:()=>{n.analytics&&l(n.analytics.referrerId,n.analytics.linkName)}},t))};Ta.displayName="EGDSSecondaryButton",Ta.fragment=Aa;var Pa=b.gql`
+  fragment WhatsAroundEGDSSpannableTextContentFragment on EGDSText {
+    ... on EGDSPlainText {
+      text
+    }
+    ... on EGDSInlineLink {
+      text
+      action {
+        resource {
+          value
+        }
+        target
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+  }
+`,Na=({data:e})=>{const t=(0,x.useClickTracker)();switch(e.__typename){case"EGDSPlainText":return a.createElement(L.D,{inline:!0},e.text);case"EGDSInlineLink":return a.createElement(oe.i,{inline:!0},a.createElement("a",{href:e.action.resource.value,target:e.action.target,onClickCapture:()=>{var n;(n=e.action.analytics)&&t(n.referrerId,n.linkName)}},e.text));default:return null}};Na.fragment=Pa,Na.displayName="EGDSSpannableTextContent";var La=b.gql`
+  fragment WhatsAroundEGDSSpannableTextFragment on EGDSSpannableText {
+    inlineContent {
+      ...WhatsAroundEGDSSpannableTextContentFragment
+    }
+  }
+  ${Na.fragment}
+`,wa=({data:e})=>a.createElement("div",null,e.inlineContent.map((e,t)=>a.createElement(Na,{data:e,key:t})));wa.fragment=La,wa.displayName="EGDSSpannableText";var Da=b.gql`
+  fragment WhatsAroundContentItemFragment on PropertyEditorialContentItem {
+    ...WhatsAroundEGDSSpannableTextFragment
+    ...WhatsAroundSecondaryButtonFragment
+  }
+  ${wa.fragment}
+  ${Ta.fragment}
+`,Fa=({data:e})=>{switch(e.__typename){case"EGDSSpannableText":return a.createElement(wa,{data:e});case"UISecondaryButton":return a.createElement(Ta,{data:e});default:return null}};Fa.displayName="WhatsAroundEditorialContentItem",Fa.fragment=Da;var Ma=b.gql`
+  fragment WhatsAroundLinkFragment on LodgingLinkMessage {
+    link {
+      clientSideAnalytics {
+        linkName
+        referrerId
+      }
+      uri {
+        value
+      }
+    }
+    value
+    icon {
+      id
+      description
+    }
+  }
+`,Ra=({data:e,index:t})=>{var n,l;const r=(0,x.useClickTracker)();if(!(null==e?void 0:e.value)||!(null==(l=null==(n=null==e?void 0:e.link)?void 0:n.uri)?void 0:l.value))return null;const i=()=>{e.link.clientSideAnalytics&&r(e.link.clientSideAnalytics.referrerId,e.link.clientSideAnalytics.linkName)},o=e.value,s=e.link.uri.value,{icon:d}=e;return a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement($a,{href:s,onClickCapture:i},o)),a.createElement(T.rw,null,a.createElement($a,{href:s,onClickCapture:i,target:"_blank"},o,(null==d?void 0:d.id)&&a.createElement(c.LD,{id:`${d.id}-${t}`,name:d.id,title:d.description}))))};Ra.displayName="WhatsAroundLink",Ra.fragment=Ma;var $a=({href:e,target:t,children:n,...l})=>a.createElement(v.N,{margin:{block:"two"}},a.createElement(oe.i,{...l},a.createElement("a",{href:e,target:t},n))),Oa=Ra,za=b.gql`
+  fragment WhatsAroundEditorialFragment on PropertyEditorial {
+    content
+    contentItems {
+      ...WhatsAroundContentItemFragment
+    }
+    crossLinks {
+      ...WhatsAroundLinkFragment
+    }
+    title
+    expandoPeek {
+      collapseAnalytics {
+        linkName
+        referrerId
+      }
+      collapsedLabel
+      expandAnalytics {
+        linkName
+        referrerId
+      }
+      expandedLabel
+      lines
+      items
+    }
+  }
+
+  ${Oa.fragment}
+  ${Fa.fragment}
+`,Wa=({data:e,isWhatsAroundMapPoisEditorialView:t,isExpandoView:n,hideTitle:l})=>{var r,i,o,c,s,d,m,u;const[p,g]=a.useState(!1),E=(0,x.useClickTracker)();if(!e||(!e.contentItems||e.contentItems.length<=0)&&(!e.content||e.content.length<=0))return null;const{title:h,crossLinks:f,content:k,expandoPeek:b,contentItems:I}=e,S=I&&I.length>0,_=n&&b,C=k[0],A=null==f?void 0:f.map((e,t)=>a.createElement(v.N,{padding:{blockend:"two"},key:t},a.createElement("div",null,a.createElement(Oa,{data:e,index:t})))),T=C&&a.createElement(v.N,{padding:t?{blockend:"four"}:{block:"three"}},a.createElement("div",{itemProp:"geo",itemScope:!0,itemType:"https://schema.org/GeoCoordinates"},a.createElement("meta",{itemProp:"description",content:C}),!S&&a.createElement(L.D,{size:300},C))),P={id:null!=(i=null==(r=null==b?void 0:b.expandAnalytics)?void 0:r.referrerId)?i:"",description:null!=(c=null==(o=null==b?void 0:b.expandAnalytics)?void 0:o.linkName)?c:"",callback:(e,t)=>{E(e,t)}},N={id:null!=(d=null==(s=null==b?void 0:b.collapseAnalytics)?void 0:s.referrerId)?d:"",description:null!=(u=null==(m=null==b?void 0:b.collapseAnalytics)?void 0:m.linkName)?u:"",callback:(e,t)=>{E(e,t)}};return a.createElement("section",null,h&&!l&&a.createElement(y.M,{tag:"h3",size:5},h),_&&(C||S)?a.createElement(ee.A,{hideScrim:!0,lines:(null==b?void 0:b.lines)||3,items:(null==b?void 0:b.items)||1,expandLabel:null==b?void 0:b.expandedLabel,collapseLabel:null==b?void 0:b.collapsedLabel,isVisible:p,handleClick:()=>{g(!p)},expandA11yLabel:null==b?void 0:b.expandedLabel,collapseA11yLabel:null==b?void 0:b.collapsedLabel,analytics:p?N:P},null==I?void 0:I.map((e,t)=>a.createElement(Fa,{data:e,key:t})),T,!S&&A):a.createElement(a.Fragment,null,null==I?void 0:I.map((e,t)=>a.createElement(Fa,{data:e,key:t})),T,!S&&A))};Wa.displayName="WhatsAroundEditorial",Wa.fragment=za;var qa=b.gql`
+  fragment WhatsAroundMapFragment on PropertyWhatsAround {
+    staticImage {
+      description
+      url
+    }
+    mapTrigger {
+      ...MapTriggerFragment
+    }
+  }
+  ${_.La_.fragment}
+`,Va=({data:e,mapCTALabel:t,propertyId:n,disableSpacing:l})=>{const r=a.useRef(null),[,i,o]=(0,ce.useDialog)("whats-around-map"),{description:c,url:s}=(null==e?void 0:e.staticImage)||{},d=Boolean(t),m=(0,x.useClickTracker)(),u=a.useCallback((e,t)=>n=>{n.preventDefault(),m(e,t),i.openDialog()},[m,i]),p=a.useCallback(()=>{i.closeDialog()},[i]),g=null==e?void 0:e.mapTrigger;return a.createElement(a.Fragment,null,g?a.createElement(_.La_,{data:g,dialogId:"whats-around-map",dialogQueryKey:"pwaOverlay",closeMapDialogPropBuilder:_.qK3,triggerRef:r,useMapPreview:!0},a.createElement(ct,{inputs:{propertyId:n},triggerRef:r})):a.createElement(a.Fragment,null,a.createElement(o,null,a.createElement(ct,{inputs:{propertyId:n},onClose:p,triggerRef:r})),a.createElement(v.N,{margin:l?void 0:{blockend:"six"},"data-stid":"whats-around-map"},a.createElement(q.g,{border:d},a.createElement(G.E,{padded:!1},a.createElement(Re.A,{height:200},a.createElement(a.Fragment,null,a.createElement("h3",{className:"is-visually-hidden"},c),a.createElement(Q.M,{ratio:Q.l.R21_9,imageFit:"cover"},a.createElement(ye.F,{alt:"",src:s||""}))))),a.createElement($e.w,null,a.createElement("section",{className:"EGDS-button",onClickCapture:u("HOT.HIS:WhatsAroundMap.Open","Launch dynamic map")},c)),t&&a.createElement(G.E,{className:"EGDS-type-300",border:"top"},a.createElement($e.w,null,a.createElement("button",{ref:r,type:"button",onClickCapture:u("WhatsAroundMap.ClickLinkViewMap","Launch dynamic map")},t)),a.createElement(oe.i,{inline:!0},a.createElement("button",{type:"button"},t)))))))};Va.displayName="WhatsAroundMap",Va.fragment=qa;var Ba=b.gql`
+  fragment WhatsAroundIconFragment on Icon {
+    iconId: id
+    iconSize: size
+  }
+`,Ha=({data:e})=>{if(!e)return null;const{iconId:t}=e;return a.createElement(c.LD,{id:`${t}-icon`,name:t})};Ha.displayName="WhatsAroundIcon",Ha.fragment=Ba;var Ua=Ha,Ga=Object.freeze({TWENTY_ONE_NINE:Q.l.R21_9,SIXTEEN_NINE:Q.l.R16_9,THREE_TWO:Q.l.R3_2,FOUR_THREE:Q.l.R4_3,ONE_ONE:Q.l.R1_1,THREE_FOUR:Q.l.R3_4,FOUR_ONE:Q.l.R4_1}),Qa={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},ja=({item:e})=>{var t,n,l,r;return a.createElement(q.g,null,a.createElement(v.N,{padding:{block:"two"}},a.createElement(G.E,{padded:!1},a.createElement(m.X,{alignItems:"center",space:"four"},"Icon"===(null==(t=e.primary)?void 0:t.graphic.__typename)&&a.createElement(d.C,null,a.createElement(Ha,{data:null==(n=e.primary)?void 0:n.graphic})),a.createElement(d.C,null,a.createElement("div",null,a.createElement(L.D,{size:400,weight:(null==(l=e.stylizedText)?void 0:l.weight)?Qa[e.stylizedText.weight]:void 0},null==(r=e.stylizedText)?void 0:r.text),a.createElement(L.D,{size:300},e.moreInfo,e.distance&&` - ${e.distance}`)))))))};ja.displayName="WhatsAroundPoitsItemCard";var Xa=b.gql`
+  fragment WhatsAroundPoisItemFragment on PropertyInfoContent {
+    infoItems {
+      ... on PropertyInfoItem {
+        text
+        distance
+        moreInfo
+        media {
+          ... on Image {
+            aspectRatio
+            description
+            url
+          }
+        }
+        stylizedText {
+          text
+          weight
+        }
+        primary {
+          graphic {
+            ... on Icon {
+              ...WhatsAroundIconFragment
+            }
+          }
+        }
+      }
+    }
+  }
+  ${Ha.fragment}
+`,Ka=({data:e,hideIcon:t})=>{var n;const l="PropertyInfoItem"===(null==(n=e.infoItems[0])?void 0:n.__typename)&&!!e.infoItems[0].stylizedText,r=t||l?"no-bullet":"icon-standard";return a.createElement(v.N,{margin:{small:{blockstart:l?"one":"two"},large:{blockstart:l?"four":"two"}}},a.createElement(H.y,{bullet:r,spacing:!1},e.infoItems.filter(e=>"PropertyInfoItem"===e.__typename).map((e,n)=>{var l,r;return a.createElement(U.x,{key:`whats-around-pois-list-${n}`},a.createElement(a.Fragment,null,e.stylizedText?a.createElement(ja,{item:e}):a.createElement(a.Fragment,null,!t&&"Icon"===(null==(l=e.primary)?void 0:l.graphic.__typename)&&a.createElement(Ha,{data:null==(r=e.primary)?void 0:r.graphic}),a.createElement(L.D,null,e.text,e.moreInfo&&` - ${e.moreInfo}`,e.distance&&` - ${e.distance}`))))})))};Ka.displayName="WhatsAroundPoisItem",Ka.fragment=Xa;var Ya=b.gql`
+  fragment WhatsAroundPoisFragment on PropertyWhatsAround {
+    nearbyPOIs {
+      ...WhatsAroundPoisItemFragment
+      title
+      clickAnalytics {
+        linkName
+        referrerId
+        eventType
+      }
+      icon {
+        ...WhatsAroundIconFragment
+      }
+    }
+  }
+
+  ${Ha.fragment}
+  ${Ka.fragment}
+`,Ja=e=>e.reduce((e,t)=>{var n;const a=[...e];switch(null==(n=t.icon)?void 0:n.iconId){case"place":a[0]=t;break;case"lob_cars":a[1]=t;break;case"local_dining":a[2]=t;break;default:a.push(t)}return a},[]),Za=e=>{const{title:t,infoItems:n,icon:l}=e;if(!t||!n||!n.length)return null;const r="lob_cars"!==(null==l?void 0:l.iconId);return a.createElement(ne.S,{forceNoBreak:!0},a.createElement("div",null,a.createElement(v.N,{padding:{block:"three"}},a.createElement(m.X,{space:"three"},a.createElement(d.C,null,a.createElement("div",null,a.createElement(Ha,{data:l}))),a.createElement(d.C,null,a.createElement("div",null,a.createElement(y.M,{tag:"h4",size:5},t),a.createElement(Ka,{data:e,hideIcon:r})))))))},el=({data:e,expando:t,isMobile:n})=>{var l,r;const i=(0,x.useClickTracker)(),[o,c]=a.useState(!1);if(!e||!e.nearbyPOIs||e.nearbyPOIs.length<=0)return null;const s=Ja(e.nearbyPOIs),d=s.length>2,{expandButton:m,collapseButton:u,items:p}=t||{},g=a.createElement(te.f,{columns:d?2:1,minWidth:d?"seventy_two":void 0},s.map((e,t)=>a.createElement(Za,{...e,key:t}))),E=a.createElement(ee.A,{hideScrim:!1,items:null!=p?p:0,expandLabel:null==t?void 0:t.expandButton.text,collapseLabel:null==t?void 0:t.collapseButton.text,isVisible:o,handleClick:()=>{var e;c(!o);const{referrerId:t,linkName:n=""}=null!=(e=o?null==u?void 0:u.analytics:null==m?void 0:m.analytics)?e:{};t&&i(t,n)},expandA11yLabel:null!=(l=null==m?void 0:m.accessibilityLabel)?l:"",collapseA11yLabel:null!=(r=null==u?void 0:u.accessibilityLabel)?r:""},g);return t&&p&&p>0&&n?E:g};el.displayName="WhatsAroundPois",el.fragment=Ya;var tl=b.gql`
+  fragment WhatsAroundFragment on PropertyInfo {
+    id
+    summary {
+      location {
+        whatsAround {
+          title
+          expando {
+            collapseButton {
+              text
+              accessibilityLabel
+              analytics {
+                eventType
+                referrerId
+                linkName
+              }
+            }
+            expandButton {
+              text
+              accessibilityLabel
+              analytics {
+                eventType
+                referrerId
+                linkName
+              }
+            }
+            items
+          }
+          editorial {
+            ...WhatsAroundEditorialFragment
+          }
+          impressionAnalytics {
+            referrerId
+            linkName
+          }
+          ...WhatsAroundPoisFragment
+          ...WhatsAroundMapFragment
+        }
+        mapTrigger {
+          label
+        }
+      }
+    }
+  }
+
+  ${Wa.fragment}
+  ${el.fragment}
+  ${Va.fragment}
+`,nl=({data:e,view:t,isExpando:n,showBorder:l=!1,injectedComponent:r=null})=>{var i,o,c,s,d,m,g,E,h,f,k,b,_,C;const{context:A}=(0,I.R)(),T="MOBILE_PHONE"===(null==(i=null==A?void 0:A.device)?void 0:i.type),P=null==(s=null==(c=null==(o=null==e?void 0:e.summary)?void 0:o.location)?void 0:c.mapTrigger)?void 0:s.label,N={mapCTALabel:null!=P?P:"",propertyId:e.id},L=null==(m=null==(d=null==e?void 0:e.summary)?void 0:d.location)?void 0:m.whatsAround,w=null==L?void 0:L.expando,{expandButton:D,collapseButton:F,items:M}=w||{},[R,$]=a.useState(!1),O=w&&null===M&&T,z=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,W=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,V=z||W,B=(0,x.useClickTracker)(),H=()=>{var e;$(!R);const{referrerId:t,linkName:n=""}=null!=(e=R?null==F?void 0:F.analytics:null==D?void 0:D.analytics)?e:{};t&&B(t,n)};if(!e||!L)return null;const U=a.createElement(ee.A,{hideScrim:!0,items:1,expandLabel:null==(g=null==L?void 0:L.expando)?void 0:g.expandButton.text,collapseLabel:null==(E=null==L?void 0:L.expando)?void 0:E.collapseButton.text,isVisible:R,handleClick:H,expandA11yLabel:null!=(h=null==D?void 0:D.accessibilityLabel)?h:"",collapseA11yLabel:null!=(f=null==F?void 0:F.accessibilityLabel)?f:""},a.createElement(a.Fragment,null,(L.editorial||"DISABLE_MAP"!==t&&P)&&a.createElement("div",null,"DISABLE_MAP"===t?a.createElement(Wa,{data:L.editorial}):a.createElement(Va,{data:L,...N}),r),a.createElement(el,{data:L,expando:w,isMobile:T}))),Q=a.createElement(a.Fragment,null,"DISABLE_MAP"===t?a.createElement(Wa,{data:L.editorial}):P&&a.createElement(Va,{data:L,...N}),r,a.createElement(el,{data:L,expando:w,isMobile:T})),j=a.createElement(v.N,{padding:l?xa:{small:{blockstart:V?"four":"six",blockend:V?"unset":"six",inline:"three"},large:{blockstart:V?"four":"six",blockend:V?"unset":"six",inline:V?"unset":"six"}}},a.createElement(q.g,{border:l},a.createElement(G.E,null,a.createElement(ee.A,{hideScrim:!1,items:1,expandLabel:null==(k=null==L?void 0:L.expando)?void 0:k.expandButton.text,collapseLabel:null==(b=null==L?void 0:L.expando)?void 0:b.collapseButton.text,isVisible:R,handleClick:H,expandA11yLabel:null!=(_=null==D?void 0:D.accessibilityLabel)?_:"",collapseA11yLabel:null!=(C=null==F?void 0:F.accessibilityLabel)?C:""},a.createElement(u.w,{columns:{small:1,medium:1,large:3},space:"six"},a.createElement(p.T,{colSpan:{small:3,medium:3,large:1}},a.createElement("div",null,a.createElement(v.N,{padding:{inlineend:"three",blockend:"six"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"},tabIndex:-1},L.title)),"DISABLE_MAP"!==t&&a.createElement(Wa,{data:L.editorial}))),a.createElement(p.T,{colSpan:{small:3,medium:3,large:2}},a.createElement("div",null,n?U:Q))))))),X=a.createElement(v.N,{padding:l?xa:{small:{blockstart:V?"four":"six",blockend:V?"unset":"six",inline:"three"},large:{blockstart:V?"four":"six",blockend:V?"unset":"six",inline:V?"unset":"six"}}},a.createElement(q.g,{border:l},a.createElement(G.E,null,a.createElement(u.w,{columns:{small:1,medium:1,large:3},space:"six"},a.createElement(p.T,{colSpan:{small:3,medium:3,large:1}},a.createElement("div",null,a.createElement(v.N,{padding:{inlineend:"three",blockend:"six"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"},tabIndex:-1},L.title)),"DISABLE_MAP"!==t&&a.createElement(Wa,{data:L.editorial}))),a.createElement(p.T,{colSpan:{small:3,medium:3,large:2}},a.createElement("div",null,n?U:Q))))));return O?j:X};nl.displayName="WhatsAround",nl.fragment=tl;var al=({data:e,view:t,showBorder:n=!1})=>{var l,r,i,o;const c=null==(i=null==(r=null==(l=null==e?void 0:e.summary)?void 0:l.location)?void 0:r.mapTrigger)?void 0:i.label,s={mapCTALabel:null!=c?c:"",propertyId:e.id},{whatsAround:d}=(null==(o=null==e?void 0:e.summary)?void 0:o.location)||{whatsAround:null};if(!e||!d)return null;const m=a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(v.N,{padding:{inlineend:"three",blockstart:"six"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"}},d.title)),a.createElement(el,{data:d}))),g=a.createElement(v.N,{padding:n?xa:{block:"six",inline:"six"}},a.createElement(q.g,{border:n},a.createElement(G.E,null,a.createElement(u.w,{columns:2,space:"six"},m,a.createElement(p.T,{colSpan:1},a.createElement("div",null,c&&a.createElement(Va,{data:d,...s}),a.createElement(Wa,{data:d.editorial}))))))),E=a.createElement(v.N,{padding:n?xa:{block:"six",inline:"six"}},a.createElement(q.g,{border:n},a.createElement(G.E,null,a.createElement(u.w,{columns:3,space:"six"},a.createElement(p.T,{colSpan:1},a.createElement(v.N,{padding:{inlineend:"three"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"}},d.title))),a.createElement(p.T,{colSpan:2},a.createElement("div",null,a.createElement(Wa,{data:d.editorial}),a.createElement(el,{data:d}))))))),h="DISABLE_MAP"===t?E:g;return a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(a.Fragment,null,d.nearbyPOIs.length>0&&a.createElement(v.N,{padding:n?xa:{block:"six",inline:"three"}},a.createElement(q.g,{border:n},a.createElement(G.E,null,a.createElement(u.w,{columns:1,space:"six"},m)))))),a.createElement(T.zQ,null,h))};al.displayName="WhatsAroundPoisView",al.fragment=tl;var ll=e=>{const{title:t,infoItems:n,icon:l}=e.details,r=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=r||i;if(!t||!n||!n.length)return null;const c="lob_cars"!==(null==l?void 0:l.iconId);return a.createElement(ne.S,{forceNoBreak:!0},a.createElement("div",null,a.createElement(v.N,{padding:{blockend:"six"}},a.createElement(m.X,{space:"three"},"MENU_VIEW"!==e.view&&a.createElement(d.C,null,a.createElement("div",null,a.createElement(Ua,{data:l}))),a.createElement(d.C,null,a.createElement("div",null,"MENU_VIEW"!==e.view&&a.createElement(y.M,{tag:"h4",size:o?6:5},t),a.createElement(Ka,{data:e.details,hideIcon:c})))))))},rl=({data:e,view:t,showBorder:n=!1,injectedComponent:l=null})=>{var r,i,o,s,d,m,g,E,h;const f=(0,x.useClickTracker)(),[k,b]=a.useState(!1),[I,_]=a.useState(0),C=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,A=1===(0,S.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,T=C||A,P=(0,a.useMemo)(()=>n?xa:T?Ca:"MENU_VIEW"===t?_a:Sa,[T,t,n]),N={mapCTALabel:null!=(s=null==(o=null==(i=null==(r=null==e?void 0:e.summary)?void 0:r.location)?void 0:i.mapTrigger)?void 0:o.label)?s:"",propertyId:e.id},L=null==(m=null==(d=null==e?void 0:e.summary)?void 0:d.location)?void 0:m.whatsAround,w=null==L?void 0:L.impressionAnalytics,D=null==L?void 0:L.expando;if(!e||!L)return null;const F=Ja(L.nearbyPOIs).filter(e=>e.infoItems.length>0),M=F.length>2,{expandButton:R,collapseButton:$}=D||{},O=a.createElement(a.Fragment,null,a.createElement(te.f,{columns:M?2:1,minWidth:M?"seventy_two":void 0},F.map((e,t)=>a.createElement(ll,{details:{...e},key:t}))),k?a.createElement(Wa,{data:L.editorial,isWhatsAroundMapPoisEditorialView:!0}):null),z=a.createElement(Oe.Dp,{selectedTab:I,onTabSelect:e=>{var t,n,a,l;(null==(n=null==(t=F[e])?void 0:t.clickAnalytics)?void 0:n.referrerId)&&f(F[e].clickAnalytics.referrerId,null==(l=null==(a=F[e])?void 0:a.clickAnalytics)?void 0:l.linkName),_(e)},tabsType:Oe.N8.EQUAL_WIDTH,withBorder:!1,role:"tablist"},F.map((e,n)=>{var l,r;return a.createElement(ze.W,{key:n,name:e.title,targetURI:`?=Tab${n}`,iconDetails:{name:null==(l=null==e?void 0:e.icon)?void 0:l.iconId,size:(null==(r=null==e?void 0:e.icon)?void 0:r.iconSize)?c.So[e.icon.iconSize]:null,title:e.title}},a.createElement(ll,{details:{...e},key:n,view:t}))})),W=a.createElement(a.Fragment,null,"MENU_VIEW"===t&&a.createElement(Wa,{data:L.editorial,hideTitle:!0,isExpandoView:!0,isWhatsAroundMapPoisEditorialView:!0}),a.createElement(v.N,{margin:{blockend:"six"}},a.createElement("div",null,a.createElement(Va,{data:L,...N}))),l&&a.createElement(v.N,{margin:{blockend:"six"}},a.createElement("div",null,l)),a.createElement("div",null,"MENU_VIEW"===t?z:a.createElement(ee.A,{hideScrim:!0,items:1,expandLabel:null==D?void 0:D.expandButton.text,collapseLabel:null==D?void 0:D.collapseButton.text,isVisible:k,handleClick:()=>{var e;b(!k);const{referrerId:t,linkName:n=""}=null!=(e=k?null==$?void 0:$.analytics:null==R?void 0:R.analytics)?e:{};t&&f(t,n)},expandA11yLabel:null!=(g=null==R?void 0:R.accessibilityLabel)?g:"",collapseA11yLabel:null!=(E=null==$?void 0:$.accessibilityLabel)?E:""},O))),V=a.createElement(v.N,{padding:P},a.createElement(q.g,{border:n},a.createElement(G.E,{padded:!T},a.createElement(u.w,{columns:{small:1,medium:1,large:3},space:"six"},a.createElement(p.T,{colSpan:{small:3,medium:3,large:1}},a.createElement("div",null,a.createElement(v.N,null,a.createElement(y.M,{tag:"h2",size:T?5:4,typeStyle:T?void 0:{customStyle:"headline-large"},tabIndex:-1},L.title)))),a.createElement(p.T,{colSpan:{small:3,medium:3,large:2}},a.createElement("div",null,W))))));return(null==w?void 0:w.referrerId)?a.createElement(x.IntersectionTracker,{referrerId:w.referrerId,linkName:null!=(h=null==w?void 0:w.linkName)?h:""},V):V};rl.displayName="WhatsAroundMapPoisEditorialView",rl.fragment=tl;var il=({data:e,hideIcon:t})=>{const n=t?"no-bullet":"icon-standard";return a.createElement(v.N,{margin:{small:{blockstart:"one"},large:{blockstart:"four"}}},a.createElement(H.y,{bullet:n,spacing:!1},e.infoItems.filter(e=>"PropertyInfoItem"===e.__typename).map((e,n)=>{var l,r,i,o,c;return a.createElement(U.x,{key:`whats-around-pois-list-${n}`},a.createElement(q.g,null,a.createElement(u.w,{columns:3,space:"six"},a.createElement(p.T,{colSpan:1},a.createElement(q.g,{backgroundTheme:"secondary"},"Image"===(null==(l=null==e?void 0:e.media)?void 0:l.__typename)&&(null==(r=null==e?void 0:e.media)?void 0:r.url)?a.createElement(Q.M,{imageFit:"cover",ratio:(null==(i=null==e?void 0:e.media)?void 0:i.aspectRatio)?Ga[null==e?void 0:e.media.aspectRatio]:Q.l.R16_9},a.createElement(ye.F,{alt:e.media.description,src:e.media.url})):null)),a.createElement(p.T,{colSpan:2,alignSelf:"center"},a.createElement("div",null,!t&&"Icon"===(null==(o=e.primary)?void 0:o.graphic.__typename)&&a.createElement(Ha,{data:null==(c=e.primary)?void 0:c.graphic}),e.stylizedText?a.createElement(a.Fragment,null,a.createElement(L.D,{size:400,weight:e.stylizedText.weight?Qa[e.stylizedText.weight]:void 0},e.stylizedText.text),a.createElement(L.D,null,e.moreInfo,e.distance&&` - ${e.distance}`)):a.createElement(L.D,null,e.text,e.moreInfo,e.distance&&` - ${e.distance}`))))))})))};il.displayName="WhatsAroundPoisImageItem";var ol={[T.OB.SMALL]:Oe.w6.TOP,[T.OB.MEDIUM]:Oe.w6.LEFT},cl=({details:e})=>{const{title:t,infoItems:n,icon:l}=e;if(!t||!n||!n.length)return null;const r=null==n?void 0:n.some(e=>"PropertyInfoItem"===e.__typename&&e.media),i="lob_cars"!==(null==l?void 0:l.iconId);return a.createElement("div",null,a.createElement(T.LM,null,a.createElement(T.zQ,null,a.createElement(y.M,{tag:"h3",size:5},t))),r?a.createElement("div",null,a.createElement(il,{data:e,hideIcon:i})):a.createElement("div",null,a.createElement(Ka,{data:e,hideIcon:i})))},sl=({data:e})=>{var t,n,l,r,i,o,s;const d=(0,x.useClickTracker)(),[m,g]=a.useState(0),E=null==(n=null==(t=null==e?void 0:e.summary)?void 0:t.location)?void 0:n.whatsAround,h=null==E?void 0:E.impressionAnalytics,f=(0,T.s5)(ol),k={mapCTALabel:null!=(o=null==(i=null==(r=null==(l=null==e?void 0:e.summary)?void 0:l.location)?void 0:r.mapTrigger)?void 0:i.label)?o:"",propertyId:e.id};if(!e||!E)return null;const b=Ja(E.nearbyPOIs).filter(e=>e.infoItems.length>0),I=b.length,S=a.createElement(p.T,{colSpan:3},a.createElement(u.w,{columns:I,space:"six"},b.map((e,t)=>a.createElement(p.T,{colSpan:1,key:t},a.createElement(q.g,null,a.createElement(v.N,{padding:"four"},a.createElement("div",null,a.createElement(cl,{details:{...e},key:t})))))))),_=a.createElement(q.g,null,a.createElement(v.N,{padding:"four"},a.createElement("div",null,a.createElement(Oe.Dp,{selectedTab:m,onTabSelect:e=>{var t,n,a,l;(null==(n=null==(t=b[e])?void 0:t.clickAnalytics)?void 0:n.referrerId)&&d(b[e].clickAnalytics.referrerId,null==(l=null==(a=b[e])?void 0:a.clickAnalytics)?void 0:l.linkName),g(e)},tabsType:Oe.N8.EQUAL_WIDTH,withBorder:!1,role:"tablist",alignIcon:f},b.map((e,t)=>{var n,l;return a.createElement(ze.W,{key:t,name:e.title,targetURI:`?=Tab${t}`,iconDetails:{name:null==(n=null==e?void 0:e.icon)?void 0:n.iconId,size:(null==(l=null==e?void 0:e.icon)?void 0:l.iconSize)?c.So[e.icon.iconSize]:null}},a.createElement("div",null,a.createElement(cl,{details:{...e},key:t})))}))))),C=a.createElement(T.LM,null,a.createElement(T.NP,null,a.createElement(We.s,{paddedViewRow:!1,canvasTheme:"secondary",layout:"fullwidth"},a.createElement(v.N,{padding:"six"},a.createElement(G.E,{padded:!1},a.createElement(u.w,{columns:1,space:"four"},a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(v.N,{margin:{blockend:"one"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"},tabIndex:-1},E.title)),a.createElement(Wa,{data:E.editorial,hideTitle:!0,isExpandoView:!0,isWhatsAroundMapPoisEditorialView:!0}))),a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(Va,{data:E,...k,disableSpacing:!0}))),_))))),a.createElement(T.zQ,null,a.createElement(q.g,{backgroundTheme:"secondary"},a.createElement(v.N,{padding:"six"},a.createElement(G.E,{padded:!1},a.createElement(u.w,{columns:3,space:"six"},a.createElement(p.T,{colSpan:2},a.createElement("div",null,a.createElement(v.N,{margin:{blockend:"one"}},a.createElement(y.M,{tag:"h2",size:4,typeStyle:{customStyle:"headline-large"},tabIndex:-1},E.title)),a.createElement(Wa,{data:E.editorial,hideTitle:!0,isExpandoView:!0,isWhatsAroundMapPoisEditorialView:!0}))),a.createElement(p.T,{colSpan:1},a.createElement("div",null,a.createElement(Va,{data:E,...k,disableSpacing:!0}))),S))))));return(null==h?void 0:h.referrerId)?a.createElement(x.IntersectionTracker,{referrerId:h.referrerId,linkName:null!=(s=null==h?void 0:h.linkName)?s:""},C):C};sl.displayName="WhatsAroundAttractions",sl.fragment=tl;var dl=b.gql`
+  query PropertyDetailsBasicQuery(
+    $context: ContextInput!
+    $propertyId: String!
+    $shoppingContext: ShoppingContextInput
+    $searchCriteria: PropertySearchCriteriaInput
+    $damageLiability: DamageLiability
+    $identifier: String
+  ) {
+    propertyInfo(context: $context, propertyId: $propertyId, shoppingContext: $shoppingContext, searchCriteria: $searchCriteria) {
+      id
+      ...PropertyDetailsAmenityDescriptionFragment
+      ...PoliciesFragment
+      ...PropertyDetailedAmenitiesFragment
+      ...ImportantInfoFragment
+      ...FrequentlyAskedQuestionsFragment
+      ...AboutThisPropertyFragment
+      ...WhatsAroundFragment
+      ...SummaryFragment
+      ...BookByPhoneFragment
+      ...SpaceOverviewFragment
+      ...InventorySourceFragment
+      ...SaveTripItemFragment
+      ...AmenitiesSimplifiedViewFragment
+      ...RelevantAmenitiesFragment
+      ...SpecialFeaturesFragment
+      ...HostProfileFragment
+      ...ShoppingShareLinksFragment
+      ...__PropertyDirectFeedbackPromptIdFragment
+      ...PropertyNumberFragment
+      ...SummaryVipBadgeFragment
+      ...BookWithConfidenceFragment
+    }
+  }
+  ${nn.fragment}
+  ${_.lxV.fragment}
+  ${_.IFj.fragment}
+  ${_.dYd.fragment}
+  ${pn.fragment}
+  ${_.rSL.fragment}
+  ${nl.fragment}
+  ${ln.fragment}
+  ${va}
+  ${Jn.fragment}
+  ${yn.fragment}
+  ${Pn.fragment}
+  ${Ht.fragment}
+  ${_n.fragment}
+  ${_.H2K.fragment}
+  ${_.cLB.fragment}
+  ${Gn.fragment}
+  ${on}
+  ${bn.fragment}
+  ${Ea.fragment}
+  ${Ia.fragment}
+`;function ml(e,t,n,l=!0){const r=t=>{var r,i;const{skipSsr:o,placeholderData:c,inputs:s}=t,{context:d}=(0,I.R)(),[m,u]=(0,a.useContext)(mt),p={context:d,...s||{}},{data:g,loading:E}=(0,b.useQuery)(dl,{context:{shouldLogPerformance:!0},variables:p,ssr:!o,errorPolicy:"all"}),v=null==g?void 0:g.propertyInfo,{reserveAdaptExSuccessEvents:y,amenitiesAdaptExSuccessEvents:h}=(null==(i=null==(r=null==g?void 0:g.propertyInfo)?void 0:r.summary)?void 0:i.amenities)||{};return(0,a.useEffect)(()=>{let e={};y&&(e={...e,reserveAdaptExSuccessEvents:y}),h&&(e={...e,amenitiesAdaptExSuccessEvents:h}),Object.keys(e).length&&u({...m,...e})},[y,h,u]),l&&E?n?a.createElement(n,{data:c}):null:l&&!v?E&&n?a.createElement(n,{data:c}):null:a.createElement(a.Fragment,null,E&&n?a.createElement(n,{data:c}):null,a.createElement(gn.Provider,{value:s},a.createElement(e,{data:v||{},...t})))};return r.displayName=t,r}var ul=Object.assign(function(e,t,n){const l=t=>{const{skipRandomAccessOneSsr:l,placeholderData:r,inputs:i}=t,{context:o}=(0,I.R)(),{bucket:c}=(0,S.useExperiment)("Guest_choice_V2_Web_Feature_Gate").exposure,s={context:o,featureId:"guest-choice-v2",productIdentifier:{id:i.propertyId,type:Y.Wx.PROPERTY_ID}},{data:d}=(0,b.useQuery)(Y.dy,{context:{shouldLogPerformance:!0},variables:s,ssr:!l,skip:0===c});return a.createElement(a.Fragment,null,n?a.createElement(n,{data:r}):null,a.createElement(gn.Provider,{value:i},0!==c?a.createElement(Vt,{data:d},a.createElement(e,{data:{},...t})):a.createElement(e,{data:{},...t})))};return l.displayName=t,l}(fa,"PropertySummary"),{CarouselComponent:ya,HighlightedBenefitsComponent:ha}),pl=ml(pn,"PropertyFaq"),gl=ml(nn,"PropertyAmenityDescription"),El=(ml(Ht,"PropertyAmenitiesSimplifiedView"),ml(ma,"PropertySummaryAmenities",ka),ml(_.IFj,"PropertyDetailedAmenities",ka)),vl=ml(_.lxV,"PropertyPolicies"),yl=ml(_.dYd,"PropertyImportantInfo"),hl=ml(_.H2K,"PropertySpecialFeatures"),fl=ml(_.rSL,"PropertyAboutThisProperty"),kl=(ml(nl,"PropertyImportantInfo"),ml(rl,"PropertyImportantInfo"),ml(al,"PropertyImportantInfo"),ml(sl,"PropertyWhatsAroundAttractions"),ml(ln,"PropertyBookByPhone",({data:e,className:t})=>(null==e?void 0:e.telesales)?a.createElement(ln,{data:e,className:t}):a.createElement(m.X,{justifyContent:"center",className:t},a.createElement(v.N,{margin:"one"},a.createElement(j.l,{animation:!0,type:"primary"}))))),bl=ml(Jn,"PropertySpaceOverview"),Il=ml(yn,"PropertyInventorySource"),xl=(ml(_n,"PropertyRelevantAmenities"),ml(_.cLB,"PropertyHostProfile")),Sl=(ml(pa,"PropertySummaryChatbotLaunch",ka),ml(Pn,"PropertySaveTripItem")),_l=ml(cn,"PropertyDirectFeedbackPromptId"),Cl=(ml(Gn,"PropertyShareActions"),ml(bn,"PropertyNumberMessage")),Al=(ml(Ea,"PropertySummaryVipBadge"),ml(Ia,"PropertyBookWithConfidence"))}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-lodging-property-details.3a9e3f75bcdd7af4d2b7.js.map

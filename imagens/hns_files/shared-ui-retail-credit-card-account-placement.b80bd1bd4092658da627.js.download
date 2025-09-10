@@ -1,0 +1,136 @@
+/*@license For license information please refer to shared-ui-retail-credit-card-account-placement.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[1940],{97107:function(e,t,a){a.d(t,{L9:function(){return re},Zn:function(){return oe},o_:function(){return ne}});var n=a(56195),r=a(4611),i=a(10554),l=a(92919),c=a(24109),m=a(63744),d=a(2557),o=a(9010),s=a(99828),g=a(522),E=a(1226),u=a(87818),S=a(37292),p=a(42534),y=a(74071),C=a(27102),f=a(64341),x=a(97778),I=a(96384),h=a(32462),b=a(36145),A=Object.defineProperty,L=Object.defineProperties,v=Object.getOwnPropertyDescriptors,z=Object.getOwnPropertySymbols,D=Object.prototype.hasOwnProperty,T=Object.prototype.propertyIsEnumerable,k=(e,t,a)=>t in e?A(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,N=(e,t)=>{for(var a in t||(t={}))D.call(t,a)&&k(e,a,t[a]);if(z)for(var a of z(t))T.call(t,a)&&k(e,a,t[a]);return e},G=(e,t)=>L(e,v(t)),P=r.J1`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+  }
+`,_=(0,n.createContext)({toggleExpando:()=>null,togglePopover:()=>null}),F={SUBSCRIPT:"sub",SUPERSCRIPT:"sup",LINE_THROUGH:"s"},R={EMPHASIS:"emphasis",NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default",LOYALTY:"loyalty",INVERSE:"inverse"},O={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},w=r.J1`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    decorative
+    text
+    theme
+    weight
+  }
+`,M=({align:e,inline:t,data:a,size:r,whiteSpace:i,weightOverride:l})=>{const{decorative:c,text:m,theme:d,weight:o}=a,s=d?R[d]:void 0,g=l||(o?O[o]:void 0),E=c?F[c]:void 0;return n.createElement(C.D,{align:e,inline:t,size:r,theme:s,weight:g,whiteSpace:i},E?n.createElement(E,null,m):n.createElement(n.Fragment,null,m))};M.fragment=w,M.displayName="EGDSStylizedText";var $=r.J1`
+  fragment CreditCardNoWrapTextFragment on CreditCardNoWrapText {
+    stylizedText: text {
+      ...EGDSStylizedTextFragment
+    }
+  }
+  ${M.fragment}
+`,W=({data:e,inline:t,size:a})=>{const{stylizedText:r}=e;return n.createElement(M,{data:r,whiteSpace:"nowrap",inline:t,size:a})};W.fragment=$,W.displayName="CreditCardNoWrapText";var H=r.J1`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    action {
+      ... on UILinkAction {
+        accessibility
+        analytics {
+          ...ClientSideAnalyticsFragment
+        }
+        resource {
+          value
+        }
+        target
+      }
+    }
+    text
+  }
+
+  ${P}
+`,U=({data:e,align:t,linkSize:a,noWrap:r,onClick:i})=>{var l;const{text:c,action:m}=e,d=(0,x.useClickTracker)();return n.createElement(S.i,{align:t,inline:!0,size:a,noWrap:r,onClick:e=>{(()=>{const{referrerId:e,linkName:t}=m.analytics;e&&t&&d(e,t)})(),null==i||i(e)}},n.createElement("a",{href:m.resource.value,target:"EXTERNAL"===m.target?"_blank":"","aria-label":null!=(l=m.accessibility)?l:void 0,rel:"noopener"},c))};U.fragment=H,U.displayName="sharedui-EGDSInlineLink";var B=r.J1`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    text
+    accessibility
+  }
+`,J=({align:e,data:t,inline:a,size:r,theme:i,weight:l})=>{const{text:c}=t;return n.createElement(C.D,{align:e,size:r,inline:a,theme:i,weight:l},c)};J.fragment=B,J.displayName="EGDSPlainText";var j=r.J1`
+  fragment CreditCardSpannableTextInlineContentFragment on CreditCardSpannableTextItem {
+    ... on EGDSPlainText {
+      ...EGDSPlainTextFragment
+    }
+    ... on EGDSStylizedText {
+      ...EGDSStylizedTextFragment
+    }
+    ... on EGDSInlineLink {
+      ...EGDSInlineLinkFragment
+    }
+    ... on CreditCardNoWrapText {
+      ...CreditCardNoWrapTextFragment
+    }
+  }
+  ${J.fragment}
+  ${M.fragment}
+  ${U.fragment}
+  ${W.fragment}
+`,X=({data:e,align:t,linkSize:a,size:r})=>{const{toggleExpando:i}=(0,n.useContext)(_),l=e=>{e.preventDefault(),i()};switch(e.__typename){case"EGDSPlainText":return n.createElement(J,{align:t,data:e,inline:!0,size:r});case"EGDSStylizedText":return n.createElement(M,{align:t,data:e,inline:!0,size:r});case"EGDSInlineLink":return"SelfReferencedURI"===e.action.resource.__typename?n.createElement(U,{data:e,onClick:l,linkSize:a}):n.createElement(U,{data:e,linkSize:a});case"CreditCardNoWrapText":return n.createElement(W,{data:e,inline:!0,size:r});default:return null}};X.fragment=j,X.displayName="CreditCardSpannableTextInlineContent";var V=r.J1`
+  fragment CreditCardSpannableTextFragment on CreditCardSpannableText {
+    inlineContent {
+      ...CreditCardSpannableTextInlineContentFragment
+    }
+    accessibilityLabel: accessibility
+  }
+  ${X.fragment}
+`,K=({data:e,linkSize:t,size:a,align:r,inline:i})=>{const{inlineContent:l}=e;return c=n.createElement(n.Fragment,null,l.map((e,i)=>n.createElement(n.Fragment,{key:`inl_cont-${i}`},n.createElement(X,{data:e,size:a,align:r,linkSize:t})," "))),i?n.createElement(u.P,{display:"inline"},c):n.createElement("div",null,c);var c};K.fragment=V,K.displayName="CreditCardSpannableText";var Y=r.J1`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    text
+    size
+  }
+`,Q={[I.IA.SMALL]:"small",[I.IA.LARGE]:"large"},q=({data:e,theme:t})=>{const{accessibility:a,text:r,size:i}=e;return n.createElement(h.G,{a11yText:null!=a?a:void 0,theme:t,size:Q[null!=i?i:"large"],text:null!=r?r:void 0})};q.fragment=Y,q.displayName="EGDSStandardBadge";var Z=r.J1`
+  fragment IconFragment on Icon {
+    __typename
+    id
+    token
+    description
+    theme
+    iconSize: size
+  }
+`,ee=({data:e,size:t,isAriaHidden:a,themeOverride:r})=>{const{description:i,id:l,token:c,theme:m}=e;return l?n.createElement(d.LD,{id:l,name:c,title:a?void 0:c,description:a?void 0:i,theme:r?void 0:null!=m?m:"default",size:null!=t?t:d.So.SMALL}):null};ee.fragment=Z,ee.displayName="Icon";var te=r.J1`
+  fragment ImageFragment on Image {
+    __typename
+    description
+    url
+  }
+`,ae=({data:e,imageFit:t,ratio:a})=>{const{description:r,url:i}=e;return n.createElement(o.M,{ratio:a,imageFit:t},n.createElement(b.F,{alt:r,src:i}))};ae.fragment=te,ae.displayName="Image";var ne=(e=>(e.GLOBAL_NAV="GLOBAL_NAV",e.REWARDS="REWARDS",e.UNIVERSAL_PROFILE="UNIVERSAL_PROFILE",e))(ne||{}),re=(e=>(e.MEDIUM="MEDIUM",e.SMALL="SMALL",e))(re||{}),ie=r.J1`
+  query CreditCardAccountPlacementQuery(
+    $context: ContextInput!
+    $variant: CreditCardAccountPlacementVariant!
+    $sourcePage: CreditCardAccountPlacementSourcePage!
+  ) {
+    creditCardAccountPlacement(context: $context, variant: $variant, sourcePage: $sourcePage) {
+      badge {
+        ...EGDSStandardBadgeFragment
+      }
+      bottomLabel
+      bottomLinkText
+      cardImage {
+        ...ImageFragment
+      }
+      ctaAction {
+        accessibility
+        analytics {
+          ...ClientSideAnalyticsFragment
+        }
+        resource {
+          value
+        }
+        target
+      }
+      ctaIcon {
+        ...IconFragment
+      }
+      stylizedHeading {
+        ...CreditCardSpannableTextFragment
+      }
+      impressionAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      subHeading
+    }
+  }
+
+  ${q.fragment}
+  ${P}
+  ${K.fragment}
+  ${ee.fragment}
+  ${ae.fragment}
+`,le={headingSize:300,fallbackImageWidth:["48px"],newImageWidth:["38px"],imageHeight:["60px"],flexGap:"three"},ce={headingSize:500,fallbackImageWidth:["62px"],newImageWidth:["50px"],imageHeight:["72px"],flexGap:"four"},me=G(N({},ce),{newImageWidth:["65px"],imageHeight:["102px"]}),de=({ctaIcon:e})=>n.createElement(s.C,{grow:1,alignSelf:"center"},n.createElement(g.X,{justifyContent:"end"},n.createElement(ee,{data:e,size:d.So.MEDIUM,isAriaHidden:!0}))),oe=({batchKey:e,inputs:t,skipSsr:a})=>{const{context:r}=(0,f.R)(),I=(0,x.useClickTracker)(),h=G(N({},t),{context:r}),{data:b,error:A,loading:L}=(0,i.I)(ie,{context:{batchKey:null!=e?e:"creditCardQueryBatchKey"},variables:h,ssr:!a});if(L||A||!(null==b?void 0:b.creditCardAccountPlacement))return null;const{badge:v,bottomLabel:z,bottomLinkText:D,cardImage:T,ctaAction:k,ctaIcon:P,stylizedHeading:_,impressionAnalytics:F,subHeading:R}=b.creditCardAccountPlacement,{accessibility:O,analytics:w,resource:M}=k;let $;"SMALL"===t.variant&&($=le),"MEDIUM"===t.variant&&($=v?me:ce);const W=z||_.inlineContent.some(e=>"EGDSPlainText"===e.__typename)?$.fallbackImageWidth:$.newImageWidth,H=parseInt(W.toString(),10);return n.createElement(x.IntersectionTracker,{referrerId:F.referrerId,linkName:F.linkName},n.createElement(l.g,{border:!0},n.createElement(c.E,{padded:!0},n.createElement(g.X,{space:$.flexGap},n.createElement(s.C,{grow:1,maxWidth:H},n.createElement(g.X,{alignItems:"center",justifyContent:"center"},n.createElement(s.C,null,n.createElement(E.w,{autoRows:$.imageHeight,autoColumns:W},n.createElement(ae,{data:T,imageFit:"contain",ratio:o.l.R1_1}))))),n.createElement(g.X,{direction:"column",justifyContent:"center"},v&&"EGDSStandardBadge"===v.__typename&&n.createElement(g.X,{"data-theme-light":"global-loyalty-high-bright","data-theme-dark":"global-loyalty-high-bright"},n.createElement(q,{data:v})),n.createElement(p.N,{margin:v?{blockstart:"one"}:"unset"},n.createElement(y.M,{tag:"h3"},n.createElement(K,{data:_,size:$.headingSize}))),n.createElement(p.N,{margin:{blockstart:"one"}},n.createElement(C.D,{size:200},R)),D&&n.createElement(p.N,{margin:{blockstart:"three"}},n.createElement(u.P,{position:{zindex:"layer1"}},n.createElement(S.i,{"aria-hidden":"true"},n.createElement(g.X,{alignItems:"center",space:"one"},D,n.createElement(ee,{data:P,size:d.So.SMALL,themeOverride:!0,isAriaHidden:!0})))))),!D&&!z&&n.createElement(de,{ctaIcon:P}))),z&&n.createElement(c.E,{padded:!0,border:"top"},n.createElement(g.X,{alignItems:"center"},n.createElement(y.M,{tag:"h4",size:7},z),n.createElement(de,{ctaIcon:P}))),n.createElement(m.w,null,n.createElement("a",{href:M.value,onClick:()=>{I(w.referrerId,w.linkName)},target:"EXTERNAL"===k.target?"_blank":void 0,rel:"noopener"},O))))};oe.displayName="sharedui-CreditCardAccountPlacement"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-credit-card-account-placement.b80bd1bd4092658da627.js.map

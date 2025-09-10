@@ -1,0 +1,315 @@
+/*@license For license information please refer to shared-ui-local-expert-activities.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[6536],{36661:function(e,t,i){i.d(t,{kF:function(){return q}});var a=i(56195),n=i(8724),l=i(42534),r=i(74071),c=i(26690),o=i(64341),s=i(53017),m=i(32462),u=i(92919),d=i(24109),v=i(63744),g=i(9010),y=i(36145),p=i(522),E=i(99828),k=i(87818),b=i(97928),A=i(27102),f=i(97778),h=i(41054),C=i(30169),w=i(71224),T=i(37292),N=i(2557),x=i(47540),_=i(1226);function I(e){return null==e?void 0:e.map(e=>({messageContent:JSON.parse(e.messageContent),schemaName:e.schemaName}))}var R=c.gql`
+  fragment ActivityHighlightReviewsFragment on ActivityReviewsSummary {
+    reviewRatingBadge {
+      text
+      theme
+      accessibility
+      size
+    }
+    reviewSuperlative {
+      size
+      text
+      theme
+      weight
+      accessibility
+      decorative
+    }
+  }
+`,F=c.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    referrerId
+    linkName
+    eventType
+    uisPrimeMessages {
+      schemaName
+      messageContent
+    }
+  }
+`,P={EMPHASIS:"emphasis",NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default",LOYALTY:"loyalty",INVERSE:"inverse"},S={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},$=c.gql`
+  fragment ActivityFragment on Activity {
+    name
+    image {
+      description
+      url
+    }
+    features {
+      travelDistance {
+        label
+      }
+      volumePricing {
+        description
+      }
+    }
+    reviewSummary {
+      reviewCountMessage
+      reviewRatingMessage
+      reviewRatingAccessibilityText
+      ...ActivityHighlightReviewsFragment
+    }
+    leadTicket {
+      label
+      taxesAndFeesMessage
+      priceAccessibilityText
+      price {
+        leadFormatted
+        strikeOutFormatted
+      }
+      type
+    }
+    clickAction {
+      url
+      openInNewTab
+      clickAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    clientSideAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  ${F}
+  ${R}
+`,M=({className:e,data:t,...i})=>{var n,c,o,s,h,C,w,T;const{name:N,image:x,features:_,clickAction:R,leadTicket:F,reviewSummary:$,clientSideAnalytics:M}=t,{reviewSuperlative:z,reviewRatingBadge:D,reviewCountMessage:L}=$||{},{text:B,theme:O,accessibility:X,size:q}=D||{},{size:G,text:V,theme:j,accessibility:U,weight:H}=z||{},W=j?P[j]:void 0,Q=H?S[H]:void 0,Y=(0,f.useClickTracker)(),Z=a.useCallback(()=>{var e;(null==R?void 0:R.clickAnalytics)&&(e=R.clickAnalytics,Y(e.referrerId,e.linkName,void 0,I(e.uisPrimeMessages)))},[null==R?void 0:R.clickAnalytics,Y]);return a.createElement(p.X,{className:e,tag:"li",...i},a.createElement(E.C,{grow:1},a.createElement(f.IntersectionTracker,{trackOnce:!0,referrerId:null!=(n=null==M?void 0:M.referrerId)?n:"",linkName:null!=(c=null==M?void 0:M.linkName)?c:"",additionalUisPrimeMicroMessages:(null==M?void 0:M.uisPrimeMessages)?I(M.uisPrimeMessages):void 0},a.createElement(u.g,{border:!0},a.createElement(p.X,{direction:"column",blockSize:"full_size",justifyContent:"space-between"},a.createElement(k.P,{type:"relative"},a.createElement(g.M,{ratio:g.l.R16_9},a.createElement(y.F,{placeholderImage:!0,src:null!=(o=null==x?void 0:x.url)?o:void 0,alt:null!=(s=null==x?void 0:x.description)?s:void 0,lazyLoading:"lazy"}))),a.createElement(E.C,{grow:1},a.createElement(d.E,null,a.createElement(r.M,{tag:"h4",size:7},N),a.createElement("div",null,_.travelDistance&&a.createElement(l.N,{margin:{blockstart:"one"}},a.createElement(A.D,{align:"left",size:200},_.travelDistance.label)),$&&a.createElement(a.Fragment,null,D?a.createElement(l.N,{margin:{blockstart:"one"}},a.createElement(p.X,{space:"one",alignItems:"center"},a.createElement(E.C,null,a.createElement(m.G,{text:B,theme:O,a11yText:X,size:q})),a.createElement(E.C,null,a.createElement(p.X,{direction:"column"},a.createElement(E.C,null,z&&a.createElement(a.Fragment,null,a.createElement(A.D,{size:Number(G),theme:W,weight:Q,"aria-hidden":null!==U},V),U&&a.createElement("span",{className:"is-visually-hidden"},U))),a.createElement(E.C,null,L&&a.createElement(A.D,{weight:"regular",size:200},L)))))):a.createElement(l.N,{margin:{blockstart:"one"}},a.createElement(p.X,null,a.createElement("span",{className:"is-visually-hidden"},$.reviewRatingAccessibilityText),a.createElement(A.D,{weight:"bold",size:300,"aria-hidden":!0},$.reviewRatingMessage),a.createElement(l.N,{margin:{inlinestart:"one"}},a.createElement(A.D,{size:300,"aria-hidden":!0},$.reviewCountMessage)))))))),F.price&&a.createElement(E.C,null,a.createElement(d.E,null,a.createElement(b.dZ,{lockupPrice:F.price.leadFormatted,priceSubtextFirst:[F.taxesAndFeesMessage,F.label],priceSubtextStandard:null!=(C=null==(h=_.volumePricing)?void 0:h.description)?C:void 0,strikeThroughPrice:null!=(w=F.price.strikeOutFormatted)?w:void 0,a11yPrice:null!=(T=F.priceAccessibilityText)?T:""}))),R&&a.createElement(v.w,null,a.createElement("a",{href:R.url,rel:"noopener",onClickCapture:Z,target:R.openInNewTab?"_blank":"_self"},N)))))))};M.displayName="ActivityFragment",M.fragment=$;var z=c.gql`
+  fragment ActivityActionTileFragment on ActivityActionTile {
+    name
+    link
+    image {
+      description
+      url
+    }
+    primaryAction {
+      url
+      label
+      openInNewTab
+    }
+  }
+`,D=({className:e,data:t,...i})=>{var n,l;const{name:c,image:o,primaryAction:s}=t;return a.createElement(p.X,{className:e,tag:"li",...i},a.createElement(u.g,{border:!0},a.createElement(p.X,{direction:"column"},a.createElement(E.C,{grow:0},a.createElement(g.M,{ratio:g.l.R16_9},a.createElement(y.F,{placeholderImage:!0,src:null!=(n=null==o?void 0:o.url)?n:void 0,alt:null!=(l=null==o?void 0:o.description)?l:void 0}))),a.createElement(E.C,{grow:1},a.createElement(d.E,null,a.createElement(r.M,{tag:"h4",size:7},c))),a.createElement(E.C,{grow:0},a.createElement(h.H,null,a.createElement("a",{href:s.url,rel:"noopener",target:(null==s?void 0:s.openInNewTab)?"_blank":"_self"},s.label))))))};D.displayName="ActivityActionTile",D.fragment=z;var L=c.gql`
+  fragment ActivityTileFragment on ActivityTile {
+    ... on Activity {
+      ...ActivityFragment
+    }
+
+    ... on ActivityActionTile {
+      ...ActivityActionTileFragment
+    }
+  }
+
+  ${M.fragment}
+  ${D.fragment}
+`,B=({className:e,data:t,...i})=>{switch(t.__typename){case"Activity":return a.createElement(M,{className:e,data:t,...i});case"ActivityActionTile":return a.createElement(D,{className:e,data:t,...i});default:return null}};B.displayName="ActivityTile",B.fragment=L;var O=c.gql`
+  query ActivityRecommendationsQuery(
+    $context: ContextInput!
+    $dateRange: ActivityDateRangeInput
+    $destination: ActivityDestinationInput
+    $pagination: PaginationInput!
+    $searchViewOptions: [ActivitySearchViewOptions!]
+    $activityGroupType: [ActivityGroupType!]
+    $travelerInfo: ActivityTravelerInfoInput
+  ) {
+    activitySearch(
+      context: $context
+      dateRange: $dateRange
+      destination: $destination
+      groupType: $activityGroupType
+      pagination: $pagination
+      searchViewOptions: $searchViewOptions
+      travelerInfo: $travelerInfo
+    ) {
+      activityGroups(types: $activityGroupType) {
+        name
+        activityTiles {
+          ...ActivityTileFragment
+        }
+        action {
+          label
+          url
+        }
+        navigationActions {
+          previous {
+            accessibility
+          }
+          next {
+            accessibility
+          }
+        }
+      }
+    }
+  }
+
+  ${B.fragment}
+`,X={block:"three"},q=e=>{var t;const{inputs:i,skipSsr:m}=e,{context:u}=(0,o.R)(),d=null!=(t=null==i?void 0:i.activityGroupType)?t:["XSELL_RECOMMENDATIONS"],v={...i,activityGroupType:d,context:u,pagination:{startingIndex:0,size:6}},{data:g,error:y,loading:p}=(0,c.useQuery)(O,{context:{shouldLogPerformance:!0},variables:v,ssr:!m}),E=null==g?void 0:g.activitySearch.activityGroups,k=1===(0,s.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,b=1===(0,s.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,A=k||b;return p||y||!(null==E?void 0:E.length)?null:a.createElement(l.N,{margin:{small:{inline:"three"},medium:{inline:"unset"}},padding:{blockstart:A?"eight":"six"}},a.createElement("div",null,E.map((e,t)=>{var i,c,o,s;return a.createElement(a.Fragment,{key:`activity-group-${t}`},e.name&&a.createElement(r.M,{tag:"h2",size:5},e.name),a.createElement(l.N,{margin:X},a.createElement(n._N,{buttonText:{nextButton:null!=(c=null==(i=e.navigationActions)?void 0:i.next.accessibility)?c:"",prevButton:null!=(s=null==(o=e.navigationActions)?void 0:o.previous.accessibility)?s:""},pageBy:1,peek:!0,itemsVisible:{lg:4,md:2,sm:1},wrapItems:!0,itemsMaxHeight:!0},e.activityTiles.map((e,t)=>a.createElement(B,{key:`activity-tile-${t}`,data:e})))))})))};function G(e){var t,i,a,n,l;const r=null==(t=e.leadTicket.price)?void 0:t.strikeOutFormatted,c=null==(i=e.leadTicket.price)?void 0:i.leadFormatted,{priceAccessibilityText:o}=e.leadTicket,s=(null==(n=null==(a=e.features)?void 0:a.volumePricing)?void 0:n.description)||"";return{strikeOutFormattedPrice:r,leadPriceLabel:[...(null==(l=e.leadTicketPrice.priceLockup)?void 0:l.priceSubtextFirst)||[],s].filter(Boolean),leadFormattedPrice:c,priceAccessibilityText:o}}q.displayName="sharedui-ActivityRecommendations";var V=({label:e,a11yLabel:t,icon:i})=>a.createElement(l.N,{margin:{block:"one"}},a.createElement(p.X,{alignItems:"center"},i&&a.createElement(N.LD,{name:i.id,size:N.So.EXTRA_SMALL,id:i.id,description:i.description}),a.createElement("span",null,t&&a.createElement("span",{className:"is-visually-hidden"},t),a.createElement("span",{"aria-hidden":Boolean(t)},a.createElement(A.D,{size:300},e))))),j=({data:e})=>{var t,i,n,c,o,s,m;const{strikeOutFormattedPrice:h,leadPriceLabel:C,leadFormattedPrice:w,priceAccessibilityText:T}=G(e),N=null==(t=e.reviewSummary)?void 0:t.reviewRatingAccessibilityText,x=(0,f.useClickTracker)();return a.createElement(u.g,{"data-stid":"activity-carousel-tile-card",border:!0},a.createElement(p.X,null,a.createElement(E.C,{minWidth:"half_width"},a.createElement(k.P,{type:"relative"},a.createElement(g.M,{className:"all-image-fit-cover",ratio:g.l.R3_4},a.createElement(y.F,{alt:null==(i=e.image)?void 0:i.description,src:null==(n=e.image)?void 0:n.url})))),a.createElement(E.C,{minWidth:"full_width"},a.createElement(d.E,null,a.createElement(p.X,{tag:"section",direction:"column",alignContent:"space-between",blockSize:"full_size"},a.createElement(E.C,null,a.createElement(r.M,{size:6,overflow:"truncate-3-lines"},e.name)),a.createElement(E.C,{grow:1},a.createElement(p.X,{wrap:"nowrap",tag:"section",direction:"row","data-testid":"activity-spanned-tile-card-content",justifyContent:"space-between"},a.createElement(E.C,null,a.createElement(p.X,{wrap:"nowrap",tag:"section",direction:"column",justifyContent:"space-between"},a.createElement(E.C,null,a.createElement(l.N,{padding:{blockstart:"two"}},a.createElement(p.X,{wrap:"nowrap",tag:"section",direction:"column",justifyContent:"start"},e.duration.formatted&&a.createElement(l.N,{margin:{blockend:"one"}},a.createElement(E.C,{className:"uitk-type-200"},a.createElement(V,{label:e.duration.formatted,a11yLabel:(null==(c=e.duration.icon)?void 0:c.title)||"",icon:e.duration.icon}))),(null==(o=e.reviewSummary)?void 0:o.reviewRatingMessage)&&a.createElement(E.C,null,a.createElement(p.X,{alignItems:"center"},a.createElement("span",null,N&&a.createElement("span",{className:"is-visually-hidden"},N),a.createElement("span",{"aria-hidden":Boolean(N)},a.createElement(l.N,{margin:{inlineend:"one"}},a.createElement(A.D,{size:400,weight:"bold",theme:"emphasis"},e.reviewSummary.reviewRatingMessage)),a.createElement(A.D,{size:300,theme:"standard"},e.reviewSummary.reviewCountMessage)))))))),e.features.freeCancellation&&a.createElement(E.C,null,a.createElement(l.N,{margin:{blockstart:"three"}},a.createElement(p.X,{wrap:"nowrap",tag:"section",direction:"column",justifyContent:"end"},"FREE_CANCELLATION"===(null==(s=e.features.freeCancellation)?void 0:s.type)&&a.createElement(E.C,null,a.createElement(A.D,{size:200,theme:"positive","data-testid":"activity-free-cancellation"},e.features.freeCancellation.formatted))))))),a.createElement(E.C,{minWidth:"half_width"},a.createElement(p.X,{wrap:"nowrap",tag:"section",direction:"column",justifyContent:"end"},a.createElement(E.C,null,a.createElement(b.dZ,{a11yPrice:T||"",lockupPrice:w||void 0,priceSubtextStandard:C||void 0,strikeThroughPrice:h||void 0})))))))))),(null==(m=e.clickAction)?void 0:m.url)&&a.createElement(v.w,null,a.createElement("a",{href:e.clickAction.url,target:e.clickAction.openInNewTab?"_blank":"_self",rel:"noopener",onClickCapture:()=>{var t,i;return x((null==(t=e.analytics)?void 0:t.linkName)||"",(null==(i=e.analytics)?void 0:i.referrerId)||"")},"data-stid":"activity-detail--carousel"},e.name,a.createElement("span",{className:"is-visually-hidden"},e.clickAction.accessibilityText))))},U=({data:e})=>{var t,i,n,c,o,s;const{strikeOutFormattedPrice:m,leadPriceLabel:h,leadFormattedPrice:C,priceAccessibilityText:w}=G(e),T=(0,f.useClickTracker)();return a.createElement(x.T,null,a.createElement(u.g,{"data-stid":"activity-grid-tile-card",border:!0},a.createElement(p.X,{justifyContent:"space-between",direction:"column",blockSize:"full_size"},a.createElement(E.C,null,a.createElement("section",null,a.createElement(k.P,{type:"relative"},a.createElement(g.M,{ratio:g.l.R21_9},a.createElement(y.F,{alt:null==(t=e.image)?void 0:t.description,src:null==(i=e.image)?void 0:i.url}))),a.createElement(d.E,null,a.createElement(p.X,{tag:"section",direction:"column"},a.createElement(E.C,null,a.createElement(r.M,{size:6,overflow:"truncate-3-lines"},e.name)),e.duration.formatted&&a.createElement(l.N,{margin:{blockstart:"one"}},a.createElement(E.C,{className:"uitk-type-200"},a.createElement(V,{label:e.duration.formatted,a11yLabel:e.duration.formatted,icon:e.duration.icon}))),(null==(n=e.reviewSummary)?void 0:n.reviewRatingMessage)&&a.createElement(l.N,{margin:{blockstart:"two"}},a.createElement(E.C,null,a.createElement(p.X,{alignItems:"center"},a.createElement(l.N,{margin:{inlineend:"one"}},a.createElement(A.D,{size:400,weight:"bold",theme:"emphasis"},e.reviewSummary.reviewRatingMessage)),a.createElement(A.D,{size:300,theme:"standard"},e.reviewSummary.reviewCountMessage)))))))),a.createElement(E.C,null,a.createElement(l.N,{margin:{blockstart:"three"}},a.createElement(d.E,null,a.createElement(p.X,{tag:"section",direction:"column"},"FREE_CANCELLATION"===(null==(c=e.features.freeCancellation)?void 0:c.type)&&a.createElement(l.N,{margin:{blockend:"one"}},a.createElement(E.C,null,a.createElement(A.D,{size:200,theme:"positive","data-testid":"activity-free-cancellation"},null==(o=e.features.freeCancellation)?void 0:o.formatted))),a.createElement(E.C,null,a.createElement(b.dZ,{align:b.A$.LEFT,a11yPrice:w||"",lockupPrice:C||void 0,priceSubtextStandard:h||void 0,strikeThroughPrice:m||void 0}))))))),(null==(s=e.clickAction)?void 0:s.url)&&a.createElement(v.w,null,a.createElement("a",{href:e.clickAction.url,target:e.clickAction.openInNewTab?"_blank":"_self",rel:"noopener",onClickCapture:()=>{var t,i;return T((null==(t=e.analytics)?void 0:t.linkName)||"",(null==(i=e.analytics)?void 0:i.referrerId)||"")},"data-stid":"activity-detail--grid"},e.name,a.createElement("span",{className:"is-visually-hidden"},e.clickAction.accessibilityText)))))},H=c.gql`
+  fragment ActivitiesByCategoriesResultActivitiesFragment on Activity {
+    id
+    name
+    clickAction {
+      accessibilityText
+      url
+      openInNewTab
+      label
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+    analytics {
+      linkName
+      referrerId
+    }
+    reviewSummary {
+      score {
+        formatted
+        raw
+      }
+      total
+      reviewCountMessage
+      reviewRatingMessage
+      reviewRatingAccessibilityText
+    }
+    leadTicketPrice {
+      priceLockup {
+        priceSubtextFirst
+      }
+    }
+    leadTicket {
+      type
+      code
+      price {
+        lead {
+          currencyInfo {
+            name
+            code
+          }
+        }
+        leadFormatted
+        leadAmount
+        strikeOutFormatted
+        strikeOutAmount
+      }
+      priceAccessibilityText
+    }
+    image {
+      description
+      url
+    }
+    duration {
+      icon {
+        description
+        id
+        size
+        withBackground
+        title
+      }
+      formatted
+    }
+    features {
+      volumePricing {
+        description
+      }
+      freeCancellation {
+        type
+        formatted
+      }
+    }
+  }
+`,W=e=>{const{data:t,view:i}=e;return t?"grid"===i?a.createElement(U,{data:t}):a.createElement(j,{data:t}):null};W.fragment=H,W.displayName="ActivitiesByCategoriesResultActivities";var Q=({data:e})=>{var t,i,c;const o=e.activityTiles,s=(0,f.useClickTracker)(),{navigationActions:m}=e;return a.createElement(a.Fragment,null,a.createElement(l.N,{margin:{blockstart:"three",blockend:"one"}},a.createElement(w.f,{columns:2},e.name&&a.createElement(r.M,{size:5},e.name),(null==(t=e.action)?void 0:t.label)&&a.createElement(T.i,{align:"right"},a.createElement("a",{href:e.action.url,"aria-label":e.action.accessibilityText,target:"_blank",rel:"noopener",onClickCapture:()=>{var t,i,a,n;return s((null==(i=null==(t=e.action)?void 0:t.analytics)?void 0:i.linkName)||"",(null==(n=null==(a=e.action)?void 0:a.analytics)?void 0:n.referrerId)||"")},"data-stid":"category-activity-list-see-all--carousel"},e.action.label)))),a.createElement(n._N,{buttonText:{nextButton:null!=(i=null==m?void 0:m.next.accessibility)?i:"",prevButton:null!=(c=null==m?void 0:m.previous.accessibility)?c:""},pageBy:1,peek:!0,itemsVisible:{lg:3,md:2,sm:1}},o.map((e,t)=>a.createElement(W,{data:e,view:"carousel",key:t}))))},Y=({data:e})=>{var t;const i=e.activityTiles,n=(0,f.useClickTracker)();return a.createElement(a.Fragment,null,e.name&&a.createElement(l.N,{margin:{blockstart:"three",blockend:"one"}},a.createElement(r.M,{size:5},e.name)),a.createElement(_.w,{columns:{small:1,medium:2,large:3},tag:"ul",space:"three",alignContent:"space-between"},i.map((e,t)=>a.createElement(W,{data:e,view:"grid",key:t}))),(null==(t=e.action)?void 0:t.label)&&a.createElement(l.N,{margin:{blockstart:"three"}},a.createElement(p.X,{justifyContent:"center"},a.createElement(C.y,null,a.createElement("a",{href:e.action.url,"aria-label":e.action.accessibilityText,target:"_blank",rel:"noopener",onClickCapture:()=>{var t,i,a,l;return n((null==(i=null==(t=e.action)?void 0:t.analytics)?void 0:i.linkName)||"",(null==(l=null==(a=e.action)?void 0:a.analytics)?void 0:l.referrerId)||"")},"data-stid":"category-activity-list-see-all--grid"},e.action.label)))))},Z=c.gql`
+  fragment ActivitiesByCategoriesResultCategoriesFragment on ActivityGroup {
+    name
+    action {
+      accessibilityText
+      label
+      url
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+    navigationActions {
+      previous {
+        accessibility
+      }
+      next {
+        accessibility
+      }
+    }
+    viewType
+    activityTiles {
+      ...ActivitiesByCategoriesResultActivitiesFragment
+    }
+  }
+  ${W.fragment}
+`,K=e=>{const{data:t,view:i}=e;return t?a.createElement("div",{"data-stid":"categories"},"grid"===i?a.createElement(Y,{data:t}):a.createElement(Q,{data:t})):null};K.fragment=Z,K.displayName="ActivitiesByCategoriesResultCategories";c.gql`
+  query ActivitiesByCategoriesQuery($context: ContextInput!, $dateRange: ActivityDateRangeInput, $destination: ActivityDestinationInput) {
+    activityModules(context: $context, dateRange: $dateRange, destination: $destination) {
+      activitiesByCategories {
+        action {
+          accessibilityText
+          label
+          url
+          analytics {
+            linkName
+            referrerId
+          }
+        }
+        groups {
+          ...ActivitiesByCategoriesResultCategoriesFragment
+        }
+        seoStructuredData
+      }
+    }
+  }
+
+  ${K.fragment}
+`;var J=c.gql`
+  fragment PoiDetailsFragment on ActivityPoiTile {
+    title
+    detailsLink {
+      text
+      accessibilityText
+      clickAction {
+        __typename
+        ... on ActivityLinkClickAction {
+          anchorTagUrl
+          accessibilityText
+        }
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+    description
+    medias {
+      __typename
+      ... on Image {
+        url
+        description
+      }
+    }
+  }
+`,ee=e=>{var t,i,n,c,o,s,m;const{data:d,position:v}=e,p="ActivityLinkClickAction"===(null==(i=null==(t=d.detailsLink)?void 0:t.clickAction)?void 0:i.__typename)?null==(n=d.detailsLink)?void 0:n.clickAction:null,b="Image"===(null==(c=d.medias[0])?void 0:c.__typename)?d.medias[0]:null,h=(0,f.useClickTracker)(),C=null==(o=d.description)?void 0:o.split("\n"),w=`${null==(s=d.detailsLink)?void 0:s.text} ${d.title} ${null==p?void 0:p.accessibilityText}`;return a.createElement(l.N,{margin:{blockstart:"one",blockend:"two"}},a.createElement(u.g,{className:"uitk-layout-flex-row",border:!0},a.createElement(_.w,{columns:{small:1,medium:2}},a.createElement(l.N,{padding:{block:"three",inline:"three"}},a.createElement(E.C,{minWidth:"half_width"},a.createElement("div",null,a.createElement(r.M,{tag:"h3",size:5},`${v}. ${d.title}`),a.createElement(A.D,{size:300,spacing:"three"},C.length>0&&C[0]),(null==p?void 0:p.anchorTagUrl)&&a.createElement(l.N,{margin:{block:"three",inline:"three"}},a.createElement(T.i,{inline:!0,onClickCapture:()=>{var e,t;return h((null==(e=p.analytics)?void 0:e.linkName)||"",(null==(t=p.analytics)?void 0:t.referrerId)||"")}},a.createElement("a",{href:p.anchorTagUrl,target:"_blank",rel:"noopener","data-stid":"poi-detail","aria-label":w},a.createElement(A.D,{size:300,weight:"regular"},null==(m=d.detailsLink)?void 0:m.text))))))),a.createElement(E.C,{minWidth:"half_width"},a.createElement(k.P,{type:"relative"},a.createElement(g.M,{className:"uitk-card-roundcorner-all",ratio:g.l.R16_9},a.createElement(y.F,{alt:null==b?void 0:b.description,placeholderImage:!0,src:null==b?void 0:b.url})))))))};ee.fragment=J,ee.displayName="ActivitiesByPoiResult";var te=c.gql`
+  fragment ActivitiesByPoiResultFragment on ActivityPoiGroup {
+    poiTile {
+      ...PoiDetailsFragment
+    }
+    activitiesGroup {
+      ...ActivitiesByCategoriesResultCategoriesFragment
+    }
+  }
+  ${ee.fragment}
+  ${K.fragment}
+`,ie=e=>{var t,i;const{data:r,position:c}=e,o=null==(t=r.activitiesGroup)?void 0:t.action,s=r.poiTile,m=null==(i=r.activitiesGroup)?void 0:i.activityTiles,u=(0,f.useClickTracker)();return a.createElement(a.Fragment,null,"ActivityPoiTile"===s.__typename&&a.createElement(ee,{data:s,position:c}),a.createElement(l.N,{margin:{blockstart:"one",blockend:"two"}},a.createElement(n._N,{buttonText:{nextButton:"",prevButton:""},pageBy:1,peek:!0,itemsVisible:{lg:2.5,md:2,sm:1},wrapItems:!1},null==m?void 0:m.map((e,t)=>a.createElement(W,{data:e,view:"carousel",key:t})))),m&&m.length>0&&o&&a.createElement(l.N,{margin:{blockstart:"one",blockend:"six"}},a.createElement(p.X,{justifyContent:"center"},a.createElement(C.y,null,a.createElement("a",{href:o.url,target:"_blank",rel:"noopener",onClickCapture:()=>{var e,t;return u((null==(e=o.analytics)?void 0:e.linkName)||"",(null==(t=o.analytics)?void 0:t.referrerId)||"")},"data-stid":"poi-see-all"},o.label)))))};ie.fragment=te,ie.displayName="ActivitiesByPoiResult";c.gql`
+  query ActivitiesByPoiQuery($context: ContextInput!, $dateRange: ActivityDateRangeInput, $destination: ActivityDestinationInput) {
+    activityModules(context: $context, dateRange: $dateRange, destination: $destination) {
+      activityItemsByPoi {
+        groups {
+          ...ActivitiesByPoiResultFragment
+        }
+      }
+    }
+  }
+
+  ${ie.fragment}
+`}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-local-expert-activities.75bcbbf39ee0d9bb6c78.js.map

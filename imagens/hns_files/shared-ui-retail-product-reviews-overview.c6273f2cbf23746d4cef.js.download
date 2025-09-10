@@ -1,0 +1,150 @@
+/*@license For license information please refer to shared-ui-retail-product-reviews-overview.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[1797],{8210:function(e,t,n){n.d(t,{W:function(){return O},x:function(){return J}});var l=n(56195),a=n(26690),r=n(64341),i=n(32178),c=n(32462),o=n(96384),s=n(80240),m=n(92919),u=n(24109),d=n(2557),g=n(522),v=n(99828),E=n(1226),y=n(47540),p=n(42534),f=n(27102),C=n(74071),S=n(69287),b=n(97778),h=n(53017),w=n(79066),k=n(46559),x=n(8724),_=Object.defineProperty,R=Object.defineProperties,D=Object.getOwnPropertyDescriptors,T=Object.getOwnPropertySymbols,F=Object.prototype.hasOwnProperty,I=Object.prototype.propertyIsEnumerable,N=(e,t,n)=>t in e?_(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,O=(e=>(e.ACTIVITY_ID="ACTIVITY_ID",e.CART_ID="CART_ID",e.CAR_OFFER_TOKEN="CAR_OFFER_TOKEN",e.CHECKOUT_SESSION_ID="CHECKOUT_SESSION_ID",e.ENTITY_ID="ENTITY_ID",e.LEGACY_ORDER_ID="LEGACY_ORDER_ID",e.OFFER_ID="OFFER_ID",e.ORDER_ID="ORDER_ID",e.PROPERTY_ID="PROPERTY_ID",e.SAILING_TOKEN="SAILING_TOKEN",e))(O||{}),A=a.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    eventType
+    linkName
+    referrerId
+  }
+`,z=a.gql`
+  fragment FooterFragment on ReviewFooter {
+    primary {
+      ...EGDSStylizedTextFragment
+    }
+    text
+  }
+  ${w.Z3.fragment}
+`,$=({data:e,isSecondaryTheme:t=!1})=>{const{primary:n,text:a}=e;return n||a?l.createElement("div",{"aria-hidden":"true"},n&&l.createElement(w.Z3,{size:300,weight:"medium",theme:"standard",data:n}),a&&l.createElement(p.N,{margin:{blockstart:"half"}},l.createElement(f.D,{weight:"regular",size:200,theme:t?"secondary":"default"},a))):null};$.fragment=z,$.displayName="Footer";var G=a.gql`
+  fragment ReviewsCarouselCardFragment on ReviewsCarouselCard {
+    footer {
+      ...FooterFragment
+    }
+    heading {
+      ...EGDSStylizedTextFragment
+    }
+    id
+    message
+    impressionAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    link {
+      ...EGDSStandardLinkFragment
+    }
+    disclaimer {
+      ...EGDSStylizedTextFragment
+    }
+  }
+  ${w.Z3.fragment}
+  ${$.fragment}
+  ${w.ZC.fragment}
+  ${A}
+`,B=({data:e,onClickSeeMoreReviewButton:t,key:n})=>{const{heading:a,message:r,link:i,footer:c,id:o,disclaimer:s}=e,d=(0,b.useClickstreamAnalytics)(),k=(0,l.useRef)(null),{bucket:x}=(0,h.useExperiment)("Vrbo_Verified_Reviews",!1).exposure,_=1===x,R=(0,l.useCallback)(e=>{var n;e.preventDefault(),(null==(n=null==i?void 0:i.action)?void 0:n.analytics)&&(0,w.Cq)(d,i.action.analytics,"click"),t(o,k)},[o,t,d,i,k]);return l.createElement(m.g,{key:n,border:!0,padded:!0},l.createElement(u.E,null,l.createElement(E.w,{rows:["min-content","30x"],blockSize:"full_size",columns:1,space:_?"two":"four"},l.createElement(y.T,null,(null==a?void 0:a.text)&&l.createElement(l.Fragment,null,l.createElement(C.M,{size:_?6:7,"aria-hidden":Boolean(null==a?void 0:a.accessibility)},null==a?void 0:a.text),(null==a?void 0:a.accessibility)&&l.createElement("span",{className:"is-visually-hidden"},null==a?void 0:a.accessibility))),l.createElement(y.T,null,l.createElement(g.X,{direction:"column",blockSize:"full_size",space:_?"one":"two"},r&&l.createElement(v.C,null,l.createElement(f.D,{overflow:"truncate-4-lines"},l.createElement(S.u,{size:2},r))),i&&l.createElement(v.C,null,l.createElement(p.N,{margin:{blockstart:"half"}},l.createElement(w.ZC,{data:i,onClickCapture:R,type:w.$9.BUTTON,domRef:k}))))),l.createElement(y.T,null,l.createElement(g.X,{alignItems:"stretch",direction:"column",blockSize:"full_size",justifyContent:_?"end":void 0,space:_?void 0:"two"},l.createElement(v.C,{shrink:1},c&&l.createElement($,{data:c,isSecondaryTheme:_})),l.createElement(v.C,null,s&&l.createElement(w.Z3,{data:s})))))))};B.fragment=G,B.displayName="ReviewsCarouselCard";var M=a.gql`
+  fragment CarouselFragment on ProductCarousel {
+    items {
+      ...ReviewsCarouselCardFragment
+    }
+    nextButton {
+      ...EGDSButtonFragment
+    }
+    previousButton {
+      ...EGDSButtonFragment
+    }
+    heading {
+      text
+      accessibility
+    }
+    itemType
+  }
+  ${w.NO.fragment}
+  ${B.fragment}
+`,P=({data:e,onClickSeeMoreReviewButton:t,heading:n})=>{var a,r;const{items:i,nextButton:c,previousButton:o,heading:s,itemType:m}=e,u=(0,b.useClickstreamAnalytics)(),d=null==i?void 0:i.map((e,n)=>(null==e?void 0:e.heading)||(null==e?void 0:e.footer)?l.createElement(B,{key:n,data:e,onClickSeeMoreReviewButton:t}):null),g=(0,l.useCallback)(e=>{var t;(null==i?void 0:i.length)&&(null==(t=i[e])?void 0:t.impressionAnalytics)&&(0,w.Cq)(u,i[e].impressionAnalytics,"impression")},[i,u]),v=(0,l.useCallback)(e=>{e.endsWith("scrollRight")&&(null==c?void 0:c.analytics)&&(0,w.Cq)(u,c.analytics,"click"),e.endsWith("scrollLeft")&&(null==o?void 0:o.analytics)&&(0,w.Cq)(u,o.analytics,"click")},[c,o,u]);return l.createElement(p.N,{margin:{blockstart:"three"}},l.createElement("div",null,(null==s?void 0:s.accessibility)&&l.createElement(C.M,{tag:"h3",className:"is-visually-hidden"},null==s?void 0:s.accessibility),l.createElement(x._N,{itemsMaxHeight:!0,itemsVisible:{sm:1,md:2,lg:2,xl:3},pagingInset:!0,peek:!0,wrapItems:!0,navigationIconId:{next:"reviews-carousel-next-button",prev:"reviews-carousel-prev-button"},buttonText:{nextButton:(null==(a=null==c?void 0:c.icon)?void 0:a.description)||"",prevButton:(null==(r=null==o?void 0:o.icon)?void 0:r.description)||""},"aria-live":"polite",containerAriaLabel:n||(null==s?void 0:s.text)||"",itemViewedCallback:g,analytics:{callback:v,id:"reviews-overview-carousel"},itemType:m||""},d)))};P.fragment=M,P.displayName="Carousel";var L=a.gql`
+  fragment CategoryFragment on ReviewsCategorySection {
+    heading {
+      ...EGDSStylizedTextFragment
+    }
+    categories {
+      accessibility
+      categoryScore {
+        ...EGDSStylizedTextFragment
+      }
+      categoryType {
+        ...EGDSStylizedTextFragment
+      }
+    }
+  }
+
+  ${w.Z3.fragment}
+`,q=({data:e})=>{const{heading:t,categories:n}=e,a=(null==n?void 0:n.length)||0;return!n||n&&3!==(null==n?void 0:n.length)?null:l.createElement(l.Fragment,null,t&&l.createElement(C.M,{tag:"h3",className:"is-visually-hidden","aria-label":t.accessibility||""},t.text),l.createElement(E.w,{columns:["1fr","min-content","1fr","min-content","1fr"]},null==n?void 0:n.map((e,t)=>l.createElement(l.Fragment,null,l.createElement(y.T,{key:`reviews-category-${t}`},l.createElement(g.X,{space:"one",direction:"column",alignContent:"center",justifyContent:"start",tag:"section"},l.createElement(v.C,{alignSelf:"center"},e.categoryScore&&l.createElement(C.M,{tag:"h3",size:6,"aria-hidden":!0},e.categoryScore.text)),l.createElement(v.C,{alignSelf:"center"},e.categoryType&&l.createElement(f.D,{size:300,"aria-hidden":!0,align:"center"},e.categoryType.text)),l.createElement(v.C,null,e.accessibility&&l.createElement("span",{className:"is-visually-hidden"},e.accessibility)))),a-1!==t&&l.createElement(y.T,{key:`reviews-category-divider-${t}`},l.createElement(p.N,{border:["inlineend"],margin:{inlineend:"two"},padding:{inlineend:"two"}},l.createElement("div",null)))))))};q.fragment=L,q.displayName="Category";var K=a.gql`
+  fragment OverallRatingFragment on EGDSStylizedText {
+    ...EGDSStylizedTextFragment
+  }
+
+  ${w.Z3.fragment}
+`,Z=({data:e,size:t=900})=>l.createElement(w.Z3,{size:t,data:e,skipScreenReader:!e.accessibility});Z.fragment=K,Z.displayName="OverallRating";var j=a.gql`
+  fragment PrimaryDisclaimerFragment on ProductTextInfoSection {
+    ...ProductTextInfoSectionFragment
+  }
+
+  ${w.wK.fragment}
+`,H=({data:e,blockStart:t})=>{var n;return(null==(n=null==e?void 0:e.title)?void 0:n.text)?l.createElement(p.N,{margin:{small:{blockstart:t||"three"},medium:{blockstart:t||"two"}}},l.createElement("div",null,l.createElement(w.wK,{autoPositionMenuContainer:!1,data:e}))):null};H.fragment=j,H.displayName="PrimaryDisclaimer";var V=a.gql`
+  fragment SuperlativeFragment on EGDSStylizedText {
+    ...EGDSStylizedTextFragment
+  }
+
+  ${w.Z3.fragment}
+`,Y=({data:e,size:t})=>{if(!(null==e?void 0:e.text))return null;const{text:n,accessibility:a}=e;return l.createElement(p.N,{margin:{blockstart:"one"}},l.createElement("div",null,l.createElement(f.D,{size:t,weight:"medium","aria-hidden":Boolean(a)},n),a&&l.createElement("span",{className:"is-visually-hidden"},a)))};Y.fragment=V,Y.displayName="Superlative";var W=a.gql`
+  fragment ReviewsOverviewContentFragment on ReviewsOverview {
+    overallRating {
+      ...OverallRatingFragment
+    }
+    superlative {
+      ...SuperlativeFragment
+    }
+    primaryDisclaimer {
+      ...PrimaryDisclaimerFragment
+    }
+    secondaryDisclaimer
+    carousel {
+      ...CarouselFragment
+    }
+    heading {
+      ...EGDSStylizedTextFragment
+    }
+    noResultsMessage {
+      ...EGDSStylizedTextFragment
+    }
+    seeAllReviewsButton {
+      ...EGDSButtonFragment
+    }
+    accessibility
+    sectionHeading {
+      ...EGDSStylizedTextFragment
+    }
+    images {
+      ...GuestImagesSectionFragment
+    }
+    category {
+      ...CategoryFragment
+    }
+    tnlFields {
+      key
+      value
+    }
+  }
+  ${Z.fragment}
+  ${Y.fragment}
+  ${H.fragment}
+  ${P.fragment}
+  ${w.Z3.fragment}
+  ${w.NO.fragment}
+  ${w.uA.fragment}
+  ${q.fragment}
+`,X={event:{event_name:"guest_choice.presented",event_type:"Impression",event_version:"1.0.0",event_category:""}},U=({data:e,onClickSeeMoreAndAllReviewsButton:t})=>{var n,a,r,x,_;const{overallRating:R,superlative:D,primaryDisclaimer:T,secondaryDisclaimer:F,heading:I,carousel:N,noResultsMessage:O,seeAllReviewsButton:A,accessibility:z,sectionHeading:$,images:G,category:B}=e,M=(0,b.useClickstreamAnalytics)(),L=(0,b.useEgClickstream)(),K=(0,l.useRef)(null),j=1===(0,h.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,V=1===(0,h.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,W=j||V,U=W?700:void 0,Q=W?400:500,J=null==(n=(0,i.m9)("egtnl59480_badgeText"))?void 0:n.value,ee=null==(a=(0,i.m9)("egtnl59480_descriptionText"))?void 0:a.value,te=null==(r=(0,i.m9)("egtnl59480_guestChoiceEligible"))?void 0:r.value,ne=(0,l.useCallback)((e,n)=>{t&&t(e,n)},[t]),le=(0,l.useCallback)(()=>{(null==A?void 0:A.analytics)&&(0,w.Cq)(M,null==A?void 0:A.analytics,"click"),ne(null,K)},[A,ne,M,K]),ae=(e,t)=>l.createElement(w.NO,{size:W?s.V.MEDIUM:s.V.LARGE,isFullWidth:e,data:t,iconPosition:"TRAILING",onClickHandler:le,ref:K});(0,l.useEffect)(()=>{te&&L(X)},[]);const re=l.createElement("div",null,$?l.createElement(g.X,{direction:"row",tag:"section"},null==R?void 0:R.map(e=>l.createElement(v.C,{key:`rating-${null==e?void 0:e.text}`},l.createElement(Z,{data:e,size:700})))):null==R?void 0:R.map(e=>l.createElement(Z,{data:e,key:`rating-${null==e?void 0:e.text}`,size:U})),D&&l.createElement(Y,{data:D,size:$?400:Q}),T&&l.createElement(H,{data:T,blockStart:$?"one":void 0}),F&&l.createElement(p.N,{padding:{blockstart:"three"}},l.createElement(f.D,{size:200,weight:"regular",theme:"standard"},F)));return l.createElement(p.N,{padding:{small:{blockstart:"four",blockend:W?"unset":"four",inline:"three"},medium:{blockstart:W?"four":"six",blockend:W?"unset":"six",inline:W?"unset":"three"},large:{blockstart:W?"four":"six",blockend:W?"unset":"six",inline:W?"unset":"six"}}},l.createElement(m.g,{overflow:!(null==(x=null==N?void 0:N.items)?void 0:x.length)},l.createElement(u.E,{padded:!W},$&&l.createElement(p.N,{margin:{blockend:"four"}},l.createElement(C.M,{tag:"h2",size:5,"aria-label":$.accessibility||""},$.text)),z&&l.createElement(C.M,{tag:"h2",className:"is-visually-hidden"},z),O&&l.createElement(p.N,{padding:"six"},l.createElement(g.X,{direction:"column",space:"three",justifyContent:"center",alignItems:"center"},l.createElement(v.C,null,I&&l.createElement(C.M,{tag:"h3",size:5},null==I?void 0:I.text)),l.createElement(v.C,null,l.createElement(w.Z3,{data:O,align:"center"})))),(null==R?void 0:R.length)?l.createElement(E.w,{space:{column:"six",row:B?void 0:"four"},columns:12,"data-testid":"review-overview-section"},l.createElement(y.T,{colSpan:{small:12,medium:6,large:4}},l.createElement("div",null,J&&ee?l.createElement(m.g,{padded:!0,backgroundTheme:"highlight"},l.createElement(u.E,null,l.createElement(p.N,{margin:"four"},l.createElement(g.X,{direction:"column",space:"four",alignItems:"start"},l.createElement(v.C,null,re),l.createElement(v.C,null,l.createElement("div",null,l.createElement(c.G,{theme:o.mc.INFO,text:J},l.createElement(d.LD,{name:"trophy",size:d.So.EXTRA_SMALL})),l.createElement(S.u,null,ee))))))):l.createElement(v.C,null,re),B&&l.createElement(p.N,{margin:{block:"four"}},l.createElement("div",null,l.createElement(q,{data:B}))))),(null==(_=null==N?void 0:N.items)?void 0:_.length)?l.createElement(y.T,{colSpan:{small:12,large:8}},l.createElement("div",null,G&&l.createElement(p.N,{margin:{blockend:"four"}},l.createElement("div",null,l.createElement(w.uA,{data:G}))),I&&l.createElement(C.M,{tag:"h3",size:6},null==I?void 0:I.text),N&&l.createElement(P,{data:N,onClickSeeMoreReviewButton:ne,heading:null==I?void 0:I.text}),A&&l.createElement(p.N,{margin:{small:{blockstart:"four"},medium:{blockstart:"three"}}},l.createElement("div",null,l.createElement(k.LM,null,l.createElement(k.NP,null,ae(!0,A)),l.createElement(k.rw,null,ae(!1,A))))))):null):null)))};U.fragment=W,U.displayName="ReviewsOverviewContent";var Q=a.gql`
+  query PWAReviewsOverviewComponentReviewsOverviewQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    reviewsOverview(context: $context, productIdentifier: $productIdentifier) {
+      ...ReviewsOverviewContentFragment
+    }
+  }
+
+  ${U.fragment}
+`,J=({inputs:e,skipSsr:t,batchKey:n,onClickSeeMoreAndAllReviewsButton:c})=>{const{context:o}=(0,r.R)(),s=(m=((e,t)=>{for(var n in t||(t={}))F.call(t,n)&&N(e,n,t[n]);if(T)for(var n of T(t))I.call(t,n)&&N(e,n,t[n]);return e})({},e),R(m,D({context:o})));var m;const{data:u,error:d,loading:g}=(0,a.useQuery)(Q,{context:{batchKey:null!=n?n:"default-product-details-experience-batch-key",shouldLogPerformance:!0},variables:s,ssr:!t});return g||d||!(null==u?void 0:u.reviewsOverview)?null:l.createElement(i.p,{tnlFields:u.reviewsOverview.tnlFields},l.createElement(U,{data:u.reviewsOverview,onClickSeeMoreAndAllReviewsButton:c}))};J.displayName="sharedui-ReviewsOverview"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-reviews-overview.c6273f2cbf23746d4cef.js.map

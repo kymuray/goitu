@@ -1,0 +1,1526 @@
+/*@license For license information please refer to shared-ui-trips-save-item.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[158],{13311:function(e,t,a){a.d(t,{CS:function(){return bn},F8:function(){return Cn},GG:function(){return mn},P:function(){return fn},hI:function(){return _n},kL:function(){return on},sm:function(){return He},tk:function(){return ha}});var r=a(56195),n=a(522),i=a(99828),s=a(87818),o=a(42534),l=a(75077),m=a(27102),c=a(29263),d=a(26690),p=a(64341),u=a(97778),g=a(96895),T=a(86405),I=a(70882),v=a(53017),E=a(13902),y=a(66785),S=a(19716),f=a(68638),_=a(51213),h=a(8820),A=a(90222),C=a(32278),b=a(46559),F=a(63085),N=a(57969),D=a(58663),k=a(2557),R=a(22142),w=a(87698),P=a(96394),O=a(87993),M=a(37957),L=a(80240),$=a(30169),V=a(43888),x=a(934),B=a(89438),q=a(74071),G=a(70833),U=a(95519),z=a(69772),H=a(24924),W=a(92919),K=a(63744),j=a(96384),Y=a(24109),X=a(9010),Q=a(1226),J=a(77913),Z=a(68118),ee=a(32462),te=a(36145),ae=a(73492),re=a(29366),ne=a(72402),ie=a(47540),se=a(23726),oe=a(42048),le=a(25229),me=a(37292);a(63081);function ce(e,t){for(var a=0;a<t.length;a++){var r=t[a];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,pe(r.key),r)}}function de(e,t,a){return t&&ce(e.prototype,t),a&&ce(e,a),Object.defineProperty(e,"prototype",{writable:!1}),e}function pe(e){var t=function(e,t){if("object"!=typeof e||!e)return e;var a=e[Symbol.toPrimitive];if(void 0!==a){var r=a.call(e,t||"default");if("object"!=typeof r)return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:t+""}var ue=Object.defineProperty,ge=Object.defineProperties,Te=Object.getOwnPropertyDescriptors,Ie=Object.getOwnPropertySymbols,ve=Object.prototype.hasOwnProperty,Ee=Object.prototype.propertyIsEnumerable,ye=(e,t,a)=>t in e?ue(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,Se=(e,t)=>{for(var a in t||(t={}))ve.call(t,a)&&ye(e,a,t[a]);if(Ie)for(var a of Ie(t))Ee.call(t,a)&&ye(e,a,t[a]);return e},fe=(e,t)=>ge(e,Te(t)),_e=(e,t)=>{var a={};for(var r in e)ve.call(e,r)&&t.indexOf(r)<0&&(a[r]=e[r]);if(null!=e&&Ie)for(var r of Ie(e))t.indexOf(r)<0&&Ee.call(e,r)&&(a[r]=e[r]);return a},he=(e,t)=>t?A.createPortal(e,t):e,Ae=(0,d.makeVar)(void 0),Ce=r.createContext(Ae);function be(){return r.useContext(Ce)}var Fe={onDismiss:e=>{e(void 0)}},Ne=r.createContext(Fe),De=({handler:e,children:t})=>{const a=r.useMemo(()=>({onDismiss:e.onDismiss}),[e]);return r.createElement(Ne.Provider,{value:a},t)};function ke(){const e=r.useContext(Ne),t=be();return{onDismiss:a=>{Fe.onDismiss(t,a),Fe!==e&&e.onDismiss(t,a)}}}var Re=({ignoreCompleteStatus:e,refetch:t})=>{const{onDismiss:a}=ke(),{formatText:n}=(0,_.useLocalization)(),{htmlElement:i}=(0,h.p)(),s=be(),o=(0,d.useReactiveVar)(s);if((0,r.useEffect)(()=>{(null==o?void 0:o.refetch)&&t&&(o.queryVariables?t(o.queryVariables):t())},[o,t]),!o)return null;switch(o.status){case"reset":default:return s(void 0),null;case"loading":return he(r.createElement(S.Y,{visible:!0}),i);case"error":return r.createElement(f.N,{onDismiss:a,show:!0},n("trip.error.cancel.message"));case"complete":return o.toastElement&&!e?o.toastElement:(s(void 0),null)}},we=r.createContext({dialogName:"trips-dialog",drawerName:"trips-drawer"});function Pe(){return r.useContext(we).dialogName}function Oe(){return r.useContext(we).drawerName}var Me=r.createContext({onEditCTAInToastClick:()=>{}}),Le=({children:e,onEditCTAInToastClick:t})=>{const a=r.useMemo(()=>({onEditCTAInToastClick:t}),[t]);return r.createElement(Me.Provider,{value:a},e)},$e=(e=>(e.ACTIVITY_DETAILS="ACTIVITY_DETAILS",e.ACTIVITY_SEARCH="ACTIVITY_SEARCH",e.CAR_INFOSITE="CAR_INFOSITE",e.CAR_INFOSITE_V2="CAR_INFOSITE_V2",e.CAR_SEARCH="CAR_SEARCH",e.CAR_SEARCH_V2="CAR_SEARCH_V2",e.HOTEL_SEARCH="HOTEL_SEARCH",e.LODGING_DETAILS="LODGING_DETAILS",e.LODGING_SEARCH="LODGING_SEARCH",e.PACKAGE_DETAILS="PACKAGE_DETAILS",e.TRIP_OVERVIEW="TRIP_OVERVIEW",e))($e||{}),Ve=e=>["CAR_SEARCH_V2","CAR_INFOSITE_V2"].includes(e),xe=e=>["LODGING_DETAILS","LODGING_SEARCH"].includes(e),Be=e=>["ACTIVITY_DETAILS","ACTIVITY_SEARCH"].includes(e),qe=e=>"PACKAGE_DETAILS"===e,Ge=e=>xe(e)||Be(e),Ue={MAP_SAVE_ITEM_ATTRIBUTES_MISSING:new F.SystemEvent(F.SystemEventLevel.INFO,"MAP_SAVE_ITEM_ATTRIBUTES_MISSING"),MAP_SAVE_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME:new F.SystemEvent(F.SystemEventLevel.INFO,"MAP_SAVE_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME")},ze=e=>{const{categoryCode:t,fuelAcCode:a,offerToken:r,searchCriteria:n,transmissionDriveCode:i,typeCode:s,vendorCode:o}=e,{dropOffDateTime:l,dropOffLocation:m,pickUpDateTime:c,pickUpLocation:d}=n||{},p=e=>{const{day:t,hour:a,month:r,minute:n,second:i,year:s}=e;return{day:t,hour:a,month:r,minute:n,second:i,year:s}};return{carAttributes:{categoryCode:t,fuelAcCode:a,offerToken:r,searchCriteria:{dropOffDateTime:p(l),dropOffLocation:(()=>{const e=e=>{if(e){const{latitude:t,longitude:a}=e;return{latitude:t,longitude:a}}return null};if(m){const{airportCode:t,coordinates:a,isExactLocationSearch:r,regionId:n,searchTerm:i}=m;return{airportCode:t,coordinates:e(a),isExactLocationSearch:r,regionId:n,searchTerm:i}}return null})(),pickUpDateTime:p(c),pickUpLocation:(()=>{const{airportCode:e,coordinates:t,isExactLocationSearch:a,regionId:r,searchTerm:n}=d;return{airportCode:e,coordinates:(e=>{if(e){const{latitude:t,longitude:a}=e;return{latitude:t,longitude:a}}return null})(t),isExactLocationSearch:a,regionId:r,searchTerm:n}})()},transmissionDriveCode:i,typeCode:s,vendorCode:o}}};function He(){const e=(0,F.useLoggerEvents)(Ue);return t=>{var a,r,n,i,s,o,l,m,c,d,p,u;if(!t)return e.MAP_SAVE_ITEM_ATTRIBUTES_MISSING.log({}),null;switch(t.__typename){case"TripsSaveStayAttributes":return{stayAttributes:{checkInDate:t.checkInDate?{day:t.checkInDate.day,month:t.checkInDate.month,year:t.checkInDate.year}:null,checkoutDate:t.checkoutDate?{day:t.checkoutDate.day,month:t.checkoutDate.month,year:t.checkoutDate.year}:null,regionId:t.regionId,roomConfiguration:null!=(r=null==(a=t.roomConfiguration)?void 0:a.map(e=>({numberOfAdults:e.numberOfAdults,childAges:e.childAges})))?r:null}};case"TripsSaveActivityAttributes":return{activityAttributes:{dateRange:t.dateRange?{start:{day:t.dateRange.start.day,month:t.dateRange.start.month,year:t.dateRange.start.year},end:{day:t.dateRange.end.day,month:t.dateRange.end.month,year:t.dateRange.end.year}}:null,regionId:t.regionId}};case"TripsSaveFlightSearchAttributes":return{flightAttributes:{primary:{journeyCriterias:null==(n=t.searchCriteria)?void 0:n.primary.journeyCriterias.map(e=>({departureDate:{day:e.departureDate.day,month:e.departureDate.month,year:e.departureDate.year},destination:e.destination,origin:e.origin,destinationAirportLocationType:e.destinationAirportLocationType,originAirportLocationType:e.destinationAirportLocationType,arrivalDate:e.arrivalDate?{day:e.arrivalDate.day,month:e.arrivalDate.month,year:e.arrivalDate.year}:null})),travelers:null==(i=t.searchCriteria)?void 0:i.primary.travelers.map(e=>({type:e.type,age:e.age})),tripType:null==(s=t.searchCriteria)?void 0:s.primary.tripType,searchPreferences:(null==(o=t.searchCriteria)?void 0:o.primary.searchPreferences)?{cabinClass:t.searchCriteria.primary.searchPreferences.cabinClass,airline:t.searchCriteria.primary.searchPreferences.airline,advancedFilters:t.searchCriteria.primary.searchPreferences.advancedFilters}:null},secondary:(null==(l=t.searchCriteria)?void 0:l.secondary)?{booleans:null==(m=t.searchCriteria.secondary.booleans)?void 0:m.map(e=>({id:e.id,value:e.value})),counts:null==(c=t.searchCriteria.secondary.counts)?void 0:c.map(e=>({id:e.id,value:e.value})),dates:null==(d=t.searchCriteria.secondary.dates)?void 0:d.map(e=>({id:e.id,value:{month:e.value.month,day:e.value.day,year:e.value.year}})),ranges:null==(p=t.searchCriteria.secondary.ranges)?void 0:p.map(e=>({id:e.id,min:e.min,max:e.max})),selections:null==(u=t.searchCriteria.secondary.selections)?void 0:u.map(e=>({id:e.id,value:e.value}))}:null}};case"TripsSaveCarOfferAttributes":return ze(t);case"TripsSavePackageAttributes":return{packageAttributes:{packageOfferId:t.packageOfferId,sessionId:t.sessionId}};default:return e.MAP_SAVE_ITEM_ATTRIBUTES_UNSUPPORTED_TYPENAME.log({}),null}}}function We(e){return null!=e}var Ke=(e,t)=>(null==e?void 0:e.length)?e.map((e,a)=>{var n,i;const{__typename:s}=e,o=t.find(e=>e.fragment.__typename===s);if(!o)return null;const l=null!=(i=null==(n=o.getKey)?void 0:n.call(o,e))?i:"trips-composable-element";return r.createElement(o,{key:`${s}-${l.toLowerCase()}-${a}`,data:e})}).filter(We):null,je=e=>{const{clickstreamTraceId:t,eventName:a,eventType:r,eventVersion:n,eventCategory:i,actionLocation:s}=e.event,o={clickstream_trace_id:t,event_name:a,event_version:n,event_type:r,event_category:i,action_location:s};switch(e.payload.__typename){case"TripRecommendationModule":{const{title:t,responseId:a,recommendations:r}=e.payload;return{event:o,recommendation_module:{recommendation_title:t,eg_recommendation_response_id:a,recommendations:r.map(e=>(e=>({recommendation_id:e.id,recommendation_position:e.position,presentation_details_price_displayed:e.priceDisplayed,presentation_details_currency_code:e.currencyCode,presentation_details_recommendation_name:e.name}))(e))}}}case"TripBookingModule":{const{orderId:t,transactionStatus:a}=e.payload;return{event:o,booking:{transaction_status:a,order_id:t}}}case"CheckinCheckoutInstructions":{const{pageName:t}=e.payload;return{event:o,checkin_checkout_instructions:{page_name:t}}}default:return{event:o}}},Ye=d.gql`
+  fragment ClickstreamAnalyticsFragment on ClickstreamAnalytics {
+    event {
+      clickstreamTraceId
+      eventCategory
+      eventName
+      eventType
+      eventVersion
+      actionLocation
+    }
+    payload {
+      ...TripRecommendationModuleFragment
+      ...TripBookingModuleFragment
+      ...CheckinCheckoutInstructionsFragment
+    }
+  }
+
+  fragment TripRecommendationModuleFragment on TripRecommendationModule {
+    title
+    responseId
+    recommendations {
+      ...TripRecommendationFragment
+    }
+  }
+
+  fragment TripRecommendationFragment on TripRecommendation {
+    id
+    position
+    priceDisplayed
+    currencyCode
+    name
+  }
+
+  fragment TripBookingModuleFragment on TripBookingModule {
+    orderId
+    transactionStatus
+  }
+
+  fragment CheckinCheckoutInstructionsFragment on CheckinCheckoutInstructions {
+    pageName
+  }
+`,Xe=d.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    eventType
+    linkName
+    referrerId
+    uisPrimeMessages {
+      messageContent
+      schemaName
+    }
+  }
+`,Qe=d.gql`
+  fragment ClientSideImpressionAnalyticsFragment on ClientSideImpressionAnalytics {
+    uisPrimeAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    clickstreamAnalytics {
+      ...ClickstreamAnalyticsFragment
+    }
+  }
+
+  ${Xe}
+  ${Ye}
+`,Je=({data:e,children:t})=>{const a=(0,u.useEgClickstream)();return r.useEffect(()=>{e.clickstreamAnalytics&&a(je(e.clickstreamAnalytics))},[e.clickstreamAnalytics,a]),e.uisPrimeAnalytics?r.createElement(u.IntersectionTracker,{referrerId:e.uisPrimeAnalytics.referrerId,linkName:e.uisPrimeAnalytics.linkName,intersectionOptions:{threshold:.5}},t):r.createElement(r.Fragment,null,t)};Je.displayName="ClientSideImpressionAnalyticsIntersectionTracker",Je.fragment=Qe;var Ze=({data:e,children:t})=>{var a,n;const{track:i}=(0,u.useClickstreamAnalytics)(),s=(0,u.useEgClickstream)(),o=null==(n=null==(a=null==e?void 0:e.uisPrimeAnalytics)?void 0:a.uisPrimeMessages)?void 0:n.map(({schemaName:e,messageContent:t})=>{let a;try{a=JSON.parse(t)}catch(r){a=null}return{schemaName:e,messageContent:a}});return r.useEffect(()=>{if(e.uisPrimeAnalytics){const t={data:[{schemaName:"referrer",messageContent:{referrerId:e.uisPrimeAnalytics.referrerId,linkName:e.uisPrimeAnalytics.linkName,eventType:"impression"}},...o||[]]};i(u.ITrackType.EVENT,t)}},[e.uisPrimeAnalytics,i]),r.useEffect(()=>{e.clickstreamAnalytics&&s(je(e.clickstreamAnalytics))},[e.clickstreamAnalytics,s]),r.createElement(r.Fragment,null,t)};Ze.displayName="ClientSideImpressionAnalyticsTracker",Ze.fragment=Qe;var et=d.gql`
+  fragment TripsInfoToastFragment on TripsInfoToast {
+    primary
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+  }
+
+  ${Ze.fragment}
+`,tt=({data:e})=>{var t;const{onDismiss:a}=ke(),[n]=(0,E.A9)();if(!e.primary)return null;const i=r.createElement(f.N,{show:!0,onDismiss:a,verticalOffset:null==(t=n.toastState)?void 0:t.offset},e.primary);return e.impressionTracking?r.createElement(Ze,{data:e.impressionTracking},i):i};tt.displayName="TripsInfoToast",tt.fragment=fe(Se({},et),{__typename:"TripsInfoToast"});var at=d.gql`
+  fragment TripsDismissActionFragment on TripsDismissAction {
+    __typename
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+  }
+`,rt=d.gql`
+  fragment TripsNavigateToViewActionFragment on TripsNavigateToViewAction {
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    tripItemId
+    tripViewId
+    viewFilter {
+      filter
+    }
+    viewType
+    viewUrl
+    displayMode
+    clickstreamAnalytics {
+      ...ClickstreamAnalyticsFragment
+    }
+  }
+  ${Ye}
+`,nt={INFO:"info",POSITIVE:"positive",STANDARD:"standard",WARNING:"warning"},it=d.gql`
+  fragment EGDSIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+    spotLight
+  }
+`,st=({data:e,defaultIconSize:t,className:a,accessibility:n})=>{var i,s,o;return r.createElement(k.LD,{className:a,id:(0,D.A)(),description:e.description,name:e.id,size:e.size?k.So[e.size]:t,title:null!=(i=e.title)?i:void 0,theme:null!=(s=e.theme)?s:void 0,shadow:null!=(o=e.withBackground)?o:void 0,spotlight:e.spotLight?nt[e.spotLight]:void 0,"aria-hidden":null!==n})};st.displayName="Icon",st.fragment=fe(Se({},it),{__typename:"Icon"});var ot=d.gql`
+  fragment EGDSIllustrationFragment on Illustration {
+    id
+    description
+    link: url
+  }
+`,lt=({data:e})=>r.createElement(R.r,{alt:e.description,url:e.link});lt.displayName="Illustration",lt.fragment=fe(Se({},ot),{__typename:"Illustration"});var mt=d.gql`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    markSize: size
+    url {
+      ... on HttpURI {
+        __typename
+        relativePath
+        value
+      }
+    }
+  }
+`,ct=({data:e,defaultMarkSize:t,className:a})=>{var n,i;const s=r.useMemo(()=>(0,D.A)(),[]);return(null==(n=e.url)?void 0:n.value)?r.createElement(w.D,{className:a,description:e.description,id:s,name:e.id,size:e.markSize?P.K[e.markSize]:t,url:null==(i=e.url)?void 0:i.value}):null};ct.displayName="Mark",ct.fragment=fe(Se({},mt),{__typename:"Mark"});var dt=d.gql`
+  fragment UIGraphicFragment on UIGraphic {
+    ...EGDSIconFragment
+    ...EGDSMarkFragment
+    ...EGDSIllustrationFragment
+  }
+
+  ${st.fragment}
+  ${ct.fragment}
+  ${lt.fragment}
+`,pt=({data:e,defaultIconSize:t,defaultMarkSize:a,className:n,accessibility:i})=>{switch(null==e?void 0:e.__typename){case"Icon":return r.createElement(st,{className:n,data:e,defaultIconSize:t,accessibility:i});case"Mark":return r.createElement(ct,{className:n,data:e,defaultMarkSize:a});case"Illustration":return r.createElement(lt,{data:e});default:return null}};pt.displayName="UIGraphic",pt.fragment=dt;var ut=d.gql`
+  fragment EGDSGraphicTextFragment on EGDSGraphicText {
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+  }
+
+  ${pt.fragment}
+`,gt=({className:e,textSize:t,accessibility:a,data:s})=>r.createElement(n.X,{className:e,space:"one",alignItems:"center"},r.createElement(i.C,null,r.createElement(pt,{data:s.graphic,accessibility:a})),r.createElement(i.C,null,r.createElement(m.D,{size:t,"aria-hidden":null!==a},s.text)));gt.fragment=ut,gt.displayName="EGDSGraphicText";var Tt=d.gql`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    text
+    textAccessibility: accessibility
+  }
+`,It=({className:e,align:t,size:a,accessibility:n,data:i})=>{const{text:s,textAccessibility:o}=i;return r.createElement(m.D,{className:e,align:t,size:a,"aria-hidden":!o&&null!==n},s)};It.fragment=Tt,It.displayName="EGDSPlainText";var vt=d.gql`
+  fragment EGDSTextFragment on EGDSText {
+    ...EGDSPlainTextFragment
+    ...EGDSGraphicTextFragment
+  }
+
+  ${It.fragment}
+  ${gt.fragment}
+`,Et=({className:e,textAlign:t,textSize:a,data:n})=>{switch(null==n?void 0:n.__typename){case"EGDSPlainText":return r.createElement(It,{className:e,align:t,size:a,data:n});case"EGDSGraphicText":return r.createElement(gt,{className:e,textSize:a,data:n});default:return null}};Et.fragment=vt,Et.displayName="TripsLegacyEGDSText";var yt={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},St=d.gql`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    text
+    weight
+  }
+`,ft=({className:e,data:{text:t,weight:a}})=>{const n=a?yt[a]:void 0;return r.createElement(m.D,{className:e,weight:n},t)};ft.fragment=St,ft.displayName="EGDSStylizedText";var _t=d.gql`
+  fragment TripsStaticContentDrawerContentFragment on TripsStaticContentDrawerContent {
+    ...EGDSPlainTextFragment
+    ... on Image {
+      description
+      url
+    }
+  }
+
+  ${It.fragment}
+`,ht=d.gql`
+  fragment TripsStaticContentDrawerFragment on TripsStaticContentDrawer {
+    heading
+    content {
+      ...TripsStaticContentDrawerContentFragment
+    }
+    buttons {
+      ... on TripsPrimaryButton {
+        primary
+        accessibility {
+          label
+        }
+        action {
+          ... on TripsDismissAction {
+            analytics {
+              referrerId
+              linkName
+              uisPrimeMessages {
+                messageContent
+                schemaName
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ${_t}
+`,At=d.gql`
+  fragment TripsOpenDrawerActionFragment on TripsOpenDrawerAction {
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    drawer {
+      ...TripsStaticContentDrawerFragment
+    }
+  }
+
+  ${ht}
+`,Ct=d.gql`
+  fragment TripSaveItemToTripActionFragment on TripsSaveItemToTripAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    tripId
+    saveItemInput {
+      itemId
+      pageLocation
+      source
+      subscriptionAttributes {
+        anchorPrice
+      }
+      tripItem {
+        tripItemId
+        tripViewId
+      }
+    }
+    accessibility {
+      label
+    }
+  }
+`,bt=d.gql`
+  fragment TripsToastButtonFragment on TripsButton {
+    primary
+    action {
+      ...TripsNavigateToViewActionFragment
+      ...TripsDismissActionFragment
+      ...TripsOpenDrawerActionFragment
+      ...TripSaveItemToTripActionFragment
+    }
+  }
+
+  ${rt}
+  ${at}
+  ${At}
+  ${Ct}
+`;function Ft(e){return e.map(({schemaName:e,messageContent:t})=>{let a;try{a=JSON.parse(t)}catch(r){a=null}return{schemaName:e,messageContent:a}})}function Nt(e){const t=be(),a=(0,u.useClickTracker)(),{onEditCTAInToastClick:n}=r.useContext(Me),{publish:i}=(0,T.Yj)();return r.useCallback(()=>{var r;if(e.button.action)switch(e.button.action.__typename){case"TripsNavigateToViewAction":{const r=Ft(e.button.action.analytics.uisPrimeMessages);a(e.button.action.analytics.referrerId,e.button.action.analytics.linkName,void 0,r);const{viewUrl:n,displayMode:i}=e.button.action;if(!n)return;t({status:"reset"}),"NEW_TAB"===i?window.open(n,"_blank"):window.location.href=n;break}case"TripsDismissAction":a(e.button.action.analytics.referrerId,e.button.action.analytics.linkName),t({status:"reset"});break;case"TripsOpenDrawerAction":{const r=Ft(e.button.action.analytics.uisPrimeMessages);a(e.button.action.analytics.referrerId,e.button.action.analytics.linkName,void 0,r),n(),t({status:"reset"});break}case"TripsSaveItemToTripAction":{const n=Ft(e.button.action.analytics.uisPrimeMessages);a(e.button.action.analytics.referrerId,e.button.action.analytics.linkName,void 0,n);const s=null==(r=e.button.action.saveItemInput)?void 0:r.itemId;s&&i(new y.Ue("SAVE_ITEM_PROMPT_BUTTON_CLICKED",{itemId:s})),t({status:"reset"});break}}},[e,a,t,n,i])}var Dt=d.gql`
+  fragment TripsInlineActionToastFragment on TripsInlineActionToast {
+    primary
+    button {
+      ...TripsToastButtonFragment
+    }
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+  }
+
+  ${bt}
+  ${Ze.fragment}
+`,kt=({data:e})=>{var t;const{onDismiss:a}=ke(),[n]=(0,E.A9)(),i=Nt(e),s=r.createElement(f.N,{onDismiss:a,actionCallback:i,actionText:e.button.primary||void 0,show:!0,autoHide:!0,verticalOffset:null==(t=n.toastState)?void 0:t.offset},e.primary);return e.impressionTracking?r.createElement(Ze,{data:e.impressionTracking},s):s};kt.displayName="TripsInlineActionToast",kt.fragment=fe(Se({},Dt),{__typename:"TripsInlineActionToast"});var Rt=d.gql`
+  fragment TripsStackedActionToastFragment on TripsStackedActionToast {
+    primary
+    button {
+      ...TripsToastButtonFragment
+    }
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+  }
+
+  ${bt}
+  ${Ze.fragment}
+`,wt=({data:e})=>{var t;const{onDismiss:a}=ke(),n=Nt(e),[i]=(0,E.A9)(),s=r.createElement(f.N,{onDismiss:a,actionCallback:n,actionText:e.button.primary||void 0,show:!0,stacked:!0,autoHide:!0,verticalOffset:null==(t=i.toastState)?void 0:t.offset},e.primary);return e.impressionTracking?r.createElement(Ze,{data:e.impressionTracking},s):s};wt.displayName="TripsStackedActionToast",wt.fragment=fe(Se({},Rt),{__typename:"TripsStackedActionToast"});var Pt=d.gql`
+  fragment TripsToastFragment on TripsToast {
+    ...TripsInfoToastFragment
+    ...TripsInlineActionToastFragment
+    ...TripsStackedActionToastFragment
+  }
+
+  ${tt.fragment}
+  ${kt.fragment}
+  ${wt.fragment}
+`,Ot=e=>{const{data:t}=e;return((e,t)=>{const a=t.find(t=>t.fragment.__typename===e.__typename);return a?r.createElement(a,{data:e}):null})(t,[tt,kt,wt])};Ot.fragment=Pt,Ot.displayName="TripsToast";var Mt=d.gql`
+  fragment TripsLocalSavedItemFragment on TripsLocalSavedItem {
+    id
+    checked
+  }
+`,Lt=d.gql`
+  query TripsLocalSavedItemQuery {
+    localSavedItems @client {
+      ...TripsLocalSavedItemFragment
+    }
+  }
+
+  ${Mt}
+`;function $t(){const{cache:e}=(0,d.useApolloClient)();return r.useCallback((t,a)=>{var r;const n={__typename:"TripsLocalSavedItem",id:t,checked:a},i=e.readQuery({query:Lt}),s=null!=(r=null==i?void 0:i.localSavedItems.filter(e=>e.id!==t))?r:[];e.writeQuery({query:Lt,data:{localSavedItems:[...s,n]}})},[e])}var Vt=d.gql`
+  fragment DateFragment on Date {
+    day
+    month
+    year
+  }
+`,xt=d.gql`
+  fragment TripsSaveActivityAttributesFragment on TripsSaveActivityAttributes {
+    regionId
+    dateRange {
+      start {
+        ...DateFragment
+      }
+      end {
+        ...DateFragment
+      }
+    }
+  }
+
+  ${Vt}
+`,Bt=d.gql`
+  fragment CarRentalLocationFragment on CarRentalLocation {
+    airportCode
+    coordinates {
+      latitude
+      longitude
+    }
+    isExactLocationSearch
+    regionId
+    searchTerm
+  }
+`,qt=d.gql`
+  fragment DateTimeFragment on DateTime {
+    day
+    month
+    year
+    hour
+    minute
+    second
+  }
+`,Gt=d.gql`
+  fragment TripsSaveCarOfferAttributesFragment on TripsSaveCarOfferAttributes {
+    categoryCode
+    fuelAcCode
+    offerToken
+    searchCriteria {
+      dropOffDateTime {
+        ...DateTimeFragment
+      }
+      dropOffLocation {
+        ...CarRentalLocationFragment
+      }
+      pickUpDateTime {
+        ...DateTimeFragment
+      }
+      pickUpLocation {
+        ...CarRentalLocationFragment
+      }
+    }
+    transmissionDriveCode
+    typeCode
+    vendorCode
+  }
+
+  ${Bt}
+  ${qt}
+`,Ut=d.gql`
+  fragment TripsSaveFlightSearchAttributesFragment on TripsSaveFlightSearchAttributes {
+    searchCriteria {
+      primary {
+        journeyCriterias {
+          arrivalDate {
+            ...DateFragment
+          }
+          departureDate {
+            ...DateFragment
+          }
+          destination
+          destinationAirportLocationType
+          origin
+          originAirportLocationType
+        }
+        searchPreferences {
+          advancedFilters
+          airline
+          cabinClass
+        }
+        travelers {
+          age
+          type
+        }
+        tripType
+      }
+      secondary {
+        booleans {
+          id
+          value
+        }
+        counts {
+          id
+          value
+        }
+        dates {
+          id
+          value {
+            ...DateFragment
+          }
+        }
+        ranges {
+          id
+          min
+          max
+        }
+        selections {
+          id
+          value
+        }
+      }
+    }
+  }
+
+  ${Vt}
+`,zt=d.gql`
+  fragment TripsSavePackageAttributesFragment on TripsSavePackageAttributes {
+    packageOfferId
+    sessionId
+  }
+`,Ht=d.gql`
+  fragment TripsSaveStayAttributesFragment on TripsSaveStayAttributes {
+    checkInDate {
+      ...DateFragment
+    }
+    checkoutDate {
+      ...DateFragment
+    }
+    regionId
+    roomConfiguration {
+      numberOfAdults
+      childAges
+    }
+  }
+
+  ${Vt}
+`,Wt=d.gql`
+  fragment TripsSaveItemAttributesFragment on TripsSaveItemAttributes {
+    ...TripsSaveStayAttributesFragment
+    ...TripsSaveActivityAttributesFragment
+    ...TripsSaveFlightSearchAttributesFragment
+    ...TripsSaveCarOfferAttributesFragment
+    ...TripsSavePackageAttributesFragment
+  }
+
+  ${xt}
+  ${Ht}
+  ${Ut}
+  ${Gt}
+  ${zt}
+`,Kt=d.gql`
+  fragment TripsChangeSaveItemStateFragment on TripsChangeSaveItemState {
+    toggleState
+    tripItemId
+  }
+`,jt=d.gql`
+  mutation SaveItemToTrip($context: ContextInput!, $tripId: String, $newTripInputs: [GraphQLPairInput!], $itemInput: TripsPlanInput!) {
+    trip(context: $context) {
+      saveItemToTrip(tripId: $tripId, newTripInputs: $newTripInputs, itemInput: $itemInput) {
+        ... on TripsView {
+          toast {
+            ...TripsToastFragment
+          }
+          tripsSideEffects {
+            ...TripsChangeSaveItemStateFragment
+          }
+        }
+      }
+    }
+  }
+
+  ${Ot.fragment}
+  ${Kt}
+`,Yt=d.gql`
+  fragment TripsSaveItemToTripActionFragment on TripsSaveItemToTripAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    tripId
+    saveItemInput {
+      ...TripsSaveItemToTripSaveItemInputFragment
+    }
+    accessibility {
+      label
+    }
+  }
+
+  fragment TripsSaveItemToTripSaveItemInputFragment on TripsPlan {
+    attributes {
+      ...TripsSaveItemAttributesFragment
+    }
+    itemId
+    pageLocation
+    source
+    subscriptionAttributes {
+      anchorPrice
+    }
+    tripItem {
+      tripItemId
+      tripViewId
+    }
+  }
+
+  ${Wt}
+`,Xt={SAVE_ITEM_TO_TRIP_ACTION_ERROR:new F.SystemEvent(F.SystemEventLevel.ERROR,"SAVE_ITEM_TO_TRIP_ACTION_ERROR"),SAVE_ITEM_TO_TRIP_ACTION_SUCCESS:new F.SystemEvent(F.SystemEventLevel.INFO,"SAVE_ITEM_TO_TRIP_ACTION_SUCCESS")},Qt=(e,t)=>{const{__typename:a}=e.trip.saveItemToTrip;if("TripsView"===a&&e.trip.saveItemToTrip.toast)return he(r.createElement(Ot,{data:e.trip.saveItemToTrip.toast}),t)},Jt=e=>{const{context:t}=(0,p.R)(),a=(0,F.useLoggerEvents)(Xt),{htmlElement:n}=(0,h.p)(),i=Oe(),[s,o]=(0,I.useDialog)(i),[l,m]=(0,I.useDialog)("trips-dialog"),c=$t(),u=He(),{publish:g}=(0,T.Yj)(),v=be(),[E]=(0,d.useMutation)(jt);if("TripsSaveItemToTripAction"!==e.__typename)return;const{tripId:S,saveItemInput:f}=e;return{onClick:()=>{if(f){s&&o.closeDialog(),l&&m.closeDialog();const{itemId:e,pageLocation:i,source:d,subscriptionAttributes:p,tripItem:T}=f;v({status:"loading"}),E({variables:{itemInput:{itemId:e,pageLocation:i,source:d,attributes:u(f.attributes),subscriptionAttributes:p?{anchorPrice:p.anchorPrice}:void 0,tripItem:T?{tripItemId:T.tripItemId,tripViewId:T.tripViewId}:void 0},tripId:S,context:t}}).then(t=>{var i;if(t.data){const s=e=>{g(new y.z3("TRIP_TOAST",{state:"DISMISS",usage:"TRIP_ITEM_SAVED",dismissedByAction:e}))},o=r.createElement(De,{handler:{onDismiss:(e,t)=>s(t)}},Qt(t.data,n||document.body));v({status:o?"complete":"reset",toastElement:o,refetch:!0});const l=t.data.trip.saveItemToTrip;return"TripsView"===l.__typename&&(null==(i=l.tripsSideEffects)?void 0:i.length)&&l.tripsSideEffects.forEach(e=>{"TripsChangeSaveItemState"===e.__typename&&(c(e.tripItemId,e.toggleState),g(new y.ch("TRIP_ITEM_SAVED",{tripItemId:e.tripItemId,toggleState:e.toggleState})))}),a.SAVE_ITEM_TO_TRIP_ACTION_SUCCESS.log({message:"Save item to trip succeeded.",variables:{tripItemId:e,tripViewId:S}}),Promise.resolve()}return Promise.reject(new Error("response.data is null"))}).catch(t=>{v({status:"error"}),a.SAVE_ITEM_TO_TRIP_ACTION_ERROR.log({message:"Save item to trip failed.",variables:{tripItemId:e,tripViewId:S},error:t})})}}}},Zt=d.gql`
+  fragment ClientSideImpressionEventAnalyticsFragment on ClientSideImpressionEventAnalytics {
+    linkName
+    referrerId
+    event
+  }
+`,ea=({className:e,cloneElement:t,data:a,children:n})=>{var i;return r.createElement(u.IntersectionTracker,{className:e,cloneElement:t,referrerId:a.referrerId,linkName:null!=(i=a.linkName)?i:a.referrerId,intersectionOptions:{threshold:.5}},n)};ea.displayName="ClientSideImpressionEventAnalytics",ea.fragment=Zt;var ta=d.gql`
+  fragment TripsCoachmarkFragment on TripsCoachmark {
+    body
+    button {
+      accessibility
+      analytics {
+        ...ClientSideEventAnalyticsFragment
+      }
+      primary
+      disabled
+    }
+    impressionAnalytics {
+      ...ClientSideImpressionEventAnalyticsFragment
+    }
+    dismissEventAnalytics {
+      ...ClientSideEventAnalyticsFragment
+    }
+    title
+  }
+  fragment ClientSideEventAnalyticsFragment on ClientSideAnalytics {
+    eventType
+    linkName
+    referrerId
+  }
+  ${ea.fragment}
+`,aa=d.gql`
+  mutation MarkTripsCoachmarkAsSeenMutation($pageName: String!, $context: ContextInput!) {
+    markTripsCoachmarkAsSeen(pageName: $pageName, context: $context) {
+      ... on TripsUIMarkCoachmarkAsSeenResponse {
+        __typename
+        status
+      }
+    }
+  }
+`,ra={ERROR_MARK_TRIPS_COACHMARK_AS_SEEN:new F.SystemEvent(F.SystemEventLevel.ERROR,"ERROR_MARK_TRIPS_COACHMARK_AS_SEEN")},na=({data:e,triggerRef:t,pageName:a})=>{const[s,l]=(0,r.useState)(!0),[c,g]=(0,r.useState)(!1),{body:T,title:I,button:v,impressionAnalytics:E,dismissEventAnalytics:y}=e,{primary:S,analytics:f}=v||{},_=(0,u.useClickTracker)(),[h]=(0,d.useMutation)(aa),A=(0,F.useLoggerEvents)(ra),{context:C}=(0,p.R)(),b=(0,r.useCallback)((e,t)=>{var a;(null==(a=e[0])?void 0:a.isIntersecting)&&g(!0),t.disconnect()},[t]),[N]=(0,u.useIntersectionObserver)(b,{threshold:1}),D=(0,r.useCallback)(e=>{e&&_(e.referrerId,e.linkName)},[_]),k=(0,r.useCallback)(async e=>{var t;sessionStorage.setItem("showCoachMark","true"),l(!1),D(e);const r={pageName:a};try{const e=await h({variables:Se({context:C},r)});(null==(t=e.data)?void 0:t.markTripsCoachmarkAsSeen)||A.ERROR_MARK_TRIPS_COACHMARK_AS_SEEN.log({success:!1})}catch(n){A.ERROR_MARK_TRIPS_COACHMARK_AS_SEEN.log({success:!1,error:n})}},[]),R=(0,r.useCallback)(()=>{k(y),window.removeEventListener("scroll",R),g(!1)},[k]),w=(0,r.useCallback)(()=>k(f),[]),P=(0,r.useCallback)(()=>{s&&k({})},[s,k]);(0,r.useEffect)(()=>{if(c)return window.addEventListener("scroll",R),()=>{window.removeEventListener("scroll",R)}},[c]),(0,r.useEffect)(()=>(window.addEventListener("click",P),()=>{window.removeEventListener("click",P)}),[s]);const L=(0,r.useMemo)(()=>r.createElement(o.N,{padding:"six"},r.createElement(n.X,{direction:"column"},r.createElement(i.C,null,r.createElement(m.D,{theme:"light",size:400,weight:"medium",align:"left"},I)),r.createElement(i.C,null,r.createElement(o.N,{padding:{blockstart:"one"}},r.createElement("div",null,r.createElement(m.D,{theme:"light",weight:"regular",align:"left"},T)))),r.createElement(i.C,null,r.createElement(o.N,{padding:{blockstart:"eight"}},r.createElement("div",null,r.createElement(n.X,{alignItems:"end",direction:"column"},r.createElement(i.C,null,r.createElement(O.y,{onClick:w,inverse:!0},S)))))))),[I,T,S,w]),$="undefined"!=typeof sessionStorage&&"true"===sessionStorage.getItem("showCoachMark");return e&&s&&!$?r.createElement("div",{ref:N},r.createElement(M.o,{triggerRef:t},E?r.createElement(ea,{data:E},L):L)):null};na.fragment=ta,na.displayName="TripsCoachMark";var ia=d.gql`
+  fragment TripsSaveItemPropertiesFragment on TripsSaveItemProperties {
+    accessibility
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    label
+    tooltip
+  }
+`,sa=d.gql`
+  fragment UIPrimaryButtonFragment on UIPrimaryButton {
+    accessibility
+    disabled
+    primary
+  }
+`,oa=d.gql`
+  fragment UISecondaryButtonFragment on UISecondaryButton {
+    accessibility
+    disabled
+    primary
+  }
+`,la=d.gql`
+  fragment TripSaveItemItemButtonViewFragment on TripSaveItemButtonView {
+    button {
+      ... on TripSaveItemButton {
+        ...UIPrimaryButtonFragment
+        ...UISecondaryButtonFragment
+      }
+    }
+  }
+  ${sa}
+  ${oa}
+`,ma=({data:e,favouriteSwitchOnChange:t})=>{const{button:a}=e,n=e=>{const{accessibility:a,disabled:r,primary:n}=e;return{"arial-label":a||n,disabled:r,isFullWidth:!0,size:L.V.LARGE,onClick:t}};switch(null==a?void 0:a.__typename){case"UIPrimaryButton":return r.createElement(O.y,Se({},n(a)),a.primary);case"UISecondaryButton":return r.createElement($.y,Se({},n(a)),a.primary);default:return null}};ma.fragment=la,ma.displayName="TripSaveItemButtonView";var ca=d.gql`
+  fragment TripSaveItemViewTypeFragment on TripSaveItemViewType {
+    ... on TripSaveItemHeartView {
+      heartOutlineType
+    }
+    ... on TripSaveItemButtonView {
+      ...TripSaveItemItemButtonViewFragment
+    }
+  }
+  ${ma.fragment}
+`,da=({favouriteSwitchOnChange:e,data:t})=>"TripSaveItemButtonView"===t.__typename&&t.button?r.createElement(ma,{data:t,favouriteSwitchOnChange:e}):null;da.fragment=ca,da.displayName="TripSaveItemView";var pa=(0,d.makeVar)(void 0),ua={BOTTOM:"bottom",CENTER:"centered",FULL:"full",SIDE:"side"},ga=d.gql`
+  fragment TripsInternalComposableDrawerFragment on TripsComposableDrawer {
+    tripsViewHeader {
+      primary
+      secondaries
+    }
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+    accessibility {
+      label
+    }
+    type
+  }
+
+  ${Je.fragment}
+`,Ta=({dialogName:e,data:t,children:a,toolBar:n,triggerRef:i})=>{var s,l,m;const[c,,d]=(0,I.useDialog)(e),{tripsViewHeader:p,type:u,accessibility:g}=t,{primary:T,secondaries:v}=null!=p?p:{},E=u?ua[u]:void 0,y=r.createElement("div",null,T&&r.createElement(o.N,{margin:v&&0!==v.length?{blockend:"three"}:{blockend:"six"}},r.createElement(q.M,{tag:"h1",size:4},T)),Array.isArray(v)&&v.map((e,t)=>r.createElement(o.N,{key:`trip-subheading-${t}`,padding:{blockend:"six"}},r.createElement("div",null,r.createElement(G.s,{tag:"p"},e)))),a),S=r.createElement(r.Fragment,null,"bottom"===E?y:r.createElement(o.N,{margin:{small:"four",medium:"six"}},y)),f=r.createElement(V.K,{isVisible:c},r.createElement(d,null,r.createElement(b.LM,null,r.createElement(b.NP,null,r.createElement(x.t,{isVisible:!0,type:"full",autoFocus:!0,returnFocusOnClose:!0,triggerRef:null!=i?i:null,"aria-label":null!=(s=null==g?void 0:g.label)?s:""},n,r.createElement(B.Y,{key:`${e}-composable-drawer-dialog-content`},y))),r.createElement(b.rw,null,r.createElement(x.t,{isVisible:!0,type:null!=E?E:"side",sideSheetLayout:{position:"trailing",columns:6},triggerRef:null!=i?i:null,centeredSheetSize:"small",autoFocus:!0,returnFocusOnClose:!0,"aria-label":null!=(l=null==g?void 0:g.label)?l:""},n,r.createElement(B.Y,{padded:!1},S))),r.createElement(b.zQ,null,r.createElement(x.t,{isVisible:!0,type:null!=E?E:"side",sideSheetLayout:{position:"trailing",columns:4},triggerRef:null!=i?i:null,centeredSheetSize:"small",autoFocus:!0,returnFocusOnClose:!0,"aria-label":null!=(m=null==g?void 0:g.label)?m:""},n,r.createElement(B.Y,{padded:!1},S))))));return t.impressionTracking?r.createElement(Je,{data:t.impressionTracking},f):f};Ta.displayName="TripsComposableDrawer",Ta.fragment=ga;var Ia=d.gql`
+  fragment TripsInternalPrimaryButtonFragment on TripsPrimaryButton {
+    __typename
+    primary
+    accessibility {
+      label
+    }
+    icon {
+      description
+      id
+    }
+    disabled
+    width
+  }
+`,va=e=>{const t=e,{data:a}=t,n=_e(t,["data"]);if(!a||!a.primary)return null;const{primary:i,icon:s,width:o,accessibility:l}=a,m="MATCH_PARENT_CONTAINER"===o;return r.createElement(O.y,Se({"aria-label":(null==l?void 0:l.label)?l.label:i,isFullWidth:m},n),s&&r.createElement(k.LD,{name:s.id,size:k.So.MEDIUM}),i)};va.displayName="TripsPrimaryButton",va.fragment=fe(Se({},Ia),{__typename:"TripsPrimaryButton"});var Ea=d.gql`
+  fragment TripsInternalSecondaryButtonFragment on TripsSecondaryButton {
+    __typename
+    primary
+    accessibility {
+      label
+    }
+    icon {
+      description
+      id
+    }
+    disabled
+  }
+`,ya=e=>{var t;const{data:a,isFullWidth:n=!0,actionProps:i}=e;if(!a||!a.primary)return null;const{primary:s,icon:l,disabled:m,accessibility:c}=a;return r.createElement(o.N,{margin:{blockstart:"three"}},r.createElement("div",null,r.createElement($.y,fe(Se({"aria-label":null!=(t=null==c?void 0:c.label)?t:s,disabled:m},i),{isFullWidth:n}),l&&r.createElement(k.LD,{name:l.id,size:k.So.MEDIUM}),s)))};ya.displayName="TripsSecondaryButton",ya.fragment=fe(Se({},Ea),{__typename:"TripsSecondaryButton"}),ya.getKey=e=>e.primary;var Sa=d.gql`
+  fragment TripsInternalTertiaryButtonFragment on TripsTertiaryButton {
+    __typename
+    primary
+    icon {
+      description
+      id
+    }
+    accessibility {
+      label
+    }
+    disabled
+    width
+  }
+`,fa=e=>{const t=e,{data:a}=t,n=_e(t,["data"]);if(!a||!a.primary&&!a.icon)return null;const{primary:i,icon:s,disabled:o,width:l,accessibility:m}=a,c="MATCH_PARENT_CONTAINER"===l;return r.createElement(U.q,Se({size:i?L.V.MEDIUM:L.V.LARGE,"aria-label":(null==m?void 0:m.label)?m.label:null!=i?i:null==s?void 0:s.description,disabled:o,className:i?"":"uitk-button-only-icon",isFullWidth:c},n),s&&r.createElement(k.LD,{name:s.id}),i)};fa.displayName="TripsTertiaryButton",fa.fragment=fe(Se({},Sa),{__typename:"TripsTertiaryButton"});var _a=d.gql`
+  fragment TripsInternalLinkActionFragment on TripsLinkAction {
+    __typename
+    resource {
+      value
+    }
+    target
+    analytics {
+      __typename
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+  }
+`,ha=de(function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.data={inputFields:[]},this.stateFieldName="validatedInputs",this.events=["addInputField","updateInputValue","updateInputErrorMessage","removeInputField"],this.update=(e,t,a)=>{switch(e){case"addInputField":return fe(Se({},t),{inputFields:[...t.inputFields,{inputId:a.data.inputId,inputValue:a.data.inputValue,currentErrorMessage:void 0,validations:a.data.validations}]});case"updateInputValue":return fe(Se({},t),{inputFields:[...t.inputFields.map(e=>e.inputId===a.data.inputId?fe(Se({},e),{inputValue:a.data.inputValue}):e)]});case"updateInputErrorMessage":return fe(Se({},t),{inputFields:[...t.inputFields.map(e=>e.inputId===a.data.inputId?fe(Se({},e),{currentErrorMessage:a.data.currentErrorMessage}):e)]});case"removeInputField":return fe(Se({},t),{inputFields:[...t.inputFields.filter(e=>a.data.inputId!==e.inputId)]});default:return Se({},t)}}}),Aa=/^[a-zA-Z0-9.!#$%&’*+=?^_`{|}~-]+@[a-zA-Z0-9_-]+(\.\w{2,3})+$/,Ca=(e,t)=>{let a="";if(!(null==t?void 0:t.length))return a;const r=e.trim(),n=r.length;return t.every(e=>{switch(e.__typename){case"EGDSRequiredInputValidation":return!(r.length<1)||(a=e.errorMessage,!1);case"EGDSMaxLengthInputValidation":return!(n>e.maxLength)||(a=e.errorMessage,!1);case"EGDSMinLengthInputValidation":return!(n<e.minLength)||(a=e.errorMessage,!1);case"MultiEmailValidation":if(r.includes(",")){if(!r.split(",").map(e=>e.trim()).every(e=>!!e.match(Aa)))return a=e.errorMessage,!1}else if(!r.match(Aa))return a=e.errorMessage,!1;return!0;case"SingleEmailValidation":return!!r.match(Aa)||(a=e.errorMessage,!1);case"EGDSRegexInputValidation":return!!r.match(e.pattern)||(a=e.errorMessage,!1);default:return!0}}),a},ba={TRIPS_MUTATION_SEND_INFO:new F.SystemEvent(F.SystemEventLevel.INFO,"TRIPS_MUTATION_SEND_INFO"),TRIPS_MUTATION_SEND_SUCCESS_INFO:new F.SystemEvent(F.SystemEventLevel.INFO,"TRIPS_MUTATION_SEND_SUCCESS_INFO"),TRIPS_MUTATION_SEND_ERROR:new F.SystemEvent(F.SystemEventLevel.ERROR,"TRIPS_MUTATION_SEND_ERROR"),TRIPS_MUTATION_SEND_INPUTS_NOT_VALIDATED_INFO:new F.SystemEvent(F.SystemEventLevel.INFO,"TRIPS_MUTATION_SEND_INPUTS_NOT_VALIDATED_INFO")},Fa=(e,t,a,r=!1,n,i,s="inputs")=>{const{context:o}=(0,p.R)(),l=(0,F.useLoggerEvents)(ba),[m,c]=(0,E.A9)(),u=Oe(),[,g]=(0,I.useDialog)(u),{emit:T}=(0,C.uU)(n),{htmlElement:v}=(0,h.p)(),y=be(),S=(0,d.getOperationName)(e),[f]=(0,d.useMutation)(e);return{onClick:()=>{var e;y({status:"loading"}),l.TRIPS_MUTATION_SEND_INFO.log({message:`Sending ${S}`,variables:t});const n=t,{inputIds:d}=n,p=_e(n,["inputIds"]),u=m.validatedInputs.inputFields.filter(e=>d.includes(e.inputId));if(!((e,t)=>!!e.length&&e.every(e=>{const a=Ca(e.inputValue,e.validations);return t({type:"updateInputErrorMessage",payload:{inputId:e.inputId,currentErrorMessage:a}}),""===a||!e.validations}))(u,c)){y({status:"reset"}),l.TRIPS_MUTATION_SEND_INPUTS_NOT_VALIDATED_INFO.log({message:`${S} mutation failed because some inputs validations failed`,variables:t,requiredVariables:u});const a=m.validatedInputs.inputFields.find(e=>""!==Ca(e.inputValue,e.validations));if(a){null==(e=document.getElementById(a.inputId))||e.focus()}return}const I=u.map(e=>({key:e.inputId,value:e.inputValue}));T();const E=Se({context:o,[s]:I},p);g.closeDialog(),d.forEach(e=>{c({type:"removeInputField",payload:{inputId:e}})}),f({variables:E}).then(e=>{l.TRIPS_MUTATION_SEND_SUCCESS_INFO.log({message:`${S} mutation complete`,variables:t});const n=a(e.data,v);y({status:n?"complete":"reset",toastElement:n,refetch:r}),null==i||i(e.data)}).catch(e=>{y({status:"error"}),l.TRIPS_MUTATION_SEND_ERROR.log({message:`${S} mutation failed on send`,variables:t,error:e})})}}},Na=d.gql`
+  fragment TripsCreateTripFromItemActionFragment on TripsCreateTripFromItemAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    saveItemInput {
+      ...TripsCreateTripSaveItemInputFragment
+    }
+    inputIds
+  }
+
+  fragment TripsCreateTripSaveItemInputFragment on TripsPlan {
+    itemId
+    pageLocation
+    attributes {
+      ...TripsSaveItemAttributesFragment
+    }
+    subscriptionAttributes {
+      anchorPrice
+    }
+  }
+
+  ${Wt}
+`,Da=d.gql`
+  fragment TripsDismissDrawerActionFragment on TripsDismissDrawerAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+  }
+`,ka=d.gql`
+  fragment TripsOpenCreateNewTripDrawerForItemActionFragment on TripsOpenCreateNewTripDrawerForItemAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    createTripMetadata {
+      saveItemInput {
+        ...TripsOpenCreateNewTripActionSaveItemInputFragment
+      }
+    }
+  }
+
+  fragment TripsOpenCreateNewTripActionSaveItemInputFragment on TripsPlan {
+    itemId
+    pageLocation
+    attributes {
+      ...TripsSaveItemAttributesFragment
+    }
+    subscriptionAttributes {
+      anchorPrice
+    }
+  }
+
+  ${Wt}
+`,Ra=new F.SystemEvent(F.SystemEventLevel.INFO,"TRIPS_OPEN_SAVE_TO_TRIP_DRAWER_ACTION_INFO"),wa=d.gql`
+  fragment TripsOpenSaveToTripDrawerActionFragment on TripsOpenSaveToTripDrawerAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    input {
+      ...TripsOpenSaveToTripSaveItemInputFragment
+    }
+  }
+
+  fragment TripsOpenSaveToTripSaveItemInputFragment on TripsPlan {
+    itemId
+    pageLocation
+    attributes {
+      ...TripsSaveItemAttributesFragment
+    }
+    subscriptionAttributes {
+      anchorPrice
+    }
+    tripItem {
+      tripItemId
+      tripViewId
+    }
+  }
+
+  ${Wt}
+`,Pa=d.gql`
+  fragment TripsDialogDismissActionFragment on TripsDismissAction {
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+  }
+`,Oa=d.gql`
+  fragment TripsFormDataFragment on TripsFormData {
+    ... on TripsCreateTripFromItem {
+      input {
+        itemId
+        source
+        attributes {
+          ...TripsSaveItemAttributesFragment
+        }
+        pageLocation
+        subscriptionAttributes {
+          anchorPrice
+        }
+      }
+    }
+  }
+
+  ${Wt}
+`,Ma=d.gql`
+  fragment TripsFormActionFragment on TripsFormAction {
+    validatedInputIds
+    type
+    formData {
+      ...TripsFormDataFragment
+    }
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    validatedInputAnalytics {
+      egdsElementId
+      analytics {
+        referrerId
+        linkName
+        uisPrimeMessages {
+          messageContent
+          schemaName
+        }
+      }
+      ... on TripsValidatedInputChangeAnalytics {
+        referenceValue
+      }
+    }
+  }
+
+  ${Oa}
+`,La=(0,d.makeVar)(void 0),$a=d.gql`
+  mutation UnsaveItemFromTrip($context: ContextInput!, $tripItem: TripItemInput!, $tripEntity: TripEntity!) {
+    trip(context: $context) {
+      unsaveItemFromTrip(tripItem: $tripItem, tripEntity: $tripEntity) {
+        ... on TripsView {
+          toast {
+            ...TripsToastFragment
+          }
+          tripsSideEffects {
+            ...TripsChangeSaveItemStateFragment
+          }
+        }
+      }
+    }
+  }
+
+  ${Ot.fragment}
+  ${Kt}
+`,Va=d.gql`
+  fragment TripsUnsaveItemFromTripActionFragment on TripsUnsaveItemFromTripAction {
+    tripEntity
+    itemId
+    tripItem {
+      filter
+      tripItemId
+      tripViewId
+    }
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    accessibility {
+      label
+    }
+  }
+`,xa={UNSAVE_ITEM_FROM_TRIP_ACTION_ERROR:new F.SystemEvent(F.SystemEventLevel.ERROR,"UNSAVE_ITEM_FROM_TRIP_ACTION_ERROR"),UNSAVE_ITEM_FROM_TRIP_ACTION_SUCCESS:new F.SystemEvent(F.SystemEventLevel.INFO,"UNSAVE_ITEM_FROM_TRIP_ACTION_SUCCESS")},Ba={TripsInvalidValidAction:()=>{},TripsSaveItemToTripAction:Jt,TripsUnsaveItemFromTripAction:e=>{const{context:t}=(0,p.R)(),a=(0,F.useLoggerEvents)(xa),{htmlElement:n}=(0,h.p)(),[i]=(0,d.useMutation)($a),s=Oe(),[,o]=(0,I.useDialog)(s),l=$t(),{publish:m}=(0,T.Yj)(),c=be();if("TripsUnsaveItemFromTripAction"!==e.__typename)return;const{tripItem:u,tripEntity:g}=e,{tripItemId:v,tripViewId:E}=u;return{onClick:()=>{o.closeDialog(),c({status:"loading"}),i({variables:{tripItem:{tripItemId:v,tripViewId:E},tripEntity:g,context:t}}).then(e=>{var t;if(e.data){const i=((e,t)=>{const{__typename:a}=e.trip.unsaveItemFromTrip;if("TripsView"===a&&e.trip.unsaveItemFromTrip.toast)return he(r.createElement(Ot,{data:e.trip.unsaveItemFromTrip.toast}),t)})(e.data,n);c({status:i?"complete":"reset",toastElement:i,refetch:!0});const s=e.data.trip.unsaveItemFromTrip;return"TripsView"===s.__typename&&(null==(t=s.tripsSideEffects)?void 0:t.length)&&s.tripsSideEffects.forEach(e=>{"TripsChangeSaveItemState"===e.__typename&&(l(e.tripItemId,e.toggleState),m(new y.nD("TRIP_ITEM_UNSAVED",{tripItemId:e.tripItemId,toggleState:e.toggleState})))}),a.UNSAVE_ITEM_FROM_TRIP_ACTION_SUCCESS.log({message:"Unsave item from trip success",variables:{tripItemId:v,tripViewId:E}}),Promise.resolve()}return Promise.reject(new Error("response.data is null"))}).catch(e=>{c({status:"error"}),a.UNSAVE_ITEM_FROM_TRIP_ACTION_ERROR.log({message:"Unsave item from trip failed",variables:{tripItemId:v,tripViewId:E},error:e})})}}},TripsDismissDrawerAction:()=>{const e=Oe(),[,t]=(0,I.useDialog)(e);return{onClick:r.useCallback(()=>{t.closeDialog()},[t])}},TripsOpenCreateNewTripDrawerForItemAction:e=>{const t=He();if("TripsOpenCreateNewTripDrawerForItemAction"!==e.__typename)return;const{createTripMetadata:a}=e;if(!a)return;const{saveItemInput:r}=a;if(!r)return;const{itemId:n,pageLocation:i,attributes:s,subscriptionAttributes:o}=r,l={type:"TripCreationDrawerOptions",queryInputs:{item:{itemId:n,saveItemInput:{itemId:n,pageLocation:i,attributes:t(s),subscriptionAttributes:o?{anchorPrice:o.anchorPrice}:void 0}}}};return{onClick:()=>{pa(l)}}},TripsCreateTripFromItemAction:e=>{const t=He(),a=$t();if("TripsCreateTripFromItemAction"!==e.__typename)return;const{saveItemInput:r,inputIds:n}=e;if(!r)return;const{itemId:i,pageLocation:s,attributes:o,subscriptionAttributes:l}=r,m={inputIds:n,itemInput:{itemId:i,pageLocation:s,attributes:t(o),subscriptionAttributes:l?{anchorPrice:l.anchorPrice}:void 0}};return Fa(jt,m,Qt,!0,[],e=>{var t;const r=null==e?void 0:e.trip.saveItemToTrip;"TripsView"===(null==r?void 0:r.__typename)&&(null==(t=r.tripsSideEffects)?void 0:t.length)&&r.tripsSideEffects.forEach(e=>{"TripsChangeSaveItemState"===e.__typename&&a(e.tripItemId,e.toggleState)})},"newTripInputs")},TripsNavigateToViewAction:e=>{const{navigate:t}=(0,N.c)();if("TripsNavigateToViewAction"!==e.__typename)return;const{viewUrl:a,displayMode:r}=e;if(!a)return{};return Se({href:a,target:"NEW_TAB"===r?"_blank":"_self"},t&&{onClick:e=>t({event:e,absoluteURL:a})})},TripsDismissAction:e=>{const t=Pe(),[,a]=(0,I.useDialog)(t),r=be();if("TripsDismissAction"===e.__typename)return{onClick:()=>{r({status:"reset"}),a.closeDialog()}}},TripsLinkAction:e=>{var t;return(null==(t=null==e?void 0:e.resource)?void 0:t.value)?{href:e.resource.value,target:"EXTERNAL"===e.target?"_blank":"_self",rel:"EXTERNAL"===e.target?"noopener":""}:{}},TripsFormAction:e=>{const t=He(),a=$t(),n=(0,u.useClickTracker)(),[i]=(0,E.A9)(),{publish:s}=(0,T.Yj)(),o=r.useCallback(e=>{const t=i.validatedInputs.inputFields.find(t=>t.inputId===e);return t?t.inputValue:void 0},[i.validatedInputs.inputFields]),l=r.useRef(new Set);if(r.useEffect(()=>{var t;"TripsFormAction"===e.__typename&&(null==(t=e.validatedInputAnalytics)||t.forEach(({egdsElementId:e,referenceValue:t,analytics:a})=>{if(l.current.has(e))return;const r=o(e);void 0!==r&&r!==t&&(n(a.referrerId,a.linkName),l.current.add(e))}))},[e,o,n]),"TripsFormAction"!==e.__typename)return;const{validatedInputIds:m,formData:c,type:d}=e;if("TripsCreateTripFromItem"!==(null==c?void 0:c.__typename))return;const{itemId:p,source:g,pageLocation:I,attributes:v,subscriptionAttributes:S}=c.input;if(!m.length)return{};if("CREATE_NEW_TRIP_FROM_ITEM"===d){const e=(e,t)=>{var a,n;if("TripsView"===e.trip.saveItemToTrip.__typename)return null!=(n=(null==(a=e.trip.saveItemToTrip)?void 0:a.toast)&&he(r.createElement(Ot,{data:e.trip.saveItemToTrip.toast}),t))?n:void 0},n={inputIds:m,itemInput:{itemId:p,pageLocation:I,source:g,attributes:t(v),subscriptionAttributes:S?{anchorPrice:S.anchorPrice}:void 0}};return Fa(jt,n,e,!0,[],e=>{var t;const r=null==e?void 0:e.trip.saveItemToTrip;"TripsView"===(null==r?void 0:r.__typename)&&(null==(t=r.tripsSideEffects)?void 0:t.length)&&r.tripsSideEffects.forEach(e=>{"TripsChangeSaveItemState"===e.__typename&&(a(e.tripItemId,e.toggleState),s(new y.ch("TRIP_ITEM_SAVED",{tripItemId:e.tripItemId,toggleState:e.toggleState})))})},"newTripInputs")}return{}},TripsOpenSaveToTripDrawerAction:e=>{const t=(0,F.useLoggerEvents)({TRIPS_OPEN_SAVE_TO_TRIP_DRAWER_ACTION_INFO:Ra}),a=Oe(),[,r]=(0,I.useDialog)(a),n=He();if("TripsOpenSaveToTripDrawerAction"!==(null==e?void 0:e.__typename))return;const{input:i}=e,{itemId:s,pageLocation:o,attributes:l,subscriptionAttributes:m,tripItem:c}=i,d={type:"TripSaveItemDrawerOptions",queryInputs:{item:{itemId:s,pageLocation:o,attributes:n(l),subscriptionAttributes:m?{anchorPrice:m.anchorPrice}:void 0,tripItem:c?{tripItemId:c.tripItemId,tripViewId:c.tripViewId}:void 0}}};return{onClick:()=>{t.TRIPS_OPEN_SAVE_TO_TRIP_DRAWER_ACTION_INFO.log({message:"Save to trip button clicked",variables:{tripItemId:s}}),r.openDialog(),pa(d)}}},TripsOpenDialogAction:e=>{const t=Pe(),[,a]=(0,I.useDialog)(t);if("TripsOpenDialogAction"!==e.__typename)return;const{modalDialog:r}=e;return r?{onClick:()=>{La(r),a.openDialog()}}:{}}};var qa=e=>{const t=(0,u.useClickTracker)(),a=function(e){return Boolean(e&&Object.keys(Ba).find(t=>e.__typename===t))}(e)?e:{__typename:"TripsInvalidValidAction"},r=Ba[a.__typename](a);return"TripsInvalidValidAction"!==a.__typename&&r?Se({onClickCapture:()=>{const e=a.analytics.uisPrimeMessages.map(e=>({messageContent:JSON.parse(e.messageContent),schemaName:e.schemaName}));t(a.analytics.referrerId,a.analytics.linkName,!1,e)}},r):{}},Ga=d.gql`
+  fragment TripsPrimaryButtonFragment on TripsPrimaryButton {
+    ...TripsInternalPrimaryButtonFragment
+    action {
+      ...TripsInternalLinkActionFragment
+      ...TripsNavigateToViewActionFragment
+      ...TripsOpenCreateNewTripDrawerForItemActionFragment
+      ...TripsCreateTripFromItemActionFragment
+      ...TripsFormActionFragment
+    }
+  }
+
+  ${va.fragment}
+  ${_a}
+  ${rt}
+  ${ka}
+  ${Na}
+  ${Ma}
+`,Ua=e=>{const{data:t}=e,a=be(),n=(0,d.useReactiveVar)(a),i=qa(t.action),s=fe(Se({},i),{disabled:t.disabled||i.disabled||"loading"===(null==n?void 0:n.status)});return r.createElement(va,Se({data:t},s))};Ua.displayName="PrimaryButton",Ua.fragment=fe(Se({},Ga),{__typename:"TripsPrimaryButton"});var za=d.gql`
+  fragment TripsDialogPrimaryButtonFragment on TripsPrimaryButton {
+    primary
+    icon {
+      description
+      id
+    }
+    disabled
+    width
+    action {
+      ...TripsSaveItemToTripActionFragment
+    }
+  }
+
+  fragment TripsDialogTertiaryButtonFragment on TripsTertiaryButton {
+    primary
+    icon {
+      description
+      id
+    }
+    disabled
+    width
+    action {
+      ...TripsDialogDismissActionFragment
+    }
+  }
+
+  fragment TripsDialogSecondaryButtonFragment on TripsSecondaryButton {
+    primary
+    icon {
+      description
+      id
+    }
+    disabled
+    width
+    action {
+      ...TripsDialogDismissActionFragment
+    }
+  }
+
+  fragment TripsDialogOverlayButtonFragment on TripsOverlayButton {
+    primary
+    icon {
+      description
+      id
+    }
+    disabled
+    width
+    action {
+      ...TripsDialogDismissActionFragment
+    }
+  }
+
+  ${Yt}
+  ${Pa}
+`,Ha=e=>{const{data:t}=e,a=be(),n=(0,d.useReactiveVar)(a),i=qa(null==t?void 0:t.action);if(!(null==t?void 0:t.primary))return null;const{primary:s,icon:o,width:l,__typename:m,disabled:c}=t,p="MATCH_PARENT_CONTAINER"===l,u=fe(Se({},i),{disabled:c||i.disabled||"loading"===(null==n?void 0:n.status)});switch(m){case"TripsPrimaryButton":return r.createElement(O.y,Se({isFullWidth:p},u),o&&r.createElement(k.LD,{name:o.id,size:k.So.MEDIUM}),s);case"TripsSecondaryButton":return r.createElement($.y,Se({isFullWidth:p},u),o&&r.createElement(k.LD,{name:o.id,size:k.So.MEDIUM}),s);case"TripsTertiaryButton":return r.createElement(U.q,Se({isFullWidth:p},u),o&&r.createElement(k.LD,{name:o.id,size:k.So.MEDIUM}),s);default:return null}};Ha.displayName="DialogActionElement",Ha.fragment=za;var Wa=d.gql`
+  fragment TripsEmbeddedContentListFragment on TripsEmbeddedContentList {
+    secondaries
+  }
+`,Ka=({data:e})=>{var t;return r.createElement(r.Fragment,null,null==(t=e.secondaries)?void 0:t.map((e,t)=>r.createElement(m.D,{key:`${t}`},e)))};Ka.displayName="EmbeddedContentList",Ka.fragment=Wa;var ja=({data:e})=>{const{heading:t,buttons:a,content:s}=e;return r.createElement(z.Q,{dialogShow:!0,returnFocusOnClose:!0},r.createElement(H.h,{key:"trips-dialog-inline-content"},t&&r.createElement(q.M,{tag:"h1",size:5},t),null==s?void 0:s.map((e,t)=>r.createElement(Ka,{data:e,key:t})),r.createElement(o.N,{margin:{blockstart:"four"}},r.createElement(n.X,{space:"three"},null==a?void 0:a.map((e,t)=>r.createElement(i.C,{grow:1,key:`trips-dialog-inline-action-element-${t}`},r.createElement(o.N,null,r.createElement(Ha,{data:e}))))))))},Ya=d.gql`
+  fragment TripsModalDialogFragment on TripsModalDialog {
+    heading
+    buttonLayout
+    buttons {
+      ...TripsDialogPrimaryButtonFragment
+      ...TripsDialogSecondaryButtonFragment
+      ...TripsDialogTertiaryButtonFragment
+      ...TripsDialogOverlayButtonFragment
+    }
+    content {
+      ...TripsEmbeddedContentListFragment
+    }
+  }
+  ${Ha.fragment}
+  ${Ka.fragment}
+`,Xa=({data:e})=>{var t;const a=Pe(),[n,,i]=(0,I.useDialog)(a);return e.heading||(null==(t=e.content)?void 0:t.length)?r.createElement(V.K,{isVisible:n},r.createElement(i,null,r.createElement(ja,{data:e}))):null};Xa.displayName="ModalDialog",Xa.fragment=Ya;var Qa=d.gql`
+  fragment TripsOpenDialogActionFragment on TripsOpenDialogAction {
+    analytics {
+      referrerId
+      linkName
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    modalDialog {
+      ...TripsModalDialogFragment
+    }
+  }
+
+  ${Xa.fragment}
+`,Ja=d.gql`
+  fragment TripsSecondaryButtonFragment on TripsSecondaryButton {
+    ...TripsInternalSecondaryButtonFragment
+    action {
+      ...TripsOpenSaveToTripDrawerActionFragment
+      ...TripsInternalLinkActionFragment
+      ...TripsDismissDrawerActionFragment
+      ...TripsOpenCreateNewTripDrawerForItemActionFragment
+      ...TripsCreateTripFromItemActionFragment
+      ...TripsOpenDialogActionFragment
+    }
+  }
+  ${ya.fragment}
+  ${_a}
+  ${Da}
+  ${ka}
+  ${Na}
+  ${wa}
+  ${Qa}
+`,Za=({data:e,isFullWidth:t})=>{const a=qa(e.action);return r.createElement(ya,{actionProps:a,data:e,isFullWidth:t})};Za.displayName="SecondaryButton",Za.fragment=fe(Se({},Ja),{__typename:"TripsSecondaryButton"}),Za.getKey=e=>e.primary;var er=d.gql`
+  fragment TripsTertiaryButtonFragment on TripsTertiaryButton {
+    ...TripsInternalTertiaryButtonFragment
+
+    action {
+      ...TripsInternalLinkActionFragment
+      ...TripsOpenCreateNewTripDrawerForItemActionFragment
+      ...TripsCreateTripFromItemActionFragment
+    }
+  }
+
+  ${fa.fragment}
+  ${_a}
+  ${ka}
+  ${Na}
+`,tr=e=>{const{data:t}=e,a=qa(t.action);return r.createElement(fa,Se({data:t},a))};tr.displayName="TertiaryButton",tr.fragment=fe(Se({},er),{__typename:"TripsTertiaryButton"});var ar=d.gql`
+  fragment TripsIllustrationCardFragment on TripsIllustrationCard {
+    primary
+    secondaries
+    illustration {
+      url
+      description
+    }
+  }
+`,rr=e=>{const{data:t}=e;if(!t)return null;const{primary:a,secondaries:s,illustration:l}=t;return r.createElement(o.N,{margin:{small:{blockend:"six"},medium:{block:"twelve"}}},r.createElement(W.g,null,r.createElement(n.X,{justifyContent:"center",direction:"column",alignItems:"center"},r.createElement(r.Fragment,null,r.createElement(i.C,{maxWidth:"24x"},(null==l?void 0:l.url)&&r.createElement(R.r,{alt:l.description,url:l.url})),(a||(null==s?void 0:s.length)>0)&&r.createElement(o.N,{margin:{blockstart:"three"}},r.createElement("div",null,a&&r.createElement(q.M,{tag:"h3",size:5,align:"center"},a),Array.isArray(s)&&s.map((e,t)=>r.createElement(m.D,{size:300,key:`trip-illustration-subheading-${t}`},e))))))))};rr.displayName="TripsIllustrationCardFragment",rr.fragment=fe(Se({},ar),{__typename:"TripsIllustrationCard"});var nr={[j.IA.SMALL]:"small",[j.IA.LARGE]:"large"},ir={lowtier:"lowtier",midtier:"midtier",hightier:"hightier",vip:"vip",extrahightier:"extrahightier"},sr={deal:"deal",member:"member",trip:"trip",supplierpromo:"supplierpromo",vmc:"vmc"},or={standard:"standard",emphasis:"emphasis",info:"info",featured:"featured",brand:"brand",warning:"warning",positive:"positive"},lr=d.gql`
+  fragment EGDSLoyaltyBadgeFragment on EGDSLoyaltyBadge {
+    accessibility
+    text
+    size
+    theme
+  }
+`,mr=({className:e,badgeSize:t,data:a})=>{const{text:n,theme:i,accessibility:s,size:o}=a,l=o?nr[o]:void 0;return n?r.createElement(J.V,{className:e,a11yText:null!=s?s:void 0,text:n,size:null!=t?t:l,theme:i?ir[i]:void 0}):null};mr.fragment=lr,mr.displayName="EGDSLoyaltyBadge";var cr=d.gql`
+  fragment EGDSProgramBadgeFragment on EGDSProgramBadge {
+    accessibility
+    text
+    theme
+  }
+`,dr=({className:e,data:t})=>{var a;const{text:n,theme:i,accessibility:s}=t;return n&&i?r.createElement(Z.v,{className:e,a11yText:null!=s?s:void 0,text:n,theme:null!=(a=sr[i])?a:"deal"}):null};dr.fragment=cr,dr.displayName="EGDSProgramBadge";var pr=d.gql`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+    size
+    theme
+  }
+
+  ${pt.fragment}
+`,ur=({className:e,badgeSize:t,data:a})=>{const{graphic:n,text:i,theme:s,accessibility:l,size:c}=a,d=c?nr[c]:void 0;return i?!s&&n?r.createElement("div",{className:e},r.createElement(pt,{data:n,defaultIconSize:k.So.EXTRA_SMALL,defaultMarkSize:P.K.EXTRA_SMALL}),r.createElement(o.N,{padding:{inlinestart:"one"}},r.createElement(m.D,{size:200,inline:!0},a.text))):r.createElement(ee.G,{className:e,a11yText:null!=l?l:void 0,text:i,size:null!=t?t:d,theme:s?or[s]:void 0}):null};ur.fragment=pr,ur.displayName="EGDSStandardBadge";var gr=d.gql`
+  fragment EGDSBadgeFragment on EGDSBadge {
+    ...EGDSStandardBadgeFragment
+    ...EGDSLoyaltyBadgeFragment
+    ...EGDSProgramBadgeFragment
+  }
+
+  ${ur.fragment}
+  ${mr.fragment}
+  ${dr.fragment}
+`,Tr=({className:e,size:t,data:a})=>{switch(a.__typename){case"EGDSStandardBadge":return r.createElement(ur,{className:e,badgeSize:t,data:a});case"EGDSLoyaltyBadge":return r.createElement(mr,{className:e,badgeSize:t,data:a});case"EGDSProgramBadge":return r.createElement(dr,{className:e,data:a});default:return null}};Tr.fragment=gr,Tr.displayName="TripsLegacyEGDSBadge";var Ir=({src:e,alt:t,placeholderImage:a=!0})=>r.createElement(r.Fragment,null,e?r.createElement(te.F,{src:e,alt:t,placeholderImage:a}):r.createElement("div",{"data-stid":"placeholder-image",className:"uitk-image-placeholder uitk-image-placeholder-image"})),vr=d.gql`
+  fragment TripsInternalImageSlimCardFragment on TripsImageSlimCard {
+    primary
+    secondaries
+    badgeList {
+      ...EGDSBadgeFragment
+    }
+    thumbnail {
+      aspectRatio
+      description
+      url
+    }
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+    accessibility {
+      hint
+      label
+    }
+  }
+
+  ${Je.fragment}
+  ${Tr.fragment}
+`,Er=e=>{const{data:t,cardRightSideLinkSection:a,cardIconSection:l}=e,{primary:c,secondaries:d,badgeList:p}=t;return r.createElement(o.N,{padding:"three"},r.createElement(n.X,{direction:"column",space:"one"},p&&p.length>0&&r.createElement(i.C,null,r.createElement(n.X,{wrap:"wrap"},p.map((e,t)=>r.createElement(i.C,{key:`trip-image-slim-card-${c}-${t}`},r.createElement(o.N,{margin:{blockend:"half",inlineend:"one"}},r.createElement(Tr,{size:j.IA.SMALL,data:e})))))),c&&r.createElement(Q.w,{rows:1,columns:2},r.createElement(Q.w,null,r.createElement(q.M,{tag:"h2",size:6,overflow:"truncate-2-lines"},c)),r.createElement(Q.w,null,r.createElement(s.P,{type:"absolute",cloneElement:!0,position:{top:"zero",right:"zero"}},r.createElement("div",null,l,a)))),null==d?void 0:d.map((e,t)=>r.createElement(i.C,{key:`trip-image-slim-card-${t}`},r.createElement(m.D,{size:300,overflow:"truncate-2-lines"},e)))))},yr=e=>{var t,a;const{data:s,middleSection:l,cardLeftSideLinkSection:m,cardMiddleLinkSection:c,cardRightSideLinkSection:d,cardIconSection:p}=e,{impressionTracking:u,thumbnail:g}=s,T=r.createElement(o.N,{margin:{block:"three"}},r.createElement(W.g,{border:!0,overflow:!0},r.createElement(n.X,null,g&&r.createElement(i.C,{minWidth:"16x",shrink:0},r.createElement(Y.E,{padded:["blockstart","blockend","inlinestart"]},r.createElement(X.M,{ratio:X.l.R1_1,roundcorner:!0},r.createElement(Ir,{src:null!=(t=g.url)?t:void 0,alt:null!=(a=g.description)?a:void 0})),m)),r.createElement(i.C,null,r.createElement("div",null,c)),r.createElement(i.C,{grow:1},r.createElement(Y.E,{padded:!1},null!=l?l:r.createElement(Er,{data:s,cardIconSection:p,cardRightSideLinkSection:d}))))));return u?r.createElement(Je,{data:u},T):T};yr.displayName="ImageSlimCard",yr.fragment=fe(Se({},vr),{__typename:"TripsImageSlimCard"});var Sr=d.gql`
+  fragment TripsInternalSlimCardFragment on TripsSlimCard {
+    graphic {
+      ...EGDSIconFragment
+      ...EGDSMarkFragment
+      ...EGDSIllustrationFragment
+    }
+    primary
+    secondaries
+    impressionTracking {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+    accessibility {
+      label
+    }
+  }
+
+  ${st.fragment}
+  ${ct.fragment}
+  ${lt.fragment}
+  ${Je.fragment}
+`,fr=e=>{const{data:t,actionProps:a,isActionAvailable:s}=e,{graphic:l,primary:c,secondaries:d,accessibility:p,impressionTracking:u}=t,g=r.createElement(o.N,{margin:{blockstart:"three"}},r.createElement(W.g,{border:!0,overflow:!0},r.createElement(Y.E,null,r.createElement(o.N,{margin:c&&!d?{block:"two"}:"unset"},r.createElement(n.X,{space:"two",alignItems:"center"},r.createElement(r.Fragment,null,l&&r.createElement(o.N,{padding:{inline:"three"}},r.createElement("div",null,r.createElement(i.C,null,r.createElement(pt,{data:l,defaultIconSize:k.So.MEDIUM,defaultMarkSize:P.K.MEDIUM,accessibility:l.description})))),r.createElement(i.C,{grow:1},r.createElement("div",null,c&&r.createElement(q.M,{tag:"h3",size:6},c),Array.isArray(d)&&d.map((e,t)=>r.createElement(m.D,{size:300,spacing:"one",key:`trip-subheading-${t}`},e)))),s&&r.createElement(i.C,null,r.createElement(k.LD,{name:"chevron_right","data-testid":"chevron_right"})))))),(a.href||a.onClick)&&r.createElement(K.w,null,a.href?r.createElement("a",Se({},a),null==p?void 0:p.label):r.createElement("button",Se({type:"button"},a),null==p?void 0:p.label))));return u?r.createElement(Je,{data:u},g):g};fr.displayName="SlimCard",fr.fragment=fe(Se({},Sr),{__typename:"TripsSlimCard"});var _r=d.gql`
+  fragment TripsIconFragment on TripsIcon {
+    label
+    icon {
+      id
+      description
+      title
+      theme
+    }
+    action {
+      ...TripsSaveItemToTripActionFragment
+      ...TripsUnsaveItemFromTripActionFragment
+      ...TripsInternalLinkActionFragment
+    }
+  }
+
+  ${Yt}
+  ${Va}
+  ${_a}
+`,hr={inlinestart:"one"},Ar={blockstart:"three",inlineend:"three"},Cr=({data:e,disableAriaForIconLabel:t="false"})=>{var a,i;const{label:s,icon:l}=e;return r.createElement(o.N,{padding:Ar},r.createElement(Y.E,null,r.createElement(n.X,{alignItems:"center",wrap:"wrap",justifyContent:"space-around"},l&&r.createElement(k.LD,{name:l.id,id:l.id,description:l.description,title:null!=(a=l.title)?a:void 0,"data-testid":l.id,theme:null!=(i=l.theme)?i:"default"}),s&&r.createElement(o.N,{margin:hr},r.createElement(m.D,{size:400,overflow:"wrap","aria-hidden":t},s)))))};Cr.displayName="CardIcon",Cr.fragment=fe(Se({},_r),{__typename:"TripsIcon"});var br=d.gql`
+  fragment TripsImageSlimCardFragment on TripsImageSlimCard {
+    ...TripsInternalImageSlimCardFragment
+    primaryAction {
+      ...TripsSaveItemToTripActionFragment
+      ...TripsUnsaveItemFromTripActionFragment
+      ...TripsInternalLinkActionFragment
+    }
+    secondaryAction {
+      ...TripsSaveItemToTripActionFragment
+      ...TripsUnsaveItemFromTripActionFragment
+      ...TripsInternalLinkActionFragment
+    }
+    cardIcon {
+      ...TripsIconFragment
+    }
+  }
+
+  ${yr.fragment}
+  ${Yt}
+  ${Va}
+  ${_a}
+  ${Cr.fragment}
+`,Fr=({data:e})=>{var t,a;const n=qa(e.primaryAction),i=qa(e.secondaryAction),s=qa(null!=(a=null==(t=e.cardIcon)?void 0:t.action)?a:null),{accessibility:o,cardIcon:l}=e,m=null==l?void 0:l.action,c=null==m?void 0:m.accessibility,d=r.useMemo(()=>i?r.createElement(K.w,null,i.href?r.createElement("a",fe(Se({},i),{"aria-hidden":"true"}),null==o?void 0:o.label):r.createElement("button",fe(Se({type:"button"},i),{"aria-hidden":"true"}),null==o?void 0:o.label)):null,[o,i]),p=r.useMemo(()=>n?r.createElement(K.w,null,n.href?r.createElement("a",Se({},n),null==o?void 0:o.label):r.createElement("button",fe(Se({type:"button"},n),{"aria-hidden":"true"}),null==o?void 0:o.label)):null,[o,n]),u=r.useMemo(()=>s?r.createElement(K.w,null,r.createElement("button",Se({type:"button"},s),null==c?void 0:c.label)):null,[c,s]),g=r.useMemo(()=>l&&r.createElement(Cr,{data:l,disableAriaForIconLabel:"true"}),[l]);return r.createElement(yr,{data:e,cardLeftSideLinkSection:d,cardMiddleLinkSection:p,cardRightSideLinkSection:u,cardIconSection:g})};Fr.displayName="ImageSlimCard",Fr.fragment=fe(Se({},br),{__typename:"TripsImageSlimCard"}),Fr.getKey=e=>e.primary;var Nr=d.gql`
+  fragment TripsItemRecallCardFragment on TripsItemRecallCard {
+    primary
+    secondaries
+    image {
+      description
+      url
+    }
+  }
+`,Dr=({data:e})=>{const{primary:t,secondaries:a,image:s}=e;return r.createElement(o.N,{padding:{blockend:"six"}},r.createElement(W.g,null,r.createElement(n.X,null,r.createElement(i.C,{minWidth:150,shrink:0},r.createElement(X.M,{ratio:X.l.R3_2,roundcorner:!0,imageFit:"cover"},r.createElement(te.F,{src:null==s?void 0:s.url,alt:null==s?void 0:s.description,placeholderImage:!0}))),r.createElement(Y.E,{padded:["inlinestart"]},r.createElement("div",null,r.createElement(q.M,{overflow:"truncate-3-lines",tag:"h3",size:5,align:"left"},t),null==a?void 0:a.map((e,t)=>r.createElement(i.C,{key:`trip-item-recall-card-${t}`},r.createElement(Y.E,{padded:["blockstart"]},r.createElement(m.D,{size:300},e)))))))))};Dr.displayName="ItemRecallCard",Dr.fragment=fe(Se({},Nr),{__typename:"TripsItemRecallCard"});var kr=d.gql`
+  fragment TripsSlimCardFragment on TripsSlimCard {
+    ...TripsInternalSlimCardFragment
+    action {
+      ...TripsNavigateToViewActionFragment
+    }
+  }
+
+  ${fr.fragment}
+  ${rt}
+`,Rr=({data:e})=>{const t=qa(null==e?void 0:e.action),{action:a}=e;return r.createElement(fr,{data:e,actionProps:t,isActionAvailable:Boolean(null==a?void 0:a.__typename)})};Rr.displayName="SlimCard",Rr.fragment=fe(Se({},kr),{__typename:"TripsSlimCard"}),Rr.getKey=e=>e.primary;var wr=({elements:e})=>e&&e.length?r.createElement(ae.m,{hasRequiredFieldIndicator:!0,name:"trips-form"},e.map((e,t)=>r.createElement(o.N,{key:`trips-form-item-${t}`,margin:{blockend:"three"}},r.createElement("div",null,e)))):null,Pr=d.gql`
+  fragment EGDSMaxLengthInputValidationFragment on EGDSMaxLengthInputValidation {
+    __typename
+    errorMessage
+    maxLength
+  }
+`,Or=d.gql`
+  fragment EGDSMinLengthInputValidationFragment on EGDSMinLengthInputValidation {
+    __typename
+    errorMessage
+    minLength
+  }
+`,Mr=d.gql`
+  fragment EGDSRegexInputValidationFragment on EGDSRegexInputValidation {
+    __typename
+    errorMessage
+    pattern
+  }
+`,Lr=d.gql`
+  fragment EGDSRequiredInputValidationFragment on EGDSRequiredInputValidation {
+    __typename
+    errorMessage
+  }
+`,$r=d.gql`
+  fragment EGDSTravelersInputValidationFragment on EGDSTravelersInputValidation {
+    __typename
+    errorMessage
+  }
+`,Vr=d.gql`
+  fragment MultiEmailValidationFragment on MultiEmailValidation {
+    __typename
+    errorMessage
+  }
+`,xr=d.gql`
+  fragment SingleEmailValidationFragment on SingleEmailValidation {
+    __typename
+    errorMessage
+  }
+`,Br=(d.gql`
+  fragment DurationSpanInputValidationFragment on DurationSpanInputValidation {
+    __typename
+    errorMessage
+  }
+`,d.gql`
+  fragment TripsValidatedInputFragment on TripsValidatedInput {
+    egdsElementId
+    instructions
+    label
+    placeholder
+    required
+    value
+    inputType
+    leftIcon {
+      leftIconId: id
+      title
+      description
+    }
+    rightIcon {
+      rightIconId: id
+      title
+      description
+    }
+    validations {
+      ...EGDSInputValidationFragment
+    }
+  }
+
+  fragment EGDSInputValidationFragment on EGDSInputValidation {
+    ...EGDSMaxLengthInputValidationFragment
+    ...EGDSMinLengthInputValidationFragment
+    ...EGDSRegexInputValidationFragment
+    ...EGDSRequiredInputValidationFragment
+    ...EGDSTravelersInputValidationFragment
+    ...MultiEmailValidationFragment
+    ...SingleEmailValidationFragment
+  }
+
+  ${Pr}
+  ${Or}
+  ${Mr}
+  ${Lr}
+  ${$r}
+  ${Vr}
+  ${xr}
+`);function qr(e){return"EGDSMaxLengthInputValidation"===e.__typename}var Gr=({data:e})=>{var t;const[a,n]=(0,E.A9)();if(r.useEffect(()=>{var t;if(!e)return;a.validatedInputs.inputFields.some(t=>t.inputId===e.egdsElementId)||n({type:"addInputField",payload:{inputId:e.egdsElementId,inputValue:null!=(t=e.value)?t:"",validations:e.validations}})},[null==e?void 0:e.egdsElementId]),!(null==e?void 0:e.egdsElementId))return null;const{egdsElementId:i,label:s,placeholder:l,instructions:m,required:c,leftIcon:d,validations:p,inputType:u}=e,g="MULTIPLE"===u,T=g?null==p?void 0:p.find(qr):void 0,I=a.validatedInputs.inputFields.find(e=>e.inputId===i),v=null==I?void 0:I.currentErrorMessage,y=m?{primary:m}:void 0,S={id:i,icon:null==d?void 0:d.leftIconId,name:i,label:null!=s?s:"",placeholder:null!=l?l:"",value:null!=(t=null==I?void 0:I.inputValue)?t:"",required:null!=c&&c,invalid:v,instruction:y,onChange:e=>{if(n({type:"updateInputValue",payload:{inputId:i,inputValue:e.target.value}}),T){const t=Ca(e.target.value,p);n({type:"updateInputErrorMessage",payload:{inputId:i,currentErrorMessage:t}})}},onBlur:e=>{e.preventDefault();const t=e.target.value,a=Ca(t,p);n({type:"updateInputErrorMessage",payload:{inputId:i,currentErrorMessage:a}})}},f=g?re._:ne.V;return r.createElement(o.N,{margin:{blockend:"three"}},r.createElement("div",null,r.createElement(f,Se({"data-stid":`trips-input-${i}`},S))))};Gr.displayName="TripsValidatedInput",Gr.fragment=fe(Se({},Br),{__typename:"TripsValidatedInput"});var Ur=d.gql`
+  fragment TripsFormContainerFragment on TripsFormContainer {
+    elements {
+      ...TripsPrimaryButtonFragment
+      ...TripsSecondaryButtonFragment
+      ...TripsValidatedInputFragment
+    }
+  }
+
+  ${Ua.fragment}
+  ${Za.fragment}
+  ${Gr.fragment}
+`,zr=({data:e})=>{const{elements:t}=e,a=Ke(t,[Ua,Za,Gr]);return r.createElement(wr,{elements:a})};zr.displayName="FormContainer",zr.fragment=fe(Se({},Ur),{__typename:"TripsFormContainer"});var Hr=d.gql`
+  fragment TripsInternalSectionContainerFragment on TripsSectionContainer {
+    __typename
+    heading
+    subheadings
+    tripsListSubTexts: subTexts
+    theme
+    impressionAnalytics {
+      ...ClientSideImpressionAnalyticsFragment
+    }
+    layout
+  }
+
+  ${Ze.fragment}
+`,Wr=({data:e,children:t})=>{const{heading:a,subheadings:n,tripsListSubTexts:i,theme:s,layout:l}=e,c="IMPORTANT"===s?"six":"twelve",d="IMPORTANT"===s?"six":"eight",p="ADAPTIVE"===l;let u=0;r.Children.forEach(t,e=>{var t,a;r.isValidElement(e)&&"TripsFullBleedImageCard"===(null==(a=null==(t=null==e?void 0:e.props)?void 0:t.data)?void 0:a.__typename)&&(u+=1)});const g=e=>{var t,a;return"TripsFullBleedImageCard"===(null==(a=null==(t=e.props)?void 0:t.data)?void 0:a.__typename)&&u>1?1:2},T=e=>{var a,r,n;return p||e?p&&"TripsIllustrationCard"===(null==(n=null==(r=null==(a=null==t?void 0:t[0])?void 0:a.props)?void 0:r.data)?void 0:n.__typename)?"sixteen":void 0:"six"},I=()=>{var e,a,r;if(p&&"TripsIllustrationCard"===(null==(r=null==(a=null==(e=null==t?void 0:t[0])?void 0:e.props)?void 0:a.data)?void 0:r.__typename))return"sixteen"},v=r.createElement(o.N,{margin:p?{blockstart:"eight",inline:I()}:{small:{blockstart:d},medium:{blockstart:c}},padding:{inline:T(!1)}},r.createElement("div",null,r.createElement(o.N,{padding:{inline:T(!0)},margin:{inline:I()}},r.createElement("section",null,a&&r.createElement(o.N,{margin:p?{blockend:"four"}:void 0},r.createElement(q.M,{tag:"h2",size:5},a)),n||i?r.createElement(o.N,{margin:{block:"three"}},r.createElement("div",null,null==n?void 0:n.map(e=>r.createElement(G.s,{key:e},e)),null==i?void 0:i.map(e=>r.createElement(m.D,{key:e,size:100},e)))):null,p?r.createElement(o.N,null,r.createElement(Q.w,{columns:2,space:"TripsSlimCard"===(null==(S=null==(y=null==(E=null==t?void 0:t[0])?void 0:E.props)?void 0:y.data)?void 0:S.__typename)?"one":"four"},r.Children.map(t,(e,t)=>r.isValidElement(e)?r.createElement(ie.T,{key:e.key||t,colSpan:g(e)},r.createElement("div",null,e)):null))):t))));var E,y,S;return e.impressionAnalytics?r.createElement(Ze,{data:e.impressionAnalytics},v):v};Wr.displayName="TripsSectionContainer",Wr.fragment=Hr,Wr.getKey=e=>e.heading;var Kr=d.gql`
+  fragment TripsSectionContainerFragment on TripsSectionContainer {
+    ...TripsInternalSectionContainerFragment
+    elements {
+      ...TripsPrimaryButtonFragment
+      ...TripsSecondaryButtonFragment
+      ...TripsTertiaryButtonFragment
+      ...TripsImageSlimCardFragment
+      ...TripsSlimCardFragment
+    }
+  }
+
+  ${Wr.fragment}
+  ${Ua.fragment}
+  ${Za.fragment}
+  ${tr.fragment}
+  ${Fr.fragment}
+  ${Rr.fragment}
+`,jr=({data:e})=>{const{elements:t}=e,a=Ke(t,[Rr,Fr,Ua,Za,tr]);return r.createElement(Wr,{data:e},a)};jr.displayName="SectionContainer",jr.fragment=fe(Se({},Kr),{__typename:"TripsSectionContainer"});var Yr=d.gql`
+  fragment ToolbarFragment on TripsToolbar {
+    actions {
+      primary {
+        accessibility {
+          label
+        }
+        action {
+          analytics {
+            linkName
+            referrerId
+          }
+        }
+      }
+      secondaries {
+        ...TripsTertiaryButtonFragment
+      }
+    }
+  }
+
+  ${tr.fragment}
+`,Xr=({data:e,dialogName:t})=>{var a;const{actions:s}=e,{accessibility:o,action:l}=s.primary,{secondaries:m}=s,c=(0,u.useClickTracker)(),[,d]=(0,I.useDialog)(t),p=m&&r.createElement(n.X,{justifyContent:"space-between"},m.map(e=>r.createElement(i.C,{key:e.primary},r.createElement(tr,{data:e}))));return r.createElement(se.p,{key:`${t}-composable-drawer-toolbar`,navigationContent:{onClick:()=>{l&&c(l.analytics.referrerId,l.analytics.linkName),d.closeDialog()},navIconLabel:null!=(a=null==o?void 0:o.label)?a:void 0,navType:"close"},toolbarActionContent:p})};Xr.fragment=Yr,Xr.displayName="Toolbar";var Qr=d.gql`
+  fragment TripsComposableDrawerFragment on TripsComposableDrawer {
+    ...TripsInternalComposableDrawerFragment
+    tripsViewHeader {
+      toolbar {
+        ...ToolbarFragment
+      }
+    }
+    elements {
+      ...TripsSectionContainerFragment
+      ...TripsFormContainerFragment
+      ...TripsPrimaryButtonFragment
+      ...TripsSecondaryButtonFragment
+      ...TripsTertiaryButtonFragment
+      ...TripsImageSlimCardFragment
+      ...TripsSlimCardFragment
+      ...TripsIllustrationCardFragment
+      ...TripsItemRecallCardFragment
+    }
+  }
+
+  ${Ta.fragment}
+  ${jr.fragment}
+  ${zr.fragment}
+  ${Ua.fragment}
+  ${Za.fragment}
+  ${tr.fragment}
+  ${Fr.fragment}
+  ${Rr.fragment}
+  ${Xr.fragment}
+  ${rr.fragment}
+  ${Dr.fragment}
+`,Jr=({data:e,refetch:t})=>{var a;const{elements:n}=e,i=Oe(),s=Ke(n,[jr,zr,Ua,Za,tr,Fr,Rr,rr,Dr]),o=(0,d.useReactiveVar)(pa),l=null==o?void 0:o.favoriteSwitchRef;if(!s)return null;const m=(null==(a=e.tripsViewHeader)?void 0:a.toolbar)?r.createElement(Xr,{data:e.tripsViewHeader.toolbar,dialogName:i}):null;return r.createElement(r.Fragment,null,r.createElement(Ta,{triggerRef:l,dialogName:i,data:e,toolBar:m},s),r.createElement(Re,{refetch:t}))};Jr.displayName="ComposableDrawer",Jr.fragment=fe(Se({},Qr),{__typename:"TripsComposableDrawer"});var Zr=d.gql`
+  query TripCreationQuery($metadata: TripCreationMetadataInput, $context: ContextInput!) {
+    trip(context: $context) {
+      creation(metadata: $metadata) {
+        ...TripsComposableDrawerFragment
+      }
+    }
+  }
+
+  ${Jr.fragment}
+`,en=new F.SystemEvent(F.SystemEventLevel.ERROR,"FETCH_TRIP_CREATION_VIEW_ERROR"),tn=e=>{var t,a;const{inputs:n}=e,{context:i}=(0,p.R)(),{htmlElement:s}=(0,h.p)(),o=(0,F.useLoggerEvents)({FETCH_TRIP_CREATION_VIEW_ERROR:en}),{formatText:l}=(0,_.useLocalization)(),m=fe(Se({},n),{context:i}),{data:c,loading:u,error:g}=(0,d.useQuery)(Zr,{context:{shouldLogPerformance:!0},variables:m,fetchPolicy:"cache-and-network",notifyOnNetworkStatusChange:!0});return g?(o.FETCH_TRIP_CREATION_VIEW_ERROR.log({error:g}),he(r.createElement(f.N,{show:!0},l("trip.error.detail.message")),s)):r.createElement(r.Fragment,null,u&&he(r.createElement(S.Y,{visible:!0}),s),"TripsComposableDrawer"===(null==(a=null==(t=null==c?void 0:c.trip)?void 0:t.creation)?void 0:a.__typename)&&r.createElement(Jr,{data:c.trip.creation}))};tn.displayName="TripCreationDrawer";var an=d.gql`
+  query TripsPlanQuery($item: TripsPlanInput!, $context: ContextInput!) {
+    trips(context: $context) {
+      plan(input: $item) {
+        ...TripsComposableDrawerFragment
+      }
+    }
+  }
+
+  ${Jr.fragment}
+`,rn=new F.SystemEvent(F.SystemEventLevel.ERROR,"FETCH_TRIPS_PLAN_VIEW_ERROR"),nn=e=>{var t,a;const{inputs:n}=e,{context:i}=(0,p.R)(),{htmlElement:s}=(0,h.p)(),o=(0,F.useLoggerEvents)({FETCH_TRIPS_PLAN_VIEW_ERROR:rn}),{formatText:l}=(0,_.useLocalization)(),m=fe(Se({},n),{context:i}),{data:c,loading:u,error:g,refetch:T}=(0,d.useQuery)(an,{context:{shouldLogPerformance:!0},variables:m,fetchPolicy:"cache-and-network",notifyOnNetworkStatusChange:!0});return g?(o.FETCH_TRIPS_PLAN_VIEW_ERROR.log({error:g}),he(r.createElement(f.N,{show:!0},l("trip.error.detail.message")),s)):r.createElement(r.Fragment,null,u&&he(r.createElement(S.Y,{visible:!0}),s),"TripsComposableDrawer"===(null==(a=null==(t=null==c?void 0:c.trips)?void 0:t.plan)?void 0:a.__typename)&&r.createElement(Jr,{data:c.trips.plan,refetch:T}))};nn.displayName="TripSaveItemDrawer";var sn=e=>{switch(e.type){case"TripSaveItemDrawerOptions":return r.createElement(nn,{inputs:{item:e.queryInputs.item}});case"TripCreationDrawerOptions":return r.createElement(tn,{inputs:{metadata:{saveItemInput:e.queryInputs.item.saveItemInput}}});default:return null}},on=$e,ln=d.gql`
+  fragment TripsSaveItemFragment on TripsSaveItem {
+    initialChecked
+    itemId
+    source
+    viewType {
+      ...TripSaveItemViewTypeFragment
+    }
+    attributes {
+      ...TripsSaveItemAttributesFragment
+    }
+    save {
+      ...TripsSaveItemPropertiesFragment
+    }
+    remove {
+      ...TripsSaveItemPropertiesFragment
+    }
+    coachmark {
+      ...TripsCoachmarkFragment
+    }
+    tripId
+  }
+  ${Wt}
+  ${ia}
+  ${da.fragment}
+  ${ta}
+`,mn=({data:e,source:t,heartLayoutPosition:a,saveItemCallback:S,removeItemCallback:f,showRedOutline:_,alwaysShowLabel:h})=>{var A,F,N,D,k,R;const{itemId:w,initialChecked:P,save:O,remove:M,attributes:L,source:$,viewType:V,coachmark:x,tripId:B}=e,q=`trip-save-item-${(0,g.D4)()}`,[G,U]=r.useState(w),z=(0,u.useClickTracker)(),H=Oe(),[,W]=(0,I.useDialog)(H),K=(0,d.useReactiveVar)(pa),j=He(),{context:Y}=(0,p.R)(),{exposure:X,logExperiment:Q}=(0,v.useExperiment)("Saving_anonymous_signinscreen_web"),{exposure:J,logExperiment:Z}=(0,v.useExperiment)("one_click_save"),{exposure:ee,logExperiment:te}=(0,v.useExperiment)("one_click_save_cars_lx_web"),{exposure:ae,logExperiment:re}=(0,v.useExperiment)("Disable_heart_icon_bug_fix"),{exposure:ne,logExperiment:ie}=(0,v.useExperiment)("Persist_saving_anonymous"),{exposure:se,logExperiment:oe}=(0,v.useExperiment)("Heart_RedOutline_LodgingLX"),{exposure:le}=(0,v.useExperiment)("Saving_for_Identified_Users"),{exposure:me,logExperiment:ce}=(0,v.useExperiment)("NewSaveIcon_HomePage_Web"),{exposure:de,logExperiment:pe}=(0,v.useExperiment)("Web_Save_Consistency_HP_LP"),{exposure:ue,logExperiment:ge}=(0,v.useExperiment)("Trips_Onboarding_on_EPS"),{exposure:Te,logExperiment:Ie}=(0,v.useExperiment)("Unauthenticated_Saves_MVP"),ve=(0,b.eg)({viewSizes:b.pf}),Ee=be(),ye=(0,d.useReactiveVar)(Ee);(0,r.useEffect)(()=>{U(w)},[w]);const fe={__typename:"TripsSaveItemToTripAction",analytics:O.analytics,saveItemInput:{itemId:G,pageLocation:$,source:t,attributes:L,subscriptionAttributes:null,tripItem:null},tripId:B},_e=Jt(fe),{data:he}=(0,d.useQuery)(Lt,{context:{shouldLogPerformance:!0},fetchPolicy:"cache-only"}),[Ae]=(0,E.A9)();if(!Ae.validatedInputs)throw new Error("TripSaveItem must be wrapped with a provider that provides ValidatedInputsState");const Ce=null!=(F=null==(A=null==he?void 0:he.localSavedItems.find(e=>e.id===G))?void 0:A.checked)?F:P,Fe=1===ae.bucket&&"loading"===(null==ye?void 0:ye.status)&&((null==K?void 0:K.queryInputs.item.itemId)===G||sessionStorage.getItem("itemId")===G),Ne=null!=(N=Ce?M.accessibility:O.accessibility)?N:void 0,De=Ce?M.analytics:O.analytics,ke=Ce?M.label:O.label,we=Ce?f:S,Pe=r.useRef(null),{isIdentified:Me,isAuthenticated:$e,isAnonymous:Ue}={isAuthenticated:"AUTHENTICATED"===(ze=null==(D=Y.identity)?void 0:D.authState),isAnonymous:"ANONYMOUS"===ze,isIdentified:"IDENTIFIED"===ze};var ze;const We=null==(k=window.location)?void 0:k.search,Ke=null==(R=window.location)?void 0:R.pathname;let je=!1;const{isCarsV2Source:Ye,isLodgingOrActivitiesSource:Xe,isPackagesSource:Qe,isLodgingSource:Je}=(e=>({isCarsV2Source:Ve(e),isLodgingSource:xe(e),isActivitiesSource:Be(e),isPackagesSource:qe(e),isLodgingOrActivitiesSource:Ge(e)}))(t),Ze=r.useRef(null),et=r.useRef(null),tt=()=>0!==J.bucket||1===ee.bucket,at=()=>1===le.bucket,rt=()=>1===X.bucket,nt=()=>rt()&&!$e,it=()=>0===de.bucket,st=()=>1===ue.bucket&&Je,ot=()=>0===Te.bucket&&!$e,lt=()=>1===ne.bucket||!it()||st(),mt=r.useMemo(()=>({type:"TripSaveItemDrawerOptions",queryInputs:{item:{itemId:G,source:t,pageLocation:$,attributes:j(L),subscriptionAttributes:void 0}},favoriteSwitchRef:Pe}),[G,t,$,L,j]),ct=1===J.bucket||1===ee.bucket,dt=!it();(0,T._H)("TRIP_ITEM_SAVED",y.ch,{onSuccess:e=>{(ct||dt)&&sessionStorage.setItem("itemId",e.payload.tripItemId)}}),(0,T._H)("SAVE_ITEM_PROMPT_BUTTON_CLICKED",y.Ue,{onSuccess:e=>{e.payload.itemId===G&&gt(void 0,!0)}});const pt=()=>Ce||0===J.bucket&&0===ee.bucket&&!Ce&&!nt()&&it()||tt()&&!$e&&!Me&&!rt()&&ot()||Me&&!at()&&tt()&&!rt(),ut=()=>!nt()&&(Me&&at()&&tt()||tt())||!it()||!ot(),gt=r.useCallback((e,t=!1)=>{var a;const r=`/login?enable_login=true&redirectTo=${encodeURIComponent(`${Ke}${We}`)}`,n=null==(a=null==De?void 0:De.uisPrimeMessages)?void 0:a.map(({schemaName:e,messageContent:t})=>({schemaName:e,messageContent:JSON.parse(t)}));De&&!t&&z(De.referrerId,De.linkName,void 0,n),Ue&&ie(ne),!$e&&ot()&&(Q(X),lt()&&sessionStorage.setItem("savedItemId",G),setTimeout(()=>{rt()&&(window.location.href=r)},500)),we&&we(),null==e||e.stopPropagation(),Ee({status:"reset"}),Pe.current=document.activeElement,Z(J),te(ee),re(ae),pe(de),sessionStorage.removeItem("itemId"),pt()?(W.openDialog(),pa(mt)):ut()&&(null==_e?void 0:_e.onClick)&&(_e.onClick(),sessionStorage.setItem("itemId",G))},[De,z,W,we,mt,Y]);(0,r.useEffect)(()=>{const e=sessionStorage.getItem("savedItemId")||null;lt()&&G&&e===G&&$e&&(sessionStorage.removeItem("savedItemId"),gt())},[]);const[Tt,It]=r.useState(ke);r.useEffect(()=>{h||ve!==b.pf.SMALL?It(ke):It("")},[h,ve,ke]);const vt=$e?void 0:"link",Et=r.useMemo(()=>r.createElement("div",{"data-stid":"outlined-save-button",id:q,ref:Ze},r.createElement(c.X,{key:q,checked:Ce,accessibilityLabel:Ne,accentOutlineHighlighted:!0,onClick:gt,text:Tt||void 0,role:vt}),x&&r.createElement(na,{triggerRef:Ze,data:x,pageName:$})),[q,Ne,Ce,gt,t,Fe]),yt=r.useMemo(()=>r.createElement("div",{"data-stid":"save-button",ref:et},r.createElement(l.Q,{key:q,id:q,label:Ne,checked:Ce,onChange:gt,disabled:Fe}),x&&r.createElement(na,{triggerRef:et,data:x,pageName:$})),[q,Ne,Ce,gt,Fe]),St=r.useMemo(()=>r.createElement(n.X,{direction:"row",alignItems:"center"},r.createElement(i.C,null,yt),r.createElement(i.C,null,r.createElement(b.LM,null,r.createElement(b.rw,null,r.createElement(o.N,{padding:{inlineend:"four"}},r.createElement(m.D,{whiteSpace:"nowrap","data-stid":"save-item-label"},ke)))))),[yt,ke]),ft=r.useCallback(()=>{Xe&&oe(se),Je&&ge(ue),ce(me);const e=()=>1===se.bucket&&Xe||st()||Ye||Qe||_||1===me.bucket&&(e=>"ENTRY"===e)($)||h?Et:ke?St:yt;return a?r.createElement(s.P,{type:a.type,position:a.position},e()):e()},[a,t,ke,St,yt,Et]);return r.createElement(Le,{onEditCTAInToastClick:()=>{var e;(ct||dt)&&(sessionStorage.getItem("itemId")&&U(null!=(e=sessionStorage.getItem("itemId"))?e:""),pa(mt),W.openDialog())}},r.createElement(C.ek,null,V?r.createElement(da,{data:V,favouriteSwitchOnChange:gt}):ft(),(null==K?void 0:K.queryInputs.item.itemId)===G&&r.createElement(sn,Se({},K)),function(){const e=(tt()||!it()||!ot())&&"undefined"!=typeof sessionStorage&&sessionStorage.getItem("itemId")===G;return"complete"===(null==ye?void 0:ye.status)?!je&&(je=!0,e):e}()&&r.createElement(Re,null)))};mn.fragment=ln,mn.displayName="sharedui-TripSaveItem";var cn=d.gql`
+  fragment TripsSaveItemButtonFragment on TripsSecondaryButton {
+    primary
+    icon {
+      theme
+    }
+    action {
+      ...TripsOpenDialogActionFragment
+      ...TripsOpenSaveToTripDrawerActionFragment
+    }
+  }
+  ${Qa}
+  ${wa}
+`,dn=({data:e})=>{var t,a;const n=null!=(t=e.primary)?t:void 0,i="negative"===(null==(a=e.icon)?void 0:a.theme),{onClick:s,onClickCapture:o}=qa(e.action),l=r.useCallback(()=>{null==s||s(),null==o||o()},[s,o]);return r.createElement(oe.Y,{checked:i,onChange:l,a11yLabel:n})};dn.displayName="TripsSaveItemButton",dn.fragment=cn;var pn=d.gql`
+  fragment TripsViewContentItemFragment on TripsViewContentItem {
+    primary
+    action {
+      ...TripsNavigateToViewActionFragment
+    }
+  }
+
+  ${rt}
+`,un=({data:e})=>{var t;const a="TripsNavigateToViewAction"===(null==(t=e.action)?void 0:t.__typename)?e.action:void 0,n=qa(e.action);return r.createElement(r.Fragment,null,!a&&e.primary&&r.createElement(m.D,{size:200},e.primary),a&&e.primary&&r.createElement(me.i,{size:"small"},r.createElement("a",Se({},n),e.primary)))};un.displayName="TripsViewContentItem",un.fragment=pn;var gn=d.gql`
+  fragment TripsInlineContentFragment on TripsInlineContent {
+    items {
+      ...TripsViewContentItemFragment
+    }
+  }
+
+  ${un.fragment}
+`,Tn=({data:e})=>r.createElement(r.Fragment,null,e.items.map((t,a)=>r.createElement(un,{data:t,key:`${e.__typename}-${a}`})));Tn.displayName="TripsInlineContent",Tn.fragment=gn;var In=d.gql`
+  fragment TripsSaveItemDetailsFragment on TripsSaveItemDetails {
+    heading
+    primary {
+      ...TripsInlineContentFragment
+    }
+    saveItemButton {
+      ...TripsSaveItemButtonFragment
+    }
+    graphicText {
+      text
+      graphic {
+        ... on Illustration {
+          description
+          url
+        }
+      }
+    }
+  }
+
+  ${Tn.fragment}
+  ${dn.fragment}
+`,vn=({data:e})=>r.createElement(W.g,{padded:!0,border:!0},e.graphicText&&r.createElement(n.X,{alignItems:"center"},"Illustration"===e.graphicText.graphic.__typename&&r.createElement(i.C,{alignSelf:"center",grow:0},r.createElement(Y.E,{padded:!1},r.createElement(R.r,{url:e.graphicText.graphic.url,alt:e.graphicText.graphic.description}))),r.createElement(i.C,{grow:1},r.createElement(Y.E,{padded:["inlinestart"]},r.createElement(q.M,null,e.graphicText.text)))),r.createElement(le.j,null),r.createElement(n.X,{alignItems:"center"},r.createElement(i.C,{grow:1},r.createElement(Y.E,{padded:!1},r.createElement(m.D,{spacing:"one"},e.heading),r.createElement(Tn,{data:e.primary}))),r.createElement(i.C,{grow:0,alignSelf:"center"},r.createElement(Y.E,{padded:["inlinestart"]},r.createElement(dn,{data:e.saveItemButton})))));vn.displayName="TripsSaveItemDetails",vn.fragment=In;d.gql`
+  query TripSaveEntityQuery($context: ContextInput!, $saveItemInput: TripsSaveItemInput!) {
+    trips(context: $context) {
+      saveItem(input: $saveItemInput) {
+        subscriptionAttributes {
+          anchorPrice
+        }
+        saveItemDetails {
+          ...TripsSaveItemDetailsFragment
+        }
+        saveItemButton {
+          ...TripsSaveItemButtonFragment
+        }
+      }
+    }
+  }
+
+  ${dn.fragment}
+  ${vn.fragment}
+`;var En="SHARE_SHEET_DISMISS_CLICK",yn={shouldLoadSaveItemPrompt:!1,tripSaveItemData:null,triggerAction:En,setShouldLoadSaveItemPrompt:()=>{},setTripSaveItemData:()=>{},setTriggerAction:()=>{}},Sn=r.createContext(yn),fn=({children:e})=>{const[t,a]=(0,r.useState)(!1),[n,i]=(0,r.useState)(null),[s,o]=(0,r.useState)(En),l=(0,r.useMemo)(()=>({shouldLoadSaveItemPrompt:t,tripSaveItemData:n,triggerAction:s,setTriggerAction:o,setShouldLoadSaveItemPrompt:a,setTripSaveItemData:i}),[t,n,s]);return r.createElement(Sn.Provider,{value:l},e)},_n=()=>r.useContext(Sn),hn=d.gql`
+  query SaveItemToTripPromptQuery(
+    $itemId: String!
+    $context: ContextInput!
+    $attributes: TripsSaveItemAttributesInput!
+    $triggerAction: String!
+    $pageLocation: PageLocation
+  ) {
+    trips(context: $context) {
+      saveItemToTripPrompt(itemId: $itemId, attributes: $attributes, triggerAction: $triggerAction, pageLocation: $pageLocation) {
+        __typename
+        ...saveItemToTripPromptSuccessResponseFragment
+        ...saveItemToTripPromptErrorResponseFragment
+      }
+    }
+  }
+
+  fragment saveItemToTripPromptSuccessResponseFragment on SaveItemToTripPromptSuccessResponse {
+    __typename
+    prompt {
+      __typename
+      toast {
+        ...TripsInlineActionToastFragment
+      }
+    }
+    cookie {
+      expires
+      name
+      value
+    }
+  }
+
+  fragment saveItemToTripPromptErrorResponseFragment on SaveItemToTripPromptErrorResponse {
+    __typename
+    reason
+  }
+
+  ${kt.fragment}
+`,An={ERROR_SAVE_ITEM_TO_TRIP_PROMPT:new F.SystemEvent(F.SystemEventLevel.ERROR,"ERROR_SAVE_ITEM_TO_TRIP_PROMPT")},Cn=({inputs:e,skipSsr:t})=>{var a;const{context:n}=(0,p.R)(),{setShouldLoadSaveItemPrompt:i,setTriggerAction:s,triggerAction:o}=_n(),l=(0,F.useLoggerEvents)(An),m=fe(Se({},e),{context:n}),{data:c,error:u,loading:g}=(0,d.useQuery)(hn,{context:{shouldLogPerformance:!0},variables:m,fetchPolicy:"no-cache",ssr:!t}),T=null==c?void 0:c.trips.saveItemToTripPrompt,I=()=>{i(!1),"CHECKOUT_ABANDONED"===o&&s(En)};if((0,r.useEffect)(()=>{if(!g)if(!u&&c&&T){if("SaveItemToTripPromptSuccessResponse"===(null==T?void 0:T.__typename)){const{cookie:e}=T;e&&(document.cookie=`${e.name}=${e.value}; path=/; expires=${e.expires}`),T.prompt||I()}}else I()},[g,c,u,T]),g||u||!c||!T)return null;if("SaveItemToTripPromptSuccessResponse"===T.__typename){const e=null==(a=T.prompt)?void 0:a.toast;return e?r.createElement(De,{handler:{onDismiss:()=>I()}},r.createElement(kt,{data:e})):null}return l.ERROR_SAVE_ITEM_TO_TRIP_PROMPT.log({success:!1,reason:T.reason}),null};Cn.displayName="sharedui-SaveItemPrompt";var bn={data:{offset:0},stateFieldName:"toastState",events:["setOffset"],update:(e,t,a)=>"setOffset"===e?fe(Se({},t),{offset:a.data.offset}):t}}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-trips-save-item.171985e25864c6dd585a.js.map
