@@ -1,0 +1,14 @@
+
+.card{
+    margin: 0.5cm;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.card-container{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 100px;
+}
