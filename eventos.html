@@ -6,6 +6,418 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/estilo.css" rel="stylesheet">
 
+<<<<<<< HEAD
+        <!-- JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+        </script>
+        
+        <!-- CSS BOOT-->
+        <link 
+        rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous">
+
+        <!-- POPPER -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous">
+        </script>
+
+        <!-- JS-->
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+         crossorigin="anonymous">
+        </script>
+        
+    </head>
+    <body class="membros-page">
+
+    <!-- navbar -->
+     <nav class="navbar navbar-expand-lg bg-primary-color" id="navbar">
+            <!--header inicio-->
+            </header>
+            <!-- container -->
+            <div class="container">   
+                 <a class="navbar-brand" href="index.html">
+                    <img src="imagens/logorealblu.png" alt="logo do site">
+
+                 </a>              
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="historia.html">História</a>
+        </li>
+
+
+        <!-- menuzinho que desce 1 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Turismo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="turismoDropdown">
+            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
+            <a class="dropdown-item" href="eventos.html">Eventos</a>
+            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
+           <a class="dropdown-item" href="atrativos.html">Atrativos</a>
+          </div>
+        </li>
+
+
+         <!-- que desce 2-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Projeto Integrador
+          </a>
+          <div class="dropdown-menu" aria-labelledby="piDropdown">
+            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+            <a class="dropdown-item" href="membros.html">Integrantes</a>
+             <a class="dropdown-item" href="redessociais.html">Rdes Sociais</a>
+          
+          </div>
+        </li>
+       
+
+      </ul>
+    </div>
+  </div>
+</nav> 
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo em Itu - Calendário de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+ 
+        .container {
+            max-width: 1700px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+ 
+        h1{
+            text-align: center;
+            color: #004cb0;
+        }
+ 
+        /* Estilos do Carrossel de Meses */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+ 
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            padding: 10px 0;
+            justify-content: center; /* Alinha os itens ao centro */
+            gap: 10px; /* Espaço entre os itens */
+        }
+        
+        /* Estiliza os botões dos meses */
+        .month-item {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            flex-shrink: 0; /* Impede que o item encolha */
+        }
+ 
+        .month-item:hover, .month-item.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+ 
+        /* Estilos das Seções de Eventos */
+        .events-section {
+            display: none; /* Inicia com todas as seções escondidas */
+            padding: 20px;
+            border-top: 2px solid #007bff;
+            animation: fadeIn 0.8s ease-in-out; 
+        }
+ 
+        .events-section.active {
+            display: block; /* Mostra a seção ativa */
+        }
+ 
+        .event-card {
+            background: #f9f9f9;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+       
+        .event-card h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+ 
+        .no-events {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+       
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Cria um efeito suave ao mostrar os eventos
+             (desliza levemente de baixo para cima com opacidade).*/
+ 
+    </style>
+</head>
+<body>
+ 
+    <div class="container">
+        <h1>Calendário de Eventos em Itu</h1>
+        <p>Clique em um mês para ver a programação de turismo!</p>
+ 
+        <div class="carousel-container">
+            <div class="carousel" id="month-carousel">
+                <div class="month-item" data-month="janeiro">Janeiro</div> 
+                <div class="month-item" data-month="fevereiro">Fevereiro</div>
+                <div class="month-item" data-month="marco">Março</div>
+                <div class="month-item" data-month="abril">Abril</div>
+                <div class="month-item" data-month="maio">Maio</div>
+                <div class="month-item" data-month="junho">Junho</div>
+                <div class="month-item" data-month="julho">Julho</div>
+                <div class="month-item" data-month="agosto">Agosto</div>
+                <div class="month-item" data-month="setembro">Setembro</div>
+                <div class="month-item" data-month="outubro">Outubro</div>
+                <div class="month-item" data-month="novembro">Novembro</div>
+                <div class="month-item" data-month="dezembro">Dezembro</div>
+            </div>
+        </div>
+ 
+        <div id="events-content">
+            <div class="events-section active" id="eventos-janeiro">
+                <h2>Eventos de Janeiro</h2>
+                <div class="event-card">
+                    <h3>Passeio de Maria Fumaça</h3>
+                    <p><strong>Data:</strong> Todos os sábados e domingos.</p>
+                    <p><strong>Descrição:</strong> Um passeio imperdível entre as cidades de Itu e Salto, revivendo a história da ferrovia. Perfeito para toda a família.</p>
+                </div>
+                <div class="event-card">
+                    <h3>Festival Gastronômico de Verão</h3>
+                    <p><strong>Data:</strong> 15 a 30 de janeiro.</p>
+                    <p><strong>Descrição:</strong> Os principais restaurantes da cidade oferecem pratos especiais com a temática de verão. Uma ótima oportunidade para conhecer a culinária local.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-fevereiro">
+                <h2>Eventos de Fevereiro</h2>
+                <div class="event-card">
+                    <h3>Carnaval Histórico de Itu</h3>
+                    <p><strong>Data:</strong> Durante o feriado de Carnaval.</p>
+                    <p><strong>Descrição:</strong> Desfiles de blocos e shows ao vivo no centro da cidade, com uma atmosfera familiar e festiva.</p>
+                </div>
+            </div>
+           
+            <div class="events-section" id="eventos-marco">
+                <h2>Eventos de Março</h2>
+                <div class="no-events">
+                    <p>Nenhum evento programado para este mês.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-abril">
+                <h2>Eventos de Abril</h2>
+                <div class="event-card">
+                    <h3>Festa da Uva e Morango</h3>
+                    <p><strong>Data:</strong> 5 a 15 de abril.</p>
+                    <p><strong>Descrição:</strong> Celebração da colheita com degustação, venda de produtos locais e apresentações culturais.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-maio">
+                <h2>Eventos de Maio</h2>
+                <div class="no-events">
+                    <p>Nenhum evento programado para este mês.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-junho">
+                <h2>Eventos de Junho</h2>
+                <div class="event-card">
+                    <h3>Festa Junina do Centro Histórico</h3>
+                    <p><strong>Data:</strong> 10 a 30 de junho.</p>
+                    <p><strong>Descrição:</strong> Comidas típicas, quadrilha, música e decorações temáticas no Largo da Matriz.</p>
+                </div>
+            </div>
+           
+            <div class="events-section" id="eventos-julho">
+                <h2>Eventos de Julho</h2>
+                <div class="event-card">
+                    <h3>Férias de Inverno na Fazenda do Chocolate</h3>
+                    <p><strong>Data:</strong> Todo o mês de julho.</p>
+                    <p><strong>Descrição:</strong> Programação especial para as férias escolares, com oficinas de chocolate, passeios a cavalo e atividades ao ar livre.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-agosto">
+                <h2>Eventos de Agosto</h2>
+                <div class="event-card">
+                    <h3>Aniversário da Cidade de Itu</h3>
+                    <p><strong>Data:</strong> 2 de agosto.</p>
+                    <p><strong>Descrição:</strong> Programação especial com shows, exposições e homenagens em comemoração ao aniversário da cidade.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-setembro">
+                <h2>Eventos de Setembro</h2>
+                <div class="no-events">
+                    <p>Nenhum evento programado para este mês.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-outubro">
+                <h2>Eventos de Outubro</h2>
+                <div class="event-card">
+                    <h3>Semana da Criança</h3>
+                    <p><strong>Data:</strong> 10 a 17 de outubro.</p>
+                    <p><strong>Descrição:</strong> Atividades recreativas, peças de teatro e contação de histórias para os pequenos em diversos pontos da cidade.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-novembro">
+                <h2>Eventos de Novembro</h2>
+                <div class="event-card">
+                    <h3>Feriado da Consciência Negra</h3>
+                    <p><strong>Data:</strong> 20 de novembro.</p>
+                    <p><strong>Descrição:</strong> Programação cultural com apresentações de música e dança afro-brasileira em homenagem à data.</p>
+                </div>
+            </div>
+ 
+            <div class="events-section" id="eventos-dezembro">
+                <h2>Eventos de Dezembro</h2>
+                <div class="event-card">
+                    <h3>Natal Gigante de Itu</h3>
+                    <p><strong>Data:</strong> Durante todo o mês de dezembro.</p>
+                    <p><strong>Descrição:</strong> Decoração natalina especial por toda a cidade, com a famosa árvore de Natal gigante e casa do Papai Noel.</p>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const monthItems = document.querySelectorAll('.month-item');/* pega todos os botões de meses */
+            const eventSections = document.querySelectorAll('.events-section');/* pega todos as seções de eventos */
+ 
+            // Função para mostrar a seção de eventos do mês clicado
+            function showEvents(month) {
+                // Esconde todas as seções de eventos
+                eventSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+               
+                // Remove a classe 'active' de todos os botões de mês
+                monthItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+ 
+                // Mostra a seção de eventos correspondente e ativa o botão
+                const targetId = `eventos-${month}`;
+                const targetSection = document.getElementById(targetId);
+                const currentMonthItem = document.querySelector(`[data-month="${month}"]`);
+ 
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+               
+                if (currentMonthItem) {
+                    currentMonthItem.classList.add('active');
+                }
+            }
+           
+            // Adiciona o evento de clique a cada item do carrossel
+            monthItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const month = item.getAttribute('data-month');
+                    showEvents(month);
+                });
+            });
+ 
+            // Inicializa mostrando os eventos de um mês, por exemplo, Janeiro
+            showEvents('janeiro');
+        });
+        
+    </script>
+ 
+</body>
+</html>
+  
+<!-- Footer -->
+<footer class="footer bg-dark-blue text-white mt-5">
+  <div class="container py-5">
+    <div class="row">
+
+      <!-- Coluna 1: Contato -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5>Contato</h5>
+        <p>Email: contato@goitu.com.br</p>
+        <p>Tel: (11) 99999-9999</p>
+        <p>Instagram: @goituweb</p>
+      </div>
+
+      <!-- Coluna 2: Sobre nós -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Sobre nós</h5>
+        <p class="small">
+          A Go Itu é o seu guia oficial para descobrir o melhor de Itu (SP).  
+          Cultura, história e passeios em um só lugar — vem explorar com a gente!
+        </p>
+        <p class="mb-0">&copy; 2025</p>
+      </div>
+
+      <!-- Coluna 3: Menu -->
+      <div class="col-12 col-md-4 text-md-right text-center">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="historia.html" class="footer-link">História</a></li>
+          <li><a href="pi.html" class="footer-link">Projeto</a></li>
+          <li><a href="membros.html" class="footer-link">Integrantes</a></li>
+          <li><a href="agradecimentos.html" class="footer-link">Agradecimentos</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+    </body>
+
+</html>
+=======
         <!-- JQUERY-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
@@ -56,34 +468,11 @@
         <li class="nav-item">
           <a class="nav-link" href="historia.html">História</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cultura.html">Cultura</a>
+                <li class="nav-item">
+          <a class="nav-link" href=turismo.html">Turismo</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dicas.html">Dicas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="redessociais">Redes Sociais</a>
-        </li>
-
+       
         <!-- menuzinho que desce 1 -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Turismo
-          </a>
-          <div class="dropdown-menu" aria-labelledby="turismoDropdown">
-            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
-            <a class="dropdown-item" href="eventos.html">Eventos</a>
-            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
-            <a class="dropdown-item" href="bares.html">Bares e Pubs</a>
-            <a class="dropdown-item" href="roles.html">Rolês Culturais</a>
-            <a class="dropdown-item" href="passeios.html">Passeios Familiares</a>
-           <a class="dropdown-item" href="atrativos.html">Atrativos</a>
-          </div>
-        </li>
-
-        <!-- que desce 2-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -436,3 +825,5 @@
     </body>
 
 </html>
+
+>>>>>>> d184cdf7de4b89ede76b309f113d40351dd5f11a
