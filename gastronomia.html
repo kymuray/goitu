@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title> Go Itu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/estilo.css" rel="stylesheet">
+
+        <!-- JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+        </script>
+        
+        <!-- CSS BOOT-->
+        <link 
+        rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous">
+
+        <!-- POPPER -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous">
+        </script>
+
+        <!-- JS-->
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+         crossorigin="anonymous">
+        </script>
+        
+    </head>
+    <body class="membros-page">
+
+    <!-- navbar -->
+     <nav class="navbar navbar-expand-lg bg-primary-color" id="navbar">
+            <!--header inicio-->
+            </header>
+            <!-- container -->
+            <div class="container">   
+                 <a class="navbar-brand" href="index.html">
+                    <img src="imagens/logorealblu.png" alt="logo do site">
+
+                 </a>              
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="historia.html">História</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cultura.html">Cultura</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dicas.html">Dicas</a>
+        </li>
+
+
+        <!-- menuzinho que desce 1 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Turismo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="turismoDropdown">
+            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
+            <a class="dropdown-item" href="eventos.html">Eventos</a>
+            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
+           <a class="dropdown-item" href="atrativos.html">Atrativos</a>
+          </div>
+        </li>
+
+
+         <!-- que desce 2-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Projeto Integrador
+          </a>
+          <div class="dropdown-menu" aria-labelledby="piDropdown">
+            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+            <a class="dropdown-item" href="membros.html">Integrantes</a>
+             <a class="dropdown-item" href="redessociais.html">Rdes Sociais</a>
+          
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav> 
+
+  <style>
+    .card-deck-custom {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .card-deck-custom .card {
+      min-width: 250px;
+      margin-right: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .card-deck-custom .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .category-section {
+  margin-bottom: 10rem; /* equivale ao mb-5 */
+}
+
+.container {
+  max-width: 1400px; /* aumenta a largura máxima */
+}
+
+
+
+  </style>
+
+  <!-- Conteúdo -->
+  <div class="container my-4">
+
+
+    <!-- Restaurantes -->
+    <div class="category-section restaurantes active">
+      <h4>Restaurantes</h4>
+      <div class="card-deck-custom">
+
+        <div class="card">
+          <img src="img/1.jpg" class="card-img-top" alt="Restaurante 1">
+          <div class="card-body">
+            <h5 class="card-title">1. A Cia Steakhouse</h5>
+            <p class="card-text">De boutique de carnes a steakhouse. Desde 2013, oferece cortes nobres e pratos assinados pelos chefs Gui Mores e Felipe Oliviero.</p>
+        
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante2.jpg" class="card-img-top" alt="Restaurante 2">
+          <div class="card-body">
+            <h5 class="card-title">2. Cantina Italiana</h5>
+            <p class="card-text">Especializado em massas artesanais.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante3.jpg" class="card-img-top" alt="Restaurante 3">
+          <div class="card-body">
+            <h5 class="card-title">3. Sushi House</h5>
+            <p class="card-text">Autêntica culinária japonesa com peixes frescos.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante4.jpg" class="card-img-top" alt="Restaurante 4">
+          <div class="card-body">
+            <h5 class="card-title">4. Churrascaria Gaúcha</h5>
+            <p class="card-text">Rodízio completo com cortes nobres e buffet variado.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante5.jpg" class="card-img-top" alt="Restaurante 5">
+          <div class="card-body">
+            <h5 class="card-title">5. Veggie Life</h5>
+            <p class="card-text">Pratos vegetarianos e veganos cheios de sabor.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante6.jpg" class="card-img-top" alt="Restaurante 6">
+          <div class="card-body">
+            <h5 class="card-title">6. Maré Alta</h5>
+            <p class="card-text">Frutos do mar frescos e ambiente praiano.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante7.jpg" class="card-img-top" alt="Restaurante 7">
+          <div class="card-body">
+            <h5 class="card-title">7. Bistrô Parisiense</h5>
+            <p class="card-text">Clássicos franceses em ambiente intimista.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante8.jpg" class="card-img-top" alt="Restaurante 8">
+          <div class="card-body">
+            <h5 class="card-title">8. Trattoria Toscana</h5>
+            <p class="card-text">Culinária italiana com toque caseiro.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante9.jpg" class="card-img-top" alt="Restaurante 9">
+          <div class="card-body">
+            <h5 class="card-title">9. Oriental Garden</h5>
+            <p class="card-text">Comida asiática variada e moderna.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="restaurante10.jpg" class="card-img-top" alt="Restaurante 10">
+          <div class="card-body">
+            <h5 class="card-title">10. La Parrilla</h5>
+            <p class="card-text">Especialidade em carnes grelhadas na brasa.</p>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bares -->
+    <div class="category-section bares">
+      <h4>Bares</h4>
+      <div class="card-deck-custom">
+        <div class="card">
+          <img src="bar1.jpg" class="card-img-top" alt="Bar 1">
+          <div class="card-body">
+            <h5 class="card-title">1. Bar Central</h5>
+            <p class="card-text">Drinks especiais e música ao vivo.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar2.jpg" class="card-img-top" alt="Bar 2">
+          <div class="card-body">
+            <h5 class="card-title">2. Boteco do Zé</h5>
+            <p class="card-text">Cervejas artesanais e petiscos clássicos.</p>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar3.jpg" class="card-img-top" alt="Bar 3">
+          <div class="card-body">
+            <h5 class="card-title">3. Sunset Bar</h5>
+            <p class="card-text">Drinks tropicais à beira da piscina.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar4.jpg" class="card-img-top" alt="Bar 4">
+          <div class="card-body">
+            <h5 class="card-title">4. Pub Irlandês</h5>
+            <p class="card-text">Cervejas importadas e ambiente descontraído.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar5.jpg" class="card-img-top" alt="Bar 5">
+          <div class="card-body">
+            <h5 class="card-title">5. Chopp & Cia</h5>
+            <p class="card-text">Diversos tipos de chope gelado.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar6.jpg" class="card-img-top" alt="Bar 6">
+          <div class="card-body">
+            <h5 class="card-title">6. Bar da Esquina</h5>
+            <p class="card-text">Clássico encontro com samba e petiscos.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar7.jpg" class="card-img-top" alt="Bar 7">
+          <div class="card-body">
+            <h5 class="card-title">7. Lounge 77</h5>
+            <p class="card-text">Balada e drinks modernos.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar8.jpg" class="card-img-top" alt="Bar 8">
+          <div class="card-body">
+            <h5 class="card-title">8. Rock Pub</h5>
+            <p class="card-text">Música ao vivo com bandas de rock.</p>
+           
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar9.jpg" class="card-img-top" alt="Bar 9">
+          <div class="card-body">
+            <h5 class="card-title">9. Bar Retrô</h5>
+            <p class="card-text">Ambiente temático anos 80 e 90.</p>
+          
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="bar10.jpg" class="card-img-top" alt="Bar 10">
+          <div class="card-body">
+            <h5 class="card-title">10. Havana Drinks</h5>
+            <p class="card-text">Drinks latinos e música cubana.</p>
+           
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<!-- Footer -->
+<footer class="footer bg-dark-blue text-white mt-5">
+  <div class="container py-5">
+    <div class="row">
+
+      <!-- Coluna 1: Contato -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5>Contato</h5>
+        <p>Email: contato@goitu.com.br</p>
+        <p>Tel: (11) 99999-9999</p>
+      </div>
+
+      <!-- Coluna 2: Sobre nós -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Sobre nós</h5>
+        <p class="small">
+          A Go Itu é o seu guia oficial para descobrir o melhor de Itu (SP).  
+          Cultura, história e passeios em um só lugar — vem explorar com a gente!
+        </p>
+        <p class="mb-0">&copy; 2025</p>
+      </div>
+
+      <!-- Coluna 3: Menu -->
+      <div class="col-12 col-md-4 text-md-right text-center">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="historia.html" class="footer-link">História</a></li>
+          <li><a href="pi.html" class="footer-link">Projeto</a></li>
+          <li><a href="membros.html" class="footer-link">Integrantes</a></li>
+          <li><a href="agradecimentos.html" class="footer-link">Agradecimentos</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+      <script src="scripts.js"></script>
+    </body>
+
+</html>
