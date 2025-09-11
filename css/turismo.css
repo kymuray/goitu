@@ -1,6 +1,6 @@
 
 .card{
-    margin: 0.2cm;
+    margin: 0PX;
     padding: 15px;
     box-sizing: border-box;
     font-family: sans-serif;
@@ -12,16 +12,5 @@ justify-content: center;
 flex-wrap: wrap;
 margin-top: 100px;
 }
-/* Estilo para centralizar e adicionar margem aos cards */
-.card-custom {
-  /* Adiciona a margem de 0.2cm para criar o espaçamento */
-  margin: 0.2cm;
-}
 
-/* Opcional: Para garantir que os cards sejam menores em telas grandes */
-@media (min-width: 992px) {
-  .col-lg-3 .card-custom {
-    max-width: 250px; /* Define uma largura máxima para o card */
-    margin: 0 auto; /* Centraliza o card na coluna */
-  }
 }
