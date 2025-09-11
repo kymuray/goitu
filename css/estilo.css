@@ -47,6 +47,22 @@ nav a {
     text-decoration: none;
     color: var(--white);
 }
+    .navbar ul {
+  /* Remove o preenchimento padrão da lista */
+  padding: 0;
+  /* Remove os marcadores de lista */
+  list-style-type: none;
+  /* Centraliza os itens verticalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para os itens da lista */
+.navbar li {
+  /* Adiciona um pequeno espaçamento entre os itens */
+  margin: 0 15px;
+}
 
 /* Corrige fundo do menu */
 .bg-primary-color {
