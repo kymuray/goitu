@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/estilo.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=page_info" />
+
         <!-- JQUERY-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
@@ -93,20 +95,37 @@
   gap: 10px;               /* Espaço entre os botões */
 }
 
+.box {
+    display: none;
+}
+
+.box.show {
+    display: block; /* Mude de volta para 'block' para não quebrar o layout de coluna */
+}
+
 </style>
 
 
 <section class="projetos">
-  <div class="buttons">
-      <span class="material-icons icon-side">tune</span>
-      <button class="btn btn-outline-secondary" type="button" onclick="filterElements('Todos')">Todos</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria1')">Históricos & Culturais</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria2')">Família & Diversão</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria3')">Natureza & Ecoturismo</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria4')">Rural & Gastronômico</button>
+  <div class="row text-center mb-5 mt-5">
+    <div class="col-12">
+      <h4>
+        Clique para filtrar os atrativos por categoria:
+      </h4>
+      <h5>
+        Escolha uma das opções abaixo para ver as atrações que mais combinam com você!
+      </h5>
+    </div>
+  </div>
+  <div class="buttons mb-5">
+    <span class="material-symbols-outlined">page_info</span>
+    <button class="btn btn-outline-secondary" type="button" onclick="filterElements('Todos')">Todos</button>
+    <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria1')">Históricos & Culturais</button>
+    <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria2')">Família & Diversão</button>
+    <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria3')">Natureza & Ecoturismo</button>
+    <button class="btn btn-outline-secondary" type="button" onclick="filterElements('categoria4')">Rural & Gastronômico</button>
   </div>
 </section>
-
 
 
 <div class="objects">
@@ -117,7 +136,7 @@
     <!-- Card 1 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 1.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/MRCIfachadaT1.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Museu Republicano de Itu</h5>
           <p class="card-text">Palco da Convenção Republicana de 1873, o museu guarda objetos e memórias que marcaram o início da República no Brasil.</p>
@@ -128,7 +147,7 @@
     <!-- Card 2 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 2.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/turismo-itu.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Igreja Matriz de Nossa Senhora da Candelária</h5>
           <p class="card-text">Construída no século XVIII, é um dos maiores templos barrocos do interior paulista, com altares ricamente ornamentados.                                </p>
@@ -139,7 +158,7 @@
     <!-- Card 3 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 3.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/Semana-Madre-Maria-Teodora.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Colégio Nossa Senhora do Patrocínio (Madre Teodora)</h5>
           <p class="card-text">Fundado em 1859, foi um dos primeiros colégios femininos do Brasil, criado por Madre Teodora, e até hoje preserva sua importância histórica e educacional.</p>
@@ -150,7 +169,7 @@
     <!-- Card 4 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 4.jpg" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/centro-ituano-de-letras-e-artes-e-entregue-para-a-populacao-625efad2c071c.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Centro Ituano de Letras e Artes</h5>
           <p class="card-text">Espaço cultural que preserva obras raras e promove leituras, palestras e atividades educativas.</p>
@@ -161,7 +180,7 @@
     <!-- Card 5 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 5.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/3R0G3831-b-scaled.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Museu da Energia de Itu</h5>
           <p class="card-text">Casarão do século XIX transformado em museu, com exposições sobre a história da eletricidade e patrimônio industrial.</p>
@@ -172,7 +191,7 @@
     <!-- Card 6 -->
     <div class="box categoria1 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/hc 6.jpg" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/fama-museu.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Fábrica de Arte Marcos Amaro (FAMA)</h5>
           <p class="card-text">Espaço de arte contemporânea instalado em uma antiga fábrica, com exposições, oficinas e eventos culturais.</p>
@@ -185,7 +204,7 @@
     <!-- Card fd1 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd1.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/images (1).jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Cidade da Criança</h5>
           <p class="card-text">Parque temático com brinquedos, playgrounds e atividades lúdicas voltadas para crianças de todas as idades.</p>
@@ -195,7 +214,7 @@
     <!-- Card fd2 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd2.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/concerto-e-feira-marcam-30-anos-do-parque-do-varvito-em-itu-68b8e71f9d0b7.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Parque Ecológico do Varvito (Área Kids)</h5>
           <p class="card-text">Espaço ao ar livre com trilhas leves, áreas de lazer e atividades educativas voltadas para famílias e crianças.</p>
@@ -205,7 +224,7 @@
     <!-- Card fd3 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd3.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/fazendasitio-com-4-quartos-a-venda-500m-no-condominio-portal-de-itu-itu.webp" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Sítio São Francisco</h5>
           <p class="card-text">Fazendinha interativa com animais, passeios a cavalo e oficinas de produção artesanal, ideal para crianças.</p>
@@ -215,7 +234,7 @@
     <!-- Card fd4 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd4.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/Praca-dos-Exageros-3-2048x1365.webp" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Praça dos Exageros</h5>
           <p class="card-text">Espaço lúdico com esculturas gigantes de objetos e animais, proporcionando diversão para crianças e adultos.</p>
@@ -225,7 +244,7 @@
     <!-- Card fd5 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd5.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/images (2).jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Parque Almeida Júnior</h5>
           <p class="card-text">Inaugurado em 2016, oferece quadra recreativa, parquinho, pista de caminhada, viveiro e horta, sendo ideal para passeios em família.</p>
@@ -235,7 +254,7 @@
     <!-- Card fd6 -->
     <div class="box categoria2 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/fd6.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/images (3).jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Camping Chapéu de Sol - Chácaras Primavera</h5>
           <p class="card-text">Área para barracas, chalés, piscinas, quadras esportivas, pesqueiro e restaurante. Contato com a natureza com infraestrutura completa.</p>
@@ -246,7 +265,7 @@
     <!-- Card ne1 -->
     <div class="box categoria3 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/ne1.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/414295259.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Fazenda Capoava</h5>
           <p class="card-text">Com quase três séculos de história, oferece caminhadas e passeios de bicicleta em meio à Mata Atlântica e formações rochosas antigas, proporcionando uma imersão cultural e natural.</p>
@@ -256,7 +275,7 @@
     <!-- Card ne2 -->
     <div class="box categoria3 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/ne2.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/sp_criancas_fazenda-das-pedras-itu.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Fazenda das Pedras</h5>
           <p class="card-text">Situada em uma grande área verde, possui piscina com toboágua, campo de futebol, lago para pesca e atividades ao ar livre, sendo perfeita para quem deseja tranquilidade e lazer em família.</p>
@@ -266,7 +285,7 @@
     <!-- Card ne3 -->
     <div class="box categoria3 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/ne3.jpg" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/images (4).jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Estrada Parque</h5>
           <p class="card-text">No percurso também existem quiosques para piqueniques, uma gruta que possibilita uma visão do alto da paisagem, fazendas históricas, campings e restaurantes.</p>
@@ -278,7 +297,7 @@
     <!-- Card rg1 -->
 <div class="box categoria4 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/rg1.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/115b978b650c4043bf45b9f4ee6e1f83.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Fazenda do Chocolate</h5>
           <p class="card-text">Uma verdadeira imersão no interior paulista, onde é possível acompanhar a produção artesanal do chocolate, passear de charrete, interagir com animais como lhamas e cabras, e saborear pratos típicos como feijão tropeiro e leitão à pururuca, preparados no fogão a lenha.</p>
@@ -288,7 +307,7 @@
     <!-- Card rg2 -->
     <div class="box categoria4 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/rg2.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/rancho-da-picanha.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Rancho da Picanha</h5>
           <p class="card-text">Situado em meio à natureza, este restaurante oferece cortes de carne de alta qualidade, preparados com maestria. O ambiente rústico e acolhedor proporciona uma experiência gastronômica única, ideal para quem aprecia uma boa picanha em um cenário campestre.</p>
@@ -298,7 +317,7 @@
     <!-- Card rg3 -->
     <div class="box categoria4 col-md-4 mb-4">
       <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="imagens/rg3.jfif" alt="Imagem de capa do card">
+        <img class="card-img-top" src="imagens-atrativos/chacara_do_rosario_turismo_em_itu_1.jpg" alt="Imagem de capa do card">
         <div class="card-body">
           <h5 class="card-title">Chácara do Rosário</h5>
           <p class="card-text">Situada no coração de Itu, a Chácara do Rosário oferece cavalgadas guiadas por trilhas históricas, ideais para iniciantes e cavaleiros experientes.</p>
@@ -359,3 +378,4 @@
 
 
 </html>
+
