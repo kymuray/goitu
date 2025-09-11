@@ -1,24 +1,19 @@
-.card {
-    box-sizing: border-box;
-    font-family: sans-serif;
-    text-align: center; /* Centraliza o texto dentro de cada card */
+.card{
+
+    margin: 0PX;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
 }
 
-/* Nova regra para controlar o tamanho e a margem de cada card */
-.card-small {
-    width: 200px; /* Define uma largura menor para o card. Ajuste conforme sua necessidade */
-    margin: 0.5cm; /* Adiciona a margem de 0.5cm entre os cards */
-    padding: 25px; /* Adiciona um padding interno para o conteúdo */
-}
 
-.card-container {
-    display: flex;
-    justify-content: center; /* Centraliza o grupo de cards horizontalmente */
-    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha em telas menores */
-    margin-top: 100px;
-}
 
-h3{
-    color: #004cb0;
-    text-align: left;
+.card-container{
+    
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 100px;
+
 }
