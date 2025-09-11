@@ -18,8 +18,6 @@
     margin-top: 100px;
 }
 
-/* Ajuste o tamanho da imagem para caber no card maior */
-.card-grosso .card-img-top {
-  height: 120px; /* Aumente a altura da imagem para preencher o espaço */
-  object-fit: cover; /* Garante que a imagem não se distorça */
+h3{
+    color: #004cb0;
 }
