@@ -18,17 +18,6 @@
     margin-top: 100px;
 }
 
-.card-grosso {
-  /* Aumenta o espaçamento interno do card, tornando-o mais grosso */
-  padding: 2.5rem; 
-  
-  /* Define uma borda mais grossa e visível */
-  border: 4px solid #000;
-  
-  /* Opcional: para um visual mais robusto */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
 /* Ajuste o tamanho da imagem para caber no card maior */
 .card-grosso .card-img-top {
   height: 120px; /* Aumente a altura da imagem para preencher o espaço */
