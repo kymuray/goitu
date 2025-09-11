@@ -8,7 +8,7 @@
 .card-small {
     width: 200px; /* Define uma largura menor para o card. Ajuste conforme sua necessidade */
     margin: 0.5cm; /* Adiciona a margem de 0.5cm entre os cards */
-    padding: 15px; /* Adiciona um padding interno para o conteúdo */
+    padding: 25px; /* Adiciona um padding interno para o conteúdo */
 }
 
 .card-container {
