@@ -85,6 +85,8 @@
     <div class="row align-items-center">
 
        <style>
+
+        
     .category-section {
       margin-bottom: 10rem;
     }
@@ -148,13 +150,36 @@
     text-align: right;
 }
 
+<style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: sans-serif;
+        }
+
+        .card {
+           
+            background-color: rgba(178, 237, 255, 0.534);
+             transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            /* Aumenta o tamanho do card */
+            transform: scale(1.1) }
+
+    </style>
+
   </style>
 
   <div class="container my-4">
 
-
+<!--HOTEIS-->
     <div class="category-section hoteis active">
-      <h4>Hotéis</h4>
+      <h3>Hotéis</h3>
       
 
 <div class="card card-list">
@@ -162,16 +187,16 @@
         <img src="imagens/img card gandini.webp" alt="Hotel 1">
         <div class="card-body">
             <div>
-                <h5 class="card-title">1. Gandini Hotel</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">1. Gandini Hotel</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-half"></i>
-                        <i class="bi bi-star"></i>
                     </span>
-                    <span class="text-muted small">3,5</span>
+                    <span class="text-muted small">4,4</span>
                 </div>
                 <p class="card-text text-limited">O Gandini Hotel oferece 96 quartos confortáveis com internet gratuita, piscina, jacuzzi, espaço kids e restaurante com padrão internacional. Ideal para lazer ou trabalho, também dispõe de salas versáteis para eventos e parceria com academia próxima.</p>
             </div>
@@ -179,7 +204,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="text-dark h4">R$ 267</b>
+                    <b class="text-dark h4">R$ 230</b>
                     <small class="text-muted">/noite</small>
                 </p>
                 <a href="gandini.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -196,16 +221,16 @@
         <img src="imagens/sanraphael.webp" alt="Hotel 2">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">2. San Raphael Country</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">2. San Raphael Country</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
                     </span>
-                    <span class="text-muted small">5,0</span>
+                    <span class="text-muted small">4,4</span>
                 </div>
                 <p class="card-text text-limited">O San Raphael Country Hotel é um charmoso hotel-fazenda, com arquitetura colonial, lazer completo e estrutura para eventos corporativos com até 300 pessoas. Ideal para relaxamento em família ou encontros em meio à natureza com conforto e tradição.</p>
             </div>
@@ -213,7 +238,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 635</b>
+                    <b class="h4 text-dark">R$ 589</b>
                     <small class="text-muted">/noite</small>
                 </p>
                 <a href="sanraphael.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -228,7 +253,7 @@
         <img src="imagens/shopping.jpg" alt="Hotel 3">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">3. Hotel Itu Shopping</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">3. Hotel Itu Shopping</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
@@ -237,7 +262,7 @@
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star"></i>
                     </span>
-                    <span class="text-muted small">4,0</span>
+                    <span class="text-muted small">4,1</span>
                 </div>
                 <p class="card-text text-limited">Autêntica culinária japonesa com peixes frescos.</p>
             </div>
@@ -245,7 +270,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 95</b>
+                    <b class="h4 text-dark">R$ 169</b>
                     <small class="text-muted">/noite</small>
                 </p>
                 <a href="hotelitushopping.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -260,16 +285,16 @@
         <img src="imagens/ibis.jpg" alt="Hotel 4">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">4. Ibis Itu Plaza Shopping</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">4. Ibis Itu Plaza Shopping</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
                     </span>
-                    <span class="text-muted small">3,0</span>
+                    <span class="text-muted small">4,4</span>
                 </div>
                 <p class="card-text text-limited">Rodízio completo com cortes nobres e buffet variado.</p>
             </div>
@@ -277,7 +302,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 282</b>
+                    <b class="h4 text-dark">R$ 314</b>
                     <small class="text-muted">/noite</small>
                 </p>
                 <a href="ibis.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -294,7 +319,7 @@
         <img src="imagens/hns.webp" alt="Hotel 5">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">5. Hotel HNS</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">5. Hotel HNS</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
@@ -323,7 +348,7 @@
         <img src="imagens/quedas.jpg" alt="Hotel 6">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">6. Quedaságua - Lazer e Hospedagem</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">6. Quedaságua - Lazer e Hospedagem</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
@@ -355,16 +380,16 @@
         <img src="imagens/KK.jpg" alt="Hotel 7">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">7. Hotel KK</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">7. Hotel KK</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
                     </span>
-                    <span class="text-muted small">3,0</span>
+                    <span class="text-muted small">4,5</span>
                 </div>
                 <p class="card-text text-limited">Clássicos franceses em ambiente intimista.</p>
             </div>
@@ -372,7 +397,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 260</b>
+                    <b class="h4 text-dark">R$ 240</b>
                     <small class="text-muted">/noite</small>
                 </p>
                  <a href="kk.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -384,19 +409,19 @@
 
 <div class="card card-list">
     <div class="d-md-flex">
-        <img src="imagens/sanraphael.webp" alt="Hotel 8">
+        <img src="imagens/otho hotel.avif" alt="Hotel 8">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">8. Otho Hotel</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">8. Otho Hotel</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
                     </span>
-                    <span class="text-muted small">5,0</span>
+                    <span class="text-muted small">4,6</span>
                 </div>
                 <p class="card-text text-limited">Culinária italiana com toque caseiro.</p>
             </div>
@@ -419,16 +444,16 @@
         <img src="imagens/colonial.jpg" alt="Hotel 9">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">9. Hotel Colonial Plaza</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">9. Hotel Colonial Plaza</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
                     </span>
-                    <span class="text-muted small">3,0</span>
+                    <span class="text-muted small">4,6</span>
                 </div>
                 <p class="card-text text-limited">Comida asiática variada e moderna.</p>
             </div>
@@ -436,7 +461,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 280</b>
+                    <b class="h4 text-dark">R$ 230</b>
                     <small class="text-muted">/noite</small>
                 </p>
                   <a href="colonia.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -451,16 +476,16 @@
         <img src="imagens/novotel.webp" alt="Hotel 10">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">10. Hotel Novotel Itu Golf & Resort</h5>
+                <h5 class="card-title" style="color: rgb(1, 1, 121);">10. Hotel Novotel Itu Golf & Resort</h5>
                 <div class="mb-2">
                     <span class="rating-stars">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill"></i>
                     </span>
-                    <span class="text-muted small">4,0</span>
+                    <span class="text-muted small">4,7</span>
                 </div>
                 <p class="card-text text-limited">Especialidade em carnes grelhadas na brasa.</p>
             </div>
@@ -468,7 +493,7 @@
                 <p class="card-text mb-0">
                     <small class="text-muted">A partir de</small>
                     <br>
-                    <b class="h4 text-dark">R$ 1000</b>
+                    <b class="h4 text-dark">R$ 1985</b>
                     <small class="text-muted">/noite</small>
                 </p>
                  <a href="novotel.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -479,23 +504,24 @@
 </div>
 
 
+  <!--POUSADAS-->
     <div class="category-section pousada">
-  <h4 class="mb-4">Pousadas</h4>
+  <h3 class="text-mb-left" style="margin-top: 5%;">Pousadas</h3>
     <div class="card card-list">
         <div class="d-md-flex">
             <img src="imagens/bembom.jpg" alt="Pousada 1">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">1. Hotel Pousada Bem Bom</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">1. Hotel Pousada Bem Bom</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
                         </span>
-                        <span class="text-muted small">3,0</span>
+                        <span class="text-muted small">4,5</span>
                     </div>
                     <p class="card-text text-limited">Drinks especiais e música ao vivo.</p>
                 </div>
@@ -517,7 +543,7 @@
             <img src="imagens/casarão.jpg" alt="Pousada 2">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">2. Casarão de Itu</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">2. Casarão de Itu</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -549,7 +575,7 @@
             <img src="imagens/maeda.jpg" alt="Pousada 3">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">3. Parque Maeda</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">3. Parque Maeda</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -558,7 +584,7 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-half"></i>
                         </span>
-                        <span class="text-muted small">4,5</span>
+                        <span class="text-muted small">4,6</span>
                     </div>
                     <p class="card-text text-limited">Drinks tropicais à beira da piscina.</p>
                 </div>
@@ -566,7 +592,7 @@
                     <p class="card-text mb-0">
                         <small class="text-muted">A partir de</small>
                         <br>
-                        <b class="h4 text-dark">R$ 815</b>
+                        <b class="h4 text-dark">R$ 1600</b>
                         <small class="text-muted">/noite</small>
                     </p>
                     <a href="maeda.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -581,7 +607,7 @@
             <img src="imagens/corujas.jpg" alt="Pousada 4">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">4. Pousada Corujas</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">4. Pousada Corujas</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -590,7 +616,7 @@
                             <i class="bi bi-star-half"></i>
                             <i class="bi bi-star"></i>
                         </span>
-                        <span class="text-muted small">3,5</span>
+                        <span class="text-muted small">4,8</span>
                     </div>
                     <p class="card-text text-limited">Cervejas importadas e ambiente descontraído.</p>
                 </div>
@@ -602,7 +628,7 @@
                         <small class="text-muted">/noite</small>
                     </p>
                      <a href="corujas.html" class="btn btn-primary mt-2">Ver mais</a>
-                    <a href="https://acampamentocorujas.com.br/" class="btn btn-primary mt-2">Site oficial</a>
+                    <a class="btn btn-primary mt-2">Site oficial</a>
                 </div>
             </div>
         </div>
@@ -613,16 +639,16 @@
             <img src="imagens/toca.avif" alt="Pousada 5">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">5. Toca do Tatu</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">5. Toca do Tatu</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star-half"></i>
                         </span>
-                        <span class="text-muted small">4,0</span>
+                        <span class="text-muted small">4,6</span>
                     </div>
                     <p class="card-text text-limited">Hotel Toca do Tatu, localizado em Itu/SP, é uma opção de hospedagem mais tranquila e simples, ideal para quem busca uma estadia aconchegante. Em vez de ser um grande resort, ele se apresenta mais como uma casa de hóspedes (guesthouse) ou uma pousada, focando em um ambiente familiar e acolhedor.</p>
                 </div>
@@ -630,7 +656,7 @@
                     <p class="card-text mb-0">
                         <small class="text-muted">A partir de</small>
                         <br>
-                        <b class="h4 text-dark">R$ 69</b>
+                        <b class="h4 text-dark">R$ 119</b>
                         <small class="text-muted">/noite</small>
                     </p>
                     <a href="toca.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -644,7 +670,7 @@
             <img src="imagens/lua.webp" alt="Pousada 6">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">6. Hostel e Pousada Lua de Prata</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">6. Hostel e Pousada Lua de Prata</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -672,7 +698,7 @@
             <img src="imagens/felicidade.jpg" alt="Pousada 7">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">7. Pousada Chalés da Felicidade</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">7. Pousada Chalés da Felicidade</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -689,7 +715,7 @@
                     <p class="card-text mb-0">
                         <small class="text-muted">A partir de</small>
                         <br>
-                        <b class="h4 text-dark">R$ 270</b>
+                        <b class="h4 text-dark">R$ 205</b>
                         <small class="text-muted">/noite</small>
                     </p>
                      <a href="chalefelicidade.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -704,7 +730,7 @@
             <img src="imagens/carrion.jpg" alt="Pousada 8">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">8. Pousada e Camping Carrion</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">8. Pousada e Camping Carrion</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -721,7 +747,7 @@
                     <p class="card-text mb-0">
                         <small class="text-muted">A partir de</small>
                         <br>
-                        <b class="h4 text-dark">R$ 519</b>
+                        <b class="h4 text-dark">R$ 290</b>
                         <small class="text-muted">/noite</small>
                     </p>
                      <a href="carrion.html" class="btn btn-primary mt-2">Ver mais</a>
@@ -737,7 +763,7 @@
             <img src="imagens/cana.jpg" alt="Pousada 9">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">9. Fazenda Cana Verde Pousada & Polo School</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">9. Fazenda Cana Verde Pousada & Polo School</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
@@ -767,16 +793,16 @@
             <img src="imagens/sol.jpg" alt="Pousada 10">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title">10. Camping - Chapéu de Sol</h5>
+                    <h5 class="card-title" style="color: rgb(1, 1, 121);">10. Camping Chapéu de Sol</h5>
                     <div class="mb-2">
                         <span class="rating-stars">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star-half"></i>
                         </span>
-                        <span class="text-muted small">4,0</span>
+                        <span class="text-muted small">4,6</span>
                     </div>
                     <p class="card-text text-limited">Drinks latinos e música cubana.</p>
                 </div>
@@ -784,7 +810,7 @@
                     <p class="card-text mb-0">
                         <small class="text-muted">A partir de</small>
                         <br>
-                        <b class="h4 text-dark">R$ 299</b>
+                        <b class="h4 text-dark">R$ 189</b>
                         <small class="text-muted">/noite</small>
                     </p>
                     <a href="chapeudosol.html" class="btn btn-primary mt-2">Ver mais</a>
