@@ -188,4 +188,10 @@ nav a {
   margin: 0;
   padding: 0;
 }
+h3 {
+  text-align: left;
+  margin-left: 30px; /* dá o espaço da borda esquerda */
+  margin-top: 20px;  /* opcional, dá espaço de cima */
+  color: #333;       /* deixa mais elegante, mas pode mudar */
+}
 
