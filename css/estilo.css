@@ -118,3 +118,9 @@ footer a.footer-link:hover {
   color: var(--azure);
   text-decoration: underline;
 }
+    h3 {
+  text-align: left;
+  margin-left: 30px; /* dá o espaço da borda esquerda */
+  margin-top: 20px;  /* opcional, dá espaço de cima */
+  color: #333;       /* deixa mais elegante, mas pode mudar */
+}
