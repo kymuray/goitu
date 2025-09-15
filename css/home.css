@@ -151,3 +151,9 @@ footer a.footer-link:hover {
   color: var(--azure);
   text-decoration: underline;
 }
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
