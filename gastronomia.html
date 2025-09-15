@@ -31,87 +31,54 @@
         </script>
         
     </head>
-    <style>
-        /* Navbar fixa e azul */
-        .navbar-azure {
-            background-color: #007FFF; /* Azure */
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
-        }
+    <body class="membros-page">
 
-        /* Logo maior */
-        .navbar-azure .navbar-brand img {
-            height: 60px;
-        }
+    <!-- navbar -->
+     <nav class="navbar navbar-expand-lg bg-primary-color" id="navbar">
+            <!--header inicio-->
+            </header>
+            <!-- container -->
+            <div class="container">   
+                 <a class="navbar-brand" href="index.html">
+                    <img src="imagens/logorealblu.png" alt="logo do site">
 
-        /* Links centralizados e espaçados */
-        .navbar-azure .navbar-nav {
-            margin: 0 auto;
-        }
+                 </a>              
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        .navbar-azure .nav-link {
-            color: white !important;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-        }
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="historia.html">História</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="turismo.html">Turismo</a>
+        </li>
 
-        /* Ícone hambúrguer branco */
-        .navbar-azure .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
 
-        /* Espaço para não ficar atrás da navbar */
-        body {
-            padding-top: 100px;
-        }
-    </style>
-</head>
-<body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-azure">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="imagens/logorealblu.png" alt="Logo do site">
-            </a>
+        <!-- menuzinho que desce 1 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Projeto Integrador
+          </a>
+          <div class="dropdown-menu" aria-labelledby="piDropdown">
+            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+            <a class="dropdown-item" href="membros.html">Integrantes</a>
+             <a class="dropdown-item" href="redessociais.html">Redes Sociais</a>
+          
+          </div>
+        </li>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+      </ul>
+    </div>
+  </div>
+</nav> 
 
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="turismo.html">Descubra Itu!</a></li>
-                    <li class="nav-item"><a class="nav-link" href="historia.html">História & Cultura</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Turismo</a>
-                        <div class="dropdown-menu" aria-labelledby="turismoDropdown">
-                            <a class="dropdown-item" href="atrativos.html">Atrativos</a>
-                            <a class="dropdown-item" href="eventos.html">Eventos</a>
-                            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
-                            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Projeto Integrador</a>
-                        <div class="dropdown-menu" aria-labelledby="piDropdown">
-                            <a class="dropdown-item" href="projeto.html">Nosso Projeto!</a>
-                            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
-                            <a class="dropdown-item" href="membros.html">Integrantes</a>
-                            <a class="dropdown-item" href="redessociais.html">Redes Sociais</a>
-                            <li class="nav-item"><a class="nav-link" href="redessociais.html">Redes Sociais</a></li>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
   <style>
     .card-deck-custom {
       display: flex;
@@ -159,8 +126,9 @@
         <div class="card">
           <img src="imagens/steakhouse.jpeg" class="card-img-top" alt="Restaurante 1">
           <div class="card-body">
-            <h5 class="card-title">1. A Cia Steakhouse</h5>
-            <p class="card-text">De boutique de carnes a steakhouse. Desde 2013, oferece cortes nobres e pratos assinados pelos chefs Gui Mores e Felipe Oliviero.</p>
+            <h5 class="card-title">The Company Steak House</h5>
+            <p class="card-text">Restaurante especializado em cortes nobres e suculentos de carne, com acompanhamentos clássicos e 
+                ambiente sofisticado. Ideal para quem aprecia alta gastronomia e boas carnes.</p>
         
           </div>
         </div>
@@ -168,8 +136,9 @@
         <div class="card">
           <img src="restaurante2.jpg" class="card-img-top" alt="Restaurante 2">
           <div class="card-body">
-            <h5 class="card-title">2. Cantina Italiana</h5>
-            <p class="card-text">Especializado em massas artesanais.</p>
+            <h5 class="card-title">Bar do Alemão</h5>
+            <p class="card-text">Ícone da culinária alemã, é famoso pelo parmegiana gigante, chope bem tirado e
+                pratos típicos em um ambiente tradicional e acolhedor.</p>
             
           </div>
         </div>
@@ -177,8 +146,9 @@
         <div class="card">
           <img src="restaurante3.jpg" class="card-img-top" alt="Restaurante 3">
           <div class="card-body">
-            <h5 class="card-title">3. Sushi House</h5>
-            <p class="card-text">Autêntica culinária japonesa com peixes frescos.</p>
+            <h5 class="card-title">Hioki Sushi</h5>
+            <p class="card-text">Restaurante japonês com foco em sushis e sashimis frescos, combinados refinados e apresentação impecável. 
+                Ideal para quem busca uma experiência oriental sofisticada.</p>
             
           </div>
         </div>
@@ -186,8 +156,9 @@
         <div class="card">
           <img src="imagens/gaucha grill.jpg" class="card-img-top" alt="Restaurante 4">
           <div class="card-body">
-            <h5 class="card-title">4. Churrascaria Gaúcha</h5>
-            <p class="card-text">Rodízio completo com cortes nobres e buffet variado.</p>
+            <h5 class="card-title">La Taverna del Vino</h5>
+            <p class="card-text">Restaurante com clima intimista e carta de vinhos selecionada,
+                oferece massas artesanais, risotos e pratos italianos preparados com elegância.</p>
            
           </div>
         </div>
@@ -195,8 +166,9 @@
         <div class="card">
           <img src="restaurante5.jpg" class="card-img-top" alt="Restaurante 5">
           <div class="card-body">
-            <h5 class="card-title">5. Veggie Life</h5>
-            <p class="card-text">Pratos vegetarianos e veganos cheios de sabor.</p>
+            <h5 class="card-title">A Cia. Steak House</h5>
+            <p class="card-text">Boutique de carnes com ambiente descontraído e acolhedor, onde cortes nobres são preparados de forma ousada — destaque para pratos como o Sushimoo, 
+                saborosos hambúrgueres de costela e acompanhamentos caprichados.</p>
             
           </div>
         </div>
@@ -204,8 +176,9 @@
         <div class="card">
           <img src="restaurante6.jpg" class="card-img-top" alt="Restaurante 6">
           <div class="card-body">
-            <h5 class="card-title">6. Maré Alta</h5>
-            <p class="card-text">Frutos do mar frescos e ambiente praiano.</p>
+            <h5 class="card-title">Via Brasil</h5>
+            <p class="card-text">Restaurante Via Brasil: pratos variados da culinária brasileira, destaque para o frango à parmegiana e bacalhau à portuguesa; 
+                ambiente familiar, sobremesas caprichadas e ótimo para reunir a família.</p>
             
           </div>
         </div>
@@ -213,8 +186,9 @@
         <div class="card">
           <img src="restaurante7.jpg" class="card-img-top" alt="Restaurante 7">
           <div class="card-body">
-            <h5 class="card-title">7. Bistrô Parisiense</h5>
-            <p class="card-text">Clássicos franceses em ambiente intimista.</p>
+            <h5 class="card-title">Sabor A Mar</h5>
+            <p class="card-text">Restaurante especializado em peixes e frutos do mar, com cardápio variado que também inclui carnes, massas e opções vegetarianas; ambiente acolhedor, 
+                estilo praiano, ideal para família, com área kids e espaço pet‑friendly</p>
            
           </div>
         </div>
@@ -256,8 +230,9 @@
         <div class="card">
           <img src="bar1.jpg" class="card-img-top" alt="Bar 1">
           <div class="card-body">
-            <h5 class="card-title">1. Brewtainer Garden</h5>
-            <p class="card-text">Drinks especiais e música ao vivo.</p>
+            <h5 class="card-title">Brewtainer Garden</h5>
+            <p class="card-text">Bar estilo beergarden com ambiente aberto, descontraído e acolhedor; serve outras cervejas 
+                artesanais, chope próprio (“AExaGelada”), drinks diversos e porções para compartilhar.</p>
             
           </div>
         </div>
@@ -265,7 +240,8 @@
         <div class="card">
           <img src="bar2.jpg" class="card-img-top" alt="Bar 2">
           <div class="card-body">
-            <h5 class="card-title">2. Por Aí Afora</h5>
+            <h5 class="card-title">Bar e espaço para eventos com clima acolhedor, serve comidinhas variadas e bebidas especiais; 
+                também promove shows (como tributos musicais), com programação para animar as noites.</h5>
             <p class="card-text">Cervejas artesanais e petiscos clássicos.</p>
             
           </div>
@@ -274,8 +250,9 @@
         <div class="card">
           <img src="bar3.jpg" class="card-img-top" alt="Bar 3">
           <div class="card-body">
-            <h5 class="card-title">3. VILA Gastrobar</h5>
-            <p class="card-text">Drinks tropicais à beira da piscina.</p>
+            <h5 class="card-title">VILA Gastrobar</h5>
+            <p class="card-text">Ambiente moderno com música ao vivo, drinks autorais e porções bem servidas para 
+                compartilhar. Ideal para encontros animados e noites descontraídas.</p>
            
           </div>
         </div>
@@ -283,8 +260,9 @@
         <div class="card">
           <img src="bar4.jpg" class="card-img-top" alt="Bar 4">
           <div class="card-body">
-            <h5 class="card-title">4. Santa Fé Boteco & Prosa</h5>
-            <p class="card-text">Cervejas importadas e ambiente descontraído.</p>
+            <h5 class="card-title">Santa Fé Boteco & Prosa</h5>
+            <p class="card-text">Clima de boteco raiz com cerveja gelada, caipirinhas caprichadas e petiscos tradicionais como torresmo e 
+                mandioca frita. Ótimo para quem curte uma boa prosa com samba ao fundo.</p>
            
           </div>
         </div>
@@ -292,7 +270,7 @@
         <div class="card">
           <img src="bar5.jpg" class="card-img-top" alt="Bar 5">
           <div class="card-body">
-            <h5 class="card-title">5. Caneco Cheio</h5>
+            <h5 class="card-title">Caneco Cheio</h5>
             <p class="card-text">Diversos tipos de chope gelado.</p>
            
           </div>
@@ -301,7 +279,7 @@
         <div class="card">
           <img src="bar6.jpg" class="card-img-top" alt="Bar 6">
           <div class="card-body">
-            <h5 class="card-title">6. Garage Pub</h5>
+            <h5 class="card-title">Garage Pub</h5>
             <p class="card-text">Clássico encontro com samba e petiscos.</p>
            
           </div>
@@ -353,7 +331,7 @@
         <div class="card">
           <img src="bar1.jpg" class="card-img-top" alt="Bar 1">
           <div class="card-body">
-            <h5 class="card-title">1. Café & Prosa</h5>
+            <h5 class="card-title">Café & Prosa</h5>
             <p class="card-text"> É uma cafeteria gourmet que oferece cafés, cappuccinos, frapês e milk shakes, com ambiente agradável para saborear tranquilamente ou para retirada.
 Localização-R. Márcia Pierroni, 68 - Novo Centro, Itu - SP, 13303-525
 </p>
@@ -364,7 +342,7 @@ Localização-R. Márcia Pierroni, 68 - Novo Centro, Itu - SP, 13303-525
         <div class="card">
           <img src="bar2.jpg" class="card-img-top" alt="Bar 2">
           <div class="card-body">
-            <h5 class="card-title">2. Puro da Roça</h5>
+            <h5 class="card-title">Puro da Roça</h5>
             <p class="card-text">Serve café da manhã, almoço e brunch num ambiente acolhedor — ótimo para relaxar ou aproveitar uma refeição leve.
 Localização- Av. José Carlos Massoco, 349 - Pinheirinho, Itu - SP, 13306-740</p>
             
@@ -385,7 +363,7 @@ Localização- R. Santa Rita, 1779 - Centro, Itu – SP
         <div class="card">
           <img src="bar4.jpg" class="card-img-top" alt="Bar 4">
           <div class="card-body">
-            <h5 class="card-title"> Gamela </h5>
+            <h5 class="card-title">Gamela</h5>
             <p class="card-text">É uma cafeteria charmosa que serve café artesanal direto da fazenda, grãos moídos na hora, variedade de doces caseiros (bolos, compotas, cocadas etc.) e proporciona ambiente íntimo ideal para relaxar
 Localização- R. Paula Souza, 547 - Centro, Itu - SP, 13300-050</p>
            
@@ -395,7 +373,7 @@ Localização- R. Paula Souza, 547 - Centro, Itu - SP, 13300-050</p>
         <div class="card">
           <img src="bar5.jpg" class="card-img-top" alt="Bar 5">
           <div class="card-body">
-            <h5 class="card-title"> Asa Café</h5>
+            <h5 class="card-title">Asa Café</h5>
             <p class="card-text">É uma cafeteria social que serve cafés especiais, focaccias e sobremesas autorais, cujos lucros são integralmente revertidos para projetos educacionais da organização Viva Relevante.
 Localização- R. Frei Ambrósio Vroling, 60 - Jardim Novo Itu, Itu - SP, 13301-201</p>
            
@@ -405,7 +383,7 @@ Localização- R. Frei Ambrósio Vroling, 60 - Jardim Novo Itu, Itu - SP, 13301-
         <div class="card">
           <img src="bar6.jpg" class="card-img-top" alt="Bar 6">
           <div class="card-body">
-            <h5 class="card-title">6. Guanabara Café e Bistrô</h5>
+            <h5 class="card-title">Guanabara Café e Bistrô</h5>
             <p class="card-text">É um bistrô cafeteria elegante, que combina café de qualidade com pratos bem elaborados e atendimento atento, ideal para almoços leves ou reuniões descontraídas.
 Localização- Praça Guanabara, 74 - Brasil, Itu - SP, 13301-499.</p>
            
@@ -415,7 +393,7 @@ Localização- Praça Guanabara, 74 - Brasil, Itu - SP, 13301-499.</p>
         <div class="card">
           <img src="bar7.jpg" class="card-img-top" alt="Bar 7">
           <div class="card-body">
-            <h5 class="card-title">7. Amora Maria</h5>
+            <h5 class="card-title"Amora Maria</h5>
             <p class="card-text">É um espaço acolhedor que funciona para café da manhã e lanches leves, oferecendo ambiente tranquilo para uma pausa ou encontro informal.
 Localização- R. Santa Rita, 754A - Centro, Itu - SP, 13300-070</p>
            
@@ -425,7 +403,7 @@ Localização- R. Santa Rita, 754A - Centro, Itu - SP, 13300-070</p>
         <div class="card">
           <img src="bar8.jpg" class="card-img-top" alt="Bar 8">
           <div class="card-body">
-            <h5 class="card-title">8. A Boutique de Flores</h5>
+            <h5 class="card-title">A Boutique de Flores</h5>
             <p class="card-text">É um café bistrô que mescla floricultura com arranjos, buquês e presentes, oferecendo ainda serviço de cafeteria com doces, cafés e ambiente decorado com bom gosto.
 Localização- R. José Bruni, 578, Itu - SP, 13304-080
 .</p>
@@ -436,7 +414,7 @@ Localização- R. José Bruni, 578, Itu - SP, 13304-080
         <div class="card">
           <img src="bar9.jpg" class="card-img-top" alt="Bar 9">
           <div class="card-body">
-            <h5 class="card-title">9.Maritakafé</h5>
+            <h5 class="card-title">Maritakafé</h5>
             <p class="card-text">Oferece um ambiente aconchegante com cafés especiais e opções de doces caseiros. Perfeito para momentos de pausa e encontro.
 Localização- Prime 100 - R. Hélio Tomba, 100 - Loja 7 - Itu Novo Centro, Itu - SP, 13303-542</p>
           
@@ -446,7 +424,7 @@ Localização- Prime 100 - R. Hélio Tomba, 100 - Loja 7 - Itu Novo Centro, Itu 
         <div class="card">
           <img src="bar10.jpg" class="card-img-top" alt="Bar 10">
           <div class="card-body">
-            <h5 class="card-title">10. Caféla</h5>
+            <h5 class="card-title">Caféla</h5>
             <p class="card-text">Serve cafés especiais e promove a sustentabilidade, apoiando projetos sociais da ONG Crescimento Limpo.
 Localização-R. Bahia, 49 - Brasil, Itu - SP, 13300-220</p>
            
@@ -462,7 +440,7 @@ Localização-R. Bahia, 49 - Brasil, Itu - SP, 13300-220</p>
         <div class="card">
           <img src="bar1.jpg" class="card-img-top" alt="Bar 1">
           <div class="card-body">
-            <h5 class="card-title">1. Dona Maria Bolacha</h5>
+            <h5 class="card-title">Dona Maria Bolacha</h5>
             <p class="card-text">Oferece uma variedade de doces artesanais, incluindo bolachas, biscoitos e outras delícias feitas com receitas tradicionais e ingredientes naturais. Perfeita para quem aprecia sabores caseiros e qualidade em cada mordida.
 Localização-R. Santa Rita, 1818 - Centro, Itu - SP, 13300-070.</p>
             
@@ -472,7 +450,7 @@ Localização-R. Santa Rita, 1818 - Centro, Itu - SP, 13300-070.</p>
         <div class="card">
           <img src="bar3.jpg" class="card-img-top" alt="Bar 3">
           <div class="card-body">
-            <h5 class="card-title">2. Vanilla Confeitaria Itu</h5>
+            <h5 class="card-title">Vanilla Confeitaria Itu</h5>
             <p class="card-text">É especialista em doces finos e personalizados, combinando criatividade e sabor em cada criação. Ideal para celebrações e momentos especiais com toques delicados e sofisticados.
 Localização-R. Carolina Lucca Vaz, 548 - Itu Novo Centro, Itu - SP, 13303-519.</p>
            
@@ -482,7 +460,7 @@ Localização-R. Carolina Lucca Vaz, 548 - Itu Novo Centro, Itu - SP, 13303-519.
         <div class="card">
           <img src="bar4.jpg" class="card-img-top" alt="Bar 4">
           <div class="card-body">
-            <h5 class="card-title">3. Confeitaria Guarnieri</h5>
+            <h5 class="card-title">Confeitaria Guarnieri</h5>
             <p class="card-text">Oferece uma seleção clássica de doces e salgados, preparados com tradição e qualidade. Um espaço ideal para quem busca sabor autêntico e atendimento familiar.
 Localização-R. José Bruni, 458 - Novo Centro, Itu - SP, 13304-080
 .</p>
@@ -493,7 +471,7 @@ Localização-R. José Bruni, 458 - Novo Centro, Itu - SP, 13304-080
         <div class="card">
           <img src="bar5.jpg" class="card-img-top" alt="Bar 5">
           <div class="card-body">
-            <h5 class="card-title">4. Dulci Doceria </h5>
+            <h5 class="card-title">Dulci Doceria </h5>
             <p class="card-text">Une doces tradicionais e receitas exclusivas com um ambiente acolhedor e rústico. Perfeita para quem quer saborear doces variados acompanhados de um bom café.
 Localização- Praça Padre Miguel, 79 - Centro, Itu - SP, 13300-169.</p>
            
@@ -503,7 +481,7 @@ Localização- Praça Padre Miguel, 79 - Centro, Itu - SP, 13300-169.</p>
         <div class="card">
           <img src="bar6.jpg" class="card-img-top" alt="Bar 6">
           <div class="card-body">
-            <h5 class="card-title">5. Gelato Borelli</h5>
+            <h5 class="card-title">Gelato Borelli</h5>
             <p class="card-text">Oferece gelatos artesanais com sabores variados e ingredientes frescos, proporcionando uma experiência refrescante e saborosa. Perfeito para quem ama sobremesas geladas de qualidade.
 Localização-R. José Bruni, 458 - Novo Centro, Itu - SP, 13304-080.
 </p>
@@ -514,7 +492,7 @@ Localização-R. José Bruni, 458 - Novo Centro, Itu - SP, 13304-080.
         <div class="card">
           <img src="bar7.jpg" class="card-img-top" alt="Bar 7">
           <div class="card-body">
-            <h5 class="card-title">6.Pâtisserie MAKIBUCHI-LEBEAU</h5>
+            <h5 class="card-title">Pâtisserie MAKIBUCHI-LEBEAU</h5>
             <p class="card-text">Traz doces franceses sofisticados, feitos com técnica apurada e ingredientes selecionados. Uma experiência refinada para os amantes da confeitaria artesanal.
 Localização-R. Cap. Silvio Fleming, 551 - Vila Nova, Itu - SP, 13309-010</p>
            
@@ -525,7 +503,7 @@ Localização-R. Cap. Silvio Fleming, 551 - Vila Nova, Itu - SP, 13309-010</p>
         <div class="card">
           <img src="bar9.jpg" class="card-img-top" alt="Bar 9">
           <div class="card-body">
-            <h5 class="card-title">7. Bertani's Doce </h5>
+            <h5 class="card-title">Bertani's Doce </h5>
             <p class="card-text">Oferece doces artesanais feitos com ingredientes frescos e receitas tradicionais, garantindo sabor e qualidade em cada criação. Ideal para quem busca delícias caseiras e autênticas.
 Localização-R. Márcia Pierroni, 19 - Itu Novo Centro, Itu - SP, 13303-527</p>
           
@@ -535,7 +513,7 @@ Localização-R. Márcia Pierroni, 19 - Itu Novo Centro, Itu - SP, 13303-527</p>
         <div class="card">
           <img src="bar10.jpg" class="card-img-top" alt="Bar 10">
           <div class="card-body">
-            <h5 class="card-title">8.Manduê Gelato</h5>
+            <h5 class="card-title">Manduê Gelato</h5>
             <p class="card-text">Apresenta gelatos artesanais com sabores criativos e ingredientes naturais, perfeitos para quem busca uma sobremesa refrescante e saborosa. Uma opção irresistível para os fãs de sorvete de alta qualidade.
 Localização-Estacionamento do Pão de Açúcar - Av. Prudente de Moraes, 210 - Vila Nova, Itu - SP, 13309-050.</p>
            
@@ -545,7 +523,7 @@ Localização-Estacionamento do Pão de Açúcar - Av. Prudente de Moraes, 210 -
             <div class="card">
           <img src="bar10.jpg" class="card-img-top" alt="Bar 10">
           <div class="card-body">
-            <h5 class="card-title">9. Fruity Sorvetes</h5>
+            <h5 class="card-title">Fruity Sorvetes</h5>
             <p class="card-text">Traz sorvetes e picolés artesanais com sabores naturais e frutados, ideais para quem busca refrescância e opções leves. Perfeito para dias quentes e momentos descontraídos
 Localização-Av. Dr. Ermelindo Maffei, 1199 - Jardim Paraiso, Itu - SP, 13302-231</p>
            .
@@ -555,7 +533,7 @@ Localização-Av. Dr. Ermelindo Maffei, 1199 - Jardim Paraiso, Itu - SP, 13302-2
             <div class="card">
           <img src="bar10.jpg" class="card-img-top" alt="Bar 10">
           <div class="card-body">
-            <h5 class="card-title">10. Nirulas Sorvetes</h5>
+            <h5 class="card-title">Nirulas Sorvetes</h5>
             <p class="card-text">Oferece sorvetes artesanais com sabores clássicos e inovadores, feitos com ingredientes selecionados. Uma escolha perfeita para refrescar o dia com qualidade e sabor.
 Localização-Prç. da Independência, 166 - Centro, Itu - SP, 13300-063.</p>
            
