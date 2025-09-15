@@ -31,55 +31,87 @@
         </script>
         
     </head>
-    <body class="membros-page">
+      <style>
+        /* Navbar fixa e azul */
+        .navbar-azure {
+            background-color: #007FFF; /* Azure */
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
 
-    <!-- navbar -->
-     <nav class="navbar navbar-expand-lg bg-primary-color" id="navbar">
-            <!--header inicio-->
-            </header>
-            <!-- container -->
-            <div class="container">   
-                 <a class="navbar-brand" href="index.html">
-                    <img src="imagens/logorealblu.png" alt="logo do site">
+        /* Logo maior */
+        .navbar-azure .navbar-brand img {
+            height: 60px;
+        }
 
-                 </a>              
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        /* Links centralizados e espaçados */
+        .navbar-azure .navbar-nav {
+            margin: 0 auto;
+        }
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="historia.html">História</a>
-        </li>
-            <li class="nav-item">
-          <a class="nav-link" href="turismo.html">Turismo</a>
-        </li>
+        .navbar-azure .nav-link {
+            color: white !important;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
 
+        /* Ícone hambúrguer branco */
+        .navbar-azure .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
 
+        /* Espaço para não ficar atrás da navbar */
+        body {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
 
-           <!-- menuzinho que desce 1 -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Projeto Integrador
-          </a>
-          <div class="dropdown-menu" aria-labelledby="piDropdown">
-            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
-            <a class="dropdown-item" href="membros.html">Integrantes</a>
-             <a class="dropdown-item" href="redessociais.html">Redes Sociais</a>
-          
-          
-          </div>
-        </li>
-       
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-azure">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/logorealblu.png" alt="Logo do site">
+            </a>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="turismo.html">Descubra Itu!</a></li>
+                    <li class="nav-item"><a class="nav-link" href="historia.html">História & Cultura</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Turismo</a>
+                        <div class="dropdown-menu" aria-labelledby="turismoDropdown">
+                            <a class="dropdown-item" href="atrativos.html">Atrativos</a>
+                            <a class="dropdown-item" href="eventos.html">Eventos</a>
+                            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
+                            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Projeto Integrador</a>
+                        <div class="dropdown-menu" aria-labelledby="piDropdown">
+                            <a class="dropdown-item" href="projeto.html">Nosso Projeto!</a>
+                            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+                            <a class="dropdown-item" href="membros.html">Integrantes</a>
+                            <a class="dropdown-item" href="redessociais.html">Redes Sociais</a>
+                            <li class="nav-item"><a class="nav-link" href="redessociais.html">Redes Sociais</a></li>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <h3>Viva experiências incríveis em Itu!</h3>
 <title>Card Responsivo</title>
 <meta charset="UTF-8">
