@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title> Go Itu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/estilo.css" rel="stylesheet">
+
+        <!-- JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+        </script>
+        
+        <!-- CSS BOOT-->
+        <link 
+        rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous">
+
+        <!-- POPPER -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous">
+        </script>
+
+        <!-- JS-->
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+         crossorigin="anonymous">
+        </script>
+        
+    </head>
+   </head>
+      <style>
+        /* Navbar fixa e azul */
+        .navbar-azure {
+            background-color: #007FFF; /* Azure */
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+
+        /* Logo maior */
+        .navbar-azure .navbar-brand img {
+            height: 60px;
+        }
+
+        /* Links centralizados e espaçados */
+        .navbar-azure .navbar-nav {
+            margin: 0 auto;
+        }
+
+        .navbar-azure .nav-link {
+            color: white !important;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        /* Ícone hambúrguer branco */
+        .navbar-azure .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        /* Espaço para não ficar atrás da navbar */
+        body {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-azure">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/logorealblu.png" alt="Logo do site">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="turismo.html">Descubra Itu!</a></li>
+                    <li class="nav-item"><a class="nav-link" href="historia.html">História & Cultura</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Turismo</a>
+                        <div class="dropdown-menu" aria-labelledby="turismoDropdown">
+                            <a class="dropdown-item" href="atrativos.html">Atrativos</a>
+                            <a class="dropdown-item" href="eventos.html">Eventos</a>
+                            <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
+                            <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Projeto Integrador</a>
+                        <div class="dropdown-menu" aria-labelledby="piDropdown">
+                            <a class="dropdown-item" href="projeto.html">Nosso Projeto!</a>
+                            <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+                            <a class="dropdown-item" href="membros.html">Integrantes</a>
+                            
+                            <li class="nav-item"><a class="nav-link" href="redessociais.html">Redes Sociais</a></li>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ <div class="container my-5">
+    <h1 class="mb-4 text-center" style="color:#073169;">O que é o Projeto Integrador?</h1>
+    <div class="container section">
+    <h1 class="mb-3">Projeto Integrador (P.I.)</h1>
+    <hr>
+    <p class="lead">
+        O Projeto Integrador é uma iniciativa que reúne diferentes matérias do ensino médio integrado ao curso técnico.  
+        No nosso caso, as disciplinas <strong>Arte Digital</strong>, <strong>Programação e Algoritmos</strong>, 
+        <strong>Interfaces Web</strong>, <strong>Fundamentos da Informática</strong> e 
+        <strong>Análise de Projetos Web</strong> se integram para que os alunos desenvolvam projetos criativos e aplicados, explorando suas habilidades de planejamento, execução e criatividade.
+    </p>
+</div>
+ <!-- Matérias-->
+<div class="container section">
+    <h2 class="mb-4" style="margin-top: 30px;" >Matérias Envolvidas</h2>
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Arte Digital 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Desenvolvimento de elementos visuais para projetos, explorando criatividade, cores, tipografia e design digital.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Programação e Algoritmos 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Planejamento e criação de soluções lógicas, implementando códigos e algoritmos para funcionalidades dos projetos.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         Interfaces Web 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Desenvolvimento de páginas e sistemas web, garantindo usabilidade, acessibilidade e estética digital.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Fundamentos da Informática 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+        Aprendizado de conceitos essenciais de informática, sistemas operacionais e aplicações que apoiam os projetos.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Análise de Projetos Web 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+      <div class="card-body">
+         Estudo, planejamento e avaliação de projetos digitais, estruturando etapas e garantindo qualidade final.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container section">
+    <h2 class="mb-4" style="margin-top: 30px;">Objetivos do P.I.</h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Estimular a criatividade e inovação dos alunos.</li>
+        <li class="list-group-item">Promover a integração entre diferentes disciplinas.</li>
+        <li class="list-group-item">Desenvolver habilidades técnicas e práticas aplicadas.</li>
+        <li class="list-group-item">Fortalecer o trabalho em equipe e a organização.</li>
+        <li class="list-group-item">Apresentar projetos de qualidade que possam ser compartilhados com a comunidade.</li>
+    </ul>
+</div>
+</div>
+ </div>
+ 
+
+
+<!-- Footer -->
+<footer class="footer bg-dark-blue text-white mt-5">
+  <div class="container py-5">
+    <div class="row">
+    
+
+      <!-- Coluna 1: Contato -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5>Contato</h5>
+        <p>Email: contato@goitu.com.br</p>
+        <p>Tel: (11) 99999-9999</p>
+      </div>
+
+      <!-- Coluna 2: Sobre nós -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Sobre nós</h5>
+        <p class="small">
+          A Go Itu é o seu guia oficial para descobrir o melhor de Itu (SP).  
+          Cultura, história e passeios em um só lugar — vem explorar com a gente!
+        </p>
+        <p class="mb-0">&copy; 2025</p>
+      </div>
+
+      <!-- Coluna 3: Menu -->
+      <div class="col-12 col-md-4 text-md-right text-center">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="historia.html" class="footer-link">História</a></li>
+          <li><a href="turismo.html" class="footer-link">Turismo</a></li>
+           <li><a href="hoteis.html" class="footer-link">Hospedagem</a></li> 
+            <li><a href="eventos.html" class="footer-link">Eventos</a></li>
+            <li><a href="gastronomia.html" class="footer-link">Gastronomia</a></li>
+            <li><a href="atrativos.html" class="footer-link">Atrativos</a></li>
+          <li><a href="pi.html" class="footer-link">O que é PI?</a></li>
+            <li><a href="membros.html" class="footer-link">Integrantes</a></li>
+          <li><a href="redessociais.html" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  
+  
+</footer>
+      <script src="scripts.js"></script>
+
+    </body>
+
+</html>

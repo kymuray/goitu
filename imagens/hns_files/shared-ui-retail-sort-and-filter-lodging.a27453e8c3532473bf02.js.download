@@ -1,0 +1,1355 @@
+/*@license For license information please refer to shared-ui-retail-sort-and-filter-lodging.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[4714],{90645:function(e,t,l){l.d(t,{RH:function(){return Rt},T2:function(){return wn},_p:function(){return Bn},eA:function(){return Ie},xv:function(){return Un}});var n=l(56195),a=l(73492),i=l(26690),r=l(64341),o=l(97778),s=l(63085),c=l(46286),d=l(522),m=l(99828),u=l(1226),g=l(63081),p=l(42534),S=l(37292),E=l(39938),y=l(34014),F=l(2557),f=l(92919),v=l(24924),h=l(4664),_=l(43888),A=l(934),k=l(76462),b=l(27102),I=l(47840),C=l(70882),T=l(53017),R=l(51213),x=l(57862),N=l(46559),O=l(23726),D=l(95519),M=l(30169),L=l(80240),P=l(8380),$=l(87993),w=l(70947),B=l(87818),G=l(1975),U=l(89438),V=l(52986),z=l(32462),q=l(29366),H=l(74071),Y=l(69287),Q=l(51537),K=l(34372),W=l(60156),X=l(93870),j=l(36327),Z=l(5662),J=l(86405),ee=l(63344),te=l(1905),le=l(47540),ne=l(28662),ae=l(4988),ie=l(90072),re=l(56934),oe=l(87698),se=l(66862),ce=l(48891),de=l(30090),me=l(5491),ue=l.n(me),ge=l(76580),pe=l(28230),Se=l(64512),Ee=l(12389),ye=l(53877),Fe=l(72402),fe=l(87552),ve=l(78955),he=l(25229),_e=l(42048),Ae=l(34869),ke=l(79216),be=l(10295),Ie=(e=>(e.APPLIED_FILTERS="APPLIED_FILTERS",e.FILTERS="FILTERS",e.FILTERS_PILLS="FILTERS_PILLS",e.FILTER_BAR="FILTER_BAR",e.FILTER_DIALOG="FILTER_DIALOG",e.SORT="SORT",e.SORT_AND_FILTERS="SORT_AND_FILTERS",e.SORT_TABS="SORT_TABS",e.USE_REWARDS="USE_REWARDS",e))(Ie||{}),Ce=new Map;Ce.set("FILTER_BAR",({filterBarSpacing:e,numPills:t=6})=>n.createElement(p.N,{...e},n.createElement(u.w,{autoRows:["8x"],alignItems:"center"},n.createElement(d.X,{direction:"row",space:"two"},Array.from({length:t},(e,t)=>n.createElement(m.C,{key:t},n.createElement(g.l,{key:t,animation:!0,type:"secondary"})))))));var Te=i.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    eventType
+    linkName
+    referrerId
+    uisPrimeMessages {
+      ...EGUisMicroMessageFragment
+    }
+  }
+
+  fragment EGUisMicroMessageFragment on EGUisMicroMessage {
+    schemaName
+    messageContent
+  }
+`,Re=i.gql`
+  fragment ClientSideImpressionEventAnalyticsFragment on ClientSideImpressionEventAnalytics {
+    event
+    linkName
+    referrerId
+    uisPrimeMessages {
+      ...EGUisMicroMessageFragment
+    }
+  }
+
+  fragment EGUisMicroMessageFragment on EGUisMicroMessage {
+    schemaName
+    messageContent
+  }
+`,xe=i.gql`
+  fragment EGDSButtonFragment on EGDSButton {
+    primary
+    disabled
+    accessibility
+    icon {
+      id
+      description
+      token
+      title
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    action {
+      accessibility
+    }
+  }
+
+  ${Te}
+`,Ne=e=>e.map(e=>({messageContent:JSON.parse(e.messageContent),schemaName:e.schemaName})),Oe=i.gql`
+  fragment EGDSRemovablePillFragment on EGDSRemovablePill {
+    primary
+    accessibility
+    disabled
+    action {
+      accessibility
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+  }
+
+  ${Te}
+`,De=({data:e,onClick:t,disabled:l})=>{const{primary:a,accessibility:i,action:r}=e,s=(0,o.useClickTracker)();return n.createElement(y.i,{id:a,onClick:()=>{if(null==r?void 0:r.analytics){const{linkName:e,referrerId:t,uisPrimeMessages:l}=r.analytics;s(t,e,void 0,Ne(l))}t()},altText:i||"",a11yRemoveText:(null==r?void 0:r.accessibility)||"",disabled:e.disabled||l},a)};De.displayName="SortAndFilterEGDSRemovablePill",De.fragment=Oe;var Me=i.gql`
+  fragment ShoppingSearchCriteriaFragment on ShoppingSearchCriteria {
+    selections {
+      id
+      value
+    }
+    booleans {
+      id
+      value
+    }
+    counts {
+      id
+      value
+    }
+    dates {
+      id
+      value {
+        day
+        month
+        year
+      }
+    }
+    ranges {
+      id
+      max
+      min
+    }
+  }
+`,Le=i.gql`
+  fragment AppliedFilterFragment on ShoppingSortAndFilterAppliedFilter {
+    pill {
+      ...EGDSRemovablePillFragment
+    }
+    nextSearchCriteria {
+      ...ShoppingSearchCriteriaFragment
+    }
+  }
+
+  ${De.fragment}
+  ${Me}
+`,Pe=({data:e,onRemove:t,allowEmptySelections:l,disabled:a})=>{var i;const{pill:r,nextSearchCriteria:o}=e;if("EGDSRemovablePill"!==r.__typename||!(null==(i=o.selections)?void 0:i[0])&&!l)return null;return n.createElement(De,{data:r,onClick:()=>{null==t||t(o)},disabled:a})};Pe.displayName="AppliedFilter",Pe.fragment=Le;var $e=i.gql`
+  fragment IconFragment on Icon {
+    id
+    title
+    token
+    description
+    size
+  }
+`,we={EXTRA_SMALL:F.So.EXTRA_SMALL,SMALL:F.So.SMALL,MEDIUM:F.So.MEDIUM,MEDIUM_LARGE:F.So.MEDIUM,LARGE:F.So.LARGE,XLARGE:F.So.XLARGE},Be=e=>{const{data:t}=e,{id:l,title:a,description:i,size:r}=t,o=we[null!=r?r:"LARGE"];return n.createElement(F.LD,{id:l,name:l,title:null!=a?a:i,description:i,size:o})};Be.displayName="Icon",Be.fragment=$e;var Ge=i.gql`
+  fragment EGDSBasicRemovablePillFragment on EGDSBasicRemovablePill {
+    primary
+    name
+    accessibility
+    id
+    disabled
+    removeAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    icon {
+      ...IconFragment
+    }
+  }
+  ${Be.fragment}
+  ${Te}
+`,Ue=({data:e,onClick:t,onRemove:l,loading:a,className:i})=>{var r;const{id:s,primary:c,accessibility:d,removeAnalytics:m,name:u,disabled:g,icon:p}=e,S=null!=(r=null!=s?s:u)?r:"egds-basic-removable-pill",E="Icon"===(null==p?void 0:p.__typename)?p.token:"",F=(0,o.useClickTracker)();return n.createElement(y.i,{value:c||"",id:S,onClick:e=>{if(t&&t(),l&&l(e),m){const{referrerId:e,linkName:t,uisPrimeMessages:l}=m;F(e,t,void 0,Ne(l))}},icon:E,a11yRemoveText:d||"",disabled:g||a,className:i},c)};Ue.displayName="EGDSBasicRemovablePill",Ue.fragment=Ge;var Ve=i.gql`
+  fragment FilterAppliedFragment on ShoppingAppliedFilter {
+    filter {
+      ...EGDSBasicRemovablePillFragment
+    }
+    nextSearchCriteria {
+      ...ShoppingSearchCriteriaFragment
+    }
+  }
+
+  ${Ue.fragment}
+  ${Me}
+`,ze=({data:e,onRemove:t,allowEmptySelections:l,loading:a,setDefaults:i})=>{const{filter:r,nextSearchCriteria:o}=e;if(n.useEffect(()=>{var e,t,l;"neighborhood"===(null==(t=null==(e=null==o?void 0:o.selections)?void 0:e[0])?void 0:t.id)&&i({regionId:null==(l=null==o?void 0:o.selections)?void 0:l[0].value})},[]),"EGDSBasicRemovablePill"!==(null==r?void 0:r.__typename)||(e=>{var t,l;return!e||!((null==(t=e.selections)?void 0:t[0])||(null==(l=e.ranges)?void 0:l[0]))})(o)&&!l)return null;return n.createElement(Ue,{data:r,onClick:()=>{t&&o&&t(o)},loading:a})};ze.displayName="FilterApplied",ze.fragment=Ve;var qe=i.gql`
+  fragment SearchToolsAppliedFiltersFragment on ShoppingSortAndFilters {
+    appliedFilters {
+      ...AppliedFilterFragment
+    }
+    filtersApplied {
+      ...FilterAppliedFragment
+    }
+    clearAll {
+      egdsElementId
+      ...EGDSButtonFragment
+    }
+  }
+
+  ${Pe.fragment}
+  ${ze.fragment}
+  ${xe}
+`,He=({key:e,filter:t,onRemove:l,allowEmptySelections:a,loading:i,setDefaults:r})=>"pill"in t?n.createElement(Pe,{key:e,data:t,onRemove:l,allowEmptySelections:a,disabled:i}):"filter"in t?n.createElement(ze,{key:e,data:t,onRemove:l,allowEmptySelections:a,loading:i,setDefaults:r}):null,Ye=({data:e,onEmptyResults:t,onRemoveAppliedFilter:l,onRemoveAllAppliedFilters:a,wrapAppliedFilters:i=!1,allowEmptySelectionsPills:r,loading:s,appliedFiltersSpacing:c})=>{var u;const{appliedFilters:g,clearAll:y,filtersApplied:F}=e,f=(0,o.useClickTracker)(),v=null==y?void 0:y.egdsElementId,h=((e,t)=>e?[...e]:t?[...t]:[])(F,g),[_,A]=n.useState(void 0),k=n.useCallback(()=>{var t;if(null==(t=e.clearAll)?void 0:t.analytics){const{referrerId:t,linkName:l}=e.clearAll.analytics;f(t,l)}null==a||a(_)},[null==(u=e.clearAll)?void 0:u.analytics,a,f]);return(null==h?void 0:h.length)?n.createElement(p.N,{...c},n.createElement(E.v,{direction:"horizontal"},n.createElement(d.X,{wrap:i?"wrap":"nowrap",space:i?"two":void 0},(null==h?void 0:h.length)>0&&n.createElement(n.Fragment,null,h.map((e,t)=>n.createElement(m.C,{shrink:0,key:`applied-filter-${t}`},n.createElement(He,{key:`applied-filter-${t}`,filter:e,onRemove:l,allowEmptySelections:r,loading:s,setDefaults:A})))),y&&n.createElement(m.C,{shrink:0},n.createElement(p.N,{margin:{inlineend:"one"},padding:{inlinestart:"two",block:"two"}},n.createElement(S.i,{inline:!0,noWrap:!0},n.createElement("button",{type:"button",onClick:k,disabled:s,"data-test-id":v},y.primary))))))):(null==t||t(),null)};Ye.displayName="SearchToolsAppliedFilters",Ye.fragment=qe;var Qe={event_name:"filter_dialog.opened",event_type:"Interaction",event_category:"search_filter",event_version:"1.0.0"},Ke={event_name:"fee_inclusive_banner.presented",event_type:"Impression",event_category:"search_filter",event_version:"1.0.0"},We=(e,t)=>e.find(e=>e.key===t),Xe=(e,t,l="click")=>({schemaName:"referrer",messageContent:{referrerId:e,linkName:t,eventType:l}}),je=i.gql`
+  fragment EGDSCarouselFragment on EGDSCarousel {
+    nextButton {
+      accessibility
+      analytics {
+        eventType
+        linkName
+        referrerId
+      }
+    }
+    previousButton {
+      accessibility
+      analytics {
+        eventType
+        linkName
+        referrerId
+      }
+    }
+  }
+`,Ze=i.gql`
+  fragment ShoppingSortAndFiltersCarouselFragment on ShoppingSortAndFilters {
+    carousel {
+      ...EGDSCarouselFragment
+    }
+    scrollEndAnalytics {
+      eventType
+      linkName
+      referrerId
+    }
+  }
+
+  ${je}
+`,Je=i.gql`
+  fragment EGDSTertiaryButtonFragment on UITertiaryButton {
+    egdsElementId
+    ...EGDSButtonFragment
+  }
+
+  ${xe}
+`,et=({onClick:e,isFullWidth:t,size:l,data:a,isDisabled:i})=>{const{egdsElementId:r,primary:s,disabled:c,accessibility:d,analytics:m,icon:u}=a,g=null!=r?r:"search_form_tertiary_button",p=(0,o.useClickTracker)(),S=i||c,E=n.useCallback(()=>{if(m){const{referrerId:e,linkName:t,uisPrimeMessages:l}=m;p(e,t,void 0,Ne(l))}e()},[m,e,p]);return n.createElement(D.q,{"aria-label":null!=d?d:"",id:g,"data-test-id":g,onClick:E,disabled:S,isFullWidth:t,size:l},u&&n.createElement(F.LD,{name:u.id}),s)};et.displayName="SortAndFilterEGDSTertiaryButton",et.fragment=Je;var tt=i.gql`
+  fragment SortFilterToolbarFragment on UIToolbar {
+    __typename
+    primary
+    actions {
+      primary {
+        ...EGDSTertiaryButtonFragment
+      }
+      secondaries {
+        ...EGDSTertiaryButtonFragment
+      }
+    }
+  }
+
+  ${et.fragment}
+`,lt=e=>{var t,l;const{data:a,onCloseButtonClick:i,onClearAllButtonClick:r}=e,{actions:s,primary:c}=a,{primary:d,secondaries:m}=s,u=(0,o.useClickTracker)(),g=null!=(t=s.primary.egdsElementId)?t:"",p=null!=(l=d.accessibility)?l:"",S=n.useCallback(()=>{if(s.primary.analytics){const{referrerId:e,linkName:t}=s.primary.analytics;u(e,t)}null==i||i()},[s.primary.analytics,i,u]);if(!c||!Array.isArray(m)||0===m.length)return null;const[E]=m;return n.createElement(O.p,{toolbarTitle:c,navigationContent:i?{onClick:S,navIconLabel:p,navButtonId:g}:void 0,toolbarActionContent:E&&n.createElement(et,{data:E,onClick:r})})};lt.displayName="Toolbar",lt.fragment=tt;var nt=i.gql`
+  fragment EGDSSecondaryButtonFragment on UISecondaryButton {
+    egdsElementId
+    ...EGDSButtonFragment
+  }
+
+  ${xe}
+`,at=({onClick:e,data:t})=>{const{egdsElementId:l,primary:a,analytics:i}=t,r=null!=l?l:"search_form_secondary_button",s=(0,o.useClickTracker)(),c=n.useCallback(()=>{if(i){const{referrerId:e,linkName:t,uisPrimeMessages:l}=i;s(e,t,void 0,Ne(l))}e()},[i,e,s]);return n.createElement(M.y,{id:r,onClick:c},a)};at.displayName="SortAndFilterEGDSSecondaryButton",at.fragment=nt;var it=i.gql`
+  fragment UIPrimaryFloatingActionButtonFragment on UIPrimaryFloatingActionButton {
+    primary
+    badge
+    accessibility
+    action {
+      accessibility
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    impressionAnalytics {
+      ...ClientSideImpressionEventAnalyticsFragment
+    }
+    icon {
+      ...IconFragment
+    }
+    egdsElementId
+    disabled
+  }
+
+  ${Re}
+  ${Te}
+  ${Be.fragment}
+`,rt=e=>{const{data:t,onClick:l,isFullWidth:a,size:i,triggerRef:r}=e,{primary:s,icon:c,badge:d,analytics:m,egdsElementId:u,disabled:g}=t,p=(0,o.useClickTracker)(),S=n.useCallback(()=>{if(m){const{referrerId:e,linkName:t,uisPrimeMessages:l}=m;p(e,t,void 0,Ne(l))}l()},[m,l,p]);return n.createElement($.y,{isFullWidth:a,onClick:S,size:i,"data-test-id":null!=u?u:"",domRef:r,disabled:g},d&&n.createElement(P.h,{text:d.toString()}),s,c&&n.createElement(Be,{data:c}))};rt.displayName="UIPrimaryFloatingActionButton",rt.fragment=it;var ot=i.gql`
+  fragment UISecondaryFloatingActionButtonFragment on UISecondaryFloatingActionButton {
+    primary
+    badge
+    accessibility
+    action {
+      accessibility
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    impressionAnalytics {
+      ...ClientSideImpressionEventAnalyticsFragment
+    }
+    icon {
+      ...IconFragment
+    }
+    egdsElementId
+  }
+
+  ${Re}
+  ${Te}
+  ${Be.fragment}
+`,st=({badge:e,withUpdatedNotification:t})=>t?n.createElement(m.C,null,n.createElement(B.P,{type:"relative",position:{right:"one",bottom:"half"}},n.createElement(w.u,{count:e.toString(),theme:"action",visible:!0}))):n.createElement(m.C,null,n.createElement(P.h,{text:e.toString()})),ct=e=>{const{data:t,onClick:l,isFullWidth:a,size:i,withUpdatedNotification:r,triggerRef:s}=e,{primary:c,icon:u,badge:g,analytics:p,egdsElementId:S}=t,E=(0,o.useClickTracker)(),y=n.useCallback(()=>{if(p){const{referrerId:e,linkName:t,uisPrimeMessages:l}=p;E(e,t,void 0,Ne(l))}l()},[p,l,E]);return n.createElement(M.y,{isFullWidth:a,onClick:y,size:i,"data-test-id":null!=S?S:"",domRef:s},n.createElement(d.X,{space:r&&g?"six":"two"},!!g&&n.createElement(st,{badge:g,withUpdatedNotification:r}),u&&!g&&n.createElement(m.C,null,n.createElement(Be,{data:u})),n.createElement(m.C,null,n.createElement("div",null,c))))};ct.displayName="UISecondaryFloatingActionButton",ct.fragment=ot;var dt=i.gql`
+  fragment UIFloatingActionButtonFragment on UIFloatingActionButton {
+    __typename
+    accessibility
+
+    ... on UIPrimaryFloatingActionButton {
+      ...UIPrimaryFloatingActionButtonFragment
+    }
+
+    ... on UISecondaryFloatingActionButton {
+      ...UISecondaryFloatingActionButtonFragment
+    }
+  }
+
+  ${rt.fragment}
+  ${ct.fragment}
+`,mt={UIPrimaryFloatingActionButton:rt,UISecondaryFloatingActionButton:ct},ut=({onClick:e,isFullWidth:t=!1,size:l=L.V.MEDIUM,data:a,withUpdatedNotification:i,triggerRef:r})=>{const{__typename:o}=a,s=mt[o];return s?n.createElement(s,{onClick:e,isFullWidth:t,size:l,data:a,withUpdatedNotification:i,triggerRef:r}):null};ut.displayName="UIFloatingActionButton",ut.fragment=dt;var gt=i.gql`
+  fragment ShoppingSortAndFilterDialogContainerFragment on ShoppingSortAndFilterDialogContainer {
+    view
+    revealAction {
+      ...UIFloatingActionButtonFragment
+    }
+    applyAction {
+      ...UIFloatingActionButtonFragment
+    }
+    toolbar {
+      ...SortFilterToolbarFragment
+    }
+  }
+
+  ${lt.fragment}
+  ${ut.fragment}
+`,pt=i.gql`
+  fragment ShoppingSortAndFilterCenteredSheetAIContainerFragment on ShoppingSortAndFilterCenteredSheetAIContainer {
+    view
+    revealAction {
+      ...EGDSSecondaryButtonFragment
+    }
+    applyAction {
+      ...UIFloatingActionButtonFragment
+    }
+    toolbar {
+      ...SortFilterToolbarFragment
+    }
+  }
+
+  ${lt.fragment}
+  ${ut.fragment}
+  ${at.fragment}
+`,St=i.gql`
+  fragment ShoppingSortAndFilterContainersFragment on ShoppingSortAndFilters {
+    containers {
+      ...ShoppingSortAndFilterDialogContainerFragment
+      ...ShoppingSortAndFilterCenteredSheetAIContainerFragment
+    }
+  }
+
+  ${gt}
+  ${pt}
+`,Et=({children:e,isDialogOpen:t,stickyByViewsize:l={},spacing:a={},disabled:i,isSmallViewSize:r,hasCarousel:o,stickyRef:s,onFixedStateChange:c,zIndex:d,showSlimFtcBanner:m})=>{var u;const[g,S]=n.useState(!1),E=!g&&r&&o?{overflow:"auto hidden"}:void 0;return!(null!=(u=(0,N.s5)(l))&&u)||i?n.createElement(p.N,{...a},n.createElement("div",{style:E},e)):n.createElement(k.D,{ref:s,zIndex:t?void 0:d,onFixed:e=>{S(e),c(e)}},n.createElement(p.N,{padding:{inline:"unset"}},n.createElement(G.B,{layout:"fullwidth",canvasTheme:g?"primary":"none"},n.createElement(p.N,{...a,border:[g&&!m?"blockend":"unset"]},n.createElement("div",{style:E},e)))))},yt=({onClick:e,domRef:t,shouldAddMarginRight:l,primary:a,className:i,disabled:r})=>{const o=n.createElement(M.y,{disabled:r,onClick:e,domRef:t,size:L.V.SMALL,style:{whiteSpace:"nowrap"},className:i},n.createElement(F.LD,{name:"ai"}),a||"");return n.createElement(p.N,{margin:{inlineend:l?"two":"unset"}},o)},Ft=["Top rated properties","Breakfast included","Family friendly hotels"],ft=(e=!1)=>e?{blockstart:"two"}:{blockstart:"one"},vt=(e,t)=>t?e:{...null!=e?e:{},padding:{blockstart:"four"}},ht=({textInputLabel:e,buttonAriaLabel:t,listTitle:l,onActionListItemClick:a,onTextInputChange:i,onSubmit:r,badgeText:s,errorStateString:c,sectionTitle:u,sectionSpacing:g,contentSpacing:S,tnlFields:E,showSuggestions:y,isSmallViewSize:f,subtext:v,placeholder:h="",webFiltersHeadingsSpacingsExposure:_})=>{const A=null==(I=null==(k=E)?void 0:k.find(({key:e})=>"ai_search_input"===e))?void 0:I.value;var k,I;const[C,T]=n.useState(null!=A?A:""),[R,x]=n.useState(c),[N,O]=n.useState(0),D=C.length>100,M=(0,o.useClickTracker)(),P=(e=>{const t=null==e?void 0:e.filter(({key:e})=>e.startsWith("ai_search_suggestion_")).map(({value:e})=>e);return(null==t?void 0:t.length)?t:Ft})(E),w=n.useRef(null),B=n.useRef(!0),G=f||_?6:5,U=R?{primary:R,secondary:""}:D?{primary:"",secondary:`${C.length}/100`}:void 0,Y=Boolean(U),Q=C.length<=0||Y||C===A;n.useEffect(()=>{T(null!=A?A:"")},[E]),n.useEffect(()=>{x(c),c&&B.current&&M("HOT.SR.AISearch.Error","AI Search dialog error"),B.current=!1},[c]),n.useEffect(()=>{var e;let t=0;if(Y){const l=null==(e=w.current)?void 0:e.querySelector(".uitk-field-messages");t=l?l.getBoundingClientRect().height:0}O(t)},[Y]);const K=()=>{null==r||r(C),M("HOT.SR.AISearch.Applied","AI Search user string submitted")},W=e=>{null==a||a(e),M("HOT.SR.AISearch.DS.Applied","AI Search suggestion submitted")};return n.createElement(p.N,{...g},n.createElement("div",null,s&&n.createElement(p.N,{margin:{blockend:"one"}},n.createElement(z.G,{text:s,size:"small"})),u&&n.createElement(p.N,{padding:{blockstart:f?void 0:"half"}},n.createElement(d.X,{direction:"row",space:f?"small":"xsmall",alignItems:"center"},n.createElement(m.C,null,n.createElement(p.N,{padding:{blockstart:f?void 0:"one",blockend:f?void 0:"one"}},n.createElement(H.M,{tag:"h3",size:G,typeStyle:f?{customStyle:"display-small",customTheme:"standard"}:void 0},u))),f&&s&&n.createElement(m.C,null,n.createElement(z.G,{text:s,size:"small"})))),v&&(f?n.createElement(H.M,{size:7},v):n.createElement(p.N,{padding:ft(f)},n.createElement(b.D,{weight:"regular",theme:"standard"},((e,t=!1)=>t?e:"Let us know what you’re looking for to find your perfect stay.")(v,f)))),n.createElement(p.N,{...vt(S,f)},n.createElement("div",null,n.createElement(d.X,{alignItems:"center",space:"two",domRef:w},n.createElement(m.C,{grow:1},n.createElement("div",null,n.createElement(q._,{id:"aiSearch",label:e,name:"aiSearchDemo",value:C,onChange:e=>{x(""),null==i||i();const t=e.target.value.replace(/\n+$/,"");T(t)},onKeyDown:e=>{"Enter"===e.key&&(Q?e.preventDefault():K())},invalid:U,onFocus:()=>{M("HOT.SR.AISearch.Focused","AI Search focused")},maxRows:2,placeholder:h}))),n.createElement(m.C,null,n.createElement($.y,{disabled:Q,size:L.V.MEDIUM,onClick:K,"aria-label":t,style:{marginBlockEnd:`${N}px`}},n.createElement(F.LD,{name:"search"})))),y&&n.createElement(p.N,{padding:{blockstart:"six"}},n.createElement(d.X,{direction:"column",space:"four"},n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{size:7},l)),P.map(e=>n.createElement(p.N,{padding:{block:"unset",inline:"unset"},style:{minBlockSize:"unset"},key:e},n.createElement(V.P,{"aria-label":e},n.createElement(d.X,{alignItems:"center",space:"two",onClick:()=>null==W?void 0:W(e),onKeyUp:t=>((e,t)=>{"Enter"===e.key&&W(t)})(t,e),tabIndex:0},n.createElement(m.C,null,n.createElement("div",null,n.createElement(F.LD,{size:F.So.EXTRA_SMALL,name:"search"}))),n.createElement(m.C,null,n.createElement("div",null,n.createElement(b.D,null,e)))))))))))))},_t=({dialogAriaLabel:e,onTriggerClick:t,onActionListItemClick:l,onTextInputChange:a,onSubmit:i,shouldAddMarginRight:r,onSheetClose:s,closeButtonAriaLabel:c,errorStateString:d,setErrorStateString:m,tnlFields:u,className:g,isSmallViewSize:p,disabled:S})=>{const E=n.useRef(null),[y,{openDialog:F,closeDialog:f},v]=(0,C.useDialog)("ai-search-dialog"),h=(0,o.useClickTracker)();n.useEffect(()=>{d&&F()},[d]);return n.createElement(n.Fragment,null,n.createElement(yt,{primary:"AI filters",onClick:()=>{null==t||t(),F(),h("HOT.SR.AISearch.Open","AI Search dialog open")},domRef:E,shouldAddMarginRight:r,className:g,disabled:S}),n.createElement(_.K,{isVisible:y,closeCallback:()=>{null==s||s(),null==m||m(void 0)}},n.createElement(v,null,n.createElement(A.t,{type:"full",triggerRef:E,isVisible:y,ariaLabel:e},n.createElement(O.p,{toolbarTitle:"AI filters",navigationContent:{onClick:()=>{h("HOT.SR.AISearch.Closed","AI Search dialog closed"),f()},navIconLabel:c}}),n.createElement(U.Y,{padded:!1},n.createElement(ht,{textInputLabel:"I'm looking for...",buttonAriaLabel:"search",listTitle:"Try these",badgeText:"Beta",sectionTitle:"Find your perfect stay",subtext:"Let us know what you’re looking for and we’ll help you find your perfect stay.",onActionListItemClick:e=>{null==l||l(e)},onTextInputChange:a,onSubmit:e=>{null==i||i(e)},errorStateString:d,tnlFields:u,isSmallViewSize:p,sectionSpacing:{padding:{inline:"six",blockstart:"six",blockend:"six"}},contentSpacing:{padding:{blockstart:"six"}},showSuggestions:!0,placeholder:"Hotels with breakfast"}))))))},At=n.createContext({}),kt=({children:e})=>{const[t,l]=n.useState([]),a=n.useMemo(()=>({histogramData:t,setHistogramData:l}),[t,l]);return n.createElement(At.Provider,{value:a},e)},bt=()=>n.useContext(At),It=i.gql`
+  fragment AllFilterSheetFooterFragment on ShoppingSortAndFilters {
+    footerLabel
+    containers {
+      ... on ShoppingSortAndFilterDialogContainer {
+        view
+        applyAction {
+          ...UIFloatingActionButtonFragment
+        }
+      }
+    }
+  }
+
+  ${ut.fragment}
+`,Ct=({data:e,viewType:t,onClick:l,footerDataLoading:a,isButtonTracked:i})=>{var r,s;const{footerLabel:c,containers:u}=e,{applyAction:S}=null!=(r=null==u?void 0:u.find(e=>"ShoppingSortAndFilterDialogContainer"===e.__typename&&e.view===t))?r:{},E=c;if("UIPrimaryFloatingActionButton"!==(null==S?void 0:S.__typename))return null;const{referrerId:y="",linkName:F}=null!=(s=S.impressionAnalytics)?s:{},f=a?{...S,disabled:!0}:S;return n.createElement(p.N,{padding:{small:"four",large:{inline:"six"}},border:["blockstart"]},n.createElement(d.X,{justifyContent:E?"space-between":"end",alignItems:"center"},E&&n.createElement(m.C,null,a?n.createElement(g.l,null):n.createElement(Y.u,null,c)),n.createElement(m.C,null,i?n.createElement(o.IntersectionTracker,{referrerId:y,linkName:null!=F?F:""},n.createElement(ut,{data:f,onClick:l,withUpdatedNotification:!0})):n.createElement(ut,{data:f,onClick:l,withUpdatedNotification:!0}))))};Ct.displayName="AllFilterSheetFooter",Ct.fragment=It;var Tt=(e,t)=>{const[l,a,i]=(0,C.useDialog)(e,t),[r,o]=(0,n.useState)(!1);(0,n.useLayoutEffect)(()=>{o(l)},[l]);return{dialogActions:{openDialog:(0,n.useCallback)(async()=>{o(!0),await new Promise(e=>{setTimeout(e,0)}),a.openDialog()},[a]),closeDialog:(0,n.useCallback)(()=>{o(!1),a.closeDialog()},[a]),toggleDialog:function(){o(!r)}},isDialogOpen:r,DialogComponent:i}},Rt=(e=>(e.CLEAR="clear",e.RESTORE="restore",e.CLEAR_QUICK_FILTERS="clear_quick_filters",e.CLEAR_FILTERS_APPLIED="clear_filters_applied",e))(Rt||{}),xt=(e,t)=>-3===e.min?{...t.rangeField.selected,max:e.max}:-2===e.max?{...t.rangeField.selected,min:e.min}:-1!==e.min&&-1!==e.max?{...t.rangeField.selected,min:e.min,max:e.max}:{...t.rangeField.selected,min:t.rangeField.characteristics.min,max:t.rangeField.characteristics.max},Nt=i.gql`
+  fragment EGDSBasicPillFragment on EGDSBasicPill {
+    accessibility
+    disabled
+    name
+    primary
+    selected
+    selectedText
+    value
+    icon {
+      ...IconFragment
+    }
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  ${Te}
+  ${Be.fragment}
+`,Ot=e=>{var t;const{data:l,onChange:i,triggerPill:r,onClick:s,active:c,className:d}=e,{accessibility:m,name:u,primary:g,selected:p,value:S,disabled:E,icon:y,selectAnalytics:F,deselectAnalytics:f,selectedText:v}=l,_=(0,o.useClickTracker)(),A=null!=u?u:"egds-basic-pill",[k,b]=n.useState(p),I=(0,n.useRef)(!1),C=v||g,T=(0,a.j)(A,e=>{const{checked:t}=e.currentTarget;if(b(t),I.current||(I.current=!0),i&&i(e),F&&t){const{linkName:t,referrerId:l,uisPrimeMessages:n}=F;return _(l,t,void 0,Ne(n)),e}if(f&&!t){const{linkName:e,referrerId:t,uisPrimeMessages:l}=f;_(t,e,void 0,Ne(l))}return e});return n.useEffect(()=>{I.current&&(0,Q.liveAnnounce)(null!=m?m:void 0)},[m,I.current]),n.useEffect(()=>{b(p)},[p]),n.createElement(h.B,{checked:k,active:c,disabled:E,icon:"Icon"===(null==y?void 0:y.__typename)?y.token:"",id:A,name:`EGDSBasicPill-${u}`,onChange:T,value:null!=S?S:"",altText:null!=m?m:"",triggerPill:r,onClick:()=>{s&&s()},className:d},null!=(t=k?C:g)?t:"")};Ot.displayName="EGDSBasicPill",Ot.fragment={...Nt,__typename:"EGDSBasicPill"};var Dt=i.gql`
+  fragment EGDSBasicTriggerPillFragment on EGDSBasicTriggerPill {
+    id
+    disabled
+    primary
+    selected
+    icon {
+      ...IconFragment
+    }
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    accessibility
+  }
+
+  ${Te}
+  ${Be.fragment}
+`,Mt=({data:e,triggerPill:t,onClick:l,domRef:i,active:r,shouldRegisterToForm:s=!0,className:c})=>{const{id:d,primary:u,selected:g,disabled:p,icon:S,selectAnalytics:E,deselectAnalytics:y,accessibility:F}=e,f=(0,o.useClickTracker)(),v=null!=d?d:"egds-basic-pill",[_,A]=n.useState(r||g);n.useEffect(()=>{A(null!=r&&r)},[r]);const k=e=>{if(null==l||l(),E&&_){const{linkName:e,referrerId:t,uisPrimeMessages:l}=E;f(t,e,void 0,Ne(l))}else if(y&&!_){const{linkName:e,referrerId:t,uisPrimeMessages:l}=y;f(t,e,void 0,Ne(l))}A(!_)},b=(0,a.j)(v,e=>(k(),e));return n.createElement(m.C,{shrink:0},n.createElement(h.B,{checked:_,active:_,selected:g,disabled:p,icon:"Icon"===(null==S?void 0:S.__typename)?S.token:"",id:v,name:`EGDSBasicTriggerPill-${v}`,triggerPill:t,onClick:s?b:k,altText:null!=F?F:"",domRef:i,className:c},null!=u?u:""))};Mt.displayName="EGDSBasicTriggerPill",Mt.fragment=Dt;var Lt=i.gql`
+  fragment EGDSPillFragment on EGDSPill {
+    __typename
+
+    ...EGDSBasicPillFragment
+    ...EGDSBasicTriggerPillFragment
+    ...EGDSBasicRemovablePillFragment
+  }
+
+  ${Ot.fragment}
+  ${Mt.fragment}
+  ${Ue.fragment}
+`,Pt=e=>{const{data:t}=e;switch(t.__typename){case"EGDSBasicPill":return n.createElement(Ot,{...e,data:t});case"EGDSBasicTriggerPill":return n.createElement(Mt,{...e,data:t});case"EGDSBasicRemovablePill":return n.createElement(Ue,{...e,data:t});default:return null}};Pt.displayName="SortAndFilterEGDSPill",Pt.fragment=Lt;var $t=({children:e,DialogComponent:t,...l})=>{var a,i;const{triggerRef:r,isVisible:o,onDismiss:s,lastQuickfilter:c,isCenteredSheet:d,isBottomSheet:m,onSheetClose:u,shouldHaveFullSizeSheet:g}=l,p=(0,N.eg)({viewSizes:N.pf})===N.pf.SMALL,S=(0,N.eg)({viewSizes:N.pf})===N.pf.MEDIUM,{height:E=0}=(()=>{const[e,t]=(0,n.useState)({width:window.innerWidth,height:window.innerHeight}),l=()=>{t({width:window.innerWidth,height:window.innerHeight})};return(0,n.useEffect)(()=>(window.addEventListener("resize",l),()=>window.removeEventListener("resize",l)),[]),e})(),{bottom:y=0}=null!=(i=null==(a=null==r?void 0:r.current)?void 0:a.getBoundingClientRect())?i:{},F={position:{inline:S&&c?"trailing":"leading",block:"trailing"},type:"popover",width:400,applyBlockStartMargin:!0,autoFocus:!0,autoPosition:!1,triggerRef:r,isVisible:o,onDismiss:s,maxHeight:Math.max(E-y-160,0)},f={type:"bottom",isVisible:o,triggerRef:r,fullWidth:S},v={type:"centered",centeredSheetSize:"small",isVisible:o,triggerRef:r},h={type:"full",isVisible:o,triggerRef:r};return p&&g?n.createElement(_.K,{isVisible:o,closeCallback:u},n.createElement(t,null,n.createElement(A.t,{...h},e))):p||m?n.createElement(_.K,{isVisible:o,closeCallback:u},n.createElement(t,null,n.createElement(A.t,{...f},e))):d?n.createElement(_.K,{isVisible:o,closeCallback:u},n.createElement(t,null,n.createElement(A.t,{...v},e))):n.createElement(_.K,{isVisible:o,closeCallback:u},n.createElement(A.t,{...F},e))},wt=(e,t)=>{switch(t.type){case"RESET_STATE":{const t=(e=>{var t,l;return"ShoppingMutexField"===(null==e?void 0:e.__typename)?{...e,options:null!=(l=null==(t=e.options)?void 0:t.map(e=>{var t;const{mutexOption:l}=e;return"ShoppingRangeField"===l.__typename?{...e,mutexOption:{...l,range:(null==(t=l.range)?void 0:t.id)?{...l.range,selected:{...l.range.selected,min:l.range.characteristics.min,max:l.range.characteristics.max}}:null}}:"ShoppingRangeTextInputField"===l.__typename?{...e,mutexOption:{...l,rangeField:{...l.rangeField,selected:{...l.rangeField.selected,min:l.rangeField.characteristics.min,max:l.rangeField.characteristics.max}}}}:e}))?l:null}:e})(e.field);return{...e,field:t}}case"UPDATE_SLIDER_VALUE":{const l=((e,t)=>{var l,n;return"ShoppingMutexField"===(null==e?void 0:e.__typename)?{...e,options:null!=(n=null==(l=e.options)?void 0:l.map(e=>{var l,n;const{mutexOption:a}=e;return"ShoppingRangeField"===a.__typename?{...e,mutexOption:{...a,range:(null==(l=a.range)?void 0:l.id)===t.id?{...a.range,selected:-1!==t.min&&-1!==t.max?{...a.range.selected,min:t.min,max:t.max}:{...a.range.selected,min:a.range.characteristics.min,max:a.range.characteristics.max}}:a.range}}:"ShoppingRangeTextInputField"===a.__typename?{...e,mutexOption:{...a,rangeField:(null==(n=a.rangeField)?void 0:n.id)===t.id?{...a.rangeField,selected:xt(t,a)}:a.rangeField}}:e}))?n:null}:e})(e.field,t);return{...e,field:l}}case"UPDATE_FIELD_DATA":return{...e,field:t.field};default:return e}},Bt=n.createContext({state:{}}),Gt=({children:e,field:t})=>{const[l,a]=n.useReducer(wt,{field:t}),i=(0,n.useMemo)(()=>({state:l,dispatch:a}),[l,a]);return n.createElement(Bt.Provider,{value:i},e)},Ut=i.gql`
+  fragment DropdownFieldFragment on ShoppingDropdownField {
+    __typename
+    primary
+    secondary
+    dropdownOptions: options {
+      accessibility
+      id
+      primary
+      value
+      defaultOption: default
+      selected
+      selectAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      deselectAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+  }
+
+  ${Te}
+`,Vt=({data:e,onSelectedField:t,onKeyPress:l,onClick:i,resetFilters:r,hasNoSectionTitle:s,loading:c})=>{var d,m,u;const{primary:g,secondary:p,dropdownOptions:S}=e,E=null!=(d=null!=g?g:p)?d:"",{id:y,value:F}=null!=(m=S[0])?m:{id:""},f=Array.isArray(e.dropdownOptions)?null==(u=e.dropdownOptions.find(e=>e.selected))?void 0:u.value:F,[v,h]=n.useState(f),_=(0,o.useClickTracker)(),A=(0,a.j)(y,e=>{const l=S.find(t=>t.value===e.currentTarget.value),n=S.find(e=>e.value===v);if(null==n?void 0:n.deselectAnalytics){const{referrerId:e,linkName:t,uisPrimeMessages:l}=n.deselectAnalytics;_(e,t,void 0,Ne(l))}if(null==l?void 0:l.selectAnalytics){const{referrerId:e,linkName:t,uisPrimeMessages:n}=l.selectAnalytics;_(e,t,void 0,Ne(n))}return h(e.currentTarget.value),null==t||t(),e});return n.useEffect(()=>{h(f)},[f]),n.useEffect(()=>{r&&h(F)},[r]),n.createElement(n.Fragment,null,s&&n.createElement(H.M,{className:"is-visually-hidden",tag:"h4"},E),n.createElement(K._,{id:`sort-filter-dropdown-${y}`,value:v,defaultValue:v,name:y,label:E,emptyState:!1,onChange:A,onKeyPress:()=>{null==l||l()},onClick:()=>{null==i||i({name:y})},disabled:c,onKeyDown:e=>{"ArrowUp"!==e.key&&"ArrowDown"!==e.key||(e.preventDefault(),e.stopPropagation())}},S.map(({primary:e,selected:t,value:l},a)=>n.createElement("option",{key:a,value:l,"aria-selected":t,"data-opt-id":l},e))))};Vt.displayName="DropdownField",Vt.fragment={...Ut,__typename:"ShoppingDropdownField"};var zt=i.gql`
+  fragment EGDSPrimaryButtonFragment on UIPrimaryButton {
+    egdsElementId
+    ...EGDSButtonFragment
+  }
+
+  ${xe}
+`,qt=({data:e,onClick:t,size:l,isFullWidth:a=!0,floating:i=!1})=>{const{egdsElementId:r,primary:s,analytics:c,disabled:d}=e,m=null!=r?r:"search_form_primary_button",u=(0,o.useClickTracker)(),g={onClick:n.useCallback(()=>{if(c){const{referrerId:e,linkName:t,uisPrimeMessages:l}=c;u(e,t,void 0,Ne(l))}t()},[c,t,u]),id:m,isFullWidth:a,disabled:d,size:l||L.V.LARGE};return i?n.createElement(X.O,{type:"fade-button"},n.createElement(W.t,{...g},s)):n.createElement($.y,{...g},s)};qt.displayName="SortAndFilterEGDSPrimaryButton",qt.fragment=zt;var Ht=i.gql`
+  fragment QuickAccessFilterSheetFooterFragment on ShoppingSortAndFilterQuickFilter {
+    resultCountLabel
+    applyAction {
+      ...EGDSPrimaryButtonFragment
+    }
+    filterPill {
+      id
+    }
+  }
+
+  ${qt.fragment}
+`,Yt=({data:e,onClick:t,footerDataLoading:l})=>{const{resultCountLabel:a,applyAction:i}=e,r=a;if("UIPrimaryButton"!==(null==i?void 0:i.__typename))return null;const o={data:l?{...i,disabled:!0}:i,onClick:t,size:L.V.MEDIUM};return n.createElement(p.N,{padding:{small:"four",large:{inline:"six"}}},n.createElement(d.X,{justifyContent:r?"space-between":"end",alignItems:"center"},r&&n.createElement(m.C,null,n.createElement(m.C,null,l?n.createElement(g.l,null):n.createElement(Y.u,null,a))),n.createElement(m.C,null,n.createElement(qt,{...o,isFullWidth:!1}))))};Yt.displayName="QuickAccessFilterSheetFooter",Yt.fragment=Ht;var Qt=({topic:e,onSuccess:t,onError:l})=>((0,J._H)(e,ee.M$,{onSuccess:t,onError:l}),null),Kt=({children:e})=>{const t=n.useMemo(()=>new te.PubSubSignalManager,[]);return n.createElement(J.RQ,{manager:t},e)},Wt=i.gql`
+  fragment TemplateModelFragment on TemplateModel {
+    key
+    source
+  }
+`,Xt=i.gql`
+  fragment EGDSBasicLocalizedTextFragment on EGDSBasicLocalizedText {
+    template
+    models {
+      ...TemplateModelFragment
+    }
+  }
+
+  ${Wt}
+`,jt=i.gql`
+  fragment EGDSCardinalLocalizedTextFragment on EGDSCardinalLocalizedText {
+    egdsElementId
+    text
+    models {
+      ...TemplateModelFragment
+    }
+    templates {
+      ...CardinalTemplateFragment
+    }
+  }
+
+  fragment CardinalTemplateFragment on CardinalTemplate {
+    template
+    category
+  }
+
+  ${Wt}
+`,Zt=i.gql`
+  fragment EGDSCompositeLocalizedTextFragment on EGDSCompositeLocalizedText {
+    egdsElementId
+    text
+    template
+    models {
+      ...CompositeLocalizedTextModelFragment
+    }
+  }
+
+  fragment CompositeLocalizedTextModelFragment on CompositeLocalizedTextModel {
+    key
+    models {
+      ...EGDSTemplateModelsFragment
+    }
+  }
+
+  fragment EGDSTemplateModelsFragment on EGDSTemplateModels {
+    models {
+      ...TemplateModelFragment
+    }
+  }
+
+  ${Wt}
+`,Jt=(i.gql`
+  fragment EGDSLocalizedTextFragment on EGDSLocalizedText {
+    ...EGDSBasicLocalizedTextFragment
+    ...EGDSCardinalLocalizedTextFragment
+    ...EGDSCompositeLocalizedTextFragment
+  }
+
+  ${Xt}
+  ${jt}
+  ${Zt}
+`,i.gql`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    text
+  }
+`),el=({data:e})=>n.createElement(b.D,null,e.text);el.fragment=Jt,el.displayName="EGDSPlainText";var tl=i.gql`
+  fragment SortAndFilterSignalReceiverFragment on SortAndFilterSignalReceiver {
+    signalId
+  }
+`,ll=i.gql`
+  fragment SortAndFilterSignalEmitterFragment on SortAndFilterSignalEmitter {
+    signalId
+    condition
+    payload {
+      ...SortAndFilterSignalPayloadFragment
+    }
+  }
+
+  fragment SortAndFilterSignalPayloadFragment on SortAndFilterSignalPayload {
+    ...SortAndFilterBasicFilterPayloadFragment
+    ...SortAndFilterSelectedFilterPillPayloadFragment
+  }
+
+  fragment SortAndFilterBasicFilterPayloadFragment on SortAndFilterBasicFilterPayload {
+    filterId
+    type
+  }
+
+  fragment SortAndFilterSelectedFilterPillPayloadFragment on SortAndFilterSelectedFilterPillPayload {
+    deselectionSignalId
+    filter {
+      ...EGDSBasicRemovablePillPartialFragment
+    }
+    filterName {
+      ...SortAndFilterSignalDataSourceFragment
+    }
+  }
+
+  fragment EGDSBasicRemovablePillPartialFragment on EGDSBasicRemovablePill {
+    name
+    accessibility
+    id
+    removeAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  fragment SortAndFilterSignalDataSourceFragment on SortAndFilterSignalDataSource {
+    ...EGDSPlainTextFragment
+    ...EGDSBasicLocalizedTextFragment
+  }
+
+  ${Te}
+  ${el.fragment}
+  ${Xt}
+  ${Ue.fragment}
+`,nl=()=>{const{publish:e}=(0,J.Yj)();return(0,n.useCallback)((t,l)=>{t.forEach(t=>{const n=((e,t)=>{const{condition:l,payload:n}=e,a=((e,t)=>{if(!t)return!1;const{type:l}=t;switch(e){case"SELECTED":switch(l){case"SELECTION_OPTIONS":return t.prevChecked;case"TYPEAHEAD_OPTIONS":return""===t.selection;default:return!0}case"UNSELECTED":switch(l){case"SELECTION_OPTIONS":return!t.prevChecked;case"TYPEAHEAD_OPTIONS":return""!==t.selection;default:return!1}case"DEFAULT_TO_NON_DEFAULT":switch(l){case"RANGE_OPTIONS":{const{prevMin:e,nextMin:l,defaultMin:n,prevMax:a,nextMax:i,defaultMax:r}=t;return e!==n||a!==r||l===n&&i===r}case"STEP_INPUT_OPTIONS":{const{prevValue:e,defaultValue:l}=t;return e!==l}default:return!0}case"NON_DEFAULT_TO_NON_DEFAULT":switch(l){case"RANGE_OPTIONS":{const{prevMin:e,nextMin:l,defaultMin:n,prevMax:a,nextMax:i,defaultMax:r}=t;return e===n&&a===r||l===n&&i===r}case"STEP_INPUT_OPTIONS":{const{prevValue:e,nextValue:l,defaultValue:n}=t;return e===n||l===n}default:return!0}case"NON_DEFAULT_TO_DEFAULT":switch(l){case"RANGE_OPTIONS":{const{nextMin:e,defaultMin:l,nextMax:n,defaultMax:a}=t;return e!==l||n!==a}case"STEP_INPUT_OPTIONS":{const{nextValue:e,defaultValue:l}=t;return e!==l}default:return!0}}})(l,t);if(a)return null;const i=e.signalId.toUpperCase();switch(n.__typename){case"SortAndFilterSelectedFilterPillPayload":{const e=((e,t)=>{switch(e.__typename){case"EGDSPlainText":return e.text;case"EGDSBasicLocalizedText":{const{template:l,models:n}=e;return n.reduce((e,{key:l,source:n})=>{const a=((e,t)=>{switch(e){case"selected.min":if("RANGE_OPTIONS"===(null==t?void 0:t.type))return`${t.nextMin}`;break;case"selected.max":if("RANGE_OPTIONS"===(null==t?void 0:t.type))return`${t.nextMax}`;break;case"stepInput.value":if("STEP_INPUT_OPTIONS"===(null==t?void 0:t.type))return`${t.nextValue}`;break;case"selected":if("TYPEAHEAD_OPTIONS"===(null==t?void 0:t.type))return`${t.selection}`}return""})(n,t);return e.replace(`{${l}}`,a)},l)}default:return""}})(n.filterName,t);let l={...n,filterNameResolved:e};if("EGDSBasicRemovablePill"===l.filter.__typename&&l.filter.removeAnalytics){const e=((e,t)=>{const{referrerId:l}=e;switch(null==t?void 0:t.type){case"RANGE_OPTIONS":{const{analyticsMin:e,analyticsMax:n}=t;return`${l}.${e},${n}`}case"STEP_INPUT_OPTIONS":{const{nextValue:e}=t;return`${l}.${e}`}case"TYPEAHEAD_OPTIONS":{const{selection:e}=t;return`${l}.${e}`}default:return l}})(l.filter.removeAnalytics,t);l={...l,filter:{...l.filter,removeAnalytics:{...l.filter.removeAnalytics,referrerId:e}}}}return new ee.M$(i,l)}case"SortAndFilterBasicFilterPayload":{const e={...n};return"SELECTION_OPTIONS"===(null==t?void 0:t.type)&&(e.prevChecked=t.prevChecked),new ee.Kw(i,e)}default:return null}})(t,l);n&&e(n)})},[e])},al=i.gql`
+  fragment MultiSelectionStackedTileFieldOptionFragment on ShoppingSelectableFilterOption {
+    __typename
+    fieldId: id
+    primary
+    selected
+    value
+    accessibility
+    disabled
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    icon {
+      ...IconFragment
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+  ${tl}
+  ${ll}
+  ${Be.fragment}
+`,il=({receivers:e,setChecked:t})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,l)=>{const a=e.signalId.toUpperCase();return n.createElement(Qt,{onSuccess:({payload:e})=>{const{type:l,prevChecked:n}=e;switch(l){case"REMOVE":t(!1);break;case"OPTION":t(!n)}},topic:a,key:`${a}-${l}`})})),rl=({data:e,onSelectedField:t,resetFilters:l,loading:i})=>{const{fieldId:r,primary:s,selected:c,value:d,icon:m,accessibility:u,disabled:g,__typename:p,receivers:S,emitters:E}=e,[y,f]=(0,n.useState)(c),v=(0,o.useClickTracker)(),h=nl(),_=(0,a.j)(r,l=>{if(e.selectAnalytics&&!y){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.selectAnalytics;v(t,l,void 0,Ne(n))}if(e.deselectAnalytics&&y){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.deselectAnalytics;v(t,l,void 0,Ne(n))}return E&&(null==h||h(null!=E?E:[],{type:"SELECTION_OPTIONS",prevChecked:y})),f(l.currentTarget.checked),null==t||t(),l});return n.useEffect(()=>{l&&f(!1)},[l]),n.createElement(n.Fragment,null,S&&n.createElement(il,{receivers:S,setChecked:f}),n.createElement(Z.c,{key:`${r}-${d}`,name:r,id:`${p}-${r}-${d}`,value:d,checked:y,disabled:g||i,...m?{icon:null==m?void 0:m.id}:{},labelText:s,altText:u||"",iconSize:F.So.EXTRA_SMALL,onChange:_}))};rl.displayName="MultiSelectionStackedTileFieldOption",rl.fragment=al;var ol=i.gql`
+  fragment MultiSelectionStackedTileFieldFragment on ShoppingMultiSelectionStackedTileField {
+    __typename
+    multiOptions: options {
+      ...MultiSelectionStackedTileFieldOptionFragment
+    }
+    primary
+    secondary
+  }
+  ${rl.fragment}
+`,sl=({data:e,onSelectedField:t,resetFilters:l,loading:a,webFiltersHeadingsSpacingsExposure:i})=>{const{multiOptions:r,primary:o,secondary:s}=e,c=i?6:7;return n.createElement("fieldset",null,n.createElement("legend",null,o&&n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{tag:"h4",size:c},o))),s&&n.createElement(Y.u,null,s),r&&n.createElement(p.N,{padding:{blockstart:"one"}},n.createElement(j.v,{wrapButtons:!0},null==r?void 0:r.map((e,i)=>n.createElement(rl,{resetFilters:l,data:e,key:`${i}-${e.selected}`,onSelectedField:t,loading:a})))))};sl.displayName="MultiSelectionStackedTileField",sl.fragment={...ol,__typename:"ShoppingMultiSelectionStackedTileField"};var cl=i.gql`
+  fragment MultiSelectionTileFieldOptionFragment on ShoppingSelectableFilterOption {
+    __typename
+    fieldId: id
+    primary
+    secondary
+    selected
+    value
+    accessibility
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    disabled
+    icon {
+      ...IconFragment
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+  ${Be.fragment}
+  ${tl}
+  ${ll}
+`,dl=({receivers:e,setChecked:t})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,l)=>{const a=e.signalId.toUpperCase();return n.createElement(Qt,{key:`${a}-${l}`,topic:a,onSuccess:({payload:e})=>{const{type:l,prevChecked:n}=e;switch(l){case"REMOVE":t(!1);break;case"OPTION":t(!e.prevChecked)}}})})),ml=({data:e,onSelectedField:t,resetFilters:l,loading:i})=>{const{fieldId:r,primary:s,secondary:c,selected:d,value:m,icon:u,accessibility:g,disabled:p,__typename:S,emitters:E,receivers:y}=e,[f,v]=(0,n.useState)(d),h=(0,o.useClickTracker)(),_=nl(),A=(0,a.j)(r,l=>{if(e.selectAnalytics&&!f){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.selectAnalytics;h(t,l,void 0,Ne(n))}if(e.deselectAnalytics&&f){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.deselectAnalytics;h(t,l,void 0,Ne(n))}return E&&(null==_||_(null!=E?E:[],{type:"SELECTION_OPTIONS",prevChecked:f})),v(l.currentTarget.checked),null==t||t(),l});return n.useEffect(()=>{l&&v(!1)},[l]),n.createElement(n.Fragment,null,y&&n.createElement(dl,{receivers:y,setChecked:v}),n.createElement(Z.c,{key:`${r}-${m}`,name:r,id:`${S}-${r}-${m}`,value:m,checked:f,disabled:p||i,...u?{icon:null==u?void 0:u.id}:{},labelText:s,subLabelText:c||"",altText:g||"",iconSize:F.So.EXTRA_SMALL,onChange:A,stacked:!0}))};ml.displayName="MultiSelectionTileFieldOption",ml.fragment=cl;var ul=i.gql`
+  fragment MultiSelectionTileFieldFragment on ShoppingMultiSelectionTileField {
+    __typename
+    multiOptions: options {
+      ...MultiSelectionTileFieldOptionFragment
+    }
+    primary
+    secondary
+  }
+  ${ml.fragment}
+`,gl=({data:e,onSelectedField:t,resetFilters:l,loading:a,webFiltersHeadingsSpacingsExposure:i})=>{const{multiOptions:r,primary:o,secondary:s}=e,c=i?6:7;return n.createElement("fieldset",null,n.createElement("legend",null,o&&n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{tag:"h4",size:c},o))),s&&n.createElement(Y.u,null,s),r&&n.createElement(p.N,{margin:{blockstart:"two"}},n.createElement(u.w,{space:"two",columns:2},null==r?void 0:r.map((e,i)=>n.createElement(le.T,{key:`${i}-${e.selected}`},n.createElement(ml,{data:e,key:`${i}-${e.selected}`,onSelectedField:t,resetFilters:l,loading:a}))))))};gl.displayName="MultiSelectionTileField",gl.fragment={...ul,__typename:"ShoppingMultiSelectionTileField"};var pl,Sl=null!=(pl=n.useId)?pl:()=>n.useMemo(()=>Math.random().toString(36).substring(7),[]),El=(e,t,l)=>{const n=new CustomEvent("change"),a=document.createElement("input");l&&(a.type=l),a.value=e;const i=e=>{t(e)};a.addEventListener("change",i),a.dispatchEvent(n),a.removeEventListener("change",i)},yl=i.gql`
+  fragment MarkFragment on Mark {
+    description
+    id
+  }
+`,Fl=({data:e,className:t})=>n.createElement(oe.D,{className:t,description:e.description,id:e.id,name:e.id});Fl.displayName="Mark",Fl.fragment={...yl,__typename:"Mark"};var fl=i.gql`
+  fragment UIGraphicFragment on UIGraphic {
+    ...MarkFragment
+  }
+
+  ${Fl.fragment}
+`,vl=({data:e,markOptions:t})=>"Mark"===e.__typename?n.createElement(Fl,{data:e,...t}):null;vl.displayName="UIGraphic",vl.fragment=fl;var hl=i.gql`
+  fragment MultiSelectionOptionFieldFragment on ShoppingSelectableFilterOption {
+    __typename
+    accessibility
+    fieldId: id
+    description
+    graphic {
+      ...UIGraphicFragment
+    }
+    primary
+    secondary
+    selected
+    value
+    disabled
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+  ${vl.fragment}
+  ${tl}
+  ${ll}
+`,_l=({receivers:e,setChecked:t,setTriggerInputChange:l})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,a)=>{const i=e.signalId.toUpperCase();return n.createElement(Qt,{key:`${i}-${a}`,topic:i,onSuccess:({payload:e})=>{const{type:n,prevChecked:a}=e;switch(n){case"REMOVE":t(!1),l(!0);break;case"OPTION":t(!a)}}})})),Al=({data:e,onSelectedField:t,resetFilters:l,ignoreSignals:i,domRef:r,loading:s})=>{const{fieldId:c,primary:u,secondary:g,selected:S,value:E,description:y,emitters:F,receivers:f,disabled:v,graphic:h,accessibility:_}=e,[A,k]=(0,n.useState)(S),[I,C]=(0,n.useState)(!1),T=(0,a.j)(c,e=>e),R=Sl(),x=nl(),N=(0,o.useClickTracker)(),O=(0,a.j)(c,l=>{if(e.selectAnalytics&&!A){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.selectAnalytics;N(t,l,void 0,Ne(n))}if(e.deselectAnalytics&&A){const{referrerId:t,linkName:l,uisPrimeMessages:n}=e.deselectAnalytics;N(t,l,void 0,Ne(n))}return F&&!i&&x(null!=F?F:[],{type:"SELECTION_OPTIONS",prevChecked:A}),k(l.currentTarget.checked),null==t||t(),l});return(0,n.useEffect)(()=>{l&&k(!1)},[l]),(0,n.useEffect)(()=>{k(S)},[S]),(0,n.useEffect)(()=>{I&&(El(E,T,"checkbox"),null==t||t(),C(!1))},[I]),n.createElement(n.Fragment,null,f&&n.createElement(_l,{receivers:f,setChecked:k,setTriggerInputChange:C}),n.createElement(d.X,{alignItems:"center",space:"two"},n.createElement(p.N,{padding:{inlinestart:"one"}},n.createElement(m.C,{grow:1},n.createElement("div",null,n.createElement(re.x,{id:`${c}-${E}-${R}`,name:c,value:E,checked:A,description:null!=y?y:"",onChange:O,disabled:v||s,a11yLabel:null!=_?_:"",domRef:r},h&&n.createElement(vl,{data:h})," ",u)))),g&&n.createElement(m.C,{shrink:0},n.createElement(b.D,null,g))))};Al.displayName="MultiSelectionOptionField",Al.fragment=hl;var kl=i.gql`
+  fragment MultiSelectionFieldFragment on ShoppingMultiSelectionField {
+    __typename
+    primary
+    secondary
+    fieldId: id
+    expando {
+      collapseLabel
+      collapseAccessibilityLabel
+      expandAccessibilityLabel
+      collapseAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      expandAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      expandLabel
+      minimalHeight
+      threshold
+      visible
+    }
+    options {
+      ...MultiSelectionOptionFieldFragment
+    }
+  }
+
+  ${Te}
+  ${Al.fragment}
+`,bl=({data:e,keepSectionExpanded:t,onSelectedField:l,resetFilters:a,ignoreSignals:i,loading:r,webFiltersHeadingsSpacingsExposure:s})=>{var c,u,g,S,E,y,F;const{primary:f,secondary:v,expando:h,options:_,fieldId:A}=e,k=n.useRef(null),b=null!=(u=null!=(c=null==h?void 0:h.threshold)?c:null==h?void 0:h.minimalHeight)?u:void 0,I=null!=b?null==_?void 0:_.slice(b):null,[C,T]=n.useState(!!(t&&(null==I?void 0:I.some(e=>e.selected))||0===b&&(null==h?void 0:h.visible))),[R,x]=n.useState(!1),N=s?6:7,O=s?{margin:{blockend:"two"}}:{},D=(0,o.useClickTracker)(),M=n.useCallback(()=>{if(T(!C),C||x(!0),(null==h?void 0:h.expandAnalytics)&&!C){const{referrerId:e,linkName:t,uisPrimeMessages:l}=h.expandAnalytics;D(e,t,void 0,Ne(l))}if((null==h?void 0:h.collapseAnalytics)&&C){const{referrerId:e,linkName:t,uisPrimeMessages:l}=h.collapseAnalytics;D(e,t,void 0,Ne(l))}},[T,C]);if(!(null==(g=e.options)?void 0:g.length))return null;let L,P;if(0===b)L=ne.f,P={expandoTitle:n.createElement(H.M,{tag:"h4",size:7},f),triggerPosition:"trailing",isVisible:C,onToggle:M};else if((null==h?void 0:h.threshold)&&(null==(S=e.options)?void 0:S.length)>h.threshold){L=ae.A;const e=null!=(E=null==_?void 0:_.findIndex(e=>e.selected))?E:-1,t=C&&!(!R&&e>=(null!=b?b:0))?k:void 0;P={collapseLabel:h.collapseLabel,expandLabel:h.expandLabel,collapseA11yLabel:null!=(y=h.collapseAccessibilityLabel)?y:void 0,expandA11yLabel:null!=(F=h.expandAccessibilityLabel)?F:void 0,items:b,isVisible:C,hideScrim:!0,handleClick:M,revealRef:t}}else L=n.Fragment,P={};const $=(e,t)=>{const o=t===b;return n.createElement(le.T,{key:`option-${e.fieldId}-${t}-${e.value}`},n.createElement(Al,{key:`option-${e.fieldId}-${t}-${e.value}`,data:e,resetFilters:a,onSelectedField:l,ignoreSignals:i,domRef:o?k:void 0,loading:r}))};return n.createElement("fieldset",{"data-stid":A},L===ne.f?n.createElement(ne.f,null,n.createElement(ie.U,{...P},null==_?void 0:_.map((e,t)=>$(e,t)))):n.createElement(n.Fragment,null,v?n.createElement(n.Fragment,null,n.createElement("legend",{className:"is-visually-hidden"},f),n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(d.X,{space:"two"},f&&n.createElement(m.C,{grow:1},n.createElement(H.M,{tag:"h4",size:6},f)),v&&n.createElement(m.C,{shrink:0},n.createElement(H.M,{"aria-hidden":!0,tag:"h4",size:7},v))))):n.createElement("legend",null,f&&n.createElement(p.N,{...O},n.createElement(H.M,{tag:"h4",size:N},f))),n.createElement(L,{...P},null==_?void 0:_.map((e,t)=>$(e,t)))))};bl.displayName="MultiSelectionField",bl.fragment={...kl,__typename:"ShoppingMultiSelectionField"};var Il=i.gql`
+  fragment RangeFieldFragment on ShoppingRangeField {
+    primary
+    range {
+      ...ShoppingRangeFilterOptionFragment
+    }
+  }
+
+  fragment ShoppingRangeFilterOptionFragment on ShoppingRangeFilterOption {
+    characteristics {
+      labels {
+        label
+        value
+      }
+      max
+      maxLabel
+      min
+      minLabel
+      step
+      minStepDistance
+    }
+    id
+    minAccessibility
+    maxAccessibility
+    selected {
+      id
+      max
+      min
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+    sliderType
+  }
+
+  ${Te}
+  ${tl}
+  ${ll}
+`,Cl=({receivers:e,onSignalCallback:t})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,l)=>{const a=e.signalId.toUpperCase();return n.createElement(Qt,{onSuccess:({payload:e})=>{"REMOVE"===e.type&&t()},topic:a,key:`${a}-${l}`})})),Tl=({data:e,onRangeSelectionChange:t,onSelectedField:l,resetFilters:a,shouldFireSignalOnMount:i=!1,webFiltersHeadingsSpacingsExposure:r})=>{const{primary:s,range:c}=e,{selected:d,characteristics:m,id:u="",emitters:g,receivers:S,minAccessibility:E,maxAccessibility:y,sliderType:F}=c||{},{min:f=0,max:v=0,step:h}=m||{},{min:_,max:A}=d||{},[k,b]=(0,n.useState)(_),[I,C]=(0,n.useState)(A),[T,R]=(0,n.useState)(!1),x=(0,o.useClickTracker)(),N=nl(),O="SINGLE"===F?"single":"dual",D=r?6:7,M=n.useCallback(()=>{b(f),C(v),R(!0)},[f,v]),L=e=>{var t,l;const n=null==(t=null==m?void 0:m.labels)?void 0:t.find(({value:t})=>t===e);return null!=(l=null==n?void 0:n.label)?l:""};return(0,n.useEffect)(()=>{a&&(b(f),C(v))},[a]),(0,n.useEffect)(()=>{C(A),b(_)},[_,A]),(0,n.useEffect)(()=>{T&&(null==t||t({id:u,min:-1,max:-1}),null==l||l(),R(!1))},[T]),(0,n.useEffect)(()=>{if(i){const e={type:"RANGE_OPTIONS",analyticsMax:v,analyticsMin:f,defaultMax:L(v),defaultMin:L(f),nextMax:L(null==d?void 0:d.max),nextMin:L(null==d?void 0:d.min),prevMax:L(I),prevMin:L(k)};null==N||N(null!=g?g:[],e)}},[i]),c?n.createElement(n.Fragment,null,n.createElement(Cl,{receivers:S,onSignalCallback:M}),n.createElement(p.N,{margin:{blockstart:"three"}},n.createElement("div",null,n.createElement("fieldset",null,n.createElement("legend",null,n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{tag:"h4",size:D},s))),n.createElement(p.N,{margin:{blockstart:"four"}},n.createElement("div",null,n.createElement(ce.l,{id:u,key:`${u}-shopping-range-field`,name:u,type:O,min:f,max:v,step:h,handleChange:(e,t)=>{const l=t?e:f,n=t||e,a={type:"RANGE_OPTIONS",analyticsMin:l,analyticsMax:n,defaultMax:L(v),defaultMin:L(f),nextMax:L(n),nextMin:L(l),prevMax:L(I),prevMin:L(k)},i=h&&(null==m?void 0:m.minStepDistance)?h*m.minStepDistance:0;(0===i||void 0===t||n-l>=i)&&(g&&(null==N||N(null!=g?g:[],a)),b(l),C(n))},handleAfterChange:(e,n,a)=>{const i=n?e:f,r=n||e,o=f===i&&v===r;if(k===(null==d?void 0:d.min)&&I===(null==d?void 0:d.max))return;null==l||l();const s=a;s&&(s.target.checked=!o),o?null==t||t({id:u,min:-1,max:-1},s):null==t||t({id:u,min:i,max:r},s),(null==c?void 0:c.analytics)&&x(`${c.analytics.referrerId}${!o}.${i},${r}`,c.analytics.linkName,void 0,Ne(c.analytics.uisPrimeMessages))},lowerValue:k,upperValue:I,formatValueForDisplay:L,formatSecondaryValueForDisplay:L,gap:0,primaryLabel:null!=E?E:void 0,secondaryLabel:null!=y?y:void 0}))))))):null};Tl.displayName="RangeField",Tl.fragment={...Il,__typename:"ShoppingRangeField"};var Rl=i.gql`
+  fragment RangeTextInputFieldFragment on ShoppingRangeTextInputField {
+    histogram {
+      buckets
+      id
+    }
+    numberFormat
+    fieldId: id
+    minValueInput {
+      ... on EGDSTextInputField {
+        egdsElementId
+        label
+        readOnly
+        value
+      }
+    }
+    maxValueInput {
+      ... on EGDSTextInputField {
+        egdsElementId
+        label
+        readOnly
+        value
+      }
+    }
+    rangeField: range {
+      ...ShoppingRangeTextInputFieldFilterOptionFragment
+    }
+    primary
+    secondary
+    lowerBoundAccessibility
+    upperBoundAccessibility
+    minValueAccessibility {
+      ... on EGDSBasicLocalizedText {
+        models {
+          key
+          source
+        }
+        template
+        text
+      }
+    }
+    maxValueAccessibility {
+      ... on EGDSBasicLocalizedText {
+        models {
+          key
+          source
+        }
+        template
+        text
+      }
+    }
+    minValueAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    maxValueAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  fragment ShoppingRangeTextInputFieldFilterOptionFragment on ShoppingRangeFilterOption {
+    characteristics {
+      max
+      maxLabel
+      min
+      minLabel
+      step
+    }
+    id
+    selected {
+      id
+      max
+      min
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+  ${ll}
+  ${tl}
+`,xl=({receivers:e,onSignalCallback:t})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,l)=>{const a=e.signalId.toUpperCase();return n.createElement(Qt,{key:`${a}-${l}`,topic:a,onSuccess:({payload:e})=>{const{type:l}=e;if("REMOVE"===l)t()}})})),Nl=({data:e,onRangeSelectionChange:t,onSelectedField:l,resetFilters:a,shouldFireSignalOnMount:i,type:r,loading:s,currentView:c,isSmallViewSize:d,shouldHaveFullSizeSheet:m,webFiltersHeadingsSpacingsExposure:u})=>{var g,S;const{primary:E,fieldId:y,minValueInput:F,maxValueInput:f,rangeField:v,minValueAccessibility:h,maxValueAccessibility:_,lowerBoundAccessibility:A,upperBoundAccessibility:k,numberFormat:b,minValueAnalytics:I,maxValueAnalytics:C,histogram:R}=e,{selected:x,characteristics:N,id:O="",emitters:D,receivers:M}=v,{min:L,max:P,step:$,minLabel:w,maxLabel:B}=N,{histogramData:G,setHistogramData:U}=bt(),[V,z]=(0,n.useState)(!1),[q,Y]=(0,n.useState)(!1),Q=-1,K=$||0,W=(0,o.useClickTracker)(),X=nl(),j=n.useCallback(()=>{z(!0),Y(!0)},[]),{exposure:Z}=(0,T.useExperiment)("Flexible_Max_Price_Text_Input"),{exposure:J}=(0,T.useExperiment)("Price_Histogram"),ee=1===J.bucket,te=u?6:7,le=!!G,ne=e=>e===L?w:e===P?B:b?ue()(b,e):e,ae={type:"RANGE_OPTIONS",analyticsMin:L,analyticsMax:P,defaultMin:ne(L),defaultMax:ne(P),nextMin:ne(null==x?void 0:x.min),nextMax:ne(null==x?void 0:x.max),prevMin:ne(L),prevMax:ne(P)},ie=n.useCallback((e,t)=>{const n=t?e:L,a=t||e,i={...ae,analyticsMin:n,analyticsMax:a,nextMin:ne(n),nextMax:ne(a)};(0===K||void 0===t||a-n>=K)&&D&&(null==X||X(null!=D?D:[],i)),null==l||l(),z(!1)},[v,l]);return(0,n.useEffect)(()=>{if(i){const e={...ae};null==X||X(null!=D?D:[],e)}},[i]),(0,n.useEffect)(()=>{q&&(null==t||t({id:O,min:Q,max:Q}),null==l||l(),Y(!1))},[q]),(0,n.useEffect)(()=>{if(!(null==R?void 0:R.buckets)){if(void 0!==typeof G)return;return void U(void 0)}const e=[...R.buckets];if(d||"FILTERS"===c||m){const t=[];for(let l=0;l<e.length;l+=2){const n=Math.round((e[l]+e[l+1])/2);t.push(n)}G!==t&&(null==U||U(t))}else null==U||U(e)},[null==R?void 0:R.buckets,d,c,m]),"EGDSBasicLocalizedText"!==(null==h?void 0:h.__typename)||"EGDSBasicLocalizedText"!==(null==_?void 0:_.__typename)?null:n.createElement(n.Fragment,null,n.createElement(xl,{receivers:M,onSignalCallback:j}),n.createElement("fieldset",{"data-testid":y},E&&n.createElement(p.N,{margin:{blockend:"two"}},n.createElement("legend",null,n.createElement(H.M,{tag:"h4",size:te},E))),n.createElement(de.K,{onRangeChange:ie,onRangeAfterChange:(e,n,a)=>{const i=a?n:L,r=a||n,o=L===i&&P===r,s=P===r&&ee,c=L===i&&ee;i===(null==x?void 0:x.min)&&r===(null==x?void 0:x.max)||(null==l||l(),o?null==t||t({id:O,min:Q,max:Q}):s?null==t||t({id:O,min:i,max:-2}):!s&&c?null==t||t({id:O,min:-3,max:r}):null==t||t({id:O,min:i,max:r}),(null==v?void 0:v.analytics)&&W(`${v.analytics.referrerId}${!o}.${i},${r}`,v.analytics.linkName,void 0,Ne(v.analytics.uisPrimeMessages)))},onMinChange:(e,n,a)=>{const i=a?n:L,r=a||n,o={...ae,analyticsMin:i,analyticsMax:r,nextMin:ne(i),nextMax:ne(r)},s=P===r&&ee,c=L===i&&ee;return L===i&&P===r?null==t||t({id:O,min:Q,max:Q}):s&&!c?null==t||t({id:O,min:i,max:-2}):!s&&c?null==t||t({id:O,min:-3,max:r}):null==t||t({id:O,min:i,max:r}),(0===K||void 0===a||r-i>=K)&&D&&(null==X||X(null!=D?D:[],o)),I&&W(`${I.referrerId}.${n}.${a}`,I.linkName),null==l||l(),z(!1),e},onMaxChange:(e,n,a)=>{const i=a?n:L,r=a||n,o={...ae,analyticsMin:i,analyticsMax:r,nextMin:ne(i),nextMax:ne(r)},s=P===r&&ee,c=L===i&&ee;return L===i&&P===r?null==t||t({id:O,min:Q,max:Q}):s?null==t||t({id:O,min:i,max:-2}):!s&&c?null==t||t({id:O,min:-3,max:r}):null==t||t({id:O,min:i,max:r}),(0===K||void 0===a||r-i>=K)&&D&&(null==X||X(null!=D?D:[],o)),C&&W(`${C.referrerId}.${n}.${a}`,C.linkName),null==l||l(),z(!1),e},fieldId:null!=y?y:"",minValueInput:F,maxValueInput:f,range:v,minValueAccessibility:{...h,models:[...null!=(g=null==h?void 0:h.models)?g:[]]},maxValueAccessibility:{..._,models:[...null!=(S=null==_?void 0:_.models)?S:[]]},lowerBoundAccessibility:null!=A?A:"",upperBoundAccessibility:null!=k?k:"",numberFormat:null!=b?b:"",resetFilters:V||a,type:null!=r?r:E,allowUserMax:1===Z.bucket,loading:s,priceHistogramData:(G||[]).length>0?G||[]:void 0,shouldRevertMinValue:le})))};Nl.displayName="RangeTextInputField",Nl.fragment={...Rl,__typename:"ShoppingRangeTextInputField"};var Ol=i.gql`
+  fragment SelectionOptionFieldFragment on ShoppingSelectableFilterOption {
+    __typename
+    accessibility
+    fieldId: id
+    primary
+    secondary
+    selected
+    default
+    value
+    selectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    deselectAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    disabled
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+`,Dl=({loading:e,data:t,domRef:l})=>{const{fieldId:a,primary:i,secondary:r,disabled:o,value:s}=t,c=`${a}-${s}-${Sl()}`,u=n.useCallback(e=>{if(e&&l){const t=e.querySelector('input[type="radio"]');if(t&&l.current!==t){l.current=t}}},[l]);return n.createElement(d.X,{alignItems:"center",space:"two"},n.createElement(m.C,{grow:1},n.createElement("div",{ref:l?u:void 0},n.createElement(ge.P,{name:a,disabled:o||e,id:c,value:s},i))),r&&n.createElement(m.C,{shrink:0},n.createElement(b.D,null,r)))};Dl.displayName="SelectionOptionField",Dl.fragment=Ol;var Ml=i.gql`
+  fragment SelectionFieldFragment on ShoppingSelectionField {
+    __typename
+    primary
+    secondary
+    expando {
+      collapseLabel
+      expandLabel
+      collapseAccessibilityLabel
+      expandAccessibilityLabel
+      collapseAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      expandAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      minimalHeight
+      threshold
+      visible
+    }
+    options {
+      ...SelectionOptionFieldFragment
+    }
+  }
+
+  ${Te}
+  ${Dl.fragment}
+`,Ll=({options:e,setSelectedFieldValue:t})=>{var l;const a=null==(l=e.find(e=>e.selected))?void 0:l.value,i=e.map(e=>{var t;return null!=(t=e.receivers)?t:[]}).flat();return n.createElement(n.Fragment,null,i.map((e,l)=>{const i=e.signalId.toUpperCase();return n.createElement(Qt,{key:`${i}-${l}`,topic:i,onSuccess:({payload:e})=>{const{type:l,filterId:n}=e;switch(l){case"OPTION":t(n);break;case"REMOVE":t(a)}}})}))},Pl=({data:e,keepSectionExpanded:t,onSelectedField:l,resetFilters:i,loading:r,webFiltersHeadingsSpacingsExposure:s})=>{var c,u,g,S,E;const{primary:y,secondary:F,expando:f,options:v}=e,h=null!=(u=null!=(c=null==f?void 0:f.threshold)?c:null==f?void 0:f.minimalHeight)?u:void 0,_=null!=h?null==v?void 0:v.slice(h||1):null,A=null==(g=null==v?void 0:v.find(e=>e.selected))?void 0:g.value,[k,b]=n.useState(A),[I,C]=n.useState(!!(t&&(null==_?void 0:_.some(e=>e.selected))||0===h&&(null==f?void 0:f.visible))),[T,R]=n.useState(!1),x=n.useRef(null),N=nl(),O=(0,o.useClickTracker)(),D=(null==v?void 0:v.length)&&v[0]?v[0].fieldId:"",M=s?6:7,L={margin:{blockend:"two"}},P=(0,a.j)(D,t=>{var n,a,i,r;const o=null==(n=e.options)?void 0:n.find(e=>e.value===k),s=null==(a=e.options)?void 0:a.find(e=>e.value===t.currentTarget.value);if(null==o?void 0:o.deselectAnalytics){const{referrerId:e,linkName:t,uisPrimeMessages:l}=o.deselectAnalytics;O(e,t,void 0,Ne(l))}if(null==s?void 0:s.selectAnalytics){const{referrerId:e,linkName:t,uisPrimeMessages:l}=s.selectAnalytics;O(e,t,void 0,Ne(l))}return N(null!=(i=null==o?void 0:o.emitters)?i:[],{type:"SELECTION_OPTIONS",prevChecked:!0}),N(null!=(r=null==s?void 0:s.emitters)?r:[],{type:"SELECTION_OPTIONS",prevChecked:!1}),b(t.currentTarget.value),null==l||l(),t}),$=n.useCallback(()=>{if(C(!I),I||R(!0),(null==f?void 0:f.expandAnalytics)&&!I){const{referrerId:e,linkName:t,uisPrimeMessages:l}=f.expandAnalytics;O(e,t,void 0,Ne(l))}if((null==f?void 0:f.collapseAnalytics)&&I){const{referrerId:e,linkName:t,uisPrimeMessages:l}=f.collapseAnalytics;O(e,t,void 0,Ne(l))}},[C,I]);if(n.useEffect(()=>{b(A)},[A]),n.useEffect(()=>{var e;const t=null==(e=null==v?void 0:v.find(e=>e.default))?void 0:e.value;i&&b(t)},[i]),!(null==v?void 0:v.length))return null;let w,B;if(0===h)w=ne.f,B={expandoTitle:n.createElement(p.N,{...L},n.createElement(H.M,{tag:"h4",size:M},y)),triggerPosition:"trailing",isVisible:I,onToggle:$};else if((null==f?void 0:f.threshold)&&(null==v?void 0:v.length)>f.threshold){w=ae.A;const e=v.findIndex(e=>e.value===k),t=!(!T&&(e>=(null!=h?h:0)||-1===e))&&I?x:void 0;B={collapseLabel:f.collapseLabel,expandLabel:f.expandLabel,collapseA11yLabel:null!=(S=f.collapseAccessibilityLabel)?S:void 0,expandA11yLabel:null!=(E=f.expandAccessibilityLabel)?E:void 0,items:h,isVisible:I,hideScrim:!0,handleClick:$,revealRef:t}}else w=n.Fragment,B={};return n.createElement(n.Fragment,null,n.createElement(Ll,{options:v,setSelectedFieldValue:b}),n.createElement("fieldset",null,w===ne.f?n.createElement(ne.f,null,n.createElement(ie.U,{...B},v&&n.createElement(se.S,{key:k,group:null!=y?y:"",selected:k,onChange:P,defaultChecked:!0},v.map((e,t)=>n.createElement(Dl,{key:`option-${e.fieldId}-${t}-${e.value}`,loading:r,data:e}))))):n.createElement(n.Fragment,null,n.createElement(p.N,{margin:{blockend:"two"}},F?n.createElement(n.Fragment,null,n.createElement("legend",{className:"is-visually-hidden"},y),n.createElement(d.X,{space:"two"},y&&n.createElement(m.C,{grow:1},n.createElement(p.N,{...L},n.createElement(H.M,{tag:"h4",size:M},y))),n.createElement(m.C,{shrink:0},n.createElement(H.M,{tag:"h4",size:7},F)))):n.createElement("legend",null,y&&n.createElement(p.N,{...L},n.createElement(H.M,{tag:"h4",size:M},y)))),v&&n.createElement(se.S,{key:k,group:null!=y?y:"",selected:k,onChange:P,defaultChecked:!0},n.createElement(w,{...B},v.map((e,t)=>{const l=t===h;return n.createElement(Dl,{key:`option-${e.fieldId}-${t}-${e.value}`,loading:r,data:e,domRef:l?x:void 0})}))))))};Pl.displayName="SelectionField",Pl.fragment={...Ml,__typename:"ShoppingSelectionField"};var $l=i.gql`
+  fragment StepInputFieldFragment on ShoppingStepInputField {
+    __typename
+    primary
+    stepInputId: id
+    stepInput {
+      decreaseText
+      increaseText
+      label
+      max
+      min
+      step
+      subLabel
+      value
+      key
+      decreaseAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      increaseAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+    accessibility
+  }
+
+  ${Te}
+  ${tl}
+  ${ll}
+`,wl=({defaultMin:e,receivers:t,setCounter:l,setTriggerInputChange:a})=>n.createElement(n.Fragment,null,null==t?void 0:t.map((t,i)=>{const r=t.signalId.toUpperCase();return n.createElement(Qt,{onSuccess:({payload:t})=>{"REMOVE"===t.type&&(l(e),a(!0))},topic:r,key:`${r}-${i}`})})),Bl=({data:e,onSelectedField:t,resetFilters:l,onStepInputChange:a,webFiltersHeadingsSpacingsExposure:i})=>{const{primary:r,stepInput:s,stepInputId:c,emitters:d,receivers:m,accessibility:u}=e,{decreaseText:g,increaseText:S,max:E,min:y,label:F,step:f,subLabel:v,value:h,increaseAnalytics:_,decreaseAnalytics:A}=s,k=y||0,[b,I]=(0,n.useState)(h),[C,T]=(0,n.useState)(!1),R=(0,o.useClickTracker)(),x=nl(),N=i?6:7;(0,n.useEffect)(()=>{l&&I(k)},[l]),(0,n.useEffect)(()=>{C&&(null==a||a(null!=c?c:"",b),null==t||t(),T(!1))},[C]);return n.createElement(n.Fragment,null,m&&n.createElement(wl,{defaultMin:k,receivers:m,setCounter:I,setTriggerInputChange:T}),n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{tag:"h4",size:N},r)),n.createElement("fieldset",null,n.createElement("legend",{className:"is-visually-hidden"},u),n.createElement(pe.W7,{decrementText:null!=g?g:"",incrementText:null!=S?S:"",max:null!=E?E:void 0,min:k,label:F,onChange:e=>{const l=Number(e.target.value);if(_&&l>b){const{linkName:e,referrerId:t,uisPrimeMessages:n}=_;R(`${t}.${l!==h}`,e,void 0,Ne(n))}if(A&&l<b){const{linkName:e,referrerId:t,uisPrimeMessages:n}=A;R(`${t}.${l!==h}`,e,void 0,Ne(n))}d&&(null==x||x(d,{type:"STEP_INPUT_OPTIONS",prevValue:b,nextValue:l,defaultValue:k})),I(l),null==a||a(null!=c?c:"",l),null==t||t()},value:b,step:null!=f?f:void 0,description:null!=v?v:""})))};Bl.displayName="StepInputField",Bl.fragment={...$l,__typename:"ShoppingStepInputField"};var Gl=i.gql`
+  fragment MutexFieldFragment on ShoppingMutexField {
+    __typename
+    mutexId: id
+    primary
+    secondary
+    options {
+      __typename
+      mutexOption: option {
+        ...MultiSelectionFieldFragment
+        ...RangeFieldFragment
+        ...MultiSelectionStackedTileFieldFragment
+        ...MultiSelectionTileFieldFragment
+        ...StepInputFieldFragment
+        ...RangeTextInputFieldFragment
+      }
+      mutexValue: value {
+        ...SelectionOptionFieldFragment
+      }
+    }
+  }
+  ${bl.fragment}
+  ${Tl.fragment}
+  ${sl.fragment}
+  ${gl.fragment}
+  ${Bl.fragment}
+  ${Dl.fragment}
+  ${Nl.fragment}
+  ${tl}
+  ${ll}
+`,Ul=[Vt,bl,Tl,Pl,sl,gl,Bl,Nl],Vl=({options:e,setSelectedFieldValue:t})=>{const l=null==e?void 0:e.find(e=>e.mutexValue.selected),a=null==e?void 0:e.map(e=>{var t;return null!=(t=e.mutexValue.receivers)?t:[]}).flat();return n.createElement(n.Fragment,null,null==a?void 0:a.map((e,a)=>{const i=e.signalId.toUpperCase();return n.createElement(Qt,{onSuccess:({payload:e})=>{"REMOVE"===e.type&&t(l)},topic:i,key:`${i}-${a}`})}))},zl=e=>{const{data:t,onFieldClick:l,onRangeSelectionChange:i,onStepInputChange:r,onSelectedField:s,resetFilters:c,type:d,loading:m,isSmallViewSize:u,currentView:g,shouldHaveFullSizeSheet:S,webFiltersHeadingsSpacingsExposure:E}=e,{dispatch:y,state:F}=n.useContext(Bt);n.useEffect(()=>{y({type:"UPDATE_FIELD_DATA",field:t})},[t]);const f=F.field.__typename===t.__typename?F.field:t,v=null!==f.primary||null!==f.secondary,{primary:h,options:_,mutexId:A}=f,k=null==_?void 0:_.find(e=>e.mutexValue.selected),b=null==_?void 0:_.find(e=>e.mutexValue.default),[I,C]=n.useState(k),T=A||"",R=(0,o.useClickTracker)(),x=nl(),N=E?6:7,O=(0,a.j)(T,e=>{var t,l;const n=null==_?void 0:_.find(e=>e.mutexValue.value===(null==I?void 0:I.mutexValue.value)),a=null==_?void 0:_.find(t=>t.mutexValue.value===e.currentTarget.value);if(null==n?void 0:n.mutexValue.deselectAnalytics){const{referrerId:e,linkName:t}=n.mutexValue.deselectAnalytics;R(e,t)}if(null==a?void 0:a.mutexValue.selectAnalytics){const{referrerId:e,linkName:t}=a.mutexValue.selectAnalytics;R(e,t)}const i=(null==n?void 0:n.mutexValue.selected)||!0;null==x||x(null!=(t=null==n?void 0:n.mutexValue.emitters)?t:[],{type:"SELECTION_OPTIONS",prevChecked:i});return null==x||x(null!=(l=null==a?void 0:a.mutexValue.emitters)?l:[],{type:"SELECTION_OPTIONS",prevChecked:!1}),C(a),null==s||s(),e}),D=e=>{const{id:t,min:l,max:n}=e;y({type:"UPDATE_SLIDER_VALUE",id:t,min:l,max:n}),null==i||i(e),null==s||s()};return n.useEffect(()=>{c&&(y({type:"RESET_STATE"}),C(b))},[c]),_?n.createElement(n.Fragment,null,_&&n.createElement(Vl,{options:_,setSelectedFieldValue:C}),n.createElement("fieldset",{"data-testid":T},n.createElement("legend",null,h&&n.createElement(p.N,{margin:{blockend:"two"}},n.createElement(H.M,{"data-testid":h,tag:"h4",size:N},h))),_&&n.createElement(se.S,{selected:null==I?void 0:I.mutexValue.value,key:null==I?void 0:I.mutexValue.value,"data-testid":T,onChange:O,group:T,legendLabel:" ",defaultChecked:!0},_.map((e,t)=>n.createElement(Dl,{key:`option-${e.mutexValue.primary}-${t}`,data:e.mutexValue}))),_.map(({mutexOption:e,mutexValue:t},a)=>{const i=Ul.find(e=>e.fragment.__typename===(null==I?void 0:I.mutexOption.__typename)),o=t.value===(null==I?void 0:I.mutexValue.value);if(!i||!o)return null;switch(e.__typename){case Tl.fragment.__typename:case Nl.fragment.__typename:return n.createElement(i,{key:`field-section-${a}`,data:e,onSelectedField:s,onRangeSelectionChange:D,resetFilters:c,type:null!=h?h:d,shouldFireSignalOnMount:v,loading:m,isSmallViewSize:u,currentView:g,shouldHaveFullSizeSheet:S});default:return n.createElement(i,{key:`field-section-${a}`,data:e,onClick:l,onSelectedField:s,resetFilters:c,onStepInputChange:r,loading:m})}}))):null};zl.displayName="MutexField",zl.fragment={...Gl,__typename:"ShoppingMutexField"};var ql=i.gql`
+  fragment ShoppingSelectedFilterFragment on ShoppingSelectedFilter {
+    filter {
+      ...EGDSBasicRemovablePillFragment
+    }
+
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${ll}
+  ${Ue.fragment}
+`,Hl=({data:e,loading:t,onRemoveFilterPill:l})=>{const{filter:a,emitters:i}=e,r=nl();if("EGDSBasicRemovablePill"!==(null==a?void 0:a.__typename))return null;const{id:o,primary:s,name:c,accessibility:d}=a;if(!(o&&s&&c&&d))return null;return n.createElement(Ue,{data:a,loading:t,onClick:()=>{null==l||l(o),i&&(null==r||r(null!=i?i:[]))}})};Hl.displayName="SelectedFilter",Hl.fragment=ql;var Yl=i.gql`
+  fragment SelectedFiltersFieldFragment on ShoppingSelectedFiltersField {
+    selectedFiltersFieldAccessiblity: accessibility {
+      ... on EGDSBasicLocalizedText {
+        egdsElementId
+        text
+      }
+      ... on EGDSCardinalLocalizedText {
+        egdsElementId
+        accessibilityText
+        text
+      }
+      ... on EGDSCompositeLocalizedText {
+        egdsElementId
+        text
+      }
+    }
+    primary
+    secondary
+    selectedFiltersOrdering
+    shoppingSelectedFilters {
+      ...ShoppingSelectedFilterFragment
+    }
+  }
+
+  ${Hl.fragment}
+`,Ql=({data:e,focusNextElement:t,loading:l,webFiltersHeadingsSpacingsExposure:a})=>{var i;const{selectedFiltersFieldAccessiblity:r,primary:o,secondary:s,shoppingSelectedFilters:c,selectedFiltersOrdering:d}=e,m=c&&(null==c?void 0:c.length)>0,u=null!=(i="EGDSCardinalLocalizedText"===(null==r?void 0:r.__typename)?r.accessibilityText:null==r?void 0:r.text)?i:"",g=n.useRef(null),S=n.useRef(null==c?void 0:c.length),E=a?6:7,y=a?{margin:{blockend:"two"}}:{};(0,n.useEffect)(()=>{0===S.current&&1===(null==c?void 0:c.length)&&(0,Q.liveAnnounce)("A list of your filter selections have been added. Check headings menu to review.",Q.Level.POLITE,"is-visually-hidden",g,"selected-filter-field-live"),S.current=null==c?void 0:c.length},[null==c?void 0:c.length]);const F=d?((e,t)=>{const l=new Map(t.map((e,t)=>[e,t])),n=JSON.parse(JSON.stringify(e));return null==n?void 0:n.sort((e,t)=>{var n,a;if("EGDSBasicRemovablePill"===(null==(n=e.filter)?void 0:n.__typename)&&e.filter.id&&"EGDSBasicRemovablePill"===(null==(a=t.filter)?void 0:a.__typename)&&t.filter.id){const n=l.get(e.filter.id),a=l.get(t.filter.id);return void 0===n&&void 0===a?0:void 0===n?1:void 0===a?-1:n-a}return 0})})(c,d):c,f=e=>{var l;const n=null==F?void 0:F.at(-1);"EGDSBasicRemovablePill"===(null==(l=null==n?void 0:n.filter)?void 0:l.__typename)&&n.filter.id===e&&(null==t||t())};return m&&n.createElement("fieldset",{"data-testid":"selected-filter-field",ref:g},n.createElement(p.N,{...y},n.createElement("legend",null,o&&n.createElement(H.M,{tag:"h4",size:E,"aria-label":u},o))),s&&n.createElement(Y.u,null,s),n.createElement(p.N,{margin:{blockstart:"two"}},n.createElement(Se.g,{wrap:!0},null==F?void 0:F.map((e,t)=>n.createElement(Hl,{key:`selected-filter-${t}`,data:e,onRemoveFilterPill:f,loading:l})))))};Ql.displayName="SelectedFiltersField",Ql.fragment={...Yl,__typename:"ShoppingSelectedFiltersField"};var Kl=i.gql`
+  fragment TabSelectionFieldFragment on ShoppingTabSelectionField {
+    __typename
+    tabOptions: options {
+      __typename
+      accessibility
+      id
+      primary
+      secondary
+      value
+      selected
+      selectAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+  }
+
+  ${Te}
+`,Wl=({data:e})=>{var t,l;const i=(0,o.useClickTracker)(),{tabOptions:r}=e,s=(null==r?void 0:r.findIndex(e=>e.selected))||0,[c,d]=(0,n.useState)(s),m=(0,a.j)(null!=(l=null==(t=null==r?void 0:r[c])?void 0:t.id)?l:"",e=>e),u=(0,n.useCallback)(e=>{var t;const l=null==(t=null==r?void 0:r[e])?void 0:t.selectAnalytics;if(l){const{referrerId:e,linkName:t,uisPrimeMessages:n}=l;i(e,t,void 0,Ne(n))}d(e)},[r,i]);return(0,n.useEffect)(()=>{d(s)},[s]),((e,t)=>{const l=(0,n.useRef)(!1);(0,n.useEffect)(()=>{if(l.current)return e();l.current=!0},t)})(()=>{var e,t;const l=null!=(t=null==(e=null==r?void 0:r[c])?void 0:e.value)?t:"";El(l,m)},[c]),(null==r?void 0:r.length)?n.createElement(Ee.IN,{selectedTab:c,onTabSelect:u,tabsType:Ee.Ah.EQUAL_WIDTH},null==r?void 0:r.map((e,t)=>{const{accessibility:l,id:a,primary:i,secondary:r,value:o}=e,s=`${a}-${o}-${t}`;return n.createElement(ye.X,{name:i,id:a,key:s,targetURI:"#",tabLinkAttr:{id:s,"aria-label":null!=l?l:""}},n.createElement(p.N,{padding:{inline:"four",blockstart:"one"}},n.createElement("div",null,r&&n.createElement(n.Fragment,null,n.createElement(H.M,{size:6,tag:"h3"},i),n.createElement(b.D,{size:200,spacing:"two"},r)))))})):null};Wl.displayName="TabSelectionField",Wl.fragment={...Kl,__typename:"ShoppingTabSelectionField"};var Xl=e=>{var t,l;const{onMultiSelectClose:a,onMultiSelectItemRemove:i,onMultiSelectClearAll:s,onSelectionChange:c,label:d,placeholder:m,icon:u,multiSelections:g,id:S,typeaheadInfo:E,typeaheadAdapter:y,analytics:F,typeaheadLogger:f,resetFilters:v}=e,{context:h}=(0,r.R)(),{client:_,isDestination:A,lineOfBusiness:k,maxNumberOfResults:b,regionType:I,typeaheadFeatures:C,categorize:T,allowExactMatch:R,dismissButtonText:x,listTitle:N,typeaheadMultiSelect:O,emptyResultsPlaceholder:D}=E||{},{isMultiLocation:M,showPills:L,selectedItemHeading:P,clearAllText:$}=O||{},{identity:w,locale:B,siteId:G}=h,U=Number(null==w?void 0:w.expUserId)||-1,{duaid:V}=w||{},z=null!=y?y:new fe.Z({client:null!=_?_:"",domain:"https://www.expedia.com/",dest:null==A||A,expuserid:U,features:null!=C?C:"",guid:V,lob:null!=k?k:"",locale:B,maxResults:b||10,regionType:I||128,siteId:G,typeaheadLogger:f}),q=n.useMemo(()=>g?g.map(e=>({term:e.text,data:{value:e.value}})):[],[g]),[H,Y]=n.useState(q);n.useEffect(()=>{Y(v?[]:q)},[q,v]);const Q=(0,o.useClickTracker)();return n.createElement(p.N,{padding:{block:"two"}},n.createElement("div",null,n.createElement(ve.B,{stid:S,id:S,name:S,value:H.map(e=>e.term),label:null!=(t=null!=d?d:m)?t:"",icon:null!=(l=null==u?void 0:u.id)?l:"",typeaheadPlaceholder:null!=m?m:"",adapter:z,onUpdate:e=>{if(!H.find(t=>t===e)&&e.data&&(Y(t=>[...t,e]),null==c||c(e,S)),F){const{referrerId:e,linkName:t}=F;Q(e,t)}},onItemRemove:M?e=>{if(H.length>0){Y(H.filter((t,l)=>l!==e));const t=H[e];t&&(null==i||i(t,S))}}:void 0,handleClear:()=>{Y([]),null==s||s(S),null==c||c({term:"",data:{}},S)},onDismiss:M?e=>{null==a||a(e,S,H)}:void 0,isMulti:null!=M&&M,categorize:T,allowExactMatch:R,listTitle:N,selectedItemHeading:null!=P?P:"",clearAllText:null!=$?$:"",dismissButtonText:null!=x?x:"",showPills:L,hasClearButton:!0,typeaheadEmptyResultPlaceholder:null!=D?D:""})))},jl=({receivers:e,onSignalCallback:t})=>n.createElement(n.Fragment,null,null==e?void 0:e.map((e,l)=>{const a=e.signalId.toUpperCase();return n.createElement(Qt,{onSuccess:({payload:e})=>{"REMOVE"===e.type&&t()},topic:a,key:`${a}-${l}`})})),Zl=e=>{var t,l;const{onSelectionChange:a,label:i,placeholder:s,icon:c,selected:d,id:m,typeaheadInfo:u,typeaheadAdapter:g,analytics:p,typeaheadLogger:S,clearButtonAnalytics:E,resetFilters:y,emitters:F,receivers:f,secondary:v}=e,h=nl(),{context:_}=(0,r.R)(),A=(0,o.useClickTracker)(),[k,b]=n.useState(d),I=n.useCallback(()=>{b(""),null==a||a({term:"",data:{}},m)},[]);n.useEffect(()=>{b(y?"":d)},[d,y]);const{client:C,isDestination:T,lineOfBusiness:R,maxNumberOfResults:x,regionType:N,regionId:O,typeaheadFeatures:D,categorize:M,allowExactMatch:L,listTitle:P}=u||{},{identity:$,locale:w,siteId:B}=_,G=Number(null==$?void 0:$.expUserId)||-1,{duaid:U}=$||{},V=null!=g?g:new fe.Z({client:null!=C?C:"",domain:"https://www.expedia.com/",dest:null==T||T,expuserid:G,features:null!=D?D:"",guid:U,lob:null!=R?R:"",locale:w,maxResults:x||10,regionType:N||128,siteId:B,typeaheadLogger:S,regionId:null!=O?O:""});return n.createElement(n.Fragment,null,f&&n.createElement(jl,{receivers:f,onSignalCallback:I}),n.createElement(ve.B,{id:m,name:m,value:null!=k?k:"",label:null!=(t=null!=i?i:s)?t:"",icon:null!=(l=null==c?void 0:c.id)?l:"",typeaheadPlaceholder:null!=s?s:"",adapter:V,onUpdate:e=>{const t={type:"TYPEAHEAD_OPTIONS",selection:e.term};if(null==h||h(null!=F?F:[],t),b(e.term),null==a||a(e,m),p){const{referrerId:t,linkName:l}=p,n=`${t}${e.term}`;A(n,l)}},handleClear:()=>{if(null==h||h(null!=F?F:[],{type:"TYPEAHEAD_OPTIONS",selection:""}),b(""),null==a||a({term:"",data:{}},m),E){const{referrerId:e,linkName:t}=E;A(e,t)}},categorize:M,allowExactMatch:L,listTitle:P,accessibilityLabel:null!=v?v:"",hasClearButton:!0}))},Jl=i.gql`
+  fragment TextInputFieldFragment on ShoppingTextInputField {
+    __typename
+    id
+    primary
+    secondary
+    label
+    placeholder
+    selected
+    icon {
+      id
+      description
+    }
+    typeaheadInfo {
+      client
+      isDestination
+      lineOfBusiness
+      maxNumberOfResults
+      regionType
+      regionId
+      typeaheadFeatures
+      allowExactMatch
+      listTitle
+      categorize
+      dismissButtonText
+      domain
+      emptyResultsPlaceholder
+      typeaheadMultiSelect {
+        isMultiLocation
+        showPills
+        selectedItemHeading
+        clearAllText
+      }
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    clearButtonAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    multiSelections {
+      text
+      value
+    }
+    receivers {
+      ...SortAndFilterSignalReceiverFragment
+    }
+    emitters {
+      ...SortAndFilterSignalEmitterFragment
+    }
+  }
+
+  ${Te}
+  ${tl}
+  ${ll}
+`,en=e=>{var t,l,a;const{data:i,onKeyDown:r,onDone:s,resetFilters:c,loading:d,webFiltersHeadingsSpacingsExposure:m}=e,{primary:u,label:g,placeholder:S,icon:E,selected:y,id:F,typeaheadInfo:f,analytics:v}=i,[h,_]=n.useState(null!=y?y:""),A=(0,o.useClickTracker)(),k=m?6:7,b=m?{margin:{blockend:"two"}}:{};n.useEffect(()=>{_(c?"":y||"")},[y,c]);return n.createElement(n.Fragment,null,u&&n.createElement(p.N,{...b},n.createElement(H.M,{tag:"h4",size:k},u)),!f&&n.createElement(Fe.V,{label:null!=g?g:"",id:F,placeholder:null!=S?S:"",icon:null!=(t=null==E?void 0:E.id)?t:"",value:h,onChange:e=>{if(_(e.target.value),v){const{referrerId:e,linkName:t,uisPrimeMessages:l}=v;A(e,t,void 0,Ne(l))}},onKeyDown:e=>{if("Enter"===e.key){e.preventDefault();const t=e.target;if(_(t.value),r&&r({name:F,value:t.value},e),v){const{referrerId:e,linkName:t,uisPrimeMessages:l}=v;A(e,t,void 0,Ne(l))}}},onBlur:e=>{if(e.preventDefault(),_(e.target.value),s&&s({name:F,value:e.target.value},e),v){const{referrerId:e,linkName:t,uisPrimeMessages:l}=v;A(e,t,void 0,Ne(l))}},disabled:d}),f&&!(null==(l=f.typeaheadMultiSelect)?void 0:l.isMultiLocation)&&n.createElement(Zl,{...i,...e}),(null==(a=null==f?void 0:f.typeaheadMultiSelect)?void 0:a.isMultiLocation)&&n.createElement(Xl,{...i,...e}))};en.displayName="TextInputField",en.fragment={...Jl,__typename:"ShoppingTextInputField"};var tn=i.gql`
+  fragment QuickAccessFilterFieldFragment on ShoppingSortAndFilterQuickFilter {
+    ...QuickAccessFilterSheetFooterFragment
+    clearAll {
+      ...EGDSSecondaryButtonFragment
+    }
+    fields {
+      ...DropdownFieldFragment
+      ...MultiSelectionFieldFragment
+      ...RangeFieldFragment
+      ...SelectionFieldFragment
+      ...TextInputFieldFragment
+      ...MultiSelectionStackedTileFieldFragment
+      ...MultiSelectionTileFieldFragment
+      ...StepInputFieldFragment
+      ...MutexFieldFragment
+      ...SelectedFiltersFieldFragment
+      ...RangeTextInputFieldFragment
+      ...TabSelectionFieldFragment
+    }
+    filterPill {
+      ...EGDSPillFragment
+    }
+    resultCountLabel
+    toolbar {
+      ...SortFilterToolbarFragment
+    }
+  }
+
+  ${Pt.fragment}
+  ${lt.fragment}
+  ${at.fragment}
+  ${Vt.fragment}
+  ${bl.fragment}
+  ${Tl.fragment}
+  ${Pl.fragment}
+  ${en.fragment}
+  ${sl.fragment}
+  ${gl.fragment}
+  ${Bl.fragment}
+  ${zl.fragment}
+  ${Ql.fragment}
+  ${Yt.fragment}
+  ${Nl.fragment}
+  ${Wl.fragment}
+`,ln=[Vt,bl,Tl,Pl,en,sl,gl,Bl,zl,Ql,Nl],nn=({data:e,keepSectionExpanded:t,onSubmit:l,onFieldClick:a,onRangeSelectionChange:i,onStepInputChange:r,onSelectedField:o,handleClearButtonClick:s,loading:c,isSheetVisible:u,onSheetToggle:g,sheetIndex:S,onSheetDismiss:E,footerDataLoading:y,lastQuickFilter:F,isDatedSearch:f,shouldDisplayToolbarForQuickAccessFilters:v,className:h})=>{const{filterPill:_,resultCountLabel:A,applyAction:k,fields:b,toolbar:I}=e,R=(0,N.eg)({viewSizes:N.pf})===N.pf.SMALL,x=(0,N.eg)({viewSizes:N.pf})===N.pf.MEDIUM,[O,{openDialog:D,closeDialog:M},L]=(0,C.useDialog)(`shopping-sort-and-filter-quick-filter-dialog-${S}`),P=1===(0,T.useExperiment)("Vrbo_Bed_Type_Stepper").exposure.bucket,[$,w]=n.useState(!1),[B,G]=n.useState([]),V=n.useRef(null),z=n.useRef(!1),{histogramData:q}=bt(),Y=b.some(e=>(e=>{var t;let l;return"ShoppingMutexField"===e.__typename&&(null==(t=e.options)||t.map(e=>"ShoppingRangeTextInputField"!==e.mutexOption.__typename?(l=!1,l):(null==q?void 0:q.length)&&q.length>0?(l=!0,l):l)),"ShoppingRangeTextInputField"===e.__typename?(null==q?void 0:q.length)&&q.length>0?(l=!0,l):(l=!1,l):l})(e));if(n.useEffect(()=>{if("ShoppingSortAndFilterQuickFilter"===e.__typename){const t=(e=>{const t=[];return null==e||e.forEach(e=>{switch(e.__typename){case"ShoppingStepInputField":t.push({key:`${e.stepInputId}`});break;case"ShoppingRangeField":t.push({key:e.range.id});break;case"ShoppingMutexField":e.options.forEach(e=>{e.mutexOption.range&&t.push({key:`${e.mutexOption.range.id}`}),e.mutexOption.rangeField&&t.push({key:`${e.mutexOption.rangeField.id}`})});break;case"ShoppingRangeTextInputField":t.push({key:e.fieldId});break;case"ShoppingMultiSelectionField":case"ShoppingSelectionField":e.options.forEach(e=>{t.push({key:e.fieldId,value:e.value})});break;case"ShoppingMultiSelectionTileField":e.multiOptions.forEach(e=>{t.push({key:e.fieldId,value:e.value})});break;case"ShoppingMultiSelectionStackedTileField":e.multiOptions.forEach(e=>{t.push({key:e.fieldId})})}}),t})(e.fields);G(t)}},[e.__typename,e.fields]),n.useEffect(()=>{$&&w(!1)},[$]),n.useEffect(()=>{!O&&u&&g(S,null==_?void 0:_.id)},[O]),"EGDSBasicTriggerPill"!==(null==_?void 0:_.__typename))return null;const Q={..._,disabled:null!=c&&c},K=null==I?void 0:I.primary,W=null==I?void 0:I.actions.secondaries,[X]=null!=W?W:[],j=()=>{w(!0),null==s||s(B)};if(!b.some(({__typename:e})=>ln.find(({fragment:t})=>t.__typename===e)))return null;const Z={__typename:"ShoppingSortAndFilterQuickFilter",resultCountLabel:A,applyAction:k,filterPill:{__typename:"EGDSBasicTriggerPill",id:Q.id}},J={margin:{block:"six"}};return n.createElement(n.Fragment,null,n.createElement(Pt,{data:Q,onClick:()=>{(R||x)&&D(),g(S,_.id)},active:u,domRef:V,shouldRegisterToForm:!1,className:h,triggerPill:!0,loading:c}),n.createElement($t,{DialogComponent:L,triggerRef:V,isVisible:u,onDismiss:()=>{g(S,_.id)},lastQuickfilter:F,isBottomSheet:x,onSheetClose:()=>{z.current||null==E||E({name:"restore",value:{}}),z.current=!1},shouldHaveFullSizeSheet:Y},v||R?I&&n.createElement(lt,{onClearAllButtonClick:j,onCloseButtonClick:()=>{(R||x)&&M(),g(S,_.id)},data:I}):n.createElement(p.N,{padding:{small:"four",medium:{inlinestart:"six",blockstart:"six",inlineend:"six",blockend:"two"}}},n.createElement(d.X,{alignItems:"center",justifyContent:"space-between"},n.createElement(m.C,null,n.createElement(H.M,{tag:"h2",size:6},K)),n.createElement(m.C,null,X&&n.createElement(et,{data:X,onClick:j})))),n.createElement(p.N,{padding:{medium:{blockstart:"unset",blockend:"one",inlinestart:"six",inlineend:"six"}}},n.createElement(U.Y,{padded:!1},n.createElement(p.N,{padding:{small:{inline:R?"three":"unset"}}},n.createElement("div",null,b.map((e,l)=>{const s=ln.find(t=>t.fragment.__typename===e.__typename),d="ShoppingStepInputField"===e.__typename,m=d&&e.primary,u=P&&d?{margin:{blockstart:m?"six":"one"}}:J;return s?"ShoppingRangeField"===e.__typename?n.createElement(p.N,{...u,key:`field-section-${l}`},n.createElement("div",null,n.createElement(Gt,{field:e},n.createElement(s,{data:e,onSelectedField:o,onRangeSelectionChange:i,resetFilters:$,isSmallViewSize:R})))):n.createElement(p.N,{...u,key:`field-section-${l}`},n.createElement("div",null,n.createElement(Gt,{field:e},n.createElement(s,{data:e,onClick:a,onSelectedField:o,keepSectionExpanded:t,resetFilters:$,onStepInputChange:r,type:K,onRangeSelectionChange:i,isDatedSearch:f,loading:c,isSmallViewSize:R,shouldHaveFullSizeSheet:Y})))):null}))))),n.createElement(Yt,{data:Z,footerDataLoading:y||c,onClick:()=>{z.current=!0,(R||x)&&M(),null==l||l(),g(S,_.id)}})))};nn.displayName="QuickAccessFilterField",nn.fragment={...tn,__typename:"ShoppingSortAndFilterQuickFilter"};var an=i.gql`
+  fragment QuickAccessFilterMoreFiltersFragment on ShoppingSortAndFilterButtonTrigger {
+    container {
+      ... on ShoppingSortAndFilterDialogContainer {
+        revealAction {
+          ...UIFloatingActionButtonFragment
+        }
+        applyAction {
+          ...UIFloatingActionButtonFragment
+        }
+        toolbar {
+          ...SortFilterToolbarFragment
+        }
+      }
+    }
+  }
+
+  ${ut.fragment}
+  ${lt.fragment}
+`,rn=({data:e,onOpenDialog:t,onClearFilters:l,onRemoveAllAppliedFilters:a,onSubmit:i,setFiltersActive:r,setResetFilters:s,filterSections:c,loading:u,className:g})=>{var S,E;const{container:y}=e,[F,{openDialog:f,closeDialog:h},k]=(0,C.useDialog)("quick-access-filters-more-filters"),b=(0,o.useClickTracker)();if(!((0,N.eg)({viewSizes:N.pf})===N.pf.SMALL)||!c||"ShoppingSortAndFilterDialogContainer"!==y.__typename||"UISecondaryFloatingActionButton"!==(null==(S=y.revealAction)?void 0:S.__typename)||!y.applyAction)return null;const{toolbar:I,revealAction:T,applyAction:R}=y;return n.createElement(n.Fragment,null,n.createElement(m.C,{shrink:0},n.createElement(M.y,{size:L.V.SMALL,disabled:u,onClick:()=>{if(null==t||t(),f(),T.analytics){const{referrerId:e,linkName:t}=T.analytics;b(e,t)}},"data-test-id":null!=(E=T.egdsElementId)?E:"",className:g},T.primary)),n.createElement(_.K,{isVisible:F},n.createElement(k,null,n.createElement(A.t,{type:"full",isVisible:!0,returnFocusOnClose:!0,triggerRef:null},I&&n.createElement(lt,{data:I,onCloseButtonClick:()=>{null==l||l({name:"restore",value:{}}),s(!1),h()},onClearAllButtonClick:()=>{null==a||a(),null==l||l({name:"clear",value:{}}),s(!0),r(!1)}}),n.createElement(v.h,{zeroPadding:!0},n.createElement(p.N,{padding:{inline:"six"}},c)),n.createElement(p.N,{padding:{small:"four",large:{inline:"six"}},border:["blockstart"]},n.createElement(d.X,{justifyContent:"end",alignItems:"center"},n.createElement(m.C,null,n.createElement(ut,{data:R,onClick:()=>{null==i||i(),h()},withUpdatedNotification:!0,isFullWidth:!0}))))))))};rn.displayName="QuickAccessFilterMoreFilters",rn.fragment=an;var on=i.gql`
+  fragment ToggleFilterPillFieldFragment on ShoppingSortAndFilterToggleFilter {
+    filterPill {
+      ...EGDSPillFragment
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    option {
+      id
+      primary
+      ... on ShoppingSelectableFilterOption {
+        value
+      }
+    }
+    __typename
+  }
+  ${Te}
+  ${Pt.fragment}
+`,sn=({loading:e,data:t,onRemoveToggleFilter:l,className:a})=>{const{filterPill:i,option:r}=t,o=e=>{const t={target:{...e.target,type:"checkbox",checked:!1},isTrusted:!0};switch(null==r?void 0:r.__typename){case"ShoppingSelectableFilterOption":"stay_options_group"===r.id?null==l||l(r.id,"",t):null==l||l(r.id,r.value,t);break;case"ShoppingRangeFilterOption":null==l||l(r.id,{min:-1,max:-1},t)}};switch(null==i?void 0:i.__typename){case"EGDSBasicRemovablePill":return n.createElement(Ue,{data:i,onRemove:o,loading:e,className:a});case"EGDSBasicPill":return n.createElement(Pt,{data:i,loading:e,className:a});default:return null}};sn.displayName="ToggleFilterPillField",sn.fragment={...on,__typename:"ShoppingSortAndFilterToggleFilter"};var cn=i.gql`
+  fragment ShoppingSortAndFiltersQuickAccessFiltersFragment on ShoppingSortAndFilters {
+    quickAccessFilters {
+      ...QuickAccessFilterFieldFragment
+      ...QuickAccessFilterMoreFiltersFragment
+      ...ToggleFilterPillFieldFragment
+    }
+  }
+
+  ${nn.fragment}
+  ${rn.fragment}
+  ${sn.fragment}
+`,dn=({data:e,onSelectedField:t,onRangeSelectionChange:l,onStepInputChange:a,onRemoveAllAppliedFilters:i,onClearFilters:r,setFiltersActive:o,onSubmit:s,loading:c,isSheetVisibleList:d,setIsSheetVisibleList:m,footerDataLoading:u,isDatedSearch:g,keepSectionExpanded:p,mappedFilterSections:S,onOpenDialog:E,setResetFilters:y,onRemoveToggleFilter:F,className:f})=>{const{quickAccessFilters:v}=e,h=(0,N.eg)({viewSizes:N.pf})===N.pf.SMALL,_=(0,N.eg)({viewSizes:N.pf})===N.pf.MEDIUM,{exposure:A}=(0,T.useExperiment)("Quick_Filters_MVP_xLOB_Flights_Activities_Web"),{exposure:k}=(0,T.useExperiment)("Quick_filters_for_BEXGH_Desktop_Map_small_screen_list_view");if(!v)return null;const b=1===A.bucket&&h||1===k.bucket&&_||h,I=e=>{null==i||i(e),null==r||r({name:"clear_quick_filters",value:e}),o(!1)},C=e=>{const t=d.map((t,l)=>l===e&&!t);m(t)};let R=-1;return n.createElement(n.Fragment,null,v.map((e,m)=>{var h,_,k,T,x,N;const O=m===v.length-1;switch(e.__typename){case"ShoppingSortAndFilterQuickFilter":return R+=1,n.createElement(kt,null,n.createElement(nn,{key:null!=(_=null==(h=e.filterPill)?void 0:h.id)?_:`quick-access-${m}`,data:e,onFieldClick:t,onRangeSelectionChange:l,onStepInputChange:a,handleClearButtonClick:I,onSubmit:s,loading:c,isSheetVisible:null!=(k=d[R])&&k,onSheetToggle:C,sheetIndex:R,lastQuickFilter:O,onSheetDismiss:r,footerDataLoading:u,isDatedSearch:g,shouldDisplayToolbarForQuickAccessFilters:b,xLOBQAFExposure:A,keepSectionExpanded:p,className:f}));case"ShoppingSortAndFilterButtonTrigger":return n.createElement(rn,{key:"ShoppingSortAndFilterDialogContainer"===e.container.__typename&&(null==(T=e.container.revealAction)?void 0:T.accessibility)||`quick-access-${m}`,data:e,filterSections:S,onOpenDialog:E,onClearFilters:r,onSubmit:s,onRemoveAllAppliedFilters:i,setFiltersActive:o,setResetFilters:y,loading:c,className:f});case"ShoppingSortAndFilterToggleFilter":return n.createElement(sn,{key:null!=(N=null==(x=e.filterPill)?void 0:x.primary)?N:`quick-access-${m}`,data:e,loading:c,onRemoveToggleFilter:F,className:f});default:return null}}))};dn.displayName="QuickAccessFilters",dn.fragment=cn;var mn=i.gql`
+  fragment SortAndFilterSectionFragment on ShoppingSortAndFilterSection {
+    __typename
+    id
+    title
+    subTitle
+    fields {
+      ...DropdownFieldFragment
+      ...MultiSelectionFieldFragment
+      ...RangeFieldFragment
+      ...SelectionFieldFragment
+      ...TextInputFieldFragment
+      ...MultiSelectionStackedTileFieldFragment
+      ...MultiSelectionTileFieldFragment
+      ...StepInputFieldFragment
+      ...MutexFieldFragment
+      ...SelectedFiltersFieldFragment
+      ...RangeTextInputFieldFragment
+      ...TabSelectionFieldFragment
+    }
+  }
+
+  ${Vt.fragment}
+  ${bl.fragment}
+  ${Tl.fragment}
+  ${Pl.fragment}
+  ${en.fragment}
+  ${sl.fragment}
+  ${gl.fragment}
+  ${Bl.fragment}
+  ${zl.fragment}
+  ${Ql.fragment}
+  ${Nl.fragment}
+  ${Wl.fragment}
+`,un=[Vt,bl,Tl,Pl,en,sl,gl,Bl,zl,Ql,Nl],gn=e=>{const{data:t,keepSectionExpanded:l,onFieldClick:a,onMultiSelectClose:i,onMultiSelectItemRemove:r,onMultiSelectClearAll:o,onSelectionChange:s,typeaheadAdapters:c,onRangeSelectionChange:d,onStepInputChange:m,onSelectedField:u,useUnsetMargin:g,useUnsetTopBorder:S,resetFilters:E,typeaheadLogger:y,onDone:F,onKeyDown:f,isDatedSearch:v,currentView:h,loading:_,isSmallViewSize:A}=e,{fields:k,subTitle:b,title:I,id:C}=t,R=!I||""===I||null===I,x=n.useRef(null),N=1===(0,T.useExperiment)("Vrbo_Bed_Type_Stepper").exposure.bucket,O=R?6:5;if(!k.some(({__typename:e})=>un.find(({fragment:t})=>t.__typename===e))&&k.length>0)return null;const D=k.some(({__typename:e})=>"ShoppingTextInputField"===e),M={border:D?["blockend","blockstart"]:[],padding:D?{block:"six"}:{},margin:g?{blockstart:"unset"}:{blockstart:"six"}},L={border:D?["blockend"]:[],padding:D?{blockstart:"four",blockend:"six"}:{},margin:D?{blockstart:"unset"}:{blockstart:"six"}},P={margin:D&&1===k.length?{blockstart:"two"}:{blockstart:"six"}},$=S?L:M,w=()=>{var e,t;const l=null==(e=x.current)?void 0:e.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'),n=document.activeElement;if(l&&n instanceof HTMLElement){const e=[...l].indexOf(n);if(e>-1){const n=null!=(t=l[e+1])?t:l[0];null==n||n.focus()}}},B="FILTER_BAR"!==h&&"FILTER_DIALOG"!==h,G="FILTER_DIALOG"===h||"FILTER_BAR"===h;return n.createElement(p.N,{...$},n.createElement("div",{"data-test-id":C,ref:x},I&&n.createElement(H.M,{tag:"h3",size:O},I),n.createElement(H.M,{tag:"h4",size:6},b),k.map((e,t)=>{var g,S;const{__typename:b}=e||{},C="ShoppingTextInputField"===e.__typename?null==c?void 0:c.get(e.id):void 0,T="ShoppingStepInputField"===e.__typename,x="ShoppingSelectedFiltersField"===e.__typename&&(null==(g=e.shoppingSelectedFilters)?void 0:g.length)&&(null==(S=e.shoppingSelectedFilters)?void 0:S.length)>0,O=k[t+1],D=T&&((null==O?void 0:O.__typename)===Bl.fragment.__typename&&null!==(null==O?void 0:O.primary)||(null==O?void 0:O.__typename)===bl.fragment.__typename),M=T&&e.primary,L=N&&T?{margin:{blockstart:M?"six":"one"}}:P,$=un.find(e=>e.fragment.__typename===b),U=t===k.length-1&&O&&O.__typename===Vt.fragment.__typename,V=R&&t!==k.length-1||U;return $?n.createElement(p.N,{...L,key:t},n.createElement("div",null,n.createElement(Gt,{field:e},n.createElement("div",null,b===en.fragment.__typename&&n.createElement($,{key:`field-section-${t}`,data:e,typeaheadAdapter:C,onMultiSelectClose:i,onMultiSelectItemRemove:r,onMultiSelectClearAll:o,onSelectionChange:s,typeaheadLogger:y,onKeyDown:f,onDone:F,resetFilters:E,loading:_,currentView:h,webFiltersHeadingsSpacingsExposure:R}),b===Tl.fragment.__typename&&n.createElement(n.Fragment,null,n.createElement($,{key:`field-section-${t}`,data:e,onSelectedField:u,onRangeSelectionChange:d,resetFilters:E,loading:_,currentView:h,isSmallViewSize:A,webFiltersHeadingsSpacingsExposure:R}),V&&n.createElement(he.j,{blockMargin:"six"})),b===Ql.fragment.__typename&&n.createElement(n.Fragment,null,n.createElement($,{key:`field-section-${t}`,data:e,onClick:a,onSelectedField:u,keepSectionExpanded:l,resetFilters:E,onStepInputChange:m,onRangeSelectionChange:d,hasNoSectionTitle:!I,focusNextElement:w,isDatedSearch:v,ignoreSignals:B,loading:_,shouldAppendRevealRef:G,isSmallViewSize:A,currentView:h,webFiltersHeadingsSpacingsExposure:R}),x&&n.createElement(he.j,{blockMargin:"six"})),b===Bl.fragment.__typename&&n.createElement(n.Fragment,null,n.createElement($,{key:`field-section-${t}`,data:e,onClick:a,onSelectedField:u,keepSectionExpanded:l,resetFilters:E,onStepInputChange:m,onRangeSelectionChange:d,hasNoSectionTitle:!I,focusNextElement:w,isDatedSearch:v,ignoreSignals:B,loading:_,shouldAppendRevealRef:G,isSmallViewSize:A,currentView:h,webFiltersHeadingsSpacingsExposure:R}),V&&D&&n.createElement(he.j,{blockMargin:"six"})),b!==en.fragment.__typename&&b!==Tl.fragment.__typename&&b!==Ql.fragment.__typename&&b!==Bl.fragment.__typename&&n.createElement(n.Fragment,null,n.createElement($,{key:`field-section-${t}`,data:e,onClick:a,onSelectedField:u,keepSectionExpanded:l,resetFilters:E,onStepInputChange:m,onRangeSelectionChange:d,hasNoSectionTitle:!I,focusNextElement:w,isDatedSearch:v,ignoreSignals:B,loading:_,shouldAppendRevealRef:G,isSmallViewSize:A,currentView:h,webFiltersHeadingsSpacingsExposure:R}),V&&b!==Bl.fragment.__typename&&n.createElement(he.j,{blockMargin:"six"})))))):null})))};gn.displayName="SortAndFilterSection",gn.fragment=mn;var pn=i.gql`
+  fragment ToggleButtonFieldFragment on EGDSStandardSwitch {
+    checked
+    checkedAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    checkedDescription
+    checkedLabel
+    uncheckedAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    uncheckedDescription
+    uncheckedLabel
+  }
+
+  ${Te}
+`,Sn=({data:e,inline:t=!1})=>{const l=(0,o.useClickTracker)(),[{enabled:a},{enable:i,disable:r}]=(0,Ae.J9)(),{checked:s,checkedAnalytics:c,checkedDescription:d,checkedLabel:m,uncheckedAnalytics:u,uncheckedDescription:g,uncheckedLabel:p}=e;(0,n.useEffect)(()=>{s&&!a&&i()},[]);const S=(0,n.useCallback)(()=>{var e;const t=!a,{referrerId:n,linkName:o,uisPrimeMessages:s}=null!=(e=t?c:u)?e:{};t?i():r(),n&&o&&l(n,o,void 0,Ne(null!=s?s:[]))},[a,l,c,u]),E=a?d:g,y=a?m:p;return n.createElement(_e.Y,{id:"compare-toggle-filter",switchPosition:"trailing",checked:a,onChange:S,description:E||void 0,a11yLabel:y},t?n.createElement(b.D,{whiteSpace:"nowrap",inline:!0,"aria-hidden":!0},y):y)};Sn.displayName="CompareToggleField",Sn.fragment=pn;var En=i.gql`
+  fragment SearchToolsFilterBarFragment on ShoppingSortAndFilters {
+    ...AllFilterSheetFooterFragment
+    filterSections {
+      ...SortAndFilterSectionFragment
+    }
+    sortSections {
+      ...SortAndFilterSectionFragment
+    }
+    toggleButton {
+      ...ToggleButtonFieldFragment
+    }
+    ...ShoppingSortAndFilterContainersFragment
+    ...ShoppingSortAndFiltersQuickAccessFiltersFragment
+    ...ShoppingSortAndFiltersCarouselFragment
+    tnlFields {
+      key
+      value
+    }
+  }
+
+  ${gn.fragment}
+  ${Sn.fragment}
+  ${Ct.fragment}
+  ${Ze}
+  ${St}
+  ${dn.fragment}
+`,yn="FILTER_BAR",Fn=({data:e,onOpenDialog:t,onRangeSelectionChange:l,onSelectionChange:a,onStepInputChange:i,onSubmit:r,onRemoveAllAppliedFilters:s,onClearFilters:c,loading:u,footerDataLoading:g,onFieldClick:S,isDatedSearch:y,stickyFilterBarByViewsize:O,filterBarSpacing:D,currentView:M,keepSectionExpanded:L,waitingForQueryResolution:P,onMapTriggerClick:$,onRemoveToggleFilter:w,isMapView:B,hideQuickAccessFilters:G=!1})=>{var U,V,z,q,H,Y,Q,K,W,X,j,Z,J;const{__typename:ee,containers:te,filterSections:le,quickAccessFilters:ne,footerLabel:ae,sortSections:ie,carousel:re,scrollEndAnalytics:oe,toggleButton:se,tnlFields:ce}=e,{toolbar:de,revealAction:me,applyAction:ue}=null!=(U=null==te?void 0:te.find(e=>"ShoppingSortAndFilterDialogContainer"===e.__typename&&e.view===yn))?U:{},{dialogActions:ge}=Tt("map","pwaOverlay"),[pe,{openDialog:Se,closeDialog:Ee},ye]=(0,C.useDialog)(`${ee}-${yn}`),Fe=(0,N.eg)({viewSizes:N.pf}),fe=Fe===N.pf.SMALL,ve=Fe===N.pf.LARGE||Fe===N.pf.EXTRA_LARGE,he=(0,o.useClickTracker)(),{track:_e}=(0,o.useClickstreamAnalytics)(),Ae=(0,x.$c)(),ke=(0,T.useExperiment)("Discoverable_Map_Entry_Points_on_SRP_Mweb").exposure.bucket,{exposure:be}=(0,T.useExperiment)("Quick_Filters_MVP_xLOB_Flights_Activities_Web"),Ie=(0,T.useExperiment)("Split_View_Side_by_side_BEXG_H").exposure.bucket>0,Ce=2===(0,T.useExperiment)("Property_Compare_on_VRBO_xVector_Web",!1).exposure.bucket,Te=1===(0,T.useExperiment)("Thematic_search_by_categories_VRBO_M2").exposure.bucket,{exposure:Re,logExperiment:xe}=(0,T.useExperiment)("USFTC_Coachmark_to_slim_banner"),Ne=1===Re.bucket,[Oe,De]=n.useState(de),[Me,Le]=n.useState(!1),[Pe,$e]=n.useState((null==(V=null==de?void 0:de.actions)?void 0:V.secondaries)&&(null==(q=null==(z=null==de?void 0:de.actions)?void 0:z.secondaries[0])?void 0:q.disabled)),[we,Be]=n.useState(null!=(H=null==ne?void 0:ne.filter(e=>"ShoppingSortAndFilterQuickFilter"===e.__typename).map(()=>!1))?H:[]),[Ge,Ue]=n.useState(!1),[Ve,ze]=n.useState(()=>{var e;return null==(e=We(ce||[],"ai_search_error_message"))?void 0:e.value}),[qe,He]=n.useState(!1),[Ye,je]=n.useState(!1),[Ze,Je]=n.useState(0),et=n.useRef(null),tt=n.useRef(!1),nt=n.useRef(null),at=(0,o.useEgClickstream)(),{formatText:it}=(0,R.useLocalization)(),rt=null!=(Y=null==Ae?void 0:Ae.isTopStickyNoteShown)&&Y,ot=null==(Q=null==Ae?void 0:Ae.isFeeInclusivePricingSheetDismissed)||Q,st=null==Ae?void 0:Ae.stickyNoteText,ct=qe&&rt&&ot&&null!=st;ct&&xe(Re);const dt=ct&&Ne;n.useEffect(()=>{var e;Oe&&De({...Oe,actions:{__typename:"UIToolbarActions",primary:{...Oe.actions.primary},secondaries:(null==(e=Oe.actions.secondaries)?void 0:e.map(e=>({...e,disabled:!Pe&&Me})))||[]}})},[Pe,Me]),n.useEffect(()=>{Ge&&(null==r||r(),Ue(!1))},[Ge]);const mt=null==ce?void 0:ce.some(e=>"ai_search_error_message"===e.key);n.useEffect(()=>{var e;mt&&ze(null==(e=We(ce||[],"ai_search_error_message"))?void 0:e.value)},[ce]),n.useEffect(()=>{var e,t,l,n,a,i,r,o,s,c,d,m;if(Ye)if(dt){const s=null==(n=null==(l=null==(t=null==(e=nt.current)?void 0:e.stickyRef)?void 0:t.current)?void 0:l.getBoundingClientRect())?void 0:n.height;Number.isNaN(s)||Je((null==(o=null==(r=null==(i=null==(a=nt.current)?void 0:a.stickyRef)?void 0:i.current)?void 0:r.getBoundingClientRect())?void 0:o.height)-1)}else Je(null==(m=null==(d=null==(c=null==(s=nt.current)?void 0:s.stickyRef)?void 0:c.current)?void 0:d.getBoundingClientRect())?void 0:m.height);if(dt){at({event:Ke})}});const ut=ie&&le&&[...ie,...le];if(!(null==ut?void 0:ut.length)||!me||!ue||"UISecondaryFloatingActionButton"!==(null==me?void 0:me.__typename))return null;const gt=()=>{tt.current=!0,null==r||r(),Le(!1),Ee()},pt=()=>{De(de),Le(!1),$e(!0)},St=e=>{null==c||c({name:"ai_search_query",value:e}),Ue(!0)},yt={__typename:"ShoppingSortAndFilters",footerLabel:ae,containers:te},Ft=n.createElement("div",null,ut.map((e,t)=>n.createElement(gn,{key:`sort-section-${t}`,onSelectedField:pt,resetFilters:Me,data:e,onRangeSelectionChange:l,onStepInputChange:i,onSelectionChange:a,onFieldClick:S,isDatedSearch:y,currentView:M,keepSectionExpanded:L,loading:P,isSmallViewSize:fe}))),ft=!ve&&(null==ce?void 0:ce.some(e=>"ai_search_suggestion_1"===e.key||"ai_search_error_message"===e.key)),vt=ft&&n.createElement(_t,{dialogAriaLabel:"AI search dialog",closeButtonAriaLabel:"close AI search dialog",shouldAddMarginRight:G||null===re,onSubmit:St,onActionListItemClick:St,errorStateString:Ve,setErrorStateString:ze,isSmallViewSize:fe,tnlFields:ce,disabled:u||P});let ht;"UISecondaryFloatingActionButton"===(null==me?void 0:me.__typename)&&fe?(me.accessibility||me.badge&&me.badge>=0)&&(ht=n.createElement("span",{"aria-label":me.accessibility||""},me.badge&&me.badge>0?`(${me.badge})`:"")):ht=null==me?void 0:me.primary;const At=n.createElement(m.C,{shrink:0},n.createElement(h.B,{id:"all-filters-pill",active:pe,icon:null==(K=me.icon)?void 0:K.id,onClick:()=>{if(null==t||t(),Se(),me.analytics){const{referrerId:e,linkName:t}=me.analytics;he(e,t)}at({event:Qe})},selected:Boolean(me.badge),onSubmit:gt,disabled:u||P,triggerPill:!0,domRef:et},ht)),bt=!ve&&!B&&$&&n.createElement(m.C,{shrink:0},n.createElement("button",{id:"map-trigger-pill",type:"button",className:"uitk-pill uitk-pill-content",onClick:()=>{ge.openDialog(),null==$||$()}},n.createElement(F.LD,{className:"uitk-icon uitk-pill-icon",name:"map"}),n.createElement("span",{className:"uitk-pill-text"},it("hotels.searchResults.mapTrigger")))),It=Ce&&se&&!B,Rt=It&&n.createElement(p.N,{margin:{inlinestart:"two"}},n.createElement(m.C,{alignSelf:"center"},n.createElement("div",null,n.createElement(Sn,{data:se,inline:!0})))),xt=G&&Te,Nt=1+(null!=(W=null==ne?void 0:ne.length)?W:0)+(ft?1:0)+(It?1:0),Ot={data:{__typename:"ShoppingSortAndFilters",quickAccessFilters:ne},footerDataLoading:g||P,isDatedSearch:y,isSheetVisibleList:we,keepSectionExpanded:L,loading:u||P,mappedFilterSections:Ft,onClearFilters:c,onOpenDialog:t,onRangeSelectionChange:l,onRemoveAllAppliedFilters:s,onRemoveToggleFilter:w,onSelectedField:pt,onStepInputChange:i,onSubmit:r,setFiltersActive:$e,setIsSheetVisibleList:Be,setResetFilters:Le};return n.createElement(Kt,null,n.createElement(n.Fragment,null,G?n.createElement(p.N,{...D},n.createElement(d.X,{direction:"row"},vt&&n.createElement(m.C,null,vt),n.createElement(m.C,null,At))):n.createElement(n.Fragment,null,n.createElement(Et,{stickyRef:nt,onFixedStateChange:je,zIndex:500,isDialogOpen:pe,stickyByViewsize:O,spacing:re?void 0:D,disabled:(Ie||1===be.bucket)&&!fe,isSmallViewSize:fe,hasCarousel:Boolean(re),showSlimFtcBanner:dt},re?n.createElement(I.R,{itemsVisible:{sm:"auto",md:"auto",lg:"auto",xl:"auto"},buttonText:{nextButton:null!=(j=null==(X=null==re?void 0:re.nextButton)?void 0:X.accessibility)?j:"",prevButton:null!=(J=null==(Z=null==re?void 0:re.previousButton)?void 0:Z.accessibility)?J:""},onNextButtonClick:()=>{var e;if(null==(e=null==re?void 0:re.nextButton)?void 0:e.analytics){const{referrerId:e,linkName:t}=re.nextButton.analytics;he(e,t)}Be(we.map(()=>!1))},onPrevButtonClick:()=>{var e;if(null==(e=null==re?void 0:re.previousButton)?void 0:e.analytics){const{referrerId:e,linkName:t}=re.previousButton.analytics;he(e,t)}Be(we.map(()=>!1))},onScrollEnd:()=>{if(oe){const{referrerId:e,linkName:t}=oe;_e(o.ITrackType.EVENT,{data:Xe(e,t,"impression")})}},spacing:D,isPopoverOpenList:[...Array.from({length:Nt-we.length},()=>!1),...we],wrapItems:!1,pagingInset:!0,hideNavOnScrollEnd:!0},1===ke&&bt,vt,At,2===ke&&bt,n.createElement(dn,{...Ot}),Rt):n.createElement(E.v,{direction:"horizontal"},1===ke&&bt,vt,At,2===ke&&bt,n.createElement(dn,{...Ot}),Rt)),n.createElement(k.D,{zIndex:499,onFixed:He,hidden:!Ye},n.createElement(f.g,{style:{borderRadius:0,transition:Ye?"all 300ms cubic-bezier(0.5, 0, 0, 1)":"translate 300ms cubic-bezier(0.5, 0, 0, 1)",transform:dt?`translateY(${Ze}px)`:"translateY(-100%)",visibility:Ye?"initial":"hidden"},backgroundTheme:"secondary"},n.createElement(p.N,{...D,border:["blockend"]},n.createElement(b.D,{"aria-hidden":"true",size:300,weight:"medium",align:"center",theme:"positive"},st)))))),n.createElement(kt,null,n.createElement(_.K,{isVisible:pe,closeCallback:()=>{tt.current||(null==c||c({name:"restore",value:{}}),Le(!1)),tt.current=!1}},n.createElement(ye,null,n.createElement(A.t,{type:fe?"full":"centered",isVisible:pe,returnFocusOnClose:!0,triggerRef:et},Oe&&n.createElement(lt,{data:Oe,onCloseButtonClick:()=>{Ee()},onClearAllButtonClick:()=>{null==s||s(),null==c||c({name:"clear",value:{}}),Le(!0),$e(!1)}}),n.createElement(v.h,{zeroPadding:!0},se&&(xt||!Ce)&&n.createElement(p.N,{padding:{blockstart:"six",inline:"six"}},n.createElement("div",null,n.createElement(p.N,{padding:{blockend:"six"},border:["blockend"]},n.createElement("div",null,n.createElement(Sn,{data:se}))))),n.createElement(p.N,{padding:{blockend:"four",inline:"six"}},Ft)),n.createElement(Ct,{data:yt,footerDataLoading:g||P,viewType:yn,onClick:gt}))))))};Fn.displayName="SearchToolsFilterBar",Fn.fragment=En;var fn=i.gql`
+  fragment SearchToolsFiltersFragment on ShoppingSortAndFilters {
+    toggleButton {
+      ...ToggleButtonFieldFragment
+    }
+    filterSections {
+      ...SortAndFilterSectionFragment
+    }
+    tnlFields {
+      key
+      value
+    }
+  }
+
+  ${Sn.fragment}
+  ${gn.fragment}
+`,vn=e=>{const{data:t,onMultiSelectClose:l,onMultiSelectItemRemove:a,onMultiSelectClearAll:i,onSelectionChange:r,typeaheadAdapters:o,onRangeSelectionChange:s,useUnsetMargin:c,useUnsetTopBorder:u,onEmptyResults:g,keepSectionExpanded:S,typeaheadLogger:E,onKeyDown:y,currentView:F,onClearFilters:v}=e,{filterSections:h,toggleButton:_,tnlFields:A}=t,[k,b]=(0,n.useState)(()=>{var e;return null==(e=We(A||[],"ai_search_error_message"))?void 0:e.value}),I=null==A?void 0:A.some(e=>"ai_search_suggestion_1"===e.key||"ai_search_error_message"===e.key);if((0,n.useEffect)(()=>{var e;A&&b(null==(e=We(A,"ai_search_error_message"))?void 0:e.value)},[A]),!Array.isArray(h))return null==g||g(),null;return n.createElement(n.Fragment,null,_&&n.createElement(p.N,{margin:{blockstart:"six"}},n.createElement("div",null,n.createElement(f.g,{padded:!0,border:!0},n.createElement(d.X,null,n.createElement(m.C,null,n.createElement(Sn,{data:_})))))),I&&n.createElement(ht,{textInputLabel:"I'm looking for...",placeholder:"Hotels with breakfast",buttonAriaLabel:"search",listTitle:"Try these",badgeText:"Beta",sectionTitle:"Find your perfect stay",subtext:"Describe your ideal stay to get the best matches",sectionSpacing:{padding:{blockstart:"six"},border:["blockstart"],margin:{blockstart:"six"}},contentSpacing:{padding:{blockstart:"two"}},onSubmit:e=>{null==v||v({name:"ai_search_query",value:e})},errorStateString:k,onTextInputChange:()=>{b(void 0)},tnlFields:A}),n.createElement(kt,null,h.map((e,t)=>n.createElement(gn,{key:`filter-section-${t}`,data:e,typeaheadAdapters:o,onMultiSelectClose:l,onMultiSelectItemRemove:a,onMultiSelectClearAll:i,onSelectionChange:r,onRangeSelectionChange:s,useUnsetMargin:c,useUnsetTopBorder:u,keepSectionExpanded:S,typeaheadLogger:E,onKeyDown:y,currentView:F}))))};vn.displayName="SearchToolsFilters",vn.fragment=fn;var hn="sort-filter-sort-pill-option",_n=({data:e,onClick:t})=>{var l,i;const{dropdownOptions:r,primary:s}=e,{id:c}=null!=(l=r[0])?l:{id:""},[d,m]=(0,n.useState)(!1),[{value:u,accessibility:g},p]=(0,n.useState)((e=>{var t,l,n;return null!=(n=null!=(l=null!=(t=e.find(e=>e.selected))?t:e.find(e=>e.defaultOption))?l:e[0])?n:{value:"",accessibility:null}})(r)),S=n.useRef(null),E=(0,o.useClickTracker)(),y=null!=(i=null!=g?g:s)?i:"",F=()=>{m(!1)},f=e=>{if(!e)return;const{referrerId:t,linkName:l,uisPrimeMessages:n}=e;E(t,l,void 0,Ne(n))},v=(0,a.j)(c,e=>e);return n.createElement(n.Fragment,null,n.createElement(h.B,{active:d,selected:d,id:`sort-filter-sort-pill-${c}`,triggerPill:!0,onClick:()=>{null==t||t({name:c}),m(e=>!e)},domRef:S},y),n.createElement(_.K,{isVisible:d},n.createElement(A.t,{type:"popover",applyBlockStartMargin:!0,isVisible:d,onDismiss:F,position:{inline:"trailing",block:"trailing"},triggerRef:S},n.createElement(U.Y,{padded:!0},n.createElement(ke.I,null,r.map(({primary:e,value:t})=>n.createElement(V.P,{selected:u===t,key:t},n.createElement("span",{id:`${hn}-${c}-${t}`,"aria-hidden":!0},e),n.createElement(be.x,null,n.createElement("button",{"aria-labelledby":`${hn}-${c}-${t}`,onClick:()=>(e=>{const{newSelectedOption:t,deselectedOption:l}=r.reduce((t,l)=>(l.value===e&&(t.newSelectedOption=l),l.value===u&&(t.deselectedOption=l),t),{newSelectedOption:null,deselectedOption:null});t&&(f(null==l?void 0:l.deselectAnalytics),f(t.selectAnalytics),setTimeout(()=>{El(t.value,v,"radio")},0),p(t),F())})(t),type:"button"})))))))))};_n.displayName="SortPill",_n.fragment=Vt.fragment;var An=i.gql`
+  fragment SearchToolsSortFragment on ShoppingSortAndFilters {
+    sortSections {
+      id
+      fields {
+        ...DropdownFieldFragment
+        ...TabSelectionFieldFragment
+      }
+    }
+    tnlFields {
+      key
+      value
+    }
+  }
+  ${Vt.fragment}
+  ${Wl.fragment}
+`,kn=({data:e,onKeyPress:t,onClick:l,onEmptyResults:a})=>{const{sortSections:i,tnlFields:r}=e,o=null==r?void 0:r.find(({key:e})=>"Top_of_page"===e),s=(0,N.s5)({[N.OB.SMALL]:!1,[N.OB.MEDIUM]:!1,[N.OB.LARGE]:!0,[N.OB.EXTRA_LARGE]:!0});return Array.isArray(i)?n.createElement(n.Fragment,null,i.map(e=>e.fields.map((a,i)=>a.__typename!==Vt.fragment.__typename?null:o&&s?n.createElement("div",{"data-test-id":e.id,key:i},n.createElement(_n,{data:a,onClick:l})):n.createElement("div",{"data-test-id":e.id,key:i},n.createElement(Vt,{key:`sort-field-${i}`,data:a,onKeyPress:t,onClick:l}))))):(null==a||a(),null)};kn.displayName="SearchToolsSort",kn.fragment=An;var bn=i.gql`
+  fragment SearchToolsSortAndFiltersFragment on ShoppingSortAndFilters {
+    ...AllFilterSheetFooterFragment
+    sections {
+      ...SortAndFilterSectionFragment
+    }
+    sortSections {
+      ...SortAndFilterSectionFragment
+    }
+    toggleButton {
+      ...ToggleButtonFieldFragment
+    }
+    filterSections {
+      ...SortAndFilterSectionFragment
+    }
+    ...ShoppingSortAndFilterContainersFragment
+  }
+
+  ${Ct.fragment}
+  ${Sn.fragment}
+  ${gn.fragment}
+  ${St}
+`,In="SORT_AND_FILTERS",Cn=e=>{var t;const{data:l,onEmptyResults:a,onFieldClick:i,onMultiSelectClose:r,onMultiSelectItemRemove:s,onMultiSelectClearAll:c,onSubmit:d,onOpenDialog:m,onClearFilters:u,typeaheadAdapters:g,onSelectionChange:S,onRangeSelectionChange:E,onRemoveAllAppliedFilters:y,keepSectionExpanded:F,onStepInputChange:f,withUpdatedNotification:h,onKeyDown:k,onDone:b,footerDataLoading:I,currentView:T}=e,{__typename:R,sortSections:x,filterSections:O,sections:D,containers:M,footerLabel:L,toggleButton:P}=l||{},{toolbar:$,revealAction:w,applyAction:B}=null!=(t=null==M?void 0:M.find(e=>"ShoppingSortAndFilterDialogContainer"===e.__typename&&e.view===In))?t:{},G=[x,O,D],U=(0,N.eg)({viewSizes:N.pf})===N.pf.SMALL,[V,z,q]=(0,C.useDialog)(`${R}-${In}`),{openDialog:H,closeDialog:Y}=z,[Q,K]=n.useState($),[W,X]=n.useState(!1),j=n.useRef(null),Z=(0,o.useEgClickstream)(),J=n.useCallback(()=>{m&&m(),X(!1),K($);Z({event:Qe}),H()},[m,H,$]),ee=n.useCallback(()=>{d&&d(),Y()},[d,Y]),te=n.useCallback(()=>{u&&u({name:"restore",value:{}}),Y()},[Y]),le=n.useCallback(()=>{var e,t;y&&y(),u&&u({name:"clear",value:{}}),X(!0);const l=Q&&{...Q,actions:{...Q.actions,secondaries:null!=(t=null==(e=Q.actions.secondaries)?void 0:e.map(e=>({...e,disabled:!0})))?t:[]}};K(l)},[y]),ne=n.useCallback(()=>{K($),X(!1)},[$]);if(!G.some(e=>Array.isArray(e)&&e.length>0)||!w||!B)return null==a||a(),null;const ae={__typename:"ShoppingSortAndFilters",footerLabel:L,containers:M};return n.createElement(n.Fragment,null,n.createElement(ut,{data:w,isFullWidth:!0,onClick:J,withUpdatedNotification:h,triggerRef:j}),n.createElement(_.K,{isVisible:V},n.createElement(kt,null,n.createElement(q,null,n.createElement(A.t,{type:U?"full":"centered",isVisible:V,returnFocusOnClose:!0,triggerRef:j},Q&&n.createElement(lt,{data:Q,onCloseButtonClick:te,onClearAllButtonClick:le}),n.createElement(v.h,{zeroPadding:!0},P&&n.createElement(p.N,{padding:{blockstart:"six",inline:"four"}},n.createElement("div",null,n.createElement(p.N,{padding:{blockend:"six"},border:["blockend"]},n.createElement("div",null,n.createElement(Sn,{data:P}))))),n.createElement(p.N,{padding:{blockend:"four",inline:"four"}},n.createElement("div",{"data-test-id":"sort-filter-drawer"},G.map(e=>Array.isArray(e)?e.map((e,t)=>n.createElement(gn,{key:`sort-section-${t}`,data:e,typeaheadAdapters:g,onFieldClick:i,onMultiSelectClose:r,onMultiSelectItemRemove:s,onMultiSelectClearAll:c,onSelectionChange:S,onSelectedField:ne,onRangeSelectionChange:E,onStepInputChange:f,keepSectionExpanded:F,resetFilters:W,onKeyDown:k,onDone:b,currentView:T})):null)))),n.createElement(Ct,{data:ae,footerDataLoading:I,viewType:In,onClick:ee,isButtonTracked:!0}))))))};Cn.displayName="SearchToolsSortAndFilter",Cn.fragment=bn;var Tn=i.gql`
+  fragment SearchToolsFilterDialogFragment on ShoppingSortAndFilters {
+    ...AllFilterSheetFooterFragment
+    sections {
+      ...SortAndFilterSectionFragment
+    }
+    filterSections {
+      ...SortAndFilterSectionFragment
+    }
+    ...ShoppingSortAndFilterContainersFragment
+  }
+
+  ${Ct.fragment}
+  ${gn.fragment}
+  ${St}
+`,Rn="FILTER_DIALOG",xn=e=>{var t,l,a,i;const{data:r,onEmptyResults:s,onMultiSelectClose:c,onMultiSelectItemRemove:u,onMultiSelectClearAll:g,onSubmit:S,onOpenDialog:E,onClearFilters:y,typeaheadAdapters:F,onSelectionChange:f,onRangeSelectionChange:h,onRemoveAllAppliedFilters:k,onStepInputChange:b,keepSectionExpanded:I,footerDataLoading:T,currentView:R,loading:x}=e,{__typename:O,containers:M,filterSections:P,sections:$,footerLabel:G}=r,{toolbar:U,revealAction:V,applyAction:z}=null!=(t=null==M?void 0:M.find(e=>"ShoppingSortAndFilterDialogContainer"===e.__typename&&e.view===Rn))?t:{},q=[P,$],[H,Y,Q]=(0,C.useDialog)(`${O}-${Rn}`),{openDialog:K,closeDialog:W}=Y,[X,j]=n.useState(U),[Z,J]=n.useState(!1),[ee,te]=n.useState((null==(l=null==U?void 0:U.actions)?void 0:l.secondaries)&&(null==(i=null==(a=null==U?void 0:U.actions)?void 0:a.secondaries[0])?void 0:i.disabled)),[le,ne]=n.useState(!0),ae=n.useRef(null),ie=(0,o.useEgClickstream)();n.useEffect(()=>{var e;X&&j({...X,actions:{__typename:"UIToolbarActions",primary:{...X.actions.primary},secondaries:(null==(e=X.actions.secondaries)?void 0:e.map(e=>({...e,disabled:!ee&&Z})))||[]}})},[ee,Z]),n.useEffect(()=>{H||le||(null==y||y({name:"restore",value:{}}),J(!1)),ne(!1)},[H,le]);const re=(0,o.useClickTracker)(),oe=n.useCallback(()=>{var e;if(E&&E(),V&&"UISecondaryFloatingActionButton"===V.__typename&&"ClientSideAnalytics"===(null==(e=V.analytics)?void 0:e.__typename)){const{referrerId:e,linkName:t}=V.analytics;re(e,t)}ie({event:Qe}),K()},[K,E,V,ie]),se=n.useCallback(()=>{ne(!0),S&&S(),W()},[S,W]),ce=n.useCallback(()=>{y&&y({name:"restore",value:{}}),J(!1),W()},[W]),de=n.useCallback(()=>{k&&k(),y&&y({name:"clear",value:{}}),J(!0),te(!1)},[k]),me=n.useCallback(()=>{j(U),J(!1),te(!0)},[U]);if(!q.some(e=>Array.isArray(e)&&e.length>0)||!V||!z)return null==s||s(),null;if("UISecondaryFloatingActionButton"!==V.__typename)return null;const{badge:ue,icon:ge,primary:pe}=V,Se=n.createElement(n.Fragment,null,!!ue&&n.createElement(m.C,null,n.createElement(B.P,{type:"relative",position:{right:"two",bottom:"half"}},n.createElement(w.u,{count:ue.toString(),theme:"action",visible:!0}))),ge&&!ue&&n.createElement(m.C,null,n.createElement(Be,{data:ge})),n.createElement(m.C,null,n.createElement("div",null,pe))),Ee={__typename:"ShoppingSortAndFilters",footerLabel:G,containers:M};return n.createElement(N.LM,null,n.createElement(N.NP,null,n.createElement(kt,null,n.createElement(n.Fragment,null,n.createElement(D.q,{isFullWidth:!0,onClick:oe,size:L.V.MEDIUM,domRef:ae},n.createElement(d.X,{direction:"column",alignItems:"center"},Se)),n.createElement(_.K,{isVisible:H},n.createElement(Q,null,n.createElement(A.t,{type:"full",isVisible:H,returnFocusOnClose:!0,triggerRef:ae},X&&n.createElement(lt,{data:X,onCloseButtonClick:ce,onClearAllButtonClick:de}),n.createElement(v.h,{zeroPadding:!0},n.createElement(p.N,{padding:{blockend:"twelve",inline:"four"},margin:{blockend:"three"}},n.createElement("div",null,q.map(e=>Array.isArray(e)&&0!==e.length?e.map((e,t)=>n.createElement(gn,{key:`filter-section-${t}`,data:e,typeaheadAdapters:F,onMultiSelectClose:c,onMultiSelectItemRemove:u,onMultiSelectClearAll:g,onSelectionChange:f,onSelectedField:me,onStepInputChange:b,onRangeSelectionChange:h,keepSectionExpanded:I,useUnsetTopBorder:!0,resetFilters:Z,currentView:R,loading:x})):null)))),n.createElement(Ct,{data:Ee,footerDataLoading:T,viewType:Rn,onClick:se,isButtonTracked:!0}))))))),n.createElement(N.rw,null,n.createElement(kt,null,n.createElement(n.Fragment,null,n.createElement(D.q,{isFullWidth:!0,onClick:oe,size:L.V.MEDIUM,domRef:ae},n.createElement(d.X,{space:ue?"four":"two"},Se)),n.createElement(_.K,{isVisible:H},n.createElement(Q,null,n.createElement(A.t,{type:"centered",isVisible:H,returnFocusOnClose:!0,triggerRef:ae},X&&n.createElement(lt,{data:X,onCloseButtonClick:ce,onClearAllButtonClick:de}),n.createElement(v.h,{zeroPadding:!0},n.createElement(p.N,{padding:{blockend:"four",inline:"four"}},n.createElement("div",null,q.map(e=>Array.isArray(e)&&0!==e.length?e.map((e,t)=>n.createElement(gn,{key:`filter-section-${t}`,data:e,typeaheadAdapters:F,onMultiSelectClose:c,onMultiSelectItemRemove:u,onMultiSelectClearAll:g,onSelectionChange:f,onSelectedField:me,onStepInputChange:b,onRangeSelectionChange:h,keepSectionExpanded:I,useUnsetTopBorder:!0,resetFilters:Z,currentView:R,loading:x})):null)))),n.createElement(Ct,{data:Ee,footerDataLoading:T,viewType:Rn,onClick:se,isButtonTracked:!0}))))))))};xn.displayName="SearchToolsFilterDialog",xn.fragment=Tn;var Nn=i.gql`
+  fragment SearchToolsFilterPillFragment on ShoppingSortAndFilters {
+    quickAccessFilters {
+      ...ToggleFilterPillFieldFragment
+    }
+  }
+
+  ${sn.fragment}
+`,On={block:"half"},Dn=({data:e,onClick:t,onEmptyResults:l})=>{const{quickAccessFilters:a}=e;return a?n.createElement(Se.g,null,null==a?void 0:a.map((e,t)=>{const l=`filter-pill-${t}`;return e.__typename!==sn.fragment.__typename?null:n.createElement(p.N,{key:l,padding:On},n.createElement("div",{"data-stid":l},n.createElement(sn,{data:e})))})):(null==l||l(),null)};Dn.displayName="SearchToolsFilterPill",Dn.fragment=Nn;var Mn=i.gql`
+  fragment SearchToolsSortTabsFragment on ShoppingSortAndFilters {
+    sortSections {
+      id
+      fields {
+        ...TabSelectionFieldFragment
+      }
+    }
+  }
+
+  ${Wl.fragment}
+`,Ln=({data:e,onEmptyResults:t})=>{const{sortSections:l}=e;return l?n.createElement(n.Fragment,null,l.map(e=>e.fields.map((t,l)=>t.__typename!==Wl.fragment.__typename?null:n.createElement("div",{"data-test-id":e.id,key:l},n.createElement(Wl,{key:`tabs-field-${l}`,data:t}))))):(null==t||t(),null)};Ln.displayName="SearchToolsSortTabs",Ln.fragment=Mn;var Pn={FILTERS:vn,SORT:kn,SORT_AND_FILTERS:Cn,APPLIED_FILTERS:Ye,FILTER_BAR:Fn,FILTER_DIALOG:xn,FILTERS_PILLS:Dn,SORT_TABS:Ln,USE_REWARDS:Ln},$n={SEARCH_TOOLS_LODGING_SORT_AND_FILTER_QUERY_ERROR:new s.SystemEvent(s.SystemEventLevel.ERROR,"SORT_AND_FILTER_QUERY_ERROR"),SEARCH_TOOLS_LODGING_SORT_AND_FILTER_QUERY_NO_DATA:new s.SystemEvent(s.SystemEventLevel.INFO,"SORT_AND_FILTER_NO_DATA"),SEARCH_TOOLS_LODGING_FILTER_SHEET_FOOTER_QUERY_ERROR:new s.SystemEvent(s.SystemEventLevel.ERROR,"FILTER_SHEET_FOOTER_QUERY_ERROR"),SEARCH_TOOLS_LODGING_FILTER_SHEET_FOOTER_QUERY_NO_DATA:new s.SystemEvent(s.SystemEventLevel.INFO,"FILTER_SHEET_FOOTER_NO_DATA")},wn=(e=>(e.SORT="sort",e.HOTEL_NAME="hotelName",e.REWARDS="rewards",e.STAR="star",e.GUEST_RATING="guestRating",e.CLEANING_AND_SAFETY="cleaningAndSafetyPractices",e.LODGING="lodging",e.MEAL_PLAN="mealPlan",e.AMENITIES="amenities",e.TRAVELER_TYPE="travelerType",e.PAYMENT_TYPE="paymentType",e.DEALS="deals",e.PROPERTY_STYLE="propertyStyle",e.BEDROOM_FILTER="bedroomFilter",e.NEIGHBORHOOD="neighborhood",e.STAY_TYPE="stayType",e.ACCESSIBILITY="accessibility",e.POI="poi",e.MIN_BEDROOMS="bedroom_count_gt",e.MIN_BATHROOMS="us_bathroom_count_gt",e.MIN_BEDS="bed_count_ge",e.MIN_KING_BED="king_bed_gt",e.MIN_QUEEN_BED="queen_bed_gt",e.MIN_FULL_BED="full_bed_gt",e.MIN_TWIN_BED="twin_bed_gt",e.MIN_BUNK_BED="bunk_bed_gt",e.PROPERTY_TYPE="property_type_group",e.LOCATION="location_group",e.ACCESSIBILITY_FEATURES="accessibility_features_group",e.BOOKING_OPTIONS="booking_options_group",e.DISCOUNTS_GROUP="discounts_group",e.AMENITIES_FACILITIES="amenities_facilities_group",e.FREE_CANCELLATION_GROUP="free_cancellation_group",e.HOUSE_RULES="house_rules_group",e.NEARBY_ACTIVITIES="nearby_activities_group",e.NEIGHBORHOOD_GROUP="neighborhood_group",e.PREMIER_HOST="premier_host_group",e.PROPERTIES_GOOD="properties_good_for_group",e.PROPERTY_REVIEWS="property_reviews_group",e.ROOMS_SPACES="rooms_spaces_group",e.COMMON_SPACES_GROUP="common_spaces_group",e.SAFETY="safety_group",e.VIRTUAL_TOUR_GROUP="virtual_tour_group",e.PRICING_GROUP="pricing_group",e.PROPERTY_NAME="propertyName",e.AVAILABLE_FILTER="availableFilter",e.AGENCY_BUSINESS_MODELS="agencyBusinessModels",e.COMMISSION_TIERS="commissionTiers",e.BED_TYPE_GROUP="bed_type_group",e.STAY_OPTIONS_GROUP="stay_options_group",e.HOTEL_BRAND="hotel_brand",e.MULTI_NEIGHBORHOOD_GROUP="multi_neighborhood_group",e.SPECIAL_DISCOUNTS_GROUP="special_discounts_group",e.HIGHLY_RATED_FOR_GROUP="highly_rated_for_group",e.AI_SEARCH_QUERY="ai_search_query",e.AVAILABILITY_GROUP="availableFilter",e.EXPEDIA_REWARDS_GROUP="expedia_rewards_group",e.AVAILABILITY_GROUP_VRBO="availability_group",e.REGION_ID="regionId",e.SELECTED="selected",e.LOCATION_HIGHLIGHTS_GROUP="location_highlights_explore",e.PROPERTY_AMENITIES_GROUP="property_amenities_group_explore",e.SPECIALIZED_STAYS_GROUP="specialized_stays_group_explore",e.ROOM_AMENITIES_GROUP="room_amenities_group_explore",e.RECREATION_GROUP="recreation_group_explore",e.NEARBY_GROUP="nearby_group",e.AI_LOCATION="AI_LOCATION",e.AI_AMENITY="AI_AMENITY",e.AI_AFFINITY="AI_AFFINITY",e.AI_AFFINITY_NEARBY="AI_AFFINITY_NEARBY",e.AI_PROPERTY_BRAND="AI_PROPERTY_BRAND",e.AI_PROPERTY_NAME="AI_PROPERTY_NAME",e.AI_SEARCH_INPUT="ai_search_input",e.AI_SELECTED="ai_selected",e.AI_UNIDENTIFIED="AI_UNIDENTIFIED",e.ROOM_VIEWS_GROUP="room_views_group",e))(wn||{}),Bn=(e=>(e.PRICE="price",e.NIGHTLY_PRICE="nightly_price",e.TOTAL_PRICE="total_price",e.PROPERTY_SIZE="property_size",e.AI_PRICE="ai_price",e))(Bn||{}),Gn=i.gql`
+  query LodgingUniversalSortAndFiltersQuery(
+    $context: ContextInput!
+    $criteria: PropertySearchCriteriaInput
+    $productShoppingCriteriaInput: ProductShoppingCriteriaInput
+    $shoppingContext: ShoppingContextInput
+  ) {
+    propertySearch(
+      context: $context
+      criteria: $criteria
+      productShoppingCriteriaInput: $productShoppingCriteriaInput
+      shoppingContext: $shoppingContext
+    ) {
+      universalSortAndFilter {
+        ...SearchToolsFiltersFragment
+        ...SearchToolsSortFragment
+        ...SearchToolsSortAndFiltersFragment
+        ...SearchToolsFilterBarFragment
+        ...SearchToolsAppliedFiltersFragment
+      }
+    }
+  }
+
+  ${vn.fragment}
+  ${kn.fragment}
+  ${Cn.fragment}
+  ${Fn.fragment}
+  ${Ye.fragment}
+`,Un=e=>{var t,l,d;const m=(0,c.kY)(),u=(0,o.useClickTracker)(),{inputs:g,skipSsr:p,view:S,onFieldChange:E,onFieldClick:y,onOpenDialog:F,loading:f,onRemoveAppliedFilter:v,onRemoveAllAppliedFilters:h,fetchPolicy:_,filterBarSpacing:A,batchKey:k,loadingSkeletonPillCount:b}=e,{context:I}=(0,r.R)(),{identity:C,locale:T,siteId:R}=I,{duaid:x}=C||{},O=Number(null==C?void 0:C.expUserId)||-1,D={...g,context:I},{data:M,loading:L,error:P,previousData:$}=(0,i.useQuery)(Gn,{variables:D,context:{batchKey:k,shouldLogPerformance:!0},ssr:!p,fetchPolicy:_,skip:null==(t=null==m?void 0:m.propertySearch)?void 0:t.universalSortAndFilter,onError:e=>{B.SEARCH_TOOLS_LODGING_SORT_AND_FILTER_QUERY_ERROR.log({name:e.name,message:`Error while loading Universal Sort and Filter component. Error: ${e.message}`,graphqlError:e.graphQLErrors,networkError:e.networkError,variables:D,batchKey:k})}}),w=M||m,B=(0,s.useLoggerEvents)($n),G=L&&$||P?$:w;n.useEffect(()=>{"FILTER_BAR"===S&&u("HOT.SR.FilterBar.Initiated","Filter bar initiated")},[]);const U=Ce.get(S);if(L&&!w&&!$&&U)return n.createElement(U,{filterBarSpacing:A,numPills:b});if(P&&(B.SEARCH_TOOLS_LODGING_SORT_AND_FILTER_QUERY_ERROR.log({name:P.name,message:`Error while loading Universal sort and filter module. Error: ${P.message}`}),!G))return null;if(!G||!G.propertySearch.universalSortAndFilter)return L||B.SEARCH_TOOLS_LODGING_SORT_AND_FILTER_QUERY_NO_DATA.log({message:"No data while loading universal sort and filter module"}),null;const V=(e,t)=>{null==E||E(e,t)},z=Pn[S];if(!z)return null;const q=((e,t,l,n,a,i)=>{var r;const o=new Map;return null==(r=e.propertySearch.universalSortAndFilter.filterSections)||r.map(e=>e.fields.filter(e=>"ShoppingTextInputField"===e.__typename)).flat(2).forEach(e=>{var r,s,c,d,m,u,g,p,S,E,y;const F=e.typeaheadInfo,f=null!=(d=null==(c=null==(s=null==(r=i.criteria)?void 0:r.primary)?void 0:s.destination)?void 0:c.regionId)?d:"";o.set(e.id,new fe.Z({client:null!=(m=null==F?void 0:F.client)?m:"",dest:null!=(u=null==F?void 0:F.isDestination)&&u,expuserid:t,features:null!=(g=null==F?void 0:F.typeaheadFeatures)?g:"",guid:n,locale:l,maxResults:null!=(p=null==F?void 0:F.maxNumberOfResults)?p:10,personalize:!1,regionType:null!=(S=null==F?void 0:F.regionType)?S:128,siteId:a,lob:null!=(E=null==F?void 0:F.lineOfBusiness)?E:"hotels",domain:null!=(y=null==F?void 0:F.domain)?y:"",regionId:f}))}),o})(G,O,T,x,R,g),{dateRange:H}=null!=(d=null==(l=g.criteria)?void 0:l.primary)?d:{};return n.createElement(a.m,{onFieldChange:V},n.createElement(z,{data:G.propertySearch.universalSortAndFilter,onClearFilters:V,typeaheadAdapters:q,onRangeSelectionChange:e=>{const t={name:e.id,value:{min:e.min,max:e.max}};V(t)},onRemoveAppliedFilter:v,onRemoveAllAppliedFilters:h,onSelectionChange:(e,t)=>{const l=(e=>{var t,l,n;return(null==e?void 0:e.term)?{name:"propertyName",value:{selected:null==(t=e.data)?void 0:t.selected,hotelName:e.term,regionName:null==(n=null==(l=e.data)?void 0:l.regionNames)?void 0:n.secondaryDisplayName}}:{name:"propertyName",value:{}}})(e);V(l,t)},onStepInputChange:(e,t)=>{V({name:e,value:t})},onClick:y,onOpenDialog:F,loading:f,footerDataLoading:L,withUpdatedNotification:!0,isDatedSearch:Boolean(H),stickyFilterBarByViewsize:{[N.OB.SMALL]:!0,[N.OB.MEDIUM]:!0,[N.OB.LARGE]:!1},filterBarSpacing:A,currentView:S,keepSectionExpanded:!0,waitingForQueryResolution:L,...e}))};Un.displayName="sharedui-LodgingSortAndFilters"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-sort-and-filter-lodging.a27453e8c3532473bf02.js.map

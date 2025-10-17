@@ -1,0 +1,182 @@
+/*@license For license information please refer to shared-ui-sponsored-content-brand-result-listing.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[2802],{53605:function(e,t,n){n.d(t,{h:function(){return Ie}});var a=n(56195),r=n(92919),l=n(63744),i=n(26690),o=n(64341),c=n(97778),s=n(53017),d=n(63085),m=n(36145),u=n(87698),E=n(32462),g=n(64097),p=n(46559),y=n(24109),v=n(9010),_=n(522),A=n(99828),C=n(1226),b=n(47540),T=n(87818),f=n(42534),I=n(74071),k=n(69287),S=n(80043),h=n(37292),N=n(25229),L=n(34399),O=n(80240),D=n(88856),w=n(545),P=Object.defineProperty,R=Object.defineProperties,B=Object.getOwnPropertyDescriptors,F=Object.getOwnPropertySymbols,x=Object.prototype.hasOwnProperty,U=Object.prototype.propertyIsEnumerable,M=(e,t,n)=>t in e?P(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,V=(e,t)=>{for(var n in t||(t={}))x.call(t,n)&&M(e,n,t[n]);if(F)for(var n of F(t))U.call(t,n)&&M(e,n,t[n]);return e},G=(e,t)=>R(e,B(t)),z=new d.SystemEvent(d.SystemEventLevel.INFO,"AD_BLOCK_DETECTED"),$=()=>((0,d.useLoggerEvents)({AD_BLOCK_DETECTED_EVENT:z}).AD_BLOCK_DETECTED_EVENT.log({message:"collapsing"}),null),K=e=>{const{children:t}=e;return(0,d.useLoggerEvents)({AD_BLOCK_DETECTED_EVENT:z}).AD_BLOCK_DETECTED_EVENT.log({message:"not collapsing"}),a.createElement(a.Fragment,null,t)};var H=i.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+    urls
+  }
+`,W={FAIL_TO_SEND_BEACON_USING_BEACON_API:new d.SystemEvent(d.SystemEventLevel.WARN,"FAIL_TO_SEND_BEACON_USING_BEACON_API")},j=i.gql`
+  fragment SponsoredContentBeaconsFragment on SponsoredContentBeacons {
+    renderBeacons
+    viewabilityBeacon
+  }
+`,q=e=>{const t=(0,d.useLoggerEvents)(W);a.useEffect(()=>{var n;e&&(null==(n=e.renderBeacons)||n.forEach(e=>{((e,t)=>{try{navigator.sendBeacon(encodeURI(e))||t.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({})}catch(n){t.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({error:n})}})(e,t)}))},[])},Q=i.gql`
+  fragment EGDSImageFragment on Image {
+    url
+    description
+  }
+`,X=({data:e})=>a.createElement(m.F,{alt:e.description,src:e.url});X.fragment=Q,X.displayName="SponsoredContentEGDSImage";var Y={4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:16,17:17,18:18,24:24,30:30,37:37,38:38,40:40,48:48,72:72},J={LANDSCAPE:"landscape",PORTRAIT:"portrait"},Z=i.gql`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    orientation
+    size
+    url {
+      ... on HttpURI {
+        __typename
+        value
+      }
+    }
+  }
+`,ee=({className:e,size:t,data:n})=>{const{description:r,id:l,orientation:i,url:o}=n;let c;c=t?Y[t]:n.size?Y[n.size]:void 0;const s=i&&J[i]||"landscape";return a.createElement(u.D,{className:e,description:r,id:l,name:l,orientation:s,size:c,url:null==o?void 0:o.value})};ee.displayName="SponsoredContentEGDSMark",ee.fragment=Z;var te=i.gql`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    text
+  }
+`,ne=({data:e})=>{var t;return e.text?a.createElement(E.G,{size:"small",text:e.text,a11yText:null!=(t=e.accessibility)?t:void 0}):null};ne.fragment=te,ne.displayName="EGDSStandardBadge";var ae=i.gql`
+  fragment TransparencyFragment on AdTransparencyTrigger {
+    adTransparencyId
+    adTransparencyButton {
+      ...AdTransparencyButtonFragment
+    }
+    adTransparencyOverlaySkeleton {
+      ...TransparencyOverlaySkeletonFragment
+    }
+  }
+
+  fragment AdTransparencyButtonFragment on AdTransparencyButton {
+    primary
+    size
+    icon {
+      id
+    }
+  }
+
+  fragment TransparencyOverlaySkeletonFragment on TransparencyOverlaySkeleton {
+    title
+    error {
+      ...TransparencyOverlayErrorFragment
+    }
+  }
+
+  fragment TransparencyOverlayErrorFragment on TransparencyOverlayError {
+    icon {
+      id
+      size
+    }
+    description
+    button {
+      primary
+    }
+    allowedRetryAttempts
+    exceededAttemptsMessage
+  }
+`,re=(i.gql`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    text
+    action {
+      ...UILinkActionFragment
+    }
+  }
+`,i.gql`
+  fragment UILinkActionFragment on UILinkAction {
+    accessibility
+    analytics {
+      referrerId
+      linkName
+      urls
+    }
+    resource {
+      ... on HttpURI {
+        value
+      }
+    }
+    target
+  }
+`),le={EXTERNAL:"_blank",INTERNAL:"_self"},ie=({className:e,data:t,children:n,onClick:r})=>{const{accessibility:l,resource:i,target:o,analytics:s}=t,d=(0,c.useClickTracker)(),m=a.useCallback(()=>{var e;null==(e=null==s?void 0:s.urls)||e.forEach(e=>{null==navigator||navigator.sendBeacon(e)}),(null==s?void 0:s.referrerId)&&(null==s?void 0:s.linkName)&&d(s.referrerId,s.linkName),r&&r()},[d]);return"HttpURI"!==i.__typename?null:a.createElement("a",{className:e,target:le[o],href:i.value,rel:"noopener",onClickCapture:m},l&&a.createElement("span",{className:"is-visually-hidden"},l),n)};function oe(e){var t;return"UILinkAction"===e.__typename&&e.accessibility&&"ClientSideAnalytics"===e.analytics.__typename&&"HttpURI"===(null==(t=e.resource)?void 0:t.__typename)&&e.resource.value}ie.fragment=re,ie.displayName="UILinkAction";var ce="sponsored-content",se="no-cache",de="adurl=",me=({badge:e,adTransparencyTrigger:t})=>a.createElement(T.P,{type:"absolute",position:{bottom:"three",left:"three",zindex:"layer3"},cloneElement:!0},t?a.createElement(S.x,{data:t}):e&&a.createElement("div",null,a.createElement(ne,{data:e}))),ue=({data:e})=>{const{badge:t,heading:n,paragraph:r,feature:l,logo:i,beacons:o,adTransparencyTrigger:c}=e;q(o);const s=l.thumbnailClickAnalytics?G(V({},e.link),{analytics:l.thumbnailClickAnalytics}):e.link;return a.createElement(C.w,{alignItems:"center",columns:3},a.createElement(me,{badge:t,adTransparencyTrigger:c}),a.createElement(b.T,{colSpan:1},a.createElement(T.P,{type:"relative",position:{zindex:"layer2"}},a.createElement(v.M,{imageFit:"cover"},s&&oe(s)&&a.createElement(ie,{data:s},a.createElement(X,{data:l}))))),a.createElement(b.T,{colSpan:2,alignSelf:"start"},a.createElement(y.E,null,a.createElement(_.X,{direction:"column",justifyContent:"start"},(null==i?void 0:i.standard)&&a.createElement(A.C,{grow:0,maxWidth:100},a.createElement(f.N,{margin:{blockend:"three"}},a.createElement("div",null,a.createElement(ee,{data:i.standard})))),a.createElement(A.C,null,a.createElement(I.M,{tag:"h3",size:5},n)),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"half"}},a.createElement(k.u,{size:2},r)))))))},Ee=({data:e})=>{const{badge:t,heading:n,paragraph:r,feature:l,logo:i,beacons:o,adTransparencyTrigger:c}=e;q(o);const s=l.thumbnailClickAnalytics?G(V({},e.link),{analytics:l.thumbnailClickAnalytics}):e.link;return a.createElement(C.w,{columns:3},a.createElement(me,{badge:t,adTransparencyTrigger:c}),a.createElement(b.T,null,a.createElement(T.P,{type:"relative",position:{zindex:"layer2"}},a.createElement(v.M,{imageFit:"cover",ratio:v.l.R21_9},s&&oe(s)&&a.createElement(ie,{data:s},a.createElement(X,{data:l}))))),a.createElement(b.T,{colSpan:2},a.createElement(y.E,null,a.createElement(_.X,{direction:"column",justifyContent:"start"},(null==i?void 0:i.standard)&&a.createElement(A.C,{grow:0,maxWidth:100},a.createElement("div",null,a.createElement(ee,{data:i.standard}))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"three"}},a.createElement(I.M,{tag:"h2",size:6},n))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"one"}},a.createElement(k.u,{size:2},r)))))))},ge=(e,t)=>({event:e,video_list:[{video_percentage:null!=t?t:e.percentage}]}),pe={event_name:"video_playback.updated",event_version:"1.9.0"},ye={VIDEO_SELECTED:{event_name:"publisher_ad.selected",action_location:"VIDEO",event_version:"1.0.0"},INFO_SELECTED:{event_name:"publisher_ad.selected",action_location:"INFO",event_version:"1.0.0"},AD_VIEW:{event_name:"publisher_ad.presented",event_version:"1.0.0"},PAUSE_CLICK:{event_name:"video_pause.selected",event_version:"1.10.0"},PLAY_CLICK:{event_name:"video_play.selected",event_version:"1.10.0"},UNMUTE_CLICK:{event_name:"video_unmute.selected",event_version:"1.10.0"},MUTE_CLICK:{event_name:"video_mute.selected",event_version:"1.10.0"},VIDEO_VIEW:{event_name:"video.presented",event_version:"1.5.0"},FIRST_QUARTILE:G(V({},pe),{percentage:25}),MIDPOINT:G(V({},pe),{percentage:50}),THIRD_QUARTILE:G(V({},pe),{percentage:75}),COMPLETE:G(V({},pe),{percentage:100}),BUFFERING:{event_name:"video_buffering.initiated",event_version:"1.6.0"}},ve=i.gql`
+  fragment VideoPlayerFragment on SponsoredContentVideo {
+    videoAccessibility
+    url {
+      value
+    }
+    thumbnail {
+      value
+    }
+    link {
+      ...UILinkActionFragment
+    }
+    videoAnalyticsPayload {
+      videoBufferingAnalytics
+      videoMuteAnalytics
+      videoPauseAnalytics
+      videoPlayAnalytics
+      videoPresentedAnalytics
+      videoProgressAnalytics
+      videoUnmuteAnalytics
+    }
+  }
+  ${H}
+  ${ie.fragment}
+`,_e=new d.SystemEvent(d.SystemEventLevel.ERROR,"VIDEO_LOAD_ERROR"),Ae=e=>{var t,n,r,l;const{data:{videoAccessibility:i,url:o,thumbnail:s,link:m,videoAnalyticsPayload:u},badge:E,adTransparencyTrigger:g,callToAction:p,isMobile:y=!1,clickAnalytics:v}=e,{videoBufferingAnalytics:_,videoMuteAnalytics:A,videoPauseAnalytics:C,videoPlayAnalytics:b,videoPresentedAnalytics:T,videoProgressAnalytics:f,videoUnmuteAnalytics:I}=u||{},k=(0,a.useRef)(null),h=(0,d.useLoggerEvents)({VIDEO_LOAD_ERROR_EVENT:_e}),N=(e,t,n)=>{var a;return{id:null!=(a=t.event_name)?a:"",callback:()=>{const a="function"==typeof n?n():n;P({clientPayload:ge(t,a),serverPayload:e})}}},P=(0,c.useEgClickstream)(),R={src:o.value,thumbnail:s.value},B={ctaClickAnalytics:N(v,ye.VIDEO_SELECTED),ctaLink:"HttpURI"===(null==m?void 0:m.resource.__typename)?null==m?void 0:m.resource.value:"",ctaText:null!=(t=null==p?void 0:p.primary)?t:"",openLinkInNewTab:"EXTERNAL"===(null==m?void 0:m.target)},F={sectionComponent:m&&p&&oe(m)&&a.createElement(ie,{data:m},a.createElement(L.M,{size:O.V.MEDIUM,"aria-label":null!=(n=p.accessibility)?n:void 0},p.primary)),disappearsWithControls:!0},x={viewAnalytics:N(T,ye.VIDEO_VIEW),firstQuartileAnalytics:N(f,ye.FIRST_QUARTILE),midpointAnalytics:N(f,ye.MIDPOINT),thirdQuartileAnalytics:N(f,ye.THIRD_QUARTILE),unmuteAnalytics:N(I,ye.UNMUTE_CLICK),muteAnalytics:N(A,ye.MUTE_CLICK),pauseAnalytics:N(C,ye.PAUSE_CLICK),playAnalytics:N(b,ye.PLAY_CLICK),completeAnalytics:N(f,ye.COMPLETE),bufferingAnalytics:N(_,ye.BUFFERING,()=>{var e;return null==(e=null==k?void 0:k.current)?void 0:e.getCurrentTime()})},U=g?a.createElement(S.x,{data:g,onOpen:()=>{k.current&&k.current.showOverlay()},onClose:()=>{k.current&&k.current.dismissOverlay()}}):E&&a.createElement(ne,{data:E}),M=!1!==(null==(l=null==(r=window.meso)?void 0:r.adblock)?void 0:l.enabled);return a.createElement(D.V,{ref:k,autoplay:!M,adBadge:U,videoResource:R,footerContent:{customFooter:null,controlBarProps:{useScrim:!1,hasClosedCaptionsButton:!1,hasFullscreenButton:!1}},midSection:F,analytics:x,videoAriaLabel:null!=i?i:void 0,onError:()=>{h.VIDEO_LOAD_ERROR_EVENT.log({videoSrc:o.value})},callToActionProps:B,videoClickAction:w.Hq.CALL_TO_ACTION,isMobile:y})};Ae.fragment=ve,Ae.displayName="Video";var Ce=({data:e})=>{var t;const{link:n,badge:i,heading:o,paragraph:s,logo:d,beacons:m,adTransparencyTrigger:u,video:E,callToAction:g,presentedAnalytics:p,selectedAnalytics:v}=e;q(m);const S=(0,c.useEgClickstream)();if(!E)return null;const h="HttpURI"===(null==(t=n.resource)?void 0:t.__typename)&&n.resource.value&&a.createElement(l.w,null,a.createElement(ie,{data:n,onClick:()=>S({clientPayload:ge(ye.INFO_SELECTED),serverPayload:v})},n.accessibility&&a.createElement("span",{className:"is-visually-hidden"},n.accessibility)));return a.createElement(c.EgClickstreamImpressionTracker,{eventData:{clientPayload:ge(ye.AD_VIEW),serverPayload:p}},a.createElement(r.g,{border:!0},n&&oe(n)&&h,a.createElement(C.w,{alignItems:"center",columns:12},a.createElement(b.T,{colSpan:7},a.createElement(T.P,{type:"relative",position:{zindex:"layer2"}},a.createElement(Ae,{data:E,badge:i,adTransparencyTrigger:u,callToAction:g,isMobile:!1,clickAnalytics:v}))),a.createElement(b.T,{colSpan:5,alignSelf:"center"},a.createElement(y.E,null,a.createElement(_.X,{direction:"column",justifyContent:"start"},(null==d?void 0:d.standard)&&a.createElement(A.C,{grow:0,maxWidth:100},a.createElement("div",null,a.createElement(ee,{data:d.standard}))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"three"}},a.createElement(I.M,{tag:"h3",size:5},o))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"two"}},a.createElement(k.u,{size:2},s)))))))))},be=({data:e})=>{const{link:t,badge:n,heading:i,paragraph:o,feature:s,logo:d,beacons:m,adTransparencyTrigger:u,video:E,callToAction:g,selectedAnalytics:p,presentedAnalytics:y}=e;q(m);const v=(0,c.useEgClickstream)();if(!E)return null;const S=e=>t&&oe(t)?a.createElement(h.i,null,a.createElement(ie,{data:t,onClick:()=>v({clientPayload:ge(ye.INFO_SELECTED),serverPayload:p})},t.accessibility&&a.createElement("span",{className:"is-visually-hidden"},t.accessibility),e)):e;return a.createElement(c.EgClickstreamImpressionTracker,{eventData:{clientPayload:ge(ye.AD_VIEW),serverPayload:y}},a.createElement(N.j,{blockMargin:"six"}),a.createElement(C.w,{space:"three"},a.createElement(b.T,null,a.createElement(_.X,{direction:"column",justifyContent:"start"},(null==d?void 0:d.standard)&&a.createElement(A.C,{grow:0,maxWidth:100},a.createElement("div",null,S(a.createElement(ee,{data:d.standard})))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"two"}},S(a.createElement(I.M,{tag:"h2",size:6},i)))),a.createElement(A.C,null,a.createElement(f.N,{margin:{blockstart:"half"}},S(a.createElement(k.u,{size:2},o)))))),a.createElement(b.T,null,a.createElement(r.g,null,t&&oe(t)&&a.createElement(l.w,null,a.createElement(ie,{data:t})),a.createElement(b.T,null,a.createElement(T.P,{type:"relative",position:{zindex:"layer2"}},a.createElement(Ae,{data:E,badge:n,adTransparencyTrigger:u,callToAction:g,clickAnalytics:p,isMobile:!0})))))),a.createElement(N.j,{blockMargin:"six"}))},Te=i.gql`
+  query BrandResultListingQuery(
+    $context: ContextInput!
+    $sponsoredContentContext: SponsoredContentContextInput!
+    $shoppingCriteriaInput: ProductShoppingCriteriaInput
+  ) {
+    sponsoredContent {
+      brandResultListing(context: $context, sponsoredContentContext: $sponsoredContentContext, shoppingCriteriaInput: $shoppingCriteriaInput) {
+        heading
+        paragraph
+        adTransparencyTrigger {
+          ...TransparencyFragment
+        }
+        beacons {
+          ...SponsoredContentBeaconsFragment
+        }
+        impressionAnalytics {
+          ...ClientSideAnalyticsFragment
+        }
+        link {
+          ...UILinkActionFragment
+        }
+        badge {
+          ...EGDSStandardBadgeFragment
+        }
+        feature {
+          ...EGDSImageFragment
+          thumbnailClickAnalytics {
+            ...ClientSideAnalyticsFragment
+          }
+        }
+        logo {
+          standard {
+            ...EGDSMarkFragment
+          }
+        }
+        video {
+          ...VideoPlayerFragment
+        }
+        callToAction {
+          ...EGDSOverlayButtonFragment
+        }
+        presentedAnalytics
+        selectedAnalytics
+      }
+    }
+  }
+
+  fragment EGDSOverlayButtonFragment on EGDSOverlayButton {
+    accessibility
+    primary
+  }
+
+  ${X.fragment}
+  ${ne.fragment}
+  ${ee.fragment}
+  ${Ae.fragment}
+  ${ie.fragment}
+  ${H}
+  ${j}
+  ${ae}
+`,fe=e=>{var t,n,d;const{rooms:m,inputs:u,skipSsr:E,batchKey:g=ce,fetchPolicy:y=se}=e,{context:v}=(0,o.R)(),_=G(V({},u),{context:v});(0,s.useExperiment)("ega_performance_aa",!0);const{data:A,error:C}=(0,i.useQuery)(Te,{context:{batchKey:g,shouldLogPerformance:!0},variables:_,ssr:!E,fetchPolicy:y}),b=null==(d=null==(n=null==(t=null==A?void 0:A.sponsoredContent)?void 0:t.brandResultListing)?void 0:n.beacons)?void 0:d.viewabilityBeacon,{componentRef:T}=(({viewabilityBeacon:e})=>{const t=a.useRef(null),n=(0,a.useCallback)(e=>{var t;e&&window.meso&&(window.meso.viewability=null!=(t=window.meso.viewability)?t:[],window.meso.viewability.push({type:"deregister",element:e}))},[]),r=(0,a.useCallback)(t=>{var n,a;t&&(window.meso=null!=(n=window.meso)?n:{},window.meso.viewability=null!=(a=window.meso.viewability)?a:[],window.meso.viewability.push({type:"register",config:"image",element:t,beacon:e}))},[e]);return a.useEffect(()=>{const e=t.current;return r(e),()=>{n(e)}},[r,n]),{componentRef:t}})({viewabilityBeacon:b});if(C||!A||!A.sponsoredContent.brandResultListing)return null;const{link:f,video:I,impressionAnalytics:k}=A.sponsoredContent.brandResultListing;((e,t)=>{var n,a,r;if(e&&"HttpURI"===e.resource.__typename&&e.resource.value.toString().includes("search")&&t){const l=null==e?void 0:e.resource.value,i=l.substring(l.indexOf(de)+6),o=new URLSearchParams(i||"");o.append("NumRoom",t.length.toString());for(let e=0;e<t.length;e+=1){const l=(null==(n=t[e])?void 0:n.children)||[];o.append(`NumAdult${e+1}`,`${(null==(a=t[e])?void 0:a.adults)||""}`),o.append(`NumChild${e+1}`,l.length.toString());for(let t=0;t<l.length;t+=1)o.append(`Rm${e+1}child${t+1}age`,`${(null==(r=l[t])?void 0:r.age)||""}`)}return G(V({},e),{resource:G(V({},e.resource),{value:e.resource.value.replace(i,o.toString())})})}})(f,m);const S=a.createElement(p.LM,null,a.createElement(p.NP,null,a.createElement(c.IntersectionTracker,{linkName:k.linkName,referrerId:k.referrerId},I?a.createElement(be,{data:A.sponsoredContent.brandResultListing}):a.createElement(Ee,{data:A.sponsoredContent.brandResultListing}))),a.createElement(p.rw,null,a.createElement(c.IntersectionTracker,{linkName:k.linkName,referrerId:k.referrerId},I?a.createElement(Ce,{data:A.sponsoredContent.brandResultListing}):a.createElement(ue,{data:A.sponsoredContent.brandResultListing}))));return a.createElement("div",{"data-eg-sc":!0,ref:T},I?S:a.createElement(r.g,{border:!0},f&&a.createElement(l.w,null,a.createElement(ie,{data:f})),S))};fe.displayName="sharedui-BrandResultListingQueryComponent";var Ie=function(e){const t=t=>{var n;const{collapseWhenAdBlockDetected:r,adBlockCollapseExperiment:l}=t,i=a.createElement(K,null,a.createElement(e,V({},t)));return window.meso=null!=(n=window.meso)?n:{},!window.meso.adblock||window.meso.adblock.enabled?l?a.createElement(s.Experiment,{name:"Acceptable_Ads_Component_Enablement"},a.createElement(s.ExperimentControl,null,a.createElement($,null)),a.createElement(s.ExperimentVariant,{bucket:1},"PG_Acceptable_Ads_Enablement"===l?a.createElement(s.Experiment,{name:"PG_Acceptable_Ads_Enablement"},a.createElement(s.ExperimentControl,null,a.createElement($,null)),a.createElement(s.ExperimentVariant,{bucket:1},i)):"Acceptable_Ads_Component_Enablement"===l?i:a.createElement($,null))):!1===r?i:a.createElement($,null):a.createElement(e,V({},t))};return t.displayName="WithAdBlockDetectHOC",t}(function(e){const t=t=>{const[n,r]=a.useState(0);return a.useEffect(()=>{r(window.innerHeight)},[]),a.createElement(a.Fragment,null,n?a.createElement(p.LM,null,a.createElement(p.NP,null,a.createElement(g.A,{offset:n},a.createElement(e,V({},t)))),a.createElement(p.rw,null,a.createElement(g.A,{offset:n/2},a.createElement(e,V({},t))))):null)};return t.displayName=`${e.displayName}WithSponsoredContentLazy`,t}(fe))}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-sponsored-content-brand-result-listing.d5c7be6cbf1514f25abd.js.map

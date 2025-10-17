@@ -1,0 +1,192 @@
+/*@license For license information please refer to shared-ui-retail-product-at-a-glance.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[8178],{66281:function(e,t,n){n.d(t,{j:function(){return te}});var a=n(56195),r=n(26690),l=n(64341),i=n(92919),o=n(24109),c=n(42534),d=n(53017),s=n(79066),m=n(95635),p=n(27738),u=n(4988),g=n(71224),h=n(1226),E=n(47540),S=n(97778),y=n(46559),A=n(2557),b=n(37292),f=n(62926),x=n(522),v=n(32380),_=n(89962),k=n(99828),I=n(74071),C=n(27102),P=Object.defineProperty,G=Object.defineProperties,N=Object.getOwnPropertyDescriptors,w=Object.getOwnPropertySymbols,F=Object.prototype.hasOwnProperty,L=Object.prototype.propertyIsEnumerable,T=(e,t,n)=>t in e?P(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,D=r.gql`
+  fragment AtAGlanceLinkFragment on ShoppingLink {
+    __typename
+    actionId
+    text
+    trailingIcon {
+      id
+    }
+  }
+`,$=e=>{var t;const n=a.useRef(null),{data:r,inline:i,isSectionDivider:o,isIconHeader:c,isBulletedList:d,onClick:m,triggerRef:p=n,isMapLink:u=!1}=e,{text:g,trailingIcon:h,actionId:E}=r,S=(0,s.YU)(E),{context:y}=(0,l.R)();null==(t=null==y?void 0:y.device)||t.type,s.bq.MOBILE_PHONE;if(!E||!g)return null;const f=e=>a.createElement(b.i,{inline:null==i||i,domRef:p},a.createElement("button",{type:"button",onClick:e,"aria-label":g},g,h&&a.createElement(A.LD,{name:h.id,"aria-hidden":"true"})));return m?f(m):a.createElement(s.A9,{actionId:E,ref:p,triggerComponent:f(S),isSectionDivider:o,isIconHeader:c,isBulletedList:d})};$.fragment=D,$.displayName="AtAGlanceLink";var B=r.gql`
+  fragment AtAGlanceContentSectionActionFragment on ShoppingProductContentSectionAction {
+    ... on ShoppingLink {
+      __typename
+      actionId
+      text
+      trailingIcon {
+        id
+      }
+    }
+  }
+`,O=({data:e,isSectionDivider:t,isIconHeader:n,isBulletedList:r})=>{const{__typename:l}=e;return"ShoppingLink"===l?a.createElement($,{data:e,inline:!1,isSectionDivider:t,isIconHeader:n,isBulletedList:r}):null};O.displayName="AtAGlanceContentSectionAction",O.fragment=B;var R=r.gql`
+  fragment AtAGlanceContentItemFragment on ShoppingProductContentItem {
+    ...ShoppingProductContentItemTextsFragment
+    ...ShoppingProductContentGraphicsItemFragment
+    ...EGDSPlainTextFragment
+    __typename
+  }
+  ${s.Kv.fragment}
+  ${s.Dc.fragment}
+  ${s.Zb.fragment}
+`,q=({data:e})=>{const{__typename:t}=e;switch(t){case"ShoppingProductContentItemTexts":return a.createElement(s.Kv,{data:e});case"ShoppingProductContentGraphicsItem":return a.createElement(s.Dc,{data:e});case"EGDSPlainText":return a.createElement(s.Zb,{data:e,overflow:"wrap"});default:return null}};q.displayName="AtAGlanceContentItem",q.fragment=R;var z=r.gql`
+  fragment AtAGlanceContentFragment on ShoppingProductContent {
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    items {
+      ...ShoppingProductContentItemFragment
+    }
+    maxColumns
+    __typename
+  }
+  ${s.D5.fragment}
+  ${q.fragment}
+`,H=({data:e,showWithBullet:t})=>{const{header:n,items:r}=e;return!n&&(null==r?void 0:r.length)<=0?null:a.createElement(E.T,{colSpan:1,"data-stid":"sp-content"},a.createElement(a.Fragment,null,n&&a.createElement(s.D5,{data:n}),(null==r?void 0:r.length)>0&&a.createElement(v.y,{spacing:!1,bullet:t?"default":"no-bullet",size:2,type:"unordered","data-stid":"sp-content-list"},r.map((e,t)=>a.createElement(_.x,{key:`sp-content-item-${t}`,"data-stid":`sp-content-item-${t}`},a.createElement(q,{data:e}))))))};H.displayName="AtAGlanceContent",H.fragment=z;var W=r.gql`
+  fragment AtAGlanceContentElementGroupFragment on ShoppingProductContentElementGroup {
+    elements {
+      ... on ShoppingProductContent {
+        ...AtAGlanceContentFragment
+      }
+    }
+    maxColumns
+  }
+  ${H.fragment}
+`,j=({data:e,showWithBullets:t})=>{const{elements:n,maxColumns:r=1}=e,l=n.map((e,n)=>"ShoppingProductContent"===e.__typename?a.createElement(H,{key:`sp-product-content-${n}`,data:e,showWithBullet:t}):null);return a.createElement(a.Fragment,null,(null==n?void 0:n.length)>0&&a.createElement(h.w,{columns:r},l))};j.displayName="AtAGlanceContentElementGroup",j.fragment=W;var K={INFO:"info",POSITIVE:"positive",WARNING:"warning",STANDARD:"standard"},M=r.gql`
+  fragment AtAGlanceHeaderFragment on ShoppingProductHeader {
+    text
+    impressionAnalytics {
+      referrerId
+      linkName
+    }
+    icon {
+      id
+      description
+      token
+      size
+      spotLight
+    }
+    subText
+    additionalText
+    link {
+      accessibility
+      clickStreamAnalytics
+      actionId
+      text
+      trailingIcon {
+        id
+      }
+    }
+  }
+`,U=({data:e,headingTag:t="h3",headingSize:n=5,showIcon:r=!0})=>{const l=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,i=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,o=l||i;if(!(null==e?void 0:e.text))return null;const{text:s,impressionAnalytics:m,subText:p,icon:u}=e,{referrerId:g,linkName:h}=m||{},E=n&&[3,4].includes(n)?{customStyle:4===n?"headline-large":"headline-extra-large"}:void 0,y=a.createElement(x.X,{space:"two",alignItems:"start"},u&&r&&!o&&a.createElement(k.C,null,a.createElement(c.N,{margin:{inlineend:"three"}},a.createElement(A.LD,{id:u.id,name:u.id,description:u.description,size:u.size?A.So[u.size]:void 0,spotlight:u.spotLight?K[u.spotLight]:void 0,theme:"primary"}))),a.createElement(k.C,null,a.createElement(I.M,{tag:t,size:n,"data-testid":"sp-header",typeStyle:E},s))),b=p?a.createElement(c.N,{padding:{blockstart:"two"}},a.createElement(C.D,{size:300,"data-testid":"amenities-subtext"},p)):null;return g&&h?a.createElement(S.IntersectionTracker,{trackOnce:!0,linkName:h,referrerId:g},y,b):a.createElement(a.Fragment,null,y,b)};U.displayName="AtAGlanceHeader",U.fragment=M;var V=r.gql`
+  fragment AtAGlanceContentSubSectionFragment on ShoppingProductContentSubSection {
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    elements {
+      ...AtAGlanceContentElementGroupFragment
+    }
+    maxColumns
+  }
+  ${U.fragment}
+  ${j.fragment}
+`,Q=({data:e,showHeaderIcon:t=!0,headingSize:n=5,spacingBeforeElement:r=!0,showWithBullets:l})=>{const{header:i,elements:o}=e,s=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,m=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,p=s||m;return a.createElement(c.N,{margin:{blockend:"four",small:{inlinestart:"unset"},medium:{inlinestart:r?"twelve":void 0}},padding:{small:{inlinestart:"unset"},medium:{inlinestart:r?"two":void 0}}},a.createElement("div",null,a.createElement(f.S,{forceNoBreak:!0},a.createElement("div",null,a.createElement(x.X,{space:"two"},i&&a.createElement(U,{data:i,headingTag:"h3",headingSize:p?6:n,showIcon:t})),(null==o?void 0:o.length)>0&&a.createElement(c.N,{padding:{inlinestart:p||!t?"unset":"twelve"}},a.createElement(v.y,{bullet:"no-bullet",spacing:!1},o.map((e,t)=>a.createElement(c.N,{margin:{blockstart:"two"},key:t},a.createElement(_.x,null,a.createElement(j,{data:e,key:`sp-element-group-${t}`,showWithBullets:l}))))))))))};Q.displayName="AtAGlanceContentSubSection",Q.fragment=V;var X=r.gql`
+  fragment AtAGlanceContentSectionFragment on ShoppingProductContentSection {
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    subSections {
+      header {
+        ...ShoppingProductHeaderFragment
+      }
+      ...AtAGlanceContentSubSectionFragment
+    }
+    action {
+      ...ShoppingProductContentSectionActionFragment
+    }
+    expandoPeek {
+      collapsedLabel
+      expandedLabel
+      items
+      collapseAnalytics {
+        linkName
+        referrerId
+      }
+      expandAnalytics {
+        linkName
+        referrerId
+      }
+      expanded
+    }
+  }
+
+  ${s.D5.fragment}
+  ${Q.fragment}
+  ${s.Ic.fragment}
+`,Z=({data:e,isExpandoSection:t,displayThreshold:n})=>{var r,i;const{context:o}=(0,l.R)(),A="MOBILE_PHONE"===(null==(r=null==o?void 0:o.device)?void 0:r.type),{header:b,subSections:f,action:x,expandoPeek:v}=e,_=t&&0===n,k=(0,S.useClickTracker)(),I=x&&a.createElement(c.N,{padding:{blockend:"unset",blockstart:"three"}},a.createElement("div",null,a.createElement(O,{data:x}))),{expandedLabel:C,collapsedLabel:P,items:G,expandAnalytics:N,collapseAnalytics:w,expanded:F}=v||{},[L,T]=a.useState(Boolean(_&&F)),{referrerId:D,linkName:$=""}=null!=(i=L?w:N)?i:{},B=Boolean(t&&n&&n>0),R=()=>G&&G<0?n:G&&G>0&&A?G:0,q=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,z=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,H=q||z,W=()=>(null==f?void 0:f.length)>0&&f.map((e,t)=>a.createElement(Q,{key:`amenity-content-${t}`,data:e,showHeaderIcon:!_,headingSize:_?6:5,spacingBeforeElement:!(_&&!(null==b?void 0:b.icon)),showWithBullets:!!_})),j=()=>{D&&k(D,$),T(e=>!e)},K=v&&G&&G>0;return _?a.createElement("div",null,a.createElement(m.e,null,a.createElement(p.x,{triggerPosition:"trailing",isIndented:!1,isVisible:L,onToggle:j,expandoDescription:W(),expandoTitle:b&&a.createElement(s.D5,{data:b,headingTag:"h3",headingSize:6})}))):a.createElement(a.Fragment,null,t||K?a.createElement(y.LM,null,a.createElement(y.NP,null,a.createElement(a.Fragment,null,b&&a.createElement(c.N,{padding:{blockend:"twelve"}},a.createElement("div",null,a.createElement(s.D5,{data:b,headingTag:"h2",headingSize:H?5:4,disableIcon:B}))),a.createElement(u.A,{isVisible:L,handleClick:j,expandLabel:C,collapseLabel:P,items:R(),hideScrim:!K},a.createElement(a.Fragment,null,W())),I)),a.createElement(y.zQ,null,a.createElement(a.Fragment,null,a.createElement(h.w,{columns:{medium:3},space:"six"},b&&a.createElement(E.T,{colSpan:1},a.createElement("div",null,a.createElement(s.D5,{data:b,headingTag:"h2",headingSize:H?5:4,disableIcon:B}))),a.createElement(E.T,{colSpan:2,colStart:2,colEnd:4},a.createElement(u.A,{isVisible:L,handleClick:j,expandLabel:C,collapseLabel:P,items:R(),hideScrim:!K},a.createElement(g.f,{minWidth:"half_width",columns:2,space:"twelve"},W())))),I))):a.createElement(y.LM,null,a.createElement(y.NP,null,a.createElement(a.Fragment,null,b&&a.createElement(c.N,{padding:{blockend:"six"}},a.createElement("div",null,a.createElement(s.D5,{data:b,headingTag:"h2",headingSize:H?5:4}))),W(),I)),a.createElement(y.zQ,null,a.createElement(a.Fragment,null,a.createElement(h.w,{columns:{medium:3},space:"six"},b&&a.createElement(E.T,{colSpan:1},a.createElement("div",null,a.createElement(s.D5,{data:b,headingTag:"h2",headingSize:H?5:4}))),a.createElement(E.T,{colSpan:2,colStart:2,colEnd:4},a.createElement(g.f,{minWidth:"half_width",columns:2,space:"twelve"},W()))),I))))};Z.displayName="AtAGlanceContentSection",Z.fragment=X;var J=r.gql`
+  fragment AtAGlanceContentSectionGroupFragment on ShoppingProductContentSectionGroup {
+    shoppingJoinListContainer {
+      actions {
+        accessibility
+        event {
+          ...EGClickstreamEventFragment
+        }
+        analytics {
+          linkName
+          referrerId
+          uisPrimeMessages {
+            schemaName
+            messageContent
+          }
+        }
+        actionId
+        ... on ShoppingNavigateToOverlay {
+          overlayId
+        }
+        ... on ShoppingScrollsToView {
+          targetRef
+        }
+        ... on ShoppingNavigateToURI {
+          resource {
+            value
+            ... on HttpURI {
+              relativePath
+            }
+          }
+          target
+          useRelativePath
+        }
+        ... on ShoppingScrollsToView {
+          targetRef
+        }
+      }
+      overlays {
+        ...ShoppingProductContentSectionGroupOverlayFragment
+      }
+    }
+    contents {
+      ...ShoppingProductContentSectionGroupContentFragment
+    }
+    sections {
+      ...ShoppingProductContentSectionFragment
+    }
+    impressionAnalytics {
+      event
+      referrerId
+      linkName
+    }
+  }
+  ${s.O0.fragment}
+  ${s.U9.fragment}
+  ${s.Rw}
+`,Y=({data:e,isExpandoSection:t,displayThreshold:n,showBorder:r,displayBlockStart:l=!0,disableSectionSeparator:m})=>{const{sections:p}=e,u=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,g=1===(0,d.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,h=u||g;if(!p||0===p.length)return null;const E=h?"four":"six";return a.createElement(c.N,{padding:{blockstart:l?E:void 0,blockend:h?void 0:"six",small:{inline:"three"},medium:{inline:0===n&&t?"unset":"three"},large:{inline:h||0===n&&t?"unset":"six"}}},a.createElement("div",null,p.map((l,d)=>((l,d)=>a.createElement(i.g,{border:r,key:`amenity-section-${d}`},a.createElement(s.Kl,{data:e},a.createElement(c.N,{padding:r?{inline:"six",block:"three"}:{blockend:"three"},key:`amenity-section-${d}`},a.createElement(c.N,null,a.createElement(o.E,{border:m?void 0:"bottom",padded:!1},a.createElement(Z,{data:l,key:d,isExpandoSection:t,displayThreshold:n})))))))(l,d))))};Y.displayName="AtAGlanceContentSectionGroup",Y.fragment=J;var ee=r.gql`
+  query AtAGlanceQuery($productIdentifier: ProductIdentifierInput!, $context: ContextInput!) {
+    atAGlance(productIdentifier: $productIdentifier, context: $context) {
+      content {
+        ...AtAGlanceContentSectionGroupFragment
+      }
+    }
+  }
+  ${Y.fragment}
+`,te=e=>{const{inputs:t,skipSsr:n,batchKey:i,isExpandoSection:o,displayThreshold:c,disableSectionSeparator:d,showBorder:s=!1,displayBlockStart:m=!0}=e,{context:p}=(0,l.R)(),u=(g=((e,t)=>{for(var n in t||(t={}))F.call(t,n)&&T(e,n,t[n]);if(w)for(var n of w(t))L.call(t,n)&&T(e,n,t[n]);return e})({},t),G(g,N({context:p})));var g;const{data:h,error:E,loading:S}=(0,r.useQuery)(ee,{context:{batchKey:null!=i?i:"default-product-details-experience-batch-key",shouldLogPerformance:!0},variables:u,ssr:!n});if(S||E||!h||!h.atAGlance)return null;const{content:y}=h.atAGlance;return y&&a.createElement(Y,{data:y,isExpandoSection:o,displayThreshold:c,showBorder:s,disableSectionSeparator:d,displayBlockStart:m})};te.displayName="sharedui-AtAGlance"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-at-a-glance.530e412f5786424b4af0.js.map

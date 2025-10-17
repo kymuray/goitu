@@ -1,0 +1,49 @@
+/*@license For license information please refer to shared-ui-retail-places-place-details.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[8105],{19394:function(e,t,n){n.d(t,{$Q:function(){return q},S3:function(){return X},cw:function(){return B},gH:function(){return K}});var l=n(56195),a=n(92919),r=n(24109),o=n(9010),i=n(522),c=n(99828),s=n(1226),u=n(47540),d=n(42534),p=n(74071),m=n(27102),g=n(26690),v=n(64341),E=n(95519),y=n(2557),f=n(87818),C=n(36145),_=n(97778),h=n(34399),b=n(8724),x=n(31551),D=n(5938),P=n(51213),k=Object.defineProperty,I=Object.defineProperties,O=Object.getOwnPropertyDescriptors,T=Object.getOwnPropertySymbols,z=Object.prototype.hasOwnProperty,M=Object.prototype.propertyIsEnumerable,N=(e,t,n)=>t in e?k(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,S=(e,t)=>{for(var n in t||(t={}))z.call(t,n)&&N(e,n,t[n]);if(T)for(var n of T(t))M.call(t,n)&&N(e,n,t[n]);return e},w=(e,t)=>I(e,O(t)),A=g.gql`
+  fragment CloseActionFragment on UITertiaryButton {
+    __typename
+    icon {
+      description
+      id
+      token
+    }
+    accessibility
+  }
+`,R=({closeAction:e,onClick:t})=>{var n;if(!(null==e?void 0:e.icon))return null;const a=null==e?void 0:e.icon;return l.createElement(f.P,{type:"absolute",position:{top:"zero",right:"zero"}},l.createElement(E.q,{type:"button","aria-label":null!=(n=e.accessibility)?n:"",onClick:t},l.createElement(y.LD,{name:a.id})))};R.fragment=A,R.displayName="CloseAction";var j=g.gql`
+  fragment PlaceCardMediaFragment on Image {
+    description
+    url
+  }
+`,$=e=>{const{data:t,imageRatio:n}=e;return"Image"===t.__typename?l.createElement(o.M,{ratio:n,roundcorner:["startstart"]},l.createElement(C.F,{placeholderImage:!0,src:t.url,alt:t.description})):null};$.fragment=j,$.displayName="PlaceCardMedia";var L=({eventName:e,eventType:t,eventVersion:n,eventCategory:l})=>({event_name:e,event_type:t,event_version:n,event_category:l||"maps"}),H="Interaction",F=(e,t={})=>w(S({},t),{event:e});function U(){const e=(0,_.useEgClickstream)(),t=t=>{e&&e(t)};return{trackMapCardPresented:(e,n)=>{const l=L({eventName:"map_card.presented",eventType:"Impression",eventVersion:"1.0.0"});t(F(l,{content_card_list:[{id:e,card_type:n}]}))},trackMapPlaceInfoOpened:()=>{const e=L({eventName:"map_place_info.opened",eventType:H,eventVersion:"1.0.0"});t(F(e,{additional_context:{component_name:"map_card_expando",component_element_name:"hours_of_operation"}}))},trackMapPlaceInfoClosed:()=>{const e=L({eventName:"map_place_info.closed",eventType:H,eventVersion:"1.0.0"});t(F(e,{additional_context:{component_name:"map_card_expando",component_element_name:"hours_of_operation"}}))},trackMapCardImageScrolled:()=>{const e=L({eventName:"image_scroll.selected",eventType:H,eventVersion:"1.0.0"});t(F(e))}}}var q=(e=>(e[e.STANDARD=0]="STANDARD",e[e.COMPACT=1]="COMPACT",e))(q||{}),B=g.gql`
+  fragment PlaceCardDetailsFragment on PlaceCardDetails {
+    id
+    title {
+      text
+    }
+    subtitle {
+      text
+    }
+    description {
+      text
+    }
+    media {
+      ...PlaceCardMediaFragment
+    }
+    footerText {
+      text
+    }
+    closeAction {
+      ...CloseActionFragment
+    }
+  }
+  ${R.fragment}
+  ${$.fragment}
+`,V=g.gql`
+  query PlaceCardDetailsQuery($context: ContextInput!, $placeId: String!, $directionsTo: DirectionsReferenceInput) {
+    placeCardDetails(context: $context, placeId: $placeId, directionsTo: $directionsTo) {
+      ...PlaceCardDetailsFragment
+    }
+  }
+  ${B}
+`,X=e=>{var t,n,E,y,f,C,_;const{inputs:h,skipSsr:b,fetchPolicy:x,data:D,size:P,imageRatio:k,onClose:I,skipQuery:O=!1,placeCardDetailsResult:T}=e,{context:z}=(0,v.R)(),M=Boolean(T),N=l.useMemo(()=>w(S({},h),{context:z}),[h,z]),{data:A,error:j}=(0,g.useQuery)(V,S({context:{shouldLogPerformance:!0},variables:N,ssr:!b,notifyOnNetworkStatusChange:!0,skip:O||M},x?{fetchPolicy:x}:{})),L=(H=D)?Object.fromEntries(Object.entries(H).filter(([,e])=>null!==e)):{};var H;const F=M?T:null==A?void 0:A.placeCardDetails,q=F||null===F||j?S(S({},L),F||{}):null,B=k||1===P?o.l.R3_4:o.l.R4_3,{trackMapCardPresented:X}=U(),Q=null==q?void 0:q.closeAction;return l.useEffect(()=>{(null==q?void 0:q.id)&&X(q.id,"place")},[null==q?void 0:q.id]),q?l.createElement(a.g,null,l.createElement("div",{"data-testid":`place-card-${q.id||h.placeId}`}),l.createElement(s.w,{alignItems:"start",columns:4,style:{minHeight:63}},q.media&&"Image"===q.media.__typename?l.createElement(u.T,{colSpan:1},l.createElement($,{imageRatio:B,data:q.media})):null,l.createElement(u.T,{colSpan:3},l.createElement(i.X,{direction:"column",blockSize:"full_size",justifyContent:"space-between"},l.createElement(c.C,null,l.createElement(r.E,null,l.createElement(d.N,{margin:{inlineend:"eight"}},l.createElement(p.M,null,null!=(n=null==(t=null==q?void 0:q.title)?void 0:t.text)?n:"")),q.subtitle?l.createElement(m.D,{size:200,spacing:"one"},null==(E=q.subtitle)?void 0:E.text):null,q.description?l.createElement(m.D,{size:200,spacing:"one"},null!=(f=null==(y=q.description)?void 0:y.text)?f:""):null)),l.createElement(c.C,null,l.createElement(r.E,null,q.footerText?l.createElement(m.D,{size:200},null!=(_=null==(C=q.footerText)?void 0:C.text)?_:""):null))))),Q&&l.createElement(R,{closeAction:Q,onClick:I})):null};X.displayName="sharedui-PlaceCard";var Q=416,K=e=>{var t,n;const{placeId:u,data:g,photoMaxWidth:v=Q,onClose:_}=e,[k,I]=l.useState(!1),[O,T]=l.useState([]),{formatText:z}=(0,P.useLocalization)(),{regularOpeningHours:M,photos:N,displayName:S,primaryTypeDisplayName:w,rating:A,userRatingCount:R,priceRange:j}=g,{trackMapCardPresented:$,trackMapPlaceInfoOpened:L,trackMapPlaceInfoClosed:H,trackMapCardImageScrolled:F}=U(),q=g&&Object.keys(g).length>0;l.useEffect(()=>{if(q){I(!1);const e=[((null==N?void 0:N.length)||0)>0?void 0:"photos",S?void 0:"displayName",w?void 0:"primaryTypeDisplayName",j?void 0:"priceRange",A?void 0:"rating",R?void 0:"userRatingCount",M?void 0:"regularOpeningHours"].filter(e=>void 0!==e);$(u,e.length>0?`missing ${e.join(", ")}`:"")}},[u,q]);const B=l.useCallback(()=>{I(!k),k?H():L()},[k]),V=M?l.createElement(l.Fragment,null,l.createElement(x.X,{expandoTitle:null!=(t=z("place.card.openingHours.title"))?t:"Hours of operation",expandedLabel:null!=(n=z("place.card.openingHours.title"))?n:"Hours of operation",triggerPosition:"trailing",isVisible:k,onToggle:B,"data-stid":"google-place-card-expando"}),k&&M.weekdayDescriptions.map((e,t)=>{const[n,a]=e.split(": ");return l.createElement("div",{key:`weekdayDescription-${t}`},l.createElement(i.X,{direction:"row",blockSize:"full_size",justifyContent:"space-between"},l.createElement(m.D,{size:200,spacing:"one"},n),a?l.createElement(m.D,{size:200,spacing:"one"},a):null))})):null,X=_?l.createElement(f.P,{type:"absolute",position:{top:"one",right:"one"}},(K=l.createElement(y.LD,{name:"close"}),(null==O?void 0:O.length)>0?l.createElement(h.M,{type:"button",onClick:_,"aria-label":"close"},K):l.createElement(E.q,{type:"button",onClick:_,"aria-label":"close"},K))):null;var K;l.useEffect(()=>{N&&N.length>0?N.every(e=>e.photoUri)?T(N.filter(e=>e.photoUri)):(T([]),Promise.all(N.filter(e=>!e.photoUri&&e.getPhotoUri).map(e=>{var t;return null==(t=e.getPhotoUri)?void 0:t.call(e,v)})).then(()=>{T(N.filter(e=>e.photoUri))})):T([])},[N,v]);const G={callback:e=>{(e.includes("clickRight")||e.includes("clickLeft"))&&F()},id:"image_scroll.selected"},W=N&&N.length>0?l.createElement(c.C,null,l.createElement(b._N,{navigationIconId:{next:"next-button-gallery",prev:"prev-button-gallery"},peek:!1,buttonText:{nextButton:"Show next photo",prevButton:"Show previous photo"},itemsVisible:{sm:1,md:1,lg:1},pagingInset:!0,pagingOverlay:!0,pagingPersistent:!0,wrapItems:!0,analytics:G},O.length>0?O.map((e,t)=>{var n;return l.createElement(o.M,{roundcorner:["startend"],ratio:o.l.R21_9,key:`photo-${t}`},l.createElement(C.F,{placeholderImage:!0,src:e.photoUri,alt:null==(n=e.authorAttributions)?void 0:n.map(e=>e.displayName).join(", ")}))}):l.createElement(o.M,{roundcorner:["startend"],ratio:o.l.R21_9},l.createElement(C.F,{placeholderImage:!0,width:v})))):null,J=(null==S?void 0:S.text)?l.createElement(d.N,{margin:{inlineend:"eight"}},l.createElement(p.M,{size:5},null==S?void 0:S.text)):null,Y=(null==w?void 0:w.text)?l.createElement(c.C,null,l.createElement(m.D,{size:400,spacing:"one"},w.text)):null,{startPrice:Z,endPrice:ee}=j||{},te=Z&&ee?"-":"",ne=(null==Z?void 0:Z.currencyCode)||(null==ee?void 0:ee.currencyCode),le=j?l.createElement(c.C,null,l.createElement(m.D,{size:400,spacing:"one"},ne," ",null==Z?void 0:Z.units,te,null==ee?void 0:ee.units)):null,ae=Y&&le?l.createElement(c.C,null,l.createElement(m.D,{size:400,spacing:"one",align:"center"},"•")):null,re=Y||le?l.createElement(i.X,{direction:"row",justifyContent:"start"},Y,ae,le):null,oe=A?l.createElement(c.C,null,l.createElement(m.D,{size:400,spacing:"one"},A)):null,ie=A?l.createElement(c.C,null,l.createElement(m.D,{size:200,spacing:"one"},l.createElement(D.v,{rating:`${A}`}))):null,ce=R?l.createElement(c.C,null,l.createElement(m.D,{size:400,spacing:"one"},"(",R.toLocaleString(),")")):null,se=A||ie||R?l.createElement(i.X,{direction:"row",justifyContent:"start",space:"one"},oe," ",ie," ",ce):null;return W||J||re||se||V?l.createElement(a.g,null,l.createElement("div",{"data-testid":`base-google-map-place-card-${u}`}),l.createElement(s.w,{alignItems:"start",style:{minHeight:63}},l.createElement(i.X,{direction:"column",blockSize:"full_size",justifyContent:"space-between"},W,l.createElement(r.E,null,J,re,se,V))),X):null};K.displayName="BaseGooglePlaceCard"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-places-place-details.75917b34990bacd6e520.js.map

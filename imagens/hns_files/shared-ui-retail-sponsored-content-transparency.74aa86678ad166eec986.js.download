@@ -1,0 +1,133 @@
+/*@license For license information please refer to shared-ui-retail-sponsored-content-transparency.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[8170],{80043:function(e,n,a){a.d(n,{R:function(){return $},x:function(){return re}});var t=a(56195),r=a(80240),l=a(2557),i=a(18174),c=a(89692),s=a(26690),o=a(70882),d=a(934),m=a(43888),p=a(23726),g=a(64341),u=a(46559),y=a(522),E=a(99828),v=a(37292),f=a(32380),k=a(89962),b=a(42534),C=a(27102),I=a(74071),T=a(4988),L=a(97778),A=a(47958),D=a(89438),N=a(87993),x=Object.defineProperty,O=Object.defineProperties,S=Object.getOwnPropertyDescriptors,h=Object.getOwnPropertySymbols,_=Object.prototype.hasOwnProperty,F=Object.prototype.propertyIsEnumerable,M=(e,n,a)=>n in e?x(e,n,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[n]=a,w=(e,n)=>{for(var a in n||(n={}))_.call(n,a)&&M(e,a,n[a]);if(h)for(var a of h(n))F.call(n,a)&&M(e,a,n[a]);return e},z=(e,n)=>O(e,S(n)),P=s.gql`
+  fragment AdTransparencyButtonFragment on AdTransparencyButton {
+    primary
+    size
+    icon {
+      id
+    }
+  }
+`,$=(e=>(e.DISPLAY_AD="display_ad",e.NATIVE_AD="native_ad",e))($||{}),U={small:r.V.SMALL,medium:r.V.MEDIUM,large:r.V.LARGE},R=({transparencyId:e,type:n="native_ad",className:a,onOpenDialog:r,data:s})=>{var d;const[,m]=(0,o.useDialog)(`transparency-dialog-${e}`),p=()=>{m.openDialog(),null==r||r()};switch(n){case"native_ad":return t.createElement(c.E,{"data-stid":"sponsored-transparency-button",onClick:p,size:U[s.size||"small"],className:a},t.createElement(t.Fragment,null,s.primary,t.createElement(l.LD,{name:(null==(d=s.icon)?void 0:d.id)||"info"})));case"display_ad":return t.createElement(i.t,{onClick:p,size:"small"},t.createElement("button",{type:"button"},s.primary,t.createElement(l.LD,{name:"info_outline"})))}};R.displayName="sharedui-transparencyButton",R.fragment=P;var B=s.gql`
+  fragment EGDSExpandoPeekFragment on EGDSExpandoPeek {
+    expandedLabel
+    collapsedLabel
+    expanded
+    collapseAnalytics {
+      eventType
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+    expandAnalytics {
+      eventType
+      linkName
+      referrerId
+      uisPrimeMessages {
+        messageContent
+        schemaName
+      }
+    }
+  }
+`,q=({lines:e,items:n,hideScrim:a,data:r,children:l})=>{var i,c,s,o;const{expandAnalytics:d,collapseAnalytics:m,expanded:p,expandedLabel:g,collapsedLabel:u}=r,[y,E]=t.useState(p),v=t.useCallback(()=>{E(!y)},[y,E]),f=(0,L.useClickTracker)(),k={id:null!=(i=null==d?void 0:d.referrerId)?i:"",description:null!=(c=null==d?void 0:d.linkName)?c:"",callback:t.useCallback((e,n)=>{f(e,n)},[f])},b={id:null!=(s=null==m?void 0:m.referrerId)?s:"",description:null!=(o=null==m?void 0:m.linkName)?o:"",callback:t.useCallback((e,n)=>{f(e,n)},[f])};return t.createElement(T.A,{expandLabel:u,collapseLabel:g,lines:e,items:n,isVisible:y,handleClick:v,expandA11yLabel:u,collapseA11yLabel:g,analytics:y?b:k,hideScrim:a&&!0},l)};q.fragment=B,q.displayName="SponsoredContentEGDSExpandoPeek";var G=s.gql`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    text
+    action {
+      ...UILinkActionFragment
+    }
+  }
+`,j=s.gql`
+  fragment UILinkActionFragment on UILinkAction {
+    accessibility
+    analytics {
+      referrerId
+      linkName
+      urls
+    }
+    resource {
+      ... on HttpURI {
+        value
+      }
+    }
+    target
+  }
+`,V={EXTERNAL:"_blank",INTERNAL:"_self"},H=({className:e,data:n,children:a,onClick:r})=>{const{accessibility:l,resource:i,target:c,analytics:s}=n,o=(0,L.useClickTracker)(),d=t.useCallback(()=>{var e;null==(e=null==s?void 0:s.urls)||e.forEach(e=>{null==navigator||navigator.sendBeacon(e)}),(null==s?void 0:s.referrerId)&&(null==s?void 0:s.linkName)&&o(s.referrerId,s.linkName),r&&r()},[o]);return"HttpURI"!==i.__typename?null:t.createElement("a",{className:e,target:V[c],href:i.value,rel:"noopener",onClickCapture:d},l&&t.createElement("span",{className:"is-visually-hidden"},l),a)};H.fragment=j,H.displayName="UILinkAction";var K=s.gql`
+  fragment TransparencyContentFragment on TransparencyOverlay {
+    entities {
+      ...EntityFragment
+    }
+    targetingCategories {
+      ...TargetingCategoriesFragment
+    }
+    callToAction {
+      size
+      ...EGDSInlineLinkFragment
+    }
+  }
+
+  fragment EntityFragment on TransparencyEntity {
+    label
+    expando {
+      ...EGDSExpandoPeekFragment
+    }
+    names
+  }
+  fragment TargetingCategoriesFragment on TargetingCategories {
+    heading {
+      text
+    }
+    items {
+      listItems {
+        text
+      }
+    }
+  }
+  ${q.fragment}
+  ${G}
+  ${H.fragment}
+`,X="six",Y={padding:{blockstart:"two"}},Q={SMALL:"small",LARGE:"large",MEDIUM:"medium"},J=({data:e})=>{return t.createElement(y.X,{space:"two",direction:"column"},t.createElement(E.C,null,t.createElement(b.N,{margin:X},t.createElement("div",null,(r=e.entities,t.createElement(t.Fragment,null,r.map((e,n)=>((e,n)=>t.createElement(b.N,{key:`entity-${n}`,stid:`transparency-entity-${n}`,padding:Y.padding},t.createElement("div",null,t.createElement(C.D,{size:100},e.label),e.expando&&t.createElement(q,{lines:3,data:e.expando,hideScrim:!1},t.createElement(C.D,{size:200,weight:"medium"},e.names)))))(e,n)))),(a=e.targetingCategories,t.createElement(b.N,{padding:Y.padding},t.createElement("div",null,t.createElement(I.M,{size:7},a.heading.text),t.createElement(b.N,null,t.createElement(f.y,null,a.items.listItems.map((e,n)=>t.createElement(k.x,{key:`targeting-category-list-${n}`},e.text))))))),(n=e.callToAction,t.createElement(b.N,{padding:Y.padding},t.createElement("div",null,t.createElement(v.i,{inline:!0,size:Q[n.size]},t.createElement(H,{data:n.action},n.text)))))))));var n,a,r};J.fragment=K,J.displayName="TransparencyContent";var W=()=>t.createElement(D.Y,null,t.createElement(y.X,{direction:"column",alignItems:"center"},t.createElement(E.C,null,t.createElement(A.v,null)))),Z={padding:{blockstart:"two"}},ee=({errorData:e,clickCallback:n,showErrorContent:a,loading:r})=>{var i,c,s,o;const[d,m]=t.useState(0);if(!e||!a||r)return null;const p=()=>d>=((null==e?void 0:e.allowedRetryAttempts)||0);return t.createElement(D.Y,null,t.createElement(y.X,{direction:"column",alignItems:"center"},t.createElement(t.Fragment,null,t.createElement(E.C,null,t.createElement(b.N,{padding:Z.padding},t.createElement(l.LD,{id:(null==(i=e.icon)?void 0:i.id)||"info",name:(null==(c=e.icon)?void 0:c.id)||"info",title:(null==(s=e.icon)?void 0:s.id)||"info",size:l.So[(null==(o=e.icon)?void 0:o.size)||l.So.MEDIUM]}))),t.createElement(E.C,null,t.createElement(b.N,{padding:Z.padding},t.createElement(I.M,{align:"center"},p()?e.exceededAttemptsMessage:e.description))),e.button&&!p()&&t.createElement(E.C,null,t.createElement(b.N,{padding:Z.padding},t.createElement("div",null,t.createElement(N.y,{onClick:()=>(n(),void m(d+1)),name:"retry-transparency"},e.button.primary)))))))},ne=s.gql`
+  query TransparencyQuery($context: ContextInput!, $adTransparencyId: String!) {
+    sponsoredContent {
+      transparencyOverlay(context: $context, adTransparencyId: $adTransparencyId) {
+        ...TransparencyContentFragment
+      }
+    }
+  }
+
+  ${J.fragment}
+`,ae=({skeletonData:e,onCloseDialog:n,inputs:a})=>{const[r,l,i]=(0,o.useDialog)(`transparency-dialog-${a.adTransparencyId}`),{context:c}=(0,g.R)(),y=z(w({},a),{context:c});(0,t.useEffect)(()=>{r&&E({variables:y})},[r]);const[E,{data:v,error:f,loading:k,refetch:b}]=(0,s.useLazyQuery)(ne,{context:{useApq:!0},ssr:!1,notifyOnNetworkStatusChange:!0,fetchPolicy:"no-cache"}),C=()=>{l.closeDialog(),null==n||n()},I=n=>{var a;return t.createElement(d.t,{type:"centered",centeredSheetSize:n.toLowerCase(),height:{SMALL:450,MEDIUM:700}[n],triggerRef:null,isVisible:r},t.createElement(p.p,{navigationContent:{onClick:C,navIconLabel:"Close Toolbar"},toolbarTitle:(null==e?void 0:e.title)||""}),k&&t.createElement(W,null),t.createElement(t.Fragment,null,t.createElement(ee,{errorData:null==e?void 0:e.error,clickCallback:b,showErrorContent:!!f,loading:k}),!k&&!f&&(null==(a=null==v?void 0:v.sponsoredContent)?void 0:a.transparencyOverlay)&&t.createElement(J,{data:v.sponsoredContent.transparencyOverlay})))};return t.createElement(m.K,{isVisible:r},t.createElement(i,null,t.createElement(u.LM,null,t.createElement(u.rw,null,I(u.OB.MEDIUM)),t.createElement(u.NP,null,I(u.OB.SMALL)))))};ae.displayName="sharedui-TransparencyOverlay";var te=s.gql`
+  fragment TransparencyFragment on AdTransparencyTrigger {
+    adTransparencyId
+    adTransparencyButton {
+      ...AdTransparencyButtonFragment
+    }
+    adTransparencyOverlaySkeleton {
+      ...TransparencyOverlaySkeletonFragment
+    }
+  }
+
+  fragment TransparencyOverlaySkeletonFragment on TransparencyOverlaySkeleton {
+    title
+    error {
+      ...TransparencyOverlayErrorFragment
+    }
+  }
+
+  fragment TransparencyOverlayErrorFragment on TransparencyOverlayError {
+    icon {
+      id
+      size
+    }
+    description
+    button {
+      primary
+    }
+    allowedRetryAttempts
+    exceededAttemptsMessage
+  }
+
+  ${R.fragment}
+`,re=({type:e,data:n,className:a,lineItemId:r,onOpen:l,onClose:i})=>{const{adTransparencyId:c,adTransparencyButton:s,adTransparencyOverlaySkeleton:o}=n;if((0,t.useEffect)(()=>{"display_ad"===e&&r&&((e,n)=>{const a={data:{adTransparencies:[{adTransparencyId:e,gamLineItemId:n,paasCampaignId:"",targetMatchingRawKeys:Object.keys(window.meso.targeting.get())}]}};window.meso.transparencies.push(a)})(c,r)},[c,r,e]),!s)return null;const d={adTransparencyId:c},m={transparencyId:c,type:e,className:a};return t.createElement(t.Fragment,null,t.createElement(R,z(w({data:s},m),{onOpenDialog:l})),t.createElement(ae,{inputs:d,skeletonData:o,onCloseDialog:i}))};re.fragment=te,re.displayName="sharedui-transparency"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-sponsored-content-transparency.74aa86678ad166eec986.js.map

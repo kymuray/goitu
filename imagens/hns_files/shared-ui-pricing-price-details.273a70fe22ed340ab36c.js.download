@@ -1,0 +1,440 @@
+/*@license For license information please refer to shared-ui-pricing-price-details.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[3439],{30472:function(e,t,n){n.d(t,{NV:function(){return ot},iR:function(){return Et}});var a=n(56195),i=n(24109),r=n(31551),l=n(522),o=n(99828),d=n(42534),m=n(26690),c=n(97778),s=n(53017),g=n(2557),p=n(27102),u=n(22142),E=n(87698),y=n(96394),f=n(87818),h=n(37292),P=n(18174),v=n(43888),I=n(934),L=n(89438),_=n(23111),b=n(88232),T=n(63810),A=n(22280),S=n(4918),N=n(74071),k=n(32380),D=n(95519),x=n(7484),F=n(23726),z=n(70882),M=n(30686),G=n(24924),R=n(47073),w=n(46559),B=n(96384),O=n(77913),C=n(32462),$=n(92919),Y=n(9010),H=n(51537),V=n(81900),q=n(63081),X={EVENT_NAME:"price_details.presented",EVENT_TYPE:"Impression",EVENT_VERSION:"2.15.0"},K={EVENT_NAME:"price_detail.selected",EVENT_TYPE:"Interaction",EVENT_VERSION:"1.8.1"},U={EVENT_NAME:"price_detail.closed",EVENT_TYPE:"Interaction",EVENT_VERSION:"1.0.1"},W=e=>({event:{event_type:e.EVENT_TYPE,event_name:e.EVENT_NAME,event_version:e.EVENT_VERSION}}),J=m.gql`
+  fragment EGDSIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+  }
+`,j=({className:e,data:t,defaultIconSize:n,defaultIconTheme:i})=>{const{description:r,id:l,size:o,title:d,theme:m,withBackground:c}=t;return a.createElement(g.LD,{className:e,description:r,id:l,name:l,size:o?g.So[o]:n,title:null!=d?d:void 0,theme:null!=m?m:i,shadow:Boolean(c)})};j.displayName="PricingEGDSIcon",j.fragment=J;var Q=m.gql`
+  fragment EGDSIllustrationFragment on Illustration {
+    id
+    description
+    link: url
+  }
+`,Z=({className:e,data:t})=>a.createElement(u.r,{alt:t.description,className:e,url:t.link});Z.displayName="EGDSIllustration",Z.fragment=Q;var ee=m.gql`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    markSize: size
+    url {
+      value
+    }
+  }
+`,te=({className:e,data:t,size:n})=>{var i;return t.url||t.id?a.createElement(E.D,{className:e,description:t.description,id:t.id,name:t.id,size:t.markSize?y.K[t.markSize]:n,url:null==(i=t.url)?void 0:i.value}):null};te.displayName="PricingEGDSMark",te.fragment=ee;var ne=m.gql`
+  fragment UIGraphicFragment on UIGraphic {
+    ...EGDSIconFragment
+    ...EGDSMarkFragment
+    ...EGDSIllustrationFragment
+  }
+
+  ${j.fragment}
+  ${te.fragment}
+  ${Z.fragment}
+`,ae=({className:e,data:t,markProps:n,iconProps:i})=>{switch(t.__typename){case"Icon":return a.createElement(j,{className:e,data:t,...i});case"Mark":return a.createElement(te,{className:e,data:t,...n});case"Illustration":return a.createElement(Z,{className:e,data:t});default:return null}};ae.displayName="UIGraphic",ae.fragment=ne;var ie=m.gql`
+  fragment AdditionalInformationPopoverGridLineItemMessageFragment on PricePresentationLineItemMessage {
+    ... on PriceLineText {
+      __typename
+      primary
+    }
+    ... on PriceLineHeading {
+      __typename
+      tag
+      size
+      primary
+    }
+  }
+`,re=({data:e,size:t,padding:n})=>{if(!e)return null;switch(e.__typename){case"PriceLineText":return a.createElement(d.N,{padding:n},a.createElement(p.D,{size:t},e.primary));case"PriceLineHeading":return a.createElement(N.M,{size:Number(e.size),tag:e.tag},e.primary);default:return null}};re.displayName="AdditionalInformationPopoverGridLineItemMessage",re.fragment=ie;var le=m.gql`
+  fragment AdditionalInformationPopoverGridLineItemEntryFragment on PricePresentationLineItemEntry {
+    primaryMessage {
+      ...AdditionalInformationPopoverGridLineItemMessageFragment
+    }
+    secondaryMessages {
+      ...AdditionalInformationPopoverGridLineItemMessageFragment
+    }
+  }
+  ${re.fragment}
+`,oe=({data:e})=>{if(!e)return null;const{primaryMessage:t,secondaryMessages:n}=e;return a.createElement(a.Fragment,null,a.createElement(re,{data:t}),n.map((e,t)=>a.createElement(re,{key:t,size:200,data:e,padding:{inlinestart:"two"}})))};oe.displayName="AdditionalInformationPopoverGridLineItemEntry",oe.fragment=le;var de=m.gql`
+  fragment AdditionalInformationPopoverGridSectionFragment on AdditionalInformationPopoverGridSection {
+    __typename
+    subSections {
+      header {
+        name {
+          primaryMessage {
+            ...AdditionalInformationPopoverGridLineItemMessageFragment
+          }
+        }
+      }
+      items {
+        name {
+          ...AdditionalInformationPopoverGridLineItemEntryFragment
+        }
+        enrichedValue {
+          ...AdditionalInformationPopoverGridLineItemEntryFragment
+        }
+      }
+    }
+  }
+  ${oe.fragment}
+  ${re.fragment}
+`,me=({data:e})=>{const{subSections:t}=e;return t.length?a.createElement(_.yg,{role:"presentation"},a.createElement(b.u,null,t.map((e,t)=>{const{header:n,items:i}=e,r=null==n?void 0:n.name.primaryMessage;return a.createElement(a.Fragment,{key:t},r&&a.createElement(T.k,null,a.createElement(A.U,{colSpan:2,padding:S.Bc.zero},a.createElement(d.N,{padding:t?{blockstart:"six",blockend:"three"}:{blockend:"three"}},a.createElement("div",null,a.createElement(re,{data:r}))))),i.map((e,n)=>{const{name:i,enrichedValue:l}=e,o=n||t&&!r?{blockstart:"three"}:void 0;return a.createElement(T.k,{key:n},a.createElement(A.U,{colSpan:l?1:2,padding:S.Bc.zero},a.createElement(d.N,{padding:o},a.createElement("div",null,a.createElement(oe,{data:i})))),a.createElement(a.Fragment,null,l&&a.createElement(A.U,{align:{horizontal:"trailing"},padding:S.Bc.zero},a.createElement(d.N,{padding:o},a.createElement("div",null,a.createElement(oe,{data:l}))))))}))}))):null};me.displayName="AdditionalInformationPopoverGridSection",me.fragment=de;var ce=m.gql`
+  fragment AdditionalInformationPopoverListSectionFragment on AdditionalInformationPopoverListSection {
+    __typename
+    content {
+      __typename
+      items {
+        text
+      }
+    }
+  }
+`,se=({data:e,listProps:t})=>{const n=e.content.items.map(e=>e.text),i="EGDSOrderedList"===e.content.__typename?"ordered":"unordered",r="EGDSNoBulletList"===e.content.__typename?"no-bullet":"default";return a.createElement(k.y,{data:n,size:null==t?void 0:t.size,type:i,bullet:r})};se.displayName="AdditionalInformationPopoverListSection",se.fragment={...ce,__typename:"AdditionalInformationPopoverListSection"};var ge=m.gql`
+  fragment IconFragments on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+  }
+`,pe=({className:e,data:t,spotlight:n})=>{var i,r;return a.createElement(g.LD,{className:e,description:t.description,id:t.id,name:t.id,size:t.size?g.So[t.size]:void 0,title:null!=(i=t.title)?i:void 0,theme:null!=(r=null==t?void 0:t.theme)?r:void 0,shadow:Boolean(t.withBackground),spotlight:null!=n?n:void 0})};pe.displayName="EGDSIcon",pe.fragment=ge;var ue=m.gql`
+  fragment ActionFragment on UILinkAction {
+    accessibility
+    analytics {
+      linkName
+      referrerId
+    }
+    resource {
+      value
+    }
+    target
+  }
+`,Ee={SMALL:"small",MEDIUM:"medium",LARGE:"medium"},ye={EXTERNAL:"_blank",INTERNAL:"_self"},fe=m.gql`
+  fragment EGDSStandardLinkFragment on EGDSStandardLink {
+    action {
+      ...ActionFragment
+    }
+    standardLinkIcon: icon {
+      ...IconFragments
+    }
+    iconPosition
+    size
+    text
+  }
+
+  ${ue}
+  ${pe.fragment}
+`,he=({icon:e,iconPosition:t,iconPositionToMatch:n})=>e&&t===n?a.createElement(pe,{data:e}):null,Pe=({className:e,inline:t,align:n,data:{action:{analytics:i,resource:r,target:l},iconPosition:o,standardLinkIcon:d,size:m,text:s}})=>{const g=(0,c.useClickTracker)(),p=a.useCallback(()=>{g(i.referrerId,i.linkName)},[g,i]);return a.createElement(h.i,{className:e,size:Ee[m],onClickCapture:p,inline:t,align:n},a.createElement("a",{target:ye[l],href:r.value},a.createElement(he,{icon:d,iconPosition:o,iconPositionToMatch:"LEADING"}),s,a.createElement(he,{icon:d,iconPosition:o,iconPositionToMatch:"TRAILING"})))};Pe.fragment=fe,Pe.displayName="EGDSStandardLink";var ve=m.gql`
+  fragment AdditionalInformationPopoverTextSectionFragment on AdditionalInformationPopoverTextSection {
+    __typename
+    text {
+      ...EGDSStandardLinkFragment
+      text
+    }
+  }
+  ${Pe.fragment}
+`,Ie=({data:e,textProps:t})=>"EGDSStandardLink"===e.text.__typename?a.createElement(Pe,{data:e.text}):a.createElement(p.D,{size:(null==t?void 0:t.size)||300,theme:null==t?void 0:t.theme,weight:null==t?void 0:t.weight,inline:!0},e.text.text);Ie.displayName="AdditionalInformationPopoverTextSection",Ie.fragment={...ve,__typename:"AdditionalInformationPopoverTextSection"};var Le=m.gql`
+  fragment AdditionalInformationPopoverSectionFragment on AdditionalInformationPopoverSection {
+    __typename
+    ... on AdditionalInformationPopoverTextSection {
+      ...AdditionalInformationPopoverTextSectionFragment
+    }
+    ... on AdditionalInformationPopoverListSection {
+      ...AdditionalInformationPopoverListSectionFragment
+    }
+    ... on AdditionalInformationPopoverGridSection {
+      ...AdditionalInformationPopoverGridSectionFragment
+    }
+  }
+  ${Ie.fragment}
+  ${se.fragment}
+  ${me.fragment}
+`,_e=({enrichedSecondary:e})=>{switch(e.__typename){case"AdditionalInformationPopoverListSection":return a.createElement(se,{data:e});case"AdditionalInformationPopoverTextSection":return a.createElement(Ie,{data:e});case"AdditionalInformationPopoverGridSection":return a.createElement(me,{data:e});default:return null}},be=({data:e})=>a.createElement(a.Fragment,null,e.map((t,n)=>{const i=n===e.length-1;return a.createElement(d.N,{key:`additional-info-section-${n}`,margin:i?void 0:{blockend:"two"}},a.createElement("div",null,a.createElement(_e,{enrichedSecondary:t})))}));be.fragment=Le,be.displayName="AdditionalInformationPopoverSections";var Te={EMPHASIS:"emphasis",INVERSE:"inverse",LOYALTY:"loyalty",NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default"},Ae={PRIMARY:"default",SECONDARY:"secondary",POSITIVE:"positive",NEGATIVE:"negative",EMPHASIS:"emphasis",INVERSE:"inverse",LOYALTY:"loyalty"},Se={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},Ne=({primaryMessage:e,textProps:t})=>{switch(null==e?void 0:e.__typename){case"PriceLineText":return a.createElement(p.D,{"data-stid":"price-presentation-additional-information-text",size:null==t?void 0:t.size,theme:(null==e?void 0:e.theme)?Te[e.theme]:void 0,weight:(null==e?void 0:e.weight)?Se[e.weight]:void 0,inline:!0},null==e?void 0:e.primary);case"PriceLineHeading":return a.createElement(N.M,{"data-stid":"price-presentation-additional-information-heading",size:Number(e.size),tag:e.tag},null==e?void 0:e.primary);default:return null}},ke=m.gql`
+  fragment AdditionalInformationPopoverFragment on AdditionalInformationPopover {
+    icon {
+      id
+      description
+      size
+    }
+    enrichedSecondaries {
+      ...AdditionalInformationPopoverSectionFragment
+    }
+    analytics {
+      linkName
+      referrerId
+    }
+  }
+  ${be.fragment}
+`,De=({data:e,primaryMessage:t,textProps:n})=>{var i;const{icon:r,analytics:o,enrichedSecondaries:m}=e,[s,p]=a.useState(!1),u=null==t?void 0:t.icon,E=(null==t?void 0:t.primary)&&m.length>0&&!r,y=(0,c.useClickTracker)(),_=a.useRef(null);if(!r&&!E)return null;const b=()=>{!s&&o&&y(o.referrerId,o.linkName,!1),p(e=>!e)};return a.createElement(f.P,{type:"relative"},r&&a.createElement(P.t,{onClick:b,align:"trailing"},a.createElement("button",{"data-stid":"additional-popover-btn",type:"button",ref:_},a.createElement(l.X,{alignItems:"center"},u&&a.createElement(d.N,{margin:{inlineend:"one"}},a.createElement("span",{"data-stid":"additional-popover-btn-discount-icon"},a.createElement(g.LD,{name:`${u.id}`,id:`${u.id}-discount-id`,size:null!=(i=u.size&&g.So[u.size])?i:g.So.EXTRA_SMALL,theme:"secondary",title:`${u.description}-discount`}))),a.createElement(Ne,{primaryMessage:t,textProps:n}),a.createElement(d.N,{margin:{inlinestart:"one"}},a.createElement("span",{"data-stid":"additional-popover-btn-info-icon"},a.createElement(g.LD,{name:`${r.id}`,id:`${r.id}-info-id`,size:g.So.EXTRA_SMALL,theme:"secondary",title:`${r.description}-info`})))))),E&&a.createElement(h.i,{inline:!0,"data-stid":"additional-popover-link",onClick:b},a.createElement("button",{type:"button"},null==t?void 0:t.primary)),a.createElement(v.K,{isVisible:s},a.createElement(I.t,{maxHeight:0,position:{block:"leading"},isVisible:s,type:"popover",onDismiss:()=>{p(!1)},triggerRef:_},(null==m?void 0:m.length)&&a.createElement(L.Y,{padded:!1},a.createElement(d.N,{padding:{inline:"three",block:"three"}},a.createElement("div",null,a.createElement(be,{data:m})))))))};De.fragment={...ke,__typename:"AdditionalInformationPopover"},De.displayName="AdditionalInformationPopover";var xe=m.gql`
+  fragment PricePresentationAdditionalInformationDialogFooterButtonsFragment on EGDSButton {
+    accessibility
+    disabled
+    primary
+  }
+`,Fe=m.gql`
+  fragment PricePresentationAdditionalInformationDialogFooterFragment on EGDSDialogFooter {
+    ... on EGDSInlineDialogFooter {
+      buttons {
+        ...PricePresentationAdditionalInformationDialogFooterButtonsFragment
+      }
+    }
+    ... on EGDSStackedDialogFooter {
+      buttons {
+        ...PricePresentationAdditionalInformationDialogFooterButtonsFragment
+      }
+    }
+  }
+
+  ${xe}
+`,ze=({data:e,closeDialog:t})=>{var n,i,r;const{buttons:l}=e,o=l.map(e=>((e,t)=>{var n,a;return"UITertiaryButton"===e.__typename?{disabled:e.disabled,onClick:t,text:null!=(n=e.primary)?n:"",type:"tertiary"}:{disabled:e.disabled,onClick:t,text:null!=(a=e.primary)?a:"",type:"primary"}})(e,t)),d={buttonOne:null!=(n=o[0])?n:void 0,buttonTwo:null!=(i=o[1])?i:void 0,buttonThree:null!=(r=o[2])?r:void 0};return"EGDSStackedDialogFooter"===e.__typename?a.createElement(M.l,{stacked:!0,...d}):a.createElement(M.l,{...d})};ze.displayName="PricePresentationAdditionalInformationDialogFooter",ze.fragment=Fe;var Me=m.gql`
+  fragment PricePresentationAdditionalInformationDialogFragment on PricePresentationAdditionalInformationDialog {
+    closeAnalytics {
+      linkName
+      referrerId
+    }
+    enrichedSecondaries {
+      ...AdditionalInformationPopoverSectionFragment
+    }
+    footer {
+      ...PricePresentationAdditionalInformationDialogFooterFragment
+    }
+    icon {
+      id
+      description
+      size
+    }
+    openAnalytics {
+      linkName
+      referrerId
+    }
+  }
+
+  ${ze.fragment}
+  ${be.fragment}
+`,Ge=({data:e,isRenderedInDialog:t,primaryMessage:n,textProps:i,withToolbar:r,dialogType:m="centered"})=>{const{closeAnalytics:s,enrichedSecondaries:p,footer:u,icon:E,openAnalytics:y}=e,f=(0,c.useClickTracker)(),[h,_,b]=(0,z.useDialog)(`price-additional-information-${null==n?void 0:n.primary}`,t?"pwaDialogNested":void 0),T=()=>{h?_.closeDialog():_.openDialog()};return(0,a.useEffect)(()=>{!h&&y?f(y.referrerId,y.linkName,!1):h&&s&&f(s.referrerId,s.linkName,!1)},[s,y,h,f]),(null==p?void 0:p.length)?a.createElement("div",null,a.createElement(l.X,{alignItems:"center"},a.createElement(P.t,null,a.createElement("button",{onClick:T,type:"button"},a.createElement(l.X,{alignItems:"center"},a.createElement(Ne,{primaryMessage:n,textProps:i}),E&&a.createElement(d.N,{margin:{inlinestart:"one"}},a.createElement(g.LD,{name:E.id,id:E.id,size:g.So.EXTRA_SMALL,theme:"secondary",title:E.description})))))),a.createElement(v.K,{isVisible:h},a.createElement(b,null,a.createElement(I.t,{isVisible:h,triggerRef:null,type:m,"data-stid":"price-presentation-additional-information-dialog",centeredSheetSize:"small"},r&&a.createElement(F.p,{toolbarTitle:null==n?void 0:n.primary,toolbarTitleTag:"h2",navigationContent:{onClick:T,navType:"close"}}),a.createElement(l.X,null,a.createElement(o.C,null,a.createElement(L.Y,null,a.createElement(be,{data:p}),u&&a.createElement(ze,{closeDialog:T,data:u}))),!r&&a.createElement(o.C,null,a.createElement(x.t,null,a.createElement(D.q,{type:"button",onClick:T},a.createElement(g.LD,{name:"close",size:g.So.EXTRA_SMALL,id:"close",title:"close"}))))))))):null};Ge.fragment=Me,Ge.displayName="PricePresentationAdditionalInformationDialog";var Re=m.gql`
+  fragment PricePresentationAdditionalInformationPopoverFragment on PricePresentationAdditionalInformationPopover {
+    analytics {
+      linkName
+      referrerId
+    }
+    enrichedSecondaries {
+      ...AdditionalInformationPopoverSectionFragment
+    }
+    primary
+    icon {
+      id
+      description
+      size
+    }
+  }
+
+  ${be.fragment}
+`,we=({data:e,primaryMessage:t,textProps:n,uniqueDialogId:i})=>{var r;const{icon:o,analytics:m,enrichedSecondaries:s}=e,u=a.useRef(null),E=(0,c.useClickTracker)(),y=null==t?void 0:t.icon,f=(null==t?void 0:t.primary)&&!o&&(e.primary||s&&s.length>0),h=400===(null==n?void 0:n.size)?"large":"medium",L=a.useMemo(()=>Math.random().toString(36).slice(2,7),[]),[_,b,T]=(0,z.useDialog)(`${i}-${L}`,"nestedLodgingPlainDialog"),A=()=>{b.openDialog(),!_&&m&&E(m.referrerId,m.linkName,!1)};if(!o&&!f)return null;const S=a.createElement(a.Fragment,null,a.createElement(F.p,{navigationContent:{onClick:()=>{b.closeDialog(),!_&&m&&E(m.referrerId,m.linkName,!1)},navIconLabel:"Close Toolbar"}}),a.createElement(G.h,null,(null==s?void 0:s.length)>0&&a.createElement(d.N,{padding:{inline:"three"}},a.createElement(be,{data:s})),(!(null==s?void 0:s.length)||0===s.length)&&e.primary&&a.createElement(p.D,{size:(null==n?void 0:n.size)||300,theme:null==n?void 0:n.theme,weight:null==n?void 0:n.weight,inline:!0},e.primary)));return a.createElement(l.X,null,a.createElement(d.N,{padding:{blockstart:"half"}},a.createElement("div",null,o&&a.createElement(P.t,null,a.createElement("button",{"data-stid":"additional-menu-btn",type:"button",onClick:A,"aria-expanded":_},a.createElement(l.X,{alignItems:"center"},y&&a.createElement(d.N,{margin:{inlineend:"one"}},a.createElement("span",{"data-stid":"additional-menu-btn-discount-icon"},a.createElement(g.LD,{name:`${y.id}`,id:`${y.id}-discount-id`,size:null!=(r=y.size&&g.So[y.size])?r:g.So.EXTRA_SMALL,theme:"secondary",title:`${y.description}-discount`}))),a.createElement(Ne,{primaryMessage:t,textProps:n}),a.createElement(d.N,{margin:{inlinestart:"one"}},a.createElement("span",{"data-stid":"additional-menu-btn-info-icon"},a.createElement(g.LD,{name:`${o.id}`,id:`${o.id}-info-id`,size:g.So.EXTRA_SMALL,theme:"secondary",title:`${o.description}-info`})))))),f&&a.createElement(R.x,{inline:!0,"data-stid":"additional-menu-link",onClick:A,size:h},a.createElement("button",{type:"button"},null==t?void 0:t.primary)),a.createElement(v.K,{isVisible:_},a.createElement(T,null,a.createElement(w.LM,null,a.createElement(w.NP,null,a.createElement(I.t,{type:"bottom",isVisible:_,returnFocusOnClose:!0,triggerRef:u},S)),a.createElement(w.rw,null,a.createElement(I.t,{type:"centered",centeredSheetSize:"small",isVisible:_,returnFocusOnClose:!0,triggerRef:u},S))))))))};we.fragment=Re,we.displayName="PricePresentationAdditionalInformationPopover";var Be=m.gql`
+  fragment PricePresentationAdditionalInformationFragment on PricePresentationAdditionalInformation {
+    ...PricePresentationAdditionalInformationDialogFragment
+    ...PricePresentationAdditionalInformationPopoverFragment
+  }
+
+  ${Ge.fragment}
+  ${we.fragment}
+`,Oe=({data:e,isRenderedInDialog:t,primaryMessage:n,textProps:i,withToolbar:r,dialogType:l})=>{switch(e.__typename){case"PricePresentationAdditionalInformationDialog":return a.createElement(Ge,{data:e,isRenderedInDialog:t,primaryMessage:n,textProps:i,withToolbar:r,dialogType:l});case"PricePresentationAdditionalInformationPopover":return a.createElement(we,{data:e,primaryMessage:n,textProps:i,uniqueDialogId:"additional-information-popover"});default:return null}};Oe.fragment=Be,Oe.displayName="PricePresentationAdditionalInformation";var Ce=m.gql`
+  fragment PriceLineTextFragment on PriceLineText {
+    __typename
+    additionalInfo {
+      ...AdditionalInformationPopoverFragment
+    }
+    additionalInformation {
+      ...PricePresentationAdditionalInformationFragment
+    }
+    graphic {
+      ...UIGraphicFragment
+    }
+    icon {
+      id
+      description
+      size
+    }
+    primary
+    theme
+    weight
+  }
+
+  ${Oe.fragment}
+  ${ae.fragment}
+`,$e=e=>{var t;const{data:n,isRenderedInDialog:i,size:r,withToolbar:l,dialogType:o}=e;if(!(null==n?void 0:n.primary))return null;const{additionalInfo:m,additionalInformation:c,primary:s,theme:u,weight:E,icon:y,graphic:f,__typename:h}=n,P={size:r||300,theme:n.theme?Ae[n.theme]:void 0};return a.createElement(a.Fragment,null,m&&a.createElement(De,{primaryMessage:n,data:m,textProps:P}),!m&&c&&a.createElement(Oe,{data:c,isRenderedInDialog:i,primaryMessage:{primary:s,theme:u,weight:E,icon:y,graphic:f,__typename:h},textProps:P,withToolbar:l,dialogType:o}),!m&&!c&&a.createElement(p.D,{size:P.size,theme:P.theme,weight:E?Se[E]:void 0},(f||y)&&a.createElement(d.N,{margin:{inlineend:"two"}},f?a.createElement(ae,{data:f}):y&&a.createElement(g.LD,{name:`${y.id}`,id:`${y.id}-price-line-id`,size:null!=(t=y.size&&g.So[y.size])?t:g.So.EXTRA_SMALL,theme:"secondary",title:y.description})),s))};$e.fragment={...Ce,__typename:"PriceLineText"},$e.displayName="PriceLineText";var Ye=m.gql`
+  fragment InlinePriceLineTextFragment on InlinePriceLineText {
+    __typename
+    inlineItems {
+      ...PriceLineTextFragment
+    }
+  }
+  ${$e.fragment}
+`,He=({size:e,data:t})=>{const{inlineItems:n}=t;return n.length?a.createElement(l.X,{space:"one",wrap:"wrap"},n.map((t,n)=>a.createElement($e,{size:e,data:t,key:n}))):null};He.fragment={...Ye,__typename:"InlinePriceLineText"},He.displayName="InlinePriceLineText";var Ve={standard:"standard",emphasis:"emphasis",info:"info",featured:"featured",brand:"brand",warning:"warning",positive:"positive"},qe=m.gql`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+    theme
+  }
+
+  ${ae.fragment}
+`,Xe=({size:e,data:t})=>{if(!t.text)return null;const{text:n,graphic:i,theme:r,accessibility:l}=t,o=r?Ve[r]:void 0;return a.createElement(C.G,{size:e,text:n,theme:o,a11yText:null!=l?l:void 0},i&&a.createElement(ae,{data:i}))};Xe.fragment=qe,Xe.displayName="EGDSStandardBadge";var Ke=m.gql`
+  fragment PriceLineBadgeFragment on PriceLineBadge {
+    badge {
+      ...EGDSStandardBadgeFragment
+    }
+    loyaltyBadge {
+      text
+      theme
+      graphic {
+        ...UIGraphicFragment
+      }
+    }
+  }
+
+  ${Xe.fragment}
+`,Ue={"global-lowtier":B.zJ.GLOBAL_LOW,"global-middletier":B.zJ.GLOBAL_MIDDLE,"global-hightier":B.zJ.GLOBAL_HIGH,"global-extrahightier":B.zJ.GLOBAL_EXTRAHIGH},We=({data:e})=>{var t;const n=2===(0,s.useExperiment)("MCKO_Big_Batch_Test_Web",!1).exposure.bucket;return e.loyaltyBadge?a.createElement(d.N,{padding:{blockstart:"two",blockend:"one"}},a.createElement("div",null,a.createElement(O.V,{text:e.loyaltyBadge.text||void 0,theme:e.loyaltyBadge.theme?Ue[e.loyaltyBadge.theme]:void 0},e.loyaltyBadge.graphic&&a.createElement(g.LD,{name:(null==(t=e.loyaltyBadge.graphic)?void 0:t.id)||"mod",size:g.So.SMALL})))):e.badge?n?a.createElement(d.N,{padding:{blockstart:"two",blockend:"one"}},a.createElement("div",null,a.createElement(Xe,{data:e.badge}))):a.createElement(f.P,{type:"relative",position:{top:"minus-two"},cloneElement:!0},a.createElement("div",null,a.createElement(Xe,{data:e.badge}))):null};We.fragment=Ke,We.displayName="PriceLineBadge";var Je={PRIMARY:"primary",HIGHLIGHT:"highlight",SECONDARY:"secondary",GLOBAL_LOYALTY_EXTRAHIGH:"global-loyalty-extra-high",GLOBAL_LOYALTY_STANDARD:"global-loyalty-standard",GLOBAL_LOYALTY_LOW:"global-loyalty-low",GLOBAL_LOYALTY_MIDDLE:"global-loyalty-middle",GLOBAL_LOYALTY_HIGH:"global-loyalty-high"},je={NONE:"none",LIGHT_1:"light-1",DARK_1:"dark-1",BRIGHT_1:"bright-1",GLOBAL_LOYALTY_STANDARD:"global-loyalty-standard",GLOBAL_LOYALTY_LOW:"global-loyalty-low",GLOBAL_LOYALTY_LOW_BRIGHT:"global-loyalty-low-bright",GLOBAL_LOYALTY_MID:"global-loyalty-mid",GLOBAL_LOYALTY_MID_BRIGHT:"global-loyalty-mid-bright",GLOBAL_LOYALTY_HIGH:"global-loyalty-high",GLOBAL_LOYALTY_HIGH_BRIGHT:"global-loyalty-high-bright",GLOBAL_LOYALTY_EXTRA_HIGH:"global-loyalty-extra-high",GLOBAL_LOYALTY_EXTRA_HIGH_BRIGHT:"global-loyalty-extra-high-bright",STANDARD:"standard",MARKETING_1:"marketing-1",MARKETING_2:"marketing-2",AI:"ai-local-1",DARK_2:"dark-2",MARKETING_3:"marketing-3"},Qe=m.gql`
+  fragment PriceLineCardFragment on PriceLineCard {
+    __typename
+    backgroundTheme
+    description
+    graphic {
+      ... on Illustration {
+        description
+        id
+        link: url
+      }
+      ... on Icon {
+        description
+        id
+        token
+      }
+    }
+    themeProviderColor
+    title
+  }
+`,Ze=({data:e})=>{const{title:t,description:n,backgroundTheme:i,graphic:r,themeProviderColor:m}=e,c=2===(0,s.useExperiment)("MCKO_Big_Batch_Test_Web",!1).exposure.bucket;if(!n)return null;const E=je[m||"STANDARD"],y="DARK_1"===m?"light":"default";return a.createElement(H.EGDSThemeProvider,{config:{lightMode:{colorTheme:E}}},a.createElement(d.N,{margin:"Illustration"===(null==r?void 0:r.__typename)?{blockstart:"one",blockend:"three"}:void 0},a.createElement($.g,{padded:!0,backgroundTheme:i?Je[i]:void 0},a.createElement("div",null,a.createElement(d.N,{padding:{inline:"one"}},a.createElement(l.X,{space:"Illustration"===(null==r?void 0:r.__typename)?"three":"one"},"Illustration"===(null==r?void 0:r.__typename)&&r.link&&a.createElement(o.C,{maxWidth:48,alignSelf:"center"},a.createElement(Y.M,{imageFit:"contain",ratio:Y.l.R1_1},a.createElement(u.r,{alt:r.description,url:r.link}))),"Icon"===(null==r?void 0:r.__typename)&&r.token&&a.createElement(o.C,null,a.createElement(g.LD,{id:r.token,name:r.token,theme:"default",size:g.So.SMALL})),a.createElement(o.C,{alignSelf:"center"},a.createElement(l.X,{direction:"column"},t&&a.createElement(d.N,{padding:{blockstart:"one"}},a.createElement(N.M,{size:6},a.createElement(p.D,{theme:y,size:300},t))),a.createElement(d.N,{margin:{blockstart:"Icon"===(null==r?void 0:r.__typename)?"unset":"half"},padding:{blockend:c?"unset":"one"}},a.createElement(p.D,{theme:y,size:300},n))))))))))};Ze.displayName="PriceLineCard",Ze.fragment=Qe;var et=m.gql`
+  fragment PriceLineHeadingFragment on PriceLineHeading {
+    __typename
+    additionalInfo {
+      ...AdditionalInformationPopoverFragment
+    }
+    additionalInformation {
+      ...PricePresentationAdditionalInformationFragment
+    }
+    icon {
+      description
+      id
+      size
+    }
+    primary
+    size
+    tag
+  }
+  ${De.fragment}
+  ${Oe.fragment}
+`,tt=({data:e,isRenderedInDialog:t,withToolbar:n,dialogType:i})=>{if(!(null==e?void 0:e.primary))return null;const{additionalInfo:r,additionalInformation:l,primary:o,size:d,tag:m}=e;return a.createElement(a.Fragment,null,r&&a.createElement(De,{primaryMessage:e,data:r}),!r&&l&&a.createElement(Oe,{data:l,isRenderedInDialog:t,primaryMessage:e,withToolbar:n,dialogType:i}),!r&&!l&&a.createElement(N.M,{size:Number(d),tag:m},o))};tt.fragment={...et,__typename:"PriceLineHeading"},tt.displayName="PriceLineHeading";var nt=m.gql`
+  fragment PriceLineElementFragment on PricePresentationLineItemMessage {
+    __typename
+    ...PriceLineTextFragment
+    ...PriceLineHeadingFragment
+    ...InlinePriceLineTextFragment
+    ...PriceLineBadgeFragment
+    ...PriceLineCardFragment
+  }
+
+  ${$e.fragment}
+  ${tt.fragment}
+  ${He.fragment}
+  ${We.fragment}
+  ${Ze.fragment}
+`,at=({data:e,isRenderedInDialog:t,size:n,withToolbar:i,dialogType:r})=>{switch(e.__typename){case"PriceLineText":return a.createElement($e,{size:n,data:e,isRenderedInDialog:t,withToolbar:i,dialogType:r});case"PriceLineHeading":return a.createElement(tt,{data:e,isRenderedInDialog:t,withToolbar:i,dialogType:r});case"InlinePriceLineText":return a.createElement(He,{size:n,data:e});case"PriceLineBadge":return a.createElement(We,{data:e});case"PriceLineCard":return a.createElement(Ze,{data:e});default:return null}};at.fragment=nt,at.displayName="PriceLineElement";var it=m.gql`
+  fragment PricePresentationLineItemEntryFragment on PricePresentationLineItemEntry {
+    primaryMessage {
+      ...PriceLineElementFragment
+    }
+    secondaryMessages {
+      ...PriceLineElementFragment
+    }
+  }
+
+  ${at.fragment}
+`,rt=e=>{const{data:t,isRenderedInDialog:n,padding:i,lineElementTextSize:r,accessibilityLabel:l,withToolbar:o,dialogType:m}=e,c=(0,s.useExperiment)("HCKO_Pricing_Module_Increase_Font_Sizes",!0).exposure.bucket>0;if(!t)return null;const{primaryMessage:g,secondaryMessages:p}=t,u=p.map((e,t)=>a.createElement(at,{key:t,size:c?300:200,data:e,withToolbar:o,dialogType:m}));return a.createElement(a.Fragment,null,l&&a.createElement(a.Fragment,null,a.createElement("div",{"aria-hidden":"true"},a.createElement(at,{size:r||300,data:g,isRenderedInDialog:n,withToolbar:o,dialogType:m})),a.createElement("span",{className:"is-visually-hidden"},l)),!l&&a.createElement(at,{size:r||300,data:g,isRenderedInDialog:n,withToolbar:o,dialogType:m}),i&&p.length>0?a.createElement(d.N,{padding:i},a.createElement("div",null,u)):u)};rt.fragment={...it,__typename:"PricePresentationLineItemEntry"},rt.displayName="PricePresentationLineItemEntry";var lt=m.gql`
+  fragment PricePresentationLineItemFragment on PricePresentationLineItem {
+    enrichedValue {
+      ...PricePresentationLineItemEntryFragment
+    }
+    name {
+      ...PricePresentationLineItemEntryFragment
+    }
+    accessibilityLabel
+  }
+
+  ${rt.fragment}
+`,ot=e=>{var t;const{isRenderedInDialog:n,padding:i,data:r,lineElementTextSize:m,withToolbar:c,dialogType:g}=e,p=2===(0,s.useExperiment)("MCKO_Big_Batch_Test_Web",!1).exposure.bucket;if(!r)return null;const{name:u,enrichedValue:E,accessibilityLabel:y}=r,f="PriceLineCard"===(null==(t=null==u?void 0:u.primaryMessage)?void 0:t.__typename);return a.createElement(l.X,{justifyContent:"space-between",alignItems:"start"},a.createElement(o.C,{grow:f?1:void 0},a.createElement(d.N,{padding:i},a.createElement("div",null,a.createElement(rt,{data:u,isRenderedInDialog:n,padding:{inlinestart:p?"unset":"two"},lineElementTextSize:m,accessibilityLabel:y||"",withToolbar:c,dialogType:g})))),a.createElement(a.Fragment,null,E&&a.createElement(o.C,null,a.createElement(d.N,{padding:i},a.createElement("div",{"aria-hidden":Boolean(y),style:{textAlign:"right"}},a.createElement(rt,{data:E,isRenderedInDialog:n,lineElementTextSize:m,withToolbar:c,dialogType:g}))))))};ot.fragment={...lt,__typename:"PricePresentationLineItem"},ot.displayName="PricePresentationLineItem";var dt=m.gql`
+  fragment PricePresentationSubSectionFragment on PricePresentationSubSection {
+    header {
+      name {
+        primaryMessage {
+          ... on PriceLineText {
+            primary
+          }
+          ... on PriceLineHeading {
+            primary
+          }
+        }
+      }
+      enrichedValue {
+        ...PricePresentationLineItemEntryFragment
+      }
+    }
+    items {
+      ...PricePresentationLineItemFragment
+    }
+  }
+
+  ${ot.fragment}
+`,mt=e=>{const{idx:t,isRenderedInDialog:n,padding:i,data:r,lineElementTextSize:m,withToolbar:c,dialogType:s}=e;if(!r)return null;const{header:g,items:p}=r,u=null==g?void 0:g.name.primaryMessage,E=("PriceLineHeading"===(null==u?void 0:u.__typename)||"PriceLineText"===(null==u?void 0:u.__typename))&&(null==u?void 0:u.primary),y=null==g?void 0:g.enrichedValue;return a.createElement(a.Fragment,null,E&&a.createElement(l.X,{justifyContent:"space-between",alignItems:"start"},a.createElement(o.C,null,a.createElement(d.N,{padding:i},a.createElement("div",null,a.createElement(N.M,{tag:"h3",size:7},E)))),y&&a.createElement(o.C,null,a.createElement(d.N,{padding:i},a.createElement("div",{style:{textAlign:"right"}},a.createElement(rt,{data:y,isRenderedInDialog:n,withToolbar:c,dialogType:s}))))),p.map((e,i)=>a.createElement(ot,{key:i,data:e,isRenderedInDialog:n,padding:i||t?{blockstart:"three"}:void 0,lineElementTextSize:m,withToolbar:c,dialogType:s})))};mt.fragment={...dt,__typename:"PricePresentationSubSection"},mt.displayName="PricePresentationSubSection";var ct=m.gql`
+  fragment PricePresentationSectionFragment on PricePresentationSection {
+    expando {
+      expanded
+      expandedLabel
+      collapsedLabel
+    }
+    header {
+      name {
+        ...PricePresentationLineItemEntryFragment
+      }
+      enrichedValue {
+        ...PricePresentationLineItemEntryFragment
+      }
+    }
+    subSections {
+      ...PricePresentationSubSectionFragment
+    }
+  }
+
+  ${mt.fragment}
+`,st=({data:e,isRenderedInDialog:t,lineElementTextSize:n,withToolbar:m,dialogType:g})=>{var p,u,E,y;const f=(0,s.useExperiment)("HCKO_Pricing_Module_Increase_Font_Sizes",!0).exposure.bucket>0,h=2===(0,s.useExperiment)("MCKO_Big_Batch_Test_Web",!1).exposure.bucket,{header:P,subSections:v,expando:I}=e,L=null==(p=null==P?void 0:P.name)?void 0:p.primaryMessage,_=null==(u=null==P?void 0:P.name)?void 0:u.secondaryMessages,b=null==(E=null==P?void 0:P.enrichedValue)?void 0:E.primaryMessage,T=null==(y=null==P?void 0:P.enrichedValue)?void 0:y.secondaryMessages,[A,S]=a.useState(!1),N=(0,c.useEgClickstream)(),k=(0,a.useCallback)(()=>{N(W(A?U:K)),S(!A)},[A,S,N]);if(!e||!L&&!b&&!v.length)return null;const D=()=>a.createElement(d.N,{padding:I?{blockstart:"three"}:void 0},a.createElement(i.E,{padded:!1},L&&a.createElement(l.X,{justifyContent:"space-between",alignItems:"start"},a.createElement(o.C,null,a.createElement(d.N,{padding:v.length?{blockend:"three"}:void 0},a.createElement("div",null,a.createElement(at,{size:h||f?500:400,data:L,isRenderedInDialog:t,withToolbar:m,dialogType:g}),null==_?void 0:_.map((e,n)=>a.createElement(at,{key:n,size:200,data:e,isRenderedInDialog:t,withToolbar:m,dialogType:g}))))),b&&a.createElement(o.C,null,a.createElement(d.N,{padding:v.length?{blockend:"three"}:void 0},a.createElement("div",{style:{textAlign:"right"}},a.createElement(at,{size:h?500:f?600:400,data:b,isRenderedInDialog:t,withToolbar:m,dialogType:g}),null==T?void 0:T.map((e,n)=>a.createElement(at,{key:n,size:200,data:e,isRenderedInDialog:t,withToolbar:m,dialogType:g})))))),v.map((e,i)=>a.createElement(mt,{key:i,idx:i,isRenderedInDialog:t,padding:i?{blockstart:"three"}:{blockend:"three"},data:e,lineElementTextSize:n,withToolbar:m,dialogType:g}))));return I?a.createElement(r.X,{isVisible:A,expandoTitle:I.expandedLabel,expandedLabel:I.expandedLabel,size:"medium",alignment:"trailing",onToggle:k},D()):a.createElement(a.Fragment,null,D())};st.fragment={...ct,__typename:"PricePresentationSection"},st.displayName="PricePresentationSection";var gt=()=>a.createElement(a.Fragment,null,a.createElement(d.N,{margin:{blockstart:"three",blockend:"two"}},a.createElement("div",null,a.createElement(q.l,{animation:!0,type:"primary"}))),a.createElement(d.N,{margin:{blockend:"six"}},a.createElement("div",null,a.createElement(q.l,{animation:!0,type:"secondary"}))),a.createElement(d.N,{margin:{blockend:"six"}},a.createElement("div",null,a.createElement(q.l,{animation:!0,type:"primary"}))),a.createElement(d.N,null,a.createElement("div",null,a.createElement(q.l,{animation:!0,type:"primary"})))),pt=({header:e})=>a.createElement(a.Fragment,null,e&&a.createElement(N.M,{tag:"h2",size:5},e),a.createElement(gt,null)),ut=m.gql`
+  fragment PricePresentationFragment on PricePresentation {
+    title {
+      primary
+      secondary
+    }
+    sections {
+      ...PricePresentationSectionFragment
+    }
+    footer {
+      header
+      messages {
+        ...PriceLineElementFragment
+      }
+    }
+  }
+  ${st.fragment}
+  ${at.fragment}
+`,Et=e=>{var t,n;const{data:i,isRenderedInDialog:r,lineElementTextSize:l,loading:o,shouldFirePresentedEvent:m=!0,withToolbar:g,dialogType:p}=e,{title:u,sections:E,footer:y}=i,{headingLevel:f}=(0,V.l)(1),{headingLevel:h}=(0,V.l)(2),P=(0,c.useEgClickstream)(),v=1===(0,s.useExperiment)("USFTC_Price_Details_Increase_total_price_and_Collapsed_Price_Details_on_CKO").exposure.bucket,I=2===(0,s.useExperiment)("MCKO_Big_Batch_Test_Web",!1).exposure.bucket;if((0,a.useEffect)(()=>{var e,t,n;(null==(e=null==i?void 0:i.sections)?void 0:e.length)&&(null==(n=null==(t=i.sections[0])?void 0:t.subSections)?void 0:n.length)&&m&&P(W(X))},[i]),!i||0===(null==E?void 0:E.length)||0===(null==(n=null==(t=null==E?void 0:E[0])?void 0:t.subSections)?void 0:n.length))return null;if(o)return a.createElement(pt,{header:null==u?void 0:u.primary});const L=null==u?void 0:u.primary;return a.createElement("div",{"data-stid":"price-summary-card"},L&&a.createElement(d.N,{padding:{blockend:"three"}},a.createElement(N.M,{tag:null!=f?f:"h2",size:5},L)),E.map((e,t)=>{var n;return a.createElement(a.Fragment,{key:t},t>0&&!(!e.header&&!e.subSections.length)&&(v&&0===(null==(n=e.subSections[0])?void 0:n.items.length)?a.createElement(d.N,{margin:{blockstart:"six"},border:["blockend"]},a.createElement("div",null)):a.createElement(d.N,{margin:{blockend:"six",blockstart:"six"},border:["blockend"]},a.createElement("div",null))),a.createElement(st,{data:e,isRenderedInDialog:r,lineElementTextSize:l,withToolbar:g,dialogType:p}))}),y&&a.createElement(a.Fragment,null,a.createElement(N.M,{"data-stid":"price-detail-footer-heading",tag:null!=h?h:"h3",size:7},y.header),y.messages.map((e,t)=>{return a.createElement(d.N,{key:`price-detail-footer-message-${t}`,padding:(n=e.__typename,I&&"PriceLineCard"===n?{blockstart:"four"}:"PriceLineCard"===n?{blockstart:"three"}:{blockstart:"six"})},a.createElement("div",null,a.createElement(at,{size:200,data:e,isRenderedInDialog:r,withToolbar:g,dialogType:p})));var n})))};Et.fragment={...ut,__typename:"PricePresentation"},Et.displayName="sharedui-PricePresentation"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-pricing-price-details.273a70fe22ed340ab36c.js.map

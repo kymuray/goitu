@@ -1,0 +1,1044 @@
+/*@license For license information please refer to shared-ui-retail-multi-item-fragments.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[4623],{60800:function(e,t,a){a.r(t),a.d(t,{ClickstreamEventType:function(){return Ee},ClickstreamVersion:function(){return ue},CrossSellMessageItem:function(){return sa},CrossSellSecondary:function(){return ua},DateFragment:function(){return Dn},DateTimeFragment:function(){return kn},EGDSActionDialogFooter:function(){return he},EGDSBulletedList:function(){return xt},EGDSDialogToolbar:function(){return la},EGDSElement:function(){return Pt},EGDSExpandoCard:function(){return At},EGDSGraphicText:function(){return nt},EGDSPlainText:function(){return lt},EGDSProgramBadge:function(){return Ae},EGDSSectionContainer:function(){return Jt},EGDSSpannableList:function(){return ta},EGDSSpannableListItem:function(){return Zt},EGDSSpannableText:function(){return Dt},EGDSStandardBadge:function(){return $e},EGDSStandardLink:function(){return Je},EGDSStandardMessagingCard:function(){return na},EGDSStylizedText:function(){return st},EGDSTextIconList:function(){return wt},EGDSTextList:function(){return Ot},EGUisMicroMessageFragment:function(){return Ya},FlightNaturalKeyFragment:function(){return hn},MemberSignInDialogFragment:function(){return Cn},MishopUIBanner:function(){return Ua},MishopUICollapsableSection:function(){return ya},MishopUIDetailMediaGallery:function(){return ba},MishopUIGalleryCarousel:function(){return xa},MishopUIJumpLinkButton:function(){return Pa},MishopUIJumpLinkNavigationBar:function(){return Ma},MishopUIPlacard:function(){return _a},MishopUIProductHeader:function(){return Oa},MishopUIText:function(){return Ka},MishopUIThumbnailMediaGallery:function(){return Fa},MultiItemEGDSBadge:function(){return qe},MultiItemEGDSButton:function(){return je},MultiItemEGDSExpandoListItem:function(){return Lt},MultiItemEGDSExpandoPeek:function(){return Bt},MultiItemEGDSHeading:function(){return dt},MultiItemEGDSIcon:function(){return Te},MultiItemEGDSImageLink:function(){return zt},MultiItemEGDSMoreInfoTrigger:function(){return Xt},MultiItemEGDSParagraph:function(){return pt},MultiItemEGDSPrimaryButton:function(){return Re},MultiItemEGDSSecondaryButton:function(){return He},MultiItemEGDSSheet:function(){return Yt},MultiItemEGDSTertiaryButton:function(){return Ve},MultiItemEGDSText:function(){return ht},MultiItemProductsFragment:function(){return Nn},PackageNaturalKeyFragment:function(){return bn},PackageProductLine:function(){return pe},PackageSearchCriteriaFragment:function(){return xn},PackageUIButton:function(){return Wa},PackageUIDisclaimerDialog:function(){return en},PackageUIEmptyStateError:function(){return an},PackageUIEntryCardAction:function(){return rn},PackageUIGraphicTextList:function(){return on},PackageUIInlineContent:function(){return gn},PackageUIMessageItem:function(){return Qa},PackageUIMessagingCard:function(){return un},PackageUIPrice:function(){return Sn},PropertyNaturalKeyFragment:function(){return Tn},ShoppedProductsFragment:function(){return Pn},ShoppingContextFragment:function(){return vn},UIGraphic:function(){return Ce},buildClientPayload:function(){return fe},generateEgClickstreamData:function(){return ye},mapUisMicroMessage:function(){return Va},themeProviderColorMap:function(){return Kt}});var n=a(56195),r=a(87993),l=a(95519),i=a(30686),o=a(26690),c=a(97778),m=a(68118),s=a(2557),g=a(22142),d=a(96394),u=a(87698),E=a(32462),p=a(30169),f=a(80240),y=a(37292),I=a(27102),S=a(37965),D=a(32380),k=a(89962),h=a(522),G=a(99828),b=a(42534),T=a(74071),F=a(69287),N=a(90072),x=a(92919),v=a(28662),P=a(4988),C=a(9010),L=a(36145),M=a(76606),A=a(1226),U=a(87818),B=a(18174),_=a(70882),$=a(43888),z=a(934),q=a(7484),w=a(89438),R=a(25229),O=a(23726),H=a(51537),K=a(46559),V=a(69772),Y=a(24924),j=a(24109),X=a(63744),W=a(97457),J=a(91460),Q=a(79249),Z=a(36129),ee=a(12389),te=a(53877),ae=a(58624),ne=a(47540),re=Object.defineProperty,le=Object.defineProperties,ie=Object.getOwnPropertyDescriptors,oe=Object.getOwnPropertySymbols,ce=Object.prototype.hasOwnProperty,me=Object.prototype.propertyIsEnumerable,se=(e,t,a)=>t in e?re(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,ge=(e,t)=>{for(var a in t||(t={}))ce.call(t,a)&&se(e,a,t[a]);if(oe)for(var a of oe(t))me.call(t,a)&&se(e,a,t[a]);return e},de=(e,t)=>le(e,ie(t)),ue=(e=>(e.GENERAL_VERSION="1.0.0",e.TWO_TEN_ZERO="2.10.0",e))(ue||{}),Ee=(e=>(e.INTERACTION="Interaction",e.IMPRESSION="Impression",e))(Ee||{}),pe=(e=>(e.FH="FH",e.FC="FC",e))(pe||{});function fe(e,t,a,n){return{event:{event_name:e,event_version:null!=a?a:"1.0.0",event_type:t},module:{module_product_line:n}}}function ye(e){return{clientPayload:Ie(e),serverPayload:e}}function Ie(e){try{const t=JSON.parse(e).events;if(!t||0===Object.keys(t).length)return console.error("Data object is empty or undefined"),{};const a=Object.keys(t)[0];if(!a)return console.error("Data object has no keys"),{};const n=t[a];if(!n||0===Object.keys(n).length)return console.error("Event object is empty or undefined"),{};const r=Object.keys(n)[0];return r?n[r].event_data||{}:(console.error("Event object has no keys"),{})}catch(t){return console.error("Error while parsing serverPayload",t),{}}}var Se=o.gql`
+  fragment EGDSActionDialogFooterFragment on EGDSDialogFooter {
+    ... on EGDSStackedDialogFooter {
+      buttons {
+        ...PackageUIActionDialogFooterButton
+      }
+    }
+    ... on EGDSInlineDialogFooter {
+      buttons {
+        ...PackageUIActionDialogFooterButton
+      }
+    }
+  }
+  fragment PackageUIActionDialogFooterButtonCloseActionFragment on PackageUIActionDialogFooterButtonCloseAction {
+    analytics {
+      referrerId
+      linkName
+    }
+    analyticsPayload
+  }
+
+  fragment PackageUIActionDialogFooterButton on EGDSButton {
+    primary
+    ... on PackageUIActionDialogFooterButton {
+      style
+      dialogAction {
+        ...PackageUIActionDialogFooterButtonCloseActionFragment
+        ... on PackageUIActionDialogSearchLinkAction {
+          newTabAccessibilityText
+          analytics {
+            referrerId
+            linkName
+          }
+          resource {
+            ... on HttpURI {
+              relativePath
+            }
+          }
+          target
+        }
+        ... on PackageUIActionDialogSignInLinkAction {
+          newTabAccessibilityText
+          analytics {
+            referrerId
+            linkName
+          }
+          resource {
+            ... on HttpURI {
+              relativePath
+            }
+          }
+          target
+        }
+      }
+    }
+  }
+`,De={PRIMARY:r.y,TERTIARY:l.q},ke=e=>"PackageUIActionDialogFooterButton"===e.__typename&&De[e.style],he=({data:e,onDialogClose:t})=>{const a=((e,t,a,r)=>e.buttons.filter(ke).map((e,l)=>{if("PackageUIActionDialogFooterButton"!==e.__typename)return null;const i=De[e.style];switch(e.dialogAction.__typename){case"PackageUIActionDialogFooterButtonCloseAction":{const o=e.dialogAction.analyticsPayload,c={id:e.dialogAction.analytics.referrerId,description:e.dialogAction.analytics.linkName,callback:(e,t)=>a(e,t)},m=n.useCallback(()=>{o&&r(ye(o)),t()},[o]);return n.createElement(i,{key:`dialog-footer-button-${l}`,onClick:m,analytics:c},e.primary)}case"PackageUIActionDialogSearchLinkAction":case"PackageUIActionDialogSignInLinkAction":{const r={href:"HttpURI"===e.dialogAction.resource.__typename?e.dialogAction.resource.relativePath:void 0,target:"EXTERNAL"===e.dialogAction.target?"_blank":"_self",rel:"noopener",onClick:t},o={id:e.dialogAction.analytics.referrerId,description:e.dialogAction.analytics.linkName,callback:(e,t)=>a(e,t)};return r.href?n.createElement(i,de(ge({key:`dialog-footer-button-${l}`},r),{analytics:o}),n.createElement(n.Fragment,null,e.primary,e.dialogAction.newTabAccessibilityText&&n.createElement("span",{className:"is-visually-hidden"},e.dialogAction.newTabAccessibilityText))):null}default:return null}}).filter(Boolean))(e,t,(0,c.useClickTracker)(),(0,c.useEgClickstream)());switch(e.__typename){case"EGDSInlineDialogFooter":return n.createElement(i.l,{stacked:!1},a);case"EGDSStackedDialogFooter":return n.createElement(i.l,{stacked:!0},a);default:return null}};he.fragment=Se,he.displayName="EGDSActionDialogFooter";var Ge=o.gql`
+  fragment EGDSIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+    spotLight
+  }
+`,be={INFO:"info",POSITIVE:"positive",STANDARD:"standard",WARNING:"warning"},Te=({data:e,defaultIconSize:t,defaultIconTheme:a,defaultIconSpotLight:r})=>{const{description:l,id:i,size:o,title:c,theme:m,withBackground:g,spotLight:d}=e,u=d?{theme:be[d],background:Boolean(g)}:r;return n.createElement(s.LD,{description:l,id:i,name:i,size:o?s.So[o]:t,title:null!=c?c:void 0,theme:null!=m?m:a,shadow:Boolean(!d&&g),spotlight:u})};Te.displayName="MultiItemEGDSIcon",Te.fragment=Ge;var Fe=o.gql`
+  fragment EGDSIllustrationFragment on Illustration {
+    description
+    link: url
+    id
+  }
+`,Ne=({data:e})=>n.createElement(g.r,{alt:e.description,url:e.link});Ne.displayName="EGDSIllustration",Ne.fragment=Fe;var xe=o.gql`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    markSize: size
+    url {
+      value
+      relativePath
+    }
+  }
+`,ve=({data:e,size:t})=>{var a;const{description:r,id:l,markSize:i,url:o}=e;if(!o&&!l)return null;const c=i?null!=(a=d.K[i])?a:d.G[parseInt(i,10)]:void 0;return n.createElement(u.D,{description:r,id:l,name:l,size:null!=c?c:t,url:null==o?void 0:o.value})};ve.displayName="MultiItemEGDSMark",ve.fragment=xe;var Pe=o.gql`
+  fragment UIGraphicFragment on UIGraphic {
+    ...EGDSIconFragment
+    ...EGDSMarkFragment
+    ...EGDSIllustrationFragment
+  }
+
+  ${Te.fragment}
+  ${ve.fragment}
+  ${Ne.fragment}
+`,Ce=({data:e,markProps:t,iconProps:a})=>{switch(e.__typename){case"Icon":return n.createElement(Te,ge({data:e},a));case"Mark":return n.createElement(ve,ge({data:e},t));case"Illustration":return n.createElement(Ne,{data:e});default:return null}};Ce.displayName="UIGraphic",Ce.fragment=Pe;var Le=o.gql`
+  fragment EGDSProgramBadgeFragment on EGDSProgramBadge {
+    accessibility
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+    theme
+  }
+
+  ${Ce.fragment}
+`,Me={deal:"deal",member:"member",trip:"trip",supplierpromo:"supplierpromo",vmc:"vmc"},Ae=({data:e,iconSize:t})=>{const{accessibility:a,graphic:r,text:l,theme:i}=e,o=i?Me[i]:void 0;return l&&i&&o?n.createElement(m.v,{a11yText:null!=a?a:void 0,text:l,theme:o},r&&n.createElement(Ce,{data:r,iconProps:{defaultIconSize:t}})):null};Ae.displayName="EGDSProgramBadge",Ae.fragment=Le;var Ue={standard:"standard",emphasis:"emphasis",info:"info",featured:"featured",brand:"brand",warning:"warning",positive:"positive"},Be={small:"small",large:"large"},_e=o.gql`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    text
+    badgeTheme: theme
+    size
+    accessibility
+    impressionAnalytics {
+      linkName
+      referrerId
+    }
+    graphic {
+      ...UIGraphicFragment
+    }
+  }
+
+  ${Ce.fragment}
+`,$e=({data:e})=>{const{size:t,text:a,badgeTheme:r,accessibility:l,impressionAnalytics:i,graphic:o}=e;if(!a)return null;const m=r?Ue[r.toLowerCase()]:void 0,s=t?Be[t.toLowerCase()]:void 0,g=n.createElement(E.G,{text:a,size:s,theme:m,a11yText:null!=l?l:void 0},o&&n.createElement(Ce,{data:o}));if(i){const{referrerId:e,linkName:t}=i;return n.createElement(c.IntersectionTracker,{referrerId:e,linkName:null!=t?t:""},g)}return g};$e.fragment=_e,$e.displayName="EGDSStandardBadge";var ze=o.gql`
+  fragment EGDSBadgeFragment on EGDSBadge {
+    ...EGDSStandardBadgeFragment
+    ...EGDSProgramBadgeFragment
+  }
+
+  ${$e.fragment}
+  ${Ae.fragment}
+`,qe=({data:e,iconSize:t})=>{switch(e.__typename){case"EGDSStandardBadge":return n.createElement($e,{data:e});case"EGDSProgramBadge":return n.createElement(Ae,{data:e,iconSize:t});default:return null}};qe.fragment=ze,qe.displayName="sharedui-MultiItemEGDSBadge";var we=o.gql`
+  fragment EGDSPrimaryButtonFragment on UIPrimaryButton {
+    primary
+    accessibility
+    analytics {
+      linkName
+      referrerId
+    }
+  }
+`,Re=({data:e,onClick:t,size:a,isFullWidth:l})=>{const{primary:i,accessibility:o,analytics:m}=e,s=(0,c.useClickTracker)(),g=n.useCallback(()=>{m&&s(m.referrerId,m.linkName),null==t||t()},[t,m,s]),d={size:a,isFullWidth:l};return n.createElement(r.y,ge({"aria-label":null!=o?o:void 0,onClick:g},d),i)};Re.fragment=we,Re.displayName="MultiItemEGDSPrimaryButton";var Oe=o.gql`
+  fragment EGDSSecondaryButtonFragment on UISecondaryButton {
+    primary
+    accessibility
+    analytics {
+      linkName
+      referrerId
+    }
+  }
+`,He=({data:e,onClick:t,size:a,isFullWidth:r})=>{const{primary:l,accessibility:i,analytics:o}=e,m=(0,c.useClickTracker)(),s=n.useCallback(()=>{o&&m(o.referrerId,o.linkName),null==t||t()},[t,o,m]),g={size:a,isFullWidth:r};return n.createElement(p.y,ge({"aria-label":null!=i?i:void 0,onClick:s},g),l)};He.fragment=Oe,He.displayName="MultiItemEGDSSecondaryButton";var Ke=o.gql`
+  fragment EGDSTertiaryButtonFragment on UITertiaryButton {
+    primary
+    analytics {
+      linkName
+      referrerId
+    }
+    accessibility
+  }
+`,Ve=({data:e,onClick:t,size:a,isFullWidth:r,buttonAsLink:i})=>{const{primary:o,analytics:m,accessibility:s}=e,g=(0,c.useClickTracker)(),d=n.useCallback(()=>{m&&g(m.referrerId,m.linkName),null==t||t()},[t,m,g]),u=n.createElement(l.q,{"aria-label":null!=s?s:void 0,onClick:d,size:null!=a?a:f.V.MEDIUM,isFullWidth:r},o);return i?n.createElement(y.i,null,u):u};Ve.fragment=Ke,Ve.displayName="MultiItemEGDSTertiaryButton";var Ye=o.gql`
+  fragment EGDSButtonFragment on EGDSButton {
+    ...EGDSPrimaryButtonFragment
+    ...EGDSSecondaryButtonFragment
+    ...EGDSTertiaryButtonFragment
+  }
+
+  ${Re.fragment}
+  ${He.fragment}
+  ${Ve.fragment}
+`,je=({data:e,onClick:t,size:a,isFullWidth:r,buttonAsLink:l})=>{switch(e.__typename){case"UIPrimaryButton":return n.createElement(Re,{data:e,onClick:t,size:a,isFullWidth:r});case"UISecondaryButton":return n.createElement(He,{data:e,onClick:t,size:a,isFullWidth:r});case"UITertiaryButton":return n.createElement(Ve,{data:e,onClick:t,size:a,isFullWidth:r,buttonAsLink:l});default:return null}};je.fragment=Ye,je.displayName="MultiItemEGDSButton";var Xe=o.gql`
+  fragment EGDSStandardLinkFragment on EGDSStandardLink {
+    text
+    action {
+      accessibility
+      target
+      resource {
+        value
+      }
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+    icon {
+      id
+    }
+    iconPosition
+  }
+`,We={EXTERNAL:"_blank",INTERNAL:"_self"},Je=({data:e,inline:t,iconSize:a})=>{const{action:r,text:l,icon:i,iconPosition:o}=e,{analytics:m,resource:g,target:d,accessibility:u}=r,E=(0,c.useClickTracker)(),{scrollTo:p}=(0,S.xC)(),{getTargets:f}=(0,S.OK)(),D=f([g.value]),k=n.useCallback(()=>{var e,t;p(g.value,[]),null==(t=null==(e=D[g.value])?void 0:e.current)||t.focus({preventScroll:!0}),E(m.referrerId,m.linkName)},[g.value,p,E,m]),h=n.useCallback(()=>{E(m.referrerId,m.linkName)},[E,m]);return"SelfReferencedURI"===r.resource.__typename?n.createElement(y.i,{onClickCapture:k},n.createElement("a",{target:We[d],href:g.value},l)):n.createElement(y.i,{onClickCapture:h,inline:null==t||t},n.createElement("a",{target:We[d],href:g.value},i&&"TRAILING"!==o&&n.createElement(s.LD,{name:i.id,size:a}),l,i&&"TRAILING"===o&&n.createElement(s.LD,{name:i.id,size:a}),u&&n.createElement(I.D,{className:"is-visually-hidden"},u)))};Je.displayName="sharedui-EGDSStandardLink",Je.fragment=Xe;var Qe=o.gql`
+  fragment EGDSTextIconListItemFragment on EGDSTextIconListItem {
+    icon {
+      id
+    }
+    text
+  }
+`,Ze=({data:e})=>{const{icon:t,text:a}=e;return n.createElement(k.x,null,n.createElement(s.LD,{name:t.id}),a)};Ze.fragment=Qe,Ze.displayName="EGDSTextIconListItem";var et=o.gql`
+  fragment EGDSTextStandardListItemFragment on EGDSTextStandardListItem {
+    text
+  }
+`,tt=({data:{text:e}})=>n.createElement(k.x,null,e);tt.fragment=et,tt.displayName="EGDSTextStandardListItem";var at=o.gql`
+  fragment EGDSGraphicTextFragment on EGDSGraphicText {
+    text
+    accessibility
+    graphic {
+      ...UIGraphicFragment
+    }
+  }
+
+  ${Ce.fragment}
+`,nt=({data:e})=>n.createElement(h.X,{space:"two"},n.createElement(G.C,null,n.createElement(Ce,{data:e.graphic})),n.createElement(G.C,null,n.createElement(I.D,null,n.createElement("span",{"aria-hidden":Boolean(e.accessibility)},e.text),e.accessibility&&n.createElement("span",{className:"is-visually-hidden"},e.accessibility))));nt.fragment=at,nt.displayName="EGDSGraphicText";var rt=o.gql`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    plainText: text
+  }
+`,lt=({textProps:e,data:t})=>n.createElement(I.D,ge({},e),t.plainText);lt.fragment=rt,lt.displayName="EGDSPlainText";var it=o.gql`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    stylizedText: text
+    textTheme: theme
+    weight
+    decorative
+    textSize: size
+  }
+`,ot={100:100,200:200,300:300,400:400,500:500,600:600,700:700,800:800,900:900},ct={LOYALTY:"loyalty",NEGATIVE:"negative",POSITIVE:"positive",EMPHASIS:"emphasis",PRIMARY:"emphasis",SECONDARY:"secondary",INVERSE:"inverse"},mt={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},st=e=>{var t,a;const{data:r,textProps:l}=e,{stylizedText:i,textTheme:o,weight:c,decorative:m,textSize:s}=r,g=o?ct[o]:void 0,d=c?mt[c]:void 0,u=s?ot[s]:null==l?void 0:l.size;return"LINE_THROUGH"===m?n.createElement("s",null,n.createElement(I.D,{size:u,theme:null!=(t=null==l?void 0:l.theme)?t:g,weight:d,inline:null==l?void 0:l.inline},i)):n.createElement(I.D,{size:u,theme:null!=(a=null==l?void 0:l.theme)?a:g,weight:d,inline:null==l?void 0:l.inline},i)};st.fragment=it,st.displayName="EGDSStylizedText";var gt=o.gql`
+  fragment EGDSHeadingFragment on EGDSHeading {
+    text
+  }
+`,dt=({headingProps:e,data:t})=>n.createElement(T.M,ge({},e),t.text);dt.fragment=gt,dt.displayName="MultiItemEGDSHeading";var ut=o.gql`
+  fragment EGDSParagraphFragment on EGDSParagraph {
+    text
+    size
+  }
+`,Et={1:1,2:2,3:3},pt=({data:{size:e,text:t}})=>{var a;return n.createElement(F.u,{size:null!=(a=Et[e])?a:void 0},t)};pt.fragment=ut,pt.displayName="MultiItemEGDSParagraph";var ft=o.gql`
+  fragment EGDSSpannableTextItemFragment on EGDSSpannableTextItem {
+    ...EGDSStylizedTextFragment
+    ...EGDSPlainTextFragment
+  }
+
+  ${st.fragment}
+  ${lt.fragment}
+`,yt=({data:e,textProps:t})=>{switch(e.__typename){case"EGDSStylizedText":return n.createElement(st,{data:e,textProps:t});case"EGDSPlainText":return n.createElement(lt,{data:e,textProps:t});default:return null}};yt.fragment=ft,yt.displayName="EGDSSpannableTextItem";var It=o.gql`
+  fragment EGDSSpannableTextFragment on EGDSSpannableText {
+    text
+    inlineContent {
+      ...EGDSSpannableTextItemFragment
+    }
+  }
+
+  ${yt.fragment}
+`,St={margin:{inlineend:"one"}},Dt=e=>{const t=e,{data:a}=t,r=((e,t)=>{var a={};for(var n in e)ce.call(e,n)&&t.indexOf(n)<0&&(a[n]=e[n]);if(null!=e&&oe)for(var n of oe(e))t.indexOf(n)<0&&me.call(e,n)&&(a[n]=e[n]);return a})(t,["data"]);return 0===a.inlineContent.length?n.createElement(I.D,ge({},r),a.text):n.createElement(n.Fragment,null,a.inlineContent.map((e,t)=>n.createElement(b.N,de(ge({},St),{key:`spannable-text-item-${t}`}),n.createElement(yt,ge({data:e},r)))))};Dt.fragment=It,Dt.displayName="EGDSSpannableText";var kt=o.gql`
+  fragment EGDSTextFragment on EGDSText {
+    ...EGDSHeadingFragment
+    ...EGDSParagraphFragment
+    ...EGDSPlainTextFragment
+    ...EGDSStandardLinkFragment
+    ...EGDSStylizedTextFragment
+    ...EGDSSpannableTextFragment
+  }
+
+  ${dt.fragment}
+  ${pt.fragment}
+  ${lt.fragment}
+  ${Je.fragment}
+  ${st.fragment}
+  ${Dt.fragment}
+`,ht=({data:e,headingProps:t,textProps:a})=>{switch(e.__typename){case"EGDSHeading":return n.createElement(dt,{data:e,headingProps:t});case"EGDSParagraph":return n.createElement(pt,{data:e});case"EGDSPlainText":return n.createElement(lt,{data:e,textProps:a});case"EGDSStandardLink":return n.createElement(Je,{data:e});case"EGDSStylizedText":return n.createElement(st,{data:e,textProps:a});case"EGDSSpannableText":return n.createElement(Dt,{data:e,textProps:a});default:return null}};ht.fragment=kt,ht.displayName="MultiItemEGDSText";var Gt=o.gql`
+  fragment MishopUITextContainerListItemFragment on MishopUITextContainerListItem {
+    element {
+      elements {
+        ...EGDSTextFragment
+      }
+    }
+  }
+
+  ${ht.fragment}
+`,bt=({data:{element:{elements:e}}})=>n.createElement(k.x,null,n.createElement(h.X,{direction:"column"},e.map((e,t)=>n.createElement(G.C,{key:t},n.createElement(b.N,{margin:{blockend:"one"}},n.createElement("div",null,n.createElement(ht,{data:e})))))));bt.fragment=Gt,bt.displayName="MishopUITextContainerListItem";var Tt=o.gql`
+  fragment EGDSTextListItemFragment on EGDSTextListItem {
+    ... on EGDSTextIconListItem {
+      ...EGDSTextIconListItemFragment
+    }
+    ... on EGDSTextStandardListItem {
+      ...EGDSTextStandardListItemFragment
+    }
+    ... on MishopUITextContainerListItem {
+      ...MishopUITextContainerListItemFragment
+    }
+  }
+
+  ${Ze.fragment}
+  ${tt.fragment}
+  ${bt.fragment}
+`,Ft=({data:e})=>{switch(e.__typename){case"EGDSTextIconListItem":return n.createElement(Ze,{data:e});case"EGDSTextStandardListItem":return n.createElement(tt,{data:e});case"MishopUITextContainerListItem":return n.createElement(bt,{data:e});default:return null}};Ft.fragment=Tt,Ft.displayName="EGDSTextListItem";var Nt=o.gql`
+  fragment EGDSBulletedListFragment on EGDSBulletedList {
+    listItems {
+      ... on EGDSTextListItem {
+        ...EGDSTextListItemFragment
+      }
+    }
+  }
+
+  ${Ft.fragment}
+`,xt=({data:{listItems:e}})=>n.createElement(n.Fragment,null,e.length&&n.createElement(D.y,{spacing:!1,size:2,type:"unordered"},e.map((e,t)=>n.createElement(Ft,{key:t,data:e}))));xt.fragment=Nt,xt.displayName="EGDSBulletedList";var vt=o.gql`
+  fragment EGDSElementFragment on EGDSElement {
+    ... on EGDSHeading {
+      ...EGDSHeadingFragment
+    }
+    ... on EGDSParagraph {
+      ...EGDSParagraphFragment
+    }
+    ... on EGDSStandardLink {
+      ...EGDSStandardLinkFragment
+    }
+    ... on EGDSBulletedList {
+      ...EGDSBulletedListFragment
+    }
+  }
+
+  ${dt.fragment}
+  ${pt.fragment}
+  ${Je.fragment}
+  ${xt.fragment}
+`,Pt=({data:e})=>{switch(e.__typename){case"EGDSParagraph":return n.createElement(pt,{data:e});case"EGDSHeading":return n.createElement(dt,{data:e});case"EGDSStandardLink":return n.createElement(Je,{data:e});case"EGDSBulletedList":return n.createElement(xt,{data:e});default:return null}};Pt.fragment=vt,Pt.displayName="EGDSElement";var Ct=o.gql`
+  fragment EGDSExpandoListItemFragment on EGDSExpandoListItem {
+    collapseAnalytics {
+      linkName
+      referrerId
+    }
+    collapsedLabel
+    expandAnalytics {
+      linkName
+      referrerId
+    }
+    expandedLabel
+    expanded
+  }
+`,Lt=({data:{expandAnalytics:e,expandedLabel:t,collapseAnalytics:a,collapsedLabel:r,expanded:l},content:i,ExpandoTitle:o})=>{const m=(0,c.useClickTracker)(),[s,g]=(0,n.useState)(l),[d,u]=(0,n.useState)(l?t:r),E=o?n.createElement(o,null,d):d;return n.createElement(N.U,{isVisible:s,expandoTitle:E,expandoDescription:i,onToggle:()=>{s?(u(r),a&&m(a.referrerId,a.linkName)):(u(t),e&&m(e.referrerId,e.linkName)),g(e=>!e)}})};Lt.fragment=Ct,Lt.displayName="MultiItemEGDSExpandoListItem";var Mt=o.gql`
+  fragment EGDSExpandoCardFragment on EGDSExpandoCard {
+    collapseAnalytics {
+      linkName
+      referrerId
+    }
+    collapsedLabel
+    expandAnalytics {
+      linkName
+      referrerId
+    }
+    expandedLabel
+    expanded
+    subtitle
+  }
+`,At=({data:e,children:t,border:a,className:r})=>{const{expandAnalytics:l,expandedLabel:i,collapseAnalytics:o,collapsedLabel:m,expanded:s,subtitle:g}=e,d=(0,c.useClickTracker)(),[u,E]=n.useState(s),[p,f]=n.useState(s?i:m),y=null!=g?g:void 0,S=n.useCallback(()=>{u?(f(m),o&&d(o.referrerId,o.linkName)):(f(i),l&&d(l.referrerId,l.linkName)),E(!u)},[u,d,i,m,o,l]);return n.createElement(x.g,{border:a,className:r},n.createElement(b.N,{padding:"three"},n.createElement(v.f,null,n.createElement(N.U,{expandoTitle:n.createElement(n.Fragment,null,n.createElement(I.D,{size:400,weight:"bold",theme:"standard"},p),y),triggerPosition:"trailing",isVisible:u,onToggle:S,expandoDescription:n.createElement(b.N,{padding:{blockend:"one",inline:"one"}},n.createElement("div",null,t))}))))};At.fragment=Mt,At.displayName="EGDSExpandoCard";var Ut=o.gql`
+  fragment EGDSExpandoPeekFragment on EGDSExpandoPeek {
+    expandedLabel
+    collapsedLabel
+    collapseAnalytics {
+      linkName
+      referrerId
+    }
+    expandAnalytics {
+      linkName
+      referrerId
+    }
+    expanded
+  }
+`,Bt=({className:e,lines:t,items:a,data:r,children:l})=>{var i,o,m,s;const{expandAnalytics:g,collapseAnalytics:d,expandedLabel:u,collapsedLabel:E,expanded:p}=r,[f,y]=n.useState(p),I=n.useCallback(()=>{y(!f)},[f,y]),S=(0,c.useClickTracker)(),D={id:null!=(i=null==g?void 0:g.referrerId)?i:"",description:null!=(o=null==g?void 0:g.linkName)?o:"",callback:n.useCallback((e,t)=>{S(e,t)},[S])},k={id:null!=(m=null==d?void 0:d.referrerId)?m:"",description:null!=(s=null==d?void 0:d.linkName)?s:"",callback:n.useCallback((e,t)=>{S(e,t)},[S])};return n.createElement(P.A,{isVisible:f,items:a,lines:t,expandLabel:null!=E?E:"",collapseLabel:null!=u?u:"",handleClick:I,className:e,analytics:f?k:D},l)};Bt.fragment=Ut,Bt.displayName="MultiItemEGDSExpandoPeek";var _t=o.gql`
+  fragment EGDSImageLinkFragment on EGDSImageLink {
+    image {
+      url
+      description
+    }
+    action {
+      resource {
+        value
+      }
+      analytics {
+        linkName
+        referrerId
+      }
+      accessibility
+      target
+    }
+  }
+`,$t={EXTERNAL:"_blank",INTERNAL:"_self"},zt=({data:{image:e,action:t},figureProps:a})=>{const r=(0,c.useClickTracker)(),l={href:t.resource.value,rel:"_blank"===$t[t.target]?"noopener":void 0,target:$t[t.target],onClick:()=>r(t.analytics.referrerId,t.analytics.linkName)};return n.createElement(C.M,ge({},a),n.createElement(L.F,{placeholderImage:!0,alt:e.description,src:e.url}),n.createElement(M.d,null,n.createElement(f.u,ge({},l),t.accessibility&&n.createElement("span",{className:"is-visually-hidden"},t.accessibility))))};zt.fragment=_t,zt.displayName="MultiItemEGDSImageLink";var qt=o.gql`
+  fragment EGDSTextIconListFragment on EGDSTextIconList {
+    listItems {
+      ...EGDSTextIconListItemFragment
+    }
+  }
+
+  ${Ze.fragment}
+`,wt=({listProps:e,className:t,columns:a,data:r})=>{const{listItems:l}=r;if(!l.length)return null;const i=(0,A.I)(t=>n.createElement(D.y,de(ge(ge({},e),t),{data:l.map((e,t)=>({content:e.text,icon:n.createElement(s.LD,{key:`icon-${t}`,name:e.icon.id})}))})));return a?n.createElement(i,{className:t,columns:a}):n.createElement(D.y,de(ge({spacing:!1},e),{className:t}),l.map((e,t)=>n.createElement(Ze,{key:`egds-text-icon-list-item-${t}`,data:e})))};wt.fragment=qt,wt.displayName="EGDSTextIconList";var Rt=o.gql`
+  fragment EGDSTextListFragment on EGDSTextList {
+    ... on EGDSBulletedList {
+      ...EGDSBulletedListFragment
+    }
+    ... on EGDSTextIconList {
+      ...EGDSTextIconListFragment
+    }
+  }
+
+  ${xt.fragment}
+  ${wt.fragment}
+`,Ot=({data:e})=>{switch(e.__typename){case"EGDSBulletedList":return n.createElement(xt,{data:e});case"EGDSTextIconList":return n.createElement(wt,{data:e});default:return null}};Ot.fragment=Rt,Ot.displayName="EGDSTextList";var Ht={default:"default",emphasis:"emphasis",inverse:"inverse",negative:"negative",positive:"positive"},Kt={BRIGHT_1:"bright-1",DARK_1:"dark-1",GLOBAL_LOYALTY_EXTRA_HIGH:"global-loyalty-extra-high",GLOBAL_LOYALTY_HIGH:"global-loyalty-high",GLOBAL_LOYALTY_LOW:"global-loyalty-low",GLOBAL_LOYALTY_EXTRA_HIGH_BRIGHT:"global-loyalty-extra-high-bright",GLOBAL_LOYALTY_HIGH_BRIGHT:"global-loyalty-high-bright",GLOBAL_LOYALTY_LOW_BRIGHT:"global-loyalty-low-bright",GLOBAL_LOYALTY_MID:"global-loyalty-mid",GLOBAL_LOYALTY_MID_BRIGHT:"global-loyalty-mid-bright",GLOBAL_LOYALTY_STANDARD:"global-loyalty-standard",LIGHT_1:"light-1",MARKETING_1:"marketing-1",MARKETING_2:"marketing-2",STANDARD:"standard",NONE:"none",AI:"none",DARK_2:"none",MARKETING_3:"none"},Vt=o.gql`
+  fragment EGDSSheetFragment on EGDSSheet {
+    sheetTypes {
+      sheetType
+      viewSize
+    }
+    closeAnalytics {
+      referrerId
+      linkName
+    }
+    icon {
+      ...EGDSIconFragment
+    }
+    closeText
+  }
+
+  ${Te.fragment}
+`,Yt=({data:e,onDismiss:t,width:a,triggerRef:r,title:i,children:o,dialogId:m,toolbarColorTheme:s="light-1",isPadded:g=!0})=>{const{closeAnalytics:d,icon:u,closeText:E}=e,p=(0,c.useClickTracker)(),y=null!=m?m:"multi-item-egds-sheet",[I,S,D]=(0,_.useDialog)(y),k=n.useCallback(t=>{var a,n;return null==(n=null==(a=e.sheetTypes)?void 0:a.find(e=>e.viewSize===t))?void 0:n.sheetType},[e]),h=n.useCallback(()=>{p(d.referrerId,d.linkName),S.closeDialog(),null==t||t()},[t,d,p]),G=(0,K.s5)({SMALL:k("SMALL"),MEDIUM:k("MEDIUM"),LARGE:k("LARGE")}),b={isVisible:I,triggerRef:r,onDismiss:h,returnFocusOnClose:!0,autoFocus:!0},T=n.createElement(n.Fragment,null,n.createElement(O.p,{navigationContent:{onClick:h,navIconLabel:null!=E?E:void 0},toolbarTitle:i,toolbarTitleTag:"h1",elevation:"default"}),n.createElement("div",null,n.createElement(R.j,{blockMargin:"unset"}))),F=n.createElement("div",null,n.createElement($.K,{isVisible:I},n.createElement(z.t,de(ge({},b),{type:"popover",width:a,autoPosition:!0}),n.createElement(q.t,null,n.createElement(l.q,{type:"button",onClick:h},u&&n.createElement(Te,{data:u}))),n.createElement(w.Y,{padded:g},o)))),N=n.createElement($.K,{isVisible:I},n.createElement(z.t,de(ge({},b),{type:"side"}),T,n.createElement(w.Y,{padded:g},o))),x=n.createElement($.K,{isVisible:I},n.createElement(D,null,n.createElement(z.t,de(ge({},b),{type:"full"}),T,n.createElement(w.Y,{padded:g},o)))),v=n.createElement($.K,{isVisible:I},n.createElement(D,null,n.createElement(z.t,de(ge({},b),{type:"centered"}),n.createElement(H.EGDSThemeProvider,{isColorThemeContainer:!0,config:{lightMode:{colorTheme:s}}},n.createElement(q.t,{alignment:"top"},n.createElement(l.q,{type:"button",onClick:h,size:f.V.LARGE},u&&n.createElement(Te,{data:u})))),n.createElement(w.Y,{padded:g},o)))),P=n.createElement($.K,{isVisible:I},n.createElement(D,null,n.createElement(z.t,de(ge({},b),{type:"bottom"}),n.createElement(H.EGDSThemeProvider,{isColorThemeContainer:!0,config:{lightMode:{colorTheme:s}}},n.createElement(q.t,{alignment:"top"},n.createElement(l.q,{type:"button",onClick:h,size:f.V.LARGE},u&&n.createElement(Te,{data:u})))),n.createElement(w.Y,{padded:g},o)))),C=e=>{switch(e){case"POPOVER":return F;case"SIDE":return N;case"FULLSCREEN":return x;case"CENTERED":return v;case"BOTTOM":return P;default:return}};return n.createElement(K.LM,null,n.createElement(K.NP,null,C(G)),n.createElement(K.rw,null,C(G)),n.createElement(K.zQ,null,C(G)))};Yt.fragment=Vt,Yt.displayName="sharedui-MultiItemEGDSSheet";var jt=o.gql`
+  fragment EGDSMoreInfoTriggerComponentFragment on EGDSMoreInfoTrigger {
+    icon {
+      ...EGDSIconFragment
+    }
+    text
+    triggerAction {
+      analytics {
+        referrerId
+        linkName
+      }
+      sheet {
+        ...EGDSSheetFragment
+      }
+      text
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+
+  ${Yt.fragment}
+  ${Te.fragment}
+`,Xt=({data:e,onTriggerClick:t,popoverWidth:a,children:r})=>{const l=n.useRef(null),[,i]=(0,_.useDialog)("egds-more-info-trigger"),{icon:o,text:m,analytics:s,triggerAction:g}=e,d=(0,c.useClickTracker)(),u=(0,n.useCallback)(()=>{i.toggleDialog(),null==t||t(),g.analytics&&d(g.analytics.referrerId,g.analytics.linkName)},[t,d,g.analytics]);return n.useEffect(()=>{s&&d(s.referrerId,s.linkName)},[s]),n.createElement(U.P,{display:"inline-block","data-stid":"egds-more-info-trigger"},n.createElement(B.t,{theme:o.theme?Ht[o.theme]:void 0,onClickCapture:u},n.createElement("button",{type:"button",ref:l},m,n.createElement(Te,{data:o}))),n.createElement(Yt,{data:g.sheet,width:a,triggerRef:l,dialogId:"egds-more-info-trigger"},r))};Xt.displayName="MultiItemEGDSMoreInfoTrigger",Xt.fragment=jt;var Wt=o.gql`
+  fragment EGDSSectionContainerFragment on EGDSSectionContainer {
+    elements {
+      ...EGDSElementFragment
+    }
+  }
+
+  ${Pt.fragment}
+`,Jt=({data:{elements:e}})=>n.createElement(h.X,{direction:"column"},n.createElement(b.N,{margin:"two"},n.createElement("div",null,e.map((e,t)=>n.createElement(G.C,{key:t},n.createElement(b.N,{margin:{inlinestart:"two",blockstart:"one"}},n.createElement("div",null,n.createElement(Pt,{data:e}))))))));Jt.fragment=Wt,Jt.displayName="EGDSSectionContainer";var Qt=o.gql`
+  fragment EGDSSpannableListItemFragment on EGDSSpannableListItem {
+    text {
+      ...EGDSSpannableTextFragment
+    }
+  }
+
+  ${Dt.fragment}
+`,Zt=({textSize:e,data:t})=>n.createElement("div",null,n.createElement(Dt,{data:t.text,textProps:{size:e,inline:!0}}));Zt.fragment=Qt,Zt.displayName="EGDSSpannableListItem";var ea=o.gql`
+  fragment EGDSSpannableListFragment on EGDSSpannableList {
+    items {
+      ...EGDSSpannableListItemFragment
+    }
+    listType
+    __typename
+  }
+
+  ${Zt.fragment}
+`,ta=({data:e,leadingTextSize:t,textSize:a,leadingItemSpacing:r,itemSpacing:l})=>{if(!e)return null;const{listType:i,items:o}=e;if(0===o.length)return null;const c=(e=>{switch(e){case"BULLET":return"default";case"ICON":return"icon-standard";case"NO_BULLET":return"no-bullet";case"NUMBER":return"tiered-numbered";default:return}})(i);return n.createElement(D.y,{bullet:c,spacing:!1},o.map((e,i)=>{const o=0===i&&t?t:a,c=0===i?r:l,m=n.createElement(k.x,{key:`spannablelist-${i}`},n.createElement(Zt,{data:e,textSize:o}));return l?n.createElement(U.P,{type:"relative",position:c,cloneElement:!0},m):m}))};ta.fragment=ea,ta.displayName="EGDSSpannableList";var aa=o.gql`
+  fragment EGDSStandardMessagingCardFragment on EGDSStandardMessagingCard {
+    heading
+    message
+    background
+    dismiss {
+      accessibility
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    impressionTracking {
+      ...ClientSideAnalyticsFragment
+    }
+    buttons {
+      ...EGDSButtonFragment
+    }
+    links {
+      ...EGDSStandardLinkFragment
+    }
+    graphic {
+      ...UIGraphicFragment
+    }
+  }
+
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    referrerId
+    linkName
+  }
+
+  ${je.fragment}
+  ${Je.fragment}
+  ${Ce.fragment}
+`,na=({data:e,buttonAsLink:t,buttonAction:a,className:r})=>{var i;const{heading:o,message:m,background:g,buttons:d,links:u,impressionTracking:E,dismiss:p,graphic:y}=e,S=(0,c.useClickTracker)(),[D,k]=n.useState(!1),F=()=>{null==a||a()},N=n.useMemo(()=>n.createElement(b.N,null,n.createElement(h.X,null,null==d?void 0:d.map((e,a)=>n.createElement(b.N,{key:a,margin:{block:"UITertiaryButton"===e.__typename?"unset":"two",inlinestart:"UITertiaryButton"===e.__typename?"unset":"two"}},n.createElement("div",null,n.createElement(G.C,null,n.createElement(je,{data:e,onClick:F,size:f.V.MEDIUM,buttonAsLink:t}))))))),[d]),v=n.useMemo(()=>n.createElement(b.N,null,n.createElement(h.X,null,null==u?void 0:u.map((e,t)=>n.createElement(b.N,{padding:{inline:"two",block:"two"},margin:{inlinestart:0===t?"unset":"two"},key:t},n.createElement(G.C,null,n.createElement("div",null,n.createElement(Je,{data:e}))))))),[u]),P=n.useMemo(()=>n.createElement(n.Fragment,null,o&&n.createElement(G.C,null,n.createElement(b.N,{padding:{blockstart:"three",blockend:"half",inline:"three"}},n.createElement(T.M,{tag:"h3"},o))),n.createElement(G.C,null,n.createElement(b.N,{padding:{blockstart:o?"unset":"three",inline:"three"}},n.createElement(I.D,null,m)))),[o,m]),C=n.createElement(x.g,{backgroundTheme:g,className:r},n.createElement(h.X,{direction:"row",alignItems:"start",justifyContent:"space-between"},n.createElement(G.C,{alignSelf:"center"},y&&n.createElement(b.N,{padding:"three",margin:{inlinestart:"three"}},n.createElement("div",null,n.createElement(Ce,{data:y})))),n.createElement(G.C,{grow:1},n.createElement(h.X,{direction:"column",alignItems:"start",justifyContent:"start"},n.createElement(G.C,null,P),n.createElement(G.C,null,n.createElement(b.N,{padding:{blockend:"one",inlinestart:"one"}},n.createElement(h.X,{alignItems:"center",space:"four",justifyContent:"end"},d&&d.length>0&&n.createElement(G.C,null,N),u&&u.length>0&&n.createElement(G.C,null,v)))))),p&&n.createElement(G.C,null,n.createElement(b.N,{margin:{blockstart:"two",inlineend:"two"}},n.createElement(l.q,{type:"button","aria-label":null!=(i=p.accessibility)?i:void 0,size:f.V.MEDIUM,onClick:()=>{(null==p?void 0:p.analytics)&&S(p.analytics.referrerId,p.analytics.linkName),k(!D)},isFullWidth:!0},n.createElement(s.LD,{name:"close",size:s.So.MEDIUM}))))));if(D)return null;if(E){const{referrerId:e,linkName:t}=E;return n.createElement(c.IntersectionTracker,{referrerId:e,linkName:t,intersectionOptions:{threshold:.5}},C)}return n.createElement(n.Fragment,null,C)};na.displayName="EGDSStandardMessagingCard",na.fragment=aa;var ra=o.gql`
+  fragment EGDSDialogToolbarFragment on EGDSDialogToolbar {
+    closeText
+    title
+  }
+`,la=({data:e,toolbarType:t,toolbarAction:a})=>{var r;return n.createElement(O.p,{toolbarTitle:e.title,navigationContent:{navType:t,navIconLabel:null!=(r=e.closeText)?r:void 0,onClick:a}})};la.fragment=ra,la.displayName="EGDSDialogToolbar";var ia=o.gql`
+  fragment CrossSellLegalDisclaimerDialogFragment on CrossSellLegalDisclaimerDialog {
+    dialog {
+      closeAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      footer {
+        ...EGDSActionDialogFooterFragment
+      }
+    }
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    content
+  }
+
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    referrerId
+    linkName
+  }
+
+  ${Ce.fragment}
+  ${he.fragment}
+`,oa=({data:e})=>{const[t,a,r]=(0,_.useDialog)("cross-sell-legal-disclaimer-dialog"),l=(0,c.useClickTracker)(),i=n.useRef(null),{graphic:o,dialog:m,analytics:g,text:d,content:u}=e,E=n.useCallback(()=>{a.closeDialog(),m.closeAnalytics&&l(m.closeAnalytics.referrerId,m.closeAnalytics.linkName)},[a,l,m.closeAnalytics]);return n.createElement(n.Fragment,null,n.createElement(y.i,{inline:!0,onClick:()=>{a.openDialog(),l(g.referrerId,g.linkName)}},n.createElement("button",{type:"button",ref:i,"data-testid":"cross-sell-disclaimer-more-info"},n.createElement(I.D,null,n.createElement(Ce,{data:o,iconProps:{defaultIconSize:s.So.SMALL}})))),n.createElement($.K,{isVisible:t},n.createElement(r,null,n.createElement(V.Q,{dialogShow:t,returnFocusOnClose:!0,triggerRef:i,closeCallback:E},n.createElement(Y.h,null,d&&n.createElement(I.D,null,d),null==u?void 0:u.map((e,t)=>n.createElement(F.u,{key:t},e)),n.createElement(he,{data:m.footer,onDialogClose:E}))))))};oa.fragment=ia,oa.displayName="CrossSellLegalDisclaimerDialog";var ca=o.gql`
+  fragment CrossSellMessageItemFragment on CrossSellMessageItem {
+    crossSellMessage
+    disclaimerDialog {
+      ...CrossSellLegalDisclaimerDialogFragment
+    }
+  }
+
+  ${oa.fragment}
+`,ma={inlineend:"half"},sa=({data:e,textWeight:t,textTheme:a})=>{const{crossSellMessage:r,disclaimerDialog:l}=e;return n.createElement(n.Fragment,null,n.createElement(b.N,{margin:ma},n.createElement(I.D,{size:300,theme:a,weight:t,inline:!0},r)),l&&n.createElement(oa,{data:l}))};sa.fragment=ca,sa.displayName="CrossSellMessageItem";var ga=o.gql`
+  fragment CrossSellSecondaryFragment on CrossSellSecondary {
+    ...CrossSellMessageItemFragment
+  }
+
+  ${sa.fragment}
+`,da={inline:"two",blockstart:"two"},ua=({data:e})=>"CrossSellMessageItem"===e.__typename?n.createElement(b.N,{padding:da},n.createElement("div",null,n.createElement(sa,{data:e}))):null;ua.fragment=ga,ua.displayName="CrossSellSecondary";var Ea=o.gql`
+  fragment MishopUICollapsableSectionTitleFragment on EGDSText {
+    ...EGDSTextFragment
+  }
+
+  ${ht.fragment}
+`,pa=({data:e})=>n.createElement(b.N,{margin:{inlinestart:"two",blockstart:"one"}},n.createElement("div",null,n.createElement(ht,{textProps:{size:500},data:e})));pa.fragment=Ea,pa.displayName="MishopUICollapsableSectionTitle";var fa=o.gql`
+  fragment MishopUICollapsableSectionFragment on MishopUICollapsableSection {
+    title {
+      ...MishopUICollapsableSectionTitleFragment
+    }
+    content {
+      ...EGDSSectionContainerFragment
+    }
+  }
+
+  ${pa.fragment}
+  ${Jt.fragment}
+`,ya=({data:{title:e,content:t},border:a})=>{const[r,l]=n.useState(!1),i=n.useCallback(()=>l(e=>!e),[]);return n.createElement(x.g,{border:a},n.createElement(j.E,{padded:!0},n.createElement(X.w,null,n.createElement("button",{type:"button",onClick:i,className:"is-focusable"},n.createElement(pa,{data:e}))),n.createElement(h.X,null,n.createElement(G.C,{grow:1},n.createElement(I.D,{size:500,weight:"bold",theme:"standard"},n.createElement(pa,{data:e}))),n.createElement(G.C,{alignSelf:"center",grow:0},n.createElement(j.E,{padded:[]},n.createElement(s.LD,{name:r?"expand_less":"expand_more",size:s.So.SMALL}))))),r&&n.createElement(j.E,null,n.createElement(b.N,{padding:{inlinestart:"one",block:"one"}},n.createElement("div",null,t.map((e,t)=>"EGDSSectionContainer"===e.__typename?n.createElement(Jt,{data:e,key:t}):null)))))};ya.fragment=fa,ya.displayName="MishopUICollapsableSection";var Ia=o.gql`
+  fragment EGDSMedia on Media {
+    ... on Image {
+      url
+      description
+    }
+    ... on Video {
+      uri: url {
+        value
+      }
+      description
+    }
+  }
+`,Sa="detailMediaGalleryDialog",Da="pwaDetailMediaGallery",ka="thumbnailMediaGalleryDialog",ha="pwaThumbnailMediaGallery",Ga=o.gql`
+  fragment MishopUIDetailMediaGalleryFragment on MishopUIDetailMediaGallery {
+    closeAnalytics {
+      linkName
+      referrerId
+    }
+    closeText
+    navigationAnalytics {
+      linkName
+      referrerId
+    }
+  }
+`,ba=({currentIndex:e,images:t,data:a,triggerRef:r,carouselId:l})=>{const{closeAnalytics:i,closeText:o,navigationAnalytics:m}=a,[s,g,d]=(0,_.useDialog)(`${Sa}-${l}`,Da),u=(0,c.useClickTracker)(),E={id:m.referrerId,description:m.linkName,callback:(e,t)=>u(e,t)};return n.createElement($.K,{isVisible:s},n.createElement(d,null,n.createElement(z.t,{type:"full",isVisible:s,triggerRef:r,returnFocusOnClose:!0},n.createElement(Q.b,{overlay:!0,navigationContent:{navButtonId:"EGDSMediaGalleryImageToolbar",onClick:()=>{u(i.referrerId,i.linkName),g.closeDialog()},navIconLabel:o,navType:"close"}}),n.createElement(J.C,{images:t,analytics:E,galleryName:"DetailMediaGallery",currentIndex:e}))))};ba.fragment=Ga,ba.displayName="MishopUIDetailMediaGallery";var Ta=o.gql`
+  fragment MishopUIThumbnailMediaGalleryFragment on MishopUIThumbnailMediaGallery {
+    analytics {
+      linkName
+      referrerId
+    }
+    mediaAction {
+      analytics {
+        linkName
+        referrerId
+      }
+      mediaDetailGallery {
+        ...MishopUIDetailMediaGalleryFragment
+      }
+    }
+    toolbar {
+      ...EGDSDialogToolbarFragment
+    }
+  }
+
+  ${la.fragment}
+  ${ba.fragment}
+`,Fa=({setThumbnailImageIndex:e,images:t,data:a,triggerRef:r,carouselId:l})=>{const{analytics:i,mediaAction:o,toolbar:m}=a,s=(0,c.useClickTracker)(),[g,d,u]=(0,_.useDialog)(`${ka}-${l}`,ha),[,E]=(0,_.useDialog)(`${Sa}-${l}`,Da);return n.createElement($.K,{isVisible:g},n.createElement(u,null,n.createElement(z.t,{centeredSheetSize:"small",type:"centered",isVisible:g,returnFocusOnClose:!0,triggerRef:r},n.createElement(la,{data:m,toolbarAction:()=>{s(i.referrerId,i.linkName),d.closeDialog()},toolbarType:"back"}),n.createElement(Y.h,{zeroPadding:!0},n.createElement(Z.B,{images:t,onImageSelected:t=>{if(o){const{referrerId:a,linkName:n}=o.analytics;e(t),s(a,n),E.openDialog()}},focusIndex:-1})))))};Fa.fragment=Ta,Fa.displayName="MishopUIThumbnailMediaGallery";var Na=o.gql`
+  fragment MishopUIGalleryCarouselFragment on MishopUIGalleryCarousel {
+    accessibilityHeadingText
+    galleryOverlayButton {
+      analytics {
+        linkName
+        referrerId
+      }
+      mediaThumbnailGallery {
+        ...MishopUIThumbnailMediaGalleryFragment
+      }
+    }
+    media {
+      media {
+        ...EGDSMedia
+      }
+    }
+    mediaAction {
+      analytics {
+        linkName
+        referrerId
+      }
+      mediaDetailGallery {
+        ...MishopUIDetailMediaGalleryFragment
+      }
+    }
+    navigationAnalytics {
+      linkName
+      referrerId
+    }
+    nextButtonText
+    previousButtonText
+  }
+
+  ${Ia}
+  ${ba.fragment}
+  ${Fa.fragment}
+`,xa=({data:e,carouselId:t,allyHeadingLevel:a,ratio:r})=>{const{accessibilityHeadingText:l,galleryOverlayButton:i,media:o,mediaAction:m,navigationAnalytics:s,nextButtonText:g,previousButtonText:d}=e,u=g&&d?{nextButton:g,prevButton:d}:void 0,[E,p]=n.useState(0),[f,y]=n.useState(0),I=n.useRef(null),S=n.useRef(null),D=(0,c.useClickTracker)(),[,k]=(0,_.useDialog)(`${Sa}-${t}`,Da),[h,G]=(0,_.useDialog)(`${ka}-${t}`,ha);if(!o.length)return null;const b=o.map(e=>(e=>{switch(e.__typename){case"Video":return{src:e.uri.value,alt:e.description,caption:e.description};case"Image":return{src:e.url,alt:e.description,caption:e.description};default:return{}}})(e.media)),T=s?{id:s.referrerId,description:s.linkName,callback:(e,t)=>D(e,t)}:void 0;return n.createElement(n.Fragment,null,n.createElement(W.M,{carouselName:t,allyHeadingLevel:null!=a?a:3,allyHeadingText:l,analytics:T,carouselId:`${t}-gallery-carousel`,images:b,showGalleryButton:Boolean(i),buttonText:u,onIndexChange:p,currentIndex:E,onImageClick:()=>{if(m){const{referrerId:e,linkName:t}=m.analytics;D(e,t),k.openDialog()}},onMediaButtonClick:()=>{if(i){const{referrerId:e,linkName:t}=i.analytics;D(e,t),G.openDialog()}},ratio:r,galleryButtonRef:I,imageTriggerRef:S}),i&&n.createElement(Fa,{setThumbnailImageIndex:y,images:b,data:i.mediaThumbnailGallery,triggerRef:I,carouselId:t}),m&&n.createElement(ba,{currentIndex:h?f:E,images:b,data:m.mediaDetailGallery,triggerRef:S,carouselId:t}))};xa.fragment=Na,xa.displayName="MishopUIGalleryCarousel";var va=o.gql`
+  fragment MishopUIJumpLinkButtonFragment on MishopUIJumpLinkButton {
+    accessibility
+    jumpTo
+    label
+  }
+`,Pa=({data:e})=>{const{accessibility:t,jumpTo:a,label:l}=e,{scrollTo:i}=(0,S.xC)();return n.createElement(r.y,{"aria-label":t,onClick:()=>{i(a,[])}},l)};Pa.fragment=va,Pa.displayName="MishopUIJumpLinkButton";var Ca={thresholds:[1]},La=o.gql`
+  fragment MishopUIJumpLinkNavigationBarFragment on MishopUIJumpLinkNavigationBar {
+    selectedTabId
+    tabs {
+      ...MishopUINavigationBarTabFragment
+    }
+  }
+
+  fragment MishopUINavigationBarTabFragment on MishopUINavigationBarTab {
+    accessibility
+    label
+    tabId
+    analytics {
+      linkName
+      referrerId
+    }
+  }
+`,Ma=({data:e,tabsType:t})=>{const{tabs:a}=e,r=(0,c.useClickTracker)(),{getTargets:l}=(0,S.OK)(),i=l(a.map(e=>e.tabId)),[o,m]=n.useState(0),s=n.useMemo(()=>a.map(e=>{var t;return{id:e.tabId,ref:null!=(t=i[e.tabId])?t:n.createRef()}}),[a,i]),g=n.useCallback(((e,t)=>a=>{Object.keys(a).forEach(n=>{a[n]!==S.h1.PARTIAL_TOP&&a[n]!==S.h1.SPAN_VIEWPORT||e(t.findIndex(e=>e.tabId===n))})})(m,a),[a]);(0,S.c5)(s,g,Ca);return n.createElement(ee.IN,{navigationType:ee.so.JUMPLINK,selectedTab:o,onTabSelect:e=>{var t,n;const l=a[e];e!==o&&l&&(r(l.analytics.linkName,l.analytics.referrerId),m(e),null==(n=null==(t=i[l.tabId])?void 0:t.current)||n.focus())},scrollOffsetSelf:!0,tabsType:t},a.map((e,t)=>n.createElement(te.X,{key:`${e.tabId}-${t}`,name:e.label,id:e.tabId,targetRef:i[e.tabId],targetURI:`#${e.tabId}`},e.accessibility&&n.createElement(I.D,{className:"is-visually-hidden"},e.accessibility))))};Ma.fragment=La,Ma.displayName="MishopUIJumpLinkNavigationBar";var Aa=o.gql`
+  fragment MishopUIBannerFragment on MishopUIBanner {
+    banner {
+      fullWidth
+      heading
+      icon {
+        id
+      }
+      message
+    }
+  }
+`,Ua=({data:e})=>{const{banner:{heading:t,message:a,icon:r,fullWidth:l}}=e;return n.createElement(ae.O,{fullWidth:null!=l&&l},n.createElement(h.X,{alignItems:"center"},r&&n.createElement(G.C,null,n.createElement(b.N,{margin:{inlinestart:"four",inlineend:"six"}},n.createElement(s.LD,{name:r.id}))),n.createElement(G.C,null,n.createElement("div",null,t&&n.createElement(T.M,null,t),n.createElement(I.D,null,a)))))};Ua.fragment=Aa,Ua.displayName="MishopUIBanner";var Ba=o.gql`
+  fragment MishopUIPlacardFragment on MishopUIPlacard {
+    ... on MishopUIBanner {
+      ...MishopUIBannerFragment
+    }
+  }
+
+  ${Ua.fragment}
+`,_a=({data:e})=>"MishopUIBanner"===e.__typename?n.createElement(Ua,{data:e}):null;_a.fragment=Ba,_a.displayName="MishopUIPlacard";var $a=Object.freeze({NEGATIVE:"negative",POSITIVE:"positive",EMPHASIS:"emphasis",PRIMARY:"emphasis",LOYALTY:"loyalty",SECONDARY:"default",INVERSE:"inverse"}),za=Object.freeze({BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"}),qa=o.gql`
+  fragment PackageUIPartnerMessagePrimerFragment on PackageUIPartnerMessagePrimer {
+    lob
+    pageType
+    packageType
+  }
+`,wa=o.gql`
+  fragment MishopUIProductHeaderFragment on MishopUIProductHeader {
+    icon {
+      id
+      description
+    }
+    primary {
+      text
+    }
+    secondaries {
+      text
+      theme
+      weight
+      accessibility
+    }
+    referenceId
+    partnerMessagePrimer {
+      ...PackageUIPartnerMessagePrimerFragment
+    }
+  }
+  ${qa}
+`,Ra={blockstart:"three"},Oa=({iconProps:e,headingProps:t,textProps:a,data:r})=>{const{icon:l,primary:i,secondaries:o,referenceId:c}=r;return n.createElement(S.Rn,{name:c,tabIndex:-1},n.createElement(b.N,{padding:Ra},n.createElement(h.X,{alignItems:"center"},l&&n.createElement(G.C,null,n.createElement(b.N,{margin:{inlineend:"one"}},n.createElement(s.LD,ge({description:l.description,id:l.id,name:l.id},e)))),n.createElement(G.C,{alignSelf:"center"},n.createElement(b.N,null,n.createElement(T.M,ge({},t),i.text))))),o.map((e,t)=>n.createElement(I.D,de(ge({key:t},a),{theme:e.theme?$a[e.theme]:void 0,weight:e.weight?za[e.weight]:void 0}),e.text)))};Oa.fragment=wa,Oa.displayName="MishopUIProductHeader";var Ha=o.gql`
+  fragment MishopUITextFragment on MishopUIText {
+    text
+    theme
+    weight
+    accessibility
+  }
+`,Ka=({data:e,size:t,inline:a})=>n.createElement(I.D,{size:t,inline:a,theme:e.theme?$a[e.theme]:void 0,weight:e.weight?za[e.weight]:void 0},e.accessibility?n.createElement(n.Fragment,null,n.createElement("span",{"aria-hidden":"true"},e.text),n.createElement("span",{className:"is-visually-hidden"},e.accessibility)):e.text);Ka.fragment=Ha,Ka.displayName="MishopUIText";var Va=e=>e.map(e=>({messageContent:JSON.parse(e.messageContent),schemaName:e.schemaName})),Ya=o.gql`
+  fragment EGUisMicroMessageFragment on EGUisMicroMessage {
+    messageContent
+    schemaName
+  }
+`,ja=o.gql`
+  fragment PackageUIButtonFragment on PackageUIButton {
+    button {
+      ...EGDSButtonFragment
+    }
+    action {
+      ...UILinkActionFragment
+    }
+  }
+
+  fragment UILinkActionFragment on UILinkAction {
+    analytics {
+      linkName
+      referrerId
+      uisPrimeMessages {
+        ...EGUisMicroMessageFragment
+      }
+    }
+    resource {
+      value
+    }
+    target
+  }
+
+  ${je.fragment}
+  ${Ya}
+`,Xa={EXTERNAL:"_blank",INTERNAL:"_self"},Wa=({data:e,size:t,isFullWidth:a})=>{const r=(0,c.useClickTracker)(),{track:l}=(0,c.useClickstreamAnalytics)(),{button:i,action:o}=e;return n.createElement(je,{data:i,onClick:()=>{if("UILinkAction"===o.__typename){const{analytics:e,resource:t,target:a}=o;r(e.referrerId,e.linkName),l(c.ITrackType.EVENT,{data:Va(e.uisPrimeMessages)}),window.open(t.value,Xa[a])}},size:t,isFullWidth:a})};Wa.fragment=ja,Wa.displayName="PackageUIButton";var Ja=o.gql`
+  fragment PackageUIMessageItemFragment on PackageUIMessageItem {
+    ...EGDSPlainTextFragment
+    ...EGDSStylizedTextFragment
+    ...EGDSSpannableTextFragment
+  }
+
+  ${lt.fragment}
+  ${st.fragment}
+  ${Dt.fragment}
+`,Qa=({data:e,size:t,inline:a})=>{switch(e.__typename){case"EGDSPlainText":return n.createElement(lt,{textProps:{size:t,inline:a},data:e});case"EGDSStylizedText":return n.createElement(st,{textProps:{size:t,inline:a},data:e});case"EGDSSpannableText":return n.createElement(Dt,{textProps:{size:t,inline:a},data:e});default:return null}};Qa.fragment=Ja,Qa.displayName="PackageUIMessageItem";var Za=o.gql`
+  fragment PackageUIDisclaimerDialogFragment on PackageUIDisclaimerDialog {
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    dialog {
+      closeAnalytics {
+        ...ClientSideAnalyticsFragment
+      }
+      footer {
+        ...EGDSActionDialogFooterFragment
+      }
+    }
+    graphic {
+      ...UIGraphicFragment
+    }
+    text
+    analyticsPayload
+  }
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    referrerId
+    linkName
+  }
+
+  ${he.fragment}
+  ${Ce.fragment}
+`,en=({data:e,label:t,strikeThroughPrice:a,inline:r})=>{const l=n.useMemo(()=>Math.random().toString(36).substr(2,5),[]),[i,o,m]=(0,_.useDialog)(`packageDisclaimerDialog-${l}`),g=(0,c.useClickTracker)(),d=(0,c.useEgClickstream)(),{analytics:u,dialog:E,graphic:p,text:f,analyticsPayload:y}=e,S=n.useCallback(()=>{o.openDialog(),g(u.referrerId,u.linkName),d(ye(y))},[u,o,g,y]),D=n.useCallback(()=>{o.closeDialog(),E.closeAnalytics&&g(E.closeAnalytics.referrerId,E.closeAnalytics.linkName)},[o,g,E.closeAnalytics]),k=n.createElement(n.Fragment,null,n.createElement(Ce,{data:p,iconProps:{defaultIconSize:s.So.SMALL}}),t&&n.createElement("span",null,n.createElement(Qa,{data:t,inline:r})),a&&n.createElement("s",null,n.createElement(I.D,{"aria-hidden":"true"},a))),G=n.createElement("button",{type:"button",name:"disclaimer-button","data-testid":"package-ui-disclaimer-label",onClick:S,className:r?void 0:"uitk-more-info-trigger"},k);return n.createElement(n.Fragment,null,r?G:n.createElement(h.X,null,G),n.createElement($.K,{isVisible:i},n.createElement(m,null,n.createElement(V.Q,{dialogShow:i,returnFocusOnClose:!0,closeCallback:D},n.createElement(Y.h,null,n.createElement(I.D,null,f),n.createElement(he,{data:E.footer,onDialogClose:D}))))))};en.fragment=Za,en.displayName="PackageUIDisclaimerDialog";var tn=o.gql`
+  fragment PackageUIEmptyStateErrorFragment on PackageUIEmptyStateError {
+    icon {
+      ...EGDSIconFragment
+    }
+    primary {
+      ...EGDSHeadingFragment
+    }
+    secondaries {
+      ...EGDSTextFragment
+    }
+  }
+
+  ${Te.fragment}
+  ${ht.fragment}
+  ${dt.fragment}
+`,an=({data:{icon:e,primary:t,secondaries:a}})=>n.createElement(h.X,{direction:"column",alignItems:"center"},n.createElement(Te,{data:e,defaultIconSize:s.So.XLARGE}),n.createElement(b.N,{padding:{blockstart:"six"}},n.createElement("div",null,n.createElement(dt,{data:t,headingProps:{size:5}}))),a.length>0&&n.createElement(b.N,{margin:{blockstart:"one"}},n.createElement("div",null,a.map((e,t)=>n.createElement(ht,{data:e,textProps:{size:300},key:t})))));an.fragment=tn,an.displayName="PackageUIEmptyStateErrorFragment";var nn=o.gql`
+  fragment PackageUIEntryCardActionFragment on PackageUIEntryCardAction {
+    ...PackageUIButtonFragment
+  }
+
+  ${Wa.fragment}
+`,rn=({data:e})=>"PackageUIButton"===e.__typename?n.createElement(Wa,{data:e}):null;rn.fragment=nn,rn.displayName="PackageUIEntryCardAction";var ln=o.gql`
+  fragment PackageUIGraphicTextListFragment on PackageUIGraphicTextList {
+    textItems {
+      ...EGDSGraphicTextFragment
+    }
+  }
+
+  ${nt.fragment}
+`,on=({data:{textItems:e},margin:t})=>n.createElement(b.N,{margin:t},n.createElement(h.X,{space:"three"},e.map((e,t)=>n.createElement(G.C,{key:`package-ui-graphic-text-list-${t}`},n.createElement(nt,{data:e})))));on.fragment=ln,on.displayName="PackageUIGraphicTextList";var cn=o.gql`
+  fragment PackageUIInlineElementFragment on PackageUIInlineElement {
+    __typename
+    ...EGDSPlainTextFragment
+    ...EGDSStylizedTextFragment
+    ...EGDSStandardBadgeFragment
+  }
+
+  ${lt.fragment}
+  ${st.fragment}
+  ${$e.fragment}
+`,mn=({data:e})=>{switch(e.__typename){case"EGDSStandardBadge":return n.createElement($e,{data:e});case"EGDSPlainText":return n.createElement(lt,{data:e});case"EGDSStylizedText":return n.createElement(st,{data:e});default:return null}};mn.fragment=cn,mn.displayName="PackageUIInlineElement";var sn=o.gql`
+  fragment PackageUIInlineContentFragment on PackageUIInlineContent {
+    elements {
+      ...PackageUIInlineElementFragment
+    }
+  }
+
+  ${mn.fragment}
+`,gn=({data:{elements:e},margin:t})=>n.createElement(b.N,{margin:t},n.createElement(h.X,{space:"one"},e.map((e,t)=>n.createElement(G.C,{key:`package-ui-inline-content-${t}`},n.createElement(mn,{data:e})))));gn.fragment=sn,gn.displayName="PackageUIInlineContent";var dn=o.gql`
+  fragment PackageUIMessagingCardFragment on PackageUIMessagingCard {
+    graphic {
+      ...UIGraphicFragment
+    }
+    secondaries {
+      ...EGDSTextFragment
+    }
+    action {
+      ...PackageUIButtonFragment
+    }
+  }
+
+  ${ht.fragment}
+  ${Ce.fragment}
+  ${Wa.fragment}
+`,un=({data:e,border:t})=>{const{graphic:a,secondaries:r,action:l}=e;return 0===r.length?null:n.createElement(x.g,{padded:!0,border:t},n.createElement(A.w,{alignItems:"center",justifyItems:"center"},a&&n.createElement(j.E,null,n.createElement(Ce,{data:a})),n.createElement(j.E,{padded:["inlineend","inlinestart"]},r.map((e,t)=>n.createElement(ht,{key:`secondary-${t}`,data:e,textProps:{align:"center"}}))),l&&n.createElement(j.E,null,n.createElement(Wa,{data:l}))))};un.fragment=dn,un.displayName="PackageUIMessagingCard";var En=o.gql`
+  fragment PackageUIStrikethroughPriceFragment on PackageUIStrikethroughPrice {
+    price
+    disclaimer {
+      ...PackageUIDisclaimerDialogFragment
+    }
+  }
+
+  ${en.fragment}
+`,pn=({data:e})=>n.createElement(en,{data:e.disclaimer,strikeThroughPrice:e.price});pn.fragment=En,pn.displayName="PackageUIStrikethroughPrice";var fn=o.gql`
+  fragment PackageUIPriceDisplayFragment on PackageUIPriceDisplay {
+    price
+    strikethroughPrice {
+      ...PackageUIStrikethroughPriceFragment
+    }
+  }
+
+  ${pn.fragment}
+`,yn=({data:e,strikethroughPricePosition:t="top"})=>{const{price:a,strikethroughPrice:r}=e;return n.createElement(h.X,{alignItems:"top"===t?"end":"center",direction:"top"===t?"column":"row"},r&&n.createElement(G.C,null,n.createElement(pn,{data:r})),n.createElement(G.C,null,n.createElement(I.D,{weight:"bold",size:600},a)))};yn.fragment=fn,yn.displayName="PackageUIPriceDisplay";var In=o.gql`
+  fragment PackageUIPriceFragment on PackageUIPrice {
+    badge {
+      ...EGDSBadgeFragment
+    }
+    priceDisplay {
+      ...PackageUIPriceDisplayFragment
+    }
+    messageItems {
+      ...PackageUIMessageItemFragment
+    }
+    accessibility
+  }
+
+  ${yn.fragment}
+  ${Qa.fragment}
+  ${qe.fragment}
+`,Sn=({data:e,strikethroughPricePosition:t})=>{const{badge:a,priceDisplay:r,messageItems:l,accessibility:i}=e;return n.createElement(n.Fragment,null,n.createElement("span",{className:"is-visually-hidden"},i),n.createElement(A.w,{justifyItems:"end",space:"half"},a&&n.createElement(ne.T,null,n.createElement(qe,{data:a,iconSize:s.So.EXTRA_SMALL})),n.createElement(ne.T,null,n.createElement(yn,{data:r,strikethroughPricePosition:t})),l.map((e,t)=>n.createElement(ne.T,{key:`message-item-${t}`},n.createElement(Qa,{data:e,size:100})))))};Sn.fragment=In,Sn.displayName="PackageUIPrice";var Dn=o.gql`
+  fragment DateFragment on Date {
+    day
+    month
+    year
+  }
+`,kn=o.gql`
+  fragment DateTimeFragment on DateTime {
+    day
+    month
+    year
+    hour
+    minute
+    second
+  }
+`,hn=o.gql`
+  fragment FlightNaturalKeyFragment on FlightNaturalKey {
+    offerToken
+    productTokens
+    travelers {
+      age
+      type
+    }
+  }
+`,Gn=o.gql`
+  fragment GroundTransfersNaturalKeyFragment on GroundTransfersNaturalKey {
+    offerToken
+  }
+`,bn=o.gql`
+  fragment PackageNaturalKeyFragment on PackageNaturalKey {
+    offerToken
+  }
+`,Tn=o.gql`
+  fragment PropertyNaturalKeyFragment on PropertyNaturalKey {
+    id
+    roomTypeId
+    ratePlanId
+    ratePlanType
+    inventoryType
+    noCreditCard
+    checkIn {
+      ...DateFragment
+    }
+    checkOut {
+      ...DateFragment
+    }
+    rooms {
+      numberOfAdults
+      childAges
+    }
+    shoppingPath
+  }
+
+  ${Dn}
+`,Fn=o.gql`
+  fragment ActivityNaturalKeyFragment on ActivityNaturalKey {
+    offerToken
+    productToken
+  }
+`,Nn=o.gql`
+  fragment MultiItemProductsFragment on MultiItemProducts {
+    flights {
+      ...FlightNaturalKeyFragment
+    }
+    properties {
+      ...PropertyNaturalKeyFragment
+    }
+    groundTransfers {
+      ...GroundTransfersNaturalKeyFragment
+    }
+    activities {
+      ...ActivityNaturalKeyFragment
+    }
+    packages {
+      ...PackageNaturalKeyFragment
+    }
+  }
+
+  ${hn}
+  ${Tn}
+  ${Gn}
+  ${Fn}
+  ${bn}
+`,xn=o.gql`
+  fragment PackageSearchCriteriaFragment on PackageSearchCriteria {
+    primary {
+      dateRange {
+        end {
+          ...DateFragment
+        }
+        start {
+          ...DateFragment
+        }
+      }
+      destination {
+        airportCode
+      }
+      origin {
+        airportCode
+      }
+      travelerOccupancyGroups {
+        travelers {
+          age
+          type
+        }
+      }
+    }
+  }
+
+  ${Dn}
+`,vn=o.gql`
+  fragment ShoppingContextFragment on ShoppingContext {
+    multiItem {
+      id
+      packageType
+    }
+  }
+`,Pn=o.gql`
+  fragment ShoppedProductsFragment on ShoppedProduct {
+    shoppingPath
+    products {
+      ...MultiItemProductsFragment
+    }
+  }
+
+  ${Nn}
+`,Cn=o.gql`
+  fragment MemberSignInDialogFragment on MemberSignInDialog {
+    actionDialog {
+      ...SignInEGDSActionDialogFragment
+    }
+    dialogContent
+    graphic {
+      ...UIGraphicFragment
+    }
+    title
+    triggerMessage {
+      label
+      accessibility
+    }
+  }
+
+  fragment SignInEGDSActionDialogFragment on EGDSActionDialog {
+    closeAnalytics {
+      referrerId
+      linkName
+    }
+    footer {
+      ...EGDSActionDialogFooterFragment
+    }
+  }
+
+  ${he.fragment}
+  ${Ce.fragment}
+`}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-multi-item-fragments.6abdd8a2ae8487effbdd.js.map

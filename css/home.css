@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap');
+
+:root {
+    --black: #000000;
+    --vividblue: #004cb0;
+    --azure: #38acf0;
+    --darkblue: #073169;
+    --white: #ffffff;
+    --lightgrey: #f5f3f3;
+    --grey: #d5d5d5;
+    --clear: rgb(255, 255, 255);
+}
+
+/* Estilo do body */
+body {
+   
+    font-family: "Ruda", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-repeat: no-repeat;
+    background-image: url(../imagens/home.jpg);
+    background-size: cover;
+    background-position: top;
+    .bg-azul-bebe {
+  background-color: rgba(255, 255, 255, 0.5);} /* azul clarinho com 30% de opacidade */
+}
+
+/* Estilo do container customizado */
+.custom-container {
+    max-width: 1440px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+/* Estilo da navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: "Ruda", sans-serif;
+}
+
+/* Estilo para links da navbar */
+nav a {
+    text-decoration: none;
+    color: var(--white);
+}
+  /* Reduz a altura do logo para afinar a barra de navegação */
+.navbar-brand img {
+  height: 70px; /* Ajuste este valor para o que você achar ideal */
+  width: auto;
+}
+
+/* Afina a barra de navegação removendo o padding vertical do Bootstrap */
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Controla o padding dos links para afinar o espaço verticalmente */
+.navbar-nav .nav-link {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 16px; /* Opcional: diminui um pouco o tamanho da fonte */
+}
+
+
+
+.bg-dark-blue {
+  background-color: var(--darkblue); /* Azul escuro */
+}
+
+.footer-link {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--azure);
+  text-decoration: underline;
+}
+
+.card-hover-effect {
+        transition: transform 0.3s ease;
+       }
+
+       .card-hover-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0 , 0, 0.2);
+       }
+
+       .hoteis-page .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+       }
+
+       .hoteis-page .card:hover{
+        transform: scale(1.05);
+        transform: translate(-5px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.55);
+       }
+
+       .hoteis-page .card-img-top {
+        object-fit: cover;
+        height: 200px;
+       }
+
+        .hoteis-page .btn-primary {
+        border-radius: 20px;
+        padding: 8PX 20PX;
+        transition: background-color 0.3s ease;
+       }
+
+       .hoteis-page .btn-primary:hover {
+        background-color: #0056b3
+       }
+       .abinha {
+ font-family: "Ruda", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+.abinha h2 {
+  color: var(--darkblue);
+  font-weight: 700;
+}
+
+footer {
+  font-family: "Ruda", sans-serif;
+  font-size: 16px;
+  
+}
+footer h5 {
+  font-weight: 700;        
+  color: var(--azure);     
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+footer a.footer-link {
+  color: var(--white);
+  text-decoration: none;
+}
+footer a.footer-link:hover {
+  color: var(--azure);
+  text-decoration: underline;
+}
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+

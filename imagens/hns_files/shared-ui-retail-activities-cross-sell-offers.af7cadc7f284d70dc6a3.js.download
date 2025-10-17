@@ -1,0 +1,1160 @@
+/*@license For license information please refer to shared-ui-retail-activities-cross-sell-offers.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[3881],{59518:function(e,t,a){a.d(t,{Rn:function(){return Fa},aV:function(){return Ca},o7:function(){return Cn}});var n=a(56195),i=a(4611),r=a(10554),l=a(64341),c=a(85540),o=a(92919),s=a(1226),m=a(47540),d=a(42534),g=a(25229),u=a(74071),E=a(27102),p=a(34446),f=a(29462),y=a(43888),v=a(70882),D=a(51213),S=a(23726),k=a(28230),A=a(97778),b=a(30686),T=a(90237),h=a(80240),N=a(24109),I=a(9010),F=a(36145),C=a(22272),G=a(522),x=a(99828),L=a(37292),R=a(18174),O=a(87993),$=a(30169),P=a(95519),w=a(34399),M=a(2557),_=a(69287),z=a(87698),B=a(96394),H=a(69772),J=a(24924),U=a(60156),V=a(934),K=a(89438),Y=a(46559),X=a(66862),W=a(76580),j=a(7138),Q=a(4988),q=a(90072),Z=a(12389),ee=a(53877),te=a(70667),ae=a(53331),ne=a(97928),ie=a(77913),re=a(32112),le=a(96384),ce=a(53017),oe=a(74988),se=a(63081),me=Object.defineProperty,de=Object.defineProperties,ge=Object.getOwnPropertyDescriptors,ue=Object.getOwnPropertySymbols,Ee=Object.prototype.hasOwnProperty,pe=Object.prototype.propertyIsEnumerable,fe=(e,t,a)=>t in e?me(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,ye=(e,t)=>{for(var a in t||(t={}))Ee.call(t,a)&&fe(e,a,t[a]);if(ue)for(var a of ue(t))pe.call(t,a)&&fe(e,a,t[a]);return e},ve=(e,t)=>de(e,ge(t)),De=i.J1`
+  fragment DateFragment on Date {
+    day
+    month
+    year
+  }
+`,Se=(i.J1`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+    uisPrimeMessages {
+      messageContent
+      schemaName
+    }
+  }
+`,i.J1`
+  fragment CarRentalLocationFragment on CarRentalLocation {
+    airportCode
+    coordinates {
+      latitude
+      longitude
+    }
+    isExactLocationSearch
+    regionId
+    searchTerm
+  }
+`,i.J1`
+  fragment DateTimeFragment on DateTime {
+    day
+    month
+    year
+    hour
+    minute
+    second
+  }
+`,i.J1`
+  fragment EGDSDialogToolbarFragment on EGDSDialogToolbar {
+    closeText
+    title
+  }
+`),ke=({data:e,toolbarType:t,toolbarAction:a})=>{var i;return n.createElement(S.p,{navigationContent:{onClick:a,navType:t,navIconLabel:null!=(i=e.closeText)?i:void 0},toolbarTitle:e.title})};ke.fragment=Se,ke.displayName="EGDSDialogToolbar";var Ae=i.J1`
+  fragment EGDSTravelerStepInputFragment on EGDSStepInput {
+    ... on EGDSTravelerStepInput {
+      egdsElementId
+      decreaseAnalytics {
+        linkName
+        referrerId
+      }
+      increaseAnalytics {
+        linkName
+        referrerId
+      }
+    }
+    decreaseText
+    increaseText
+    label
+    key
+    max
+    min
+    step
+    subLabel
+    value
+  }
+`,be=({data:e,onChange:t,countIndex:a})=>{const{decreaseText:i,increaseText:r,label:l,max:c,min:o,step:s,subLabel:m,value:d,key:g}=e,[u,E]=n.useState(d),p=(0,A.useClickTracker)(),f=n.useMemo(()=>Math.random().toString(),[]);return n.createElement(k.W7,{label:l,incrementText:null!=r?r:"",decrementText:null!=i?i:"",incrementId:`${f}-increase`,decrementId:`${f}-decrease`,min:null!=o?o:0,max:null!=c?c:0,step:s,onChange:n=>{const i=parseInt(n.target.value,10);t(i,g,a),"EGDSTravelerStepInput"===e.__typename&&(i>u?p(e.increaseAnalytics.referrerId,e.increaseAnalytics.linkName):p(e.decreaseAnalytics.referrerId,e.decreaseAnalytics.linkName)),E(i)},value:u,description:null!=m?m:"",id:f})};be.displayName="EGDSTravelersStepInput",be.fragment=Ae;var Te=i.J1`
+  fragment EGDSDialogFooterButtonFragment on EGDSButton {
+    primary
+    accessibility
+    disabled
+  }
+`,he=(e,t)=>{var a,n,i;switch(e.__typename){case"UITertiaryButton":return{text:null!=(a=e.primary)?a:"",type:"tertiary",onClick:t};case"UIPrimaryButton":return{text:null!=(n=e.primary)?n:"",type:"primary",onClick:t};default:return{text:null!=(i=e.primary)?i:"",type:"primary",onClick:t}}},Ne=i.J1`
+  fragment EGDSDialogFooterFragment on EGDSDialogFooter {
+    ... on EGDSInlineDialogFooter {
+      buttons {
+        ...EGDSDialogFooterButtonFragment
+      }
+    }
+  }
+
+  ${Te}
+`,Ie=({data:e,dialogActionMap:t,closeDialog:a})=>{var i,r,l;if("EGDSInlineDialogFooter"===e.__typename){const{buttons:c}=e,o=c.map((e,n)=>t&&t.length>1?ye(ye({},he(e,a)),t[n]):ye({},he(e,a)));return n.createElement(b.l,{buttonOne:null!=(i=o[0])?i:void 0,buttonTwo:null!=(r=o[1])?r:void 0,buttonThree:null!=(l=o[2])?l:void 0})}return null};Ie.displayName="ActivitiesEGDSDialogFooter",Ie.fragment=Ne;var Fe=i.J1`
+  fragment EGDSDatePickerContentFragment on EGDSDatePickerContent {
+    accessibility
+    dateKey
+    text
+    theme
+  }
+`,Ce=({year:e,month:t,day:a})=>new Date(e,t-1,a),Ge={SUN:T.aF.SUN,MON:T.aF.MON,TUE:T.aF.TUE,WED:T.aF.WED,THU:T.aF.THU,FRI:T.aF.FRI,SAT:T.aF.SAT},xe={H1:"h1",H2:"h2",H3:"h3",H4:"h4",H5:"h5",H6:"h6",H7:"h6",H8:"h6"},Le=i.J1`
+  fragment EGDSHeadingFragment on EGDSHeading {
+    text
+    headingType
+    accessibility
+  }
+`,Re=({className:e,align:t,size:a,tag:i,data:r,tabIndex:l})=>{const{headingType:c,text:o,accessibility:s}=r,m=null!=i?i:c?xe[c]:void 0;return n.createElement(n.Fragment,null,n.createElement(u.M,{className:e,align:t,tag:null!=i?i:m,size:a,tabIndex:l,"aria-hidden":null!==s},o),s&&n.createElement("span",{className:"is-visually-hidden"},s))};Re.fragment=Le,Re.displayName="ActivitiesEGDSHeading";var Oe={P1:1,P2:2,P3:3},$e=i.J1`
+  fragment EGDSParagraphFragment on EGDSParagraph {
+    text
+    style
+  }
+`,Pe=({className:e,data:t})=>{const{text:a,style:i}=t;return n.createElement(_.u,{className:e,size:Oe[i]},a)};Pe.fragment=$e,Pe.displayName="ActivitiesEGDSParagraph";var we=i.J1`
+  fragment EGDSIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+  }
+`,Me=({className:e,data:t})=>{var a,i;return n.createElement(M.LD,{className:e,description:t.description,id:Math.random().toString(),name:t.id,size:t.size?M.So[t.size]:void 0,title:null!=(a=t.title)?a:void 0,theme:null!=(i=null==t?void 0:t.theme)?i:void 0,shadow:Boolean(t.withBackground)})};Me.displayName="ActivitiesEGDSIcon",Me.fragment=we;var _e=i.J1`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    markSize: size
+    url {
+      ... on HttpURI {
+        __typename
+        relativePath
+        value
+      }
+    }
+  }
+`,ze=({className:e,data:t})=>{var a;return n.createElement(z.D,{className:e,description:t.description,id:t.id,name:t.id,size:t.markSize?B.K[t.markSize]:void 0,url:null==(a=t.url)?void 0:a.value})};ze.displayName="ActivitiesEGDSMark",ze.fragment=_e;var Be=i.J1`
+  fragment EGDSGraphicFragment on UIGraphic {
+    ... on Icon {
+      ...EGDSIconFragment
+    }
+
+    ... on Mark {
+      ...EGDSMarkFragment
+    }
+  }
+
+  ${Me.fragment}
+  ${ze.fragment}
+`,He=({className:e,data:t})=>{switch(t.__typename){case"Icon":return n.createElement(Me,{className:e,data:t});case"Mark":return n.createElement(ze,{className:e,data:t});default:return null}};He.displayName="EGDSGraphic",He.fragment=Be;var Je={SMALL:"small",MEDIUM:"medium",LARGE:"large"},Ue={EXTERNAL:"_blank",INTERNAL:"_self"},Ve=i.J1`
+  fragment EGDSStandardLinkFragment on EGDSStandardLink {
+    action {
+      accessibility
+      analytics {
+        linkName
+        referrerId
+      }
+      resource {
+        value
+        ... on HttpURI {
+          relativePath
+        }
+      }
+      target
+      useRelativePath
+    }
+    disabled
+    standardLinkIcon: icon {
+      ...EGDSIconFragment
+    }
+    iconPosition
+    size
+    text
+  }
+
+  ${Me.fragment}
+`,Ke=({icon:e,iconPosition:t,iconPositionToMatch:a})=>e&&t===a?n.createElement(Me,{data:e}):null,Ye=({className:e,inline:t,align:a,data:{action:{analytics:i,resource:r,target:l,accessibility:c,useRelativePath:o},disabled:s,iconPosition:m,standardLinkIcon:d,size:g,text:u}})=>{const p=(0,A.useClickTracker)(),f=n.useCallback(()=>{p(i.referrerId,i.linkName)},[p,i]),y=n.useCallback(()=>"HttpURI"===r.__typename&&o?r.relativePath:r.value,[r,o]);return n.createElement(L.i,{className:e,size:Je[g],onClickCapture:f,inline:t,disabled:s,align:a},n.createElement("a",{target:Ue[l],href:y()},n.createElement(Ke,{icon:d,iconPosition:m,iconPositionToMatch:"LEADING"}),u,n.createElement(Ke,{icon:d,iconPosition:m,iconPositionToMatch:"TRAILING"}),c&&n.createElement(E.D,{className:"is-visually-hidden"},c)))};Ye.fragment=Ve,Ye.displayName="EGDSStandardLink";var Xe=i.J1`
+  fragment EGDSGraphicTextFragment on EGDSGraphicText {
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    text
+  }
+
+  ${He.fragment}
+`,We={inlineend:"one"},je={inlineend:"one"},Qe=({className:e,size:t,data:a})=>{const{graphic:i,text:r}=a;return n.createElement(G.X,{className:e},n.createElement(x.C,null,n.createElement(d.N,{margin:We},n.createElement(He,{data:i}))),n.createElement(x.C,{alignSelf:"center"},n.createElement(d.N,{margin:je},n.createElement(E.D,{size:t},r))))};Qe.fragment=Xe,Qe.displayName="EGDSGraphicText";var qe=i.J1`
+  fragment EGDSIconTextFragment on EGDSIconText {
+    icon {
+      ...EGDSIconFragment
+    }
+    text
+  }
+
+  ${Me.fragment}
+`,Ze={inlineend:"one"},et={inlineend:"one"},tt=({className:e,size:t,data:a})=>{const{icon:i,text:r}=a;return n.createElement(G.X,{className:e},n.createElement(x.C,null,n.createElement(d.N,{margin:Ze},n.createElement(Me,{data:i}))),n.createElement(x.C,{alignSelf:"center"},n.createElement(d.N,{margin:et},n.createElement(E.D,{size:t},r))))};tt.fragment=qe,tt.displayName="EGDSIconText";var at=i.J1`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    action {
+      accessibility
+      analytics {
+        linkName
+        referrerId
+      }
+      resource {
+        value
+      }
+      target
+    }
+    disabled
+    size
+    text
+  }
+`,nt=({className:e,data:{action:{analytics:t,resource:a,target:i,accessibility:r},disabled:l,size:c,text:o}})=>{const s=(0,A.useClickTracker)(),m=n.useCallback(()=>{s(t.referrerId,t.linkName)},[s,t]);return n.createElement(L.i,{className:e,size:Je[c],onClickCapture:m,disabled:l,inline:!0},n.createElement("a",{href:a.value,target:Ue[i]},o,r&&n.createElement("span",{className:"is-visually-hidden"},r)))};nt.fragment=at,nt.displayName="EGDSInlineLink";var it=i.J1`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    text
+  }
+`,rt=({className:e,inline:t,align:a,size:i,theme:r,data:l})=>{const{text:c}=l;return n.createElement(E.D,{whiteSpace:"pre-line",className:e,align:a,size:i,inline:t,theme:r},c)};rt.fragment=it,rt.displayName="EGDSPlainText";var lt={EMPHASIS:"emphasis",NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"default",LOYALTY:"loyalty",INVERSE:"inverse"},ct={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},ot=i.J1`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    text
+    theme
+    weight
+    accessibility
+    decorative
+    textSize: size
+  }
+`,st=({className:e,inline:t,align:a,size:i,data:r})=>{const{text:l,theme:c,weight:o,accessibility:s,decorative:m}=r,d=c?lt[c]:void 0,g=o?ct[o]:void 0,u=()=>n.createElement(n.Fragment,null,n.createElement(E.D,{className:e,align:a,inline:t,size:i,theme:d,weight:g,"aria-hidden":null!==s},l),s&&n.createElement("span",{className:"is-visually-hidden"},s));return"LINE_THROUGH"===m?n.createElement("s",null,n.createElement(u,null)):n.createElement(u,null)};st.fragment=ot,st.displayName="EGDSStylizedText";var mt=i.J1`
+  fragment EGDSSpannableTextContentFragment on EGDSText {
+    ...EGDSStylizedTextFragment
+    ...EGDSGraphicTextFragment
+    ...EGDSPlainTextFragment
+  }
+
+  ${st.fragment}
+  ${Qe.fragment}
+  ${rt.fragment}
+`,dt=({className:e,size:t,align:a,theme:i,data:r})=>{switch(r.__typename){case"EGDSStylizedText":return n.createElement(st,{className:e,data:r,size:t,inline:!0});case"EGDSGraphicText":return n.createElement(Qe,{className:e,data:r,size:t});case"EGDSPlainText":return n.createElement(rt,{className:e,data:r,size:t,align:a,inline:!0,theme:i});default:return null}};dt.fragment=mt,dt.displayName="EGDSSpannableTextContent";var gt=i.J1`
+  fragment EGDSSpannableTextFragment on EGDSSpannableText {
+    text
+    contents {
+      ...EGDSSpannableTextContentFragment
+    }
+    inlineContent {
+      ...EGDSSpannableTextContentFragment
+    }
+  }
+
+  ${dt.fragment}
+`,ut=e=>{var t,a,i;const r=e,{align:l,headingSize:c,data:o,theme:s}=r,m=((e,t)=>{var a={};for(var n in e)Ee.call(e,n)&&t.indexOf(n)<0&&(a[n]=e[n]);if(null!=e&&ue)for(var n of ue(e))t.indexOf(n)<0&&pe.call(e,n)&&(a[n]=e[n]);return a})(r,["align","headingSize","data","theme"]);return 0!==(null==(t=null==o?void 0:o.contents)?void 0:t.length)||(null==(a=null==o?void 0:o.inlineContent)?void 0:a.length)?(null==(i=null==o?void 0:o.inlineContent)?void 0:i.length)?n.createElement(n.Fragment,null,o.inlineContent.map((e,t)=>n.createElement(n.Fragment,null,n.createElement(dt,ve(ye({align:l,data:e},m),{key:`spannable-item-${t}`,theme:s}))," "))):n.createElement(n.Fragment,null,o.contents.map((e,t)=>n.createElement(n.Fragment,{key:`spannable-item-${t}`},n.createElement(dt,ve(ye({data:e},m),{headingSize:c,theme:s}))," "))):n.createElement(E.D,ve(ye({},m),{inline:!0,align:l,theme:s}),o.text)};ut.fragment=gt,ut.displayName="EGDSSpannableText";var Et=i.J1`
+  fragment EGDSTextFragment on EGDSText {
+    ...EGDSHeadingFragment
+    ...EGDSPlainTextFragment
+    ...EGDSStylizedTextFragment
+    ...EGDSIconTextFragment
+    ...EGDSGraphicTextFragment
+    ...EGDSParagraphFragment
+    ...EGDSStandardLinkFragment
+    ...EGDSInlineLinkFragment
+    ...EGDSSpannableTextFragment
+  }
+
+  ${Re.fragment}
+  ${rt.fragment}
+  ${st.fragment}
+  ${tt.fragment}
+  ${Qe.fragment}
+  ${Pe.fragment}
+  ${Ye.fragment}
+  ${nt.fragment}
+  ${ut.fragment}
+`,pt=({className:e,headingAlign:t,headingSize:a,headingTag:i,textAlign:r,textSize:l,align:c,inline:o,tabIndex:s,theme:m,data:d})=>{switch(null==d?void 0:d.__typename){case"EGDSHeading":return n.createElement(Re,{className:e,align:t,size:a,tag:i,data:d,tabIndex:s});case"EGDSPlainText":return n.createElement(rt,{className:e,align:r,size:l,data:d,inline:o,theme:m});case"EGDSStylizedText":return n.createElement(st,{className:e,align:r,size:l,data:d,inline:o});case"EGDSGraphicText":return n.createElement(Qe,{className:e,size:l,data:d});case"EGDSIconText":return n.createElement(tt,{className:e,size:l,data:d});case"EGDSParagraph":return n.createElement(Pe,{className:e,data:d});case"EGDSStandardLink":return n.createElement(Ye,{className:e,data:d});case"EGDSInlineLink":return n.createElement(nt,{className:e,data:d});case"EGDSSpannableText":return n.createElement(ut,{className:e,size:l,headingSize:a,data:d,align:c,theme:m});default:return null}};pt.fragment=Et,pt.displayName="ActivitiesEGDSText";var ft=i.J1`
+  fragment EGDSButtonActionFragment on UIAction {
+    analytics {
+      linkName
+      referrerId
+    }
+
+    ... on ActivityOpenOffersModalAction {
+      activityId
+      dateRange {
+        startDate {
+          day
+          month
+          year
+        }
+        endDate {
+          day
+          month
+          year
+        }
+      }
+      dismissButtonAccessibility
+      dismissButtonAnalytics {
+        linkName
+        referrerId
+      }
+      selectedOffers {
+        offerProductNaturalKey
+      }
+      heading {
+        ...EGDSHeadingFragment
+      }
+      subHeading {
+        ...EGDSPlainTextFragment
+      }
+    }
+
+    ... on ActivityAddOfferToTripAction {
+      callbackMessages {
+        failure
+        success
+      }
+      offerNaturalKey {
+        offerProductNaturalKey
+      }
+    }
+
+    ... on ActivityRemoveOffersFromTripAction {
+      callbackMessages {
+        failure
+        success
+      }
+      offerNaturalKeys {
+        offerProductNaturalKey
+      }
+    }
+
+    ... on ActivityUpdateOfferInTripAction {
+      callbackMessages {
+        failure
+        success
+      }
+      newOfferNaturalKey {
+        offerProductNaturalKey
+      }
+      oldOfferNaturalKey {
+        offerProductNaturalKey
+      }
+    }
+  }
+
+  ${Re.fragment}
+  ${rt.fragment}
+`,yt=i.J1`
+  fragment EGDSButtonFragment on EGDSButton {
+    primary
+    accessibility
+    disabled
+    action {
+      ...EGDSButtonActionFragment
+    }
+    icon {
+      description
+      id
+      title
+    }
+  }
+
+  ${ft}
+`,vt=({analytics:e,className:t,domRef:a,href:i,isFullWidth:r,onClickHandler:l,size:c,data:o})=>{var s;const{__typename:m,accessibility:d,action:g,primary:u,disabled:E,icon:p}=o,f=(0,A.useClickTracker)(),y=g?{description:g.analytics.linkName,id:g.analytics.referrerId,callback:(e,t)=>{f(e,t)}}:void 0,v=n.useCallback(()=>{null==l||l()},[l]);if(!u)return null;const D={analytics:e||y,"aria-label":null!=d?d:void 0,className:t,disabled:E,href:i,isFullWidth:r,onClick:v,size:c,domRef:a};switch(m){case"UIPrimaryButton":return n.createElement(O.y,ye({},D),u);case"UISecondaryButton":return n.createElement($.y,ye({},D),u);case"UITertiaryButton":return n.createElement(P.q,ye({},D),u);case"EGDSOverlayButton":return n.createElement(w.M,ye({},D),p&&n.createElement(M.LD,{name:null!=(s=null==p?void 0:p.id)?s:""}),u);default:return null}};vt.fragment=yt,vt.displayName="ActivitiesEGDSButton";var Dt=i.J1`
+  fragment ActivityDialogTriggerFragment on ActivityDialogTrigger {
+    accessibility
+    analytics {
+      linkName
+      referrerId
+    }
+
+    ... on ActivityButtonDialogTrigger {
+      button {
+        ...EGDSButtonFragment
+      }
+    }
+
+    ... on ActivityGraphicDialogTrigger {
+      graphic {
+        ...EGDSGraphicFragment
+      }
+    }
+
+    ... on ActivityLinkDialogTrigger {
+      linkGraphic: graphic {
+        ...EGDSGraphicFragment
+      }
+      label
+    }
+
+    ... on ActivityFakeInputDialogTrigger {
+      icon {
+        id
+      }
+      label
+      value
+    }
+
+    ... on ActivityMapDialogTrigger {
+      staticMapImage {
+        accessibility
+        url
+      }
+      mapTriggerLabel: label
+    }
+  }
+
+  ${He.fragment}
+  ${vt.fragment}
+`,St=({className:e,data:t,domRef:a,linkIconPosition:i="TRAILING",openDialog:r,autoFocus:l})=>{var c,s,m;const{accessibility:d,analytics:g}=t,u=(0,A.useClickTracker)(),E={description:g.linkName,id:g.referrerId,callback:n.useCallback((e,t)=>{u(e,t)},[u])},p=n.useCallback(()=>{u(g.referrerId,g.linkName)},[g,u]);switch(t.__typename){case"ActivityButtonDialogTrigger":return n.createElement(vt,{analytics:E,size:h.V.MEDIUM,onClickHandler:r,domRef:a,data:t.button});case"ActivityGraphicDialogTrigger":return n.createElement(R.t,{className:e,analytics:E,onClick:r,size:"small"},n.createElement("button",{ref:a,type:"button"},n.createElement(He,{data:t.graphic}),n.createElement("span",{className:"is-visually-hidden"},d)));case"ActivityFakeInputDialogTrigger":return n.createElement("div",{className:e},n.createElement(C.H,{domRef:a,label:t.label,value:null!=(c=t.value)?c:"",icon:null==(s=t.icon)?void 0:s.id,onChange:r,onClick:r,analytics:E,autoFocus:l}));case"ActivityLinkDialogTrigger":return n.createElement(L.i,{className:e,onClick:r,onClickCapture:p,size:"medium"},n.createElement("button",{ref:a,type:"button"},t.linkGraphic&&"LEADING"===i&&n.createElement(He,{data:t.linkGraphic}),t.label,t.linkGraphic&&"TRAILING"===i&&n.createElement(He,{data:t.linkGraphic}),n.createElement("span",{className:"is-visually-hidden","aria-hidden":t.label===d},d)));case"ActivityMapDialogTrigger":return n.createElement(G.X,{className:e},n.createElement(L.i,{onClickCapture:p},n.createElement("button",{ref:a,type:"button",onClick:r,"aria-labelledby":d},n.createElement(x.C,{minWidth:"full_width"},n.createElement(o.g,{border:!0},(null==(m=t.staticMapImage)?void 0:m.url)&&n.createElement(I.M,{ratio:I.l.R21_9},n.createElement(F.F,{src:t.staticMapImage.url,alt:t.staticMapImage.accessibility||""})),t.mapTriggerLabel&&n.createElement(N.E,null,n.createElement(G.X,{justifyContent:"center"},t.mapTriggerLabel)))))));default:return null}};St.displayName="ActivityDialogTrigger",St.fragment=Dt;var kt=i.J1`
+  fragment ActivityDateRangePickerDialogFragment on ActivityDateRangePickerDialog {
+    dateRangePicker {
+      buttonText
+      dateFormat
+      firstDayOfWeek
+      footerText
+      sameDaySelectionAllowed
+      selectedEndDate {
+        ...DateFragment
+      }
+      selectedStartDate {
+        ...DateFragment
+      }
+      validDaysLowerBoundInclusive {
+        ...DateFragment
+      }
+      validDaysUpperBoundInclusive {
+        ...DateFragment
+      }
+      datePickerContent {
+        ...EGDSDatePickerContentFragment
+      }
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+  }
+
+  ${Fe}
+  ${De}
+  ${St.fragment}
+`,At=({className:e,onSubmitHandler:t,data:a,isNestedDialog:i})=>{const{formatDateString:r}=(0,D.useLocalization)(),l=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),c=i?"pwaDialogNested":void 0,[o,s,m]=(0,v.useDialog)(`activity-date-range-picker-dialog-${l}`,c),{dateRangePicker:{buttonText:d,firstDayOfWeek:g,footerText:u,sameDaySelectionAllowed:E,selectedEndDate:p,selectedStartDate:S,validDaysLowerBoundInclusive:k,validDaysUpperBoundInclusive:A,dateFormat:b,datePickerContent:T},trigger:h}=a,N=new Date,I=new Date;I.setDate(N.getDate()+1);const F=n.createRef(),[C,G]=n.useState(r(N,{raw:b})),[x,L]=n.useState(r(I,{raw:b})),[R,O]=n.useState(r(N,{raw:b})),[$,P]=n.useState(500),[w,M]=n.useState(void 0);n.useEffect(()=>{const e={raw:b};if(S&&G(r(Ce(S),e)),p&&L(r(Ce(p),e)),k&&O(r(Ce(k),e)),A){const e=Ce(A).getTime()-(new Date).getTime();P((t=e,Math.ceil(t/1e3/60/60/24)))}var t;if(null==T?void 0:T.length){const e=T.reduce((e,t)=>ye(ye({},e),(e=>{const{accessibility:t,dateKey:a,text:n,theme:i}=e;return{[a]:{text:null!=n?n:"",ariaLabel:null!=t?t:void 0,className:null!=i?i:void 0}}})(t)),{});M(e)}},[r,p,S,k,A,b,T]);const _=n.useCallback(()=>{s.closeDialog(),F.current&&"function"==typeof F.current.focus&&F.current.focus()},[s,F]),z=n.useCallback((e,a)=>{const n=a||new Date(e.getFullYear(),e.getMonth(),e.getDate()+1),i=r(e,{raw:b}),l=r(n,{raw:b});G(i),L(l),t(i,l),_()},[b,r,_,t]),B={buttonText:d,dateFieldProps:{showDatePicker:!0,useCustomTrigger:!0},datePickerContent:w,daysBookableInAdvance:$,doubleMonths:!0,endDate:x,firstDayOfWeek:Ge[g],footerText:null!=u?u:void 0,onDismissCB:_,onSubmitCB:z,renderType:f.sg.DIALOG,singleDateSelect:E,startDate:C,triggeredSelector:f.mn.START,validStartDate:R};return n.createElement(n.Fragment,null,n.createElement(St,{className:e,domRef:F,linkIconPosition:"LEADING",openDialog:s.openDialog,data:h}),n.createElement(y.K,{isVisible:o},n.createElement(m,null,n.createElement(f.e5,ye({},B)))))};At.displayName="ActivityDateRangePickerDialog",At.fragment=kt;var bt=i.J1`
+  fragment ActivityClickActionsFragment on ActivityClickAction {
+    accessibilityText
+    clientSideAnalytics {
+      linkName
+      referrerId
+    }
+    ... on ActivityLinkClickAction {
+      linkTagUrl
+      opensInNewTab
+    }
+
+    ... on ActivityRefClickAction {
+      sectionRef
+    }
+
+    ... on ActivitySelectionClickAction {
+      selectionList {
+        id
+        value
+      }
+    }
+    ... on ActivityPaginationInfoAction {
+      pagination {
+        size
+        startingIndex
+      }
+    }
+  }
+`,Tt=(e,t,a)=>{switch(e.__typename){case"ActivityLinkClickAction":return{onClick:()=>{const{clientSideAnalytics:a,linkTagUrl:n,opensInNewTab:i}=e;t(a.referrerId,a.linkName),n&&window.open(n,i?"_blank":"_self")}};case"ActivityRefClickAction":return{href:`#${e.sectionRef}`};case"ActivityCloseDialogClickAction":return{onClick:a};case"ActivitySelectionClickAction":return{selectedTabAction:(()=>{const{clientSideAnalytics:a,selectionList:n}=e;if(t(null==a?void 0:a.referrerId,null==a?void 0:a.linkName),n)return n})()};case"ActivityPaginationInfoAction":{const{clientSideAnalytics:a,pagination:n}=e;return t(null==a?void 0:a.referrerId,null==a?void 0:a.linkName),{paginatedIndex:n}}default:return null}},ht=i.J1`
+  fragment ActivityDisclaimerDialogFragment on ActivityDisclaimerDialog {
+    contents {
+      ...EGDSTextFragment
+    }
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      footer {
+        ...EGDSDialogFooterFragment
+      }
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+    dialogActions {
+      ...ActivityClickActionsFragment
+    }
+  }
+
+  ${bt}
+  ${St.fragment}
+
+  ${Ne}
+  ${pt.fragment}
+`,Nt=({className:e,data:t,dialogIdSuffix:a,linkIconPosition:i})=>{const{contents:r,dialog:l,trigger:c,dialogActions:o}=t,s=(0,A.useClickTracker)(),m=n.useMemo(()=>Math.random().toString(36).substr(2,5),[]),d=null!=a?a:m,[g,u,E]=(0,v.useDialog)(`activity-disclaimer-dialog-${d}`,"nestedActivityDisclaimerDialog"),p=null==o?void 0:o.map(e=>Tt(e,s,u.closeDialog)),f=n.createRef(),D=n.useCallback(()=>{l.closeAnalytics&&s(l.closeAnalytics.referrerId,l.closeAnalytics.linkName),f.current&&"function"==typeof f.current.focus&&f.current.focus(),u.closeDialog()},[u,s,l.closeAnalytics]);return n.createElement(n.Fragment,null,n.createElement(St,{className:e,domRef:f,openDialog:u.openDialog,data:c,linkIconPosition:i}),n.createElement(y.K,{isVisible:g},n.createElement(E,null,n.createElement(H.Q,{dialogShow:g,returnFocusOnClose:!0},n.createElement(J.h,null,r.map((e,t)=>n.createElement(pt,{key:`disclaimer-dialog-contents-${t}`,data:e})),n.createElement(Ie,{data:l.footer,dialogActionMap:p,closeDialog:D}))))))};Nt.displayName="ActivityDisclaimerDialog",Nt.fragment=ht;var It=i.J1`
+  fragment ActivityTravelerSelectorDialogFragment on ActivityTravelerSelectorDialog {
+    heading {
+      ...EGDSHeadingFragment
+    }
+    doneButton {
+      primary
+      action {
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+    ticketsStepInput {
+      ...EGDSTravelerStepInputFragment
+    }
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        ...EGDSDialogToolbarFragment
+      }
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+    errorMessageForSelectedTickets {
+      ...EGDSGraphicTextFragment
+    }
+  }
+
+  ${St.fragment}
+
+  ${Re.fragment}
+  ${be.fragment}
+  ${ke.fragment}
+  ${Qe.fragment}
+`,Ft={blockend:"two"},Ct=({className:e,doneClickHandler:t,data:a,isNestedDialog:i,autoFocus:r})=>{const l=(0,A.useClickTracker)(),{heading:c,dialog:o,doneButton:s,ticketsStepInput:m,trigger:g,errorMessageForSelectedTickets:u}=a,[E,p]=n.useState(),f=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),D=i?"pwaDialogNested":void 0,[S,k,b]=(0,v.useDialog)(`activity-traveler-selection-dialog-${f}`,D),T=n.useRef(null),[N,I]=n.useState(!1),F=n.useMemo(()=>{const e=[];return m.forEach(t=>{var a;const n={code:null!=(a=t.key)?a:"",count:t.value};e.push(n)}),p(e),e},[m]),C=n.useCallback((e,t,a)=>{F[a]={code:null!=t?t:"",count:e},p(F);const n=F.find(e=>e.count>0);I(!n)},[F]),G=n.useCallback(()=>{o.closeAnalytics&&l(o.closeAnalytics.referrerId,o.closeAnalytics.linkName),k.closeDialog()},[o.closeAnalytics,l]),x=n.useCallback(()=>{var e;t(null!=E?E:[]),(null==(e=s.action)?void 0:e.analytics)&&l(s.action.analytics.referrerId,s.action.analytics.linkName),k.closeDialog()},[t,E]),L=n.useCallback(()=>{const e=m.find(e=>e.value>0);I(!e),k.openDialog()},[]),R=e=>n.createElement(V.t,{type:e,isVisible:!0,returnFocusOnClose:!0,triggerRef:T},n.createElement(ke,{toolbarType:"close",toolbarAction:G,data:o.toolbar}),n.createElement(K.Y,null,c&&n.createElement(d.N,{margin:Ft},n.createElement(Re,{size:6,data:c})),m.map((e,t)=>n.createElement(be,{key:t,countIndex:t,onChange:C,data:e})),n.createElement(d.N,{margin:{blockstart:"three"}},N&&u?n.createElement(Qe,{data:u}):n.createElement("div",null," ")),n.createElement(d.N,{margin:{blockstart:"six"}},n.createElement(U.t,{size:h.V.LARGE,onClick:x,disabled:N},s.primary))));return n.createElement(n.Fragment,null,n.createElement(St,{className:e,openDialog:L,data:g,domRef:T,autoFocus:r}),n.createElement(y.K,{isVisible:S},n.createElement(b,null,n.createElement(Y.LM,null,n.createElement(Y.NP,null,R("full")),n.createElement(Y.rw,null,R("centered"))))))};Ct.displayName="ActivityTravelerSelectorDialog",Ct.fragment=It;var Gt=i.J1`
+  fragment EGDSBasicRadioButtonFragment on EGDSBasicRadioButton {
+    description
+    disabled
+    label
+    labelSuffix
+    value
+  }
+`,xt=({data:e,groupName:t})=>{const{description:a,disabled:i,label:r,labelSuffix:l,value:c}=e;return n.createElement(W.P,{key:`${t}-${c}`,disabled:i,id:c,value:c,description:null!=a?a:void 0,label:r,labelSuffix:null!=l?l:void 0})};xt.displayName="EGDSBasicRadioButton",xt.fragment=Gt;var Lt=i.J1`
+  fragment EGDSRadioButtonFragment on EGDSRadioButton {
+    ... on EGDSBasicRadioButton {
+      ...EGDSBasicRadioButtonFragment
+    }
+  }
+
+  ${xt.fragment}
+`,Rt=({data:e,groupName:t})=>"EGDSBasicRadioButton"===e.__typename?n.createElement(xt,{groupName:t,data:e}):null;Rt.displayName="ActivitiesEGDSRadioButton",Rt.fragment=Lt;var Ot=i.J1`
+  fragment EGDSBasicRadioGroupFragment on EGDSBasicRadioGroup {
+    groupName
+    selected
+    options {
+      ...EGDSRadioButtonFragment
+    }
+  }
+
+  ${Rt.fragment}
+`,$t=({data:e,onChange:t})=>{const{groupName:a,selected:i,options:r}=e;return n.createElement(X.S,{group:a,onChange:t,selected:null!=i?i:void 0,defaultChecked:!0},r.map((e,t)=>n.createElement(Rt,{key:`egds-radio-group-${t}`,data:e,groupName:a})))};$t.displayName="EGDSBasicRadioGroup",$t.fragment=Ot;var Pt=i.J1`
+  fragment ActivityRadioGroupDialogFragment on ActivityRadioGroupDialog {
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        ...EGDSDialogToolbarFragment
+      }
+    }
+    doneButton {
+      primary
+      action {
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+    heading {
+      ...EGDSHeadingFragment
+    }
+    radioGroup {
+      ...EGDSBasicRadioGroupFragment
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+  }
+
+  ${St.fragment}
+
+  ${Re.fragment}
+  ${$t.fragment}
+  ${ke.fragment}
+`,wt={blockend:"two"},Mt=({className:e,doneClickHandler:t,data:a,isNestedDialog:i})=>{var r;const{heading:l,dialog:c,doneButton:{action:o,primary:s},radioGroup:m,trigger:g}=a,u=(0,A.useClickTracker)(),E=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),p=i?"pwaDialogNested":void 0,[f,D,S]=(0,v.useDialog)(`activity-radio-dialog-${E}`,p),[k,b]=n.useState(null!=(r=m.selected)?r:""),T=n.useRef(null),N=n.useCallback(()=>{c.closeAnalytics&&u(c.closeAnalytics.referrerId,c.closeAnalytics.linkName),D.closeDialog()},[D,c.closeAnalytics,u]),I=n.useCallback(()=>{(null==o?void 0:o.analytics)&&u(o.analytics.referrerId,o.analytics.linkName),t(m.groupName,k),D.closeDialog()},[t,u,null==o?void 0:o.analytics,D,m.groupName,k]);return n.createElement(n.Fragment,null,n.createElement(St,{className:e,openDialog:D.openDialog,data:g,domRef:T}),n.createElement(y.K,{isVisible:f},n.createElement(S,null,n.createElement(V.t,{type:"centered",isVisible:f,returnFocusOnClose:!0,triggerRef:T},n.createElement(ke,{toolbarType:"close",toolbarAction:N,data:c.toolbar}),n.createElement(K.Y,null,l&&n.createElement(d.N,{margin:wt},n.createElement(Re,{size:6,data:l})),n.createElement($t,{onChange:e=>{b(e.target.value)},data:m}),n.createElement(d.N,{margin:{blockstart:"six"}},n.createElement(U.t,{size:h.V.LARGE,onClick:I},s)))))))};Mt.displayName="ActivityRadioGroupDialog",Mt.fragment=Pt;Math.random().toString(36).substr(2,5);var _t=i.J1`
+  fragment EGDSExpandoPeekFragment on EGDSExpandoPeek {
+    expandAnalytics {
+      linkName
+      referrerId
+    }
+    expandedLabel
+    expandedAccessibilityText
+    collapsedAccessibilityText
+    collapseAnalytics {
+      linkName
+      referrerId
+    }
+    collapsedLabel
+    expanded
+  }
+`,zt=({lines:e,items:t,className:a,data:i,children:r})=>{var l,c,o,s;const{expanded:m,expandAnalytics:d,expandedLabel:g,collapseAnalytics:u,collapsedLabel:E,expandedAccessibilityText:p,collapsedAccessibilityText:f}=i,y=(0,A.useClickTracker)(),[v,D]=n.useState(m),S={id:null!=(l=null==d?void 0:d.referrerId)?l:"",description:null!=(c=null==d?void 0:d.linkName)?c:"",callback:n.useCallback((e,t)=>{y(e,t)},[y])},k={id:null!=(o=null==u?void 0:u.referrerId)?o:"",description:null!=(s=null==u?void 0:u.linkName)?s:"",callback:n.useCallback((e,t)=>{y(e,t)},[y])},b=n.useCallback(()=>{D(!v)},[v]);return n.createElement(Q.A,{expandLabel:E,collapseLabel:g,analytics:v?k:S,className:a,lines:e,items:t,isVisible:v,handleClick:b,expandA11yLabel:null!=f?f:E,collapseA11yLabel:null!=p?p:g},r)};zt.fragment=_t,zt.displayName="ActivitiesEGDSExpandoPeek";var Bt=i.J1`
+  fragment EGDSExpandoListItemFragment on EGDSExpandoListItem {
+    collapseAnalytics {
+      linkName
+      referrerId
+    }
+    collapsedLabel
+    expandAnalytics {
+      linkName
+      referrerId
+    }
+    expandedLabel
+    expanded
+  }
+`,Ht=({children:e,className:t,data:a,titleSize:i,titleTag:r,isIndented:l})=>{const{expandAnalytics:c,expandedLabel:o,collapseAnalytics:s,collapsedLabel:m,expanded:d}=a,g=(0,A.useClickTracker)(),[E,p]=n.useState(d),[f,y]=n.useState(d?o:m);let v;s&&c&&(v={id:E?s.referrerId:c.referrerId,description:E?s.linkName:c.linkName,callback:(e,t)=>{g(e,t)}});const D=n.useCallback(()=>{y(E?m:o),p(!E)},[E,m,o]);return n.createElement(q.U,{analytics:v,className:t,isVisible:E,expandoTitle:n.createElement(u.M,{tag:r,size:i},f),expandoDescription:e,onToggle:D,isIndented:l})};Ht.fragment=Bt,Ht.displayName="ActivitiesEGDSExpandoListItem";var Jt=i.J1`
+  fragment EGDSExpandoFragment on EGDSExpando {
+    ... on EGDSExpandoPeek {
+      ...EGDSExpandoPeekFragment
+    }
+    ... on EGDSExpandoListItem {
+      ...EGDSExpandoListItemFragment
+    }
+  }
+
+  ${zt.fragment}
+  ${Ht.fragment}
+`,Ut=({className:e,expandoListItemTitleSize:t,expandoListItemTitleTag:a,expandoListItemIsIndented:i,expandoPeekLines:r,expandoPeekItems:l,data:c,children:o})=>{switch(null==c?void 0:c.__typename){case"EGDSExpandoPeek":return n.createElement(zt,{className:e,data:c,lines:r,items:l},o);case"EGDSExpandoListItem":return n.createElement(Ht,{className:e,data:c,titleSize:t,titleTag:a,isIndented:i},o);default:return null}};Ut.fragment=Jt,Ut.displayName="ActivitiesEGDSExpando";var Vt=i.J1`
+  fragment ActivityReviewsCommentFragment on ActivityReview {
+    text
+    author
+    formattedActivityDate
+    overallScoreMessage {
+      ...EGDSTextFragment
+    }
+    formattedSubmissionDate
+    reviewedOn
+    userLocation
+    expando {
+      ...EGDSExpandoFragment
+    }
+  }
+
+  ${Ut.fragment}
+  ${pt.fragment}
+`,Kt={blockstart:"two"},Yt=n.memo(({expando:e,text:t})=>n.createElement(n.Fragment,null,e?n.createElement(d.N,{margin:Kt},n.createElement(Ut,{expandoPeekLines:4,data:e},n.createElement(E.D,{overflow:"wrap",size:300},t))):n.createElement(d.N,{margin:Kt},n.createElement(E.D,{size:300},t))));Yt.displayName="ReviewCommentsWrapper";var Xt=({className:e,headingSize:t,headingTag:a,data:i})=>{const{author:r,overallScoreMessage:l,reviewedOn:c,formattedSubmissionDate:o,formattedActivityDate:s,userLocation:m,text:g,expando:p}=i;return n.createElement("div",{className:e},l&&n.createElement(pt,{data:l,headingSize:t,headingTag:a}),r&&n.createElement(d.N,{margin:Kt},n.createElement(u.M,{tag:"h3",size:6},r)),c&&n.createElement(E.D,{size:300},c),o&&n.createElement(E.D,{size:300},o),m&&n.createElement(E.D,{size:300},m),n.createElement(Yt,{expando:p,text:g}),s&&n.createElement(d.N,{margin:Kt},n.createElement(E.D,{size:200},s)))};Xt.displayName="ActivityReviewsCommentList",Xt.fragment=Vt;var Wt=i.J1`
+  fragment ActivityReviewsSortTabFragment on ActivityTabbedNavigationBar {
+    heading
+    tabs {
+      label
+      selected
+      clickAction {
+        ...ActivityClickActionsFragment
+      }
+    }
+  }
+
+  ${bt}
+`,jt={block:"two"},Qt=({className:e,data:t,onClick:a})=>{const{heading:i,tabs:r}=t,[l,c]=n.useState(r.findIndex(e=>e.selected)),o=(0,A.useClickTracker)();if(!r.length)return null;return n.createElement("div",{className:e},i&&n.createElement(u.M,{tag:"h3",size:6},i),n.createElement(d.N,{margin:jt},n.createElement(Z.IN,{onTabSelect:e=>{var t;const n=null==(t=r[e])?void 0:t.clickAction,i=n?Tt(n,o):null;a(null==i?void 0:i.selectedTabAction),c(e)},selectedTab:l,tabsType:Z.Ah.NATURAL,role:"tablist",withBorder:!0},r.map(e=>{var t,a;return n.createElement(ee.X,{name:e.label,key:e.label,targetURI:"#",tabLinkAttr:{"aria-label":null!=(a=null==(t=e.clickAction)?void 0:t.accessibilityText)?a:""}})}))))};Qt.displayName="ActivityReviewsSortTab",Qt.fragment=Wt;var qt=i.J1`
+  fragment ActivityReviewsSummaryFragment on ActivityReviewsSummary {
+    averageScore {
+      ...EGDSTextFragment
+    }
+    disclaimer {
+      ...ActivityDisclaimerDialogFragment
+    }
+    sectionRef
+    reviewSuperlative {
+      size
+      ...EGDSStylizedTextFragment
+    }
+  }
+
+  ${pt.fragment}
+  ${Nt.fragment}
+  ${st.fragment}
+`,Zt={inlinestart:"two",blockstart:"one"},ea={blockstart:"one"},ta=({className:e,data:t,dialogIdSuffix:a,headingSize:i,headingTag:r})=>{const{averageScore:l,disclaimer:c,sectionRef:o,reviewSuperlative:s}=t,{size:m}=s||{};return"ActivityReviews"===a&&l&&"EGDSStylizedText"===l.__typename?(()=>{const{textSize:t}=l;return n.createElement("div",{className:e,id:null!=o?o:void 0},n.createElement(G.X,{wrap:"wrap",direction:"column"},n.createElement(pt,{data:l,textSize:Number(t),tabIndex:-1}),s&&n.createElement(d.N,{margin:ea},n.createElement(st,{data:s,size:Number(m)})),c&&n.createElement(x.C,null,n.createElement(d.N,{margin:ea},n.createElement(Nt,{data:c,dialogIdSuffix:a})))))})():n.createElement("div",{className:e,id:null!=o?o:void 0},n.createElement(G.X,null,n.createElement(x.C,null,n.createElement(pt,{data:l,headingSize:i,headingTag:r,tabIndex:-1})),c&&n.createElement(x.C,null,n.createElement(d.N,{margin:Zt},n.createElement(Nt,{data:c,dialogIdSuffix:a})))))};ta.displayName="ActivityReviewsSummary",ta.fragment=qt;var aa=i.J1`
+  fragment ActivityReviewsMoreButtonFragment on ActivityReviewsPaginationButton {
+    action {
+      ...ActivityClickActionsFragment
+    }
+    button {
+      ...EGDSButtonFragment
+    }
+  }
+
+  ${bt}
+  ${vt.fragment}
+`,na=({data:e,fetchMoreAction:t})=>{const{action:a,button:i}=e,r=(0,A.useClickTracker)(),l=n.useCallback(()=>{const e=Tt(a,r);t(null==e?void 0:e.paginatedIndex)},[t]);return n.createElement($.y,{"data-stid":"more-reviews-button",onClick:l},i.primary)};na.displayName="ActivityReviewsMoreButton",na.fragment=aa;var ia=i.J1`
+  fragment ActivityReviewsDialogContentFragment on ActivityReviewListComponent {
+    comments {
+      ...ActivityReviewsCommentFragment
+    }
+    summary {
+      ...ActivityReviewsSummaryFragment
+    }
+    sortTabs {
+      ...ActivityReviewsSortTabFragment
+    }
+    moreButton {
+      ...ActivityReviewsMoreButtonFragment
+    }
+  }
+
+  ${Xt.fragment}
+  ${ta.fragment}
+  ${Qt.fragment}
+  ${na.fragment}
+`,ra={small:{inline:"three",block:"twelve"},large:{inline:"twelve",block:"twelve"}},la={large:["1fr","2fr"]},ca={blockstart:"six"},oa=({data:e,fetchMoreAction:t,handleSortTabClick:a})=>{const{summary:i,comments:r,sortTabs:l,moreButton:c}=e,u=(0,n.useRef)(),E=function(){const e=(0,j.zy)();return(0,n.useMemo)(()=>new URLSearchParams(e.search),[e.search])}(),p=function(){const e=(0,j.Zp)(),t=(0,j.zy)();return(0,n.useCallback)(a=>{const n=new URLSearchParams(t.search);n.delete(a),e(`${t.pathname}?${n}`,{replace:!0})},[e,t])}(),f=void 0!==E?E.get("reviewId"):null;return n.useEffect(()=>{var e;if(f){const t=window.matchMedia("(prefers-reduced-motion: reduce)").matches;null==(e=u.current)||e.scrollIntoView({behavior:t?"auto":"smooth",block:"start"}),p("reviewId")}},[f]),i&&r.length?n.createElement(o.g,null,n.createElement(d.N,{padding:ra},n.createElement(s.w,{columns:la,space:"six"},n.createElement(m.T,null,n.createElement(ta,{data:i,dialogIdSuffix:"ActivityReviews",headingSize:5})),n.createElement(m.T,null,n.createElement("div",{key:"commentsSection"},l&&n.createElement(Qt,{key:"sortTabs",data:l,onClick:a}),r.map((e,t)=>n.createElement("div",{key:t,ref:t===Number(f)?u:null},n.createElement(Xt,{key:`review-comment-${t}`,data:e}),n.createElement(g.j,{blockMargin:"six"}))),c&&n.createElement(d.N,{padding:ca},n.createElement(G.X,{justifyContent:"center"},n.createElement(na,{fetchMoreAction:t,data:c})))))))):null};oa.displayName="ActivityReviewsDialogContent",oa.fragment=ia;var sa=n.createContext(void 0),ma=i.J1`
+  fragment ActivityReviewCommentsDialogFragment on ActivityReviewCommentsDialog {
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        ...EGDSDialogToolbarFragment
+      }
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+  }
+
+  ${ke.fragment}
+  ${St.fragment}
+`,da=({reviewsDialogContent:e,onMoreReviewsClickHandler:t,onSortTabClickHandler:a,dialogId:i,openDialogCallBackHandler:r,data:{dialog:l,trigger:c}})=>{var o;const{closeAnalytics:s,toolbar:m}=l,d=(0,A.useClickTracker)(),g=`ActivityReviewCommentsDialog-${i}`,[u,E,p]=(0,v.useDialog)(g,"nestedReviewCommentsDialog"),f=null==(o=n.useContext(sa)||null)?void 0:o.ActivityReviewsContent,D=n.useRef(null);return n.createElement(n.Fragment,null,n.createElement(G.X,null,n.createElement(St,{openDialog:()=>{E.openDialog(),r&&r()},data:c,domRef:D})),n.createElement(y.K,{isVisible:u},n.createElement(p,null,n.createElement(V.t,{type:"full",isVisible:u,returnFocusOnClose:!0,triggerRef:D},n.createElement(ke,{data:m,toolbarAction:()=>{s&&d(s.referrerId,s.linkName),E.closeDialog()},toolbarType:"close"}),n.createElement(J.h,null,e&&t&&a?n.createElement(oa,{fetchMoreAction:t,handleSortTabClick:a,data:e}):f&&n.createElement(f,null))))))};da.displayName="ActivityReviewCommentsDialog",da.fragment=ma;var ga=(0,n.createContext)({version:void 0});var ua={hotel:ae.lL.HOTEL,people:ae.lL.PEOPLE,activity:ae.lL.ACTIVITY,focal:ae.lL.FOCAL},Ea=i.J1`
+  fragment ActivityMapPlaceCardFragment on ActivityMapPlaceCard {
+    image {
+      description
+      url
+    }
+    primary {
+      ...EGDSTextFragment
+    }
+    secondaries {
+      ...EGDSTextFragment
+    }
+    tag {
+      ...EGDSTextFragment
+    }
+  }
+
+  ${pt.fragment}
+`,pa=["1fr","3fr"],fa=["1fr"],ya=({className:e,data:t})=>{if(!t)return null;const{image:a,primary:i,secondaries:r,tag:l}=t;return n.createElement(y.K,{isVisible:!0},n.createElement(V.t,{className:e,isVisible:!0,triggerRef:null},n.createElement(s.w,{columns:a?pa:fa},a&&n.createElement(m.T,null,n.createElement(I.M,{ratio:I.l.R16_9},n.createElement(F.F,{alt:a.description,src:a.url,placeholderImage:!0}))),n.createElement(m.T,null,n.createElement(d.N,{padding:"three"},n.createElement(G.X,{direction:"column",space:"one"},l&&n.createElement(x.C,null,n.createElement(pt,{data:l})),i&&n.createElement(x.C,null,n.createElement(pt,{data:i})),null==r?void 0:r.map((e,t)=>n.createElement(x.C,{key:`map-place-card-secondaries${t}`},n.createElement(pt,{data:e})))))))))};ya.fragment=Ea,ya.displayName="ActivityMapPlaceCard";var va=i.J1`
+  fragment MapMarkersFragment on ActivityMapMarker {
+    markerType
+    markerIconType
+    markerStatus
+    markerPosition {
+      latitude
+      longitude
+    }
+    text
+    placeCard {
+      ...ActivityMapPlaceCardFragment
+    }
+  }
+
+  ${ya.fragment}
+`,Da=i.J1`
+  fragment EGDSDynamicMapConfigFragment on EGDSDynamicMapConfig {
+    accessToken
+    egdsMapProvider
+  }
+`,Sa=i.J1`
+  fragment ActivityMapFragment on ActivityMap {
+    __typename
+    egMap {
+      center {
+        latitude
+        longitude
+      }
+      config {
+        ...EGDSDynamicMapConfigFragment
+      }
+    }
+    markers {
+      ...MapMarkersFragment
+    }
+  }
+
+  ${Da}
+  ${va}
+`,ka=({data:e,dynamicMapSize:t})=>{var a;const{egMap:i,markers:r}=e,{config:l}=i,[,c]=n.useState(null),[o,s]=n.useState(null),m="EGDSDynamicMapConfig"===l.__typename?l.accessToken:"",d=r.map((e,t)=>((e,t)=>{const{markerStatus:a,markerIconType:n,markerPosition:i,placeCard:r,markerType:l,text:c}=e,o={id:t,qualifiers:(s=n,s.map(e=>ua[e]||ua.hotel)),lat:i.latitude,lng:i.longitude,thumbnail:null==r?void 0:r.image};var s;switch(l){case"property":case"product":return ye({type:"product",status:a.toLowerCase(),price:c},o);default:return ye({type:"place",status:"unknown",text:c},o)}})(e,t)),g=d.filter(e=>void 0!==e.lat&&void 0!==e.lng).map(e=>({lat:e.lat||0,lng:e.lng||0})),u=n.useCallback(e=>{var t;const{action:a,feature:n}=e;switch(a){case"clearSelection":c(null),s(null);break;case"select":c(n),s(null==(t=r[n.id])?void 0:t.placeCard)}},[r]),E=n.useCallback(e=>{e.addSelectionChangeListener(u,"selectionChanged")},[u]),p={useBoundsComputation:!0,coordinates:g.length>0?g:void 0},f=n.useMemo(()=>({markers:{product:{markerType:{available:"pin"}}}}),[]),y=null==(a=(0,n.useContext)(ga))?void 0:a.version;return n.createElement(te.T,{accessToken:m,mapType:ae.Nw.GOOGLE,mapTypeVersion:y,features:d,height:t,initialViewport:p,beforeInit:E,mapConfig:f},o&&n.createElement(ya,{data:o}))};ka.fragment=Sa,ka.displayName="ActivityMap";var Aa=i.J1`
+  fragment ActivityLocationMapDialogFragment on ActivityLocationMapDialog {
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        ...EGDSDialogToolbarFragment
+      }
+    }
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+    dynamicMap {
+      ...ActivityMapFragment
+    }
+  }
+
+  ${ke.fragment}
+
+  ${ka.fragment}
+  ${St.fragment}
+`,ba=({data:{dialog:e,trigger:t,dynamicMap:a}})=>{const{closeAnalytics:i,toolbar:r}=e,l=(0,A.useClickTracker)(),c=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),[o,s,m]=(0,v.useDialog)(`activity-map-${c}`),d=n.useRef(null);return n.createElement(n.Fragment,null,n.createElement(St,{openDialog:s.openDialog,data:t,domRef:d}),n.createElement(y.K,{isVisible:o},n.createElement(m,null,n.createElement(V.t,{type:"full",isVisible:o,returnFocusOnClose:!0,triggerRef:d},n.createElement(ke,{data:r,toolbarAction:()=>{i&&l(i.referrerId,i.linkName),s.closeDialog()},toolbarType:"close"}),n.createElement(ka,{data:a})))))};ba.displayName="ActivityLocationMapDialog",ba.fragment=Aa;var Ta=i.J1`
+  fragment SignInActivityActionDialogFragment on EGDSActionDialog {
+    closeAnalytics {
+      referrerId
+      linkName
+    }
+    footer {
+      ... on EGDSStackedDialogFooter {
+        buttons {
+          ... on EGDSOverlayButton {
+            __typename
+          }
+        }
+      }
+      ... on EGDSInlineDialogFooter {
+        buttons {
+          ... on UIPrimaryButton {
+            accessibility
+            primary
+            disabled
+            action {
+              ... on UILinkAction {
+                resource {
+                  value
+                }
+                analytics {
+                  linkName
+                  referrerId
+                }
+              }
+            }
+          }
+          ... on UITertiaryButton {
+            accessibility
+            primary
+            action {
+              ... on UILinkAction {
+                resource {
+                  value
+                }
+              }
+            }
+            disabled
+          }
+        }
+      }
+    }
+  }
+`,ha=({data:e,actionsCallback:t,closeDialog:a,content:i,title:r,graphic:l})=>{const c=(0,A.useClickTracker)(),{footer:{buttons:o}}=e,d=(n.createRef(),()=>{a()}),[g,E,p]=o.map(e=>{if("UIPrimaryButton"===e.__typename){const{primary:t}=e;return{text:t,type:"primary",onClick:()=>{var t,a,n;return"UILinkAction"===(null==(t=e.action)?void 0:t.__typename)?(a=e.action.resource.value,n=e.action.analytics,window.location.replace(a),void c(n.referrerId,n.linkName)):d()}}}const{primary:t}=e;return{text:t,type:"tertiary",onClick:()=>d()}});return n.createElement(H.Q,{dialogShow:!0,returnFocusOnClose:!0},n.createElement(J.h,null,n.createElement(s.w,{columns:["0.8fr","8fr"],space:"one",justifyContent:"start"},n.createElement(m.T,{justifySelf:"start"},n.createElement("div",null,l&&n.createElement(He,{data:l}))),n.createElement(m.T,{justifySelf:"start"},n.createElement("div",null,n.createElement(u.M,{size:5},r),n.createElement(_.u,{key:"dialogParagraph",size:2},i)))),n.createElement(b.l,{stacked:!1,buttonOne:g,buttonTwo:E})))};ha.fragment=Ta,ha.displayName="SignInActivityActionDialog";var Na=i.J1`
+  fragment SignInActivityDialogFragment on EGDSDialog {
+    ...SignInActivityActionDialogFragment
+  }
+  ${ha.fragment}
+`,Ia=({data:e,title:t,dialogId:a,dialogContent:i,handleActionsCallback:r,graphic:l})=>{const[c,o,s]=(0,v.useDialog)(a);return i?n.createElement("div",{"data-stid":a},n.createElement(y.K,{isVisible:!0},n.createElement(s,null,n.createElement(ha,{data:e,content:i,closeDialog:()=>{o.closeDialog()},title:t,actionsCallback:r,graphic:l})))):null};Ia.fragment=Na,Ia.displayName="SignInActivityDialog";var Fa=(e=>(e.FLIGHT_CAR="FLIGHT_CAR",e.FLIGHT_HOTEL="FLIGHT_HOTEL",e.FLIGHT_HOTEL_CAR="FLIGHT_HOTEL_CAR",e.HOTEL_ACTIVITY="HOTEL_ACTIVITY",e.HOTEL_CAR="HOTEL_CAR",e))(Fa||{}),Ca=(e=>(e.ATTACH="ATTACH",e.PACKAGE="PACKAGE",e.STANDALONE="STANDALONE",e))(Ca||{}),Ga=i.J1`
+  fragment ActivityOfferMultiSelectionOptionFragment on ActivityOfferMultiSelectionOption {
+    selections {
+      value
+      label
+      theme
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+    id
+    title
+    dialog {
+      closeAnalytics {
+        linkName
+        referrerId
+      }
+      toolbar {
+        closeText
+        title
+      }
+    }
+    heading {
+      ...EGDSHeadingFragment
+    }
+    doneButton {
+      primary
+      action {
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+  }
+
+  ${Re.fragment}
+`,xa={blockend:"two"},La=({data:e,doneClickHandler:t,closeDialog:a,triggerRef:i,viewportType:r})=>{var l,c,o;const s=(0,A.useClickTracker)(),{heading:m,doneButton:g,selections:u,id:E,dialog:p,title:f}=e,y=null!=(o=null==(l=null==u?void 0:u.find(e=>"SELECTED"===e.theme))?void 0:l.value)?o:null==(c=null==u?void 0:u[0])?void 0:c.value,[v,D]=n.useState({id:E,value:null!=y?y:""});if(null===u)return null;return n.createElement(V.t,{type:r,isVisible:!0,returnFocusOnClose:!0,triggerRef:i},n.createElement(ke,{toolbarType:"close",toolbarAction:()=>{p.closeAnalytics&&s(p.closeAnalytics.referrerId,p.closeAnalytics.linkName),a()},data:p.toolbar}),n.createElement(K.Y,null,m&&n.createElement(d.N,{margin:xa},n.createElement(Re,{size:6,data:m})),n.createElement(X.S,{group:`${E} for ${f}`,onChange:e=>{const{value:t}=e.target,a=null==u?void 0:u.find(e=>e.value===t);D({id:E,value:t}),(null==a?void 0:a.analytics)&&s(a.analytics.referrerId,a.analytics.linkName)},selected:v.value},u.map((e,t)=>n.createElement(W.P,{key:`offer-language-time-radio-${t}`,id:`offer-language-time-radio-${t}`,value:e.value},e.label))),n.createElement(d.N,{margin:{blockstart:"six"}},n.createElement(U.t,{size:h.V.LARGE,onClick:()=>{var e,n,i;(null==(e=g.action)?void 0:e.analytics)&&s(null==(n=g.action)?void 0:n.analytics.referrerId,null==(i=g.action)?void 0:i.analytics.linkName),t(v),a()}},g.primary))))};La.displayName="ActivityOfferMultiSelectionOption",La.fragment=Ga;var Ra=i.J1`
+  fragment ActivityOfferSelectionDialogFragment on ActivityOfferMultiSelectionOption {
+    trigger {
+      ...ActivityDialogTriggerFragment
+    }
+    ...ActivityOfferMultiSelectionOptionFragment
+  }
+
+  ${St.fragment}
+  ${La.fragment}
+`,Oa=({data:e,selectionIndex:t,doneClickHandler:a,offerId:i})=>{const[r,l,c]=(0,v.useDialog)(`activity-selection-dialog-${t}-${i}`,"nestedSelectionDialog"),o=n.useRef(null),s=t=>n.createElement(La,{closeDialog:l.closeDialog,doneClickHandler:a,data:e,viewportType:t,triggerRef:o});return n.createElement(n.Fragment,null,n.createElement(St,{openDialog:l.openDialog,data:e.trigger,domRef:o}),n.createElement(y.K,{isVisible:r},n.createElement(c,null,n.createElement(Y.LM,null,n.createElement(Y.NP,null,s("full")),n.createElement(Y.rw,null,s("centered"))))))};Oa.displayName="ActivityOfferSelectionDialog",Oa.fragment=Ra;var $a=i.J1`
+  fragment ActivityOfferSingleSelectionOptionFragment on ActivityOfferSingleSelectionOption {
+    title
+    graphic {
+      ...EGDSGraphicFragment
+    }
+  }
+
+  ${He.fragment}
+`,Pa={blockstart:"three"},wa=({data:e})=>{const{graphic:t,title:a}=e;return n.createElement(d.N,{padding:Pa},n.createElement(G.X,{space:"one"},t&&n.createElement(He,{data:t}),n.createElement(E.D,{size:300},a)))};wa.displayName="ActivityOfferSingleSelectionOption",wa.fragment=$a;var Ma=i.J1`
+  fragment OfferClickActionFragment on ActivityAnchoredMessage {
+    accessibilityText
+    icon {
+      ...EGDSGraphicFragment
+    }
+    text
+    clickAction {
+      __typename
+      ... on ActivityPopupClickAction {
+        analytics {
+          linkName
+          referrerId
+        }
+        title
+        messages
+        dismissAction {
+          ... on ActivityMessagingAction {
+            rfrr
+            text
+          }
+        }
+      }
+    }
+  }
+
+  ${He.fragment}
+`,_a=({data:e,dialogKey:t})=>{var a,i;const[r,l,c]=(0,v.useDialog)(`offer-feature-${t}`,"nestedOfferFeatureDialog"),o=(0,A.useClickTracker)(),s=n.useCallback(()=>{var t,a;l.closeDialog(),"ActivityPopupClickAction"===(null==(t=e.clickAction)?void 0:t.__typename)&&(null==(a=e.clickAction.dismissAction)?void 0:a.rfrr)&&e.clickAction.dismissAction.text&&o(e.clickAction.dismissAction.rfrr,e.clickAction.dismissAction.text)},[l,e.clickAction,o]),m=n.useCallback(()=>{var t;l.openDialog(),"ActivityPopupClickAction"===(null==(t=e.clickAction)?void 0:t.__typename)&&e.clickAction.analytics&&o(e.clickAction.analytics.referrerId,e.clickAction.analytics.linkName)},[l,e.clickAction,o]);return"ActivityPopupClickAction"===(null==(a=e.clickAction)?void 0:a.__typename)?n.createElement(n.Fragment,null,n.createElement(L.i,null,n.createElement("button",{type:"button",onClick:m},e.text,e.icon&&n.createElement(He,{data:e.icon}),n.createElement("span",{className:"is-visually-hidden"},e.accessibilityText))),n.createElement(y.K,{isVisible:r},n.createElement(c,null,n.createElement(H.Q,{dialogShow:r,returnFocusOnClose:!0},n.createElement(J.h,null,e.clickAction.messages.map((e,t)=>n.createElement(E.D,{inline:!0,key:`message-${t}`,size:200},e)),(null==(i=e.clickAction.dismissAction)?void 0:i.text)&&n.createElement(b.l,{key:"footer",buttonOne:{onClick:s,text:e.clickAction.dismissAction.text,type:"tertiary"}})))))):null};_a.fragment=Ma,_a.displayName="OfferClickAction";var za=i.J1`
+  fragment OfferFeatureFragment on ActivityIcon {
+    icon {
+      ...EGDSGraphicFragment
+    }
+    mark {
+      ...EGDSGraphicFragment
+    }
+    label
+    anchoredSubtext {
+      ...OfferClickActionFragment
+    }
+  }
+
+  ${He.fragment}
+  ${_a.fragment}
+`,Ba={inlinestart:"two"},Ha={block:"one"},Ja=({data:e,dialogKey:t})=>{const{icon:a,label:i,anchoredSubtext:r,mark:l}=e;return n.createElement(d.N,{padding:Ha},n.createElement(G.X,{space:"one"},a.id&&n.createElement(He,{data:a}),l&&n.createElement(He,{data:l}),n.createElement(E.D,{size:200},n.createElement(p.Q,null,n.createElement("span",{dangerouslySetInnerHTML:{__html:i}}))),r&&n.createElement(x.C,null,n.createElement(d.N,{padding:Ba},n.createElement("div",null,n.createElement(_a,{data:r,dialogKey:t}))))))};Ja.fragment=za,Ja.displayName="OfferFeature";var Ua=i.J1`
+  fragment EGDSPriceLockupFragment on EGDSPriceLockup {
+    isPointsFirst
+    accessibilityPrice
+    accessibilityStrikeThroughDialogTrigger
+    leadingCaption
+    lockupFormattedPoints
+    lockupPrice
+    priceSubtextFirst
+    priceSubtextStandard
+    strikeThroughPrice
+  }
+`,Va=({className:e,align:t,openStrikeThroughDialog:a,data:i,isStrikeThroughFirst:r,triggerRef:l})=>{const{accessibilityPrice:c,accessibilityStrikeThroughDialogTrigger:o,leadingCaption:s,lockupFormattedPoints:m,lockupPrice:d,priceSubtextFirst:g,priceSubtextStandard:u,strikeThroughPrice:E,isPointsFirst:p}=i;return n.createElement(ne.dZ,{align:t,isPointsFirst:null!=p&&p,a11yPrice:c,className:e,lockupFormattedPoints:null!=m?m:void 0,lockupPrice:null!=d?d:void 0,leadingCaption:null!=s?s:void 0,priceSubtextFirst:[...g||[]],priceSubtextStandard:[...u||[]],strikeThroughPrice:null!=E?E:void 0,a11yStrikeThroughDialogTrigger:null!=o?o:void 0,strikeThroughTrigger:!!a&&n.createElement("button",{ref:l,onClick:a,type:"button",className:"uitk-more-info-trigger"}),isStrikeThroughFirst:r})};Va.displayName="ActivitiesEGDSPriceLockup",Va.fragment=Ua;var Ka={[ne.A$.LEFT]:"left",[ne.A$.RIGHT]:"right"},Ya=i.J1`
+  fragment ActivityPriceDisplayFragment on ActivityPriceDisplay {
+    header {
+      ...EGDSTextFragment
+    }
+    footer {
+      ...EGDSTextFragment
+    }
+    priceLockup {
+      ...EGDSPriceLockupFragment
+    }
+    disclaimer {
+      contents {
+        ...EGDSTextFragment
+      }
+      dialog {
+        closeAnalytics {
+          linkName
+          referrerId
+        }
+        footer {
+          buttons {
+            primary
+            accessibility
+            disabled
+          }
+        }
+      }
+      trigger {
+        analytics {
+          linkName
+          referrerId
+        }
+      }
+    }
+  }
+
+  ${pt.fragment}
+  ${Va.fragment}
+`,Xa={blockstart:"one"},Wa={blockstart:"one"},ja={blockstart:"one"},Qa=({className:e,data:t,align:a,isStrikeThroughFirst:i})=>{var r,l;const{priceLockup:c,header:o,footer:s,disclaimer:m}=t,g=(0,A.useClickTracker)(),u=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),[E,p,f]=(0,v.useDialog)(`activity-price-disclaimer-${u}`,"priceDisclaimeriDialog"),D=n.useRef(null);return c&&n.createElement("section",{className:e},(null==o?void 0:o.length)&&o.map((e,t)=>n.createElement(d.N,{key:`activity-price-info-header-${t}`,margin:Xa},n.createElement(pt,{textAlign:a&&Ka[a],textSize:200,data:e}))),n.createElement(d.N,{margin:Wa},n.createElement(Va,{openStrikeThroughDialog:m?()=>{p.openDialog(),"ActivityGraphicDialogTrigger"===(null==m?void 0:m.trigger.__typename)&&g(m.trigger.analytics.referrerId,m.trigger.analytics.linkName)}:void 0,align:a,data:c,isStrikeThroughFirst:i,triggerRef:D})),(null==s?void 0:s.length)&&s.map((e,t)=>n.createElement(d.N,{key:`activity-price-info-header-${t}`,margin:ja},n.createElement(pt,{textAlign:a&&Ka[a],textSize:200,data:e}))),m&&n.createElement(y.K,{isVisible:E},n.createElement(f,null,n.createElement(H.Q,{dialogShow:E,returnFocusOnClose:!0,triggerRef:D},n.createElement(J.h,null,m.contents.map((e,t)=>n.createElement(pt,{key:`activity-price-disclaimer-contents-${t}`,data:e})),n.createElement(b.l,{buttonOne:{onClick:()=>{p.closeDialog(),(null==m?void 0:m.dialog.closeAnalytics)&&g(m.dialog.closeAnalytics.referrerId,m.dialog.closeAnalytics.linkName)},text:null!=(l=null==(r=m.dialog.footer.buttons[0])?void 0:r.primary)?l:"",type:"tertiary"}}))))))};Qa.displayName="ActivityPriceDisplay",Qa.fragment=Ya;var qa={DEAL_BUNDLED:re._.DEAL_BUNDLED,DEAL_GENERIC:re._.DEAL_GENERIC,DEAL_MEMBER:re._.DEAL_MEMBER,NOTIFICATION_1:re._.NOTIFICATION_1,NOTIFICATION_2:re._.NOTIFICATION_2,VIP:re._.VIP,LOYALTY_HIGH_TIER:re._.LOYALTY_HIGH_TIER,LOYALTY_MIDDLE_TIER:re._.LOYALTY_MIDDLE_TIER,LOYALTY_LOW_TIER:re._.LOYALTY_LOW_TIER,SPONSORED:re._.SPONSORED,VIEWED:re._.VIEWED,SAVED:re._.SAVED,FAMILY_FRIENDLY:re._.FAMILY_FRIENDLY,SUPPLIER_PROMO:re._.SUPPLIER_PROMO},Za={GLOBAL_LOW_TIER:le.zJ.GLOBAL_LOW},en=i.J1`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    text
+    theme
+  }
+
+  ${He.fragment}
+`,tn=({className:e,size:t,data:a})=>{const{graphic:i,text:r,theme:l}=a;return r?l&&Za[l]?n.createElement(ie.V,{className:e,size:t,theme:Za[l],text:r},i&&n.createElement(He,{data:i})):n.createElement(re.p,{className:e,size:t,theme:l?qa[l]:void 0,text:r},i&&n.createElement(He,{data:i})):null};tn.fragment=en,tn.displayName="EGDSStandardBadge";var an=i.J1`
+  fragment EGDSBadgeFragment on EGDSBadge {
+    ...EGDSStandardBadgeFragment
+  }
+
+  ${tn.fragment}
+`,nn=({className:e,size:t,data:a})=>"EGDSStandardBadge"===a.__typename?n.createElement(tn,{className:e,size:t,data:a}):null;nn.fragment=an,nn.displayName="ActivitiesEGDSBadge";var rn=i.J1`
+  fragment ActivityOfferPriceDetailsFragment on ActivityOfferPriceDetails {
+    totalTitle
+    lineItems {
+      accessibility
+      strikeThroughPrice
+      lockupPrice
+      priceBreakdown
+    }
+    badge {
+      ...EGDSBadgeFragment
+    }
+    priceDisplay {
+      ...ActivityPriceDisplayFragment
+    }
+  }
+
+  ${nn.fragment}
+  ${Qa.fragment}
+`,ln={blockstart:"six"},cn={blockstart:"two"},on=({data:e})=>{const{totalTitle:t,lineItems:a,badge:i,priceDisplay:r}=e,l=1===(0,ce.useExperiment)("Optimising_LX_XSELL_Package_UDP",!0).exposure.bucket?"regular":"medium";return n.createElement(n.Fragment,null,n.createElement(d.N,{margin:ln},n.createElement(G.X,{direction:"column"},a.map(({accessibility:e,strikeThroughPrice:t,priceBreakdown:a,lockupPrice:i})=>n.createElement(n.Fragment,null,n.createElement("span",{className:"is-visually-hidden"},e),n.createElement(G.X,{direction:"row",space:"two"},n.createElement(x.C,{alignSelf:"start"},n.createElement("del",null,n.createElement(E.D,{size:300,weight:l},t))),n.createElement(x.C,{alignSelf:"start",grow:2},n.createElement(E.D,{size:300,weight:l},a)),n.createElement(x.C,{alignSelf:"end"},n.createElement(E.D,{size:300,weight:l},i))))),n.createElement(g.j,null))),n.createElement(G.X,{space:"two",wrap:"wrap"},n.createElement(x.C,{grow:1},n.createElement(E.D,{weight:"bold",size:400},t)),n.createElement(x.C,null,n.createElement(G.X,{direction:"column"},n.createElement(Qa,{data:r,align:ne.A$.RIGHT})))),i&&n.createElement(d.N,{margin:cn},n.createElement(G.X,{justifyContent:"end"},n.createElement(x.C,null,n.createElement(nn,{data:i})))))};on.fragment=rn,on.displayName="OfferTicketPriceSection";var sn=i.J1`
+  fragment TripUpdateButtonsFragment on ActivityTripUpdateButtons {
+    addToTrip {
+      ...EGDSButtonFragment
+    }
+    removeFromTrip {
+      ...EGDSButtonFragment
+    }
+    updateTrip {
+      ...EGDSButtonFragment
+    }
+  }
+
+  ${vt.fragment}
+`,mn={blockstart:"six"},dn={block:"three"},gn={blockstart:"six",blockend:"three"},un=({data:e,onTripClickHandler:t})=>{const{addToTrip:a,removeFromTrip:i,updateTrip:r}=e,l=n.useCallback(async()=>{a&&await t(a.action)},[a,t]),c=n.useCallback(async()=>{i&&await t(i.action)},[i,t]),o=n.useCallback(async()=>{r&&await t(r.action)},[r,t]);return n.createElement(n.Fragment,null,a&&n.createElement(d.N,{margin:gn},n.createElement("div",null,n.createElement(vt,{isFullWidth:!0,data:a,onClickHandler:l}))),r&&n.createElement(d.N,{margin:mn},n.createElement("div",null,n.createElement(vt,{isFullWidth:!0,data:r,onClickHandler:o}))),i&&n.createElement(d.N,{margin:dn},n.createElement("div",null,n.createElement(vt,{isFullWidth:!0,data:i,onClickHandler:c}))))};un.fragment=sn,un.displayName="TripUpdateButtons";var En=i.J1`
+  fragment OfferCardFragment on ActivityOffer {
+    name
+    id
+    availableTime {
+      day
+      month
+      year
+    }
+    features {
+      ...OfferFeatureFragment
+    }
+    priceDetails {
+      ...ActivityOfferPriceDetailsFragment
+    }
+    tripUpdateButtons {
+      ...TripUpdateButtonsFragment
+    }
+    description
+    travelerSelectorDialog {
+      ...ActivityTravelerSelectorDialogFragment
+    }
+    selections {
+      ... on ActivityOfferMultiSelectionOption {
+        ...ActivityOfferSelectionDialogFragment
+      }
+      ... on ActivityOfferSingleSelectionOption {
+        ...ActivityOfferSingleSelectionOptionFragment
+      }
+    }
+    activityOfferMessages {
+      removeSelectedOffer {
+        ...EGDSTextFragment
+      }
+      oneKeyEarnPointsMessage {
+        ...EGDSTextFragment
+      }
+    }
+  }
+  ${Ja.fragment}
+  ${on.fragment}
+  ${vt.fragment}
+  ${pt.fragment}
+  ${un.fragment}
+  ${Ct.fragment}
+  ${Oa.fragment}
+  ${wa.fragment}
+`,pn=i.J1`
+  query ActivityFiltersCrossSellOfferLazyQuery(
+    $context: ContextInput!
+    $activityId: String!
+    $dateRange: ActivityDateRangeInput
+    $offerId: String!
+    $filter: ActivityOfferFilterInput!
+    $shoppingPath: ShoppingPathType
+    $selectedOffers: [ActivityOfferNaturalKeyInput!]
+    $packageType: PackageType
+  ) {
+    activityInfo(
+      context: $context
+      activityId: $activityId
+      dateRange: $dateRange
+      shoppingPath: $shoppingPath
+      selectedOffers: $selectedOffers
+      packageType: $packageType
+    ) {
+      offer(offerId: $offerId, filter: $filter) {
+        ...OfferCardFragment
+      }
+    }
+  }
+
+  ${En}
+`,fn={blockstart:"three"},yn={blockstart:"half"},vn={inline:"three",block:"six"},Dn=({data:e,onTripClickHandler:t,variables:a,dialogKey:i})=>{var r;const[l,f]=n.useState(e),[y]=(0,c._)(pn,{onCompleted:e=>{f(e.activityInfo.offer)}}),[v,D]=n.useState(),[S,k]=n.useState(),{id:A,name:b,description:T,features:h,priceDetails:N,tripUpdateButtons:I,travelerSelectorDialog:F,availableTime:C,activityOfferMessages:G}=l,x=null==G?void 0:G.removeSelectedOffer,L=null==G?void 0:G.oneKeyEarnPointsMessage,R={startDate:{day:C.day,month:C.month,year:C.year},endDate:{day:C.day,month:C.month,year:C.year}};n.useMemo(()=>{var e;const t=F.ticketsStepInput.map(e=>{var t;return{code:null!=(t=e.key)?t:"",count:e.value}});D(t);const a=null==(e=null==l?void 0:l.selections)?void 0:e.reduce((e,t)=>{var a,n,i,r,l;if("ActivityOfferMultiSelectionOption"===t.__typename){const c=null!=(l=null==(n=null==(a=t.selections)?void 0:a.find(e=>"SELECTED"===e.theme))?void 0:n.value)?l:null==(r=null==(i=t.selections)?void 0:i[0])?void 0:r.value;e.push({id:t.id,value:null!=c?c:""})}return e},[]);k(a)},[F,null==l?void 0:l.selections]),n.useEffect(()=>{f(e)},[e]);const O=e=>{var t;const n=null!=(t=null==S?void 0:S.findIndex(t=>t.id===e.id))?t:0;S&&(S[n]=e,k(S)),y({variables:ve(ye({},a),{dateRange:R,offerId:A,filter:{selections:S,tickets:v}})})};return n.createElement(d.N,{margin:vn},n.createElement(o.g,{border:!0,padded:!0},n.createElement(s.w,null,n.createElement(m.T,null,n.createElement("div",null,n.createElement(u.M,{tag:"h3",size:5},b),h.map((e,t)=>n.createElement(Ja,{key:`offer-feature-${t}`,data:e,dialogKey:`${i}-${t}`})),T&&n.createElement(p.Q,{elementsToReplace:{p:e=>n.createElement(E.D,ve(ye({},e),{spacing:"three",size:200}),e.children||null),li:e=>n.createElement(E.D,ve(ye({},e),{spacing:"three",size:200}),e.children)},htmlToParse:T}),n.createElement(g.j,null),n.createElement(d.N,{margin:yn},n.createElement(Ct,{doneClickHandler:e=>{y({variables:ve(ye({},a),{dateRange:R,offerId:A,filter:{tickets:e,selections:S}})})},data:F})),null==(r=l.selections)?void 0:r.map((e,t)=>{switch(e.__typename){case"ActivityOfferMultiSelectionOption":return n.createElement(d.N,{margin:fn},n.createElement("div",null,n.createElement(Oa,{data:e,selectionIndex:t,key:`multi-offer-selection-${t}`,doneClickHandler:O,offerId:A})));case"ActivityOfferSingleSelectionOption":return n.createElement(wa,{data:e,key:`single-offer-selection-${t}`});default:return null}}),n.createElement(on,{data:N}),L&&n.createElement(d.N,{padding:{blockstart:"two"}},n.createElement(pt,{data:L})),I&&n.createElement(un,{key:`trip-update-button-${A}`,data:I,onTripClickHandler:t}),x&&n.createElement(d.N,{margin:vn},n.createElement(pt,{headingSize:6,headingAlign:"center",data:x})))))))};Dn.fragment=En,Dn.displayName="OfferCard";var Sn=i.J1`
+  fragment OffersMessageFragment on ActivityOfferMessage {
+    primary
+    secondaries
+  }
+`,kn={inline:"three",block:"six"},An={blockstart:"three"},bn=({data:e})=>{const{primary:t,secondaries:a}=e;return n.createElement(d.N,{margin:kn},n.createElement("div",null,n.createElement(u.M,{size:6,tag:"h3"},t),null==a?void 0:a.map((e,t)=>n.createElement(d.N,{key:`secondary-message-${t}`,margin:An},n.createElement(E.D,{size:300},e)))))};function Tn(e,t){return(a,n)=>{const i={day:a.day,month:a.month,year:a.year};n(a),e(ve(ye({},t),{dateRange:{startDate:i,endDate:i}}))}}bn.displayName="OffersMessage",bn.fragment=Sn;var hn=({offersList:e,onTripClickHandler:t,dateRangeInputs:a,variables:i,refetch:r})=>{if(!e||!r||!i)return null;const{offers:l,offersMessage:c}=e.activityInfo;return n.createElement(n.Fragment,null,n.createElement(d.N,{margin:{block:"six",inline:"three"}},n.createElement("div",null,n.createElement(oe.u,{inputs:a,onClick:Tn(r,i)}))),c&&n.createElement(bn,{data:c}),l.map((e,a)=>n.createElement(Dn,{key:`offer-card-${a}`,variables:i,data:e,onTripClickHandler:t,dialogKey:a})))},Nn=()=>n.createElement(d.N,{margin:{block:"six",inline:"four"}},n.createElement(o.g,{padded:!1},n.createElement(d.N,{margin:{block:"six",inline:"three"}},n.createElement(se.l,{animation:!1})),n.createElement(d.N,{margin:{blockend:"twelve",inline:"three"}},n.createElement(se.l,{animation:!0,type:"secondary"})))),In=()=>n.createElement(n.Fragment,null,n.createElement(Nn,null),n.createElement(Nn,null)),Fn=i.J1`
+  query ActivityCrossSellOffers(
+    $context: ContextInput!
+    $activityId: String!
+    $dateRange: ActivityDateRangeInput
+    $shoppingPath: ShoppingPathType
+    $selectedOffers: [ActivityOfferNaturalKeyInput!]
+    $packageType: PackageType
+  ) {
+    activityInfo(
+      context: $context
+      activityId: $activityId
+      dateRange: $dateRange
+      shoppingPath: $shoppingPath
+      selectedOffers: $selectedOffers
+      packageType: $packageType
+    ) {
+      offers {
+        ...OfferCardFragment
+      }
+      offersMessage {
+        ...OffersMessageFragment
+      }
+    }
+  }
+  ${Dn.fragment}
+  ${bn.fragment}
+`,Cn=e=>{const{inputs:t,skipSsr:a,onTripClickHandler:i}=e,{context:c}=(0,l.R)(),o=ve(ye({},t),{context:c}),{data:s,error:m,loading:d,refetch:g}=(0,r.I)(Fn,{variables:o,ssr:!a});return n.useEffect(()=>{g(o)},[g,o.selectedOffers]),d?n.createElement(In,null):m||!s?null:n.createElement(hn,{dateRangeInputs:t,variables:o,onTripClickHandler:i,offersList:s,refetch:g})};Cn.displayName="sharedui-CrossSellOffers"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-activities-cross-sell-offers.af7cadc7f284d70dc6a3.js.map

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title> Go Itu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/home.css" rel="stylesheet">
+
+        <!-- JQUERY-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+        </script>
+        
+        <!-- CSS BOOT-->
+        <link 
+        rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous">
+
+        <!-- POPPER -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous">
+        </script>
+
+        <!-- JS-->
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+         crossorigin="anonymous">
+        </script>
+        
+     <style>
+        /* Navbar transparente para index */
+        .transparent-navbar {
+            background-color: rgba(0,0,0,0.3);
+            padding: 25px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+
+        .transparent-navbar .navbar-brand img {
+            height: 60px;
+        }
+
+        .transparent-navbar .nav-link {
+            color: #fff !important;
+            font-size: 1rem;
+        }
+
+        .navbar-nav.mx-auto {
+            gap: 2rem; /* espaço entre os links */
+        }
+
+        body {
+            padding-top: 90px; /* para não ficar atrás da navbar */
+        }
+    </style>
+</head>
+<body class="membros-page">
+
+<!-- Navbar transparente fixa -->
+<nav class="navbar navbar-expand-lg navbar-dark transparent-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="imagens/logorealblu.png" alt="Logo do site">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="turismo.html">Descubra Itu</a></li>
+                <li class="nav-item"><a class="nav-link" href="historia.html">História & Cultura</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="turismoDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Turismo</a>
+                    <div class="dropdown-menu" aria-labelledby="turismoDropdown">
+                        
+                        <a class="dropdown-item" href="atrativos.html">Atrativos</a>
+                        <a class="dropdown-item" href="eventos.html">Eventos</a>
+                        <a class="dropdown-item" href="gastronomia.html">Gastronomia</a>
+                        <a class="dropdown-item" href="hoteis.html">Hospedagem</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="piDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Projeto Integrador</a>
+                    <div class="dropdown-menu" aria-labelledby="piDropdown">
+                        <a class="dropdown-item" href="projeto.html">Nosso Projeto!</a>
+                        <a class="dropdown-item" href="pi.html">O que é o P.I?</a>
+                        <a class="dropdown-item" href="membros.html">Integrantes</a>
+
+                         <li class="nav-item"><a class="nav-link" href="redessociais.html"> Redes Sociais</a></li>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- AQUI COMEÇA AS ABINHAS-->
+ <!-- ABINHA 1-->
+<section class="py-5 bg-azul-bebe mais-abaixo abinha">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- col img -->
+      <div class="col-12 col-md-5 text-center order-md-1">
+        <img src="imagens/sectiom.jfif " 
+             alt="Ilustração turismo" 
+             class="img-fluid"
+              style="width: 400px; border: 4px solid var(--azure);">
+      </div>
+
+      <!-- col do texto -->
+      <div class="col-12 col-md-7 mb-4 mb-md-0 order-md-2 text-center-md-left">
+        <h2 class="mb-3">O QUE FAZEMOS?</h2>
+        <p class="text-justify">
+          A Go Itu é uma empresa dedicada exclusivamente à promoção do turismo na cidade de Itu, interior de São Paulo. Este site é nosso canal oficial para apresentar tudo o que a cidade tem a oferecer: pontos turísticos, curiosidades, eventos, cultura local e dicas para quem deseja explorar Itu de forma prática e informativa. A Go Itu nasceu com o objetivo de valorizar o que há de único na cidade e facilitar o acesso a experiências autênticas para moradores e visitantes.
+        </p>
+      </div>
+  </div>
+</section> 
+
+ <!-- ABINHA 2-->
+<section class="py-5 bg-tranparente abinha" style="padding-top: 150px;  background-color: rgba(255, 255, 255, 0.65);
+">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- col do texto ta -->
+      <div class="col-12 col-md-7 mb-4 mb-md-0">
+        <h2 class="mb-3 text-center text-md-left">Centro de Atendimento ao Turista – Itu/SP</h2>
+        <p class="text-justify">
+          Localizado no coração da cidade, o Centro de Atendimento ao Turista oferece informações completas
+          sobre passeios, roteiros culturais, eventos e gastronomia. Nossa equipe está preparada para
+          orientar visitantes de todas as idades, garantindo que cada experiência em Itu seja inesquecível.
+        </p>
+        <p class="text-justify">
+          Além de informações turísticas, o centro disponibiliza mapas, folhetos e guias, auxiliando no
+          planejamento de passeios e promovendo a valorização do patrimônio histórico e cultural da cidade.
+        </p>
+      </div>
+      
+      <!-- MAPINHA -->
+      <div class="col-12 col-md-5 text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117296.55590271033!2d-47.44569185664061!3d-23.260643399999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf5187d4fd00a3%3A0xafec41ac60a75f80!2sSecretaria%20de%20Turismo!5e0!3m2!1spt-BR!2sbr!4v1757124107852!5m2!1spt-BR!2sbr" width="400" height="300" style="border: 4px solid var(--azure);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             
+      </div>
+      
+    </div>
+  </div>
+</section>  
+
+<!-- Footer -->
+<footer class="footer bg-dark-blue text-white mt-5">
+  <div class="container py-5">
+    <div class="row">
+
+      <!-- Coluna 1: Contato -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <h5>Contato</h5>
+        <p>Email: contato@goitu.com.br</p>
+        <p>Tel: (11) 99999-9999</p>
+      </div>
+
+      <!-- Coluna 2: Sobre nós -->
+      <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Sobre nós</h5>
+        <p class="small">
+          A Go Itu é o seu guia oficial para descobrir o melhor de Itu (SP).  
+          Cultura, história e passeios em um só lugar — vem explorar com a gente!
+        </p>
+        <p class="mb-0">&copy; 2025</p>
+      </div>
+
+      <!-- Coluna 3: Menu -->
+      <div class="col-12 col-md-4 text-md-right text-center">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="historia.html" class="footer-link">História</a></li>
+          <li><a href="turismo.html" class="footer-link">Turismo</a></li>
+           <li><a href="hoteis.html" class="footer-link">Hospedagem</a></li> 
+            <li><a href="eventos.html" class="footer-link">Eventos</a></li>
+            <li><a href="gastronomia.html" class="footer-link">Gastronomia</a></li>
+            <li><a href="atrativos.html" class="footer-link">Atrativos</a></li>
+          <li><a href="pi.html" class="footer-link">O que é PI?</a></li>
+            <li><a href="membros.html" class="footer-link">Integrantes</a></li>
+          <li><a href="redessociais.html" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+      <script src="scripts.js"></script>
+
+    </body>
+
+</html>

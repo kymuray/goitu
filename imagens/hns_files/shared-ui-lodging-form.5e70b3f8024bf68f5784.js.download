@@ -1,0 +1,171 @@
+/*@license For license information please refer to shared-ui-lodging-form.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[347],{22214:function(e,t,r){r.d(t,{E1:function(){return j},b7:function(){return He},g$:function(){return G},jx:function(){return X},p0:function(){return je},rB:function(){return Y},xJ:function(){return qe}});var a=r(56195),n=r(26690),o=r(64341),l=r(90237),i=r(29462),s=r(97778),d=r(53017),c=r(51213),u=r(63085),m=r(43888),p=r(70882),g=r(87993),v=r(80240),f=r(20637),y=r(63998),h=r(22272),D=r(72402),E=r(37292),I=r(27102),b=r(95519),C=r(60156),R=r(522),k=r(99828),x=r(934),A=r(42534),T=r(23726),S=r(51537),$=r(1226),F=r(34372),O=r(28230),P=Object.defineProperty,L=Object.defineProperties,N=Object.getOwnPropertyDescriptors,_=Object.getOwnPropertySymbols,M=Object.prototype.hasOwnProperty,B=Object.prototype.propertyIsEnumerable,V=(e,t,r)=>t in e?P(e,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[t]=r,q=(e,t)=>{for(var r in t||(t={}))M.call(t,r)&&V(e,r,t[r]);if(_)for(var r of _(t))B.call(t,r)&&V(e,r,t[r]);return e},w=(e,t)=>L(e,N(t)),U=a.createContext(()=>{}),G=()=>a.useContext(U),j=U.Provider,H=a.createContext(null),z=()=>a.useContext(H),K=({children:e,value:t})=>{const{context:r}=(0,o.R)();return a.createElement(H.Provider,{value:w(q({},t),{context:r})},e)},Q=a.createContext({addExecutor:e=>[e]}),W=Q.Provider,Y=(n.gql`
+  query FormQuery($context: ContextInput!, $propertyId: String!, $roomInput: [RoomInput!], $dateRange: PropertyDateRangeInput) {
+    propertyInfo(context: $context, propertyId: $propertyId) {
+      searchForm(roomInput: $roomInput, dateRange: $dateRange) @client {
+        id
+        method
+        action
+      }
+    }
+  }
+`,e=>{const{inputs:t,data:r,children:n,formRef:l}=e,{context:i}=(0,o.R)(),[s,d]=a.useState([]),c=a.useCallback(e=>{d([...s,e])},[s,d]),u=w(q({},t||{}),{context:i}),m=G(),p=a.useCallback(e=>{const t=new FormData(e.target);s.some(e=>!e(t,"ON_SUBMIT"))?e.preventDefault():m({type:"submit",event:e,data:t})},[m,s]);if(!r)return null;const{method:g,action:v,id:f}=r;return a.createElement("form",{method:g,action:v,id:f,onSubmit:p,"data-stid":"lodging-form",ref:l},a.createElement(K,{value:u},a.createElement(W,{value:{addExecutor:c}},n)))});Y.displayName="sharedui-LodgingForm";var X=(0,a.createContext)({referrer:{pagePrefix:""}});function J(){return(0,a.useContext)(X)}var Z=n.gql`
+  query DateFieldRatesQuery($context: ContextInput!, $propertyId: String!, $roomInput: [RoomInput!]!, $dateRange: PropertyDateRangeInput!) {
+    propertyInfo(context: $context, propertyId: $propertyId) {
+      id
+      propertyCalendar(dateRange: $dateRange, roomInput: $roomInput) {
+        propertyCalendarRates {
+          date {
+            isoFormat
+          }
+          displayPrice
+          accessibilityLabel
+          theme
+        }
+        disclaimer {
+          value
+        }
+      }
+    }
+  }
+`,ee=()=>({}),te=e=>{switch(e){case"AGGRESSIVE":return"negative";case"HIGHLIGHT":return"positive";default:return""}},re=(e,t)=>{const r=new Set,a=t.map(e=>(r.add(e.date.isoFormat),e));return e.filter(e=>!r.has(e.date.isoFormat)).forEach(e=>{a.push(e)}),a},ae=(e,{fetchMoreResult:t})=>t?!e||"object"==typeof e&&0===Object.keys(e).length?t:{propertyInfo:w(q({},e.propertyInfo),{propertyCalendar:w(q({},e.propertyInfo.propertyCalendar),{disclaimer:t.propertyInfo.propertyCalendar.disclaimer,propertyCalendarRates:re(e.propertyInfo.propertyCalendar.propertyCalendarRates,t.propertyInfo.propertyCalendar.propertyCalendarRates)})})}:e,ne=(e,t)=>r=>{const{startDate:a,endDate:n}=((e,t)=>{const r=new Date,a=new Date(e);a.setDate(e.getDate()-t/2);let n=a;a<r&&(n=r);const o=new Date(n);return o.setDate(o.getDate()+t),{startDate:n,endDate:o}})(r,90),o={checkInDate:{day:a.getDate(),month:a.getMonth()+1,year:a.getFullYear()},checkOutDate:{day:n.getDate(),month:n.getMonth()+1,year:n.getFullYear()}},l=w(q({},t||{}),{dateRange:o});null==e||e({variables:l,updateQuery:ae})},oe=e=>{const t=z(),r=w(q({},t),{roomInput:[{adults:2}]}),[o,{data:l,fetchMore:i}]=(0,n.useLazyQuery)(Z,{ssr:!1,variables:r||{}});if(a.useEffect(()=>{e&&o()},[o,e]),!e)return[{},"",ee];return[(e=>{if(e)return e.reduce((e,t)=>{const r=q({},e);return r[t.date.isoFormat]={text:t.displayPrice,className:te(t.theme),ariaLabel:t.accessibilityLabel},r},{})})(null==l?void 0:l.propertyInfo.propertyCalendar.propertyCalendarRates),(null==l?void 0:l.propertyInfo.propertyCalendar.disclaimer.value)||"",ne(i,r)]},le=(e,t,r)=>({id:e,description:t,callback:()=>r(e,t,!0)}),ie=e=>e,se=n.gql`
+  fragment DateOrderValidationFragment on DateOrderValidation {
+    events
+    error
+  }
+`;var de=n.gql`
+  fragment EndDateRequiredValidationFragment on EndDateRequiredValidation {
+    events
+    error
+  }
+`;var ce=n.gql`
+  fragment MaxDateRangeValidationFragment on MaxDateRangeValidation {
+    events
+    error
+    maxDateRange
+  }
+`;var ue=n.gql`
+  fragment StartDateRequiredValidationFragment on StartDateRequiredValidation {
+    events
+    error
+  }
+`;function me(e,t,r){return t&&t.length?t.reduce((t,a)=>{let[n,o]=[!0,null];const l=[...t];if(!a.events.find(t=>t===e))return l;switch(a.__typename){case"DateOrderValidation":[n,o]=function(e,t){const{startDate:r,endDate:a}=t;return r&&a&&ve(r)&&ve(a)?[r<a,"end"]:[!0,"start"]}(0,r);break;case"MaxDateRangeValidation":[n,o]=function(e,t){const{startDate:r,endDate:a}=t;if(!(r&&a&&ve(r)&&ve(a)))return[!0,"end"];const n=new Date(r);return n.setDate(n.getDate()+e.maxDateRange),[a<=n,"end"]}(a,r);break;case"StartDateRequiredValidation":[n,o]=function(e,t){const{startDate:r}=t;return r&&ve(r)?[!0,"start"]:[!1,"start"]}(0,r);break;case"EndDateRequiredValidation":[n,o]=function(e,t){const{endDate:r}=t;return r&&ve(r)?[!0,"start"]:[!1,"end"]}(0,r)}return n?l:(l.push({message:a.error,dateType:o}),[...l])},[]):[]}var pe=new Date,ge=n.gql`
+  fragment DateFieldFragment on LodgingFormDateField {
+    startId
+    startName
+    startLabel
+    startPlaceholder
+    startInvalid
+
+    endId
+    endName
+    endLabel
+    endPlaceholder
+    endInvalid
+
+    buttonText
+    daysBookableInAdvance
+    midnightBookingOffset
+
+    validations {
+      ...DateOrderValidationFragment
+      ...MaxDateRangeValidationFragment
+      ...StartDateRequiredValidationFragment
+      ...EndDateRequiredValidationFragment
+    }
+  }
+
+  ${se}
+  ${ce}
+  ${ue}
+  ${de}
+`,ve=e=>Boolean(e&&"Invalid Date"!==e.toDateString()),fe=e=>{if(!e)return;const{year:t,month:r,day:a}=e;return new Date(t,r-1,a)},ye=e=>({day:e.getDate(),month:e.getMonth()+1,year:e.getFullYear()}),he=e=>{var t;"function"==typeof(null==(t=null==e?void 0:e.current)?void 0:t.focus)&&e.current.focus()},De=({autoOpenCalendar:e,closeOnSubmit:t=!0,data:r,endDateRef:n,fieldName:o,isOpenOverride:g,startDateRef:v,onDismiss:f,mediumDateFormatProp:y,showCalendar:h})=>{const D=r,{buttonText:E,daysBookableInAdvance:I,midnightBookingOffset:b,validations:C}=D,R=((e,t)=>{var r={};for(var a in e)M.call(e,a)&&t.indexOf(a)<0&&(r[a]=e[a]);if(null!=e&&_)for(var a of _(e))t.indexOf(a)<0&&B.call(e,a)&&(r[a]=e[a]);return r})(D,["buttonText","daysBookableInAdvance","midnightBookingOffset","validations"]),{referrer:k}=J(),[x,A]=a.useState(!1),[T,S]=a.useState(R.startInvalid),[$,F]=a.useState(R.endInvalid),O=G(),P=z(),{addExecutor:L}=a.useContext(Q),{formatDateString:N,getWeekData:V}=(0,c.useLocalization)(),{warning:U}=(0,u.useLogger)(),j=(0,s.useClickTracker)(),H=a.useMemo(()=>{var e;return fe(null==(e=null==P?void 0:P.dateRange)?void 0:e.checkInDate)},[P]),K=a.useMemo(()=>{var e;return fe(null==(e=null==P?void 0:P.dateRange)?void 0:e.checkOutDate)},[P]),W=a.useMemo(()=>((e,t,r)=>({startAnalytics:le(`${e}:ChangeDatesCheckIn`,"Open Date Picker",t),endAnalytics:le(`${e}:ChangeDatesCheckOut`,"Open Date Picker",t),datePickerAnalytics:{closeAnalytics:le(`${e}:ChangeDatesClose`,"Close Date Picker",t),doneAnalytics:r?le(`${e}:ChangeDatesDone`,"Apply Date Picker",t):le(`${e}:Datepicker-Done-Button-Pressed`,"Search Date Picker",t),nextPageAnalytics:le(`${e}:NextMonthClick`,"Next Month Click",t),previousPageAnalytics:le(`${e}:PreviousMonthClick`,"Previous Month Click",t)}}))(k.pagePrefix,j,Boolean(H||K)),[j,H,K,k]),[Y,X,Z]=(()=>{const[e,t,r]=(0,p.useDialog)("datepicker-start"),[n,o,l]=(0,p.useDialog)("datepicker-end");return[(t,o)=>o===i.mn.END?a.createElement(m.K,{isVisible:n},a.createElement(l,null,a.createElement(a.Fragment,null,t))):a.createElement(m.K,{isVisible:e},a.createElement(r,null,a.createElement(a.Fragment,null,t))),e=>{e===i.mn.END?o.openDialog():t.openDialog()},()=>{n?o.closeDialog():t.closeDialog()}]})(),{exposure:ee,logExperiment:te}=(0,d.useExperiment)("AvailCal_High_and_Low_Web"),re=a.useMemo(()=>(e,t,r)=>{var a;const l=me(e,C,{startDate:t,endDate:r});return!l.length||(O({type:"error",field:o,errors:l}),"ON_LOAD"!==e&&("start"===(null==(a=l[0])?void 0:a.dateType)?he(v):he(n)),l.forEach(e=>{"end"===e.dateType?F(e.message):S(e.message)}),!1)},[C,O,o,v,n]),[ae,ne,se]=oe(ve(H)&&ve(K)),de=parseInt(l.aF[V().firstDay.toUpperCase()],10);a.useEffect(()=>{L((e,t)=>{const a=new Date(e.get(r.startName)),n=new Date(e.get(r.endName));return re(t,a,n)}),H&&K&&re("ON_LOAD",H,K),e&&A(!0)},[]),a.useEffect(()=>{A(!!e)},[e]);const ce=w(q({},R),{endInvalid:$,startInvalid:T,routerLinkWrapper:ie,showDatePicker:void 0!==g?g:x,startAnalytics:W.startAnalytics,endAnalytics:W.endAnalytics,mediumDateFormatProp:y}),ue={analytics:W.datePickerAnalytics,dateFieldProps:ce,datePickerContent:ae,footerText:ne,dialogWrapper:Y,onOpenCB:(e,t)=>{H&&(null==se||se(H)),t&&(X(e),h&&h(!0)),te(ee),ae&&Object.keys(ae).length>0&&j(`${k.pagePrefix}.Property_Calendar.Rates`,"Calendar Rates visible to user"),A(!0)},onSubmitCB:(e,r,a)=>{a?(t&&Z(),h&&h(!1)):A(!1),(null==e?void 0:e.toDateString())===(null==H?void 0:H.toDateString())&&(null==r?void 0:r.toDateString())===(null==K?void 0:K.toDateString())||(S(""),F(""),re("ON_CHANGE",e,r)?O({type:"change",field:o,value:{dates:e&&r?{checkInDate:ye(e),checkOutDate:ye(r)}:void 0}}):a&&t&&Z())},onDismissCB:e=>{if(!e||!f)return e?(Z(),void(h&&h(!1))):void A(!1);f()},buttonText:E,startDate:H&&ve(H)?N(H,{raw:"yyyy-MM-dd"}):"",endDate:K&&ve(K)?N(K,{raw:"yyyy-MM-dd"}):"",doubleMonths:!0,daysBookableInAdvance:I||void 0,firstDayOfWeek:de,midnightBookingOffset:b||void 0,validStartDate:N(pe,{raw:"yyyy-MM-dd"}),startDateRef:v,endDateRef:n};return(T||$)&&U("SEARCH_FORM_DATE_RANGE_ERROR",`${T} | ${$}`,`startDate=${H} endDate=${K}`),a.createElement(i.e5,q({},ue))};De.displayName="DateField",(De.fragment=ge).__typename="LodgingFormDateField";var Ee=n.gql`
+  fragment SubmitButtonFragment on LodgingFormSubmitButton {
+    label
+  }
+`,Ie=({data:e,className:t,inputRef:r})=>{const{label:n}=e,[o]=(0,a.useContext)(y.I),{amenitiesAdaptExSuccessEvents:l}=o,{referrer:i}=J(),d=(0,s.useClickTracker)(),{track:c}=(0,s.useClickstreamAnalytics)();return a.createElement(g.y,{onClick:()=>{d(`${i.pagePrefix}:Datepicker-Check-Availability`,"Check Availability"),[...l].forEach(e=>{c(s.ITrackType.EVENT,{data:(0,f.rPv)(q({},e))})})},className:t,type:"submit",domRef:r,isFullWidth:!0,size:v.V.LARGE},n)};(Ie.fragment=Ee).__typename="LodgingFormSubmitButton",Ie.displayName="SubmitButton";var be=n.gql`
+  query FormFieldQuery($context: ContextInput!, $propertyId: String!) {
+    propertyInfo(context: $context, propertyId: $propertyId) {
+      searchForm @client {
+        fields {
+          ...DateFieldFragment
+          ...SubmitButtonFragment
+        }
+      }
+    }
+  }
+
+  ${De.fragment}
+  ${Ie.fragment}
+`;function Ce(e){const t=function(e){const t=t=>{var r;const{skipSsr:o}=t,l=z(),{data:i,error:s,loading:d}=(0,n.useQuery)(be,{context:{shouldLogPerformance:!0},variables:l||{},ssr:!o});if(s||d)return null;const c=null==(r=null==i?void 0:i.propertyInfo.searchForm)?void 0:r.fields.find(t=>t.__typename===e.fragment.__typename);return c?a.createElement(e,q({data:c},t)):null};return t.displayName=`${e.displayName}Query`,t}(e),r=a.memo(r=>{const{data:n}=r;return void 0!==n?a.createElement(e,w(q({},r),{data:n})):a.createElement(t,q({},r))});return r.displayName=`${e.displayName}Isomorphic`,r}function Re(e,...t){return e.replace(/({\d})/g,e=>{const r=parseInt(e.slice(1,-1),10);return t[r]})}var ke=a.createContext(()=>{}),xe=()=>a.useContext(ke),Ae=ke.Provider,Te=n.gql`
+  fragment TravelersSummaryFragment on TravelersSummary {
+    roomsAndGuests
+  }
+`,Se=(e,t,r=!0)=>{const{rooms:n}=e,o=a.useMemo(()=>n&&n.length>0?n.reduce((e,t)=>e+(t.adults||0),0):0,[n])+a.useMemo(()=>n&&n.length>0?n.reduce((e,t)=>{var r;return e+((null==(r=t.children)?void 0:r.length)||0)},0):0,[n]),{formatText:l}=(0,c.useLocalization)();if(!r)return o.toString();const i=n.length,{roomsAndGuests:s}=t;return l(s,i,o)},$e=(e,...t)=>{let r=e;return t.forEach((e,t)=>{const a=new RegExp(`\\{${t}\\}`,"g");r=r.replace(a,e.toString())}),r},Fe=n.gql`
+  fragment ChildrenAgesFragment on ChildrenAges {
+    childAgeUpdatedLiveAnnounce
+    selectChildAgeLabel
+    youngestChildAgeText
+  }
+`,Oe=({childAge:e,childIndex:t,roomIndex:r,data:n})=>{const{childAgeUpdatedLiveAnnounce:o,selectChildAgeLabel:l,youngestChildAgeText:i}=n,d=xe(),c=(0,s.useClickTracker)(),{referrer:u}=J(),m=a.useMemo(()=>(e=>{const t=[];for(let r=0;r<=17;r+=1){const a=0===r?Re(e,1):r.toString();t.push({value:`${r}`,name:a})}return t})(i),[i]),p=`child-${r}-${t}`,g=`age-${t}`;return a.createElement(F._,{label:Re(l,t+1),id:g,name:p,value:e.toString(),onChange:e=>{const a=parseInt(e.target.value,10);Number.isNaN(a)||d({type:"UPDATE_CHILD_AGE",roomIndex:r,childIndex:t,childAge:a}),c(`${u.pagePrefix}:ROOM.${r}.Child.${t}.AGE.${a}`,"Child age update"),(0,S.liveAnnounce)(Re(o,t,a),S.Level.POLITE)}},m.map(e=>a.createElement("option",{key:e.value,value:e.value},e.name)))};Oe.displayName="ChildrenAges",Oe.fragment=Fe;var Pe=n.gql`
+  fragment TravelersStepInputFragment on StepInput {
+    title
+    increaseText
+    decreaseText
+    caption
+  }
+`,Le=({data:e,min:t,max:r,roomIndex:n,roomCount:o,room:l,travelerType:i})=>{var d;const{title:c,increaseText:u,decreaseText:m,caption:p}=e,{referrer:g}=J(),v=(0,s.useClickTracker)(),f=xe(),y="adults"===i?"UPDATE_ADULTS_COUNT":"UPDATE_CHILDREN_COUNT",h=a.useMemo(()=>({id:`${g.pagePrefix}:Guest`,description:"Adjust guest count in change search",callback:(e,t)=>v(e,t)}),[v]),D=`room-${o}-${n}-${i}`,E="adults"===i?l.adults:null==(d=l.children)?void 0:d.length;return a.createElement(O.W7,{label:c,incrementText:Re(u,n+1),incrementId:`${D}-increase`,decrementText:Re(m,n+1),decrementId:`${D}-decrease`,description:p||void 0,min:t,max:r,value:E,onChange:e=>{const t=parseInt(e.target.value,10);Number.isNaN(t)||f({type:y,roomIndex:n,count:t})},analytics:h,id:D})};Le.displayName="TravelersStepInput",Le.fragment=Pe;var Ne=n.gql`
+  fragment RoomFragment on RoomField {
+    roomTitleAriaLabel
+    roomTitle
+    removeRoomButtonLabel
+    removeRoomButtonAriaLabel
+    roomRemovedLiveAnnounce
+
+    adultsStepInput {
+      ...TravelersStepInputFragment
+    }
+    childrenStepInput {
+      ...TravelersStepInputFragment
+    }
+
+    childrenAges {
+      ...ChildrenAgesFragment
+    }
+  }
+
+  ${Pe}
+  ${Fe}
+`,_e=({headerRef:e,room:t,roomCount:r,roomIndex:n,singleUnit:o,totalTravelers:l,data:i})=>{var d,c,u;const m=r===n+1,{roomTitleAriaLabel:p,roomTitle:g,removeRoomButtonLabel:v,removeRoomButtonAriaLabel:f,adultsStepInput:y,childrenStepInput:h,childrenAges:D,roomRemovedLiveAnnounce:E}=i,I=(0,s.useClickTracker)(),C=xe(),{referrer:x}=J();return a.createElement(A.N,{key:`room-${r}-${n}`,padding:o?{blockend:"three"}:{block:"three"},margin:o?{blockend:"three"}:{block:"three"},border:o?void 0:["blockend"]},a.createElement("div",null,a.createElement("h3",{tabIndex:-1,className:"uitk-type-200 uitk-type-medium","aria-label":Re(p,n+1,r),ref:m?e:null},a.createElement("span",{"aria-hidden":"true"},Re(g,n+1))),a.createElement(Le,{travelerType:"adults",min:1,max:t.adults+14-l,roomIndex:n,roomCount:r,room:t,data:y}),a.createElement(Le,{travelerType:"children",min:0,max:Math.min(6,((null==(d=t.children)?void 0:d.length)||0)+14-l),roomIndex:n,roomCount:r,room:t,data:h}),t.children&&(null==(c=t.children)?void 0:c.length)>0&&a.createElement($.w,{space:"two",columns:2},null==(u=t.children)?void 0:u.map(({age:e},t)=>a.createElement(Oe,{key:t,childAge:e,childIndex:t,roomIndex:n,data:D}))),0!==n&&a.createElement(A.N,{padding:{blockstart:"four"}},a.createElement(R.X,{justifyContent:"end"},a.createElement(k.C,null,a.createElement(b.q,{onClick:()=>{C({type:"REMOVE_ROOM",roomIndex:n}),I(`${x.pagePrefix}:RemoveRoom`,"Remove room"),(0,S.liveAnnounce)(Re(E,r))},"aria-label":$e(f,n+1,r)},v))))))};_e.displayName="Room",_e.fragment=Ne;var Me=n.gql`
+  fragment RoomPickerFragment on LodgingFormTravelers {
+    roomPicker {
+      accessibility
+      toolBarIconLabel
+      toolBarTitle
+      addRoomText
+      doneLabel
+      roomAddedLiveAnnounce
+      room {
+        ...RoomFragment
+      }
+    }
+    travelersSummary {
+      ...TravelersSummaryFragment
+    }
+  }
+
+  ${Ne}
+  ${Te}
+`,Be=({data:e,onDismiss:t,onSave:r,onUpdate:n,submitDisabled:o=!1,travelersInput:l,triggerRef:i})=>{const[d,c]=a.useReducer((e,t)=>{const r=((e,t)=>{var r,a,n;switch(t.type){case"ADD_ROOM":return w(q({},e),{rooms:e.rooms.concat([{adults:1}])});case"REMOVE_ROOM":{const{roomIndex:r}=t;return w(q({},e),{rooms:e.rooms.filter((e,t)=>t!==r)})}case"UPDATE_ADULTS_COUNT":{const{roomIndex:r,count:a}=t;return w(q({},e),{rooms:e.rooms.map((e,t)=>t===r?w(q({},e),{adults:a}):e)})}case"UPDATE_CHILDREN_COUNT":{const{roomIndex:o,count:l}=t,i=l>(null!=(n=null==(a=null==(r=e.rooms[o])?void 0:r.children)?void 0:a.length)?n:0);return w(q({},e),{rooms:e.rooms.map((e,t)=>{var r,a;return t===o?w(q({},e),{children:i?(null==(r=e.children)?void 0:r.concat([{age:0}]))||[{age:0}]:null==(a=e.children)?void 0:a.slice(0,-1)}):e})})}case"UPDATE_CHILD_AGE":{const{roomIndex:r,childIndex:a,childAge:n}=t;return w(q({},e),{rooms:e.rooms.map((e,t)=>{var o;return r===t?w(q({},e),{children:null==(o=e.children)?void 0:o.map((e,t)=>a===t?{age:n}:e)}):e})})}default:return e}})(e,t);return n&&n(r),r},l),{roomPicker:u}=e,{accessibility:m,toolBarIconLabel:p,toolBarTitle:g,addRoomText:f,doneLabel:y,room:h,roomAddedLiveAnnounce:D}=u,E=a.useRef(null),{referrer:I}=J(),$=(0,s.useClickTracker)();a.useEffect(()=>{var e;f&&"function"==typeof(null==(e=null==E?void 0:E.current)?void 0:e.focus)&&E.current.focus()},[d.rooms.length,f]);const F=()=>{(0,S.liveAnnounce)("",S.Level.ASSERTIVE)},O=a.useMemo(()=>({id:`${I.pagePrefix}:ChangeRoomGuest`,description:"Close Room Picker",callback:(e,t)=>$(e,t)}),[$]),P=d.rooms.reduce((e,t)=>{var r;return e+t.adults+((null==(r=t.children)?void 0:r.length)||0)},0),L=d.rooms.length>=8||P>=14;return a.createElement(Ae,{value:c},a.createElement(x.t,{type:"centered",centeredSheetSize:"small",isVisible:!0,triggerRef:i},a.createElement(T.p,{toolbarTitleA11yText:m,toolbarTitle:g,navigationContent:{onClick:()=>{t&&(F(),t())},onClickAnalytics:O,navType:"close",navIconLabel:p}}),a.createElement(A.N,{className:"uitk-scroll-vertical",padding:{inline:"four",blockstart:"half",blockend:"three"}},a.createElement("section",null,d.rooms.map((e,t)=>a.createElement(_e,{data:h,headerRef:E,key:t,room:e,roomCount:d.rooms.length,roomIndex:t,singleUnit:!f,totalTravelers:P})),f&&a.createElement(A.N,{padding:{blockstart:"four",blockend:"twelve"}},a.createElement(R.X,{justifyContent:"end"},a.createElement(k.C,null,a.createElement(b.q,{onClick:()=>{c({type:"ADD_ROOM"}),$(`${I.pagePrefix}:AddRoom`,"Add room"),(0,S.liveAnnounce)(Re(D,d.rooms.length),S.Level.POLITE)},disabled:L},f)))),a.createElement(C.t,{size:v.V.LARGE,onClick:()=>{r&&(F(),r(d))},disabled:o},y)))))};Be.displayName="RoomPicker",Be.fragment=Me;var Ve=({rooms:e})=>{const{adultsString:t,childrenString:r}=(e=>({adultsString:a.useMemo(()=>e.map(e=>e.adults).filter(e=>e>0).join(","),[e]),childrenString:a.useMemo(()=>e.map((e,t)=>{var r;return null==(r=e.children)?void 0:r.map(e=>`${t+1}_${e.age}`).join(",")}).filter(e=>e&&""!==e).join(","),[e])}))(e);return a.createElement(a.Fragment,null,t&&a.createElement("input",{type:"hidden",name:"adults",value:t,readOnly:!0}),r&&a.createElement("input",{type:"hidden",name:"children",value:r,readOnly:!0}))};Ve.displayName="TravelersHiddenInput";var qe=(e=>(e.INPUT="input",e.LINK="link",e))(qe||{}),we=n.gql`
+  fragment TravelersFieldFragment on LodgingFormTravelers {
+    label
+    travelersSummary {
+      ...TravelersSummaryFragment
+    }
+    ...RoomPickerFragment
+  }
+
+  ${Me}
+  ${Te}
+`,Ue=[{adults:2}],Ge=({fieldName:e,className:t,data:r,closeOnSubmit:n=!0,trigger:o})=>{const[l,i]=a.useState(!1),d=a.useRef(null),{referrer:c}=J(),u=G(),g=z(),[v,{closeDialog:f,openDialog:y},b]=(0,p.useDialog)("travelerPicks"),C=(0,s.useClickTracker)(),R=a.useRef(null),k=(null==g?void 0:g.roomInput)||Ue,[x,A]=a.useState(k);a.useEffect(()=>{k&&A(k)},[k]);const{label:T,travelersSummary:S}=r,$={rooms:x},F=Se($,S,l),O=Se({rooms:x},S,l);a.useEffect(()=>{i(!0)},[]);const P=()=>{var e;"function"==typeof(null==(e=null==d?void 0:d.current)?void 0:e.focus)&&d.current.focus()},L=t=>{const{rooms:r}=t;A(r),u({type:"change",field:e,value:t}),C(`${c.pagePrefix}:ChangeRoomGuestDone`,"Apply Room Picker"),P(),n&&f()},N=()=>{y(),C(`${c.pagePrefix}:ChangeRoomGuest`,"Open Room Picker")};if("link"===o)return a.createElement(a.Fragment,null,a.createElement(E.i,{onClick:N,inline:!0},a.createElement("button",{type:"button",ref:R},a.createElement(I.D,{size:300},O))),a.createElement(Ve,{rooms:x}),a.createElement(m.K,{isVisible:v},a.createElement(b,null,a.createElement(Be,{travelersInput:$,onSave:L,onDismiss:f,data:r,triggerRef:R}))));const _={id:"travelers-field-id",label:T,icon:"person"},M=w(q({},_),{name:"adults"}),B=w(q({},_),{onChange:N,onClick:N,domRef:d});return a.createElement("div",{className:t},l?a.createElement(a.Fragment,null,a.createElement(h.H,w(q({},B),{value:F,domRef:R})),a.createElement(Ve,{rooms:x})):a.createElement(D.V,w(q({},M),{value:F,domRef:R})),a.createElement(m.K,{isVisible:v},a.createElement(b,null,a.createElement(Be,{travelersInput:$,onSave:L,onDismiss:()=>{f(),P()},data:r,triggerRef:R}))))};Ge.displayName="TravelersField",Ge.fragment=w(q({},we),{__typename:"LodgingFormTravelers"});Ce(De);var je=Ce(Ge),He=Ce(Ie)}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-lodging-form.5e70b3f8024bf68f5784.js.map

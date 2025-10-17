@@ -1,0 +1,188 @@
+/*@license For license information please refer to shared-ui-retail-sponsored-content-brand-result-listing-cars.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[40],{42967:function(e,n,t){t.d(n,{w:function(){return Ee}});var r,a,i=t(56195),l=t(92919),o=t(42534),c=t(26690),s=t(64341),d=t(53017),m=t(84459),u=t(97778),p=t(63744),g=t(87698),E=t(32462),y=t(64097),f=t(46559),v=t(24109),C=t(9010),A=t(36145),_=t(522),h=t(99828),b=t(87818),N=t(74071),w=t(27102),k=t(80043),T=Object.defineProperty,I=Object.defineProperties,S=Object.getOwnPropertyDescriptors,O=Object.getOwnPropertySymbols,D=Object.prototype.hasOwnProperty,L=Object.prototype.propertyIsEnumerable,x=(e,n,t)=>n in e?T(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t,B=(e,n)=>{for(var t in n||(n={}))D.call(n,t)&&x(e,t,n[t]);if(O)for(var t of O(n))L.call(n,t)&&x(e,t,n[t]);return e};(a=r||(r={})).CRITICAL="CRITICAL",a.ERROR="ERROR",a.WARN="WARN",a.INFO="INFO",a.UNKNOWN="UNKNOWN";var F=function(){function e(e,n){this.level=e,this.name=n}return e.prototype.toString=function(){return"SystemEvent(level="+this.level.toString()+" name="+this.name+")"},e}(),R=function(e,n){var t="function"==typeof Symbol&&e[Symbol.iterator];if(!t)return e;var r,a,i=t.call(e),l=[];try{for(;(void 0===n||n-- >0)&&!(r=i.next()).done;)l.push(r.value)}catch(o){a={error:o}}finally{try{r&&!r.done&&(t=i.return)&&t.call(i)}finally{if(a)throw a.error}}return l},U=function(){for(var e=[],n=0;n<arguments.length;n++)e=e.concat(R(arguments[n]));return e},P=function(){return function(e){var n=this;this.event=e.event||function(){};var t=function(e,t){for(var r=[],a=2;a<arguments.length;a++)r[a-2]=arguments[a];n.event&&n.event.apply(n,U([new F(e,t)],r))};this.info=e.info||function(e){for(var n=[],a=1;a<arguments.length;a++)n[a-1]=arguments[a];return t.apply(void 0,U([r.INFO,e],n))},this.warning=e.warning||function(e){for(var n=[],a=1;a<arguments.length;a++)n[a-1]=arguments[a];return t.apply(void 0,U([r.WARN,e],n))},this.error=e.error||function(e){for(var n=[],a=1;a<arguments.length;a++)n[a-1]=arguments[a];return t.apply(void 0,U([r.ERROR,e],n))}}}(),G=function(){return G=Object.assign||function(e){for(var n,t=1,r=arguments.length;t<r;t++)for(var a in n=arguments[t])Object.prototype.hasOwnProperty.call(n,a)&&(e[a]=n[a]);return e},G.apply(this,arguments)},$=new P({}),j=i.createContext($);function z(e){var n=i.useContext(j);return Object.keys(e).reduce(function(t,r){var a;return G(G({},t),((a={})[r]={log:function(t){return void 0===t&&(t={}),n.event(e[r],{payload:t})}},a))},{})}var K=new F(r.INFO,"AD_BLOCK_DETECTED"),W=()=>(z({AD_BLOCK_DETECTED_EVENT:K}).AD_BLOCK_DETECTED_EVENT.log({message:"collapsing"}),null),M=e=>{const{children:n}=e;return z({AD_BLOCK_DETECTED_EVENT:K}).AD_BLOCK_DETECTED_EVENT.log({message:"not collapsing"}),i.createElement(i.Fragment,null,n)};var q=c.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+    urls
+  }
+`,H={FAIL_TO_SEND_BEACON_USING_BEACON_API:new F(r.WARN,"FAIL_TO_SEND_BEACON_USING_BEACON_API")},V=c.gql`
+  fragment SponsoredContentBeaconsFragment on SponsoredContentBeacons {
+    renderBeacons
+    viewabilityBeacon
+  }
+`,X=e=>{const n=z(H);i.useEffect(()=>{var t;e&&(null==(t=e.renderBeacons)||t.forEach(e=>{((e,n)=>{try{navigator.sendBeacon(encodeURI(e))||n.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({})}catch(t){n.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({error:t})}})(e,n)}))},[])},Q=c.gql`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    text
+    action {
+      ...UILinkActionFragment
+    }
+  }
+`,Y=c.gql`
+  fragment UILinkActionFragment on UILinkAction {
+    accessibility
+    analytics {
+      referrerId
+      linkName
+      urls
+    }
+    resource {
+      ... on HttpURI {
+        value
+      }
+    }
+    target
+  }
+`,J={EXTERNAL:"_blank",INTERNAL:"_self"},Z=({className:e,data:n,children:t,onClick:r})=>{const{accessibility:a,resource:l,target:o,analytics:c}=n,s=(0,u.useClickTracker)(),d=i.useCallback(()=>{var e;null==(e=null==c?void 0:c.urls)||e.forEach(e=>{null==navigator||navigator.sendBeacon(e)}),(null==c?void 0:c.referrerId)&&(null==c?void 0:c.linkName)&&s(c.referrerId,c.linkName),r&&r()},[s]);return"HttpURI"!==l.__typename?null:i.createElement("a",{className:e,target:J[o],href:l.value,rel:"noopener",onClickCapture:d},a&&i.createElement("span",{className:"is-visually-hidden"},a),t)};Z.fragment=Y,Z.displayName="UILinkAction";var ee=c.gql`
+  fragment ClickActionFragment on SponsoredContentClickAction {
+    __typename
+    ... on UILinkAction {
+      ...UILinkActionFragment
+    }
+    ... on CriteriaUpdateAction {
+      ...CriteriaUpdateActionFragment
+    }
+  }
+
+  fragment CriteriaUpdateActionFragment on CriteriaUpdateAction {
+    secondaryCriteria {
+      ...SecondaryCriteriaFragment
+    }
+    accessibility
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  fragment SecondaryCriteriaFragment on ShoppingSearchCriteria {
+    booleans {
+      id
+      value
+    }
+    counts {
+      id
+      value
+    }
+    dates {
+      id
+      value {
+        day
+        month
+        year
+      }
+    }
+    ranges {
+      id
+      max
+      min
+    }
+    selections {
+      id
+      value
+    }
+  }
+
+  ${Z.fragment}
+  ${q}
+`,ne=e=>{var n;const{secondaryCriteria:t,analytics:r,actionType:a}=e,l=(0,m.EY)(),o=null==(n=null==l?void 0:l.secondaryCriteria)?void 0:n.selections,c=null==t?void 0:t.selections,s=null==c?void 0:c.filter(e=>!(null==o?void 0:o.some(n=>n.id===e.id&&n.value===e.value))),d=(0,m.m6)(),g=(0,u.useClickTracker)(),E=i.useCallback(()=>{var e;if(a===m.Lv.SORT_AND_FILTER_UPDATE)null==(e=null==r?void 0:r.urls)||e.forEach(e=>{null==navigator||navigator.sendBeacon(e)}),(null==r?void 0:r.referrerId)&&(null==r?void 0:r.linkName)&&g(r.referrerId,r.linkName),null==s||s.forEach(e=>{d({field:B({name:e.id},e),event:{target:{checked:!0,type:"checkbox"}},type:a})})},[]);return i.createElement(p.w,null,i.createElement("button",{type:"button",onClickCapture:E}))},te=({data:e,children:n,actionType:t})=>{const{__typename:r}=e;switch(r){case"UILinkAction":return i.createElement(p.w,null,i.createElement(Z,{data:e},n),";");case"CriteriaUpdateAction":return i.createElement(ne,B({actionType:t},e));default:return null}};te.fragment=ee,te.displayName="ClickAction";var re={4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:16,17:17,18:18,24:24,30:30,37:37,38:38,40:40,48:48,72:72},ae={LANDSCAPE:"landscape",PORTRAIT:"portrait"},ie=c.gql`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    orientation
+    size
+    url {
+      ... on HttpURI {
+        __typename
+        value
+      }
+    }
+  }
+`,le=({className:e,size:n,data:t})=>{const{description:r,id:a,orientation:l,url:o}=t;let c;c=n?re[n]:t.size?re[t.size]:void 0;const s=l&&ae[l]||"landscape";return i.createElement(g.D,{className:e,description:r,id:a,name:a,orientation:s,size:c,url:null==o?void 0:o.value})};le.displayName="SponsoredContentEGDSMark",le.fragment=ie;var oe=c.gql`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    text
+  }
+`,ce=({data:e})=>{var n;return e.text?i.createElement(E.G,{size:"small",text:e.text,a11yText:null!=(n=e.accessibility)?n:void 0}):null};ce.fragment=oe,ce.displayName="EGDSStandardBadge";var se=c.gql`
+  fragment TransparencyFragment on AdTransparencyTrigger {
+    adTransparencyId
+    adTransparencyButton {
+      ...AdTransparencyButtonFragment
+    }
+    adTransparencyOverlaySkeleton {
+      ...TransparencyOverlaySkeletonFragment
+    }
+  }
+
+  fragment AdTransparencyButtonFragment on AdTransparencyButton {
+    primary
+    size
+    icon {
+      id
+    }
+  }
+
+  fragment TransparencyOverlaySkeletonFragment on TransparencyOverlaySkeleton {
+    title
+    error {
+      ...TransparencyOverlayErrorFragment
+    }
+  }
+
+  fragment TransparencyOverlayErrorFragment on TransparencyOverlayError {
+    icon {
+      id
+      size
+    }
+    description
+    button {
+      primary
+    }
+    allowedRetryAttempts
+    exceededAttemptsMessage
+  }
+`,de="sponsored-content",me="no-cache",ue=({data:e})=>{var n;const{badge:t,heading:r,paragraph:a,logo:l,beacons:c,callToAction:s,impressionAnalytics:d,adTransparencyTrigger:m}=e,{referrerId:p,linkName:g}=d;X(c);const E=(null==m?void 0:m.adTransparencyId)?{top:"three",right:"three",zindex:"layer3"}:{top:"three",right:"three"},y=(null==m?void 0:m.adTransparencyButton)?i.createElement(k.x,{data:m}):t&&i.createElement(ce,{data:t});return i.createElement(u.IntersectionTracker,{trackOnce:!0,referrerId:p,linkName:g},i.createElement(v.E,null,i.createElement(_.X,{wrap:"nowrap",justifyContent:"space-between",alignItems:"start"},i.createElement(_.X,{wrap:"nowrap",justifyContent:"start"},(null==l?void 0:l.standard)&&i.createElement(h.C,{shrink:0,alignSelf:"center",maxWidth:"14x"},i.createElement(o.N,{margin:{inlineend:"three"}},i.createElement(C.M,{ratio:C.l.R1_1,imageFit:"contain"},i.createElement(A.F,{src:null==(n=l.standard.url)?void 0:n.value,alt:l.standard.description})))),i.createElement(_.X,{wrap:"wrap",justifyContent:"space-between",alignItems:"center"},i.createElement(h.C,{grow:0,minWidth:"full_width",alignSelf:"start"},i.createElement(u.IntersectionTracker,{trackOnce:!0,referrerId:p,linkName:g},i.createElement(N.M,{tag:"h3",size:6},r),i.createElement(o.N,{margin:{blockstart:"half"}},i.createElement(w.D,{size:300},a)))),i.createElement(h.C,{grow:0,minWidth:"twenty_four",alignSelf:"end"},(null==s?void 0:s.action)&&i.createElement(h.C,null,i.createElement(o.N,{margin:{blockstart:"three"}},i.createElement(Z,{data:B({},s.action)},s.text)))))),i.createElement(b.P,{position:E},y))))},pe=c.gql`
+  query BrandResultListingCarsQuery(
+    $context: ContextInput!
+    $sponsoredContentContext: SponsoredContentContextInput!
+    $shoppingCriteriaInput: ProductShoppingCriteriaInput
+  ) {
+    sponsoredContent {
+      brandResultListingCars(context: $context, sponsoredContentContext: $sponsoredContentContext, shoppingCriteriaInput: $shoppingCriteriaInput) {
+        heading
+        paragraph
+        adTransparencyTrigger {
+          ...TransparencyFragment
+        }
+        beacons {
+          ...SponsoredContentBeaconsFragment
+        }
+        impressionAnalytics {
+          ...ClientSideAnalyticsFragment
+        }
+        clickAction {
+          ...ClickActionFragment
+        }
+        badge {
+          ...EGDSStandardBadgeFragment
+        }
+        logo {
+          standard {
+            ...EGDSMarkFragment
+          }
+        }
+        callToAction {
+          ...EGDSInlineLinkFragment
+        }
+      }
+    }
+  }
+
+  ${ce.fragment}
+  ${le.fragment}
+  ${Z.fragment}
+  ${Q}
+  ${q}
+  ${V}
+  ${te.fragment}
+  ${se}
+`,ge=e=>{var n,t,r;const a=e,{inputs:u,skipSsr:p,batchKey:g=de,fetchPolicy:E=me}=a,{context:y}=(((e,n)=>{var t={};for(var r in e)D.call(e,r)&&n.indexOf(r)<0&&(t[r]=e[r]);if(null!=e&&O)for(var r of O(e))n.indexOf(r)<0&&L.call(e,r)&&(t[r]=e[r])})(a,["inputs","skipSsr","batchKey","fetchPolicy"]),(0,s.R)()),f=(0,m.EY)(),v=i.useMemo(()=>({sponsoredContentContext:u.sponsoredContentContext,shoppingCriteriaInput:f}),[u.sponsoredContentContext,f]),C=(A=B({},v),I(A,S({context:y})));var A;const{data:_,error:h}=(0,c.useQuery)(pe,{context:{batchKey:g,shouldLogPerformance:!0},variables:C,ssr:!p,fetchPolicy:E}),b=null==(r=null==(t=null==(n=null==_?void 0:_.sponsoredContent)?void 0:n.brandResultListingCars)?void 0:t.beacons)?void 0:r.viewabilityBeacon,{componentRef:N}=(({viewabilityBeacon:e})=>{const n=i.useRef(null),t=(0,i.useCallback)(e=>{var n;e&&window.meso&&(window.meso.viewability=null!=(n=window.meso.viewability)?n:[],window.meso.viewability.push({type:"deregister",element:e}))},[]),r=(0,i.useCallback)(n=>{var t,r;n&&(window.meso=null!=(t=window.meso)?t:{},window.meso.viewability=null!=(r=window.meso.viewability)?r:[],window.meso.viewability.push({type:"register",config:"image",element:n,beacon:e}))},[e]);return i.useEffect(()=>{const e=n.current;return r(e),()=>{t(e)}},[r,t]),{componentRef:n}})({viewabilityBeacon:b});if(h||!_||!_.sponsoredContent.brandResultListingCars)return null;const{clickAction:w}=_.sponsoredContent.brandResultListingCars;return i.createElement(d.Experiment,{name:"MeSo_Cars_BRL_Universal_Shopping_Migration"},i.createElement(d.ExperimentControl,null),i.createElement(d.ExperimentVariant,{bucket:1},i.createElement(o.N,{stid:"cars-brand-result-listing"},i.createElement(l.g,{"data-eg-sc":!0,ref:N,border:!0},w&&i.createElement(te,{actionType:m.Lv.SORT_AND_FILTER_UPDATE,data:w}),i.createElement(ue,{data:_.sponsoredContent.brandResultListingCars})))))};ge.displayName="sharedui-BrandResultListingCarsQueryComponent";var Ee=function(e){const n=n=>{var t;const{collapseWhenAdBlockDetected:r,adBlockCollapseExperiment:a}=n,l=i.createElement(M,null,i.createElement(e,B({},n)));return window.meso=null!=(t=window.meso)?t:{},!window.meso.adblock||window.meso.adblock.enabled?a?i.createElement(d.Experiment,{name:"Acceptable_Ads_Component_Enablement"},i.createElement(d.ExperimentControl,null,i.createElement(W,null)),i.createElement(d.ExperimentVariant,{bucket:1},"PG_Acceptable_Ads_Enablement"===a?i.createElement(d.Experiment,{name:"PG_Acceptable_Ads_Enablement"},i.createElement(d.ExperimentControl,null,i.createElement(W,null)),i.createElement(d.ExperimentVariant,{bucket:1},l)):"Acceptable_Ads_Component_Enablement"===a?l:i.createElement(W,null))):!1===r?l:i.createElement(W,null):i.createElement(e,B({},n))};return n.displayName="WithAdBlockDetectHOC",n}(function(e){const n=n=>{const[t,r]=i.useState(0);return i.useEffect(()=>{r(window.innerHeight)},[]),i.createElement(i.Fragment,null,t?i.createElement(f.LM,null,i.createElement(f.NP,null,i.createElement(y.A,{offset:t},i.createElement(e,B({},n)))),i.createElement(f.rw,null,i.createElement(y.A,{offset:t/2},i.createElement(e,B({},n))))):null)};return n.displayName=`${e.displayName}WithSponsoredContentLazy`,n}(ge))}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-sponsored-content-brand-result-listing-cars.a1e1eeb55e066d30a97a.js.map

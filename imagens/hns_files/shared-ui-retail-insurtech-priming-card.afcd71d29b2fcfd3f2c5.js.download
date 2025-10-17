@@ -1,0 +1,1078 @@
+/*@license For license information please refer to shared-ui-retail-insurtech-priming-card.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[5847],{35732:function(e,t,n){n.d(t,{fJ:function(){return Ia},hT:function(){return ha}});var a=n(56195),r=n(42534),i=n(26690),l=n(64341),c=n(1226),o=n(47540),s=n(63081),m=n(43888),g=n(51537),d=n(70882),u=n(46559),E=n(97778),h=n(69772),p=n(24924),I=n(30686),f=n(934),y=n(89438),S=n(66452),v=n(23726),D=n(522),F=n(47958),k=n(27102),b=n(37292),C=n(2557),T=n(22142),P=n(74071),A=n(63744),G=n(63085),x=n(32380),N=n(89962),L=n(99828),_=n(25229),$=n(69287),R=n(30472),B=n(66862),z=n(76580),w=n(87993),O=n(30169),q=n(95519),M=n(18174),H=n(64612),U=n(92919),V=Object.defineProperty,W=Object.defineProperties,X=Object.getOwnPropertyDescriptors,j=Object.getOwnPropertySymbols,Y=Object.prototype.hasOwnProperty,K=Object.prototype.propertyIsEnumerable,Q=(e,t,n)=>t in e?V(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,J=(e,t)=>{for(var n in t||(t={}))Y.call(t,n)&&Q(e,n,t[n]);if(j)for(var n of j(t))K.call(t,n)&&Q(e,n,t[n]);return e},Z=(e,t)=>W(e,X(t)),ee=(e,t)=>{var n={};for(var a in e)Y.call(e,a)&&t.indexOf(a)<0&&(n[a]=e[a]);if(null!=e&&j)for(var a of j(e))t.indexOf(a)<0&&K.call(e,a)&&(n[a]=e[a]);return n},te=({numberOfLines:e,dataTestId:t,spacing:n,height:r})=>a.createElement(c.w,{space:null!=n?n:"three",columns:["40x"],dataTestId:t,style:{height:r}},a.createElement(o.T,null,a.createElement(s.l,{animation:!0})),Array.from(Array(null!=e?e:1),(e,t)=>a.createElement(o.T,{key:t},a.createElement(s.l,{animation:!0,type:"secondary"})))),ne={__typename:"ClickStreamEventConstants",EVENT_NAME:"insurance_link.selected",EVENT_TYPE:"Interaction",EVENT_VERSION:"1.0.0"},ae={__typename:"ClickStreamEventConstants",EVENT_NAME:"insurance_link.selected",EVENT_TYPE:"Interaction",EVENT_VERSION:"1.0.0"},re=e=>({convertToEvent:()=>{switch(e.__typename){case"EGClickstreamEvent":return{event:{event_type:(t=e).eventType,event_name:t.eventName,event_version:t.eventVersion,event_category:t.eventCategory,action_location:t.actionLocation}};case"ClickStreamEventConstants":return(e=>({event:J(J({event_type:e.EVENT_TYPE,event_name:e.EVENT_NAME,event_version:e.EVENT_VERSION},e.ACTION_LOCATION&&{action_location:e.ACTION_LOCATION}),e.ACTION_REASON&&{action_reason:e.ACTION_REASON})}))(e);default:return null}var t}}),ie=()=>{const e=(0,E.useEgClickstream)();return a.useCallback((t,n)=>{const a=re(t).convertToEvent(),r=((e,t)=>{switch(e.__typename){case"ClickStreamEventConstants":return(t||[]).find(({eventName:t})=>t===e.EVENT_NAME);case"EGClickstreamEvent":return(t||[]).find(({eventName:t})=>t===e.eventName);default:return null}})(t,n);e({clientPayload:a||void 0,serverPayload:null==r?void 0:r.payload})},[e])},le=(0,a.createContext)({}),ce=({children:e})=>{const t=(0,a.useRef)(null),[n,r]=a.useState(null),i=a.useMemo(()=>({dialogToggleRef:t,dialogState:n,setDialogState:r}),[t,n,r]);return a.createElement(le.Provider,{value:i},e)},oe=()=>a.useContext(le),se=i.gql`
+  fragment InsurtechClickstreamAnalyticsDataFragment on InsurtechClickstreamAnalyticsData {
+    referenceId
+    eventName
+    eventVersion
+    payload
+  }
+`,me=(0,a.createContext)({isLoading:!1}),ge=()=>(0,a.useContext)(me),de=i.gql`
+  fragment ClientSideAnalyticsFragment on ClientSideAnalytics {
+    linkName
+    referrerId
+  }
+`,ue=i.gql`
+  fragment EGDSActionDialogFragment on EGDSActionDialog {
+    footer {
+      buttons {
+        __typename
+        primary
+        analytics {
+          ...ClientSideAnalyticsFragment
+        }
+      }
+    }
+  }
+  ${de}
+`,Ee=({data:e,closeDialog:t,confirmAction:n,children:r})=>{var i,l,c;const{isLoading:o}=ge(),s=(0,E.useClickTracker)(),m=e.footer.buttons.map(e=>{var a;const r="UITertiaryButton"===e.__typename?"tertiary":"primary";return{text:null!=(a=e.primary)?a:"",type:r,disabled:o,onClick:()=>(e.analytics&&s(e.analytics.referrerId,e.analytics.linkName),"tertiary"===r?t():null==n?void 0:n())}});return a.createElement(h.Q,{dialogShow:!0,returnFocusOnClose:!0},r?a.createElement(p.h,null,r,e.footer.buttons.length>0&&a.createElement(I.l,{stacked:"EGDSStackedDialogFooter"===e.footer.__typename,buttonOne:null!=(i=m[0])?i:void 0,buttonTwo:null!=(l=m[1])?l:void 0,buttonThree:null!=(c=m[2])?c:void 0})):void 0)};Ee.fragment=ue,Ee.displayName="EGDSActionDialog";var he=i.gql`
+  fragment EGDSGenericSheetFragment on EGDSFullScreenDialog {
+    closeAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+    toolbar {
+      closeText
+      title
+    }
+  }
+  ${de}
+`,pe=({data:{closeAnalytics:e,toolbar:t},closeDialog:n,header:i,footer:l,content:c,sheetType:o,sheetHeight:s,onOpenAnnounceMessage:m})=>{var g,d;const u=a.useRef(null),{dialogToggleRef:h}=oe(),p=(0,E.useClickTracker)(),I={id:null!=(g=null==e?void 0:e.referrerId)?g:"",callback:()=>{var t,n;return p(null!=(t=null==e?void 0:e.referrerId)?t:"",null!=(n=null==e?void 0:e.linkName)?n:"")}},D={onClick:n,navIconLabel:null!=(d=t.closeText)?d:"",onClickAnalytics:I},F="centered"===o?"small":void 0;return a.createElement(f.t,{type:null!=o?o:"full",centeredSheetSize:F,height:s,isVisible:!0,returnFocusOnClose:!0,triggerRef:null!=h?h:u},a.createElement(v.p,{toolbarTitle:t.title,navigationContent:D}),a.createElement(y.Y,{padded:!1},i&&a.createElement("div",null,i),a.createElement(r.N,{padding:{inline:"six",blockend:"six"}},a.createElement("div",null,c))),l&&a.createElement("div",null,a.createElement(S.s,null,l)))};pe.fragment=he,pe.displayName="EGDSGenericSheet";var Ie=i.gql`
+  fragment EGDSLoaderDialogFragment on EGDSLoaderDialog {
+    closeAnalytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+  ${de}
+`,fe=({content:e})=>a.createElement(h.Q,{dialogShow:!0},a.createElement(p.h,null,a.createElement(D.X,{space:"four",direction:"column",alignItems:"center"},a.createElement(F.v,null),a.createElement(k.D,{align:"center"},e))));fe.displayName="sharedui-EGDSLoaderDialog",fe.fragment=Ie;var ye=i.gql`
+  fragment EGDSDialogFragment on EGDSDialog {
+    __typename
+    ...EGDSActionDialogFragment
+    ...EGDSGenericSheetFragment
+    ...EGDSLoaderDialogFragment
+  }
+  ${Ee.fragment}
+  ${pe.fragment}
+  ${fe.fragment}
+`,Se=({data:e,closeDialog:t,confirmAction:n,header:r,footer:i,content:l,sheetType:c,sheetHeight:o,onOpenAnnounceMessage:s,onCloseAnnounceMessage:m})=>{switch(e.__typename){case"EGDSActionDialog":return a.createElement(Ee,{data:e,closeDialog:t,confirmAction:n},r,l);case"EGDSFullScreenDialog":return a.createElement(pe,{sheetType:c,data:e,closeDialog:t,header:r,content:l,footer:i,sheetHeight:o,onOpenAnnounceMessage:s,onCloseAnnounceMessage:m});case"EGDSLoaderDialog":return a.createElement(fe,{content:l,data:e});default:return null}};Se.fragment=ye,Se.displayName="InsurtechEGDSDialog";var ve=(0,a.createContext)({}),De=()=>(0,a.useContext)(ve),Fe={INFO:"info",POSITIVE:"positive",STANDARD:"standard",WARNING:"warning"},ke=i.gql`
+  fragment EGDSIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    spotLight
+  }
+`,be=({data:e})=>{var t,n,r;return a.createElement(C.LD,{id:`${e.id}_${null!=(t=e.title)?t:void 0}`,name:e.id,size:e.size?C.So[e.size]:void 0,description:e.description,title:null!=(n=e.title)?n:void 0,theme:null!=(r=e.theme)?r:void 0,spotlight:e.spotLight?Fe[e.spotLight]:void 0})};be.fragment=ke,be.displayName="InsurtechEGDSIcon";var Ce=i.gql`
+  fragment EGDSIllustrationFragment on Illustration {
+    description
+    url
+  }
+`,Te=({data:e})=>a.createElement(T.r,{alt:e.description,url:e.url});Te.fragment=Ce,Te.displayName="EGDSIllustration";var Pe=i.gql`
+  fragment EGDSGraphicFragment on UIGraphic {
+    __typename
+    ... on Icon {
+      ...EGDSIconFragment
+    }
+    ... on Illustration {
+      ...EGDSIllustrationFragment
+    }
+  }
+  ${be.fragment}
+  ${Te.fragment}
+`,Ae=({data:e})=>{switch(e.__typename){case"Icon":return a.createElement(be,{data:e});case"Illustration":return a.createElement(Te,{data:e});default:return null}};Ae.fragment=Pe,Ae.displayName="EGDSGraphic";var Ge=i.gql`
+  fragment EGDSStandardLinkFragment on EGDSStandardLink {
+    text
+    action {
+      accessibility
+      resource {
+        value
+      }
+      standardLinkAnalytics: analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    icon {
+      ...EGDSIconFragment
+    }
+    iconPosition
+    egdsElementId
+  }
+  ${be.fragment}
+  ${de}
+`,xe=({data:e,inline:t,trackData:n,linkSize:r})=>{var i,l,c,o;const s=ie(),m=(0,E.useClickTracker)(),g=(Array.isArray(n)?n:[null!=n?n:{}]).filter(({referenceId:t})=>t===e.egdsElementId),{action:{standardLinkAnalytics:d}={}}=e,u=a.useCallback(()=>{(null==d?void 0:d.referrerId)&&(null==d?void 0:d.linkName)&&m(d.referrerId,d.linkName),null==s||s(ne,g)},[s,n,d]);return a.createElement(b.i,{size:r,inline:t,onClickCapture:u},a.createElement("a",{href:null==(l=null==(i=e.action)?void 0:i.resource)?void 0:l.value,rel:"noopener",target:"_blank"},e.icon&&"LEADING"===e.iconPosition&&a.createElement(be,{data:e.icon}),e.text,e.icon&&"TRAILING"===e.iconPosition&&a.createElement(be,{data:e.icon}),(null==(c=e.action)?void 0:c.accessibility)&&a.createElement("span",{className:"is-visually-hidden"},null==(o=e.action)?void 0:o.accessibility)))};xe.fragment=Ge,xe.displayName="InsurtechEGDSStandardLink";var Ne=i.gql`
+  fragment EGDSPlainTextFragment on EGDSPlainText {
+    text
+  }
+`,Le=e=>{var t=e,{data:n}=t,r=ee(t,["data"]);return a.createElement(k.D,J({},r),n.text)};Le.fragment=Ne,Le.displayName="InsurtechEGDSPlainText";var _e=i.gql`
+  fragment InsurtechBenefitDialogElementFragment on InsurtechElement {
+    __typename
+    ...EGDSPlainTextFragment
+    ...EGDSStandardLinkFragment
+  }
+  ${Le.fragment}
+  ${xe.fragment}
+`,$e=({data:e,trackData:t})=>{switch(e.__typename){case"EGDSStandardLink":return a.createElement(xe,{data:e,trackData:t,linkSize:"small"});case"EGDSPlainText":return a.createElement(Le,{data:e,size:200});default:return null}};$e.fragment=_e,$e.displayName="InsurtechBenefitDialogElement";new G.SystemEvent(G.SystemEventLevel.ERROR,"CHECKOUT_INSURTECH_MUTATION_QUERY_ERROR"),new G.SystemEvent(G.SystemEventLevel.INFO,"CHECKOUT_INSURTECH_MUTATION_QUERY_SUCCESS"),new G.SystemEvent(G.SystemEventLevel.INFO,"SIGNAL_EVENTS_CONTEXT_PUBLISH");var Re={publish:()=>{},subscribe(e,t,n){return{SignalType:t,unsubscribe:()=>{}}},unsubscribe:()=>{}},Be=(a.createContext({manager:Re}),i.gql`
+  fragment OfferIdentityFragment on OfferIdentity {
+    type
+    value
+  }
+`),ze=i.gql`
+  fragment ServerSignalFragment on UISignalSharedType {
+    topic
+    payload {
+      publisherModule
+      signalUrn
+      signalDetails {
+        description
+        reasonUrn
+        summary
+        signalAdditionalDetails {
+          linkSignalAdditionalDetail {
+            title
+            url
+            urn
+          }
+          urn
+        }
+      }
+    }
+  }
+`,we=i.gql`
+  fragment SignalFragment on InsurtechSignal {
+    id
+    signal
+    domainInfoList {
+      name
+      refId
+    }
+  }
+`,Oe=(i.gql`
+  mutation UpdateInsurtechMutation(
+    $context: ContextInput!
+    $sessionId: String!
+    $offersToAdd: [OfferIdentityInput!]!
+    $offersToRemove: [OfferIdentityInput!]!
+    $coveredOfferTokens: [OfferIdentityInput!]!
+  ) {
+    updateInsurtechOffer(
+      context: $context
+      updateInsurtechOfferRequest: {
+        sessionIdentifier: $sessionId
+        offersToAdd: $offersToAdd
+        offersToRemove: $offersToRemove
+        coveredOfferTokens: $coveredOfferTokens
+      }
+    ) {
+      status
+      message
+      selectedOffers {
+        ...OfferIdentityFragment
+      }
+      signals {
+        ...SignalFragment
+      }
+      serverSignals {
+        ...ServerSignalFragment
+      }
+    }
+  }
+  ${Be}
+  ${we}
+  ${ze}
+`,a.createContext({isExpwebEnabled:!1,setDialogId:()=>{}})),qe=()=>a.useContext(Oe),Me=i.gql`
+  fragment InsurtechDialogLinkTriggerFragment on InsurTechExperienceDialogTrigger {
+    primary
+    accessibility
+    clientAction {
+      accessibility
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    icon {
+      ...EGDSIconFragment
+    }
+  }
+  ${de}
+  ${be.fragment}
+`,He=({data:e,onClick:t})=>{const{dialogToggleRef:n}=oe(),r=(0,a.useRef)(null);return a.createElement(b.i,{domRef:r,"aria-label":e.accessibility,onClick:()=>{n&&(n.current=r.current),t(e.clientAction)}},a.createElement("button",{type:"button"},e.primary,e.icon&&a.createElement(be,{data:e.icon})))};He.fragment=Me,He.displayName="InsurtechDialogLinkTrigger";var Ue=i.gql`
+  fragment InsurTechExperienceDialogTriggerFragment on InsurTechExperienceDialogTrigger {
+    dialogId
+    triggerType
+    ...InsurtechDialogLinkTriggerFragment
+  }
+  ${He.fragment}
+`,Ve=({data:e,trackData:t,isCardLink:n})=>{const[r,i]=(0,d.useDialog)(`${e.dialogId}`),{isExpwebEnabled:l,setDialogId:c}=qe(),o=(0,E.useClickTracker)(),s=ie(),m=(0,a.useCallback)(()=>{if(!r){const{analytics:n}=e.clientAction;if(n&&o(n.referrerId,n.linkName),l?c(`${e.dialogId}`):i.openDialog(),t){const n=(t||[]).filter(({referenceId:t})=>t===e.dialogId);null==s||s(ne,n)}}},[i,r,c,l,e.dialogId,t]);return"LINK"===e.triggerType?a.createElement(a.Fragment,null,a.createElement(He,{onClick:m,data:e}),n&&a.createElement(A.w,null,a.createElement("button",{hidden:!0,type:"button",onClick:m}))):null};Ve.fragment=Ue,Ve.displayName="InsurtechExperienceDialogTrigger";var We=i.gql`
+  fragment EGDSTextStandardListItemFragment on EGDSTextStandardListItem {
+    __typename
+    text
+  }
+`,Xe=({data:e})=>a.createElement(N.x,null,a.createElement("div",null,e.text));Xe.fragment=We,Xe.displayName="EGDSTextStandardListItem";var je=i.gql`
+  fragment EGDSGraphicTextFragment on EGDSGraphicText {
+    text
+    graphic {
+      ...EGDSGraphicFragment
+    }
+  }
+  ${Ae.fragment}
+`,Ye=({size:e,weight:t,data:{text:n,graphic:r}})=>a.createElement(D.X,{space:"two",alignItems:"center"},a.createElement(Ae,{data:r}),a.createElement(k.D,{size:e,weight:t},n));Ye.fragment=je,Ye.displayName="EGDSGraphicText";var Ke=i.gql`
+  fragment EGDSHeadingFragment on EGDSHeading {
+    text
+    accessibility
+  }
+`,Qe=e=>{var t=e,{data:n}=t,r=ee(t,["data"]);const{text:i,accessibility:l}=n;return a.createElement(P.M,J({"aria-label":null!=l?l:i},r),i)};Qe.fragment=Ke,Qe.displayName="InsurtechEGDSHeading";var Je=i.gql`
+  fragment EGDSIconTextFragment on EGDSIconText {
+    text
+    iconText: icon {
+      ...EGDSIconFragment
+    }
+  }
+  ${be.fragment}
+`,Ze={inlineend:"one"},et=({data:e,iconSpacing:t,weight:n})=>a.createElement(D.X,{alignItems:"center"},a.createElement(L.C,null,a.createElement(r.N,{margin:null!=t?t:Ze},a.createElement("div",null,a.createElement(be,{data:e.iconText})))),a.createElement(L.C,null,a.createElement(k.D,{weight:n},e.text)));et.fragment=Je,et.displayName="EGDSIconText";var tt=i.gql`
+  fragment EGDSParagraphFragment on EGDSParagraph {
+    text
+  }
+`,nt=({data:e})=>a.createElement($.u,null,e.text);nt.fragment=tt,nt.displayName="InsurtechEGDSParagraph";var at={NEGATIVE:"negative",POSITIVE:"positive",PRIMARY:"emphasis",SECONDARY:"secondary",LOYALTY:"loyalty",INVERSE:"inverse",EMPHASIS:"emphasis"},rt={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},it=i.gql`
+  fragment EGDSStylizedTextFragment on EGDSStylizedText {
+    text
+    theme
+    weight
+  }
+`,lt=({data:e,inline:t,size:n})=>a.createElement(k.D,{weight:e.weight?rt[e.weight]:void 0,theme:e.theme?at[e.theme]:void 0,size:n,inline:t},e.text);lt.fragment=it,lt.displayName="InsurtechEGDSStylizedText";var ct=i.gql`
+  fragment EGDSTextFragment on EGDSText {
+    __typename
+    ...EGDSParagraphFragment
+    ...EGDSPlainTextFragment
+    ...EGDSStylizedTextFragment
+    ...EGDSHeadingFragment
+    ...EGDSIconTextFragment
+    ...EGDSStandardLinkFragment
+    ...EGDSGraphicTextFragment
+    ...EGDSGraphicTextFragment
+    ...EGDSTextStandardListItemFragment
+  }
+  ${nt.fragment}
+  ${Le.fragment}
+  ${lt.fragment}
+  ${Ye.fragment}
+  ${Qe.fragment}
+  ${et.fragment}
+  ${xe.fragment}
+  ${Xe.fragment}
+`,ot=e=>{var t=e,{data:n,trackData:r}=t,i=ee(t,["data","trackData"]);switch(n.__typename){case"EGDSParagraph":return a.createElement(nt,{data:n});case"EGDSPlainText":return a.createElement(Le,J({data:n},i));case"EGDSStylizedText":return a.createElement(lt,J({data:n},i));case"EGDSGraphicText":return a.createElement(Ye,J({data:n},i));case"EGDSHeading":return a.createElement(Qe,{data:n,size:i.headingSize,tag:i.tag});case"EGDSIconText":return a.createElement(et,{data:n,weight:i.weight});case"EGDSStandardLink":return a.createElement(xe,{data:n,inline:i.inline,trackData:r});case"EGDSTextStandardListItem":return a.createElement(Xe,{data:n});default:return null}};ot.fragment=ct,ot.displayName="InsurtechEGDSText";var st=i.gql`
+  fragment EGDSBasicSectionHeadingFragment on EGDSBasicSectionHeading {
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    heading {
+      ...EGDSHeadingFragment
+    }
+    subheading
+  }
+
+  ${Qe.fragment}
+  ${Ae.fragment}
+`,mt=({data:e})=>a.createElement(D.X,{space:"two"},e.graphic&&a.createElement(L.C,null,a.createElement(Ae,{data:e.graphic})),a.createElement(L.C,null,a.createElement("div",null,a.createElement(Qe,{size:7,data:e.heading}),e.subheading&&a.createElement(k.D,{size:200},e.subheading))));mt.fragment=st,mt.displayName="EGDSBasicSectionHeading";var gt=i.gql`
+  fragment InsurtechIconListItemFragment on InsurtechIconListItem {
+    icon {
+      ...EGDSIconFragment
+    }
+    label
+    subLabel
+    content {
+      ...EGDSTextFragment
+    }
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+    theme
+  }
+  ${be.fragment}
+  ${ot.fragment}
+  ${se}
+`,dt={blockstart:"half"},ut={blockstart:"one"},Et={blockstart:"two"},ht={blockstart:"four"},pt=({headingProps:e,labelFontWeight:t,label:n})=>e?a.createElement(P.M,{size:e.size},n):a.createElement(k.D,{weight:t},n),It=({data:e,headingProps:t,hasSeparator:n,labelFontWeight:i})=>{var l;return"HEADED_LIST_ITEM"===e.theme?a.createElement("div",null,a.createElement(P.M,{size:6},e.label),a.createElement(r.N,{margin:Et},a.createElement(D.X,{space:"two"},a.createElement(be,{data:e.icon}),a.createElement(L.C,{grow:1},a.createElement(D.X,{direction:"column",justifyContent:"center",space:"one"},e.content.map((t,n)=>{var r;return a.createElement(ot,{data:t,trackData:[...null!=(r=e.egClickStreamAnalytics)?r:[]],key:n})})))))):a.createElement(D.X,{space:"two"},a.createElement(L.C,null,a.createElement(be,{data:e.icon})),a.createElement(L.C,{grow:1},a.createElement(D.X,{direction:"column",justifyContent:"center"},a.createElement("div",null,a.createElement(pt,{label:e.label,headingProps:t,labelFontWeight:i}),e.subLabel&&a.createElement(r.N,{margin:e.label?dt:void 0},a.createElement(k.D,null,e.subLabel)),null==(l=e.content)?void 0:l.map((t,n)=>{var i;return a.createElement(r.N,{margin:e.subLabel?ht:ut,key:n},a.createElement("div",null,a.createElement(ot,{data:t,trackData:[...null!=(i=e.egClickStreamAnalytics)?i:[]]})))}),n&&a.createElement(r.N,{margin:{blockstart:"six",blockend:"six"}},a.createElement("div",null,a.createElement(_.j,{blockMargin:"unset"})))))))};It.fragment=gt,It.displayName="sharedui-InsurtechIconListItem";var ft=i.gql`
+  fragment InsurtechTextListItemFragment on InsurtechTextListItem {
+    label
+    content {
+      ...EGDSTextFragment
+    }
+  }
+  ${ot.fragment}
+`,yt=({labelFontWeight:e,data:t})=>0===t.content.length?a.createElement(k.D,{weight:e},t.label):a.createElement(P.M,null,t.label),St=({data:e,labelFontWeight:t})=>a.createElement(D.X,{space:"one"},a.createElement(L.C,{grow:1},a.createElement(D.X,{direction:"column",justifyContent:"center"},a.createElement("div",null,a.createElement(yt,{data:e,labelFontWeight:t}),e.content.length>0&&a.createElement(x.y,null,e.content.map((e,t)=>a.createElement(ot,{data:e,key:t})))))));St.fragment=ft,St.displayName="sharedui-InsurtechTextListItem";var vt=i.gql`
+  fragment InsurtechTextListFragment on InsurtechTextList {
+    items {
+      ...InsurtechListItemFragment
+    }
+    type
+  }
+  fragment InsurtechListItemFragment on InsurtechListItem {
+    ...InsurtechIconListItemFragment
+    ...InsurtechTextListItemFragment
+  }
+  ${It.fragment}
+  ${St.fragment}
+`,Dt=e=>{var t=e,{data:n}=t,r=ee(t,["data"]);switch(n.__typename){case"InsurtechIconListItem":return a.createElement(It,{labelFontWeight:r.labelFontWeight,data:n,headingProps:r.headingProps,hasSeparator:r.hasSeparator});case"InsurtechTextListItem":return a.createElement(St,{labelFontWeight:r.labelFontWeight,data:n});default:return null}},Ft=e=>"BULLET_LIST"===e.type?"default":"icon-alternate",kt=({data:e,spacingListElements:t,headingProps:n,hasSeparator:i,listSize:l,labelFontWeight:c})=>{var o;return a.createElement(x.y,{size:l,spacing:!1,bullet:Ft(e)},null==(o=e.items)?void 0:o.map((l,o,{length:s})=>{const m=(g=l,u=e.items,(d=(E=o)>0?u[E-1]:null)&&(g.__typename!==(null==d?void 0:d.__typename)||"InsurtechIconListItem"===g.__typename&&"InsurtechIconListItem"===d.__typename&&g.theme!==d.theme)?{blockstart:"two"}:void 0);var g,d,u,E;return"BULLET_LIST"===e.type?a.createElement(N.x,{key:o},a.createElement(Dt,{data:l,labelFontWeight:c,headingProps:n,hasSeparator:i&&o!==s-1})):a.createElement(r.N,{key:o,margin:null!=t?t:m},a.createElement(N.x,null,a.createElement(Dt,{data:l,labelFontWeight:c,headingProps:n,hasSeparator:i&&o!==s-1})))}))};kt.fragment=vt,kt.displayName="InsurtechTextList";var bt=i.gql`
+  fragment InsurtechBenefitSectionFragment on InsurtechBenefitSection {
+    benefitsHeading: heading
+    list {
+      ...InsurtechTextListFragment
+    }
+    dialogTrigger {
+      ...InsurTechExperienceDialogTriggerFragment
+    }
+  }
+  ${Ve.fragment}
+  ${kt.fragment}
+  ${xe.fragment}
+`,Ct={blockend:"two"},Tt=({data:{benefitsHeading:e,list:t,dialogTrigger:n},styling:i})=>{var l,c,o,s,m,g,d,u;return a.createElement(D.X,{justifyContent:"space-between",direction:"column",blockSize:"full_size"},a.createElement("div",null,e&&a.createElement(r.N,{padding:null!=(c=null==(l=null==i?void 0:i.heading)?void 0:l.spacing)?c:Ct},a.createElement(P.M,{size:null==(o=null==i?void 0:i.heading)?void 0:o.size},e)),t.items.length>0&&a.createElement(kt,{data:t,spacingListElements:null==(s=null==i?void 0:i.list)?void 0:s.spacing,headingProps:null==(m=null==i?void 0:i.list)?void 0:m.heading,hasSeparator:null==(g=null==i?void 0:i.list)?void 0:g.hasSeparator,labelFontWeight:null==(d=null==i?void 0:i.list)?void 0:d.labelFontWeight,listSize:null==(u=null==i?void 0:i.list)?void 0:u.size})),n&&a.createElement(r.N,{margin:{blockstart:"four"}},a.createElement("div",null,a.createElement(Ve,{data:n}))))};Tt.displayName="InsurtechBenefitSection",Tt.fragment=bt;var Pt=i.gql`
+  fragment InsurtechBenefitDialogContentFragment on InsurtechBenefitDialogContent {
+    benefitSection {
+      ...InsurtechBenefitSectionFragment
+    }
+    link {
+      ...EGDSStandardLinkFragment
+    }
+    disclaimer
+    egClickstreamAnalyticsData {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+    elements {
+      ...InsurtechBenefitDialogElementFragment
+    }
+  }
+  ${xe.fragment}
+  ${Tt.fragment}
+  ${$e.fragment}
+  ${se}
+`,At={heading:{size:7,spacing:{blockend:"six"}},list:{heading:{size:7},spacing:"two",hasSeparator:!1}},Gt=({data:e})=>{const{isLoading:t}=ge(),{dialogBenefitContent:n}=De();return t?a.createElement(te,null):a.createElement("div",null,a.createElement(Tt,{data:e.benefitSection,styling:null!=n?n:At}),e.elements&&e.elements.length>0&&a.createElement(r.N,{margin:{blockstart:"six"}},a.createElement(D.X,{space:"two",direction:"column"},e.elements.map((t,n)=>a.createElement($e,{data:t,key:n,trackData:e.egClickstreamAnalyticsData})))),e.link&&a.createElement(r.N,{margin:{blockstart:"four"}},a.createElement("div",null,a.createElement(xe,{data:e.link,trackData:e.egClickstreamAnalyticsData}))),e.disclaimer&&a.createElement(r.N,{margin:{blockstart:"six"}},a.createElement(k.D,null,e.disclaimer)))};Gt.fragment=Pt,Gt.displayName="InsurtechBenefitDialogContent";var xt=i.gql`
+  fragment PricePresentationFragment on PricePresentation {
+    title {
+      primary
+    }
+    sections {
+      ...PricePresentationSectionFragment
+    }
+    footer {
+      header
+      messages {
+        ... on PriceLineText {
+          primary
+        }
+      }
+    }
+  }
+
+  fragment PricePresentationSectionFragment on PricePresentationSection {
+    header {
+      name {
+        ...PricePresentationLineItemEntryFragment
+      }
+      enrichedValue {
+        ...PricePresentationLineItemEntryFragment
+      }
+    }
+    subSections {
+      ...PricePresentationSubSectionFragment
+    }
+  }
+
+  fragment PricePresentationSubSectionFragment on PricePresentationSubSection {
+    header {
+      name {
+        primaryMessage {
+          ... on PriceLineText {
+            primary
+          }
+          ... on PriceLineHeading {
+            primary
+          }
+        }
+        secondaryMessages {
+          ... on PriceLineText {
+            primary
+          }
+        }
+      }
+      enrichedValue {
+        ...PricePresentationLineItemEntryFragment
+      }
+    }
+    items {
+      ...PricePresentationLineItemFragment
+    }
+  }
+
+  fragment PricePresentationLineItemFragment on PricePresentationLineItem {
+    enrichedValue {
+      ...PricePresentationLineItemEntryFragment
+    }
+    name {
+      ...PricePresentationLineItemEntryFragment
+    }
+  }
+
+  fragment PricePresentationLineItemEntryFragment on PricePresentationLineItemEntry {
+    primaryMessage {
+      ...PriceLineElementFragment
+    }
+    secondaryMessages {
+      ...PriceLineElementFragment
+    }
+  }
+
+  fragment PriceLineElementFragment on PricePresentationLineItemMessage {
+    ...PriceLineTextFragment
+    ...PriceLineHeadingFragment
+  }
+
+  fragment PriceLineTextFragment on PriceLineText {
+    theme
+    primary
+    weight
+    additionalInformation {
+      ...PricePresentationAdditionalInformationFragment
+    }
+    graphic {
+      ...PricePresentationEGDSGraphicFragment
+    }
+  }
+
+  fragment PricePresentationAdditionalInformationFragment on PricePresentationAdditionalInformation {
+    ...PricePresentationAdditionalInformationPopoverFragment
+  }
+
+  fragment PricePresentationAdditionalInformationPopoverFragment on PricePresentationAdditionalInformationPopover {
+    analytics {
+      linkName
+      referrerId
+    }
+    enrichedSecondaries {
+      ...AdditionalInformationPopoverGridSectionFragment
+    }
+    icon {
+      id
+      description
+      size
+    }
+  }
+
+  fragment AdditionalInformationPopoverGridSectionFragment on AdditionalInformationPopoverGridSection {
+    subSections {
+      header {
+        name {
+          primaryMessage {
+            ...AdditionalInformationPopoverGridLineItemMessageFragment
+          }
+        }
+      }
+      items {
+        name {
+          ...AdditionalInformationPopoverGridLineItemEntryFragment
+        }
+        enrichedValue {
+          ...AdditionalInformationPopoverGridLineItemEntryFragment
+        }
+      }
+    }
+  }
+
+  fragment AdditionalInformationPopoverGridLineItemEntryFragment on PricePresentationLineItemEntry {
+    primaryMessage {
+      ...AdditionalInformationPopoverGridLineItemMessageFragment
+    }
+    secondaryMessages {
+      ...AdditionalInformationPopoverGridLineItemMessageFragment
+    }
+  }
+
+  fragment AdditionalInformationPopoverGridLineItemMessageFragment on PricePresentationLineItemMessage {
+    ... on PriceLineText {
+      primary
+    }
+    ... on PriceLineHeading {
+      tag
+      size
+      primary
+    }
+  }
+
+  fragment PriceLineHeadingFragment on PriceLineHeading {
+    primary
+    tag
+    size
+    additionalInformation {
+      ...PricePresentationAdditionalInformationFragment
+    }
+    icon {
+      id
+      description
+      size
+    }
+  }
+
+  fragment PricePresentationEGDSGraphicFragment on UIGraphic {
+    ... on Icon {
+      description
+      id
+      size
+      theme
+      title
+      withBackground
+    }
+    ... on Illustration {
+      id
+      description
+      link: url
+    }
+    ... on Mark {
+      description
+      id
+      markSize: size
+      url {
+        value
+      }
+    }
+  }
+`,Nt=({data:e})=>a.createElement(R.iR,{data:e});Nt.fragment=Z(J({},xt),{__typename:"PricePresentation"}),Nt.displayName="sharedui-InsurtechPricePresentationWrapper";var Lt=i.gql`
+  fragment InsurtechPricePresentationDialogContentFragment on InsurtechPricePresentationDialogContent {
+    priceDetails {
+      ...PricePresentationFragment
+    }
+  }
+  ${Nt.fragment}
+`,_t=({data:e})=>a.createElement(r.N,{margin:{blockstart:"six"}},a.createElement("div",null,a.createElement(Nt,{data:e.priceDetails})));_t.fragment=Lt,_t.displayName="sharedui-InsurtechPricePresentationDialogContent";var $t=a.createContext(null),Rt=(...e)=>{const t=[],n=void window;for(const a of e){if(!a)continue;const e=typeof a;if("string"===e){const e=a.split(" ");n&&e.length>1?t.push(Rt.apply(n,e)):t.push((null==n?void 0:n[a])||a)}else if(Array.isArray(a))[].concat(...a).filter(Boolean).length&&t.push(Rt.apply(null!=n?n:null,a));else if("object"===e)if(a.toString===Object.prototype.toString)for(const r in a)({}).hasOwnProperty.call(a,r)&&a[r]&&t.push((null==n?void 0:n[r])||r);else t.push(a.toString())}return t.join(" ")},Bt=e=>{let t=!1;t=window.matchMedia("(prefers-reduced-motion: reduce)").matches;const{className:n,children:i,checked:l,description:c,disabled:o,id:s,label:m,labelClassName:g,required:d,name:u,value:E,a11yLabel:h,onChange:p}=e,I=(0,a.useContext)($t),f="uitk-radio-button",y=Rt(f,{"is-disabled":o}),S=Rt("uitk-radio-button-label",{[g]:Boolean(g),"is-required":d}),v=Rt({checked:l},n),F=m||i,k=(null==I?void 0:I.defaultChecked)?"defaultChecked":"checked",b=l||(null==I?void 0:I.selected)===E,C=Rt(`${f}-control`),T=Rt(`${f}-has-reduced-motion`),P=`radio-button-description-${Math.random().toString(36).substring(7)}`,A=null!=h?h:null==F?void 0:F.toString();return a.createElement(D.X,{className:y,wrap:"nowrap",style:{flex:1,padding:0}},a.createElement(L.C,{className:Rt(`${f}-content`),grow:1},a.createElement("div",null,a.createElement("label",{className:S,htmlFor:s,style:{display:"flex"}},a.createElement(r.N,{margin:{inlineend:"four"}},a.createElement("span",{"aria-hidden":Boolean(h),className:Rt(`${f}-label-content`),style:{flex:1}},F,d&&a.createElement("span",{className:Rt("uitk-radio-button-required-asterisk"),"aria-hidden":"true"}," ","*"))),a.createElement("input",Z(J({type:"radio",name:u||(null==I?void 0:I.group),id:s},{[k]:b}),{className:v,onChange:p||(null==I?void 0:I.onChange),value:E,disabled:o,"aria-label":A,"aria-describedby":c?P:""})),a.createElement("span",{"aria-hidden":"true",className:t?`${C} ${T}`:C,style:{marginTop:8,marginInlineEnd:0}}),h&&a.createElement("span",{className:"is-visually-hidden"},h)),c&&a.createElement("span",{className:Rt(`${f}-description uitk-type-200`),id:P},c))))};Bt.displayName="InsurtechRightRadio";var zt=i.gql`
+  fragment EGDSBasicRadioButtonFragment on EGDSBasicRadioButton {
+    __typename
+    description
+    disabled
+    label
+    value
+  }
+`,wt=({data:e,onChange:t,disabled:n,children:r,radioAlignment:i})=>{var l,c;return"RIGHT"===i?a.createElement(Bt,{disabled:e.disabled||n,id:e.value,value:e.value,description:null!=(l=e.description)?l:void 0,onChange:t,a11yLabel:e.label},r||e.label):a.createElement(z.P,{disabled:e.disabled||n,id:e.value,value:e.value,description:null!=(c=e.description)?c:void 0,onChange:t,a11yLabel:r?e.label:void 0},r||e.label)};wt.fragment=zt,wt.displayName="EGDSBasicRadioButton";var Ot=i.gql`
+  fragment EGDSRadioButtonFragment on EGDSRadioButton {
+    __typename
+    ...EGDSBasicRadioButtonFragment
+  }
+  ${wt.fragment}
+`,qt=({data:e,disabled:t,onChange:n,children:r,radioAlignment:i})=>"EGDSBasicRadioButton"===e.__typename?a.createElement(wt,{radioAlignment:i,data:e,disabled:t,onChange:n},r):null;qt.fragment=Ot,qt.displayName="InsurtechEGDSRadioButton";var Mt=i.gql`
+  fragment EGDSBasicRadioGroupFragment on EGDSBasicRadioGroup {
+    __typename
+    groupName
+    selected
+    options {
+      ...EGDSRadioButtonFragment
+    }
+  }
+  ${qt.fragment}
+`,Ht=({data:e,selectedValue:t,errorMessage:n,disabled:r,onChange:i})=>{var l;const c=t&&"-2"!==t?t:null!=(l=e.selected)?l:void 0;return a.createElement(B.S,{errorMessage:n,group:e.groupName,onChange:i,selected:c,defaultChecked:!t},e.options.map((e,t)=>a.createElement(qt,{key:t,data:e,disabled:r})))};Ht.fragment=Mt,Ht.displayName="EGDSBasicRadioGroup";var Ut=i.gql`
+  fragment EGDSRadioGroupFragment on EGDSRadioGroup {
+    __typename
+    ...EGDSBasicRadioGroupFragment
+  }
+  ${Ht.fragment}
+`,Vt=({data:e,onChange:t,selectedValue:n,errorMessage:r,disabled:i})=>"EGDSBasicRadioGroup"===e.__typename?a.createElement(Ht,{data:e,onChange:t,errorMessage:r,selectedValue:n,disabled:i}):null;Vt.fragment=Ut,Vt.displayName="EGDSRadioGroup";var Wt=i.gql`
+  fragment UILinkActionFragment on UILinkAction {
+    accessibility
+    resource {
+      __typename
+      ... on HttpURI {
+        relativePath
+        value
+      }
+    }
+    analytics {
+      linkName
+      referrerId
+    }
+  }
+`,Xt=e=>{const{data:t,theme:n}=e,r=jt({data:t});return r&&a.createElement(b.i,{align:"left",inline:!0,noWrap:!1,size:"medium",theme:n||"inverse"},r)},jt=({clickStreamData:e,data:t})=>{var n;const r=(0,E.useClickTracker)(),i=ie(),l=a.useCallback(()=>{t.analytics&&r(t.analytics.referrerId,t.analytics.linkName,!0),(null==e?void 0:e.analytics)&&i(e.dataType,e.analytics)},[t,r]),c="HttpURI"===(null==(n=t.resource)?void 0:n.__typename)?t.resource.value:void 0;return c&&t.accessibility?a.createElement("a",{href:c,target:"_blank",rel:"noopener",onClickCapture:l},t.accessibility):null};Xt.fragment=Wt,Xt.displayName="UILinkAction";var Yt=i.gql`
+  fragment InsurtechClickstreamAnalyticsFragment on InsurtechClickstreamAnalytics {
+    egClickstreamAnalyticsData {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+  ${se}
+`,Kt=i.gql`
+  fragment InsurtechAnalyticsDataFragment on InsurtechAnalyticsData {
+    ...InsurtechClickstreamAnalyticsFragment
+    __typename
+  }
+  ${Yt}
+`,Qt=i.gql`
+  fragment InsurtechActionFragment on InsurtechAction {
+    __typename
+    accessibility
+    ...InsurtechUpdateOfferActionFragment
+    ...InsurtechCheckboxActionFragment
+    ...InsurtechGenericActionFragment
+    ...InsurtechUpdateTripActionFragment
+    ...InsurtechUpdateProductSelectionActionFragment
+    ...InsurtechResourceLinkActionFragment
+    ...InsurtechSetResidencyActionFragment
+    ...InsurtechProductSelectActionFragment
+    ...InsurtechCompletePurchaseActionFragment
+    ...InsurtechDialogTriggerActionFragment
+    ...InsurtechNavigateNextViewActionFragment
+  }
+
+  fragment InsurtechUpdateOfferActionFragment on InsurtechUpdateOfferAction {
+    insuranceOfferToken: value
+    failedMessage
+    successMessage
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+  fragment InsurtechSetResidencyActionFragment on InsurtechSetResidencyAction {
+    value {
+      countryCode
+      regionCode
+    }
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+    successText
+    residencyState
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+  fragment InsurtechCheckboxActionFragment on InsurtechCheckboxAction {
+    insuranceOfferToken
+    addInsuranceMessage
+    removeInsuranceMessage
+  }
+  fragment InsurtechGenericActionFragment on InsurtechGenericAction {
+    actionType
+  }
+  fragment InsurtechUpdateTripActionFragment on InsurtechUpdateTripAction {
+    operation
+    offerId
+    responseId
+    price
+    addInsuranceError
+    addInsuranceText
+    removeInsuranceError
+    removeInsuranceText
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+  fragment InsurtechProductSelectActionFragment on InsurtechProductSelectAction {
+    clickAnalytics {
+      ...InsurtechAnalyticsDataFragment
+    }
+    insuranceRecordId
+    parentTripId
+    insuranceProductId: productId
+  }
+  fragment InsurtechUpdateProductSelectionActionFragment on InsurtechUpdateProductSelectionAction {
+    shopResponseId: responseId
+    productId
+    operationType
+    removeDialogId
+  }
+  fragment InsurtechResourceLinkActionFragment on InsurtechResourceLinkAction {
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+    link {
+      ...UILinkActionFragment
+      target
+    }
+  }
+  fragment InsurtechCompletePurchaseActionFragment on InsurtechCompletePurchaseAction {
+    edgeToken
+    insuranceRecordId
+    parentTripId
+    insuranceProductId: productId
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  fragment InsurtechDialogTriggerActionFragment on InsurtechDialogTriggerAction {
+    dialogId
+    accessibility
+    analytics {
+      ...ClientSideAnalyticsFragment
+    }
+  }
+
+  fragment InsurtechNavigateNextViewActionFragment on InsurtechNavigateNextViewAction {
+    accessibility
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+
+  ${de}
+  ${se}
+  ${Kt}
+  ${Xt.fragment}
+`,Jt=i.gql`
+  fragment InsurtechBasicRadioButtonFragment on InsurtechBasicRadioButton {
+    item {
+      ...EGDSRadioButtonFragment
+    }
+    action {
+      ...InsurtechActionFragment
+    }
+  }
+  ${Qt}
+  ${qt.fragment}
+`,Zt=({data:e,disabled:t,onChange:n})=>{const r=a.useCallback(()=>{e.action&&(null==n||n(e.action))},[n]);return a.createElement("div",null,a.createElement(qt,{data:e.item,disabled:t,onChange:r}))};Zt.fragment=Jt,Zt.displayName="InsurtechBasicRadioButton";var en=i.gql`
+  fragment InsurtechResidencyRadioGroupFragment on InsurtechResidencyRadioGroup {
+    radioGroup {
+      ...EGDSRadioGroupFragment
+    }
+    options {
+      ...InsurtechBasicRadioButtonFragment
+    }
+  }
+  ${Vt.fragment}
+  ${Zt.fragment}
+`,tn=({data:{radioGroup:e,options:t},onInsurtechAction:n,disabled:r})=>{var i;return"EGDSBasicRadioGroup"===e.__typename?a.createElement(B.S,{group:e.groupName,selected:null!=(i=e.selected)?i:void 0},t.map((e,t)=>a.createElement(Zt,{key:t,data:e,disabled:r,onChange:n}))):null};tn.fragment=en,tn.displayName="InsurtechResidencyRadioGroup";var nn=i.gql`
+  fragment InsurtechResidencyDialogContentFragment on InsurtechResidencyDialogContent {
+    __typename
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    header
+    residency {
+      ...InsurtechResidencyRadioGroupFragment
+    }
+    disclaimer
+    id
+  }
+  ${Ae.fragment}
+  ${tn.fragment}
+`,an=({data:e,onInsurtechAction:t})=>{const{isLoading:n}=ge();return a.createElement(D.X,{direction:"column",space:"four"},e.graphic&&a.createElement(L.C,{alignSelf:"center"},a.createElement("div",null,a.createElement(Ae,{data:e.graphic}))),e.header&&a.createElement(P.M,{size:6,tag:"h4"},e.header),a.createElement("div",null,e.residency&&a.createElement(tn,{data:e.residency,onInsurtechAction:t,disabled:n})),e.disclaimer&&a.createElement(k.D,null,e.disclaimer))};an.fragment=nn,an.displayName="InsurtechResidencyDialogContent";var rn=i.gql`
+  fragment InsurtechDialogContentFragment on InsurtechDialogContent {
+    __typename
+    ... on InsurtechTextDialog {
+      text
+    }
+    ...InsurtechBenefitDialogContentFragment
+    ...InsurtechResidencyDialogContentFragment
+    ...InsurtechPricePresentationDialogContentFragment
+  }
+  ${Gt.fragment}
+  ${an.fragment}
+  ${_t.fragment}
+`,ln=({data:e,onInsurtechAction:t})=>{switch(e.__typename){case"InsurtechTextDialog":return a.createElement(k.D,null,e.text);case"InsurtechBenefitDialogContent":return a.createElement(Gt,{data:e});case"InsurtechResidencyDialogContent":return a.createElement(an,{data:e,onInsurtechAction:t});case"InsurtechPricePresentationDialogContent":return a.createElement(_t,{data:e});default:return null}};ln.fragment=rn,ln.displayName="InsurtechDialogContent";var cn={BOTTOM:"bottom",CENTERED:"centered",FULLSCREEN:"full",POPOVER:"popover",SIDE:"side"},on=i.gql`
+  fragment InsurtechPrimaryButtonFragment on InsurtechPrimaryButton {
+    button {
+      accessibility
+      disabled
+      primary
+      icon {
+        ...EGDSIconFragment
+      }
+    }
+  }
+  ${be.fragment}
+`,sn=({data:{button:e},actionProps:t,disabled:n,onClick:r,size:i,isFullWidth:l=!1})=>a.createElement(w.y,J({"aria-label":e.accessibility||"",disabled:null!=n?n:e.disabled,isFullWidth:l,onClick:r,size:i},t),e.icon&&a.createElement(be,{data:e.icon}),e.primary);sn.fragment=on,sn.displayName="InsurtechPrimaryButton";var mn=i.gql`
+  fragment InsurtechSecondaryButtonFragment on InsurtechSecondaryButton {
+    button {
+      accessibility
+      disabled
+      primary
+      icon {
+        ...EGDSIconFragment
+      }
+    }
+  }
+  ${be.fragment}
+`,gn=({data:{button:e},disabled:t,onClick:n,size:r,actionProps:i})=>a.createElement(O.y,J({"aria-label":e.accessibility||"",disabled:null!=t?t:e.disabled,onClick:n,size:r},i),e.icon&&a.createElement(be,{data:e.icon}),e.primary);gn.fragment=mn,gn.displayName="InsurtechSecondaryButton";var dn=i.gql`
+  fragment InsurtechTertiaryButtonFragment on InsurtechTertiaryButton {
+    button {
+      accessibility
+      disabled
+      primary
+      icon {
+        ...EGDSIconFragment
+      }
+    }
+  }
+  ${be.fragment}
+`,un=({data:{button:e},alignLabelToContent:t,disabled:n,onClick:r,size:i,actionProps:l})=>a.createElement(q.q,J({alignLabelToContent:t,"aria-label":e.accessibility||"",disabled:null!=n?n:e.disabled,onClick:r,size:i},l),e.icon&&a.createElement(be,{data:e.icon}),e.primary);un.fragment=dn,un.displayName="InsurtechTertiaryButton";var En=i.gql`
+  fragment InsurtechButtonFragment on InsurtechButton {
+    ...InsurtechPrimaryButtonFragment
+    ...InsurtechTertiaryButtonFragment
+    ...InsurtechSecondaryButtonFragment
+    action {
+      ...InsurtechActionFragment
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+  }
+  ${sn.fragment}
+  ${gn.fragment}
+  ${un.fragment}
+  ${Qt}
+  ${de}
+`,hn=({data:e,disabled:t,onClick:n,size:r,isFullWidth:i,alignLabelToContent:l})=>{const{action:c}=e,o=(0,E.useClickTracker)(),{isExpwebEnabled:s,setDialogId:m}=qe(),g=a.useCallback(()=>{const{analytics:e}=c;e&&o(e.referrerId,e.linkName),"InsurtechDialogTriggerAction"===c.__typename&&s&&m(`${c.dialogId}`),null==n||n(c)},[n,c]),d=(e=>"InsurtechResourceLinkAction"===e.__typename&&"HttpURI"===e.link.resource.__typename?{href:e.link.resource.value,target:"EXTERNAL"===e.link.target?"_blank":void 0}:null)(c);switch(e.__typename){case"InsurtechPrimaryButton":return a.createElement(sn,{data:e,disabled:t,onClick:g,size:r,isFullWidth:i,actionProps:d});case"InsurtechSecondaryButton":return a.createElement(gn,{data:e,disabled:t,onClick:g,size:r,isFullWidth:i,actionProps:d});case"InsurtechTertiaryButton":return a.createElement(un,{data:e,disabled:t,onClick:g,size:r,isFullWidth:i,alignLabelToContent:l,actionProps:d});default:return null}};hn.fragment=En,hn.displayName="sharedui-InsurtechButton";var pn=i.gql`
+  fragment InsurtechPricePresentationFragment on InsurtechPricePresentation {
+    text
+    substring
+    totalPriceLabel
+  }
+`,In=({data:{text:e,totalPriceLabel:t,substring:n},flexProps:r,textProps:i,subStringProps:l,layoutAlign:c})=>{var o,s,m,g,d,u;return a.createElement(D.X,{direction:"column",alignItems:c},a.createElement(D.X,{space:null!=(o=null==r?void 0:r.space)?o:void 0,alignItems:null!=(s=null==r?void 0:r.alignItems)?s:"start",direction:null!=(m=null==r?void 0:r.direction)?m:"column"},a.createElement(k.D,{inline:!0,size:null!=(g=null==i?void 0:i.size)?g:500,weight:null!=(d=null==i?void 0:i.weight)?d:"bold",align:null==i?void 0:i.align,whiteSpace:"nowrap"},e),n&&a.createElement(k.D,{inline:!0,size:null!=(u=null==l?void 0:l.size)?u:200,whiteSpace:null==l?void 0:l.whiteSpace},n)),t&&a.createElement(k.D,{size:200},t))};In.fragment=pn,In.displayName="InsurtechPricePresentation";var fn=i.gql`
+  fragment InsurtechSelectionButtonSectionFragment on InsurtechSelectionButtonSection {
+    action {
+      ...InsurtechButtonFragment
+    }
+    price {
+      ...InsurtechPricePresentationFragment
+    }
+  }
+  ${hn.fragment}
+  ${In.fragment}
+`,yn=({data:{price:e,action:t},onClick:n,layoutDirection:r})=>{const{isLoading:i}=ge(),l="row-reverse"===r?"right":"left";return a.createElement(D.X,{justifyContent:"space-between",direction:r},a.createElement(L.C,{grow:1},!i&&a.createElement(In,{data:e,textProps:{align:l},subStringProps:{size:100}}),i&&a.createElement("div",null,a.createElement(te,null))),a.createElement(L.C,null,a.createElement(hn,{data:t,onClick:n,disabled:i})))};yn.displayName="InsurtechSelectionButtonSection",yn.fragment=fn;var Sn=i.gql`
+  fragment InsurtechSelectionButtonFooterFragment on InsurtechSelectionButtonFooter {
+    selectionSection {
+      ...InsurtechSelectionButtonSectionFragment
+    }
+  }
+  ${yn.fragment}
+`,vn=({data:e,onClick:t})=>a.createElement(r.N,{padding:"six"},a.createElement("div",null,a.createElement(yn,{data:e.selectionSection,onClick:t})));vn.fragment=Sn,vn.displayName="InsurtechSelectionButtonFooter";var Dn=i.gql`
+  fragment InsurtechExternalLinkFragment on InsurtechLink {
+    text
+    accessibility
+    linkIcon: icon {
+      ...EGDSIconFragment
+    }
+    action {
+      ...InsurtechActionFragment
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+  }
+  ${be.fragment}
+  ${Qt}
+  ${de}
+`,Fn=({data:e,onClick:t,inline:n,size:r,align:i})=>{const l=e.action;if("InsurtechResourceLinkAction"!==l.__typename)return null;const c="HttpURI"===l.link.resource.__typename?l.link.resource.value:"";return a.createElement(b.i,{size:r,"aria-label":e.accessibility,inline:n,onClickCapture:t,align:i},a.createElement("a",{href:c,rel:"noopener",target:"_blank"},e.text,e.linkIcon&&a.createElement(be,{data:e.linkIcon}),e.action.accessibility&&a.createElement("span",{className:"is-visually-hidden"},e.action.accessibility)))};Fn.fragment=Dn,Fn.displayName="InsurtechExternalLink";var kn=i.gql`
+  fragment InsurtechMoreInfoLinkFragment on InsurtechLink {
+    text
+    accessibility
+    linkIcon: icon {
+      ...EGDSIconFragment
+    }
+  }
+  ${be.fragment}
+`,bn=({data:e,onClick:t,inline:n,size:r})=>a.createElement(M.t,null,a.createElement(b.i,{inline:n,"aria-label":e.accessibility,onClick:t,size:r},a.createElement("button",{type:"button"},a.createElement(k.D,{size:200,spacing:"half",weight:"regular",theme:"standard"},e.text," ",e.linkIcon&&a.createElement(be,{data:e.linkIcon})))));bn.fragment=kn,bn.displayName="InsurtechMoreInfoLink";var Cn=i.gql`
+  fragment InsurtechStandardLinkFragment on InsurtechLink {
+    text
+    accessibility
+    linkIcon: icon {
+      ...EGDSIconFragment
+    }
+  }
+  ${be.fragment}
+`,Tn=({data:e,onClick:t,inline:n,size:r,align:i})=>a.createElement(b.i,{inline:n,"aria-label":e.accessibility,onClick:t,size:r,align:i},a.createElement("button",{type:"button"},e.text,e.linkIcon&&a.createElement(be,{data:e.linkIcon})));Tn.fragment=Cn,Tn.displayName="InsurtechStandardLink";var Pn=i.gql`
+  fragment InsurtechLinkFragment on InsurtechLink {
+    ...InsurtechMoreInfoLinkFragment
+    ...InsurtechStandardLinkFragment
+    ...InsurtechExternalLinkFragment
+    action {
+      ...InsurtechActionFragment
+      analytics {
+        ...ClientSideAnalyticsFragment
+      }
+    }
+    linkType
+  }
+  ${bn.fragment}
+  ${Tn.fragment}
+  ${Fn.fragment}
+  ${Qt}
+  ${de}
+`,An=({align:e,data:t,onClick:n,inline:r,trackData:i,size:l})=>{const{action:c}=t,o=(0,E.useClickTracker)(),{isExpwebEnabled:s,setDialogId:m}=qe(),[u]=(0,d.useDialog)("undefined"),h=(0,a.useCallback)(e=>{u||s&&m(`${e.dialogId}`)},[u,m,s]),p=(0,a.useCallback)(()=>{const{analytics:e,accessibility:a}=c;e&&o(e.referrerId,e.linkName),a&&(0,g.liveAnnounce)(a),"InsurtechDialogTriggerAction"===c.__typename&&h(c),null==n||n(t.action,{trackData:i})},[n,t.action,h]);switch(t.linkType){case"MORE_INFO":return a.createElement(bn,{data:t,onClick:p,inline:r,size:l});case"STANDARD_LINK":return a.createElement(Tn,{data:t,align:e,onClick:p,inline:r,size:l});case"EXTERNAL_LINK":return a.createElement(Fn,{data:t,align:e,onClick:p,inline:r,size:l})}};An.fragment=Pn,An.displayName="InsurtechLink";var Gn=i.gql`
+  fragment InsurtechClickableElementFragment on InsurtechClickableElement {
+    ...InsurtechLinkFragment
+    ...InsurtechButtonFragment
+  }
+  ${An.fragment}
+  ${hn.fragment}
+`,xn=({data:e,onClick:t,disabled:n})=>{switch(e.__typename){case"InsurtechPrimaryButton":case"InsurtechSecondaryButton":case"InsurtechTertiaryButton":return a.createElement(hn,{data:e,onClick:t,disabled:n});case"InsurtechLink":return a.createElement(An,{data:e,onClick:e=>null==t?void 0:t(e)});default:return null}};xn.displayName="InsurtechClickableElement",xn.fragment=Gn;var Nn=i.gql`
+  fragment InsurtechGraphicStylizedTextFragment on InsurtechGraphicStylizedText {
+    grapic {
+      ...EGDSGraphicFragment
+    }
+    stylizedText {
+      ...EGDSStylizedTextFragment
+    }
+  }
+  ${Ae.fragment}
+  ${lt.fragment}
+`,Ln=({data:e,size:t})=>a.createElement(D.X,{space:"two"},a.createElement(Ae,{data:e.grapic}),a.createElement(lt,{size:t,data:e.stylizedText}));Ln.fragment=Nn,Ln.displayName="InsurtechGraphicStylizedText";var _n=i.gql`
+  fragment InsurtechSelectionSectionFragment on InsurtechSelectionSection {
+    clickableElement {
+      ...InsurtechClickableElementFragment
+    }
+    price {
+      ...InsurtechPricePresentationFragment
+    }
+    selectedText {
+      ...InsurtechGraphicStylizedTextFragment
+    }
+  }
+  ${xn.fragment}
+  ${In.fragment}
+  ${Ln.fragment}
+`,$n=({data:{price:e,clickableElement:t,selectedText:n},onClick:r,layoutDirection:i,selected:l})=>{const{isLoading:c}=ge(),o="row-reverse"===i?{alignItems:"end"}:{alignItems:"start"};return a.createElement(D.X,{justifyContent:"space-between",direction:i},a.createElement(L.C,{grow:1},!c&&a.createElement(In,{data:e,flexProps:o,subStringProps:{size:100}}),c&&a.createElement("div",null,a.createElement(te,null))),a.createElement(L.C,{alignSelf:"center"},a.createElement("div",null,l&&n?a.createElement(Ln,{size:400,data:n}):a.createElement(xn,{data:t,onClick:r,disabled:c}))))};$n.displayName="InsurtechSelectionSection",$n.fragment=_n;var Rn=i.gql`
+  fragment InsurtechSelectionFooterFragment on InsurtechSelectionFooter {
+    selectionSection {
+      ...InsurtechSelectionSectionFragment
+    }
+  }
+  ${$n.fragment}
+`,Bn=({data:{selectionSection:e},onClick:t})=>a.createElement(r.N,{padding:"six"},a.createElement("div",null,a.createElement($n,{data:e,onClick:t})));Bn.fragment=Rn,Bn.displayName="InsurtechSelectionFooter";var zn=i.gql`
+  fragment InsurtechDialogFooterFragment on InsurtechDialogFooter {
+    ...InsurtechSelectionButtonFooterFragment
+    ...InsurtechSelectionFooterFragment
+  }
+  ${vn.fragment}
+  ${Bn.fragment}
+`,wn=({data:e,onClick:t})=>{switch(e.__typename){case"InsurtechSelectionButtonFooter":return a.createElement(vn,{data:e,onClick:t});case"InsurtechSelectionFooter":return a.createElement(Bn,{data:e,onClick:t});default:return null}};wn.fragment=zn,wn.displayName="InsurtechDialogFooter";var On={200:"small",300:"medium",400:"large"},qn=i.gql`
+  fragment InsurtechDialogTriggerFragment on InsurtechDialogTrigger {
+    action {
+      ...InsurtechLinkFragment
+    }
+    dialogId
+    dialog {
+      ...EGDSDialogFragment
+    }
+    dialogContent {
+      ...InsurtechDialogContentFragment
+    }
+  }
+  ${An.fragment}
+  ${Se.fragment}
+  ${ln.fragment}
+`,Mn=({data:e,inline:t,size:n})=>{const[r,i,l]=(0,d.useDialog)(`${e.dialogId}`),c=(0,a.useCallback)(()=>{i.openDialog()},[i]),o=(0,a.useCallback)(()=>{r&&i.closeDialog()},[i,r]);return a.createElement(a.Fragment,null,a.createElement(m.K,{isVisible:r},a.createElement(l,null,a.createElement(Se,{data:e.dialog,closeDialog:o,content:a.createElement(ln,{data:e.dialogContent})}))),a.createElement(An,{data:e.action,onClick:c,inline:t,size:n}))};Mn.fragment=qn,Mn.displayName="InsurtechDialogTrigger";var Hn=i.gql`
+  fragment InsurtechSpannableTextElementFragment on InsurtechSpannableTextElement {
+    ...EGDSPlainTextFragment
+    ...EGDSStandardLinkFragment
+    ...InsurtechDialogTriggerFragment
+    ...InsurtechPricePresentationFragment
+    ...InsurtechLinkFragment
+    ...EGDSStylizedTextFragment
+  }
+  ${Le.fragment}
+  ${xe.fragment}
+  ${An.fragment}
+  ${Mn.fragment}
+  ${In.fragment}
+  ${lt.fragment}
+`,Un=({data:e,callback:t,priceTextProps:n,fixedSize:r})=>{const i=null!=(l=On[r])?l:void 0;var l;switch(e.__typename){case"EGDSPlainText":return a.createElement(Le,{data:e,inline:!0,size:r});case"EGDSStandardLink":return a.createElement(xe,{data:e,inline:!0,linkSize:i});case"InsurtechPricePresentation":return a.createElement(In,{data:e,textProps:{size:null==n?void 0:n.priceTextSize},flexProps:{direction:null==n?void 0:n.priceTextInline,alignItems:null==n?void 0:n.priceTextPosition,space:null==n?void 0:n.priceTextSpacing},layoutAlign:null==n?void 0:n.layoutAlign});case"InsurtechLink":return a.createElement(An,{data:e,inline:!0,onClick:t,size:i});case"InsurtechDialogTrigger":return a.createElement(Mn,{data:e,inline:!0,size:i});case"EGDSStylizedText":return a.createElement(lt,{data:e,inline:!0,size:r});default:return null}};Un.fragment=Hn,Un.displayName="InsurtechSpannableTextElement";var Vn=i.gql`
+  fragment InsurtechSpannableTextFragment on InsurtechSpannableText {
+    contents {
+      ...InsurtechSpannableTextElementFragment
+    }
+  }
+
+  ${Un.fragment}
+`,Wn={inlineend:"half"},Xn=({data:e,callback:t,spaceBetween:n,priceTextProps:i,align:l,fixedSize:c=300})=>{var o;return a.createElement("div",null,a.createElement(k.D,{align:l},null==(o=e.contents)?void 0:o.map((e,l)=>a.createElement(r.N,{key:l,padding:null!=n?n:Wn},a.createElement("span",null,a.createElement(Un,{data:e,callback:t,priceTextProps:i,fixedSize:c}))))))};Xn.fragment=Vn,Xn.displayName="InsurtechSpannableText";var jn=i.gql`
+  fragment InsurtechBenefitDialogHeadingFragment on InsurtechBenefitDialogHeading {
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    header
+    accessibilityHeader
+    subHeader {
+      ...InsurtechSpannableTextFragment
+    }
+  }
+  ${Xn.fragment}
+  ${Ae.fragment}
+`,Yn=({data:e,callback:t})=>{var n,i;const{isLoading:l}=ge(),{dialogBenefitHeading:s}=De();return a.createElement(r.N,{margin:{blockstart:"six",blockend:"eight",inline:"six"}},a.createElement("div",null,a.createElement(c.w,{space:"two",alignContent:"center",justifyItems:"center"},e.graphic&&a.createElement(o.T,null,a.createElement(Ae,{data:e.graphic})),l?a.createElement(te,{numberOfLines:2}):a.createElement(a.Fragment,null,a.createElement(o.T,null,a.createElement(P.M,{tag:null==s?void 0:s.tag,"aria-label":null!=(n=e.accessibilityHeader)?n:void 0,size:null!=(i=null==s?void 0:s.size)?i:5,align:"center"},e.header)),e.subHeader&&a.createElement(o.T,null,a.createElement(Xn,{data:e.subHeader,callback:t,align:"center"}))))))};Yn.fragment=jn,Yn.displayName="InsurtechBenefitDialogHeading";var Kn=i.gql`
+  fragment InsurtechDialogBasicHeadingFragment on InsurtechDialogBasicHeading {
+    heading
+  }
+`,Qn=({data:e})=>a.createElement(P.M,null,e.heading);Qn.fragment=Kn,Qn.displayName="InsurtechDialogBasicHeading";var Jn=i.gql`
+  fragment InsurtechDialogHeadingFragment on InsurtechDialogHeading {
+    __typename
+    ...InsurtechDialogBasicHeadingFragment
+    ...InsurtechBenefitDialogHeadingFragment
+  }
+  ${Qn.fragment}
+  ${Yn.fragment}
+`,Zn=({data:e,callback:t})=>{switch(e.__typename){case"InsurtechDialogBasicHeading":return a.createElement(Qn,{data:e});case"InsurtechBenefitDialogHeading":return a.createElement(Yn,{data:e,callback:t});default:return null}};Zn.fragment=Jn,Zn.displayName="InsurtechDialogHeading";var ea=i.gql`
+  fragment InsurtechDialogFragment on InsurtechDialog {
+    dialogId
+    onOpenAnnounceMessage
+    onCloseAnnounceMessage
+    sheetType
+    dialogHeading {
+      ...InsurtechDialogHeadingFragment
+    }
+    dialogFooter {
+      ...InsurtechDialogFooterFragment
+    }
+    dialogContent {
+      ...InsurtechDialogContentFragment
+    }
+    dialog {
+      ...EGDSDialogFragment
+    }
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+  ${Zn.fragment}
+  ${ln.fragment}
+  ${wn.fragment}
+  ${Se.fragment}
+  ${se}
+`,ta=({data:e,onInsurtechAction:t})=>a.createElement(a.Fragment,null,e&&a.createElement(Zn,{data:e,callback:t})),na=({data:e,onInsurtechAction:t})=>a.createElement(a.Fragment,null,e&&a.createElement(wn,{data:e,onClick:t})),aa=a.forwardRef((e,t)=>{const{data:n,onInsurtechAction:r,onConfirmAction:i,sheetHeight:l,trackData:c}=e,[o,s,E]=(0,d.useDialog)(`${n.dialogId}`),{dialogState:h}=oe(),{value:p}=(null==h?void 0:h.find(({id:e})=>e===n.dialogId))||{},I=ie(),f=(0,a.useCallback)(()=>{if(o){s.closeDialog();const e=null!=c?c:n.egClickStreamAnalytics;if(e){const t=(e||[]).filter(({referenceId:e})=>e===n.dialogId);null==I||I(ae,t)}}},[s,o]);a.useImperativeHandle(t,()=>({closeDialog:f}));const y=e=>a.createElement(Se,{sheetType:e,data:n.dialog,closeDialog:f,confirmAction:i,sheetHeight:l,onOpenAnnounceMessage:n.onOpenAnnounceMessage,onCloseAnnounceMessage:n.onCloseAnnounceMessage,header:a.createElement(ta,{data:n.dialogHeading,onInsurtechAction:r}),content:a.createElement(ln,{data:n.dialogContent,onInsurtechAction:r}),footer:(null==p?void 0:p.hideFooter)?void 0:a.createElement(na,{data:n.dialogFooter,onInsurtechAction:r})});return a.createElement(m.K,{isVisible:o,closeCallback:()=>{n.onCloseAnnounceMessage&&(0,g.liveAnnounce)(n.onCloseAnnounceMessage,g.Level.POLITE)}},a.createElement(E,null,a.createElement(u.LM,null,a.createElement(u.NP,null,y((S="full",(v=n.sheetType)&&cn[v]||S))),a.createElement(u.rw,null,y("centered")))));var S,v});aa.fragment=ea,aa.displayName="InsurtechDialog";var ra={__typename:"ClickStreamEventConstants",EVENT_NAME:"priming_card.failed",EVENT_TYPE:"Outcome",EVENT_VERSION:"1.0.0"},ia=e=>[e.placementContext.lob,e.placementContext.packageType?`PACKAGE_TYPE_${e.placementContext.packageType}`:void 0,e.placementContext.path,e.placementContext.placement,e.productType].filter(Boolean).join("_"),la=i.gql`
+  fragment EGClickStreamEventFragment on EGClickstreamEvent {
+    __typename
+    eventCategory
+    eventName
+    eventType
+    eventVersion
+    actionLocation
+  }
+`,ca=i.gql`
+  fragment BasicPrimingCardFragment on InsurtechPrimingCard {
+    header {
+      ...EGDSHeadingFragment
+    }
+    description
+    displayAnalytics {
+      ...EGClickStreamEventFragment
+    }
+    graphic {
+      ...EGDSGraphicFragment
+    }
+    dialogTrigger {
+      ...InsurTechExperienceDialogTriggerFragment
+    }
+    egClickStreamAnalytics {
+      ...InsurtechClickstreamAnalyticsDataFragment
+    }
+  }
+  ${Ae.fragment}
+  ${Qe.fragment}
+  ${la}
+  ${Ve.fragment}
+  ${se}
+`,oa={inline:"three"},sa=e=>{const{data:t,backgroundTheme:n}=e,{header:i,description:l,graphic:c,displayAnalytics:o,dialogTrigger:s,egClickStreamAnalytics:m}=t,g=null!=n?n:H.g5.HIGHLIGHT,d=ie();return a.useEffect(()=>{null==o||o.forEach(e=>{d(e)})},[]),a.createElement(U.g,{border:!0,padded:!0,backgroundTheme:g},a.createElement(D.X,{alignItems:"center"},c&&a.createElement(L.C,null,a.createElement(Ae,{data:c})),a.createElement(L.C,{grow:1},a.createElement(r.N,{margin:oa},a.createElement("div",null,i&&a.createElement(Qe,{data:i,size:6,tag:"h6"}),l&&a.createElement(k.D,{size:300,weight:"regular",theme:"standard",spacing:"two"},l)))),s&&a.createElement(L.C,null,a.createElement(r.N,null,a.createElement("div",null,a.createElement(Ve,{data:s,trackData:m,isCardLink:!0}))))))};sa.displayName="BasicPrimingCard",sa.fragment=ca;var ma={BASIC_PRIMING_CARD:sa},ga=i.gql`
+  query InsurtechPrimingCardQuery($context: ContextInput!, $placement: InsurTechComponentPlacementInput!) {
+    insurtechPriming(context: $context) {
+      card(placement: $placement) {
+        ...BasicPrimingCardFragment
+        viewType
+      }
+      dialogs(placement: $placement) {
+        ...InsurtechDialogFragment
+      }
+    }
+  }
+  ${sa.fragment}
+  ${aa.fragment}
+`,da={inline:"three",blockend:"six",blockstart:"three"},ua=({children:e,spacingProps:t})=>t?a.createElement(r.N,J({},t),a.createElement("div",null,e)):a.createElement(a.Fragment,null,e),Ea=()=>a.createElement(r.N,{padding:da},a.createElement("div",null,a.createElement(te,null))),ha=(e=>(e.SUCCESS="SUCCESS",e.LOADING="LOADING",e.ERROR="ERROR",e.EMPTY="EMPTY",e))(ha||{}),pa={dialogBenefitContent:{list:{size:1}},dialogBenefitHeading:{size:4,tag:"h4"}},Ia=e=>{const{context:t}=(0,l.R)(),{inputs:n,backgroundTheme:r,spacingProps:c,showSkeletonView:o,onError:s,trackStatusChange:m}=e,g=ie(),d=Z(J({},n),{context:t}),{data:u,error:E,loading:h}=(0,i.useQuery)(ga,{context:{shouldLogPerformance:!0},variables:d,onError:()=>{var e;null==g||g((e=d.placement,Z(J({},ra),{ACTION_LOCATION:ia(e)}))),null==s||s(),null==m||m("ERROR")},onCompleted:e=>{var t;(null==(t=null==e?void 0:e.insurtechPriming)?void 0:t.card)?null==m||m("SUCCESS"):null==m||m("EMPTY")}}),p=null==u?void 0:u.insurtechPriming.card;if(E)return null;if(h&&o)return null==m||m("LOADING"),a.createElement(ua,{spacingProps:c},a.createElement(Ea,null));if(h||!p)return null;const I=null==u?void 0:u.insurtechPriming.dialogs,f=ma[p.viewType];return a.createElement(ve.Provider,{value:pa},a.createElement(ce,null,a.createElement(ua,{spacingProps:c},a.createElement(f,{data:p,backgroundTheme:r})),null==I?void 0:I.map((e,t)=>a.createElement(aa,{key:t,data:e}))))};Ia.displayName="sharedui-InsurtechPriming"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-insurtech-priming-card.afcd71d29b2fcfd3f2c5.js.map

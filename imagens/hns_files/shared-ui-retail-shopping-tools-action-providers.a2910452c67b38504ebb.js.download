@@ -1,0 +1,137 @@
+/*@license For license information please refer to shared-ui-retail-shopping-tools-action-providers.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[830],{31009:function(e,n,t){t.d(n,{DU:function(){return X},H4:function(){return re},KN:function(){return q},RN:function(){return J},Rx:function(){return ae},_Q:function(){return ee},_T:function(){return z},e3:function(){return Z},pC:function(){return K},tM:function(){return V}});var a=t(56195),o=t(7138),r=t(51537),l=t(97778),i=t(63085),c=t(37965),s=t(26690),u=t(37957),p=t(95519),d=t(2557),v=t(7484),m=t(43888),y=t(934),g=t(23726),h=t(12299),f=t(70882),E=t(46559),S=t(87993),I=t(30169),T=t(37292),b=Object.defineProperty,O=Object.defineProperties,C=Object.getOwnPropertyDescriptors,N=Object.getOwnPropertySymbols,k=Object.prototype.hasOwnProperty,L=Object.prototype.propertyIsEnumerable,R=(e,n,t)=>n in e?b(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t,_=(e,n)=>{for(var t in n||(n={}))k.call(n,t)&&R(e,t,n[t]);if(N)for(var t of N(n))L.call(n,t)&&R(e,t,n[t]);return e},D=(e,n)=>O(e,C(n)),w=a.createContext(null),A=a.createContext({}),F=a.createContext(null),P=({children:e,overlays:n})=>{const[t,o]=a.useReducer((e,n)=>{const t=e[n.overlayId];if(!t)return console.error(`No overlay found with the provided overlayId: ${n.overlayId}`),e;switch(n.type){case 0:return D(_({},e),{[n.overlayId]:{isOverlayOpen:!0,timestamp:t.timestamp}});case 1:return D(_({},e),{[n.overlayId]:{isOverlayOpen:!1,timestamp:t.timestamp}});case 2:return D(_({},e),{[n.overlayId]:{isOverlayOpen:!t.isOverlayOpen,timestamp:t.timestamp}});default:return e}},void 0,()=>{const e={};return null==n||n.forEach(n=>{e[n.overlayId]={isOverlayOpen:!1,timestamp:Date.now()}}),e});return a.createElement(A.Provider,{value:t},a.createElement(F.Provider,{value:o},e))},M=e=>{const n=a.useContext(A)[e];return void 0===n?(console.error(`No overlay found with the provided overlayId: ${e}`),!1):n.isOverlayOpen},x=()=>{const e=a.useContext(F);return e||(console.error("useShoppingOverlayDispatch must be used within a ShoppingActionOverlayProvider"),()=>{})},z=({children:e,shoppingJoinListContainer:n,shoppingInvokeFunctionCallBack:t})=>{const o=a.useMemo(()=>({shoppingJoinListContainer:n,shoppingInvokeFunctionCallBack:t}),[n,t]);return a.createElement(w.Provider,{value:o},a.createElement(P,{overlays:null==n?void 0:n.overlays},e))},B={NO_ACTION_FOUND:new i.SystemEvent(i.SystemEventLevel.ERROR,"NO_ACTION_FOUND")},U={EXTERNAL:"_blank",INTERNAL:"_self"},V=(e,n)=>e&&e.find(e=>e.triggerType===n)||null,$=e=>`${e} can only be used in a component inside <ShoppingActionProvider />`,q=e=>{var n;const t=a.useContext(w);return t?((e,n)=>{var t;return null!=(t=null==n?void 0:n.find(n=>n.actionId===e))?t:null})(e,null==(n=t.shoppingJoinListContainer)?void 0:n.actions):(console.error($("useShoppingAction")),null)},K=(e,n)=>{const t=a.useContext(w),{scrollTo:s}=(0,c.xC)();t||console.error($("useShoppingActionCallback"));const{shoppingJoinListContainer:u,shoppingInvokeFunctionCallBack:p}=null!=t?t:{},d=null==u?void 0:u.actions,v=(0,l.useClickTracker)(),m=(0,l.useEgClickstream)(),y=(0,o.Zp)(),g=(0,i.useLoggerEvents)(B),h=x(),f=a.useContext(A),E=null==d?void 0:d.filter(n=>n.actionId===e),S=a.useCallback((e,n)=>{e?m(e):v(n.analytics.referrerId,n.analytics.linkName)},[m,v]);return a.useCallback(()=>{0!==(null==E?void 0:E.length)?null==E||E.forEach(e=>{e.accessibility&&(0,r.liveAnnounce)(e.accessibility);const t=null==n?void 0:n(null==e?void 0:e.event);switch(e.__typename){case"ShoppingNavigateToOverlay":{const n=f[e.overlayId];if(void 0===n)return void console.error(`No overlay found with the provided overlayId: ${e.overlayId}`);const{isOverlayOpen:a}=n;h({type:2,overlayId:e.overlayId}),a||S(t,e);break}case"ShoppingNavigateToURI":S(t,e),e.useRelativePath&&"HttpURI"===e.resource.__typename?y(e.resource.relativePath):window&&"function"==typeof window.open&&window.open(e.resource.value,U[e.target]);break;case"ShoppingInvokeFunction":{const{functionType:n,name:a,paramsId:o,functionParams:r}=e;if(!p)return;S(t,e),p(n,a,o,r);break}case"ShoppingScrollsToView":{const{targetRef:n}=e;S(t,e),s(n,[]);break}}}):g.NO_ACTION_FOUND.log({description:`No action was found in shoppingJoinListContainer.actions with actionId ${e}`})},[E,g.NO_ACTION_FOUND,e,n,S,f,h,y,p,s])},J=e=>{var n;const t=a.useContext(w),o=q(e);return o&&"ShoppingNavigateToOverlay"===o.__typename?((e,n)=>{const t=null==n?void 0:n.find(n=>n.overlayId===e);return null!=t?t:null})(o.overlayId,null==(n=null==t?void 0:t.shoppingJoinListContainer)?void 0:n.overlays):null},j=s.gql`
+  fragment ShoppingCoachmarkFragment on ShoppingCoachmark {
+    dismissTimeoutMS
+    version
+  }
+`,H=a.forwardRef(({children:e,data:n,overlayId:t},o)=>{const{dismissTimeoutMS:r,version:l}=n,i=M(t),c=x();if(a.useEffect(()=>{r&&setTimeout(()=>{c({type:1,overlayId:t})},r)},[r,t,c]),!i)return null;switch(l){case"V2":default:return a.createElement(u.o,{triggerRef:o},e);case"V3":return null}});H.displayName="ShoppingCoachmark",H.fragment=j;var G=s.gql`
+  fragment ShoppingSheetFragment on EGDSSheet {
+    closeAnalytics {
+      linkName
+      referrerId
+    }
+    closeText
+    sheetType
+    sheetTypes {
+      sheetType
+      viewSize
+    }
+  }
+`,Q={BOTTOM:"bottom",SIDE:"side",CENTERED:"centered",POPOVER:"popover",FULLSCREEN:"full"},W=a.forwardRef(({data:e,sheetToolbar:n,children:t,tall:o,renderNavigateBar:r=!0,useToolbar:i=!0,openOnLoad:c=!1,openAnalytics:s,hasModal:u=!1,centeredSheetSize:S="small",overlayId:I},T)=>{var b,O,C,N,k;const L=(0,l.useClickTracker)(),R=M(I),w=x(),F=(e=>{const n=a.useContext(A)[e];return void 0===n?(console.error(`No overlay found with the provided overlayId: ${e}`),""):`${e}-${n.timestamp.toString()}`})(I),[P,z,B]=(0,f.useDialog)(F),U=null!=(b=e.sheetType)?b:"CENTERED",{sheetTypes:V}=e;a.useEffect(()=>{R&&!P?z.openDialog():!R&&P&&z.closeDialog()},[R,I]),a.useEffect(()=>{c&&!R&&(w({type:0,overlayId:I}),s&&L(s.linkName,s.referrerId))},[R,s,c,I,w,L]);const $=a.useCallback(()=>{L(e.closeAnalytics.linkName,e.closeAnalytics.referrerId)},[e,L]),q=a.useCallback(()=>{$(),w({type:1,overlayId:I})},[w,I,$]),K=null!=(O=e.closeText)?O:"close",J=()=>{if(r){const e={navigationContent:{onClick:q,navIconLabel:K},toolbarTitle:null==n?void 0:n.title,toolbarSubtitle:null==n?void 0:n.subtitle};return i?a.createElement(g.p,_({},e)):a.createElement(v.t,null,a.createElement(p.q,{type:"button",onClick:q},a.createElement(d.LD,{name:"close",size:d.So.MEDIUM,title:K})))}return null},j=a.useMemo(()=>({isVisible:P,type:Q[U],triggerRef:T}),[P,e,T,U]),H=e=>a.createElement(m.K,{isVisible:P},a.createElement(y.t,D(_({},j),{sideSheetLayout:e}),J(),t));let G=a.createElement(h.c,D(_({},j),{type:"bottom",tall:o}),J(),t);G=u?a.createElement(m.K,{isVisible:P,closeCallback:$},a.createElement(B,null,G)):a.createElement(m.K,{isVisible:P,closeCallback:$},G);const W=a.createElement(m.K,{isVisible:P,closeCallback:$},a.createElement(B,null,a.createElement(y.t,D(_({},j),{centeredSheetSize:S}),J(),t))),Y=a.createElement(m.K,{isVisible:P},a.createElement(B,null,a.createElement(y.t,{type:"full",isVisible:!0,triggerRef:T,returnFocusOnClose:!0},J(),t)));if(V){const e={BOTTOM:G,SIDE:H({position:"trailing",columns:6}),CENTERED:W,POPOVER:W,FULLSCREEN:Y},n=(null==(C=V.find(e=>"SMALL"===e.viewSize))?void 0:C.sheetType)||"CENTERED",t=(null==(N=V.find(e=>"MEDIUM"===e.viewSize))?void 0:N.sheetType)||"CENTERED",o=(null==(k=V.find(e=>"LARGE"===e.viewSize))?void 0:k.sheetType)||"CENTERED";return a.createElement(E.LM,null,a.createElement(E.NP,null,e[n]),a.createElement(E.rw,null,e[t]),a.createElement(E.zQ,null,e[o]))}return"SIDE"===U?a.createElement(E.LM,null,a.createElement(E.NP,null,Y),a.createElement(E.rw,null,H({position:"trailing",columns:6})),a.createElement(E.zQ,null,H({position:"trailing",columns:4}))):"CENTERED"===U?a.createElement(E.LM,null,a.createElement(E.NP,null,Y),a.createElement(E.rw,null,W),a.createElement(E.zQ,null,W)):"FULLSCREEN"===e.sheetType?a.createElement(a.Fragment,null,Y):null});W.fragment=G,W.displayName="ShoppingSheet";var Y=s.gql`
+  fragment ShoppingOverlayFragment on ShoppingOverlayContainer {
+    overlayId
+    contentId
+    overlay {
+      __typename
+      ... on EGDSSheet {
+        ...ShoppingSheetFragment
+      }
+      ...ShoppingCoachmarkFragment
+    }
+  }
+  ${W.fragment}
+  ${H.fragment}
+`,X=a.forwardRef(({data:e,renderNavigateBar:n,sheetToolbar:t,children:o,useToolbar:r,tall:l,openOnLoad:i,openAnalytics:c,hasModal:s,centeredSheetSize:u},p)=>{const{overlay:d}=e;switch(d.__typename){case"ShoppingCoachmark":return a.createElement(H,{data:d,ref:p,overlayId:e.overlayId},o);case"EGDSSheet":return a.createElement(W,{data:d,ref:p,sheetToolbar:t,tall:l,useToolbar:r,renderNavigateBar:n,openOnLoad:i,openAnalytics:c,hasModal:s,centeredSheetSize:u,overlayId:e.overlayId},o);default:return null}});X.fragment=Y,X.displayName="ShoppingOverlay";var Z=a.forwardRef(({actionId:e,sheetToolbar:n,children:t,renderNavigateBar:o,tall:r,useToolbar:l,openOnLoad:i,openAnalytics:c,hasModal:s,centeredSheetSize:u},p)=>{const d=J(e);return d?a.createElement(X,{data:d,ref:p,sheetToolbar:n,tall:r,useToolbar:l,renderNavigateBar:o,openOnLoad:i,openAnalytics:c,hasModal:s,centeredSheetSize:u},t):null});Z.displayName="ShoppingOverlayMapper";var ee=s.gql`
+  fragment ShoppingJoinListContainerFragment on ShoppingJoinListContainer {
+    actions {
+      accessibility
+      analytics {
+        linkName
+        referrerId
+      }
+      event {
+        eventCategory
+        eventName
+        eventType
+        eventVersion
+      }
+      actionId
+      ... on ShoppingNavigateToOverlay {
+        overlayId
+      }
+      ... on ShoppingNavigateToURI {
+        resource {
+          value
+          ... on HttpURI {
+            relativePath
+          }
+        }
+        target
+        useRelativePath
+      }
+      ... on ShoppingInvokeFunction {
+        paramsId
+        functionParams {
+          key
+          value
+        }
+        name
+        functionType
+      }
+      ... on ShoppingScrollsToView {
+        targetRef
+      }
+    }
+    overlays {
+      ...ShoppingOverlayFragment
+    }
+  }
+  ${X.fragment}
+`,ne=(s.gql`
+  fragment ShoppingInvokeFunctionFragment on ShoppingInvokeFunction {
+    __typename
+    actionId
+    name
+    functionType
+    paramsId
+    functionParams {
+      key
+      value
+    }
+    accessibility
+    analyticsPayload
+    event {
+      __typename
+      actionLocation
+      clickstreamTraceId
+      eventCategory
+      eventName
+      eventType
+      eventVersion
+    }
+  }
+`,s.gql`
+  fragment ShoppingActionButtonFragment on ShoppingButton {
+    accessibility
+    actionId
+    primary
+    buttonType
+    disabled
+    actions {
+      accessibility
+      actionId
+      adaptExSuccessActionTracking {
+        campaignId
+        eventTarget
+      }
+      analyticsPayload
+      triggerType
+    }
+    icon {
+      id
+    }
+    actions {
+      actionId
+      triggerType
+    }
+  }
+`),te={PRIMARY:S.y,SECONDARY:I.y,TERTIARY:p.q},ae=a.forwardRef((e,n)=>{var t=e,{data:o,size:r,isFullWidth:l,hideText:i=!1,clickstreamEventBuilder:c}=t,s=((e,n)=>{var t={};for(var a in e)k.call(e,a)&&n.indexOf(a)<0&&(t[a]=e[a]);if(null!=e&&N)for(var a of N(e))n.indexOf(a)<0&&L.call(e,a)&&(t[a]=e[a]);return t})(t,["data","size","isFullWidth","hideText","clickstreamEventBuilder"]);const{accessibility:u,actionId:p,buttonType:v,disabled:m,icon:y,primary:g,actions:h}=o,f=V(h,"CLICK"),E=V(h,"LOAD"),S=(null==f?void 0:f.actionId)||p,I=K(S,c),T=K((null==E?void 0:E.actionId)||"",c),b=q(S),O=(!g||i)&&y,C="ShoppingNavigateToURI"===(null==b?void 0:b.__typename),R=te[v],w=C&&{href:b.resource.value,target:U[b.target]};return a.useEffect(()=>{E&&T()},[]),a.createElement(R,_(D(_({},s),{"aria-label":null!=u?u:"",role:"button",onClick:e=>{C&&e.preventDefault(),I()},domRef:n,disabled:m,isFullWidth:l,className:O?"uitk-button-only-icon":void 0,size:r}),w),!i&&g,a.createElement(a.Fragment,null,(null==y?void 0:y.id)&&a.createElement(d.LD,{name:y.id,id:y.id,size:d.So.MEDIUM})))});ae.fragment=ne,ae.displayName="ShoppingActionButton";var oe=s.gql`
+  fragment ShoppingActionLinkFragment on ShoppingLink {
+    actionId
+    text
+    trailingIcon {
+      id
+    }
+  }
+`,re=a.forwardRef(({data:e,clickstreamEventBuilder:n},t)=>{const{actionId:o,text:r,trailingIcon:l}=e,i=K(o,n);return a.createElement(T.i,{inline:!0,domRef:t},a.createElement("button",{type:"button",onClick:i,role:"link"},r,l&&a.createElement(d.LD,{key:l.id,name:l.id,size:d.So.SMALL})))});re.fragment=oe,re.displayName="ShoppingActionLink"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-shopping-tools-action-providers.a2910452c67b38504ebb.js.map

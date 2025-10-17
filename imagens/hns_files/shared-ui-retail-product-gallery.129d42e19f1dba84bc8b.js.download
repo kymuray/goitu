@@ -1,0 +1,328 @@
+/*@license For license information please refer to shared-ui-retail-product-gallery.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[4190],{27249:function(e,t,l){l.d(t,{MG:function(){return yt},Wx:function(){return oe},nY:function(){return pt}});var a=l(56195),n=l(26690),i=l(64341),r=l(97778),o=l(46286),c=l(43888),u=l(42534),m=l(51537),d=l(86405),s=l(70882),g=l(37965),y=l(33434),v=l(46559),p=l(9010),I=l(96895),E=l(34399),b=l(2557),h=l(522),f=l(87818),C=l(80240),k=l(8724),P=l(88437),T=l(36145),S=l(76606),_=l(99828),x=l(93870),L=l(71061),w=l(51213),D=l(79066),N=l(32462),R=l(96384),M=l(67556),G=l(78914),A=l(27102),O=l(1226),F=l(47540),B=l(52174),V=l(934),z=l(89438),$=l(79249),H=l(85692),U=l(84655),Q=l(87993),Y=l(23726),X=l(37971),q=l(53017),W=l(63744),K=l(4664),j=l(94331),J=l(47937),Z=l(4149),ee=l(30169),te=l(90383),le=l(74071),ae=l(32380),ne=l(78511),ie=l(39938),re="default-product-details-experience-batch-key",oe=(e=>(e.ACTIVITY_ID="ACTIVITY_ID",e.CART_ID="CART_ID",e.CAR_OFFER_TOKEN="CAR_OFFER_TOKEN",e.CHECKOUT_SESSION_ID="CHECKOUT_SESSION_ID",e.ENTITY_ID="ENTITY_ID",e.LEGACY_ORDER_ID="LEGACY_ORDER_ID",e.OFFER_ID="OFFER_ID",e.ORDER_ID="ORDER_ID",e.PROPERTY_ID="PROPERTY_ID",e.SAILING_TOKEN="SAILING_TOKEN",e))(oe||{});function ce(e,t,l,a,n,i,r){const o=[{imageGalleryMetaTagValue:Date.now().toString(),imageGalleryMetaTagType:"DEVICE_TIME_STAMP"}];r&&o.push({imageGalleryMetaTagValue:r,imageGalleryMetaTagType:"GALLERY_FILTER"});return[{schemaName:"allHotelProducts",messageContent:{hotelProducts:[{imageGalleryAlgorithm:{name:"heroaesthetics.v20190411-hsc.v20190223"},algoMediaGuid:t,...n?{productId:Number(n)}:{}}]}},{schemaName:"imageTracking",messageContent:{galleryName:i,galleryType:"GALLERY_TYPE_SINGLE",galleryMaxPosition:l,galleryPosition:e,repeatedGalleryIndex:null,imageGalleryMetaTagList:o,...a?{images:[{id:a,galleryPosition:e}]}:{}}}]}function ue(e){var t,l,a,n,i,r,o,c,u;return{__typename:e.image.__typename,src:null!=(t=e.image.url)?t:"",caption:null!=(a=null!=(l=e.description)?l:e.image.description)?a:"",displayCaption:null!=(n=e.image.description)?n:"",alt:null!=(r=null!=(i=e.description)?i:e.image.description)?r:"",thumbnailClickAnalytics:null==(o=e.image)?void 0:o.analytics,trackingId:(null==(c=e.analytics)?void 0:c.trackingId)||null,imageId:(null==(u=e.analytics)?void 0:u.imageId)||null}}function me(e){return e.map(e=>"ProductImageInfo"===e.__typename?ue(e):e)}var de=n.gql`
+  fragment GalleryButtonsFragment on ProductImageGallery {
+    galleryButtons {
+      accessibility
+      icon {
+        description
+        id
+      }
+      action {
+        resource {
+          value
+        }
+      }
+    }
+  }
+`,se={position:{zindex:"layer2",bottom:"three",right:"three"},type:"absolute"},ge=e=>{const{data:t,onThumbnailGalleryClick:l,onVirtualTourClick:n,thumbnailButtonText:i,thumbnailDialogTriggerAccessibilityLabel:o,propertyId:c}=e,{galleryButtons:u}=t,m=(0,r.useClickTracker)(),d=(0,r.useEgClickstream)(),s=a.useCallback(e=>{var t,l,a,i,r,o,c;if("tour_360"===(null==(l=null==(t=null==u?void 0:u[e])?void 0:t.icon)?void 0:l.id)&&(null==(i=null==(a=u[e])?void 0:a.action)?void 0:i.resource)){const t=(null==(c=null==(o=null==(r=null==u?void 0:u[e])?void 0:r.action)?void 0:o.resource)?void 0:c.value)||"";n(t)}},[u,d,n]),g=a.useMemo(()=>({id:"HOT.HIS.PhotoGalleryTrigger",description:"Open Room Gallery dialog",callback:(e,t)=>{m(e,t,void 0,ce(0,void 0,0,void 0,c,"PDP_FULL_IMAGE_GALLERY"))}}),[m]);return a.createElement(f.P,{...se},a.createElement(h.X,{space:"two",wrap:"nowrap"},null==u?void 0:u.map((e,t)=>{var l,n;return a.createElement(E.M,{key:`gallery-mosaic-action-${null==(l=e.icon)?void 0:l.id}`,"aria-label":e.accessibility||"",role:"link",onClick:()=>s(t)},a.createElement(b.LD,{name:(null==(n=e.icon)?void 0:n.id)||"",id:"gallery-mosaic-action-trigger"}),e.accessibility)}),a.createElement(E.M,{"aria-label":o||"",onClick:l,analytics:g},a.createElement(b.LD,{name:"photo_library",id:"gallery-mosaic-thumbnail-trigger"}),i)))};ge.displayName="GalleryButtons",ge.fragment=de;var ye="PDP Image Mosaic",ve="PDP Image Gallery",pe="Single Image view",Ie=(e=>(e.EMBED="embed",e.BASIC="basic",e))(Ie||{}),Ee={ONE_ONE:p.l.R1_1,FOUR_ONE:p.l.R4_1,FOUR_THREE:p.l.R4_3,SIXTEEN_NINE:p.l.R16_9,THREE_TWO:p.l.R3_2,THREE_FOUR:p.l.R3_4,TWENTY_ONE_NINE:p.l.R21_9},be=n.gql`
+  fragment ProductVideoActionsFragment on ProductVideoAction {
+    actionType
+    clickAnalytics
+    button {
+      icon {
+        id
+        token
+        withBackground
+      }
+      accessibility
+      analytics {
+        eventType
+        linkName
+        referrerId
+      }
+    }
+  }
+`,he=e=>{const{data:{button:t},onClick:l}=e,{icon:n,accessibility:i}=t||{};return a.createElement(a.Fragment,null,n&&a.createElement(E.M,{onClick:()=>{l()},"aria-label":i||"",size:C.V.LARGE},a.createElement(b.LD,{name:null==n?void 0:n.id,id:null==n?void 0:n.id})))};he.displayName="ProductVideoActions",he.fragment=be;var fe=n.gql`
+  fragment ProductVideoCreatorFragment on ProductVideoCreator {
+    authorName
+    profileImage {
+      url
+      aspectRatio
+      description
+      fitment
+      width
+      altText
+    }
+  }
+`,Ce=e=>{var t;const{data:l,isThumbnailView:n,videoDescription:i}=e,{authorName:r,profileImage:o}=l||{},c=(0,v.s5)({[v.OB.SMALL]:!0,[v.OB.MEDIUM]:!1}),m=(0,v.s5)({[v.OB.SMALL]:!1,[v.OB.MEDIUM]:!0,[v.OB.LARGE]:!1}),d=(0,v.s5)({[v.OB.SMALL]:!1,[v.OB.MEDIUM]:!1,[v.OB.LARGE]:!0}),s=(null==o?void 0:o.url)?200:m||d?400:c?300:void 0;return a.createElement(u.N,{margin:{block:"two"},padding:{inline:"two"}},a.createElement(h.X,{direction:"row",alignItems:"center",space:"two"},(null==o?void 0:o.url)&&a.createElement(_.C,null,a.createElement(G.k,{image:{src:null==o?void 0:o.url,alt:null!=(t=null==o?void 0:o.altText)?t:""},border:!0,size:n?"small":"medium"})),a.createElement(_.C,null,a.createElement("div",null,r&&a.createElement(A.D,{weight:"medium",theme:"light",size:300,align:"left"},r),!n&&(null==i?void 0:i.text)&&a.createElement(A.D,{size:s,weight:"regular",theme:"light",align:"left"},null==i?void 0:i.text,(null==i?void 0:i.accessibility)&&a.createElement("span",{className:"is-visually-hidden"},null==i?void 0:i.accessibility))))))};Ce.displayName="ProductVideoCreator",Ce.fragment=fe;var ke=n.gql`
+  fragment ProductVideoThumbnailFragment on ProductVideoThumbnail {
+    imageResolutions {
+      url
+      aspectRatio
+      quality
+    }
+    thumbnailClickAnalytics
+  }
+`,Pe=e=>{const{data:t,onThumbnailClick:l,isThumbnailView:n,renderCreatorInfo:i,renderDuration:o,renderActions:c,fetchPriority:u,index:m,componentName:d,thumbnailAspectRatio:s,description:g,thumbnailQuality:y="MEDIUM"}=e,{imageResolutions:v,thumbnailClickAnalytics:I}=t,E=(null==v?void 0:v.find(e=>e.quality===y))||(null==v?void 0:v[0]),{url:b,aspectRatio:h}=E||{},C=(0,r.useEgClickstream)(),k=s||(h?Ee[h]:p.l.R16_9);return a.createElement(f.P,{type:"relative"},a.createElement(p.M,{ratio:k},b&&a.createElement(T.F,{src:b,placeholderImage:!0,alt:null!=g?g:"",additionalProps:{fetchPriority:u}}),a.createElement(S.d,null,a.createElement("button",{onClick:()=>{I&&C((0,D.Ft)("video.selected",I,d)),n&&l&&l(m)},type:"button"},g)),c&&a.createElement(f.P,{type:"absolute",position:{top:"center",left:"center",zindex:"layer1"}},c()),i&&a.createElement(f.P,{type:"absolute",position:{bottom:"two",left:"two",zindex:"layer1"}},i()),o&&a.createElement(f.P,{type:"absolute",position:{bottom:"two",right:"two",zindex:"layer1"}},o())))};Pe.displayName="ProductVideoThumbnail",Pe.fragment=ke;var Te=n.gql`
+  fragment ProductVideoFragment on ProductVideoInfo {
+    actions {
+      ...ProductVideoActionsFragment
+    }
+    analyticsPayload: analytics
+    caption {
+      accessibility
+      text
+    }
+    creator {
+      ...ProductVideoCreatorFragment
+    }
+    duration
+    videoDescription: description {
+      accessibility
+      text
+    }
+    resolutions {
+      url
+      aspectRatio
+    }
+    thumbnail {
+      ...ProductVideoThumbnailFragment
+    }
+    videoType
+    errorAnalytics
+  }
+  ${Ce.fragment}
+  ${Pe.fragment}
+  ${he.fragment}
+`,Se=e=>{var t,l,n;const{data:i,index:o,className:c,fetchPriority:u,onThumbnailClick:m,onPlayClick:d,isThumbnailView:s,isPlayIconVisible:g,isDurationVisible:y,isCreatorInfoVisible:v,autoplayInView:I=!0,componentName:E,thumbnailAspectRatio:b,thumbnailQuality:h,isDialog:f=!1,indexChanged:C}=e,{creator:k,duration:P,resolutions:T,thumbnail:S,videoType:_,actions:x,caption:L,videoDescription:w,errorAnalytics:G}=i||{},{url:A="",aspectRatio:O=null}=null!=(t=null==T?void 0:T[0])?t:{},[F,B]=(0,a.useState)(!1),[V,z]=(0,a.useState)(""),{url:$}=(null==(l=null==S?void 0:S.imageResolutions)?void 0:l[0])||{},H=(0,a.useRef)(null),U=(0,r.useEgClickstream)(),Q=((e,{threshold:t=0,root:l=null,rootMargin:n="0%",freezeOnceVisible:i=!1})=>{const[r,o]=(0,a.useState)(),c=(null==r?void 0:r.isIntersecting)&&i,u=([e])=>{o(e)};return(0,a.useEffect)(()=>{const a=null==e?void 0:e.current;if(!window.IntersectionObserver||c||!a)return;const i=new IntersectionObserver(u,{threshold:t,root:l,rootMargin:n});return i.observe(a),()=>i.disconnect()},[null==e?void 0:e.current,JSON.stringify(t),l,n,c]),r})(H,{threshold:1});(0,a.useEffect)(()=>{const e=H.current;if(e)return e.style.objectFit="contain",e.addEventListener("play",Y),e.addEventListener("pause",X),e.addEventListener("error",q),()=>{e.removeEventListener("play",Y),e.removeEventListener("pause",X),e.removeEventListener("error",q)}},[]),(0,a.useEffect)(()=>{const e=H.current;if(e&&Q&&I)return Q.isIntersecting&&I?(e.play(),Y()):(e.pause(),X()),()=>{Q.isIntersecting&&I&&F&&(e.pause(),X())}},[Q,I]),(0,a.useEffect)(()=>{if(_&&"embed"===Ie[_]&&C!==o){z("");const e=setTimeout(()=>{z(A)},0);return()=>clearTimeout(e)}z(A)},[A,_,C,o]);const Y=()=>{d&&d(o),B(!0)},X=()=>{B(!1)},q=e=>{G&&U((0,D.Ft)("video.failed",G,E))},W=()=>y&&P&&a.createElement(N.G,{theme:R.mc.EMPHASIS,text:P}),K=()=>v&&k&&a.createElement(Ce,{data:k,isThumbnailView:!0}),j=()=>g&&(null==x?void 0:x[0])&&a.createElement(he,{data:null==x?void 0:x[0],onClick:Y}),J={id:"video-analytics",callback:e=>{var t,l;if(e.includes("playerError"))G&&U((0,D.Ft)("video.failed",G,E));else if(e.includes("playVideo")){const e=null==(t=null==x?void 0:x.find(e=>"PLAY"===(null==e?void 0:e.actionType)))?void 0:t.clickAnalytics;e&&U((0,D.Ft)("video_play.selected",e,E)),d&&d(o)}else if(e.includes("pauseVideo")){const e=null==(l=null==x?void 0:x.find(e=>"PAUSE"===(null==e?void 0:e.actionType)))?void 0:l.clickAnalytics;e&&U((0,D.Ft)("video_pause.selected",e,E))}}},Z=A&&a.createElement(M.H,{src:_&&"embed"===Ie[_]?V:A,videoType:_?Ie[_]:void 0,videoRef:H,preload:"auto",poster:$||"",isDialog:f,analytics:J,alt:null!=(n=null==w?void 0:w.accessibility)?n:""});return s&&S?a.createElement(Pe,{data:S,onThumbnailClick:m,isThumbnailView:s,className:c,renderDuration:W,renderCreatorInfo:K,renderActions:j,fetchPriority:u,index:o,componentName:E,thumbnailAspectRatio:b,thumbnailQuality:h,description:null==L?void 0:L.accessibility}):a.createElement(p.M,{className:c,ratio:O?Ee[O]:p.l.R16_9},Z)};Se.displayName="ProductVideo",Se.fragment=Te;var _e=({button:e,onClick:t,showTextLabel:l})=>{var n,i;return a.createElement(E.M,{"aria-label":(null==e?void 0:e.accessibility)||"",size:C.V.SMALL,onClick:t},a.createElement(b.LD,{size:b.So.SMALL,name:(null==(n=null==e?void 0:e.icon)?void 0:n.id)||"",id:`PhotoGallery-${null==(i=null==e?void 0:e.icon)?void 0:i.id}`}),!l&&(null==e?void 0:e.accessibility))},xe=({button:e,onClick:t,showTextLabel:l})=>{var n,i;return a.createElement(E.M,{"aria-label":(null==e?void 0:e.accessibility)||"",size:C.V.SMALL,onClick:t},a.createElement(b.LD,{size:b.So.SMALL,name:(null==(n=null==e?void 0:e.icon)?void 0:n.id)||"",id:`PhotoGallery-${null==(i=null==e?void 0:e.icon)?void 0:i.id}`}),!l&&(null==e?void 0:e.accessibility))},Le=({uitkImages:e,handleMediaButtonClick:t})=>{const{formatText:l}=(0,w.useLocalization)();return a.createElement(E.M,{size:C.V.SMALL,onClick:t},a.createElement(b.LD,{name:"photo_library",id:"photo_library-id",title:l("gallerycarousel.mediaGalleryButton",e.length)}),a.createElement("span",{"aria-hidden":"true"},String(e.length)))},we=e=>{var t,l;const{ratio:n,uitkImages:o,controlAnalytics:c,label:u,handleIndexChange:m,handleImageClick:d,handleMediaButtonClick:s,onVirtualTourClick:g,virtualTourButton:y,autoplay:v,autoplayInterval:I,onPlayButtonClick:E,handleThumbnailClick:b,thumbnailQuality:C}=e,w=a.useRef(null),[N,R]=a.useState(0),M=a.useRef(v),G=a.useRef(0),{context:A}=(0,i.R)(),{device:O}=A,F="MOBILE_PHONE"===O.type,B=a.useRef(null),V=a.useRef(null);let z=null,$=null;const H=e=>{G.current=e,R(e),m(e)},U=()=>{B.current&&(clearInterval(B.current),B.current=null)},Q=()=>{U(),M.current=!1,s()},Y=()=>{U(),M.current=!1,d()},X=e=>{v&&(U(),M.current=!1),null==E||E(e,0)},q=a.useCallback(([e])=>{M.current&&((null==e?void 0:e.isIntersecting)?(()=>{let e=G.current;B.current=setInterval(()=>{var t;e+=1,e>=o.length&&(e=0),H(e),null==(t=w.current)||t.changeIndex(e)},null!=I?I:4e3)})():U())},[]);a.useEffect(()=>{const e=new IntersectionObserver(q);return V.current&&e.observe(V.current),()=>{e.disconnect(),U()}},[]);const W=e=>{const t=e.touches[0];z=t.clientX,$=t.clientY},K=e=>{if(!z||!$)return;const t=e.touches[0].clientX,l=e.touches[0].clientY,a=z-t,n=$-l;Math.abs(a)>Math.abs(n)&&(U(),M.current=!1),z=null,$=null},j=e=>{Math.abs(e.deltaX)>0&&0===Math.abs(e.deltaY)&&(U(),M.current=!1)};a.useEffect(()=>{const e=V.current;return e&&(e.addEventListener("wheel",j),e.addEventListener("touchstart",W),e.addEventListener("touchmove",K)),()=>{e&&(e.removeEventListener("wheel",j),e.removeEventListener("touchstart",W),e.removeEventListener("touchmove",K))}},[]);return a.createElement(f.P,{type:"relative"},a.createElement(k._N,{carouselRef:w,domRef:v?V:void 0,analytics:c,carouselHeaderLevel:"h2",carouselHeaderText:u||"",carouselName:"PhotoGallery",itemsVisible:{sm:1,md:1,lg:1},onIndexChange:H,hideNav:F,pagingPersistent:!F,pagingInset:!F,pagingOverlay:!F,peek:!1,wrapItems:!0,buttonText:{nextButton:"Show next card",prevButton:"Show previous card"}},o.map((e,t)=>a.createElement(a.Fragment,null,"ProductVideoInfo"===e.__typename?a.createElement(a.Fragment,null,((e,t)=>e.analyticsPayload?a.createElement(r.EgClickstreamImpressionTracker,{eventData:(0,D.Ft)("video.presented",e.analyticsPayload,ye)},a.createElement(Se,{data:e,onThumbnailClick:b,onPlayClick:X,index:t,fetchPriority:0===t?"high":void 0,isThumbnailView:!0,isPlayIconVisible:!0,isDurationVisible:!1,isCreatorInfoVisible:!1,componentName:ye,thumbnailAspectRatio:n,thumbnailQuality:C})):a.createElement(Se,{data:e,onThumbnailClick:b,onPlayClick:X,index:t,fetchPriority:0===t?"high":void 0,isThumbnailView:!0,isPlayIconVisible:!0,isDurationVisible:!1,isCreatorInfoVisible:!1,componentName:ye,thumbnailAspectRatio:n,thumbnailQuality:C}))(e,t)):a.createElement(p.M,{ratio:n,key:t},a.createElement(T.F,{placeholderImage:!0,alt:e.alt,src:e.src,lazyLoading:0===t?"eager":"lazy"}),a.createElement(S.d,null,a.createElement("button",{type:"button",onClick:v?Y:d},e.alt)))))),(null==(t=w.current)?void 0:t.changeIndex)&&F&&a.createElement(x.O,{type:L.Q.BOTTOM},a.createElement(P.W,{activeIndex:N,inset:!0,itemCount:o.length,changeIndex:v?e=>{var t;U(),M.current=!1,null==(t=w.current)||t.changeIndex(e)}:null==(l=w.current)?void 0:l.changeIndex})),F?a.createElement(a.Fragment,null,a.createElement(f.P,{position:{bottom:"three",left:"three",zindex:"layer3"},type:"absolute"},y&&a.createElement(_e,{button:y,onClick:g,showTextLabel:F})),a.createElement(f.P,{position:{bottom:"three",right:"three",zindex:"layer3"},type:"absolute"},a.createElement(Le,{uitkImages:o,handleMediaButtonClick:v?Q:s}))):a.createElement(f.P,{position:{bottom:"three",right:"three",zindex:"layer3"},type:"absolute"},a.createElement(h.X,{space:"two"},a.createElement(_.C,null,y&&a.createElement(xe,{button:y,onClick:g,showTextLabel:F})),a.createElement(_.C,null,a.createElement(Le,{uitkImages:o,handleMediaButtonClick:v?Q:s})))))},De=({imageIndex:e,images:t,propertyId:l,children:n})=>{var i,o,c,u,m,d,s;let g,y;return"ProductImageInfo"===(null==(i=null==t?void 0:t[e])?void 0:i.__typename)&&(g=null!=(u=null==(c=null==(o=null==t?void 0:t[e])?void 0:o.analytics)?void 0:c.trackingId)?u:void 0,y=null!=(s=null==(d=null==(m=null==t?void 0:t[e])?void 0:m.analytics)?void 0:d.imageId)?s:void 0),a.createElement(r.IntersectionTracker,{tag:"span",referrerId:`HOT.HIS.MosaicTileImageImpression.${e}`,linkName:"Mosaic Tile Image Impression",trackOnce:!0,additionalUisPrimeMicroMessages:ce(e,null!=g?g:void 0,t.length,null!=y?y:void 0,l,"PDP_MOSAIC")},n)},Ne=n.gql`
+  fragment ProductImageFragment on ProductImageInfo {
+    image {
+      url
+      description
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+    lowResImage {
+      url
+    }
+    analytics {
+      trackingId
+      imageId
+      subjectId
+    }
+    description
+  }
+`,Re=e=>{const{data:t,onClick:l,index:n,className:i,fetchPriority:o,galleryLength:c,propertyId:u,...m}=e,{image:d,lowResImage:s,analytics:g,description:y}=t,{trackingId:v,imageId:I}=g||{},E=null==d?void 0:d.analytics,b=(0,r.useClickTracker)(),h=a.useCallback(()=>{E&&b(null==E?void 0:E.referrerId,null==E?void 0:E.linkName),l(n)},[l,n,E]),f=a.createElement(a.Fragment,null,a.createElement(T.F,{alt:null!=y?y:"",placeholderImage:!0,src:(null==s?void 0:s.url)?s.url:d.url,additionalProps:{fetchPriority:o}}),a.createElement(S.d,null,a.createElement("button",{onClick:h,type:"button"},a.createElement("span",{className:"is-visually-hidden"},y))));return a.createElement(p.M,{...m,className:i,ratio:p.l.R16_9},g?a.createElement(r.IntersectionTracker,{trackOnce:!0,referrerId:`HOT.HIS.MosaicTileImageImpression.${n}`,linkName:"Mosaic Tile Image Impression",additionalUisPrimeMicroMessages:ce(n,v,c,I,u,"PDP_MOSAIC")},f):f)};Re.displayName="ProductImage",Re.fragment=Ne;var Me=n.gql`
+  fragment CarouselContainerFragment on ProductImageGallery {
+    accessibilityLabel
+    categoryIdAll
+    categorizedImages {
+      categoryId
+      categoryName
+      accessibilityLabel
+      clientSideAnalytics {
+        linkName
+        referrerId
+      }
+      images {
+        ...ProductImageFragment
+      }
+      categoryContent {
+        ...ProductImageFragment
+        ...ProductVideoFragment
+      }
+      galleryButton {
+        button {
+          ... on UISecondaryButton {
+            accessibility
+            primary
+            analytics {
+              referrerId
+              linkName
+            }
+          }
+        }
+      }
+    }
+    ...GalleryButtonsFragment
+  }
+
+  ${ge.fragment}
+  ${Re.fragment}
+  ${Se.fragment}
+`,Ge=e=>{const{data:t,allImages:l,onImageClick:n,onVirtualTourClick:o,onTriggerClick:c,imageIndexState:u,propertyId:m,autoplay:d,autoplayInterval:s,onPlayButtonClick:g,thumbnailQuality:y}=e,{galleryButtons:v,accessibilityLabel:E}=t,[,b]=(0,I.DH)(),h=(0,r.useClickTracker)(),[f,C]=u,{context:k}=(0,i.R)(),{device:P}=k,T="MOBILE_PHONE"===P.type,S=a.useMemo(()=>({id:"HOT.HIS.Main",description:"Change image in gallery carousel",callback:(e,t)=>{const a=(n=f,i=l.length,(r=e).includes("clickRight")?n<i-1?n+1:0:r.includes("clickLeft")?n>0?n-1:i-1:n);var n,i,r;b(()=>{var n,i;if("ProductImageInfo"===(null==(n=null==l?void 0:l[a])?void 0:n.__typename)){const{trackingId:n,imageId:r}=(null==(i=l[a])?void 0:i.analytics)||{};h(e,t,void 0,ce(a,n,l.length,r,m,"PDP_MOSAIC"))}})}}),[h,b,f,l,m]),_=a.useCallback(e=>{C(e)},[C]),x=a.useCallback(()=>{const e=l[f];"ProductImageInfo"===(null==e?void 0:e.__typename)&&(b(()=>{var t,a,n;const i=null==(t=null==e?void 0:e.image)?void 0:t.analytics;i&&h(null==i?void 0:i.referrerId,null==i?void 0:i.linkName),h("HOT.HIS.LaunchMainPhotoGallery","Launch Photo Gallery From Image Click",void 0,ce(f,null==(a=null==e?void 0:e.analytics)?void 0:a.trackingId,l.length,null==(n=null==e?void 0:e.analytics)?void 0:n.imageId,m,"PDP_MOSAIC"))}),n())},[h,n,b]),L=a.useCallback(()=>{const e=l[f];"ProductVideoInfo"===(null==e?void 0:e.__typename)&&n()},[l,f,n]),w=a.useCallback(()=>{b(()=>{h("HOT.HIS.PhotoGalleryTrigger","Open Room Gallery dialog")}),c()},[b,c,h]),D=null==v?void 0:v.find(e=>{var t,l,a;return"tour_360"===(null==(t=e.icon)?void 0:t.id)?null==(a=null==(l=e.action)?void 0:l.resource)?void 0:a.value:null}),N=a.useCallback(()=>{(null==D?void 0:D.action)&&o(D.action.resource.value)},[o,D]),R=a.useMemo(()=>l.map(e=>{return"ProductImageInfo"===e.__typename?{src:null!=(l=(t=e).image.url)?l:"",caption:null!=(n=null==(a=t.image)?void 0:a.description)?n:"",alt:null!=(r=null!=(i=t.description)?i:t.image.description)?r:""}:e;var t,l,a,n,i,r}),[l]),M=T?p.l.R3_2:p.l.R16_9;return a.createElement(De,{propertyId:m,images:l,imageIndex:f},a.createElement(we,{ratio:M,uitkImages:R,controlAnalytics:S,label:E,handleIndexChange:_,handleImageClick:x,handleThumbnailClick:L,handleMediaButtonClick:w,onVirtualTourClick:N,onPlayButtonClick:g,virtualTourButton:D,autoplay:d,autoplayInterval:s,thumbnailQuality:y}))};Ge.displayName="CarouselContainer",Ge.fragment=Me;var Ae=n.gql`
+  fragment MosaicContainerFragment on ProductImageGallery {
+    accessibilityLabel
+    categorizedImages {
+      categoryId
+      categoryName
+      accessibilityLabel
+      clientSideAnalytics {
+        linkName
+        referrerId
+      }
+      images {
+        ...ProductImageFragment
+      }
+      categoryContent {
+        ...ProductImageFragment
+        ...ProductVideoFragment
+      }
+      galleryButton {
+        button {
+          ... on UISecondaryButton {
+            accessibility
+            primary
+            analytics {
+              referrerId
+              linkName
+            }
+          }
+        }
+      }
+    }
+    ...GalleryButtonsFragment
+  }
+
+  ${ge.fragment}
+  ${Re.fragment}
+  ${Se.fragment}
+`;var Oe=e=>{var t,l;const{data:n,allImages:i,imagesToShow:o,onImageClick:c,propertyId:u,onPlayButtonClick:m,thumbnailQuality:d}=e,{accessibilityLabel:s}=n,g=(0,r.useClickTracker)(),[,y]=(0,I.DH)(),v=a.useMemo(()=>{const e=i.slice(0,o);return e.length%2==0&&e.pop(),e},[i,o]),E=a.useCallback(e=>{var t,l;if("ProductImageInfo"!==(null==(t=null==v?void 0:v[e])?void 0:t.__typename))return;const{trackingId:a,imageId:n}=(null==(l=null==v?void 0:v[e])?void 0:l.analytics)||{};y(()=>{g(`HOT.HIS.ClickMosaicTileImage.${e}`,"Property mosaic tile image click",void 0,ce(e,a,v.length,n,u,"PDP_MOSAIC")),g("HOT.HIS.LaunchMainPhotoGallery","Launch Photo Gallery From Image Click",void 0,ce(e,a,v.length,n,u,"PDP_MOSAIC"))}),c(e)},[g,c,y]),b=a.useCallback(e=>{c(e)},[]),h=a.useCallback(e=>{m(e,0)},[]),C=function(e){switch(e){case 5:return 4;case 3:return 3;default:return 1}}(v.length);return a.createElement(f.P,{type:"relative"},a.createElement(O.w,{columns:C,rows:2,space:"half"},a.createElement("meta",{itemProp:"image",content:"ProductImageInfo"===(null==(t=null==v?void 0:v[0])?void 0:t.__typename)?null==(l=v[0])?void 0:l.image.url:""}),a.createElement("h2",{className:"is-visually-hidden"},s),v.map((e,t)=>a.createElement(F.T,{key:`mosaic-media-${t}`,colSpan:0===t?2:1,rowSpan:0===t?2:1},"ProductVideoInfo"!==e.__typename?a.createElement(Re,{data:e,onClick:E,index:t,fetchPriority:0===t?"high":void 0,galleryLength:o,propertyId:u}):a.createElement(a.Fragment,null,((e,t)=>e.analyticsPayload?a.createElement(r.EgClickstreamImpressionTracker,{eventData:(0,D.Ft)("video.presented",e.analyticsPayload,ye)},a.createElement(Se,{data:e,onThumbnailClick:b,onPlayClick:h,index:t,fetchPriority:0===t?"high":void 0,componentName:ye,isThumbnailView:!0,isPlayIconVisible:!0,thumbnailAspectRatio:p.l.R16_9,thumbnailQuality:d})):a.createElement(Se,{data:e,onThumbnailClick:b,onPlayClick:h,index:t,fetchPriority:0===t?"high":void 0,componentName:ye,isThumbnailView:!0,isPlayIconVisible:!0,thumbnailAspectRatio:p.l.R16_9,thumbnailQuality:d}))(e,t))))))};Oe.fragment=Ae,Oe.displayName="MosaicContainer";var Fe=n.gql`
+  fragment PrimaryButtonFragment on ProductScrollToButton {
+    button {
+      ...EGDSButtonFragment
+    }
+    clickAnalytics
+    targetRef
+  }
+  ${D.NO.fragment}
+`,Be=({data:e,onClickHandler:t})=>{const{targetRef:l,button:n,clickAnalytics:i}=e,o=(0,r.useEgClickstream)(),c=a.useCallback(e=>{t&&(o((0,D.Ft)("reserve_room.selected",i)),t(l,e))},[i,t,l,o]);return(null==n?void 0:n.primary)?a.createElement(a.Fragment,null,n&&a.createElement(D.NO,{inverse:!0,data:n,onClickHandler:c})):null};Be.displayName="PrimaryButton",Be.fragment=Fe;var Ve=n.gql`
+  fragment MediaGalleryDialogFragment on ProductImageGallery {
+    categorizedImages {
+      categoryId
+      categoryName
+      accessibilityLabel
+      images {
+        ...ProductImageFragment
+      }
+      clientSideAnalytics {
+        linkName
+        referrerId
+      }
+      categoryContent {
+        ...ProductImageFragment
+        ...ProductVideoFragment
+      }
+      galleryButton {
+        button {
+          ... on UISecondaryButton {
+            accessibility
+            primary
+            analytics {
+              referrerId
+              linkName
+            }
+          }
+        }
+      }
+    }
+    mediaGalleryDialog {
+      toolbar {
+        icon {
+          id
+          description
+        }
+      }
+      primaryButton {
+        ...PrimaryButtonFragment
+      }
+    }
+  }
+  ${Re.fragment}
+  ${Be.fragment}
+  ${Se.fragment}
+`,ze=e=>{var t,l,n,i,o,c,m,d,s,g,y;const{data:I,allMediaContent:E,isDialogOpen:b,onDialogDismiss:f,imageIndexState:C,categoryImageIndexState:P,categoryIndexState:S,propertyId:x,mediaGalleryStartIndexState:L,triggerRef:w,onReserveButtonClick:N}=e,{categorizedImages:R,mediaGalleryDialog:M}=I,{primaryButton:G}=M||{},[,H]=C,[U,Q]=P,[Y]=S,[X]=L,[q,W]=a.useState(X),K=(0,r.useClickTracker)(),j=(0,v.s5)({[v.OB.SMALL]:!0,[v.OB.MEDIUM]:!1}),J=(0,v.s5)({[v.OB.SMALL]:!1,[v.OB.MEDIUM]:!1,[v.OB.LARGE]:!0}),Z=a.useMemo(()=>{if(Y<0)return E.map(e=>"ProductImageInfo"===e.__typename?ue(e):e);const e=R?R[Y]:null;return((null==e?void 0:e.categoryContent)||(null==e?void 0:e.images)||[]).map(e=>"ProductImageInfo"===e.__typename?ue(e):e)},[Y,R,E]),ee=a.useMemo(()=>{const e={id:"HOT.HIS.PhotoGalleryTrigger",description:"Change image in media gallery",callback:(e,t)=>{var l,a,n;const i=((e,t,l)=>l.includes("clickRight")||l.includes("scrollRight")?e<t-1?e+1:e:l.includes("clickLeft")||l.includes("scrollLeft")?e>0?e-1:0:l.includes("itemViewed")?parseInt((null==l?void 0:l.split(".")[(null==l?void 0:l.split(".").length)-1])||"0",10):e)(U,Z.length,e),r=(null==(l=null==R?void 0:R[Y])?void 0:l.images)||E;if("ProductImageInfo"===(null==(a=null==r?void 0:r[i])?void 0:a.__typename)){const{trackingId:l,imageId:a}=(null==(n=r[i])?void 0:n.analytics)||{};K(e,t,void 0,ce(i,l,Z.length,a,x,"PDP_FULL_SCREEN_IMAGE_GALLERY"))}}};return e},[K]),te=a.useMemo(()=>({id:"HOT.HIS.PhotoGalleryTrigger",description:"Close review gallery dialog",callback:(e,t)=>{var l,a,n;const i=(null==(l=null==R?void 0:R[Y])?void 0:l.images)||E;if("ProductImageInfo"===(null==(a=null==i?void 0:i[U])?void 0:a.__typename)){const{trackingId:l,imageId:a}=(null==(n=null==i?void 0:i[U])?void 0:n.analytics)||{};K(e,t,void 0,ce(U,l,Z.length,a,x,"PDP_FULL_SCREEN_IMAGE_GALLERY"))}}}),[K]),le=a.useCallback(e=>{W(e),Y<0?H(e):Q(e)},[Y,Q,H,W]),ae=a.useCallback((e,t)=>{setTimeout(()=>{N&&N(e,t)},300)},[N]),ne={analytics:ee,carouselHeaderText:"MediaGalleryCarousel",carouselName:"MediaGalleryCarousel",itemsVisible:{sm:1,md:1,lg:1,xl:1},pagingInset:!0,onIndexChange:le,stretchToFill:!1,navigationIconId:{next:"next-button-media-gallery",prev:"prev-button-media-gallery"},buttonText:{nextButton:"Show next card",prevButton:"Show previous card"},pageBy:1,peek:!1},ie=a.useRef(null);if(!(null==Z?void 0:Z.length))return null;const re=e=>a.createElement(Ce,{data:e.creator,videoDescription:e.videoDescription,isThumbnailView:!1}),oe=e=>{const t=null==e?void 0:e.caption;return a.createElement(a.Fragment,null,"string"==typeof t?t:null)},me=(e,t)=>e.analyticsPayload?a.createElement(r.EgClickstreamImpressionTracker,{eventData:(0,D.Ft)("video.presented",e.analyticsPayload,pe)},a.createElement(Se,{data:e,index:t,componentName:pe,isDialog:!0,indexChanged:q})):a.createElement(Se,{data:e,index:t,componentName:pe,isDialog:!0,indexChanged:q}),de=(e,t)=>a.createElement(a.Fragment,null,"ProductVideoInfo"===e.__typename?a.createElement(a.Fragment,null,j?((e,t)=>"EMBED"===e.videoType?me(e,t):a.createElement(h.X,{justifyContent:"center",key:`BASIC-${t}`},me(e,t)))(e,t):((e,t)=>"EMBED"===e.videoType?a.createElement(O.w,{columns:{small:["48x"],medium:["120x"],large:["180x"],extra_large:["312x"]},key:`EMBED-${t}`,alignItems:"center",justifyContent:"center",blockSize:"full_size"},a.createElement(F.T,{colSpan:{medium:1,large:1},rowSpan:{medium:1,large:1}},me(e,t))):a.createElement(h.X,{blockSize:"full_size",justifyContent:"center",key:`BASIC-${t}`},me(e,t)))(e,t)):a.createElement(p.M,{key:t,ratio:j?p.l.R1_1:p.l.R16_9},a.createElement(T.F,{alt:e.alt,src:e.src}))),se=Z.map((e,t)=>a.createElement(a.Fragment,null,j?a.createElement(h.X,{blockSize:"full_size",justifyContent:"center",direction:"column",key:t},a.createElement(_.C,null,de(e,t)),a.createElement(_.C,null,a.createElement(u.N,{padding:{block:"four",inline:"four"}},"ProductVideoInfo"===e.__typename?re(e):a.createElement(A.D,{theme:"inverse",overflow:"wrap","data-stid":"mweb-media-gallery-caption"},oe(e))))):de(e,t))),ge=J?a.createElement(h.X,{alignItems:"center",blockSize:"full_size",justifyContent:"end"},a.createElement(_.C,{grow:1},a.createElement(h.X,{alignItems:"center",blockSize:"full_size",justifyContent:(null==(t=null==G?void 0:G.button)?void 0:t.primary)?"end":"center"},a.createElement(_.C,null,a.createElement(u.N,{margin:(null==(l=null==G?void 0:G.button)?void 0:l.primary)?{inlinestart:"sixteen"}:{inline:"four"},padding:{inlinestart:"twelve"}},a.createElement(A.D,{theme:"inverse",weight:"medium",size:400,"data-stid":"desktop-image-count"},`${String(q+1)}/${String(Z.length)}`))))),(null==(n=null==G?void 0:G.button)?void 0:n.primary)&&a.createElement(_.C,{grow:1},a.createElement(h.X,{alignItems:"center",blockSize:"full_size",justifyContent:"end"},a.createElement(_.C,null,a.createElement(u.N,{margin:{inlineend:"four"}},a.createElement("div",null,a.createElement(Be,{data:G,onClickHandler:ae}))))))):null,ye=J?null:a.createElement(u.N,{padding:{inline:"six"}},a.createElement(A.D,{theme:"inverse",size:400,weight:"medium","data-stid":"mweb-tabweb-image-count"},`${String(q+1)}/${String(Z.length)}`));return a.createElement(V.t,{isVisible:b,type:"full",triggerRef:w,theme:"dark"},a.createElement($.b,{overlay:!0,navigationContent:{navButtonId:"UitkMediaGalleryImageToolbar",navType:(ve=null==(o=null==(i=null==M?void 0:M.toolbar)?void 0:i.icon)?void 0:o.id,"arrow_back"===ve?"back":"close"),navIconLabel:null==(m=null==(c=null==M?void 0:M.toolbar)?void 0:c.icon)?void 0:m.description,onClick:f,onClickAnalytics:te},toolbarActionContent:ye,toolbarSubtitle:ge}),a.createElement(z.Y,{padded:!1},a.createElement(h.X,{direction:"column",blockSize:"full_size"},a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(a.Fragment,null,a.createElement(_.C,null,a.createElement(u.N,{padding:{blockstart:"twelve"}},a.createElement(k._N,{...ne,carouselRef:ie,fullSheetVisible:b,startIndex:X,stretchToFill:!0},se))),(null==(d=null==G?void 0:G.button)?void 0:d.primary)&&a.createElement(_.C,null,a.createElement(u.N,{padding:{blockstart:"four",blockend:"eight",inline:"three"}},a.createElement(h.X,{direction:"column",alignItems:"center"},a.createElement(_.C,null,a.createElement(Be,{data:G,onClickHandler:ae}))))))),a.createElement(v.rw,null,a.createElement(a.Fragment,null,a.createElement(_.C,null,a.createElement(u.N,{padding:{blockstart:"twelve"}},a.createElement(k._N,{...ne,carouselRef:ie,fullSheetVisible:b,startIndex:X},se))),a.createElement(_.C,null,a.createElement(u.N,{padding:{blockend:"eight",inline:"three"}},a.createElement(h.X,{direction:"column",alignItems:"center"},a.createElement(_.C,null,a.createElement(u.N,{margin:{blockstart:"four"}},a.createElement(O.w,{columns:[(0,B.l)("600px")]},a.createElement(F.T,null,"ProductVideoInfo"===(null==(s=null==Z?void 0:Z[q])?void 0:s.__typename)?re(null==Z?void 0:Z[q]):a.createElement(A.D,{theme:"inverse",overflow:"wrap",size:400,align:"center","data-stid":"tabweb-media-gallery-caption"},oe(null==Z?void 0:Z[q])))))),(null==(g=null==G?void 0:G.button)?void 0:g.primary)&&a.createElement(_.C,null,a.createElement(u.N,{margin:{blockstart:"eight"}},a.createElement("div",null,a.createElement(Be,{data:G,onClickHandler:ae}))))))))),a.createElement(v.zQ,null,a.createElement(a.Fragment,null,a.createElement(_.C,null,a.createElement(u.N,{margin:{blockstart:"sixteen"},padding:{blockstart:"four",inline:"three"}},a.createElement(k._N,{...ne,pagingPersistent:!0,fullSheetVisible:b,startIndex:X},se))),a.createElement(_.C,null,a.createElement(u.N,{padding:{blockend:"eight",inline:"three"}},a.createElement(h.X,{direction:"column",alignItems:"center"},a.createElement(_.C,null,a.createElement(u.N,{margin:{block:"eight"}},a.createElement(O.w,{columns:[(0,B.l)("720px")]},a.createElement(F.T,null,"ProductVideoInfo"===(null==(y=null==Z?void 0:Z[q])?void 0:y.__typename)?re(null==Z?void 0:Z[q]):a.createElement(A.D,{theme:"inverse",overflow:"wrap",size:400,align:"center","data-stid":"desktop-media-gallery-caption"},oe(null==Z?void 0:Z[q])," "))))))))))))));var ve};ze.displayName="MediaGalleryDialog",ze.fragment=Ve;var $e="Selected gallery tab",He="Launch Thumbnail Gallery From Image Click",Ue="HOT.HIS.Gallery",Qe="HOT.HIS.ClickThumbnailImage",Ye=(e,t,l)=>{const n=(0,r.useClickTracker)(),[i,o]=a.useState(t>=0||!(null==e?void 0:e.length)?t:0),c=a.useCallback(t=>{var l;if(e){const a=t>=0?null==(l=e[t])?void 0:l.categoryName:"";n(`${Ue}.${a}.${t}`,$e)}},[e,n]),u=a.useCallback((e,t)=>{c(e);const a=()=>{var a;o(e),l&&l(e),null==(a=null==t?void 0:t.callback)||a.call(t)};(null==t?void 0:t.immediate)?a():setTimeout(a,200)},[c,l]);return{currentLocalCategoryIndex:i,setCurrentLocalCategoryIndex:o,handleCategorySelect:u,trackCategorySelection:c}},Xe=(e,t)=>{const[l,n]=a.useState([]);a.useEffect(()=>{const l=new Array(e).fill(!1);t>-1?l[t]=!0:e>0&&(l[0]=!0),n(l)},[e,t]);const i=a.useCallback(e=>{const t=new Array(l.length).fill(!1);t[e]=!0,n(t)},[l.length]);return{isPillSelected:l,setIsPillSelected:n,updatePillSelection:i}},qe=e=>{var t,l;null==(l=null==(t=null==e?void 0:e.current)?void 0:t.offsetParent)||l.scrollTo({top:0,left:0,behavior:"smooth"})},We={peek:!0,pagingInset:!0,naturalWidthItems:!0,innerSpacing:{xl:16,lg:16,md:16,sm:16}},Ke=e=>({...We,buttonText:{nextButton:"",prevButton:""},startIndex:e}),je=({media:e,onImageSelected:t,columns:l,space:n,imagesRatio:i,focusIndex:o,containerRef:c,propertyId:m,categoryId:d,thumbnailQuality:s})=>{if(!(null==e?void 0:e.length))return null;const g=(e,l)=>a.createElement(f.P,{cloneElement:!0,type:"relative"},a.createElement("div",null,"ProductVideoInfo"!==e.__typename?a.createElement(ne.e,{...e,index:l,imagesRatio:i,onImageSelected:()=>t(l),focusIndex:o,containerRef:c}):a.createElement(a.Fragment,null,((e,l)=>e.analyticsPayload?a.createElement(r.EgClickstreamImpressionTracker,{eventData:(0,D.Ft)("video.presented",e.analyticsPayload,ve)},a.createElement(Se,{data:e,onThumbnailClick:()=>t(l),onPlayClick:()=>t(l),index:l,fetchPriority:0===l?"high":void 0,componentName:ve,isThumbnailView:!0,isPlayIconVisible:!0,isDurationVisible:!0,isCreatorInfoVisible:!0,thumbnailQuality:s,thumbnailAspectRatio:i})):a.createElement(Se,{data:e,onThumbnailClick:()=>t(l),onPlayClick:()=>t(l),index:l,fetchPriority:0===l?"high":void 0,componentName:ve,isThumbnailView:!0,isPlayIconVisible:!0,isDurationVisible:!0,isCreatorInfoVisible:!0,thumbnailQuality:s,thumbnailAspectRatio:i}))(e,l))));return a.createElement(ae.y,{bullet:"no-bullet",spacing:!1},a.createElement(O.w,{columns:l,space:n},a.createElement(a.Fragment,null,e.map((t,l)=>((t,l)=>a.createElement(F.T,{key:l},a.createElement("div",{"data-stid":"media-thumbnail-view-with-label"},a.createElement(r.IntersectionTracker,{trackOnce:!0,referrerId:`HOT.HIS.ThumbnailImageImpression.${d?`${d}.`:""}${l}`,linkName:"Thumbnail Image Impression",additionalUisPrimeMicroMessages:ce(l,t.trackingId,e.length,t.imageId,m,"PDP_FULL_IMAGE_GALLERY",d)},g(t,l)),a.createElement(u.N,{margin:{blockstart:"two",blockend:"three"}},a.createElement(A.D,{align:"left",overflow:"wrap","aria-hidden":"true"},"ProductVideoInfo"!==t.__typename?t.displayCaption:t.caption.text)))))(t,l)))))};je.displayName="MediaGalleryThumbnailView";var Je=({category:e,mediaContent:t,onImageClick:l,categoryIndex:n=0,imageIndexState:i,propertyId:o,isFallback:c,showImageNumberOnCategoryHeading:m=!1,onThumbnailGalleryButtonClick:d,thumbnailQuality:s,travelSearchCriteria:g,reviewOverlay:y,setRef:p})=>{const[I]=i,E=(0,r.useClickTracker)(),b=a.useCallback(e=>{if(e){const{linkName:t,referrerId:l}=e;E(l,t)}d&&d()},[E,d]),h=a.useCallback(a=>{var i,r,c,u,m,d,s;if(n){const{categoryId:t,images:u=[]}=e||{},{trackingId:m,imageId:d}=(null==(i=u[a])?void 0:i.analytics)||{},s=null==(c=null==(r=u[a])?void 0:r.image)?void 0:c.analytics,g=u.length;E(`${Qe}.${t}.${a}`,He,void 0,ce(a,m,g,d,o,"PDP_FULL_IMAGE_GALLERY")),s&&E(null==s?void 0:s.referrerId,null==s?void 0:s.linkName),l(a,n)}else{if("ProductImageInfo"===(null==(u=null==t?void 0:t[a])?void 0:u.__typename)){const{trackingId:e,imageId:l}="ProductImageInfo"===(null==t?void 0:t[a].__typename)&&(null==(m=t[a])?void 0:m.analytics)||{},n="ProductImageInfo"===(null==t?void 0:t[a].__typename)&&(null==(s=null==(d=t[a])?void 0:d.image)?void 0:s.analytics);E(`${Qe}.${a}`,He,void 0,ce(a,e,t.length,l,o,"PDP_FULL_IMAGE_GALLERY")),n&&E(null==n?void 0:n.referrerId,null==n?void 0:n.linkName)}l(a,n)}},[n,l,e,E,t,o]),f=a.useCallback((e,t,l)=>a.createElement(je,{imagesRatio:te.l.R16_9,media:e,onImageSelected:h,columns:t,space:"three",focusIndex:I,propertyId:o,categoryId:l,travelSearchCriteria:g,thumbnailQuality:s}),[h,I,o]),k=a.useCallback((t,l,i,r,o,m,d)=>{const{analytics:s,primary:g,accessibility:y}=(null==d?void 0:d.button)||{},v=a.createElement(a.Fragment,null,l&&a.createElement(u.N,{padding:{blockend:"three"}},a.createElement(le.M,{tag:m,size:o,id:`category-${n}`},a.createElement("div",{ref:p?p(n):void 0},l))),g&&a.createElement(u.N,{margin:{blockend:"three"}},a.createElement(ee.y,{"data-stid":"category-gallery-button","aria-label":null!=y?y:void 0,size:C.V.MEDIUM,onClick:()=>b(s)},g)),f(t,r,i));if(e||c)return a.createElement(u.N,{padding:{blockend:"three",small:{inline:"three"},medium:{inline:"three"}}},a.createElement("div",null,v))},[f,n]),P=a.useCallback((e,t,l,n)=>a.createElement(v.LM,null,a.createElement(v.NP,null,k(e,t,l,1,5,"h4",n)),a.createElement(v.rw,null,k(e,t,l,2,4,"h3",n)),a.createElement(v.zQ,null,k(e,t,l,2,4,"h3",n))),[k]),T=a.useCallback(e=>{if(!(null==y?void 0:y.hideButton)||y.categoryIndex!==n)return e},[y,n]);return a.createElement(a.Fragment,null,(()=>{if(c)return P(me(t));if(e){const t=e.categoryContent?e.categoryContent.length:e.images.length,l=m?`${null==e?void 0:e.categoryName} (${t})`:null==e?void 0:e.categoryName;return P(me(e.categoryContent||e.images),l,e.categoryId,T(e.galleryButton||void 0))}})())},Ze=({categories:e,mediaContent:t,onImageClick:l,categoryIndexState:n,imageIndexState:i,propertyId:r,refGallery:o,onCategorySelect:c,onThumbnailGalleryButtonClick:m,thumbnailQuality:d,travelSearchCriteria:s,reviewOverlay:g})=>{const[y]=n,{ref:v,inView:I}=(0,H.Wx)({threshold:0,initialInView:!0}),E=a.useRef(null),[b,h]=a.useState(!1),{currentLocalCategoryIndex:C,handleCategorySelect:P}=Ye(e,y,c),{isPillSelected:S,updatePillSelection:_}=Xe(e.length,y);a.useEffect(()=>{h(!I)},[I]),a.useEffect(()=>{var e;C>=0&&(qe(o),null==(e=E.current)||e.changeIndex(C))},[C,o]);const x=a.useCallback(e=>{_(e),h(!1),P(e)},[_,P]),L=a.createElement(a.Fragment,null,a.createElement(f.P,{type:"sticky",position:{top:"minus-half",zindex:"layer2"}},a.createElement(j.m,{isShow:b,type:"slide-vertical",unmountOnExit:!0},a.createElement(Z.s,{layout:"fullwidth",canvasTheme:"primary",paddedViewRow:!1,maxWidth:!0},a.createElement(u.N,{padding:{block:"four"}},a.createElement(k._N,{...Ke(C)},e.map((e,t)=>{var l;return a.createElement(K.B,{key:`thumbail-gallery-pill-${t}`,id:`thumbail-gallery-pill-${t}`,checked:S[t],onChange:()=>x(t),value:null==e?void 0:e.categoryName,altText:null!=(l=null==e?void 0:e.accessibilityLabel)?l:""},e.categoryName)})))))),a.createElement("div",{ref:v},a.createElement(u.N,{margin:{block:"four"}},a.createElement(k._N,{...(w=C,{...Ke(w),peekAmount:{lg:48,md:32,sm:16}}),carouselRef:E},e.map((e,t)=>{var l,n,i,r;return a.createElement(a.Fragment,null,a.createElement(u.N,{margin:{blockend:"two"},key:t},a.createElement(J.V,{key:t,selected:C===t,dimensions:{height:140,width:140}},a.createElement(p.M,{ratio:p.l.R1_1},a.createElement(T.F,{alt:(null==(n=null==(l=e.images[0])?void 0:l.image)?void 0:n.description)||"",src:null==(r=null==(i=e.images[0])?void 0:i.image)?void 0:r.url,placeholderImage:!0})),a.createElement(W.w,null,a.createElement("button",{type:"button",onClick:()=>{x(t)}})))),a.createElement(A.D,{size:300,weight:"medium",align:"center"},null==e?void 0:e.categoryName))})))),e.map((e,n)=>((e,n)=>{if(n===C)return a.createElement(Je,{category:e,mediaContent:t,onImageClick:l,showImageNumberOnCategoryHeading:!0,propertyId:r,isFallback:!1,imageIndexState:i,categoryIndex:n,travelSearchCriteria:s,onThumbnailGalleryButtonClick:m,thumbnailQuality:d,reviewOverlay:g})})(e,n)));var w;return a.createElement(a.Fragment,null,L)},et=({categories:e,mediaContent:t,onImageClick:l,categoryIndexState:n,imageIndexState:i,propertyId:r,refGallery:o,onCategorySelect:c,onThumbnailGalleryButtonClick:m,thumbnailQuality:d,travelSearchCriteria:s,reviewOverlay:g})=>{const[y]=n,{entry:v,ref:I,inView:E}=(0,H.Wx)({threshold:1,initialInView:!0}),b=a.useRef(null),[C,P]=a.useState(!1),S=C?L.Q.OVERLAY:L.Q.BOTTOM,{currentLocalCategoryIndex:w,handleCategorySelect:D}=Ye(e,y,c);a.useEffect(()=>{v&&P(!E)},[E,v]),a.useEffect(()=>{var e;w>=0&&(qe(o),null==(e=b.current)||e.changeIndex(w))},[w,o]);const N=a.useCallback(e=>{P(!1),D(e)},[D]),R=a.createElement(a.Fragment,null,a.createElement(f.P,{type:"sticky",position:{top:"minus-half",zindex:"layer2"},display:"block"},a.createElement("div",{ref:I}),a.createElement(f.P,{type:"relative"},a.createElement(u.N,{padding:{block:"four"},margin:{blockend:"four"}},a.createElement(Z.s,{layout:"fullwidth",canvasTheme:"primary",paddedViewRow:!1,maxWidth:!0},a.createElement(k._N,{...{...We,buttonText:{nextButton:"Show next card",prevButton:"Show previous card"},carouselHeaderText:"Carousel cards without peek pattern",carouselName:"Carouselcardswithoutpeekpattern",itemsVisible:{lg:6,md:6,sm:2,xl:8},navigationIconId:{next:"next-button",prev:"prev-button"},wrapItems:!0}},e.map((e,t)=>{var l;const n=null==e?void 0:e.categoryName,i=null==(l=null==e?void 0:e.images[0])?void 0:l.image;return a.createElement(J.V,{expanded:!C,selected:w===t,key:t},a.createElement(p.M,{ratio:p.l.R1_1},a.createElement(T.F,{src:null==i?void 0:i.url,alt:(null==i?void 0:i.description)||"",placeholderImage:!0}),a.createElement(x.O,{type:S},a.createElement(f.P,{cloneElement:!0,position:{bottom:"four",left:"zero",right:"zero"},type:"absolute"},a.createElement(h.X,{alignItems:"center",direction:"column",justifyContent:"center"},a.createElement(_.C,null,a.createElement(A.D,{size:300,weight:"medium"},n)))))),a.createElement(W.w,null,a.createElement("button",{type:"button",onClick:()=>{N(t)}})))})))))),e.map((e,n)=>((e,n)=>{if(n===w)return a.createElement(Je,{category:e,mediaContent:t,onImageClick:l,propertyId:r,imageIndexState:i,isFallback:!1,categoryIndex:n,travelSearchCriteria:s,onThumbnailGalleryButtonClick:m,thumbnailQuality:d,reviewOverlay:g,showImageNumberOnCategoryHeading:!0})})(e,n)));return a.createElement(a.Fragment,null,R)},tt=({categories:e,mediaContent:t,onImageClick:l,categoryIndexState:n,imageIndexState:i,propertyId:r,refGallery:o,refContent:c,isSmallView:m,onCategorySelect:d,onThumbnailGalleryButtonClick:s,thumbnailQuality:g,travelSearchCriteria:y,reviewOverlay:v})=>{const[p]=n,I=a.useRef(null),E=a.useRef({}),b=a.useRef(null),{currentLocalCategoryIndex:C,handleCategorySelect:k}=Ye(e,p,d),{isPillSelected:P,updatePillSelection:T}=Xe((null==e?void 0:e.length)||0,p),S=e=>t=>{E.current[e]=t},_=a.useCallback(e=>{T(e),k(e,{immediate:!0,callback:()=>{var t,l,a;const n=(null==(t=E.current[e])?void 0:t.offsetTop)||0,i=(null==(a=null==(l=b.current)?void 0:l.offsetParent)?void 0:a.clientHeight)||0;((e,t,l=0)=>{var a,n;null==(n=null==(a=null==e?void 0:e.current)?void 0:a.offsetParent)||n.scrollTo(0,t-l)})(o,n,i)}})},[T,k,o]),x=(e,n)=>{if(n===C)return a.createElement(Je,{category:e,mediaContent:t,onImageClick:l,propertyId:r,imageIndexState:i,isFallback:!1,categoryIndex:n,travelSearchCriteria:y,onThumbnailGalleryButtonClick:s,thumbnailQuality:g,reviewOverlay:v,setRef:S})},L=a.createElement(a.Fragment,null,a.createElement(f.P,{type:"sticky",position:{top:"zero",zindex:"layer2"},display:"block"},a.createElement(u.N,{padding:{small:{block:"one",inline:"three"},large:{block:"three"}}},a.createElement(Z.s,{layout:"fullwidth",paddedViewRow:!1,canvasTheme:"primary"},a.createElement("div",{ref:b},a.createElement(ie.v,{direction:"horizontal"},a.createElement(u.N,{padding:{small:{block:"three"},large:{block:"one"}}},a.createElement(f.P,{type:"relative"},a.createElement(h.X,null,null==e?void 0:e.map((e,t)=>{var l;const n=((e,t=!1)=>{const l=(null==e?void 0:e.categoryName)||"";if(!t)return l;const a=(e=>e.categoryContent?e.categoryContent.length:e.images.length)(e);return`${l} (${a})`})(e,!0);return a.createElement(K.B,{key:`thumbail-gallery-pill-${t}`,id:`thumbail-gallery-pill-${t}`,checked:P[t],onChange:()=>_(t),value:null==e?void 0:e.categoryName,altText:null!=(l=null==e?void 0:e.accessibilityLabel)?l:""},n)}))))))))),m?a.createElement(O.w,{blockSize:"85vb"},a.createElement(ie.v,{direction:"vertical"},e.map((e,t)=>x(e,t)))):e.map((e,t)=>x(e,t)));return a.createElement(a.Fragment,null,a.createElement("div",{ref:I}),a.createElement(f.P,{type:"sticky",position:{top:"zero",zindex:"layer2"},cloneElement:!0},L))},lt=n.gql`
+  fragment ThumbnailGalleryDialogFragment on ProductImageGallery {
+    categorizedImages {
+      categoryId
+      categoryName
+      accessibilityLabel
+      clientSideAnalytics {
+        linkName
+        referrerId
+      }
+      images {
+        ...ProductImageFragment
+      }
+      categoryContent {
+        ...ProductImageFragment
+        ...ProductVideoFragment
+      }
+      galleryButton {
+        button {
+          ... on UISecondaryButton {
+            accessibility
+            primary
+            analytics {
+              referrerId
+              linkName
+            }
+          }
+        }
+      }
+    }
+    thumbnailGalleryDialog {
+      toolbar {
+        title
+        icon {
+          id
+          description
+        }
+      }
+      trigger {
+        accessibilityLabel
+        value
+      }
+      primaryButton {
+        button {
+          ... on UIPrimaryButton {
+            primary
+            accessibility
+            analytics {
+              referrerId
+              linkName
+            }
+          }
+        }
+        targetRef
+      }
+    }
+  }
+  ${Re.fragment}
+  ${Se.fragment}
+`,at=e=>{var t,l,n,i,o,c,m,d,s;const{data:y,allMediaContent:p,isDialogOpen:I,onDialogDismiss:E,onImageClick:b,categoryIndexState:h,imageIndexState:C,triggerRef:k,propertyId:P,onThumbnailGalleryButtonClick:T,thumbnailQuality:S,travelSearchCriteria:_,reviewOverlay:x}=e,{categorizedImages:L,thumbnailGalleryDialog:w}=y,D="UIPrimaryButton"===(null==(t=null==w?void 0:w.primaryButton)?void 0:t.button.__typename)?null==(l=null==w?void 0:w.primaryButton)?void 0:l.button:void 0,{scrollTo:N}=(0,g.xC)(),{ref:R,inView:M,entry:G}=(0,H.Wx)({threshold:0}),[,O]=(0,a.useState)(!1),[F,B]=h,$=a.useRef(null),W=(0,r.useClickTracker)(),{bucket:K}=(0,q.useExperiment)("Optimize_image_gallery_categories_web").exposure;(0,a.useEffect)(()=>{!M&&(null==G?void 0:G.target)&&O(!0)},[M,null==G?void 0:G.target]);const j=()=>{if("UIPrimaryButton"===(null==D?void 0:D.__typename)&&(null==D?void 0:D.analytics)){const{linkName:e,referrerId:t}=D.analytics;W(`${t}.Thumbnail_Gallery`,e)}setTimeout(()=>{E(),setTimeout(()=>{var e;const t=null==(e=null==w?void 0:w.primaryButton)?void 0:e.targetRef;t&&N(t,[{sectionName:"navigation"}])},500)},300)},J=D&&a.createElement(u.N,{padding:{blockend:"two"}},a.createElement(f.P,{type:"absolute",position:{bottom:"six",left:"center",zindex:"layer1"}},a.createElement(U.W,{onClick:j,"aria-label":"UIPrimaryButton"===(null==D?void 0:D.__typename)&&null!=(n=D.accessibility)?n:""},D.primary))),Z=D&&"UIPrimaryButton"===(null==D?void 0:D.__typename)&&a.createElement(Q.y,{"aria-label":null!=(i=null==D?void 0:D.accessibility)?i:"",onClick:j},a.createElement(A.D,{whiteSpace:"nowrap",theme:"light"},D.primary)),ee={id:"HOT.HIS.PhotoGalleryTrigger",description:"Close thumbnail gallery dialog",callback:(e,t)=>{var l,a,n;const[i]=C,r=null!=(n=null==(a=null==(l=L[F])?void 0:l.images)?void 0:a.length)?n:p.length;W(e,t,void 0,ce(i,void 0,r,void 0,P,"PDP_FULL_IMAGE_GALLERY"))}},te=w&&a.createElement(u.N,{padding:{inlineend:"three"}},a.createElement(Y.p,{navigationContent:{onClick:E,onClickAnalytics:ee,navType:(null==x?void 0:x.isReviewOverlay)?x.id:(le=null==(c=null==(o=null==w?void 0:w.toolbar)?void 0:o.icon)?void 0:c.id,"arrow_back"===le?"back":le),navIconLabel:(null==x?void 0:x.isReviewOverlay)?x.accessibility:null==(d=null==(m=w.toolbar)?void 0:m.icon)?void 0:d.description},toolbarTitle:(null==(s=w.toolbar)?void 0:s.title)||"",toolbarActionContent:a.createElement(v.LM,null,a.createElement(v.rw,null,a.createElement(a.Fragment,null,Z)))}));var le;const ae={returnFocusOnClose:!0,isVisible:I,triggerRef:k},ne=e=>{B(e),O(!0)},ie=e=>a.createElement(a.Fragment,null,te,a.createElement(z.Y,{padded:!1},a.createElement("div",{ref:$},(e=>{const t=!(null==L?void 0:L.length)||1===L.length,l={mediaContent:p,onImageClick:b,propertyId:P,imageIndexState:C,travelSearchCriteria:_,onThumbnailGalleryButtonClick:T,thumbnailQuality:S,reviewOverlay:x};if(t)return a.createElement(Je,{...l,isFallback:t,categoryIndex:F});const n={...l,categories:L,categoryIndexState:h,refGallery:$,onCategorySelect:ne};return K>0?1===K?a.createElement(Ze,{...n}):a.createElement(et,{...n}):a.createElement(tt,{...n,isSmallView:e,refContent:R})})(e))));return a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(V.t,{...ae,type:"full"},ie(!0),J)),a.createElement(v.rw,null,a.createElement(X.R,{...ae,centeredSheetSize:"xxxlarge",height:1200},ie(!1))))};at.displayName="ThumbnailGalleryDialog",at.fragment=lt;var nt=(e,t)=>{const l=(e=>(0,a.useMemo)(()=>{var t,l,a,n;return(null==(l=null==(t=null==e?void 0:e.categorizedImages)?void 0:t.find(t=>t.categoryId===e.categoryIdAll))?void 0:l.categoryContent)||(null==(n=null==(a=null==e?void 0:e.categorizedImages)?void 0:a.find(t=>t.categoryId===e.categoryIdAll))?void 0:n.images)||[]},[e]))(e);return(0,a.useMemo)(()=>{if(!(null==t?void 0:t.length)||!l.length)return l;const e=l.map(e=>{var t,l,a;return{...e,baseUrl:null!=(a=(null!=(l=null==(t=e.lowResImage)?void 0:t.url)?l:e.image.url).split("?")[0])?a:""}}),a=t.map(e=>({...e,baseUrl:e.url.split("?")[0]})),n=a.reduce((e,t,l)=>({...e,[t.baseUrl]:l}),{}),i=a.reduce((e,t)=>({...e,[t.baseUrl]:t}),{});return[...[...e.filter(e=>i[e.baseUrl]).map(e=>{var t,l;return{...e,image:{...e.image,url:(null==(t=i[e.baseUrl])?void 0:t.url)||e.image.url},lowResImage:{...e.lowResImage,url:(null==(l=i[e.baseUrl])?void 0:l.url)||""}}})].sort((e,t)=>(n[e.baseUrl]||-1)-(n[t.baseUrl]||-1)).map(({baseUrl:e,...t})=>t),...l.filter((t,l)=>{var a,n;return!i[null!=(n=null==(a=e[l])?void 0:a.baseUrl)?n:""]})]},[l,t])},it=(e,t,l,n,i,r)=>(0,a.useCallback)((a,o)=>{r.current=document.activeElement,e(o),t(a),o<0&&n(a),i(a),l.openDialog()},[e,t,l,n,i]),rt=n.gql`
+  fragment ProductGalleryImageContainerFragment on ProductImageGallery {
+    ...MosaicContainerFragment
+    ...CarouselContainerFragment
+    ...MediaGalleryDialogFragment
+    ...ThumbnailGalleryDialogFragment
+    ...GalleryButtonsFragment
+  }
+  ${Oe.fragment}
+  ${Ge.fragment}
+  ${ze.fragment}
+  ${at.fragment}
+  ${ge.fragment}
+`,ot=({propertyId:e,data:t,placeholderData:l,className:n,travelSearchCriteria:i,autoplay:r,autoplayInterval:o,onClickSeeAllReviewsButton:p,isLuxuryProperty:I,showLuxuryRibbon:E=!0})=>{var b,h,f,C;const[k,P,T]=(0,s.useDialog)("media-gallery","pwaDialogNested"),[S,_,x]=(0,s.useDialog)("thumbnail-gallery","pwaThumbnailDialog"),L=(0,v.s5)({[v.OB.SMALL]:!0,[v.OB.MEDIUM]:!1,[v.OB.LARGE]:!1}),w=a.useRef(null),D=a.useRef(null),N=a.useState(0),R=a.useState(-1),M=a.useState(0),G=a.useState(0),[,A]=N,[,O]=R,[,F]=M,[,B]=G,[V,z]=a.useState({}),{scrollTo:$}=(0,g.xC)(),H=nt(t,l),U=a.useCallback(e=>{A(e),O(-1),w.current=document.activeElement,_.openDialog()},[_,O,A]),Q=a.useCallback(e=>{window.open(e)},[]),Y=a.useCallback(()=>{O(-1),_.openDialog()},[_,O]),X=it(O,F,P,A,B,D),q=a.useCallback((e,t)=>{X(e,t)},[X]),W=a.useCallback((e=-1)=>{const t=document.activeElement;w.current=t,A(0),O(e),_.openDialog()},[_,A,O]);(0,d._H)("OPEN_GUEST_IMAGES_REVIEWS_OVERLAY",y.v0,{onSuccess(e){var l,a,n;const i=(null==(l=null==t?void 0:t.categorizedImages)?void 0:l.findIndex(e=>"Guest photos"===e.categoryId))||-1;z({isReviewOverlay:e.payload.message,id:null==(a=e.payload.icon)?void 0:a.id,accessibility:null==(n=e.payload.icon)?void 0:n.accessibility,hideButton:!0,categoryIndex:i}),W(i)}}),(0,d._H)("OPEN_GUEST_IMAGES_REVIEWS_OVERVIEW",y.mn,{onSuccess(){var e;const l=(null==(e=null==t?void 0:t.categorizedImages)?void 0:e.findIndex(e=>"Guest photos"===e.categoryId))||-1;z({hideButton:!0,categoryIndex:l}),W(l)}}),(0,d._H)("OPEN_GUEST_IMAGE",y.sD,{onSuccess(e){var l;const a=(null==(l=null==t?void 0:t.categorizedImages)?void 0:l.findIndex(e=>"Guest photos"===e.categoryId))||-1;X(e.payload.index,a)}});const K=a.useCallback(()=>{_.closeDialog(),setTimeout(()=>{var e;null==(e=w.current)||e.focus(),z({})},0)},[_]),j=a.useCallback(()=>{P.closeDialog(),setTimeout(()=>{var e;null==(e=D.current)||e.focus()},0)},[P]),J=a.useCallback(e=>{setTimeout(()=>{k&&j(),S&&K()},300),setTimeout(()=>{e&&$(e,[{sectionName:"navigation"}])},500)},[k,$,j,S,K]);if(!t||!H.length)return null;const Z={imageIndexState:N,categoryImageIndexState:M,categoryIndexState:R},ee={onTriggerClick:W,onVirtualTourClick:Q,thumbnailDialogTriggerTitle:null==(h=null==(b=null==t?void 0:t.thumbnailGalleryDialog)?void 0:b.trigger)?void 0:h.value,thumbnailDialogTriggerAccessibilityLabel:null==(C=null==(f=null==t?void 0:t.thumbnailGalleryDialog)?void 0:f.trigger)?void 0:C.accessibilityLabel,propertyId:e,data:t,allImages:H,...Z},te=e=>a.createElement(Oe,{onImageClick:e=>U(e),imagesToShow:e,...ee,onPlayButtonClick:q,thumbnailQuality:L?"LOW":"MEDIUM"}),le=a.createElement(Ge,{onImageClick:Y,...ee,autoplay:r,autoplayInterval:o,onPlayButtonClick:q,thumbnailQuality:L?"LOW":"MEDIUM"}),ae=l=>a.createElement(a.Fragment,null,te(l),a.createElement(ge,{data:t,onThumbnailGalleryClick:ee.onTriggerClick,onVirtualTourClick:Q,thumbnailButtonText:ee.thumbnailDialogTriggerTitle,thumbnailDialogTriggerAccessibilityLabel:ee.thumbnailDialogTriggerAccessibilityLabel,propertyId:e})),ne=a.createElement(a.Fragment,null,a.createElement(c.K,{isVisible:S},a.createElement(x,null,a.createElement(at,{allMediaContent:H,data:t,isDialogOpen:S,onDialogDismiss:K,onImageClick:X,triggerRef:w,propertyId:e,onThumbnailGalleryButtonClick:p,thumbnailQuality:L?"LOW":"MEDIUM",travelSearchCriteria:i,reviewOverlay:V,...Z}))),a.createElement(c.K,{isVisible:k},a.createElement(T,null,a.createElement(ze,{allMediaContent:H,data:t,isDialogOpen:k,onDialogDismiss:j,propertyId:e,mediaGalleryStartIndexState:G,triggerRef:D,onReserveButtonClick:J,...Z})))),ie=a.createElement(v.LM,null,a.createElement(v.NP,null,le),a.createElement(v.rw,null,ae(3)),a.createElement(v.zQ,null,ae(5))),re=a.createElement(a.Fragment,null,a.createElement(v.LM,null,a.createElement(v.NP,null,le),a.createElement(v.rw,null,a.createElement(a.Fragment,null,te(3),a.createElement(ge,{data:t,onThumbnailGalleryClick:ee.onTriggerClick,onVirtualTourClick:Q,thumbnailButtonText:ee.thumbnailDialogTriggerTitle,thumbnailDialogTriggerAccessibilityLabel:ee.thumbnailDialogTriggerAccessibilityLabel,propertyId:e}))),a.createElement(v.zQ,null,a.createElement(a.Fragment,null,te(5),a.createElement(ge,{data:t,onThumbnailGalleryClick:ee.onTriggerClick,onVirtualTourClick:Q,thumbnailButtonText:ee.thumbnailDialogTriggerTitle,thumbnailDialogTriggerAccessibilityLabel:ee.thumbnailDialogTriggerAccessibilityLabel,propertyId:e})))),E&&a.createElement(m.EGDSThemeProvider,{config:{lightMode:{colorTheme:"bright-1"}},isColorThemeContainer:!0},a.createElement(u.N,{padding:"half"},a.createElement("div",{"data-stid":"luxury-ribbon"}))));return a.createElement("div",{className:n},I?re:ie,ne)};ot.displayName="ProductGalleryImageContainer",ot.fragment=rt;var ct=({images:e,isLuxuryProperty:t})=>{const l=(()=>{const[e,t]=(0,a.useState)(!1);return(0,a.useEffect)(()=>{t(!0)},[]),e})();return a.createElement(a.Fragment,null,l?a.createElement(dt,{images:e,isLuxuryProperty:t}):a.createElement(st,{images:e,isLuxuryProperty:t}))},ut=({additionalImage:e,className:t,style:l,isLuxuryProperty:n,isMobile:i})=>{const r=i?p.l.R3_2:p.l.R16_9;return a.createElement(p.M,{ratio:n?p.l.R16_9:r,className:t,style:l},a.createElement(T.F,{placeholderImage:!0,src:null==e?void 0:e.url,alt:null==e?void 0:e.description,additionalProps:{fetchPriority:(null==e?void 0:e.url)?"high":void 0}}))},mt=e=>{const t=({images:e,isLuxuryProperty:t})=>a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(ut,{additionalImage:null==e?void 0:e[0],isMobile:!0})),a.createElement(v.rw,null,a.createElement(O.w,{rows:2,columns:3,space:"half"},Array.from(Array(3)).map((l,n)=>a.createElement(F.T,{rowSpan:0===n?2:1,colSpan:0===n?2:1,key:`gallery-placeholder-${n}`},a.createElement(ut,{additionalImage:null==e?void 0:e[n],isLuxuryProperty:t}))))),a.createElement(v.zQ,null,a.createElement(O.w,{rows:2,columns:4,space:"half"},Array.from(Array(5)).map((l,n)=>a.createElement(F.T,{rowSpan:0===n?2:1,colSpan:0===n?2:1,key:`gallery-placeholder-${n}`},a.createElement(ut,{additionalImage:null==e?void 0:e[n],isLuxuryProperty:t}))))));return t.displayName=e,t},dt=mt("CsrPlaceholder"),st=mt("SsrPlaceholder"),gt=n.gql`
+  query ProductGalleryQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    productGallery(context: $context, productIdentifier: $productIdentifier) {
+      ...ProductGalleryImageContainerFragment
+    }
+  }
+
+  ${ot.fragment}
+`,yt=({inputs:e,skipSsr:t,placeholderData:l,batchKey:c=re,onClickSeeAllReviewsButton:u,autoplay:m,autoplayInterval:d,prefetchedData:s,isLuxuryProperty:g,showLuxuryRibbon:y})=>{var v,p,I,E,b,h;const{context:f}=(0,i.R)(),C={...e,context:f},k=(0,o.kY)(),{data:P,loading:T}=(0,n.useQuery)(gt,{context:{batchKey:c,shouldLogPerformance:!0},variables:C,ssr:!t,errorPolicy:"all",skip:(null==(v=null==k?void 0:k.product)?void 0:v.productGallery)||s}),S=null!=(I=null!=s?s:null==(p=null==k?void 0:k.product)?void 0:p.productGallery)?I:null==P?void 0:P.productGallery,_=null==(h=null==(b=null==(E=null==P?void 0:P.productGallery)?void 0:E.categorizedImages)?void 0:b.find(e=>"Guest photos"===e.categoryId))?void 0:h.clientSideAnalytics,x=a.createElement(ot,{propertyId:e.productIdentifier.id,data:S,placeholderData:l,shoppingContext:e.productIdentifier.shoppingContext,travelSearchCriteria:e.productIdentifier.travelSearchCriteria,onClickSeeAllReviewsButton:u,autoplay:m,autoplayInterval:d,isLuxuryProperty:g,showLuxuryRibbon:y});return a.createElement(a.Fragment,null,T&&a.createElement(ct,{images:l,isLuxuryProperty:g}),_?a.createElement(r.IntersectionTracker,{referrerId:_.referrerId,linkName:_.linkName,trackOnce:!0},x):x)};yt.displayName="sharedui-ProductGallery";var vt=n.gql`
+  query ProductGalleryDialogsQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    productGallery(context: $context, productIdentifier: $productIdentifier) {
+      categoryIdAll
+      ...ThumbnailGalleryDialogFragment
+      ...MediaGalleryDialogFragment
+    }
+  }
+
+  ${at.fragment}
+  ${ze.fragment}
+`,pt=({dialog:e,inputs:t,skipSsr:l,batchKey:r=re,trigger:o,onThumbnailGalleryButtonClick:u})=>{const m=(0,a.useState)(0),d=(0,a.useState)(-1),g=(0,a.useState)(0),y=(0,a.useState)(0),[,v]=m,[,p]=d,[,I]=g,[,E]=y,[b,h,f]=e,{id:C,travelSearchCriteria:k}=t.productIdentifier,[P,T,S]=(0,s.useDialog)(`product-media-dialog-${C}`,"product-media-dialog"),{context:_}=(0,i.R)(),x=(0,a.useMemo)(()=>({context:_,...t}),[_,t]),{data:{productGallery:L}={}}=(0,n.useQuery)(vt,{variables:x,context:{batchKey:r,shouldLogPerformance:!0},ssr:!l,errorPolicy:"all"}),w=(0,a.useCallback)(()=>{T.closeDialog()},[T]),D=nt(L),N=(0,a.useCallback)(()=>{h.closeDialog()},[]),R=(0,a.useRef)(null),M=it(p,I,T,v,E,R);return L?a.createElement(a.Fragment,null,a.createElement(c.K,{isVisible:b},a.createElement(f,null,a.createElement(at,{allMediaContent:D,data:L,isDialogOpen:b,onDialogDismiss:N,onImageClick:M,triggerRef:o,propertyId:C,onThumbnailGalleryButtonClick:u,travelSearchCriteria:k,imageIndexState:m,categoryImageIndexState:g,categoryIndexState:d}))),a.createElement(c.K,{isVisible:P},a.createElement(S,null,a.createElement(ze,{allMediaContent:D,data:L,isDialogOpen:P,onDialogDismiss:w,propertyId:C,mediaGalleryStartIndexState:y,triggerRef:R,imageIndexState:m,categoryImageIndexState:g,categoryIndexState:d})))):null};pt.displayName="ProductGalleryDialogs"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-gallery.129d42e19f1dba84bc8b.js.map

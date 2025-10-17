@@ -1,0 +1,142 @@
+/*@license For license information please refer to shared-ui-retail-product-rating-summary.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[7620],{88357:function(e,t,a){a.d(t,{Pc:function(){return pe},Wx:function(){return ge},_:function(){return de}});var r=a(56195),n=a(92919),i=a(24109),l=a(522),c=a(99828),o=a(42534),s=a(74071),m=a(26690),d=a(64341),u=a(97778),p=a(53017),g=a(46286),y=a(46559),E=a(79066),v=a(1226),S=a(52174),b=a(2557),f=a(18174),R=a(43888),I=a(934),h=a(27102),_=a(23726),k=a(70882),w=a(4988),D=a(89438),C=a(69287),x=a(37292),P=a(40581),T=a(94760),N=a(49858),L=Object.defineProperty,O=Object.defineProperties,A=Object.getOwnPropertyDescriptors,F=Object.getOwnPropertySymbols,M=Object.prototype.hasOwnProperty,$=Object.prototype.propertyIsEnumerable,q=(e,t,a)=>t in e?L(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,V=(e,t)=>{for(var a in t||(t={}))M.call(t,a)&&q(e,a,t[a]);if(F)for(var a of F(t))$.call(t,a)&&q(e,a,t[a]);return e},z=(e,t)=>O(e,A(t)),K=r.createContext({}),B=({categories:e})=>{if(!Array.isArray(e))return null;const t=e.length,a=t=>t===e.length-1;return r.createElement(o.N,null,r.createElement(v.w,{columns:[(0,S.kM)(t,"auto")],alignItems:"start",role:"list","data-stid":"reviews-category-section-column-view"},null==e?void 0:e.map((e,t)=>r.createElement("div",{key:`score-category-${t}`,"aria-label":e.accessibility||`${e.categoryType} - ${e.categoryScore}`,role:"listitem"},r.createElement(o.N,{padding:{inline:"four"},border:a(t)?["unset"]:["inlineend"]},r.createElement(l.X,{direction:"column",alignItems:"start",space:"two"},r.createElement(c.C,{alignSelf:"center"},e.categoryScore&&r.createElement(E.Z3,{data:e.categoryScore,size:300,skipScreenReader:!0,align:"center",weight:"medium"})),r.createElement(c.C,{alignSelf:"center"},e.categoryType&&r.createElement(E.Z3,{data:e.categoryType,inline:!0,size:200,skipScreenReader:!0,align:"center",weight:"medium"}))))))))};B.displayName="CategorySectionColumnView";var Y=({categories:e})=>{const t=(0,y.s5)({[y.OB.SMALL]:!0,[y.OB.MEDIUM]:!1});return r.createElement(o.N,{padding:{blockstart:"three"}},r.createElement(v.w,{columns:2,space:"one",role:"list","data-stid":"reviews-category-section-row-view"},null==e?void 0:e.map((e,a)=>r.createElement("div",{key:`score-category-${a}`,"aria-label":e.accessibility||`${e.categoryType} - ${e.categoryScore}`,role:"listitem"},r.createElement(l.X,{direction:"row",alignItems:"start",space:"two"},r.createElement(c.C,null,e.categoryScore&&r.createElement(E.Z3,{data:e.categoryScore,size:300,skipScreenReader:!0,weight:"medium"})),r.createElement(c.C,null,e.categoryType&&r.createElement(E.Z3,{data:e.categoryType,inline:!0,size:300,skipScreenReader:!0,weight:t?"medium":"regular"})))))))};Y.displayName="CategorySectionRowView";var G=m.gql`
+  fragment CategorySectionFragment on ReviewsCategorySection {
+    categories {
+      accessibility
+      categoryScore {
+        ...EGDSStylizedTextFragment
+      }
+      categoryType {
+        ...EGDSStylizedTextFragment
+      }
+    }
+    heading {
+      text
+    }
+  }
+  ${E.Z3.fragment}
+`,H=({data:e,isRowLayout:t})=>{const{categories:a,heading:n}=e,{text:i}=n||{};return a&&0!==a.length?r.createElement(r.Fragment,null,n&&r.createElement(s.M,{tag:"h3",className:"is-visually-hidden"},i),t?r.createElement(Y,{categories:a}):r.createElement(B,{categories:a})):null};H.displayName="CategorySection",H.fragment=G;var U=m.gql`
+  fragment ProductExternalReviewsMessageFragment on PopUpMessage {
+    title
+    content {
+      ... on EGDSPlainText {
+        accessibility
+        text
+      }
+    }
+    openAnalytics {
+      eventType
+      linkName
+      referrerId
+    }
+  }
+`,X=({data:e})=>{const{title:t,content:a}=e,[n,i]=r.useState(!1);return r.createElement(D.Y,null,r.createElement(h.D,{weight:"bold",size:400},t),r.createElement(o.N,{margin:{blockstart:"six"}},r.createElement(w.A,{isVisible:n,handleClick:()=>i(e=>!e),items:1},null==a?void 0:a.map((e,t)=>r.createElement(C.u,{key:t},"EGDSPlainText"===(null==e?void 0:e.__typename)&&(null==e?void 0:e.text))))))};X.displayName="ProductExternalReviewsMessage",X.fragment=U;var W=m.gql`
+  fragment ProductExternalReviewsFragment on ProductTextInfoSection {
+    title {
+      text
+    }
+    icon {
+      id
+      description
+      token
+    }
+    message {
+      ...ProductExternalReviewsMessageFragment
+    }
+  }
+  ${X.fragment}
+`,j=({data:e})=>{const{title:t,icon:a,message:n}=e,[i,c,s]=(0,k.useDialog)("product-external-reviews-dialog"),m=r.useRef(null),p=(0,y.eg)({viewSizes:y.pf}),{context:g}=(0,d.R)(),E=(0,u.useClickTracker)(),v=(0===p?"DESKTOP"===g.device.type||"MOBILE_TABLET"===g.device.type:p>y.pf.SMALL)?"small":"medium";if(!n||!t)return null;const{openAnalytics:S}=n;return r.createElement(r.Fragment,null,r.createElement(l.X,{alignItems:"center"},r.createElement(h.D,null,r.createElement(o.N,null,r.createElement(f.t,{onClick:()=>{c.openDialog(),S&&E(S.referrerId,S.linkName)},size:"medium",weight:"regular"},r.createElement("button",{ref:m,type:"button","aria-label":t.text},t.text,r.createElement(b.LD,{name:(null==a?void 0:a.token)||"",description:null==a?void 0:a.description,id:null==a?void 0:a.id,title:null==a?void 0:a.id})))))),r.createElement(R.K,{isVisible:i},r.createElement(s,null,r.createElement(I.t,{isVisible:i,type:"centered",centeredSheetSize:v,triggerRef:m},r.createElement(_.p,{navigationContent:{onClick:()=>{c.closeDialog()},navIconLabel:"close toolbar",navType:"close"}}),n&&r.createElement(X,{data:n})))))};j.displayName="ProductExternalReviews",j.fragment=W;var Z=({triggerRef:e,dialogType:t,sheetType:a,sheetHeight:n,toolbarData:i})=>{var l,c,o,s,m,d,p,g;const[y,E,v]=(0,k.useDialog)(t,"pwaDialog"),{productIdentifier:S}=r.useContext(K),{id:b}=S,f=(0,u.useClickTracker)(),h=r.createRef(),w=(0,r.useCallback)(()=>{E.closeDialog()},[E]),C=null==S?void 0:S.travelSearchCriteria;if(!(null==(l=null==C?void 0:C.property)?void 0:l.primary))return null;const x={primary:null==(c=null==C?void 0:C.property)?void 0:c.primary,secondary:null==(o=null==C?void 0:C.property)?void 0:o.secondary},{action:T}=i,N={id:(null==(s=T.closeAnalytics)?void 0:s.referrerId)||"",callback:()=>{var e,t;return f((null==(e=T.closeAnalytics)?void 0:e.referrerId)||"",(null==(t=T.closeAnalytics)?void 0:t.linkName)||"")}},L=!(null==(p=null==(d=null==(m=null==S?void 0:S.travelSearchCriteria)?void 0:m.property)?void 0:d.primary)?void 0:p.dateRange);return r.createElement(R.K,{isVisible:y},r.createElement(v,null,r.createElement(I.t,{type:a,height:n,isVisible:y,returnFocusOnClose:!0,triggerRef:e},r.createElement(_.p,{toolbarTitle:T.title||"",navigationContent:{onClick:w,navIconLabel:null==(g=null==T?void 0:T.icon)?void 0:g.description,onClickAnalytics:N,navType:"close",navButtonId:"reviews-dialog-close"},contentDomRef:h}),r.createElement(D.Y,{contentDomRef:h},r.createElement(P.u6,{inputs:{propertyId:b,searchCriteria:x,includeRecentReviews:!L}})))))};Z.displayName="ReviewsDialog";var Q=({dialogType:e,triggerRef:t,toolbarData:a})=>r.createElement(y.LM,null,r.createElement(y.NP,null,r.createElement(Z,{dialogType:e,triggerRef:t,sheetType:"full",toolbarData:a})),r.createElement(y.rw,null,r.createElement(Z,{dialogType:e,sheetHeight:1200,triggerRef:t,sheetType:"centered",toolbarData:a})));Q.displayName="ReviewsDialogWrapper";var J=({data:e})=>{var t,a,n;const[,i]=(0,k.useDialog)("product-reviews","pwaDialog"),l=r.useRef(null),c=(0,u.useClickTracker)(),o=(0,r.useCallback)(()=>{i.openDialog()},[i]),s=(0,r.useCallback)(()=>{const{link:t}=e;if(t.action.analytics){const{linkName:e,referrerId:a,uisPrimeMessages:r}=t.action.analytics,n=r.map(({messageContent:e,schemaName:t})=>({messageContent:JSON.parse(e),schemaName:t}));c(a,e,void 0,n)}o()},[e,c,o]);if(!e||!(null==(t=null==e?void 0:e.link)?void 0:t.text))return null;const{link:m}=e;return r.createElement(r.Fragment,null,r.createElement(x.i,{onClick:s,domRef:l},r.createElement("button",{type:"button","data-stid":"reviews-link","aria-label":null!=(a=e.accessibilityText)?a:void 0},m.text,r.createElement(b.LD,{name:(null==(n=m.icon)?void 0:n.token)||""}))),r.createElement(Q,{dialogType:"product-reviews",triggerRef:l,toolbarData:e}))};J.displayName="ProductRatingLink";var ee=m.gql`
+  fragment ProductRatingSupportingMessagesFragment on ProductRatingSupportingMessage {
+    ... on EGDSPlainText {
+      text
+      accessibility
+    }
+    ... on ProductRatingLink {
+      link {
+        text
+        disabled
+        action {
+          target
+          useRelativePath
+          analytics {
+            eventType
+            linkName
+            referrerId
+            uisPrimeMessages {
+              schemaName
+              messageContent
+            }
+          }
+        }
+        icon {
+          token
+        }
+      }
+      action {
+        text
+        title
+        icon {
+          id
+          token
+          description
+        }
+        closeAnalytics {
+          eventType
+          linkName
+          referrerId
+        }
+      }
+      accessibilityText
+    }
+  }
+`,te=({data:e})=>(e=>{switch(e.__typename){case"EGDSPlainText":return(null==e?void 0:e.text)&&r.createElement(o.N,{margin:{blockend:"two"}},r.createElement(h.D,null,e.text),";");case"ProductRatingLink":return r.createElement(J,{data:e});default:return null}})(e);te.displayName="ProductRatingSupportingMessages",te.fragment=ee;var ae=m.gql`
+  fragment ProductRatingMetadataFragment on ProductRatingMetadata {
+    seoData {
+      itemprop
+      content
+      itemscope
+    }
+  }
+`,re=({data:{seoData:e}})=>r.createElement("div",{itemProp:"aggregateRating",itemScope:!0,itemType:"https://schema.org/AggregateRating"},e.map(({itemprop:e,content:t})=>t?r.createElement("meta",{itemProp:e,content:t,key:e}):null));re.displayName="ProductRatingMetadata",re.fragment=z(V({},ae),{__typename:"ProductRatingMetadata"});var ne=({theme:e,primary:t,secondary:a,accessibilityLabel:n,icon:i,supportingMessages:c,productIdentifierId:s,travelSearchCriteria:m,skipSsr:d,isLuxuryProperty:u=!1,isSmallFont:g})=>{const y=c&&[...c],E=null==y?void 0:y.findIndex(e=>"ProductRatingLink"===e.__typename),v=-1!==E?null==y?void 0:y.splice(E,1)[0]:null,S=1===(0,p.useExperiment)("Top_of_PDP_Redesign",!1).exposure.bucket,b=!u&&!S;return r.createElement(r.Fragment,null,r.createElement(l.X,{space:"two"},r.createElement(o.N,{margin:{blockend:u||S?"unset":"two"}},r.createElement(l.X,{alignItems:"center",space:"two"},e?r.createElement(oe,{primary:t,theme:e,secondary:a,accessibilityLabel:n,isSmallFont:g}):r.createElement(se,{primary:t,icon:i,accessibilityLabel:n}))),r.createElement(o.N,{margin:{blockend:u||S?"unset":"one"}},r.createElement(l.X,{alignItems:"center",space:"two"},v&&r.createElement(te,{data:v})))),b&&r.createElement(ce,{productIdentifierId:s,travelSearchCriteria:m,skipSsr:d}),null==y?void 0:y.map((e,t)=>r.createElement(o.N,{key:`${t}-message-${e.__typename}`,margin:{inlinestart:"two"}},r.createElement(te,{data:e}))))},ie=({theme:e,primary:t,secondary:a,accessibilityLabel:n,icon:i,supportingMessages:c,productIdentifierId:s,travelSearchCriteria:m,skipSsr:d,isSmallFont:u})=>{const{bucket:g}=(0,p.useExperiment)("Top_of_PDP_Redesign",!1).exposure;return r.createElement(r.Fragment,null,r.createElement(o.N,{margin:{blockend:"two"}},r.createElement(l.X,{alignItems:"center",space:"two"},e?r.createElement(oe,{primary:t,theme:e,secondary:a,accessibilityLabel:n,isSmallFont:u}):r.createElement(se,{primary:t,icon:i,accessibilityLabel:n}))),!g&&r.createElement(ce,{productIdentifierId:s,travelSearchCriteria:m,skipSsr:d}),c&&c.length>0&&c.map((e,t)=>r.createElement(o.N,{key:`${t}-message-${e.__typename}`,margin:{inlinestart:"two"}},r.createElement(te,{data:e}))))},le=m.gql`
+  fragment SummaryContentFragment on ProductRatingSummary {
+    __typename
+    primary
+    secondary
+    theme
+    accessibilityLabel
+    supportingMessages {
+      ...ProductRatingSupportingMessagesFragment
+    }
+    icon {
+      id
+      theme
+    }
+  }
+`,ce=({productIdentifierId:e,travelSearchCriteria:t,skipSsr:a})=>r.createElement(T.N,{inputs:{productIdentifier:{id:e,type:T.W.PROPERTY_ID,travelSearchCriteria:t}},skipSsr:!0}),oe=({primary:e,theme:t,secondary:a,accessibilityLabel:n,isSmallFont:i})=>r.createElement(r.Fragment,null,e&&t&&r.createElement(E.OM,{text:e,badgeTheme:t,accessibilityLabel:n}),a&&r.createElement(h.D,{size:i?400:500,weight:"medium"},a)),se=({primary:e,icon:t,accessibilityLabel:a})=>r.createElement(r.Fragment,null,t&&r.createElement(b.LD,{name:t.id,size:b.So.MEDIUM,theme:t.theme||"default"}),a&&r.createElement("span",{className:"is-visually-hidden"},a),r.createElement(h.D,{size:500,weight:"bold",theme:"default","aria-hidden":null!==a},e)),me=({data:e,productIdentifierId:t,travelSearchCriteria:a,skipSsr:n,isLuxuryProperty:i=!1,inlineView:l,isSmallFont:c})=>{const{primary:o,secondary:s,theme:m,supportingMessages:d,accessibilityLabel:u,icon:g}=e||{},y={theme:m,primary:o,secondary:s,accessibilityLabel:u,icon:g,supportingMessages:d,productIdentifierId:t,travelSearchCriteria:a,skipSsr:n,isLuxuryProperty:i,isSmallFont:c},E=1===(0,p.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,v=1===(0,p.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,S=l||(E||v)?ne:ie;return r.createElement(S,V({},y))};me.displayName="SummaryContent",me.fragment=le;var de=()=>r.createElement(o.N,{padding:{blockend:"six"}},r.createElement("div",null,r.createElement(l.X,{space:"two",alignItems:"center"},r.createElement(c.C,null,r.createElement(o.N,{margin:{blockend:"two"}},r.createElement(N.R,{type:"line",lineHeight:24,lineLength:"secondary"}))),r.createElement(c.C,null,r.createElement(o.N,{margin:{blockend:"two"}},r.createElement(N.R,{type:"line",animation:!0})))),r.createElement(o.N,{margin:{blockend:"two"}},r.createElement(N.R,{type:"line",animation:!0})))),ue=m.gql`
+  query ProductRatingSummaryQuery($productIdentifier: ProductIdentifierInput!, $context: ContextInput!) {
+    productRatingSummary(productIdentifier: $productIdentifier, context: $context) {
+      __typename
+      sectionHeadingAccessibilityText
+      summary {
+        ...SummaryContentFragment
+      }
+      metadata {
+        ...ProductRatingMetadataFragment
+      }
+      info {
+        ...ProductExternalReviewsFragment
+      }
+      categorySection {
+        ...CategorySectionFragment
+      }
+      impressionAnalytics
+    }
+  }
+
+  ${te.fragment}
+  ${re.fragment}
+  ${me.fragment}
+  ${j.fragment}
+  ${H.fragment}
+`,pe=({inputs:e,skipSsr:t,className:a,batchKey:E,isDataRequired:v=!1,prefetchedData:S,isLuxuryProperty:b=!1,isSUVR:f})=>{var R,I,h,_,k,w,D,C,x;const P=(0,g.kY)(),{context:T}=(0,d.R)(),N=(0,y.s5)({[y.OB.SMALL]:!0,[y.OB.MEDIUM]:!1}),L=(0,y.s5)({[y.OB.LARGE]:!0}),O=z(V({},e),{context:T}),A=!(null==(_=null==(h=null==(I=null==(R=null==O?void 0:O.productIdentifier)?void 0:R.travelSearchCriteria)?void 0:I.property)?void 0:h.primary)?void 0:_.dateRange),F=1===(0,p.useExperiment)("App_Shell_Property_Requirement_Web",!0).exposure.bucket,M=1===(0,p.useExperiment)("App_Shell_Property_Requirement_Web_Dateless",!0).exposure.bucket,$=F||M,{data:q,error:B,loading:Y}=(0,m.useQuery)(ue,{context:{useApq:!0,batchKey:null!=E?E:"default-product-details-experience-batch-key",shouldLogPerformance:!0},variables:O,ssr:!t,skip:(null==(k=null==P?void 0:P.product)?void 0:k.productRatingSummary)||S});if(B)return null;const G=null!=(D=null!=S?S:null==q?void 0:q.productRatingSummary)?D:null==(w=null==P?void 0:P.product)?void 0:w.productRatingSummary,{summary:U,metadata:X,sectionHeadingAccessibilityText:W,info:Z,impressionAnalytics:Q,categorySection:J}=G||{},ee=N||!f&&L,te=r.createElement(K.Provider,{value:e},r.createElement(o.N,{padding:{blockend:J||$?"unset":"six"}},r.createElement("div",{className:U?a:"","data-stid":"content-hotel-reviewsummary"},X&&r.createElement(re,{data:X}),r.createElement(s.M,{tag:"h2",className:"is-visually-hidden"},W),r.createElement(l.X,V({},(ae=!ee,ne=Boolean(Z),ie=Boolean(J),le=!N&&!L,ie||ne?ne?{direction:le?"column":"row",alignItems:le?void 0:"center",space:le?void 0:"two",wrap:"wrap"}:{direction:ae?"row":"column",alignItems:ae?"center":void 0,space:void 0,wrap:ae?"wrap":void 0}:{direction:le?"column":"row",alignItems:"start",space:void 0,wrap:"wrap"})),r.createElement(c.C,null,r.createElement("div",null,r.createElement(me,{data:U,productIdentifierId:e.productIdentifier.id,isDateless:A,travelSearchCriteria:null==(C=null==O?void 0:O.productIdentifier)?void 0:C.travelSearchCriteria,skipSsr:t,isLuxuryProperty:b,inlineView:b||ee,isSmallFont:b||N}))),Z&&r.createElement(c.C,null,r.createElement("div",null,r.createElement(j,{data:Z}))),J&&r.createElement(c.C,{grow:1},r.createElement("div",null,r.createElement(H,{data:J,isRowLayout:ee})))))));var ae,ne,ie,le;const ce=r.createElement(p.Experiment,{name:"Top_of_PDP_Redesign"},r.createElement(p.ExperimentControl,null,r.createElement(K.Provider,{value:e},r.createElement(o.N,{padding:{blockend:(oe=$,oe?"unset":"six")}},r.createElement("div",{className:U?a:"","data-stid":"content-hotel-reviewsummary"},X&&r.createElement(re,{data:X}),r.createElement(s.M,{tag:"h2",className:"is-visually-hidden"},W),r.createElement(me,{data:U,productIdentifierId:e.productIdentifier.id,isDateless:A,travelSearchCriteria:null==(x=null==O?void 0:O.productIdentifier)?void 0:x.travelSearchCriteria,skipSsr:t,isLuxuryProperty:b,inlineView:b,isSmallFont:b}),Z&&r.createElement(j,{data:Z}))))),r.createElement(p.ExperimentVariant,{bucket:1},J?r.createElement(o.N,{margin:{blockend:$?"unset":"eight"}},r.createElement(n.g,{padded:!0,useStandardCardPadding:!0,border:!0},r.createElement(i.E,null,te))):te));var oe;if(Q){const e={clientPayload:{event:{event_name:"review_score.presented",event_version:"1.7.0"}},serverPayload:Q};return r.createElement(u.EgClickstreamImpressionTracker,{eventData:e},ce)}return r.createElement(r.Fragment,null,Y?r.createElement(de,null):null,!v||G?ce:null)};pe.displayName="sharedui-ProductRatingSummary";var ge=(e=>(e.ACTIVITY_ID="ACTIVITY_ID",e.CART_ID="CART_ID",e.CAR_OFFER_TOKEN="CAR_OFFER_TOKEN",e.CHECKOUT_SESSION_ID="CHECKOUT_SESSION_ID",e.ENTITY_ID="ENTITY_ID",e.LEGACY_ORDER_ID="LEGACY_ORDER_ID",e.OFFER_ID="OFFER_ID",e.ORDER_ID="ORDER_ID",e.PROPERTY_ID="PROPERTY_ID",e.SAILING_TOKEN="SAILING_TOKEN",e))(ge||{})}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-rating-summary.f760ae0149841a1a994f.js.map

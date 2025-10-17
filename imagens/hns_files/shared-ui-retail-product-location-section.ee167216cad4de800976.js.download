@@ -1,0 +1,518 @@
+/*@license For license information please refer to shared-ui-retail-product-location-section.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[8047],{94616:function(e,t,n){n.d(t,{Nn:function(){return Xe},Pl:function(){return Me},Wx:function(){return X},zk:function(){return Oe}});var a=n(56195),l=n(92919),o=n(9010),r=n(522),i=n(99828),c=n(1226),d=n(47540),s=n(42534),m=n(26690),u=n(64341),p=n(53017),g=n(79066),E=n(46286),v=n(46559),y=n(3511),f=n(19394),h=n(97778),S=n(36145),C=n(27102),I=n(24109),k=n(87818),_=n(70882),b=n(43888),T=n(89118),P=n(17717),D=n(934),F=n(23726),N=n(4231),R=n(53331),L=n(37965),A=n(84655),x=n(80240),$=n(49858),M=n(22142),O=n(74071),w=n(89438),z=n(2557),B=n(32380),H=n(89962),V=n(12389),q=n(53877),G=n(4997),X=(e=>(e.ACTIVITY_ID="ACTIVITY_ID",e.CART_ID="CART_ID",e.CAR_OFFER_TOKEN="CAR_OFFER_TOKEN",e.CHECKOUT_SESSION_ID="CHECKOUT_SESSION_ID",e.ENTITY_ID="ENTITY_ID",e.LEGACY_ORDER_ID="LEGACY_ORDER_ID",e.OFFER_ID="OFFER_ID",e.ORDER_ID="ORDER_ID",e.PROPERTY_ID="PROPERTY_ID",e.SAILING_TOKEN="SAILING_TOKEN",e))(X||{}),U=Object.freeze({TWENTY_ONE_NINE:o.l.R21_9,SIXTEEN_NINE:o.l.R16_9,THREE_TWO:o.l.R3_2,FOUR_THREE:o.l.R4_3,ONE_ONE:o.l.R1_1,THREE_FOUR:o.l.R3_4,FOUR_ONE:o.l.R4_1}),j=m.gql`
+  fragment ImagesSectionCardFragment on EGDSImageCard {
+    image {
+      aspectRatio
+      description
+      thumbnailClickAnalytics {
+        linkName
+        referrerId
+      }
+      url
+    }
+    subTitle
+    title
+  }
+`,K=({data:e})=>{const{image:t,subTitle:n,title:i}=e,{aspectRatio:c,description:d,url:m}=t||{},u=(0,h.useClickTracker)(),g=(0,p.useExperiment)("PDP_Destination_Content_Quality",!1).exposure.bucket>0,E=a.createElement(o.M,{roundcorner:g,ratio:c?U[c]:o.l.R16_9},a.createElement(S.F,{placeholderImage:!0,alt:d,src:m,lazyLoading:"lazy"}));return a.createElement(r.X,{direction:"column"},a.createElement("div",{"data-testid":"poi-image",onClickCapture:()=>{(null==t?void 0:t.thumbnailClickAnalytics)&&u(t.thumbnailClickAnalytics.referrerId,t.thumbnailClickAnalytics.linkName)}},g?E:a.createElement(l.g,null,E)),a.createElement(s.N,{padding:{blockstart:"two"}},a.createElement(C.D,{size:300,weight:"medium"},i)),a.createElement(s.N,{padding:{blockstart:"one"}},a.createElement(C.D,{size:200},n)))};K.displayName="ImagesSectionCard",K.fragment=j;var W=m.gql`
+  fragment ImagesSectionFragment on ImagesSection {
+    clickStreamAnalytics
+    imageCards {
+      ...ImagesSectionCardFragment
+    }
+    impressionAnalytics {
+      referrerId
+      linkName
+    }
+  }
+  ${K.fragment}
+`,Y=({data:e})=>{const t=(0,v.eg)({viewSizes:v.pf}),n=v.pf.SMALL===t;if(!(null==e?void 0:e.imageCards))return null;const{imageCards:l,impressionAnalytics:o}=e,r=(i=l.length,Boolean(i%2));var i;const s=a.createElement("div",{"data-testid":"small-poi-images-layout"},a.createElement(c.w,{space:"four",columns:2,justifyContent:"center",alignItems:"start"},l.map((e,t)=>{return e.image&&a.createElement(d.T,{key:`image-section-card-${t+1}`,colSpan:(n=t,r&&0===n?2:1)},a.createElement("div",null,a.createElement(K,{data:e})));var n}))),m=a.createElement("div",{"data-testid":"big-poi-images-layout"},a.createElement(c.w,{space:"four",columns:l.length>3?6:l.length,justifyContent:"center",alignItems:"start"},l.map((e,t)=>{return e.image&&a.createElement(d.T,{key:`image-section-card-${t+1}`,colSpan:(n=t,l.length>3?n<2?3:2:1)},a.createElement("div",null,a.createElement(K,{data:e})));var n}))),u=n?s:m;return(null==o?void 0:o.referrerId)&&(null==o?void 0:o.linkName)?a.createElement(h.IntersectionTracker,{trackOnce:!0,referrerId:o.referrerId,linkName:o.linkName},u):u};Y.displayName="ImagesSection",Y.fragment=W;var Q=m.gql`
+  fragment LocationAddressFragment on ProductLocationAddress {
+    coordinates {
+      latitude
+      longitude
+    }
+    address
+    seoData {
+      content
+      itemprop
+      itemscope
+    }
+  }
+`,J=({coordinates:e})=>{const t=String(null==e?void 0:e.latitude),n=String(null==e?void 0:e.longitude);return a.createElement("div",{itemProp:"geo",itemScope:!0,itemType:"http://schema.org/GeoCoordinates"},a.createElement("meta",{itemProp:"latitude",content:t}),a.createElement("meta",{itemProp:"longitude",content:n}))};J.displayName="Schema";var Z=({data:e})=>{const{address:t,seoData:n}=e;if(!t)return null;const l=t.join(", ");return a.createElement(a.Fragment,null,a.createElement(i.C,{minWidth:"full_width"},a.createElement(C.D,{"data-stid":"content-hotel-address"},n&&(null==n?void 0:n.length)>0&&a.createElement("div",{itemProp:"address",itemScope:!0,itemType:"http://schema.org/PostalAddress"},n.map((e,t)=>{var n;return a.createElement("meta",{itemProp:e.itemprop,content:null!=(n=e.content)?n:void 0,key:`seoContent_${t}`})})),l)),a.createElement(J,{...e}))};Z.displayName="LocationAddress",Z.fragment=Q;var ee="requestFrom",te=(e,t,n)=>{e&&t(e.referrerId,e.linkName),setTimeout(()=>{n.openDialog({closeAllDialogs:!0})})},ne=a.createContext(null),ae=({children:e,data:t})=>a.createElement(ne.Provider,{value:t},e),le=e=>{const t=a.useContext(ne),{shoppingJoinListContainer:n}=t||{};return((e,t)=>{var n;return t&&null!=(n=null==e?void 0:e.find(e=>e.actionId===t))?n:null})(null==n?void 0:n.actions,e)},oe=()=>{const e=a.useContext(ne),{shoppingJoinListContainer:t,contents:n}=e||{};return{getOverlayContainer:e=>((e,t)=>{const n=null==t?void 0:t.find(t=>t.overlayId===e);return null!=n?n:null})(e,null==t?void 0:t.overlays),getContentContainer:e=>((e,t)=>{const n=null==t?void 0:t.find(t=>t.contentId===e);return null!=n?n:null})(e,n)}};var re=a.memo(({label:e,onClick:t})=>a.createElement(i.C,null,e&&a.createElement(A.W,{size:x.V.LARGE,onClick:t,name:e},e)));re.displayName="sharedUi-ChooseARoomButton";var ie=({onClose:e})=>a.createElement(a.Fragment,null,a.createElement(F.p,{navigationContent:{onClick:e,navType:"close",navIconLabel:"close map"}}),a.createElement($.R,{cornerRadius:0,type:"block"}));ie.displayName="sharedUi-MapLoading";var ce=({onClose:e})=>a.createElement(a.Fragment,null,a.createElement(F.p,{toolbarType:"transparent",navigationContent:{onClick:e,navType:"close",navIconLabel:"close map"}}),a.createElement(c.w,{blockSize:"full_size",alignItems:"center",justifyItems:"center",alignContent:"center"},a.createElement(d.T,null),a.createElement(d.T,{alignSelf:"center",justifySelf:"center"},a.createElement(r.X,{alignItems:"center",direction:"column"},a.createElement(i.C,null,a.createElement(s.N,{margin:"two"},a.createElement(M.r,{alt:"Map Illustration",url:"https://a.travel-assets.com/egds/illustrations/map__xsmall.svg"}))),a.createElement(i.C,null,a.createElement(O.M,{size:5,tag:"h5"},"We couldn’t load the map")),a.createElement(i.C,null,a.createElement(s.N,{margin:"three"},a.createElement(A.W,{onClick:e},"Return to property"))))),a.createElement(d.T,null)));ce.displayName="sharedUi-ErrorCard";var de=(e=>(e.flight="lob_flights",e))(de||{}),se=({iconProps:e,text:t,subText:n,additionalText:l})=>{const{bucket:o}=(0,p.useExperiment)("Top_of_PDP_Redesign").exposure;return a.createElement(c.w,{columns:["min-content","1fr"],autoRows:["min-content"],tag:"li"},e&&a.createElement(d.T,{rowSpan:"all"},a.createElement(s.N,{padding:{inlineend:"three"}},a.createElement(g.YF,{data:e}))),a.createElement(d.T,{colStart:2,rowStart:1},a.createElement(r.X,{space:"two",justifyContent:"space-between",wrap:"nowrap"},a.createElement(i.C,{grow:1},a.createElement(C.D,null,t)),!o&&l&&a.createElement(i.C,{shrink:0},a.createElement(C.D,null,l)))),n&&a.createElement(d.T,{colStart:2,rowStart:2},a.createElement(C.D,{size:200},n)))},me=({data:e,isContentWithImages:t=!1})=>{const{items:n,impressionAnalytics:l,maxColumns:i}=e||{},{linkName:m,referrerId:u}=l||{},p=(null==n?void 0:n.filter(e=>{var t;return"ShoppingProductContentGraphicsItem"===e.__typename&&"mediaItem"in e&&void 0!==(null==(t=e.mediaItem)?void 0:t.media)}))||[],g=(null==n?void 0:n.filter(e=>{var t;return"ShoppingProductContentGraphicsItem"!==e.__typename||!(null==(t=null==e?void 0:e.mediaItem)?void 0:t.media)}))||[],E=a.createElement(s.N,{margin:{blockstart:"one"}},a.createElement("div",null,a.createElement(c.w,{space:"four",columns:i,justifyContent:"center",alignItems:"start"},null==p?void 0:p.map((e,t)=>{var n,l,i,c,m,u;return a.createElement(d.T,{key:`poi-image-${t+1}`},a.createElement("div",null,a.createElement(r.X,{direction:"column"},"Image"===(null==(l=null==(n=null==e?void 0:e.mediaItem)?void 0:n.media)?void 0:l.__typename)&&a.createElement(o.M,{ratio:o.l.R16_9,roundcorner:!0},a.createElement(S.F,{placeholderImage:!0,alt:null==(c=null==(i=null==e?void 0:e.mediaItem)?void 0:i.media)?void 0:c.description,src:null==(u=null==(m=null==e?void 0:e.mediaItem)?void 0:m.media)?void 0:u.url,lazyLoading:"lazy"})),a.createElement(s.N,{padding:{blockstart:"two"}},a.createElement(C.D,{size:300,weight:"medium"},e.text)),a.createElement(s.N,{padding:{blockstart:"one"}},a.createElement(C.D,{size:200}," ",e.additionalText)))))})))),v=a.createElement(s.N,{margin:{blockstart:t?"four":"unset"}},a.createElement("div",null,a.createElement(B.y,{bullet:"no-bullet",spacing:!0},null==g?void 0:g.map((e,t)=>{if("ShoppingProductContentGraphicsItem"===e.__typename){const{leadingIcon:l,text:o,subText:r,additionalText:i}=e||{},c=l&&{id:de[(n=l).id]||n.id,token:de[n.id]||n.id,title:n.description,size:z.So.MEDIUM,...n};return a.createElement(se,{iconProps:c,text:o,subText:r,additionalText:i,key:t})}var n;return"EGDSPlainText"===e.__typename&&e.text?e.text&&a.createElement("span",{role:"listitem"},e.text):null})))),y=a.createElement(a.Fragment,null,u&&m?a.createElement(h.IntersectionTracker,{referrerId:u,linkName:m},p.length>0&&E,g.length>0&&v):a.createElement(a.Fragment,null,p.length>0&&E,g.length>0&&v));return a.createElement(a.Fragment,null,y)};me.displayName="NearByPointsOfInterest";var ue=m.gql`
+  fragment PlacesSectionContentTabsFragment on ShoppingProductContentSheetTabsContent {
+    body {
+      navType
+      selectedTabId
+      tabs {
+        accessibility
+        contentId
+        label
+        tabId
+        clickStreamAnalytics
+        clickAnalytics {
+          referrerId
+          linkName
+        }
+      }
+    }
+  }
+`,pe=({data:e})=>{var t,n,l,o,r,c;const{body:d}=e,s=(0,h.useClickTracker)(),m=oe(),u=null!=(n=null==(t=null==d?void 0:d.tabs)?void 0:t.findIndex(e=>e.tabId===(null==d?void 0:d.selectedTabId)))?n:-1,[p,g]=a.useState(u>=0?u:0);if(!d||!Array.isArray(d.tabs)||0===d.tabs.length)return null;const{tabs:E}=d,v=null==m?void 0:m.getContentContainer(null==(l=E[p])?void 0:l.contentId);let y=[];(null==v?void 0:v.content)&&"subSections"in v.content&&Array.isArray(v.content.subSections)&&(y=(null==(c=null==(r=null==(o=v.content.subSections[0])?void 0:o.elements)?void 0:r[0])?void 0:c.elements)||[]);const f=y.length>1;return a.createElement(i.C,{grow:1},a.createElement("div",null,a.createElement(V.IN,{selectedTab:p,onTabSelect:e=>{const t=E[e];if(t){if(e===p)return;const n=t.label,{referrerId:a=`${n}.selected`,linkName:l=`Clicked ${n} tab`}=t.clickAnalytics;s(a,l),g(e)}}},E.map((e,t)=>a.createElement(q.X,{key:`tab${t}`,name:e.label||"",targetURI:`tab${t}`},"ShoppingProductContentSection"===(null==v?void 0:v.content.__typename)?y.map((e,t)=>a.createElement(me,{key:t,data:e,isContentWithImages:f})):null)))))};pe.displayName="PlacesSectionContentTabs",pe.fragment=ue;var ge=m.gql`
+  fragment PlacesSectionOverlayContentFragment on ProductLocationLandmarksContent {
+    editorial
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    clickStreamAnalytics
+    landmarks {
+      ...ShoppingProductContentFragment
+    }
+    landmarksV2 {
+      ... on ShoppingProductContentSheetTabsContent {
+        ...ShoppingProductContentTabsFragment
+      }
+    }
+  }
+
+  ${g.D5.fragment}
+  ${g.zx.fragment}
+  ${g.rl.fragment}
+`,Ee=({data:e,imagesSection:t})=>{var n,l;const{header:o,editorial:c,landmarks:d,landmarksV2:m}=e,u=null==(l=null==(n=null==d?void 0:d[0])?void 0:n.items)?void 0:l[0],p=Boolean("ShoppingProductContentGraphicsItem"===(null==u?void 0:u.__typename)&&(null==u?void 0:u.mediaItem)),E=(e,t,n)=>{const{header:l,items:o}=e,{icon:c,text:d,additionalText:m}=l||{};return p?a.createElement(a.Fragment,null,a.createElement(O.M,{tag:"h4",size:6},d),a.createElement(s.N,{padding:{blockstart:"four"}},a.createElement("div",null,a.createElement(me,{data:e})))):a.createElement(s.N,{padding:{blockstart:"three",blockend:n?"unset":"three"},key:`${d}_${t}`},a.createElement(r.X,{space:"three"},c&&a.createElement(i.C,null,a.createElement("div",null,a.createElement(z.LD,{id:`${c.id}-icon`,name:c.id}))),a.createElement(i.C,null,a.createElement("div",null,m&&a.createElement(C.D,null,m),a.createElement(O.M,{tag:"h4",size:6},d),o.length>0&&(e=>{var t;const n=e.length>0&&"ShoppingProductContentGraphicsItem"===(null==(t=e[0])?void 0:t.__typename)&&e[0].leadingIcon?"icon-alternate":"no-bullet";return e.length>0?a.createElement(s.N,{margin:{blockstart:"three"}},a.createElement(B.y,{bullet:n,spacing:!1},e.map((e,t)=>a.createElement(H.x,{key:`whats-around-pois-list-${t}`},a.createElement(g.eV,{data:e}))))):null})(o)))))},v=d&&(null==d?void 0:d.length)>0&&a.createElement(s.N,{padding:{blockstart:p?"eight":"unset"}},a.createElement("div",null,d.map((e,t,n)=>{const a=t===n.length-1;return E(e,t,a)}))),y=c&&c.length>0?a.createElement("section",{"data-stid":"location-modal-editorial"},c.map((e,t)=>a.createElement(s.N,{padding:{blockstart:p?"two":"three",blockend:p?"unset":"three"},key:`editorial_${t}`},a.createElement("div",{itemProp:"geo",itemScope:!0,itemType:"https://schema.org/GeoCoordinates"},a.createElement("meta",{itemProp:"description",content:e}),a.createElement(C.D,{size:300},e))))):null,f=(0,a.useMemo)(()=>t?p?{blockend:"eight"}:{blockend:"six"}:{blockend:"unset"},[t,p]);return a.createElement(a.Fragment,null,a.createElement(s.N,{padding:f},a.createElement("div",{"data-stid":"poi-images-modal"},a.createElement(Y,{data:t}))),o&&a.createElement(g.D5,{data:o,headingTag:"h3",headingSize:5}),y,v,m&&"ShoppingProductContentSheetTabsContent"===m.__typename&&a.createElement(s.N,{margin:{blockstart:"eight"}},a.createElement("div",null,a.createElement(pe,{data:m}))))};Ee.displayName="PlacesSectionOverlayContent",Ee.fragment=ge;var ve=m.gql`
+  fragment PlacesSectionOverlayFragment on ShoppingOverlayContainer {
+    overlayId
+    contentId
+    overlay {
+      __typename
+      ... on EGDSSheet {
+        closeText
+        closeAccessibility
+        closeAnalytics {
+          linkName
+          referrerId
+        }
+        actions {
+          ... on EGDSOverlayButton {
+            accessibility
+            primary
+            disabled
+            action {
+              accessibility
+              useRelativePath
+              target
+              resource {
+                ... on GenericURI {
+                  relativePath
+                  value
+                  __typename
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`,ye=({data:e,contentContainer:t,imagesSection:n})=>{const{overlay:l}=e,[o,r,i]=(0,_.useDialog)("PlacesSectionDialog","pwaMoreInfoDialog"),c=(0,h.useClickTracker)(),d=a.useRef(null),s=a.createRef(),m=t.content;if("EGDSSheet"!==l.__typename)return null;const u=()=>{l.closeAnalytics&&c(l.closeAnalytics.referrerId,l.closeAnalytics.linkName),r.closeDialog()},p=e=>{var t,r;return a.createElement(i,null,a.createElement(b.K,{isVisible:o},a.createElement(D.t,{type:e||"full",isVisible:!0,triggerRef:d,returnFocusOnClose:!0},a.createElement(F.p,{toolbarTitle:null!=(t=l.closeText)?t:void 0,navigationContent:{onClick:u,navType:"close",navIconLabel:null!=(r=l.closeAccessibility)?r:"close"},contentDomRef:s}),a.createElement(w.Y,{contentDomRef:s},a.createElement(Ee,{data:m,imagesSection:n})))))};return a.createElement(v.LM,null,a.createElement(v.NP,null,p("full")),a.createElement(v.rw,null,p("centered")))};ye.displayName="PlacesSectionOverlay",ye.fragment=ve;var fe=m.gql`
+  fragment FindAPlaceTypeaheadFragment on PlacesDialogTypeAheadContentSection {
+    content {
+      label
+      placeholder
+      renderType
+      typeaheadPlaceholder
+      typeaheadEmptyResultPlaceholder
+      typeaheadInfo {
+        client
+        regionType
+        isDestination
+        maxNumberOfResults
+        personalize
+        lineOfBusiness
+        packageType
+        typeaheadFeatures
+      }
+    }
+  }
+`,he=m.gql`
+  fragment ProductLocationMapActionsFragment on ProductLocationMapContent {
+    actions {
+      ...ShoppingLinkFragment
+      ...ShoppingButtonFragment
+    }
+  }
+  ${g.B8.fragment}
+  ${g.X$.fragment}
+`,Se=m.gql`
+  fragment ProductMapCardContentFragment on EGDSImageCard {
+    cardId: id
+    cardTitle: title
+    cardDescription: description
+    image {
+      aspectRatio
+      description
+      thumbnailClickAnalytics {
+        eventType
+        linkName
+        referrerId
+        uisPrimeMessages {
+          messageContent
+          schemaName
+        }
+      }
+      url
+    }
+    cardSubTitle: subTitle
+  }
+`;var Ce=m.gql`
+  query ProductLocationMapQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    location(context: $context, productIdentifier: $productIdentifier) {
+      shoppingJoinListContainer {
+        actions {
+          actionId
+          ... on ShoppingNavigateToOverlay {
+            overlayId
+            accessibility
+          }
+          ... on ShoppingScrollsToView {
+            targetRef
+            event {
+              eventName
+              eventType
+              eventVersion
+            }
+          }
+        }
+        overlays {
+          ...PlacesSectionOverlayFragment
+        }
+      }
+      contents {
+        contentId
+        content {
+          ... on ProductLocationMapContent {
+            egdsBasicMap {
+              ...DynamicMapFragment
+            }
+            mapInfoCardsV2 {
+              ...PlaceCardDetailsFragment
+              ...ProductMapCardContentFragment
+            }
+            ...ProductLocationMapActionsFragment
+          }
+          ... on ProductLocationPlacesDialogContent {
+            placesDialogTypeAheadContentSection {
+              ...FindAPlaceTypeaheadFragment
+            }
+          }
+        }
+      }
+      address {
+        coordinates {
+          latitude
+          longitude
+        }
+      }
+    }
+  }
+
+  ${ye.fragment}
+  ${y.kT.fragment}
+  ${f.cw}
+  ${he}
+  ${Se}
+  ${fe}
+`,Ie=e=>{var t,n,l,o,i,c,d,s,f,S,C,I;const{inputs:k,batchKey:_,skipSsr:b,beforeInit:A,onInit:x,egMapsConfig:$,onClose:M,clientPadding:O,triggerRef:w,contentId:z,prefetchedData:B,fetchOnlyMapData:H=!1,setSavedFeature:V,savedFeature:q,typeaheadLogger:X}=e,{context:U}=(0,u.R)(),{locale:j}=U,{exposure:K}=(0,p.useExperiment)("Enable_Clickable_POIs_on_Maps",!0),W=1===(0,p.useExperiment)("Proximity_radius_on_PDP_map_MVP",!1).exposure.bucket,Y=1===K.bucket,Q={...H?(e=>{const{travelSearchCriteria:t}=e.productIdentifier,n=null==t?void 0:t.property,a=null==n?void 0:n.secondary,l=null==a?void 0:a.selections;if(t&&n&&a&&l){const o=[...l.filter(e=>e.id!==ee),{id:ee,value:"map_modal"}];return{...e,productIdentifier:{...e.productIdentifier,travelSearchCriteria:{...t,property:{...n,secondary:{...a,selections:o}}}}}}return e})(k):k,context:U},J=(0,E.kY)(),{data:Z,error:te,loading:ne}=(0,m.useQuery)(Ce,{context:{useApq:!0,batchKey:null!=_?_:"default-product-details-experience-batch-key",shouldLogPerformance:!0},variables:Q,ssr:!b,skip:void 0!==B}),ae=a.useRef(),[le,oe]=a.useState(q),[de,se]=a.useState(!1),me=a.useRef(),ue=a.useRef(null),pe=(0,h.useClickTracker)(),ge=(0,h.useEgClickstream)(),{scrollTo:Ee}=(0,L.xC)(),{onClose:ve}=function(e){const{trackMapInit:t,trackMapPresented:n,trackMapContentPresented:a,trackMapHidden:l}=(0,y.we)();return{trackMapInit:t,trackMapPresented:n,trackMapContentPresented:a,onClose:()=>{e&&e(),l()}}}(M),ye=(0,v.eg)({viewSizes:v.pf}),fe=null!=B?B:(null==Z?void 0:Z.location)||(null==(t=null==J?void 0:J.data)?void 0:t.location),{contents:he,shoppingJoinListContainer:Se}=fe||{},Ie=null==he?void 0:he.find(e=>e.contentId===z),ke=null==Se?void 0:Se.overlays,_e=null==Se?void 0:Se.actions,be=null==ke?void 0:ke.find(e=>e.contentId===z),Te="EGDSSheet"===(null==be?void 0:be.overlay.__typename)&&be.overlay,Pe="ProductLocationMapContent"===(null==Ie?void 0:Ie.content.__typename)?null==Ie?void 0:Ie.content:null,De=null==Pe?void 0:Pe.egdsBasicMap,Fe=null==(n=null==De?void 0:De.config)?void 0:n.mapId,Ne=null==De?void 0:De.markers,Re=null==Pe?void 0:Pe.mapInfoCardsV2,Le=null!=(o=null==(l=null==k?void 0:k.productIdentifier)?void 0:l.id)?o:"",Ae=null==(i=null==fe?void 0:fe.address)?void 0:i.coordinates,xe=a.useMemo(()=>Ne?(0,y.JX)(null==Ne?void 0:Ne.map(e=>e)):[],[Ne]),$e=a.useMemo(()=>({id:Le,type:"PRODUCT"}),[Le]),[Me,Oe]=a.useState(0),we=a.useRef(null);a.useEffect(()=>()=>{ae.current=void 0},[]);const ze=a.useCallback(e=>{A&&A(e)},[A]),Be=a.useCallback(e=>{ae.current=e,x&&x(e)},[x]),He=a.useMemo(()=>Fe?{gmapsAddConfig:{mapId:Fe}}:void 0,[Fe]),Ve=a.useMemo(()=>(0,G.h1)({googleMaps:He,locale:j,markers:{product:{markerType:{available:"pin"}},property:{markerType:{available:"pin"}},place:{show:{[`unknown#${R.lL.HIDDEN}`]:!1},textLabel:{show:{[R.lL.METRO_STATION]:!1}}}}},$||{}),[j,He,$]),qe=function(e,t,n,l){const o=a.useCallback(t=>null==e?void 0:e.find(e=>(null==e?void 0:e.id)===t&&"PlaceCardDetails"===e.__typename),[e]);return a.useCallback(e=>{var a;if(e){const r=String(e.id),i=o(r);if(i){const e=null==(a=null==t?void 0:t.filter(y.ot).find(e=>r===e.id))?void 0:a.clientSideAnalytics;return e&&l(e.referrerId,e.linkName),i}return{__typename:"AdditionalPlaceMarkerInfo",directionsTo:n}}return null},[o,n,t,l])}(Re,Ne,$e,pe),Ge=function(e,t,n){const l=a.useCallback(t=>null==e?void 0:e.find(e=>(null==e?void 0:e.cardId)===t&&"EGDSImageCard"===e.__typename),[e]);return a.useCallback(e=>{var a,o;if(e){const{id:r}=e,i=`${r}`,c=l(i);if(c){const e=null==(a=null==t?void 0:t.filter(y.ot).find(e=>i===e.id))?void 0:a.clientSideAnalytics;return e&&n(e.referrerId,e.linkName),{__typename:"EGDSImageCard",imageCardId:c.cardId,title:c.cardTitle||null,description:(null==c?void 0:c.cardDescription)||null,image:"Image"===(null==(o=null==c?void 0:c.image)?void 0:o.__typename)?{__typename:"Image",url:c.image.url,description:c.image.description,aspectRatio:null,thumbnailClickAnalytics:null}:null,subTitle:c.cardSubTitle||null}}}return null},[l,t,n])}(Re,Ne,pe),Xe=a.useMemo(()=>({placeCardsManagement:{onMarkerSelected:qe},productCardsManagement:{onMarkerSelected:W?()=>null:Ge},onCardDismiss:()=>{var e;return null==(e=ae.current)?void 0:e.clearSelectedFeature()}}),[Ge,qe]),Ue={returnFocusOnClose:!0,triggerRef:w,isVisible:!0},je=null==(c=null==Pe?void 0:Pe.actions)?void 0:c.find(e=>"ShoppingButton"===e.__typename&&"choose-room-action-id"===e.actions[0].actionId),Ke=null==je?void 0:je.primary,We=a.useCallback(e=>{const{eventName:t="map_choose_room.selected",eventType:n="Interaction",eventVersion:a="1.0.0"}=(null==e?void 0:e.event)||{};if(t&&n&&a&&ge){const e=(0,y.Vw)({eventName:t,eventType:n,eventVersion:a});ge((0,y.$s)(e,{}))}},[ge]),Ye=a.useCallback(e=>{We(e),ve();const{targetRef:t}=e;t&&setTimeout(()=>{Ee(t,[])},1e3)},[ve,We,Ee]),Qe=a.useCallback(()=>{var e;const t=null==(e=null==je?void 0:je.actions)?void 0:e.find(e=>"CLICK"===e.triggerType),n=null==_e?void 0:_e.find(e=>e.actionId===t.actionId);n&&"ShoppingScrollsToView"===(null==n?void 0:n.__typename)&&Ye(n)},[je,Se,Ye]),Je=null==(d=null==Te?void 0:Te.actions)?void 0:d.find(e=>"EGDSOverlayButton"===e.__typename&&e.primary),Ze=a.useCallback(e=>{We(e),ve();const{value:t}=e.resource;t&&setTimeout(()=>{Ee(t,[])},1e3)},[ve,We,Ee]),et=null==(s=null==Pe?void 0:Pe.actions)?void 0:s.find(e=>"ShoppingButton"===e.__typename&&"find-a-place-action-id"===e.actions[0].actionId),tt=a.useCallback(()=>{var e,t;const n=null==(e=null==et?void 0:et.actions)?void 0:e.find(e=>"CLICK"===e.triggerType),a=null==_e?void 0:_e.find(e=>e.actionId===(null==n?void 0:n.actionId));if(a&&"ShoppingNavigateToOverlay"===(null==a?void 0:a.__typename)){const{overlayId:e}=a,n=null==ke?void 0:ke.find(t=>t.overlayId===e),{contentId:l}=n||{};return null==(t=null==he?void 0:he.find(e=>e.contentId===l))?void 0:t.content}},[null==et?void 0:et.actions,_e,ke,he])(),nt=a.useMemo(()=>{if(le)return[le]},[le]);a.useEffect(()=>{V&&V(le)},[le]),a.useLayoutEffect(()=>{const e=setTimeout(()=>{const e=document.getElementById("floating-card-panel-0");if(!e)return;const t=()=>{Oe(e.getBoundingClientRect().height)};t(),we.current=new ResizeObserver(t),we.current.observe(e)},2e3);return()=>{clearTimeout(e),we.current&&(we.current.disconnect(),we.current=null)}},[]);const at=a.useCallback(e=>{var t;if(le){const n=`${le.type}-${le.id}`;if(n!==me.current){const a=xe.filter(e=>{var t,n;const a=(0,P.zx)([null!=(t=e.lng)?t:Ae.longitude,null!=(n=e.lat)?n:Ae.latitude]),l=(0,P.zx)([Ae.longitude,Ae.latitude]);return(0,T.A)(a,l,{units:"miles"})<80}),l=(0,y.sR)(Me,O);(0,y.dG)(e,a,le,Ae,null!=(t=null!=l?l:O)?t:"24px 0px 24px"),me.current=n}}},[le,xe,Ae,O]),lt=a.useCallback(()=>{ye!==v.pf.SMALL&&document.querySelectorAll('div[id^="map-container-"]').forEach(e=>{const{id:t}=e;/^map-container-(\d|[1-8]\d|90)-[a-zA-Z0-9]{8}$/.test(t)&&e.addEventListener("click",()=>{se(!1)},{capture:!0})}),se(!0),setTimeout(()=>{const e=document.querySelector('#map-actions-find-a-place [data-testid="popover-sheet"]');null==e||e.style.setProperty("right","0px"),null==e||e.style.setProperty("animation-name","sheet-grow-right, sheet-fade-in","important")})},[ye]);let ot=null;return ot=te?a.createElement(ce,{onClose:ve}):!ne&&fe&&De?a.createElement(g.tH,{label:"product-location-map",fallback:a.createElement(ce,{onClose:ve})},(null==Te?void 0:Te.closeText)?a.createElement(F.p,{toolbarTitle:(null==Te?void 0:Te.closeText)||"",navigationContent:{onClick:ve,navType:"close",navIconLabel:null!=(f=null==Te?void 0:Te.closeAccessibility)?f:"close"},toolbarActionContent:Je?a.createElement(N.p,{buttonId:"choose-a-room-button",onClick:()=>Ze(Je.action)},Je.primary):null}):null,a.createElement(y.kT,{data:De,onInit:Be,beforeInit:ze,egMapsConfig:Ve,clientPadding:null!=O?O:"24px 0px 24px",updateViewport:!0,selectedFeatureId:Le,height:"100%",cardsManagementHooks:Xe,baseMapPoiClickable:Y,supplementalFeatures:nt,onFeaturesPushed:at},je&&a.createElement(y.h0,{zIndex:y.LV,overlayElementId:"mapActions",position:y._c.BOTTOM_CENTER,alignSelf:"center"},a.createElement(r.X,{space:"four",justifyContent:"center"},a.createElement(re,{label:Ke,onClick:Qe}))),et&&tt&&a.createElement(y.h0,{zIndex:y.LV,overlayElementId:"map-actions-find-a-place",position:y._c.TOP_RIGHT,alignSelf:"center"},a.createElement(y.kq,{typeaheadInput:{...null==(S=null==tt?void 0:tt.placesDialogTypeAheadContentSection)?void 0:S.content,typeaheadInfo:{...null==(I=null==(C=null==tt?void 0:tt.placesDialogTypeAheadContentSection)?void 0:C.content)?void 0:I.typeaheadInfo,latlongSearchCenterPoint:{latitude:null==Ae?void 0:Ae.latitude,longitude:null==Ae?void 0:Ae.longitude}}},typeaheadLogger:X,setSavedFeature:oe,setFindAPlaceIsVisible:se,findAPlaceIsVisible:de,essAdapterPageId:"page.Hotels.Infosite.Information,DETAILS,HOTELS",predefinedPlace:le},a.createElement(g.ED,{data:et,onClickHandler:lt,ref:ue}))))):a.createElement(ie,{onClose:ve}),a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(D.t,{...Ue,type:"full"},ot)),a.createElement(v.rw,null,a.createElement(D.t,{...Ue,type:"centered",height:1200,centeredSheetSize:"medium"},ot)))};Ie.displayName="sharedui-ProductLocationMap";var ke=({children:e,propertyId:t,inputs:n,contentId:l,triggerRef:o,prefetchedData:r,setSavedFeature:i,savedFeature:c})=>{const[d,s,m]=(0,_.useDialog)("product-summary-map","pwaOverlay"),u={onClose:s.closeDialog,isDialogOpen:d,closeMapDialogData:{triggerRef:o}},p=r?{map:{mapInitWaitForTiles:!1}}:{};return a.createElement(a.Fragment,null,d&&a.createElement(b.K,{isVisible:d},a.createElement(m,null,a.createElement(Ie,{inputs:n,contentId:l,triggerRef:o,onClose:u.onClose,prefetchedData:r,egMapsConfig:p,setSavedFeature:i,savedFeature:c}))))};ke.displayName="MapDialogWrapper";var _e=m.gql`
+  fragment MapButtonFragment on ProductLocationStaticMapAction {
+    ...ShoppingLinkFragment
+  }
+  ${g.B8.fragment}
+`,be=({data:e,children:t,propertyId:n,inputs:l})=>{const o=a.useRef(null),r=(0,h.useClickTracker)(),i=oe(),[,c]=(0,_.useDialog)("product-summary-map","pwaOverlay"),[d,s]=a.useState(null),m=e,u=le("views-in-a-map-action-id"),p="ShoppingNavigateToOverlay"===(null==u?void 0:u.__typename)&&(null==i?void 0:i.getOverlayContainer(u.overlayId)),E=p?p.contentId:"",v=a.useCallback(()=>{s(o),te({__typename:"ClientSideAnalytics",linkName:"",referrerId:""},r,c),u&&"ShoppingNavigateToOverlay"===(null==u?void 0:u.__typename)&&te(u.analytics,r,c)},[r,c,u]);return a.createElement(a.Fragment,null,a.createElement(g.B8,{data:m,inline:!1,onClick:v,triggerRef:o,isMapLink:!0}),a.createElement(ke,{propertyId:n,inputs:l,contentId:E,triggerRef:d},t))};be.displayName="MapButton",be.fragment=_e;var Te=m.gql`
+  fragment MapSectionFragment on ProductLocationStaticMap {
+    actions {
+      ... on ShoppingLink {
+        ...ShoppingLinkFragment
+      }
+      ... on ShoppingImage {
+        ...ShoppingImageFragment
+      }
+      ... on ShoppingButton {
+        ...ShoppingButtonFragment
+      }
+      ...MapButtonFragment
+    }
+  }
+  ${g._d.fragment}
+  ${g.B8.fragment}
+  ${g.X$.fragment}
+  ${be.fragment}
+`,Pe=({data:e,className:t,aspectRatio:n,address:o,children:r,propertyId:c,inputs:d,showAddressOnly:m,hideContentSection:u,prefetchedData:p,setSavedFeature:E,savedFeature:v})=>{const y=a.useRef(null),f=a.useRef(null),{actions:S}=e,C=(0,h.useClickTracker)(),b=oe(),[,T]=(0,_.useDialog)("product-summary-map","pwaOverlay"),[P,D]=a.useState(null),F=null==S?void 0:S.find(e=>"ShoppingLink"===e.__typename),N=null==S?void 0:S.find(e=>"ShoppingImage"===e.__typename),R=null==S?void 0:S.find(e=>"ShoppingButton"===e.__typename),L=le(null==F?void 0:F.actionId),A="ShoppingNavigateToOverlay"===(null==L?void 0:L.__typename)&&(null==b?void 0:b.getOverlayContainer(L.overlayId)),x=A?A.contentId:"",$=a.useCallback(()=>{D(f),L&&"ShoppingNavigateToOverlay"===(null==L?void 0:L.__typename)&&te(L.analytics,C,T)},[C,T,L]),M=a.useCallback(e=>{te(e,C,T),D(y)},[C,T]),O=F&&a.createElement(i.C,null,a.createElement(s.N,{padding:{blockstart:"two"}},a.createElement(g.B8,{data:F,inline:!1,onClick:$,triggerRef:f,isMapLink:!0})));return a.createElement(a.Fragment,null,N&&a.createElement(k.P,{position:{zindex:"layer2"}},a.createElement(l.g,{border:!0,className:t},a.createElement(g._d,{data:N,buttonAction:R,aspectRatio:n,roundcorner:["startstart","startend"],onClick:M,triggerRef:y}),u?null:a.createElement(I.E,null,a.createElement(a.Fragment,null,o&&a.createElement(Z,{data:o}),O)))),m&&o&&a.createElement(s.N,{padding:{blockstart:"one"}},a.createElement("div",null,a.createElement(Z,{data:o}))),a.createElement(ke,{propertyId:c,inputs:d,contentId:x,triggerRef:P,prefetchedData:p,setSavedFeature:E,savedFeature:v},r))};Pe.displayName="MapSection",Pe.fragment=Te;var De=m.gql`
+  fragment PlacesSectionActionFragment on ShoppingLink {
+    ...ShoppingLinkFragment
+  }
+  ${g.B8.fragment}
+`,Fe=({data:e,imagesSection:t,isIconOnlyCTA:n})=>{const[,l]=(0,_.useDialog)("PlacesSectionDialog","pwaMoreInfoDialog"),o=(0,h.useClickTracker)(),r=le(null==e?void 0:e.actionId),i=oe(),{bucket:c}=(0,p.useExperiment)("Top_of_PDP_Redesign").exposure,d=()=>{l.openDialog(),(null==r?void 0:r.analytics)&&o(r.analytics.referrerId,r.analytics.linkName)};if(r&&"ShoppingNavigateToOverlay"===r.__typename){const l=null==i?void 0:i.getOverlayContainer(r.overlayId),o=l&&(null==i?void 0:i.getContentContainer(l.contentId)),m=(e,t)=>e?"unset":t?"four":"three";return l&&o?a.createElement(a.Fragment,null,a.createElement(s.N,{padding:{blockstart:m(n,Boolean(c)),blockend:"unset"}},a.createElement("div",null,a.createElement(g.B8,{data:e,inline:!1,onClick:d,iconOnly:n}))),a.createElement(ye,{data:l,contentContainer:o,imagesSection:t})):null}return null};Fe.displayName="PlacesSectionAction",Fe.fragment=De;var Ne=m.gql`
+  fragment PlacesSectionFragment on ProductLocationPlacesSection {
+    action {
+      ...PlacesSectionActionFragment
+    }
+    items {
+      ...ShoppingProductContentFragment
+    }
+    content {
+      ... on ShoppingProductContentSheetTabsContent {
+        ...PlacesSectionContentTabsFragment
+      }
+    }
+  }
+  ${g.B8.fragment}
+  ${g.YF.fragment}
+  ${Fe.fragment}
+  ${pe.fragment}
+`,Re=({data:e,className:t,isHorizontalLayout:n,imagesSection:l,isIconOnlyCTA:o})=>{var i;const{items:c,action:d,content:m}=e||{},{items:u}=c||{},{bucket:g}=(0,p.useExperiment)("Top_of_PDP_Redesign").exposure,E=n?"twelve":"eight",y=m&&"ShoppingProductContentSheetTabsContent"===m.__typename&&(null==(i=m.body)?void 0:i.tabs)&&m.body.tabs.length>0;if(!(u&&u.length||y))return null;const f=()=>a.createElement(a.Fragment,null,m&&"ShoppingProductContentSheetTabsContent"===m.__typename?a.createElement(pe,{data:m}):c&&a.createElement(me,{data:c})),h=(e,t)=>a.createElement(s.N,{margin:{blockstart:e,blockend:t}},a.createElement("div",null,f()));return a.createElement(r.X,{direction:o?"row":"column",className:t,"data-stid":"location-summary",justifyContent:o?"space-between":void 0,alignItems:o?"center":void 0,space:o?"two":void 0,style:{minHeight:"100%"}},a.createElement(v.LM,null,a.createElement(v.NP,null,f()),a.createElement(v.rw,null,h(g?"unset":E)),a.createElement(v.zQ,null,n&&!g?h("twelve"):a.createElement(a.Fragment,null,c&&a.createElement(me,{data:c})))),d&&a.createElement(Fe,{data:d,imagesSection:l,isIconOnlyCTA:o}))};Re.displayName="PlacesSection",Re.fragment=Ne;var Le=m.gql`
+  fragment LocationSectionFragment on ProductLocation {
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    contents {
+      contentId
+      content {
+        ... on ProductLocationLandmarksContent {
+          ...PlacesSectionOverlayContentFragment
+        }
+        ... on ShoppingProductContentSection {
+          ...ShoppingProductContentSectionFragment
+        }
+        ... on ProductLocationMapContent {
+          egdsBasicMap {
+            ...DynamicMapFragment
+          }
+          mapInfoCardsV2 {
+            ...PlaceCardDetailsFragment
+            ...ProductMapCardContentFragment
+          }
+          ...ProductLocationMapActionsFragment
+        }
+        ... on ProductLocationPlacesDialogContent {
+          placesDialogTypeAheadContentSection {
+            ...FindAPlaceTypeaheadFragment
+          }
+        }
+      }
+    }
+    placesSection {
+      ...PlacesSectionFragment
+    }
+    imagesSection {
+      ...ImagesSectionFragment
+    }
+    mapSection {
+      ...MapSectionFragment
+    }
+    address {
+      ...LocationAddressFragment
+    }
+    shoppingJoinListContainer {
+      actions {
+        accessibility
+        analytics {
+          linkName
+          referrerId
+        }
+        actionId
+        ... on ShoppingNavigateToOverlay {
+          overlayId
+        }
+        ... on ShoppingNavigateToURI {
+          resource {
+            value
+            ... on HttpURI {
+              relativePath
+            }
+          }
+          target
+          useRelativePath
+        }
+        ... on ShoppingScrollsToView {
+          targetRef
+          event {
+            eventName
+            eventType
+            eventVersion
+          }
+        }
+      }
+      overlays {
+        ...PlacesSectionOverlayFragment
+      }
+    }
+  }
+  ${g.D5.fragment}
+  ${Re.fragment}
+  ${Pe.fragment}
+  ${Z.fragment}
+  ${ye.fragment}
+  ${Ee.fragment}
+  ${g.sf.fragment}
+  ${Y.fragment}
+  ${y.kT.fragment}
+  ${f.cw}
+  ${he}
+  ${Se}
+  ${fe}
+`,Ae=a.createElement(r.X,{justifyContent:"space-between"},a.createElement(i.C,null,a.createElement(s.N,{margin:{block:"four"}},a.createElement($.R,{type:"line",animation:!0}))),a.createElement(i.C,null,a.createElement(s.N,{margin:{block:"four"}},a.createElement($.R,{type:"line",lineLength:"secondary",animation:!0})))),xe=({isHorizontalLayout:e=!1})=>a.createElement(s.N,{margin:{blockend:e?"unset":"four"}},a.createElement(l.g,{padded:e},a.createElement("div",null,e?a.createElement(a.Fragment,null,a.createElement(s.N,{margin:{block:"four"}},a.createElement($.R,{type:"line",lineHeight:24,animation:!0})),a.createElement(s.N,{padding:{blockend:"eight"}},a.createElement("div",null,a.createElement(c.w,{columns:2,space:"six"},a.createElement(d.T,null,a.createElement(o.M,{ratio:o.l.R16_9,className:"uitk-card-roundcorner-all"},a.createElement($.R,{type:"block",animation:!0}))),a.createElement(d.T,null,a.createElement(I.E,{padded:!1},Array.from({length:4}).map((e,t)=>a.createElement("div",{key:t},Ae)))))))):a.createElement(a.Fragment,null,a.createElement(s.N,{margin:{block:"three"}},a.createElement($.R,{type:"line",lineHeight:24,animation:!0})),a.createElement(s.N,{padding:{blockend:"eight"},margin:{blockend:"six"}},a.createElement("div",null,a.createElement(o.M,{ratio:o.l.R16_9,className:"uitk-card-roundcorner-all"},a.createElement($.R,{type:"block",animation:!0})),a.createElement(I.E,{padded:!1},a.createElement(s.N,{margin:{blockstart:"two"}},a.createElement("div",null,Array.from({length:4}).map((e,t)=>a.createElement("div",{key:t},Ae))))))))))),$e=m.gql`
+  query LocationQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    location(context: $context, productIdentifier: $productIdentifier) {
+      ...LocationSectionFragment
+    }
+  }
+  ${Le}
+`,Me=({inputs:e,batchKey:t,skipSsr:n,children:y,isHorizontalLayout:f,prefetchedData:h,isSUVR:S,setSavedFeature:C,savedFeature:I})=>{var k,_,b,T;const{context:P}=(0,u.R)(),D=null!=t?t:"default-product-details-experience-batch-key",F={...e,context:P},N=(0,E.kY)(),{data:R,error:L,loading:A}=(0,m.useQuery)($e,{context:{useApq:!0,batchKey:D,shouldLogPerformance:!0},variables:F,ssr:!n,skip:h||(null==(k=null==N?void 0:N.product)?void 0:k.location)}),{bucket:x}=(0,p.useExperiment)("Top_of_PDP_Redesign").exposure;if(A)return a.createElement(xe,{isHorizontalLayout:f});if(L||!(null==R?void 0:R.location)&&!h)return null;const $=null!=(b=null!=h?h:null==R?void 0:R.location)?b:null==(_=null==N?void 0:N.product)?void 0:_.location,{header:M,address:O,placesSection:w,mapSection:z,imagesSection:B}=$,H=null!==w.content,{id:V}=null!=(T=null==e?void 0:e.productIdentifier)?T:"",q=(t,n)=>a.createElement(r.X,{direction:"column","data-stid":"map-image-link",justifyContent:x?"center":void 0},a.createElement(s.N,{padding:{blockend:x?"unset":"two"}},a.createElement("div",null,a.createElement(g.D5,{data:M,headingTag:"h2",headingSize:5,isVisuallyHidden:Boolean(x)}))),z&&a.createElement(Pe,{data:z,aspectRatio:f&&!x?o.l.R21_9:t,address:O,propertyId:V,inputs:e,hideContentSection:Boolean(x),showAddressOnly:n,prefetchedData:h||(null==R?void 0:R.location),setSavedFeature:C,savedFeature:I},y)),G=a.createElement(p.Experiment,{name:"Top_of_PDP_Redesign"},a.createElement(p.ExperimentControl,null,a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(r.X,{direction:"column",space:H?"four":"three"},a.createElement(i.C,null,q(o.l.R21_9)),w&&a.createElement(i.C,null,a.createElement(Re,{data:w,isHorizontalLayout:f,locationSectionInputs:e,imagesSection:B})))),a.createElement(v.rw,null,a.createElement(r.X,{direction:"row",space:"three"},a.createElement(i.C,{minWidth:"full_width"},q(o.l.R21_9)),w&&a.createElement(i.C,{minWidth:"full_width"},a.createElement(Re,{data:w,isHorizontalLayout:f,locationSectionInputs:e,imagesSection:B})))),a.createElement(v.zQ,null,a.createElement(r.X,{direction:f?"row":"column",space:f?"three":void 0,justifyContent:"space-between"},a.createElement(i.C,{minWidth:f?"full_width":void 0},a.createElement(s.N,{padding:{large:{blockend:f?"unset":"six"}}},q(o.l.R21_9))),w&&a.createElement(i.C,{minWidth:f?"full_width":void 0},a.createElement(Re,{data:w,isHorizontalLayout:f,locationSectionInputs:e,imagesSection:B})))))),a.createElement(p.ExperimentVariant,{bucket:1},a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(c.w,{columns:10,space:"three",justifyContent:"center"},a.createElement(d.T,{colSpan:4},q(o.l.R1_1)),a.createElement(d.T,{colSpan:6},a.createElement(l.g,{padded:!0,border:!0},a.createElement("div",null,w&&a.createElement(Re,{data:w,locationSectionInputs:e,imagesSection:B,isIconOnlyCTA:!0})))))),a.createElement(v.rw,null,a.createElement(c.w,{columns:10,space:"three",justifyContent:"center"},a.createElement(d.T,{colSpan:4},q(o.l.R16_9,!!S)),a.createElement(d.T,{colSpan:6},w&&a.createElement("div",null,a.createElement(Re,{data:w,locationSectionInputs:e,imagesSection:B}))))),a.createElement(v.zQ,null,S?a.createElement(c.w,{columns:10,space:"three",justifyContent:"center"},a.createElement(d.T,{colSpan:4},q(o.l.R16_9,!0)),a.createElement(d.T,{colSpan:6},w&&a.createElement("div",null,a.createElement(Re,{data:w,locationSectionInputs:e,imagesSection:B})))):a.createElement(r.X,{direction:"column",space:"three"},a.createElement(i.C,null,q(o.l.R21_9)),w&&a.createElement(i.C,null,a.createElement(Re,{data:w,locationSectionInputs:e,imagesSection:B})))))));return a.createElement(ae,{data:$},G)};Me.displayName="sharedui-LocationSection";a.createContext({inputs:{productIdentifier:{id:"",type:"PROPERTY_ID"}},dialogKey:"pwaOverlay",dialogId:"traveller-search-content-dialog"});var Oe=function(e,t,n){const l=t=>{var l,o;const{inputs:r}=t,{context:i}=(0,u.R)(),c={context:i,...r},{data:d,error:s,loading:p}=(0,m.useQuery)($e,{variables:c,fetchPolicy:"cache-first"});if(n&&p)return a.createElement(n,null);if(s||!(null==(l=null==d?void 0:d.location)?void 0:l.mapSection))return null;const g=null==(o=d.location.mapSection.actions)?void 0:o.find(e=>"ShoppingLink"===e.__typename);return a.createElement(e,{...t,data:g})};return l.displayName=t,l}(be,"sharedui-MapButton"),we=m.gql`
+  fragment DestinationMapSectionFragment on ProductLocationStaticMap {
+    actions {
+      ... on ShoppingLink {
+        ...ShoppingLinkFragment
+      }
+      ... on ShoppingImage {
+        ...ShoppingImageFragment
+      }
+      ... on ShoppingButton {
+        ...ShoppingButtonFragment
+      }
+    }
+  }
+  ${g._d.fragment}
+  ${g.B8.fragment}
+  ${g.X$.fragment}
+`,ze=({data:e,className:t,aspectRatio:n,address:o,children:r,propertyId:c,inputs:d,showAddressOnly:m,hideContentSection:u,prefetchedData:p})=>{const E=a.useRef(null),v=a.useRef(null),{actions:y}=e,f=(0,h.useClickTracker)(),S=oe(),[,C]=(0,_.useDialog)("product-summary-map","pwaOverlay"),[b,T]=a.useState(null),P=null==y?void 0:y.find(e=>"ShoppingLink"===e.__typename),D=null==y?void 0:y.find(e=>"ShoppingImage"===e.__typename),F=null==y?void 0:y.find(e=>"ShoppingButton"===e.__typename),N=le(null==P?void 0:P.actionId),R="ShoppingNavigateToOverlay"===(null==N?void 0:N.__typename)&&(null==S?void 0:S.getOverlayContainer(N.overlayId)),L=R?R.contentId:"",A=a.useCallback(()=>{T(v),N&&"ShoppingNavigateToOverlay"===(null==N?void 0:N.__typename)&&te(N.analytics,f,C)},[f,C,N]),x=a.useCallback(e=>{te(e,f,C),T(E)},[f,C]),$=P&&a.createElement(i.C,null,a.createElement(s.N,{padding:{blockstart:"two"}},a.createElement(g.B8,{data:P,inline:!1,onClick:A,triggerRef:v,isMapLink:!0})));return a.createElement(a.Fragment,null,D&&a.createElement(k.P,{position:{zindex:"layer2"}},a.createElement(l.g,{border:!0,className:t},a.createElement(g._d,{data:D,buttonAction:F,aspectRatio:n,roundcorner:["startstart","startend"],onClick:x,triggerRef:E}),u?null:a.createElement(I.E,null,a.createElement(a.Fragment,null,o&&a.createElement(Z,{data:o}),$)))),a.createElement(ke,{propertyId:c,inputs:d,contentId:L,triggerRef:b,prefetchedData:p},r))};ze.displayName="DestinationMapSection",ze.fragment=we;var Be=m.gql`
+  fragment DestinationPlacesSectionFragment on ProductLocationPlacesSection {
+    action {
+      ...PlacesSectionActionFragment
+    }
+    items {
+      ...ShoppingProductContentFragment
+    }
+    content {
+      ... on ShoppingProductContentSheetTabsContent {
+        ...PlacesSectionContentTabsFragment
+      }
+    }
+  }
+  ${g.B8.fragment}
+  ${g.YF.fragment}
+  ${Fe.fragment}
+  ${pe.fragment}
+`,He=({data:e,className:t,imagesSection:n,isIconOnlyCTA:l})=>{var o;const{items:i,action:c,content:d}=e||{},{items:s}=i||{},m=d&&"ShoppingProductContentSheetTabsContent"===d.__typename&&(null==(o=d.body)?void 0:o.tabs)&&d.body.tabs.length>0;if(!(s&&s.length||m))return null;return a.createElement(r.X,{direction:l?"row":"column",className:t,"data-stid":"location-summary",justifyContent:l?"center":void 0,alignItems:l?"center":void 0,space:l?"two":void 0,style:{minHeight:"100%"}},a.createElement(a.Fragment,null,m?a.createElement(pe,{data:d}):i&&a.createElement(me,{data:i})),c&&a.createElement(Fe,{data:c,imagesSection:n,isIconOnlyCTA:l}))};He.displayName="DestinationPlacesSection",He.fragment=Be;var Ve=m.gql`
+  fragment DestMapSectionFragment on ProductLocationStaticMap {
+    actions {
+      ... on ShoppingLink {
+        ...ShoppingLinkFragment
+      }
+      ... on ShoppingImage {
+        ...ShoppingImageFragment
+      }
+      ... on ShoppingButton {
+        ...ShoppingButtonFragment
+      }
+    }
+  }
+  ${g._d.fragment}
+  ${g.B8.fragment}
+  ${g.X$.fragment}
+`,qe=m.gql`
+  fragment DestinationSectionFragment on ProductLocation {
+    header {
+      ...ShoppingProductHeaderFragment
+    }
+    contents {
+      contentId
+      content {
+        ... on ProductLocationLandmarksContent {
+          ...PlacesSectionOverlayContentFragment
+        }
+        ... on ShoppingProductContentSection {
+          ...ShoppingProductContentSectionFragment
+        }
+        ... on ProductLocationMapContent {
+          egdsBasicMap {
+            ...DynamicMapFragment
+          }
+          mapInfoCardsV2 {
+            ...PlaceCardDetailsFragment
+            ...ProductMapCardContentFragment
+          }
+          ...ProductLocationMapActionsFragment
+        }
+        ... on ProductLocationPlacesDialogContent {
+          placesDialogTypeAheadContentSection {
+            ...FindAPlaceTypeaheadFragment
+          }
+        }
+      }
+    }
+    placesSection {
+      ...PlacesSectionFragment
+    }
+    imagesSection {
+      ...ImagesSectionFragment
+    }
+    mapSection {
+      ...DestMapSectionFragment
+    }
+    address {
+      ...LocationAddressFragment
+    }
+    shoppingJoinListContainer {
+      actions {
+        accessibility
+        analytics {
+          linkName
+          referrerId
+        }
+        actionId
+        ... on ShoppingNavigateToOverlay {
+          overlayId
+        }
+        ... on ShoppingNavigateToURI {
+          resource {
+            value
+            ... on HttpURI {
+              relativePath
+            }
+          }
+          target
+          useRelativePath
+        }
+        ... on ShoppingScrollsToView {
+          targetRef
+          event {
+            eventName
+            eventType
+            eventVersion
+          }
+        }
+      }
+      overlays {
+        ...PlacesSectionOverlayFragment
+      }
+    }
+  }
+  ${g.D5.fragment}
+  ${Re.fragment}
+  ${Z.fragment}
+  ${ye.fragment}
+  ${Ee.fragment}
+  ${g.sf.fragment}
+  ${Y.fragment}
+  ${y.kT.fragment}
+  ${f.cw}
+  ${he}
+  ${Se}
+  ${Ve}
+  ${fe}
+`,Ge=m.gql`
+  query DestinationDetailsQuery($context: ContextInput!, $productIdentifier: ProductIdentifierInput!) {
+    productDestinationDetails(context: $context, productIdentifier: $productIdentifier) {
+      ...DestinationSectionFragment
+    }
+  }
+  ${qe}
+`,Xe=({inputs:e,batchKey:t,skipSsr:n,children:l,isHorizontalLayout:c,isSUVR:d,prefetchedData:y})=>{var f,h,S;const{context:C}=(0,u.R)(),{bucket:I}=(0,p.useExperiment)("Top_of_PDP_Redesign").exposure,k={...e,context:C},_=(0,E.kY)(),{data:b,error:T,loading:P}=(0,m.useQuery)(Ge,{context:{shouldLogPerformance:!0},variables:k,ssr:!n});if(P)return a.createElement(xe,{isHorizontalLayout:c});if(T||!(null==b?void 0:b.productDestinationDetails)&&!y)return null;const D=null!=(h=null!=y?y:null==b?void 0:b.productDestinationDetails)?h:null==(f=null==_?void 0:_.product)?void 0:f.location,{header:F,address:N,placesSection:R,mapSection:L,imagesSection:A}=D,{id:x}=null!=(S=null==e?void 0:e.productIdentifier)?S:"",$=null!==R.content,M=(t,n)=>a.createElement(r.X,{direction:"column","data-stid":"map-image-link"},L&&a.createElement(ze,{data:L,aspectRatio:t,address:null,propertyId:x,inputs:e,hideContentSection:!0,showAddressOnly:!1,prefetchedData:y||(null==b?void 0:b.productDestinationDetails)},l),a.createElement(s.N,{padding:{blockstart:"two"}},a.createElement("div",null,a.createElement(Z,{data:N})))),O=a.createElement(v.LM,null,a.createElement(v.NP,null,a.createElement(r.X,{direction:"column",space:$?"four":"three"},a.createElement(i.C,null,M(o.l.R21_9)),R&&a.createElement(i.C,null,a.createElement(He,{data:R,isHorizontalLayout:c,locationSectionInputs:e,imagesSection:A})))),a.createElement(v.rw,null),a.createElement(v.zQ,null,a.createElement(a.Fragment,null,a.createElement(s.N,{padding:{blockend:"four"}},a.createElement("div",null,a.createElement(g.D5,{data:F,headingTag:"h2",headingSize:5,isVisuallyHidden:Boolean(I)}))),a.createElement(r.X,{direction:"row",space:"three",justifyContent:"space-between"},a.createElement(i.C,{minWidth:"full_width"},M(o.l.R21_9)),R&&a.createElement(i.C,{minWidth:"full_width"},a.createElement(He,{data:R,isHorizontalLayout:c,locationSectionInputs:e,imagesSection:A}))))));return a.createElement(ae,{data:D},O)};Xe.displayName="sharedui-DestinationDetails"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-product-location-section.ee167216cad4de800976.js.map

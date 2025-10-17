@@ -1,0 +1,441 @@
+/*@license For license information please refer to shared-ui-retail-loyalty-dialog-with-trigger-fragments.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[2333],{80308:function(e,t,a){a.d(t,{t:function(){return gt}});var n=a(56195),i=a(26690),l=a(70882),r=a(43888),o=a(97778),g=a(46559),m=a(87993),s=a(30169),d=a(95519),c=a(34399),u=a(2557),y=a(7138),E=a(64341),p=a(74071),D=a(77913),T=a(32380),h=a(89962),L=a(522),f=a(99828),S=a(42534),v=a(22142),I=a(87698),k=a(96394),b=a(37292),C=a(65603),F=a(27102),G=a(51537),x=a(28662),A=a(90072),N=a(92919),_=a(9010),B=a(36145),P=a(934),O=a(89438),M=a(23726),$=a(18174),R=a(82826),z=i.gql`
+  fragment DialogTriggerClientSideAnalyticsFragment on ClientSideAnalytics {
+    eventType
+    linkName
+    referrerId
+    uisPrimeMessages {
+      messageContent
+      schemaName
+    }
+  }
+`,H={EXTERNAL:"_blank",INTERNAL:"_self"},U={SMALL:"small",MEDIUM:"medium",LARGE:"large"},w=e=>H[e.target],q=i.gql`
+  fragment DialogTriggerButtonFragment on EGDSButton {
+    primary
+    accessibility
+    disabled
+    analytics {
+      linkName
+      referrerId
+    }
+    icon {
+      description
+      id
+      title
+      token
+      theme
+    }
+    action {
+      ...DialogTriggerButtonLinkActionFragment
+    }
+  }
+
+  fragment DialogTriggerButtonLinkActionFragment on UILinkAction {
+    analytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    resource {
+      ...DialogTriggerHttpURIFragment
+      ...DialogTriggerSelfReferencedURIFragment
+    }
+    target
+    useRelativePath
+  }
+
+  fragment DialogTriggerHttpURIFragment on HttpURI {
+    relativePath
+    value
+  }
+
+  fragment DialogTriggerSelfReferencedURIFragment on SelfReferencedURI {
+    fragment
+    value
+  }
+
+  fragment DialogTriggerUIPrimaryButtonFragment on UIPrimaryButton {
+    ...DialogTriggerButtonFragment
+  }
+
+  fragment DialogTriggerUITertiaryButtonFragment on UITertiaryButton {
+    ...DialogTriggerButtonFragment
+  }
+
+  ${z}
+`,W=({className:e,dataStid:t,domRef:a,href:i,isFullWidth:l,onClickHandler:r,size:g,inverse:p,isDisabled:D,isNoTextAllowed:T,data:{__typename:h,accessibility:L,primary:f,disabled:S,analytics:v,action:I,icon:k}})=>{var b,C,F,G,x;const A=(0,o.useClickTracker)(),N=(e=>{if("UILinkAction"!==(null==e?void 0:e.__typename))return{};const t=(e=>"HttpURI"!==e.resource.__typename?null:e.useRelativePath?e.resource.relativePath:e.resource.value)(e);return t?{href:t,target:w(e),tag:"a"}:{}})(I),_=(e=>{const t=e.indexOf("uurl")>-1,a=(0,y.zy)(),i=()=>({pathname:`${a.pathname}`,search:`${a.search}`,hash:`${a.hash}`}),{context:l}=(0,E.R)(),[r,o]=(0,n.useState)(i),g=null==l?void 0:l.siteId;(0,n.useEffect)(()=>{const e=()=>o(i());return window.addEventListener("popstate",e),()=>window.removeEventListener("popstate",e)},[i]);let m="";return t||(m=e+(-1!==e.indexOf("?")?"":"?")+function(e,t){const{pathname:a,search:n,hash:i}=e,l=a.concat(n,i);return 30031===t?`&redirectUrl=targeturl=${encodeURIComponent(l)}&referrerId=wl_prod`:`&uurl=${encodeURIComponent(`e3id=redr&rurl=${l}`)}`}(r||{},g)),m})(null!=(b=N.href)?b:""),B=n.useCallback(()=>{null==r||r(),v&&A(v.referrerId,v.linkName)},[r,A,v]);if(!f&&!T)return null;(null==N?void 0:N.href)&&_&&(N.href=_);const P={"aria-label":null!=L?L:void 0,className:e,disabled:D||S,href:i,isFullWidth:l,onClick:B,size:g,domRef:a,...N};switch(h){case"UIPrimaryButton":return n.createElement(m.y,{...P,"data-stid":t,inverse:p},f);case"UISecondaryButton":return n.createElement(s.y,{...P,"data-stid":t,inverse:p},f);case"UITertiaryButton":return n.createElement(d.q,{...P,"data-stid":t,inverse:p},k&&n.createElement(u.LD,{description:k.description,id:k.id,name:k.token,title:null!=(C=k.title)?C:void 0,theme:null!=(F=k.theme)?F:void 0}),f);case"EGDSOverlayButton":return n.createElement(c.M,{...P,"data-stid":t},k&&n.createElement(u.LD,{description:k.description,id:k.id,name:k.token,title:null!=(G=k.title)?G:void 0,theme:null!=(x=k.theme)?x:void 0}),f);default:return null}};W.fragment=q,W.displayName="LoyaltyEGDSButton";var V=e=>{const t={3:"headline-extra-large",4:"headline-large"};return e&&t[e]?{customStyle:t[e]}:void 0},Y=i.gql`
+  fragment DialogTriggerHeadingFragment on EGDSHeading {
+    headingText: text
+  }
+`,X=({className:e,size:t,tag:a,data:i})=>{const{headingText:l}=i;return n.createElement(p.M,{className:e,size:t,tag:a,typeStyle:V(t)},l)};X.fragment=Y,X.displayName="LoyaltyEGDSHeading";var K={small:"small",large:"large"},j={lowtier:"lowtier",midtier:"midtier",hightier:"hightier",vip:"vip",extrahightier:"extrahightier","global-lowtier":"global-lowtier","global-middletier":"global-middletier","global-hightier":"global-hightier","global-extrahightier":"global-extrahightier"},J=i.gql`
+  fragment DialogTriggerLoyaltyBadgeFragment on EGDSLoyaltyBadge {
+    accessibility
+    badgeText: text
+    size
+    badgeTheme: theme
+  }
+`,Q=e=>{const{data:t}=e;if(!t.badgeText)return null;const{size:a,badgeTheme:i,accessibility:l,badgeText:r}=t,o=i?j[i]:void 0,g=a?K[a]:void 0;return n.createElement(D.V,{a11yText:null!=l?l:void 0,text:r,size:g,theme:o})};Q.fragment=J,Q.displayName="EGDSLoyaltyBadge";var Z=i.gql`
+  fragment DialogTriggerIconFragment on Icon {
+    description
+    id
+    size
+    theme
+    title
+    withBackground
+  }
+`,ee=({className:e,theme:t,isAriaHidden:a=!1,data:i})=>{var l;const r=(null==i?void 0:i.withBackground)?"info":void 0;return n.createElement(u.LD,{className:e,description:a||null==i?void 0:i.description,id:null==i?void 0:i.id,name:null!==i?i.id:"",size:(null==i?void 0:i.size)?u.So[i.size]:void 0,title:a?void 0:null!=(l=null==i?void 0:i.title)?l:void 0,theme:t||(null==i?void 0:i.theme)||void 0,spotlight:r})};ee.displayName="LoyaltyEGDSIcon",ee.fragment=Z;var te=i.gql`
+  fragment DialogTriggerIllustrationFragment on Illustration {
+    description
+    id
+    link: url
+  }
+`,ae=({data:e})=>n.createElement(v.r,{alt:e.description,url:e.link});ae.displayName="Illustration",ae.fragment=te;var ne=i.gql`
+  fragment DialogTriggerMarkFragment on Mark {
+    description
+    id
+    markSize: size
+    url {
+      ... on HttpURI {
+        __typename
+        relativePath
+        value
+      }
+    }
+  }
+`,ie=({className:e,markSize:t,data:a})=>{var i;return n.createElement(I.D,{className:e,description:a.description,id:a.id,name:a.id,size:t||a.markSize&&k.K[a.markSize],url:null==(i=a.url)?void 0:i.value})};ie.displayName="LoyaltyEGDSMark",ie.fragment=ne;var le=i.gql`
+  fragment DialogTriggerGraphicFragment on UIGraphic {
+    ... on Icon {
+      ...DialogTriggerIconFragment
+    }
+
+    ... on Mark {
+      ...DialogTriggerMarkFragment
+    }
+
+    ... on Illustration {
+      ...DialogTriggerIllustrationFragment
+    }
+  }
+
+  ${ee.fragment}
+  ${ie.fragment}
+  ${ae.fragment}
+`,re=({className:e,markSize:t,data:a})=>{switch(a.__typename){case"Icon":return n.createElement(ee,{className:e,data:a});case"Mark":return n.createElement(ie,{className:e,data:a,markSize:t});case"Illustration":return n.createElement(ae,{data:a});default:return null}};re.displayName="EGDSGraphic",re.fragment=le;var oe=i.gql`
+  fragment DialogTriggerUILinkActionFragment on UILinkAction {
+    accessibility
+    target
+    resource {
+      __typename
+      value
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+`,ge=({children:e,data:t,onClick:a,size:i,disabled:l,isButton:r,inline:g,clickstreamAnalyticsData:m})=>{const{resource:s,analytics:d,accessibility:c}=t,u=(0,o.useClickTracker)(),y=(0,o.useEgClickstream)(),E=n.useCallback(()=>{d&&u(d.referrerId,d.linkName),(null==m?void 0:m.serverPayload)&&(null==m?void 0:m.eventName)&&(null==m?void 0:m.eventVersion)&&y({clientPayload:{event:{event_name:m.eventName,event_version:m.eventVersion}},serverPayload:m.serverPayload})},[d,m,u,y]);return r?n.createElement(b.i,{onClick:a,size:i,disabled:l,inline:g},n.createElement("button",{type:"button",onClickCapture:E,"aria-label":c||""},e)):n.createElement("a",{href:s.value,onClickCapture:E,"aria-label":c||""},e)};ge.fragment=oe,ge.displayName="DialogTriggerUILinkAction";var me=i.gql`
+  fragment DialogTriggerInlineLinkFragment on EGDSInlineLink {
+    action {
+      ...DialogTriggerUILinkActionFragment
+    }
+    disabled
+    text
+    size
+  }
+
+  ${ge.fragment}
+`,se=({data:e,onClickHandler:t})=>{const{action:a,disabled:i,size:l,text:r}=e,g=(0,o.useClickTracker)(),m=n.useCallback(()=>{g(a.analytics.referrerId,a.analytics.linkName),t&&t()},[g,a.analytics]);return n.createElement(b.i,{onClick:m,inline:!0,disabled:i,size:C.OF[l]},n.createElement("a",{href:a.resource.value,target:a.target},r,a.accessibility&&n.createElement("span",{className:"is-visually-hidden"},a.accessibility)))};se.fragment=me,se.displayName="EGDSInlineLink";var de=i.gql`
+  fragment DialogTriggerStandardLinkFragment on EGDSStandardLink {
+    action {
+      accessibility
+      analytics {
+        linkName
+        referrerId
+      }
+      resource {
+        value
+        ... on HttpURI {
+          relativePath
+        }
+      }
+      target
+      useRelativePath
+    }
+    disabled
+    standardLinkIcon: icon {
+      ...DialogTriggerIconFragment
+    }
+    iconPosition
+    size
+    text
+  }
+  ${ee.fragment}
+`,ce=({icon:e,iconPosition:t,iconPositionToMatch:a})=>e&&t===a?n.createElement(ee,{data:e}):null,ue=({className:e,dataStid:t,inline:a,theme:i,align:l,data:r,onClickHandler:g})=>{const{action:{analytics:m,target:s,accessibility:d},disabled:c,iconPosition:u,standardLinkIcon:y,size:E,text:p}=r,D=(0,o.useClickTracker)(),T=n.useCallback(e=>{D(m.referrerId,m.linkName),g&&g(e)},[D,m]),h=n.useCallback(()=>(({resource:e,useRelativePath:t})=>"HttpURI"===e.__typename&&t?e.relativePath:e.value)(r.action),[r.action]);return n.createElement(b.i,{className:e,"data-stid":t,size:U[E],onClickCapture:T,inline:a,disabled:c,theme:i||"default",align:l},n.createElement("a",{target:H[s],href:h()},n.createElement(ce,{icon:y,iconPosition:u,iconPositionToMatch:"LEADING"}),p,n.createElement(ce,{icon:y,iconPosition:u,iconPositionToMatch:"TRAILING"}),d&&n.createElement(F.D,{className:"is-visually-hidden"},d)))};ue.fragment=de,ue.displayName="EGDSStandardLink";var ye=i.gql`
+  fragment DialogTriggerPlainTextFragment on EGDSPlainText {
+    text
+  }
+`,Ee=({className:e,inline:t,size:a,theme:i,data:l})=>{const{text:r}=l;return n.createElement(F.D,{className:e,inline:t,size:a,theme:i},r)};Ee.fragment=ye,Ee.displayName="EGDSPlainText";var pe=(e=>(e.INVERSE="inverse",e.LOYALTY="loyalty",e.NEGATIVE="negative",e.POSITIVE="positive",e.PENDING="default",e))(pe||{}),De={100:100,200:200,300:300,400:400,500:500,600:600,700:700,800:800,900:900},Te={BOLD:"bold",MEDIUM:"medium",REGULAR:"regular"},he=i.gql`
+  fragment DialogTriggerStylizedTextFragment on EGDSStylizedText {
+    stylizedText: text
+    theme
+    weight
+    textSize: size
+  }
+`,Le=({data:e,whiteSpace:t,useBackendTheme:a=!0,align:i,inline:l})=>{const{stylizedText:r,theme:o,weight:g,textSize:m}=e,s=a&&o?pe[o]:void 0;return n.createElement(F.D,{theme:s,align:i,whiteSpace:t,weight:g?Te[g]:void 0,size:m?De[m]:void 0,inline:l},r)};Le.fragment=he,Le.displayName="EGDSStylizedText";var fe=i.gql`
+  fragment DialogTriggerSpannableTextInlineContentFragment on EGDSSpannableTextItem {
+    ...DialogTriggerStylizedTextFragment
+    ...DialogTriggerPlainTextFragment
+    ...DialogTriggerStandardLinkFragment
+    ...DialogTriggerInlineLinkFragment
+  }
+
+  ${Le.fragment}
+  ${Ee.fragment}
+  ${ue.fragment}
+  ${se.fragment}
+`,Se=({size:e,align:t,theme:a,data:i})=>{switch(i.__typename){case"EGDSStylizedText":return n.createElement(Le,{align:t,data:i,inline:!0});case"EGDSPlainText":return n.createElement(Ee,{data:i,size:e,theme:a,inline:!0});case"EGDSStandardLink":return n.createElement(ue,{data:i});case"EGDSInlineLink":return n.createElement(se,{data:i});default:return null}};Se.fragment=fe,Se.displayName="EGDSSpannableTextInlineContent";var ve=i.gql`
+  fragment DialogTriggerSpannableTextFragment on EGDSSpannableText {
+    inlineContent {
+      ...DialogTriggerSpannableTextInlineContentFragment
+    }
+  }
+
+  ${Se.fragment}
+`,Ie=({align:e,data:t,size:a,theme:i})=>{var l;return(null==(l=null==t?void 0:t.inlineContent)?void 0:l.length)?n.createElement(n.Fragment,null,t.inlineContent.map((t,l)=>n.createElement(n.Fragment,{key:`inline-content-${l}`},n.createElement(Se,{align:e,data:t,size:a,theme:i})," "))):null};Ie.fragment=ve,Ie.displayName="EGDSSpannableText";var ke=({data:e})=>{const{graphic:t,text:a}=e;return n.createElement(n.Fragment,null,n.createElement(L.X,{alignItems:"center"},n.createElement(f.C,null,t&&n.createElement(re,{data:t}))),n.createElement(L.X,{alignItems:"center"},n.createElement(f.C,null,n.createElement(S.N,{padding:{inlinestart:t?"two":"unset"}},a.inlineContent[0]&&n.createElement("div",null,n.createElement(Se,{data:a.inlineContent[0]}))))))},be=i.gql`
+  fragment DialogTriggerSpannableListItemFragment on EGDSSpannableListItem {
+    graphic {
+      ...DialogTriggerGraphicFragment
+    }
+    text {
+      ...DialogTriggerSpannableTextFragment
+    }
+  }
+
+  ${re.fragment}
+  ${Ie.fragment}
+`,Ce=({data:e,listItemSpacing:t})=>{const{graphic:a,text:i}=e;return t?n.createElement(S.N,{...t},n.createElement("div",null,a&&n.createElement(L.X,{alignItems:"center"},n.createElement(f.C,null,n.createElement(re,{data:a}))),n.createElement(L.X,{alignItems:"center"},n.createElement(f.C,null,n.createElement(S.N,{padding:{inlinestart:a?"two":"unset"}},i.inlineContent[0]&&n.createElement("div",null,n.createElement(Se,{data:i.inlineContent[0]}))))))):n.createElement(ke,{data:e})};Ce.displayName="EGDSSpannableListItem",Ce.fragment=be;var Fe=i.gql`
+  fragment DialogTriggerSpannableListFragment on EGDSSpannableList {
+    items {
+      ...DialogTriggerSpannableListItemFragment
+    }
+    listType
+  }
+
+  ${Ce.fragment}
+`,Ge=({data:e,listItemSpacing:t})=>{if(!e)return null;const{listType:a,items:i}=e;if(0===i.length)return null;const l=(e=>{switch(e){case"BULLET":return"default";case"ICON":return"icon-standard";case"NO_BULLET":return"no-bullet";case"NUMBER":return"tiered-numbered";default:return}})(a);return n.createElement(T.y,{bullet:l,spacing:!1},i.map((e,a)=>n.createElement(h.x,{key:`spannablelist-${a}`},n.createElement(Ce,{data:e,listItemSpacing:t}))))};Ge.fragment=Fe,Ge.displayName="LoyaltyEGDSSpannableList";var xe={NONE:"none",AI:"ai-local-1",LIGHT_1:"light-1",DARK_1:"dark-1",DARK_2:"dark-2",BRIGHT_1:"bright-1",GLOBAL_LOYALTY_STANDARD:"global-loyalty-standard",GLOBAL_LOYALTY_LOW:"global-loyalty-low",GLOBAL_LOYALTY_LOW_BRIGHT:"global-loyalty-low-bright",GLOBAL_LOYALTY_MID:"global-loyalty-mid",GLOBAL_LOYALTY_MID_BRIGHT:"global-loyalty-mid-bright",GLOBAL_LOYALTY_HIGH:"global-loyalty-high",GLOBAL_LOYALTY_HIGH_BRIGHT:"global-loyalty-high-bright",GLOBAL_LOYALTY_EXTRA_HIGH:"global-loyalty-extra-high",GLOBAL_LOYALTY_EXTRA_HIGH_BRIGHT:"global-loyalty-extra-high-bright",STANDARD:"standard",MARKETING_1:"marketing-1",MARKETING_2:"marketing-2",MARKETING_3:"marketing-3"},Ae=e=>e?(({themeProviderColor:e="none",isGradient:t,isThemeBase:a})=>({colorTheme:xe[e],isGradient:t,isThemeBase:a}))(e):void 0,Ne=({lightMode:e,darkMode:t})=>({darkMode:Ae(t),lightMode:Ae(e)}),_e=({data:e,children:t,isColorThemeContainer:a})=>n.createElement(G.EGDSThemeProvider,{config:Ne(e),isColorThemeContainer:null==a||a},t),Be=i.gql`
+  fragment DialogTriggerThemeProviderFragment on EGDSThemeProvider {
+    isColorThemeContainer
+    lightMode {
+      isGradient
+      isThemeBase
+      themeProviderColor
+    }
+    darkMode {
+      isGradient
+      isThemeBase
+      themeProviderColor
+    }
+  }
+`,Pe=({children:e,data:t,isColorThemeContainer:a})=>{return(null==(i=t)?void 0:i.lightMode)||(null==i?void 0:i.darkMode)?n.createElement(_e,{data:t,isColorThemeContainer:a},e):n.createElement(n.Fragment,null,e);var i};Pe.fragment=Be,Pe.displayName="LoyaltyEGDSThemeProvider";var Oe=i.gql`
+  fragment DialogWithTriggerEGDSExpandoListItemFragment on EGDSExpandoListItem {
+    collapseAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    expandAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    collapsedLabel
+    expandedLabel
+    expanded
+    triggerPosition
+  }
+
+  ${z}
+`,Me={TRAILING:"trailing",LEADING:"leading"},$e=({data:e,innerContent:t,isIndented:a})=>{var i;const{expandedLabel:l,collapsedLabel:r,triggerPosition:o}=e,[g,m]=(0,n.useState)(null!=(i=e.expanded)&&i),s=g?l:r,d=o?Me[o]:"leading";return n.createElement(x.f,null,n.createElement(A.U,{expandoDescription:n.createElement(S.N,{padding:{blockend:"two"}},n.createElement("div",null,t)),expandoTitle:n.createElement(F.D,{weight:"medium"},s),triggerPosition:d,onToggle:()=>{m(!g)},isIndented:null==a||a,isVisible:g}))};$e.fragment=Oe,$e.displayName="DialogWithTriggerEGDSExpandoListItem";var Re=i.gql`
+  fragment DialogTriggerTextFragment on EGDSText {
+    ...DialogTriggerPlainTextFragment
+    ...DialogTriggerStandardLinkFragment
+  }
+
+  ${Ee.fragment}
+  ${ue.fragment}
+`,ze=({data:e,standardLinkProps:t,plainTextProps:a})=>{const{__typename:i}=e;switch(i){case"EGDSStandardLink":return n.createElement(ue,{data:e,...t});case"EGDSPlainText":return n.createElement(Ee,{data:e,...a});default:return null}};ze.fragment=Re,ze.displayName="LoyaltyEGDSText";var He=i.gql`
+  fragment LoyaltyDialogTextWithHeaderFragment on LoyaltyDialogTextWithHeader {
+    styledHeader {
+      ...DialogTriggerStylizedTextFragment
+    }
+    text {
+      ...DialogTriggerStylizedTextFragment
+    }
+  }
+
+  ${Le.fragment}
+`,Ue=({data:e,contentAlignment:t})=>{const{styledHeader:a,text:i}=e,l="LEADING"===t?"left":"center";return n.createElement(L.X,{direction:"column",space:"two"},n.createElement(f.C,null,n.createElement(Le,{data:a,align:l})),n.createElement(f.C,null,n.createElement(Le,{data:i,align:l})))};Ue.fragment=He,Ue.displayName="LoyaltyDialogTextWithHeader";var we=({data:e,contentAlignment:t,contentOptions:a,dialogSpacingValues:i})=>{var l;const r="LEADING"===t?"start":"center",{spannableListItemSpacing:o}=i||{},{expandoListItem:g,heading:m}=a||{};switch(null==e?void 0:e.__typename){case"EGDSHeading":return n.createElement(L.X,{alignContent:"center",justifyContent:r},n.createElement(X,{data:e,size:null!=(l=null==m?void 0:m.size)?l:4,tag:null==m?void 0:m.tag}));case"EGDSLoyaltyBadge":return n.createElement(L.X,{alignContent:"center",justifyContent:r},n.createElement(f.C,null,n.createElement(Q,{data:e})));case"EGDSStylizedText":return n.createElement(Le,{data:e,align:"LEADING"===t?"left":"center"});case"EGDSSpannableList":return n.createElement(Ge,{data:e,listItemSpacing:o});case"LoyaltyDialogTextWithHeader":return n.createElement(Ue,{data:e,contentAlignment:t});case"LoyaltyExpandoListItem":return"expandoListItem"in e&&"loyaltyDialogContents"in e?n.createElement(We,{data:e,contentAlignment:t,isIndented:null==g?void 0:g.isIndented}):null;default:return null}},qe=i.gql`
+  fragment DialogWithTriggerLoyaltyExpandoListItemFragment on LoyaltyExpandoListItem {
+    expandoListItem {
+      ...DialogWithTriggerEGDSExpandoListItemFragment
+    }
+    loyaltyDialogContents {
+      ... on EGDSHeading {
+        ...DialogTriggerHeadingFragment
+      }
+      ... on EGDSLoyaltyBadge {
+        ...DialogTriggerLoyaltyBadgeFragment
+      }
+      ... on EGDSStylizedText {
+        ...DialogTriggerStylizedTextFragment
+      }
+      ... on EGDSSpannableList {
+        ...DialogTriggerSpannableListFragment
+      }
+      ... on LoyaltyDialogTextWithHeader {
+        ...LoyaltyDialogTextWithHeaderFragment
+      }
+    }
+  }
+  ${$e.fragment}
+  ${X.fragment}
+  ${Q.fragment}
+  ${Le.fragment}
+  ${Ge.fragment}
+  ${Ue.fragment}
+`,We=({data:e,contentAlignment:t,isIndented:a})=>{const{expandoListItem:i,loyaltyDialogContents:l}=e;if(!i||!l)return null;const r=l&&n.createElement(we,{data:l,contentAlignment:t});return n.createElement($e,{innerContent:r,data:i,isIndented:a})};We.fragment=qe,We.displayName="DialogWithTriggerLoyaltyExpandoListItem";var Ve=i.gql`
+  fragment LoyaltyDialogContentItemFragment on LoyaltyDialogContents {
+    ... on EGDSHeading {
+      ...DialogTriggerHeadingFragment
+    }
+    ... on EGDSLoyaltyBadge {
+      ...DialogTriggerLoyaltyBadgeFragment
+    }
+    ... on EGDSStylizedText {
+      ...DialogTriggerStylizedTextFragment
+    }
+    ... on EGDSSpannableList {
+      ...DialogTriggerSpannableListFragment
+    }
+    ... on LoyaltyDialogTextWithHeader {
+      ...LoyaltyDialogTextWithHeaderFragment
+    }
+    ... on LoyaltyExpandoListItem {
+      ...DialogWithTriggerLoyaltyExpandoListItemFragment
+    }
+  }
+
+  ${X.fragment}
+  ${Q.fragment}
+  ${Le.fragment}
+  ${Ge.fragment}
+  ${Ue.fragment}
+  ${We.fragment}
+`,Ye=({data:e,contentAlignment:t,contentOptions:a,dialogSpacingValues:i})=>n.createElement(we,{data:e,contentAlignment:t,contentOptions:a,dialogSpacingValues:i});Ye.fragment=Ve,Ye.displayName="LoyaltyDialogContentItem";var Xe=i.gql`
+  fragment LoyaltyDialogSectionImageFragment on LoyaltyDialogSectionImage {
+    image {
+      description
+      url
+    }
+    position
+  }
+`,Ke=({data:e})=>n.createElement(_.M,{ratio:_.l.R21_9},n.createElement(B.F,{placeholderImage:!0,src:e.image.url,alt:e.image.description}));Ke.fragment=Xe,Ke.displayName="LoyaltyDialogSectionImage";var je=({children:e,themeProvider:t,isColorThemeContainer:a,disableDarkMode:i})=>t?n.createElement(Pe,{data:i&&t?{...t,__typename:"EGDSThemeProvider",darkMode:t.lightMode?{...t.lightMode,__typename:"EGDSThemeProviderConfig"}:{isGradient:!1,isThemeBase:!1,themeProviderColor:"NONE",__typename:"EGDSThemeProviderConfig"}}:t,isColorThemeContainer:a},e):e,Je=i.gql`
+  fragment LoyaltyDialogSectionFragment on LoyaltyDialogSection {
+    contents {
+      ...LoyaltyDialogContentItemFragment
+    }
+    image {
+      ...LoyaltyDialogSectionImageFragment
+    }
+    themeProvider {
+      ...DialogTriggerThemeProviderFragment
+    }
+    contentAlignment
+  }
+
+  ${Ke.fragment}
+  ${Ye.fragment}
+  ${Pe.fragment}
+`,Qe=({data:e,dialogSpacingValues:t,contentOptions:a,disableDarkMode:i=!1})=>{const{image:l,contents:r,themeProvider:o,contentAlignment:g}=e,{sectionSpacing:m,sectionItemGap:s}=t||{},d=m||{padding:o?"six":{inline:"six",block:"four"}};return n.createElement(N.g,null,n.createElement(L.X,{direction:"column"},n.createElement(f.C,null,l&&n.createElement(Ke,{data:l})),n.createElement(f.C,null,r&&n.createElement(je,{themeProvider:o,disableDarkMode:i},n.createElement(S.N,{...d},n.createElement(L.X,{direction:"column",space:s||"large"},r.map((e,i)=>n.createElement(f.C,{key:`loyalty-dialog-${i}`},n.createElement(Ye,{data:e,contentAlignment:g,contentOptions:a,dialogSpacingValues:t})))))))))};Qe.fragment=Je,Qe.displayName="LoyaltyDialogSection";var Ze=({children:e,impressionPayload:t})=>t?n.createElement(o.EgClickstreamImpressionTracker,{eventData:t},e):n.createElement(n.Fragment,null,e),et=({data:e,sheetType:t,showToolbar:a,closeDialog:i,triggerRef:l,isDialogOpen:r,dialogSpacingValues:g,contentOptions:m,clickStreamPayloads:s,disableDarkMode:d=!1})=>{var c,u,y,E;const{sectionGap:p,sectionSpacing:D,sheetContentSpacing:T}=g||{},h=(0,o.useEgClickstream)(),v=T||{padding:{inline:"four",blockstart:"six",blockend:"six"}};return n.createElement(P.t,{type:t,triggerRef:l,isVisible:r},n.createElement(Ze,{impressionPayload:null==s?void 0:s.dialogImpression},n.createElement(L.X,{direction:"column",space:"small",justifyContent:"center"},a&&n.createElement(M.p,{navigationContent:{navButtonId:"sheet-close-button",navIconLabel:"Close Sheet",onClick:i},toolbarTitle:null==(c=e.toolbar)?void 0:c.title,toolbarTitleA11yText:null==(u=e.toolbar)?void 0:u.title}),n.createElement(O.Y,{padded:!1},n.createElement(S.N,{...v},n.createElement(L.X,{direction:"column",space:p||"large"},n.createElement(f.C,null,n.createElement(L.X,{direction:"column"},e.sections.map((e,t)=>n.createElement(f.C,{key:`loyalty-dialog-section-${t}`},n.createElement(Qe,{data:e,dialogSpacingValues:g,contentOptions:m,disableDarkMode:d}))))),e.dismissDialogButton&&n.createElement(f.C,{alignSelf:"center"},n.createElement(S.N,{padding:{block:"three",inline:"twelve"}},n.createElement(W,{data:e.dismissDialogButton,onClickHandler:()=>{i(),(null==s?void 0:s.dismissDialog)&&h(s.dismissDialog)},isFullWidth:null!=(E=null==(y=null==m?void 0:m.dissmissButton)?void 0:y.isFullWidth)&&E}))),e.additionalLink&&n.createElement(f.C,{alignSelf:"center"},n.createElement(S.N,{margin:{inline:"twelve"}},n.createElement(W,{data:e.additionalLink,dataStid:"loyalty-dialog-additional-link"})))))))))},tt=i.gql`
+  fragment LoyaltyPopupDialogFragment on LoyaltyPopupDialog {
+    additionalLink {
+      ...DialogTriggerButtonFragment
+    }
+    dismissDialogButton {
+      ...LoyaltyOverlayButtonFragment
+    }
+    sections {
+      ...LoyaltyDialogSectionFragment
+    }
+    closeAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    impressionAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    toolbar {
+      ...DialogTriggerToolbarFragment
+    }
+    themeProvider {
+      ...DialogTriggerThemeProviderFragment
+    }
+  }
+
+  fragment LoyaltyOverlayButtonFragment on LoyaltyOverlayButton {
+    ...DialogTriggerUIPrimaryButtonFragment
+    ...DialogTriggerUITertiaryButtonFragment
+  }
+
+  fragment DialogTriggerToolbarFragment on LoyaltyPopupDialogToolbar {
+    title
+  }
+
+  ${W.fragment}
+  ${X.fragment}
+  ${Q.fragment}
+  ${Le.fragment}
+  ${Ge.fragment}
+  ${Pe.fragment}
+  ${Ye.fragment}
+  ${Qe.fragment}
+  ${z}
+`,at=({isDialogOpen:e,DialogComponent:t,triggerRef:a,closeDialog:i,data:l,dialogDisplayTypes:m,dialogSpacingValues:s,contentOptions:d,clickStreamPayloads:c,disableDarkMode:u=!1})=>{var y;const E=(0,o.useClickTracker)(),p=n.useCallback(()=>{E("close","loyalty_dialog")},[E]),D=void 0!==(null==(y=l.toolbar)?void 0:y.title),T=(0,g.s5)((e=>{const t={[g.OB.SMALL]:"bottom",[g.OB.MEDIUM]:"centered",[g.OB.LARGE]:"centered"},a={BOTTOM:"bottom",CENTERED:"centered",FULLSCREEN:"full",POPOVER:"popover",SIDE:"side"};if(!e||0===e.length)return t;const n={};for(const i of e)switch(i.viewSize){case"SMALL":n[g.OB.SMALL]=(null==i?void 0:i.sheetType)?a[i.sheetType]:"bottom";break;case"MEDIUM":n[g.OB.MEDIUM]=(null==i?void 0:i.sheetType)?a[i.sheetType]:"centered";break;case"LARGE":n[g.OB.LARGE]=(null==i?void 0:i.sheetType)?a[i.sheetType]:"centered"}return n})(m));return n.createElement(r.K,{isVisible:e,closeCallback:p},n.createElement(je,{themeProvider:l.themeProvider,isColorThemeContainer:!1,disableDarkMode:u},n.createElement(t,null,n.createElement(et,{data:l,triggerRef:a,isDialogOpen:e,sheetType:T,showToolbar:D,closeDialog:i,dialogSpacingValues:s,contentOptions:d,clickStreamPayloads:c,disableDarkMode:u}))))};at.fragment=tt,at.displayName="LoyaltyDialog";var nt=i.gql`
+  fragment LoyaltyMoreInfoBadgeTriggerFragment on LoyaltyMoreInfoBadgeTrigger {
+    badge {
+      ...DialogTriggerLoyaltyBadgeFragment
+    }
+    badgeShimmer
+    icon {
+      ...DialogTriggerIconFragment
+    }
+    clickAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+    impressionAnalytics {
+      ...DialogTriggerClientSideAnalyticsFragment
+    }
+  }
+
+  ${ee.fragment}
+  ${Q.fragment}
+  ${z}
+`,it=({dialogActions:e,clickStreamPayloads:t,data:a})=>{const{badge:i,badgeShimmer:l,icon:r,impressionAnalytics:g,clickAnalytics:m}=a,s=(0,o.useClickTracker)(),d=(0,o.useEgClickstream)(),c=n.useCallback(()=>{m&&s(m.referrerId,m.linkName),(null==t?void 0:t.triggerClick)&&d(t.triggerClick),null==e||e.openDialog()},[s,m,d,t]),u=n.createElement($.t,{theme:"default",size:"large"},n.createElement("button",{type:"button",onClick:c},l?n.createElement(R.q,{animationIterations:1,cloneElement:!0},n.createElement(L.X,null,n.createElement(Q,{data:i}))):n.createElement(L.X,null,n.createElement(Q,{data:i})),n.createElement(ee,{data:r})));if(g){const{referrerId:e,linkName:t}=g;return n.createElement(o.IntersectionTracker,{referrerId:e,linkName:t,intersectionOptions:{threshold:.5}},u)}return n.createElement(n.Fragment,null,u)};it.fragment=nt,it.displayName="LoyaltyMoreInfoBadgeTrigger";var lt=i.gql`
+  fragment LoyaltyDialogTriggerFragment on LoyaltyDialogTrigger {
+    ...LoyaltyMoreInfoBadgeTriggerFragment
+    ...DialogTriggerStandardLinkFragment
+  }
+
+  ${ue.fragment}
+  ${it.fragment}
+`,rt=({dialogActions:e,data:t,clickStreamPayloads:a})=>{const i=(0,o.useEgClickstream)(),l=t=>{null==t||t.preventDefault(),null==e||e.openDialog(),(null==a?void 0:a.triggerClick)&&i(a.triggerClick)};switch(null==t?void 0:t.__typename){case"LoyaltyMoreInfoBadgeTrigger":return n.createElement(it,{dialogActions:e,data:t});case"EGDSStandardLink":return n.createElement(ue,{data:t,onClickHandler:l});default:return null}};rt.fragment=lt,rt.displayName="LoyaltyDialogTrigger";var ot=i.gql`
+  fragment LoyaltyDialogWithTriggerFragment on LoyaltyDialogWithTrigger {
+    dialog {
+      ...LoyaltyPopupDialogFragment
+    }
+    dialogDisplayTypes {
+      sheetType
+      viewSize
+    }
+    trigger {
+      ...LoyaltyDialogTriggerFragment
+    }
+  }
+
+  ${at.fragment}
+  ${rt.fragment}
+`,gt=({data:e,dialogSpacingValues:t,contentOptions:a,clickStreamPayloads:i,disableDarkMode:r=!1})=>{const o=n.useMemo(()=>Math.random().toString(36).slice(2,5),[]),[g,m,s]=(0,l.useDialog)(`loyalty-dialog-centered-sheet-${o}`),d=n.useRef();return e?n.createElement(n.Fragment,null,n.createElement(rt,{dialogActions:m,data:e.trigger,clickStreamPayloads:i}),n.createElement(at,{data:e.dialog,isDialogOpen:g,DialogComponent:s,triggerRef:d,closeDialog:()=>m.closeDialog(),dialogDisplayTypes:e.dialogDisplayTypes,dialogSpacingValues:t,contentOptions:a,clickStreamPayloads:i,disableDarkMode:r})):null};gt.fragment=ot,gt.displayName="sharedui-LoyaltyDialogWithTrigger"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-loyalty-dialog-with-trigger-fragments.8949170c2a588941d2b9.js.map

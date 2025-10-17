@@ -1,0 +1,149 @@
+/*@license For license information please refer to shared-ui-sponsored-content-partner-gallery.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[6885],{56806:function(e,n,t){t.d(n,{X:function(){return pe}});var a=t(56195),r=t(4611),l=t(10554),o=t(64341),i=t(53017),c=t(63085),s=t(64097),m=t(46559),d=t(92919),E=t(63744),g=t(47540),u=t(93870),p=t(71061),y=t(27102),v=t(9010),_=t(36145),f=t(76606),b=t(97778),C=t(1226),A=t(37292),T=t(42534),w=t(74071),N=t(69287),k=t(80043),S=t(87698),I=t(32462),D=Object.defineProperty,O=Object.defineProperties,L=Object.getOwnPropertyDescriptors,B=Object.getOwnPropertySymbols,G=Object.prototype.hasOwnProperty,x=Object.prototype.propertyIsEnumerable,F=(e,n,t)=>n in e?D(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t,h=(e,n)=>{for(var t in n||(n={}))G.call(n,t)&&F(e,t,n[t]);if(B)for(var t of B(n))x.call(n,t)&&F(e,t,n[t]);return e},P=new c.SystemEvent(c.SystemEventLevel.INFO,"AD_BLOCK_DETECTED"),U=()=>((0,c.useLoggerEvents)({AD_BLOCK_DETECTED_EVENT:P}).AD_BLOCK_DETECTED_EVENT.log({message:"collapsing"}),null),R=e=>{const{children:n}=e;return(0,c.useLoggerEvents)({AD_BLOCK_DETECTED_EVENT:P}).AD_BLOCK_DETECTED_EVENT.log({message:"not collapsing"}),a.createElement(a.Fragment,null,n)};var $={FAIL_TO_SEND_BEACON_USING_BEACON_API:new c.SystemEvent(c.SystemEventLevel.WARN,"FAIL_TO_SEND_BEACON_USING_BEACON_API")},M=r.J1`
+  fragment SponsoredContentBeaconsFragment on SponsoredContentBeacons {
+    renderBeacons
+    viewabilityBeacon
+  }
+`,z=e=>{const n=(0,c.useLoggerEvents)($);a.useEffect(()=>{var t;e&&(null==(t=e.renderBeacons)||t.forEach(e=>{((e,n)=>{try{navigator.sendBeacon(encodeURI(e))||n.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({})}catch(t){n.FAIL_TO_SEND_BEACON_USING_BEACON_API.log({error:t})}})(e,n)}))},[])};r.J1`
+  fragment EGDSInlineLinkFragment on EGDSInlineLink {
+    text
+    action {
+      ...UILinkActionFragment
+    }
+  }
+`;var H=r.J1`
+  fragment UILinkActionFragment on UILinkAction {
+    accessibility
+    analytics {
+      referrerId
+      linkName
+      urls
+    }
+    resource {
+      ... on HttpURI {
+        value
+      }
+    }
+    target
+  }
+`,J={EXTERNAL:"_blank",INTERNAL:"_self"},K=({className:e,data:n,children:t,onClick:r})=>{const{accessibility:l,resource:o,target:i,analytics:c}=n,s=(0,b.useClickTracker)(),m=a.useCallback(()=>{var e;null==(e=null==c?void 0:c.urls)||e.forEach(e=>{null==navigator||navigator.sendBeacon(e)}),(null==c?void 0:c.referrerId)&&(null==c?void 0:c.linkName)&&s(c.referrerId,c.linkName),r&&r()},[s]);return"HttpURI"!==o.__typename?null:a.createElement("a",{className:e,target:J[i],href:o.value,rel:"noopener",onClickCapture:m},l&&a.createElement("span",{className:"is-visually-hidden"},l),t)};K.fragment=H,K.displayName="UILinkAction";var j=r.J1`
+  fragment EGDSImageLinkFragment on EGDSImageLink {
+    image {
+      url
+      description
+    }
+    action {
+      ...UILinkActionFragment
+    }
+  }
+
+  ${K.fragment}
+`,V=({data:{image:e,action:n},ratio:t,roundcorner:r,children:l})=>a.createElement(v.M,{ratio:t,roundcorner:r},a.createElement(_.F,{placeholderImage:!0,alt:e.description,src:e.url}),l,a.createElement(f.d,null,a.createElement(K,{data:n})));V.fragment=j,V.displayName="SponsoredContentEGDSImageLink";var W=r.J1`
+  fragment ImageGalleryTileCardFragment on EGDSImageLinkCard {
+    title
+    link {
+      ...EGDSImageLinkFragment
+    }
+  }
+
+  ${V.fragment}
+`,Q=({data:e,key:n,ratio:t,colSpan:r=1})=>{const{link:l}=e;return a.createElement(g.T,{key:n,colSpan:r},a.createElement(d.g,null,a.createElement(V,{data:e.link,ratio:t},a.createElement(u.O,{type:p.Q.BOTTOM,role:"link"},a.createElement(y.D,{size:300},e.title))),a.createElement(E.w,null,a.createElement(K,{data:l.action}))))};Q.fragment=W,Q.displayName="ImageGalleryTileCard";var X="sponsored-content",q={4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:16,17:17,18:18,24:24,30:30,37:37,38:38,40:40,48:48,72:72},Y={LANDSCAPE:"landscape",PORTRAIT:"portrait"},Z=r.J1`
+  fragment EGDSMarkFragment on Mark {
+    description
+    id
+    orientation
+    size
+    url {
+      ... on HttpURI {
+        __typename
+        value
+      }
+    }
+  }
+`,ee=({className:e,size:n,data:t})=>{const{description:r,id:l,orientation:o,url:i}=t;let c;c=n?q[n]:t.size?q[t.size]:void 0;const s=o&&Y[o]||"landscape";return a.createElement(S.D,{className:e,description:r,id:l,name:l,orientation:s,size:c,url:null==i?void 0:i.value})};ee.displayName="SponsoredContentEGDSMark",ee.fragment=Z;var ne=r.J1`
+  fragment EGDSStandardBadgeFragment on EGDSStandardBadge {
+    accessibility
+    text
+  }
+`,te=({data:e})=>{var n;return e.text?a.createElement(I.G,{size:"small",text:e.text,a11yText:null!=(n=e.accessibility)?n:void 0}):null};te.fragment=ne,te.displayName="EGDSStandardBadge";var ae=r.J1`
+  fragment TransparencyFragment on AdTransparencyTrigger {
+    adTransparencyId
+    adTransparencyButton {
+      ...AdTransparencyButtonFragment
+    }
+    adTransparencyOverlaySkeleton {
+      ...TransparencyOverlaySkeletonFragment
+    }
+  }
+
+  fragment AdTransparencyButtonFragment on AdTransparencyButton {
+    primary
+    size
+    icon {
+      id
+    }
+  }
+
+  fragment TransparencyOverlaySkeletonFragment on TransparencyOverlaySkeleton {
+    title
+    error {
+      ...TransparencyOverlayErrorFragment
+    }
+  }
+
+  fragment TransparencyOverlayErrorFragment on TransparencyOverlayError {
+    icon {
+      id
+      size
+    }
+    description
+    button {
+      primary
+    }
+    allowedRetryAttempts
+    exceededAttemptsMessage
+  }
+`,re=r.J1`
+  fragment ImageGalleryHeaderFragment on SponsoredContentImageGallery {
+    heading
+    paragraph
+    adTransparencyTrigger {
+      ...TransparencyFragment
+    }
+    link {
+      ...UILinkActionFragment
+    }
+    badge {
+      ...EGDSStandardBadgeFragment
+    }
+    logo {
+      standard {
+        ...EGDSMarkFragment
+      }
+    }
+  }
+
+  ${K.fragment}
+  ${te.fragment}
+  ${ee.fragment}
+  ${ae}
+`,le={small:["1fr","min-content"],medium:["auto","1fr","auto"]},oe={small:["1fr","min-content"],medium:["1fr","auto"]},ie={small:["logo badge","text text"],medium:["logo text badge"]},ce={small:["badge badge","text text"],medium:["text badge"]},se=({data:e})=>{const{heading:n,logo:t,link:r,paragraph:l,badge:o,adTransparencyTrigger:i}=e,c=e=>r?a.createElement(A.i,null,a.createElement(K,{data:r},e)):e;return a.createElement(T.N,{margin:{block:"three"}},a.createElement(C.w,{space:"three",areas:(null==t?void 0:t.standard)?ie:ce,columns:(null==t?void 0:t.standard)?le:oe},(null==t?void 0:t.standard)&&a.createElement(g.T,{area:"logo"},a.createElement("div",null,c(a.createElement(ee,{data:t.standard})))),a.createElement(g.T,{area:"text"},a.createElement("div",null,c(a.createElement(w.M,{tag:"h2",size:5},n)),c(a.createElement(N.u,null,l)))),a.createElement(g.T,{area:"badge"},a.createElement("div",null,i?a.createElement(k.x,{data:i}):o&&a.createElement(te,{data:o})))))};se.fragment=re,se.displayName="ImageGalleryHeader";var me={columns:3,space:"six"},de={rows:3,space:"three"},Ee=({data:e,isMobile:n,spacingProps:t})=>{const{tiles:r,beacons:l}=e;z(l);const o=n?de:me;return a.createElement(T.N,h({},t),a.createElement("div",null,a.createElement(se,{data:e}),a.createElement(C.w,h({},o),r.map((e,n)=>e&&a.createElement(Q,{data:e,key:`tile_${n}`,ratio:v.l.R21_9})))))};Ee.displayName="PartnerGalleryContent";var ge=r.J1`
+  query PartnerGalleryQuery($context: ContextInput!, $sponsoredContentContext: SponsoredContentContextInput!) {
+    sponsoredContent {
+      imageGallery(context: $context, sponsoredContentContext: $sponsoredContentContext) {
+        ...ImageGalleryHeaderFragment
+        beacons {
+          ...SponsoredContentBeaconsFragment
+        }
+        tiles {
+          ...ImageGalleryTileCardFragment
+        }
+      }
+    }
+  }
+
+  ${se.fragment}
+  ${Q.fragment}
+  ${M}
+`,ue=e=>{var n,t,r;const{inputs:i,skipSsr:c,batchKey:s=X,spacingProps:d}=e,{context:E}=(0,o.R)(),g=(u=h({},i),O(u,L({context:E})));var u;const{data:p,error:y,loading:v}=(0,l.I)(ge,{context:{batchKey:s},variables:g,ssr:!c,fetchPolicy:"no-cache"}),_=null==(r=null==(t=null==(n=null==p?void 0:p.sponsoredContent)?void 0:n.imageGallery)?void 0:t.beacons)?void 0:r.viewabilityBeacon,{componentRef:f}=(({viewabilityBeacon:e})=>{const n=a.useRef(null),t=(0,a.useCallback)(e=>{var n;e&&window.meso&&(window.meso.viewability=null!=(n=window.meso.viewability)?n:[],window.meso.viewability.push({type:"deregister",element:e}))},[]),r=(0,a.useCallback)(n=>{var t,a;n&&(window.meso=null!=(t=window.meso)?t:{},window.meso.viewability=null!=(a=window.meso.viewability)?a:[],window.meso.viewability.push({type:"register",config:"image",element:n,beacon:e}))},[e]);return a.useEffect(()=>{const e=n.current;return r(e),()=>{t(e)}},[r,t]),{componentRef:n}})({viewabilityBeacon:_});if(v||y||!p||!p.sponsoredContent.imageGallery)return null;const{tiles:b}=p.sponsoredContent.imageGallery;return b&&3===b.length?a.createElement("div",{"data-eg-sc":!0,ref:f},a.createElement(m.LM,null,a.createElement(m.rw,null,a.createElement(Ee,{data:p.sponsoredContent.imageGallery,spacingProps:d})),a.createElement(m.NP,null,a.createElement(Ee,{data:p.sponsoredContent.imageGallery,spacingProps:d,isMobile:!0})))):null};ue.displayName="sharedui-PartnerGallery";var pe=function(e){const n=n=>{var t;const{collapseWhenAdBlockDetected:r,adBlockCollapseExperiment:l}=n,o=a.createElement(R,null,a.createElement(e,h({},n)));return window.meso=null!=(t=window.meso)?t:{},!window.meso.adblock||window.meso.adblock.enabled?l?a.createElement(i.Experiment,{name:"Acceptable_Ads_Component_Enablement"},a.createElement(i.ExperimentControl,null,a.createElement(U,null)),a.createElement(i.ExperimentVariant,{bucket:1},"PG_Acceptable_Ads_Enablement"===l?a.createElement(i.Experiment,{name:"PG_Acceptable_Ads_Enablement"},a.createElement(i.ExperimentControl,null,a.createElement(U,null)),a.createElement(i.ExperimentVariant,{bucket:1},o)):"Acceptable_Ads_Component_Enablement"===l?o:a.createElement(U,null))):!1===r?o:a.createElement(U,null):a.createElement(e,h({},n))};return n.displayName="WithAdBlockDetectHOC",n}(function(e){const n=n=>{const[t,r]=a.useState(0);return a.useEffect(()=>{r(window.innerHeight)},[]),a.createElement(a.Fragment,null,t?a.createElement(m.LM,null,a.createElement(m.NP,null,a.createElement(s.A,{offset:t},a.createElement(e,h({},n)))),a.createElement(m.rw,null,a.createElement(s.A,{offset:t/2},a.createElement(e,h({},n))))):null)};return n.displayName=`${e.displayName}WithSponsoredContentLazy`,n}(ue))}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-sponsored-content-partner-gallery.7c74c81a86ac82dd9f0a.js.map

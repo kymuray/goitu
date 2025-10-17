@@ -1,0 +1,280 @@
+/*@license For license information please refer to shared-ui-retail-social-share-social-share-button.licenses.txt*/
+(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[1046],{84567:function(e,t,a){a.d(t,{$Z:function(){return Ue},EX:function(){return Ge},Ub:function(){return Y},ug:function(){return K}});var n=a(56195),r=a(26690),l=a(64341),i=a(97778),o=a(70882),c=a(34399),s=a(27102),m=a(46559),u=a(2557),d=a(87993),g=a(80240),E=a(30169),S=a(42534),p=a(95519),f=a(522),y=a(99828),v=a(37292),h=a(87698),I=a(96394),T=a(9010),N=a(49858),R=a(23726),C=a(69287),D=a(92919),k=a(24109),A=a(36145),P=a(1226),x=a(47540),b=a(74071),F=a(19716),_=a(39938),O=a(43888),L=a(934),B=a(89438),$=a(68638),G=a(13311),w=a(7138),U=Object.defineProperty,M=Object.getOwnPropertySymbols,q=Object.prototype.hasOwnProperty,z=Object.prototype.propertyIsEnumerable,V=(e,t,a)=>t in e?U(e,t,{enumerable:!0,configurable:!0,writable:!0,value:a}):e[t]=a,H=(e,t)=>{for(var a in t||(t={}))q.call(t,a)&&V(e,a,t[a]);if(M)for(var a of M(t))z.call(t,a)&&V(e,a,t[a]);return e},Y=(e=>(e.ACTIVITIES="ACTIVITIES",e.CAR="CAR",e.CRUISES="CRUISES",e.FLIGHT="FLIGHT",e.GROUNDTRANSFERS="GROUNDTRANSFERS",e.LODGING="LODGING",e.PACKAGES="PACKAGES",e.RAILS="RAILS",e.UNCLASSIFIED="UNCLASSIFIED",e))(Y||{}),K=(e=>(e.ACTIVITY="ACTIVITY",e.FLIGHT="FLIGHT",e.FLIGHT_SEARCH="FLIGHT_SEARCH",e.PACKAGE_DETAILS="PACKAGE_DETAILS",e.PROPERTY="PROPERTY",e.PROPERTY_SEARCH="PROPERTY_SEARCH",e.REFER_A_FRIEND="REFER_A_FRIEND",e.REQUEST_TO_JOIN_TRIP="REQUEST_TO_JOIN_TRIP",e.TRIP_INVITE="TRIP_INVITE",e))(K||{}),j=(e=>(e.INFO="INFO",e.POSITIVE="POSITIVE",e.STANDARD="STANDARD",e.WARNING="WARNING",e))(j||{}),Q=r.gql`
+  fragment SocialShareIconFragment on Icon {
+    id
+    title
+    description
+    spotLight
+    size
+  }
+`,W=({data:e,className:t})=>{var a,r,l,i,o;return n.createElement(u.LD,{id:null==e?void 0:e.id,name:null!=(a=null==e?void 0:e.id)?a:"share",title:null!=(r=null==e?void 0:e.title)?r:"",description:null==e?void 0:e.description,className:t,size:u.So.SMALL,spotlight:null==(o=null==(i=j[null!=(l=null==e?void 0:e.spotLight)?l:"none"])?void 0:i.toLowerCase)?void 0:o.call(i)})};W.fragment=Q,W.displayName="EGDSIconSocialShareIcon";var X=r.gql`
+  fragment OverlayButtonFragment on EGDSOverlayButton {
+    accessibility
+    primary
+    icon {
+      ...SocialShareIconFragment
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+  ${W.fragment}
+`,J=({data:e,expanded:t,domRef:a,onClick:r})=>{var l,i;const{icon:o,primary:u,accessibility:d}=e;return n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(c.M,{onClick:r,domRef:a,"aria-label":null!=(i=null!=(l=null!=d?d:u)?l:null==o?void 0:o.title)?i:"","aria-expanded":t},o&&n.createElement(W,{data:o}),u&&n.createElement(s.D,{theme:"inverse"},u))))};J.fragment=X,J.displayName="OverlayButton";var Z=r.gql`
+  fragment PrimaryButtonFragment on UIPrimaryButton {
+    accessibility
+    primary
+    icon {
+      ...SocialShareIconFragment
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+  ${W.fragment}
+`,ee=({data:e,expanded:t,domRef:a,onClick:r})=>{var l;const{icon:i,primary:o,accessibility:c}=e;return n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(d.y,{onClick:r,size:g.V.SMALL,domRef:a,"aria-label":null!=(l=null!=c?c:null==i?void 0:i.title)?l:"","aria-expanded":t},i&&n.createElement(W,{data:i}),o&&n.createElement(s.D,{theme:"inverse"},o))))};ee.fragment=Z,ee.displayName="PrimaryButton";var te=r.gql`
+  fragment SecondaryButtonFragment on UISecondaryButton {
+    accessibility
+    primary
+    icon {
+      ...SocialShareIconFragment
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+  ${W.fragment}
+`,ae=({data:e,expanded:t,domRef:a,onClick:r})=>{var l;const{icon:i,primary:o,accessibility:c}=e;return n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(S.N,{padding:"two"},n.createElement(E.y,{onClick:r,size:g.V.SMALL,domRef:a,"aria-label":null!=(l=null!=c?c:null==i?void 0:i.title)?l:"","aria-expanded":t},i&&n.createElement(W,{data:i}),o&&n.createElement(s.D,null,o)))))};ae.fragment=te,ae.displayName="SecondaryButton";var ne=r.gql`
+  fragment TertiaryButtonFragment on UITertiaryButton {
+    accessibility
+    primary
+    icon {
+      ...SocialShareIconFragment
+    }
+    analytics {
+      referrerId
+      linkName
+    }
+  }
+  ${W.fragment}
+`,re=({data:e,expanded:t,domRef:a,onClick:r})=>{var l;const{icon:i,primary:o,accessibility:c}=e;return n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(p.q,{onClick:r,domRef:a,"aria-label":null!=(l=null!=c?c:null==i?void 0:i.title)?l:"","aria-expanded":t},i&&n.createElement(W,{data:i}),o&&n.createElement(s.D,null,o))))};re.fragment=ne,re.displayName="TertiaryButton";var le=r.gql`
+  fragment ShareButtonTypesFragment on SocialShareButtonType {
+    ...OverlayButtonFragment
+    ...PrimaryButtonFragment
+    ...SecondaryButtonFragment
+    ...TertiaryButtonFragment
+  }
+  ${ee.fragment}
+  ${ae.fragment}
+  ${re.fragment}
+  ${J.fragment}
+`,ie=({data:e,expanded:t,domRef:a,onClick:r})=>{switch(e.__typename){case"UIPrimaryButton":return n.createElement(ee,{data:e,onClick:r,domRef:a,expanded:t});case"UISecondaryButton":return n.createElement(ae,{data:e,onClick:r,domRef:a,expanded:t});case"UITertiaryButton":return n.createElement(re,{data:e,onClick:r,domRef:a,expanded:t});case"EGDSOverlayButton":return n.createElement(J,{data:e,onClick:r,domRef:a,expanded:t});default:return null}};ie.fragment=le,ie.displayName="ShareButton";var oe=r.gql`
+  fragment SocialShareMarkFragment on Mark {
+    id
+    description
+    markSize: size
+    url {
+      value
+    }
+  }
+`,ce=({data:e,className:t})=>{const{id:a,description:r,url:l,markSize:i}=e;return n.createElement(h.D,{id:a,description:r,url:null==l?void 0:l.value,className:t,size:I.G[parseInt(null!=i?i:"8",10)]})};ce.fragment=oe,ce.displayName="SocialShareMark";var se=r.gql`
+  fragment SocialShareGraphicFragment on UIGraphic {
+    ...SocialShareIconFragment
+  }
+  ${W.fragment}
+`,me=({data:e,className:t})=>{switch(null==e?void 0:e.__typename){case"Mark":return n.createElement(ce,{data:e,className:t});case"Icon":return n.createElement(W,{data:e,className:t});default:return null}};me.fragment=se,me.displayName="SocialShareGraphic";var ue=r.gql`
+  fragment SocialShareOptionButtonFragment on SocialMediaCTA {
+    analytics {
+      clickAnalytics {
+        referrerId
+        linkName
+      }
+      impressionAnalytics {
+        referrerId
+        linkName
+      }
+    }
+    graphic {
+      ...SocialShareMarkFragment
+      ...SocialShareIconFragment
+    }
+    shareContent {
+      messages {
+        ... on EGDSText {
+          text
+        }
+      }
+      shareUrl {
+        value
+      }
+    }
+    successToast {
+      text
+    }
+  }
+
+  ${ce.fragment}
+  ${W.fragment}
+`,de=({data:e,className:t,setToastText:a})=>{const r=(0,i.useClickTracker)(),{analytics:l,graphic:o,shareContent:c,successToast:m}=e,u=null==c?void 0:c.shareUrl;if(!o||!u||!window)return null;const d="Icon"===o.__typename||"Mark"===o.__typename?o.description:"";return n.createElement(v.i,{className:t,onClick:async()=>{var e,t;if((null==l?void 0:l.clickAnalytics)&&r(null==(e=null==l?void 0:l.clickAnalytics)?void 0:e.referrerId,null==(t=null==l?void 0:l.clickAnalytics)?void 0:t.linkName),"ClipboardURI"===(null==u?void 0:u.__typename))return await navigator.clipboard.writeText(`${u.value}`),void a((null==m?void 0:m.text)||"");if("Mark"===o.__typename&&("Facebook"===o.description||"Messenger"===o.description)&&(null==u?void 0:u.value)){const e="width=900,height=550";return void window.open(u.value,"",e)}window.open(null==u?void 0:u.value,"_blank")},align:"center"},n.createElement("button",{type:"button","aria-label":d},n.createElement(f.X,{direction:"column",justifyContent:"center",alignContent:"center",alignItems:"center",wrap:"wrap",space:"two"},n.createElement(y.C,{alignSelf:"center"},n.createElement(me,{data:o})),n.createElement(y.C,{alignSelf:"center"},n.createElement(s.D,{weight:"bold",overflow:"truncate-2-lines"},d)))))};de.fragment=ue,de.displayName="SocialShareOptionButton";var ge=()=>[...Array(6)].map((e,t)=>n.createElement(f.X,{key:`skeleton-button-${t}`,direction:"column",justifyContent:"center",space:"two"},n.createElement(y.C,{alignSelf:"center",minWidth:70,maxWidth:90},n.createElement(T.M,{ratio:T.l.R16_9},n.createElement(N.R,{type:"block",cornerRadius:22,animation:!0})),n.createElement(N.R,{type:"line"})),n.createElement(y.C,{alignSelf:"center",minWidth:30,maxWidth:40},n.createElement(N.R,{type:"line",animation:!0})))),Ee=r.gql`
+  fragment SocialShareAnalyticsFragment on SocialShareAnalytics {
+    impressionAnalytics {
+      referrerId
+      linkName
+    }
+    successAnalytics {
+      referrerId
+      linkName
+    }
+    closeAnalytics {
+      referrerId
+      linkName
+    }
+  }
+`,Se=r.gql`
+  fragment ToolbarFragment on EGDSToolbar {
+    title {
+      primary
+    }
+    actions {
+      ...OverlayButtonFragment
+    }
+    navigation {
+      analytics {
+        linkName
+        referrerId
+      }
+    }
+  }
+  ${J.fragment}
+`,pe=({data:e,onDismissSheet:t})=>{const a=(0,i.useClickTracker)(),{navigation:r,title:l}=null!=e?e:{};return n.createElement(R.p,{toolbarTitle:null==l?void 0:l.primary,navigationContent:{onClick:()=>{var e,n,l,i;a(null!=(n=null==(e=null==r?void 0:r.analytics)?void 0:e.referrerId)?n:"",null!=(i=null==(l=null==r?void 0:r.analytics)?void 0:l.linkName)?i:""),null==t||t()},navIconLabel:"Close Toolbar"}})};pe.fragment=Se,pe.displayName="SocialShareToolbar";var fe=r.gql`
+  fragment ParagraphFragment on EGDSParagraph {
+    text
+    style
+  }
+`,ye={P1:1,P2:2,P3:3},ve=({data:e})=>n.createElement(C.u,{size:ye[e.style]},e.text);ve.fragment=fe,ve.displayName="Paragraph";var he=r.gql`
+  fragment PlainTextFragment on EGDSPlainText {
+    text
+  }
+`,Ie=({data:e})=>n.createElement(s.D,null,e.text);Ie.fragment=he,Ie.displayName="PlainText";var Te=r.gql`
+  fragment TextFragment on EGDSText {
+    ...ParagraphFragment
+    ...PlainTextFragment
+  }
+
+  ${ve.fragment}
+  ${Ie.fragment}
+`,Ne=({data:e})=>{switch(e.__typename){case"EGDSParagraph":return n.createElement(ve,{data:e});case"EGDSPlainText":return n.createElement(Ie,{data:e});default:return null}};Ne.fragment=Te,Ne.displayName="Text";var Re=()=>n.createElement(P.w,{columns:5,space:{column:"four"}},n.createElement(x.T,{colSpan:2},n.createElement(T.M,{ratio:T.l.R16_9},n.createElement(N.R,{type:"block",cornerRadius:22}))),n.createElement(x.T,{colSpan:2},n.createElement(f.X,{direction:"column",justifyContent:"space-around"},n.createElement(y.C,null,n.createElement(N.R,{type:"line"})),n.createElement(y.C,null,n.createElement(N.R,{type:"line",lineLength:"secondary"})),n.createElement(y.C,null,n.createElement(N.R,{type:"line",lineLength:"secondary"}))))),Ce=r.gql`
+  fragment CardFragment on EGDSImageCard {
+    image {
+      url
+      description
+    }
+    id
+    title
+    subTitle
+    description
+  }
+`,De=({data:e,loading:t})=>{var a,r,l,i;return t?n.createElement(Re,null):e?n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(D.g,{border:!0},n.createElement(T.M,{ratio:T.l.R16_9},n.createElement(A.F,{placeholderImage:!0,alt:null==(a=e.image)?void 0:a.description,src:null==(r=e.image)?void 0:r.url})),n.createElement(k.E,null,n.createElement(s.D,{size:500,weight:"bold"},e.title),n.createElement(s.D,{size:300},e.subTitle),n.createElement(s.D,{size:300},e.description)))),n.createElement(m.zQ,null,n.createElement(D.g,{border:!0},n.createElement(P.w,{columns:5},n.createElement(x.T,{colSpan:2},n.createElement(T.M,{ratio:T.l.R16_9},n.createElement(A.F,{placeholderImage:!0,alt:null==(l=e.image)?void 0:l.description,src:null==(i=e.image)?void 0:i.url}))),n.createElement(x.T,{colSpan:3},n.createElement(k.E,{padded:!0},n.createElement(b.M,{size:5},e.title),n.createElement(S.N,{margin:{block:"one"}},n.createElement(s.D,{size:300},e.subTitle)),n.createElement(S.N,{margin:{blockend:"four"}},n.createElement(s.D,{size:300},e.description)))))))):null};De.fragment=Ce,De.displayName="SocialShareCard";var ke=r.gql`
+  fragment NativeShareSheetFragment on EGDSSpannableText {
+    ... on EGDSSpannableText {
+      inlineContent {
+        ... on EGDSHeading {
+          text
+        }
+        ... on EGDSPlainText {
+          text
+        }
+        ... on EGDSInlineLink {
+          text
+        }
+      }
+    }
+  }
+`,Ae=({data:e,analytics:t,onChangeState:a,onDismissCallback:n})=>{var r,l,o,c,s,m;const u=(0,i.useClickTracker)(),{inlineContent:d}=e,g=null==(r=null==d?void 0:d.find(e=>"EGDSHeading"===(null==e?void 0:e.__typename)))?void 0:r.text,E=null==(l=null==d?void 0:d.find(e=>"EGDSInlineLink"===(null==e?void 0:e.__typename)))?void 0:l.text,S={title:g,text:null==d?void 0:d.filter(e=>"EGDSPlainText"===(null==e?void 0:e.__typename)).map(e=>e.text).join("\n").trim(),url:E};return u(null!=(c=null==(o=null==t?void 0:t.impressionAnalytics)?void 0:o.referrerId)?c:"",null!=(m=null==(s=null==t?void 0:t.impressionAnalytics)?void 0:s.linkName)?m:""),navigator.share(S).then(()=>{if(null==t?void 0:t.successAnalytics){const{successAnalytics:e}=t;u(e.referrerId,e.linkName)}}).catch(e=>{if("AbortError"===e.name&&(n(),null==t?void 0:t.closeAnalytics)){const{closeAnalytics:e}=t;u(e.referrerId,e.linkName)}}).finally(()=>{null==a||a()}),null};Ae.fragment=ke,Ae.displayName="NativeShareSheet";var Pe=e=>{var t=e,{sheetType:a,DialogComponent:r,className:l,isVisible:i,triggerRef:o,onDismiss:c,children:s}=t,m=((e,t)=>{var a={};for(var n in e)q.call(e,n)&&t.indexOf(n)<0&&(a[n]=e[n]);if(null!=e&&M)for(var n of M(e))t.indexOf(n)<0&&z.call(e,n)&&(a[n]=e[n]);return a})(t,["sheetType","DialogComponent","className","isVisible","triggerRef","onDismiss","children"]);return"CENTERED"===a?n.createElement(r,null,n.createElement(O.K,{isVisible:i},n.createElement(L.t,H({className:l,centeredSheetSize:"small",isVisible:i,type:"centered",triggerRef:o},m),s))):n.createElement(O.K,{isVisible:i},n.createElement(L.t,H({className:l,isVisible:i,type:"popover",triggerRef:o,width:440,onDismiss:c},m),s))},xe=r.gql`
+  fragment CustomShareSheetFragment on CustomSocialShareSheet {
+    card {
+      ...CardFragment
+    }
+    revealActions {
+      linkName
+      referrerId
+    }
+    socialMediaButtons {
+      ...SocialShareOptionButtonFragment
+    }
+    toolbar {
+      ...ToolbarFragment
+    }
+    sheetType
+  }
+  ${De.fragment}
+  ${de.fragment}
+  ${pe.fragment}
+`,be=({data:e,className:t,customPopoverProps:a,dialogId:r,loading:l,triggerRef:c,onDismissSheetCB:s,sheetTypeFromButton:u})=>{var d,g,E,p;const{card:f,revealActions:y,socialMediaButtons:v,toolbar:h,sheetType:I}=null!=e?e:{},[T,N,R]=(0,o.useDialog)(null!=r?r:"share-this-page-dialog","SocialSharePropertyDialog",!0,()=>{s(!0)}),[C,D]=n.useState(""),k=()=>{s(),D(null)},A=()=>{T&&N.closeDialog(),s(!0)};return n.useEffect(()=>{T||N.openDialog()},[T,N]),n.createElement(m.LM,null,n.createElement(m.NP,null,l?n.createElement(F.Y,{visible:!0}):n.createElement(i.IntersectionTracker,{referrerId:null!=(d=null==y?void 0:y.referrerId)?d:"",linkName:null!=(g=null==y?void 0:y.linkName)?g:""},n.createElement(O.K,{isVisible:T},n.createElement(R,null,n.createElement(L.t,{className:t,isVisible:T,type:"bottom",triggerRef:c,hasModal:!0,closeCallback:A},n.createElement(pe,{data:h,onDismissSheet:A}),n.createElement(B.Y,{padded:!0},n.createElement(De,{data:f,loading:l}),n.createElement(S.N,{margin:{blockstart:"four"}},n.createElement(_.v,{direction:"horizontal"},null==v?void 0:v.map((e,t)=>{var a;return n.createElement(S.N,{margin:{inlineend:"six"},key:`${null==(a=e.graphic)?void 0:a.__typename}-${t}`},n.createElement(de,{data:e,setToastText:D}))}))),n.createElement($.N,{onDismiss:k,show:!!C},C))))))),n.createElement(m.zQ,null,n.createElement(Pe,H({sheetType:null!=I?I:u,DialogComponent:R,className:t,isVisible:T,triggerRef:c,onDismiss:A},a),n.createElement(pe,{data:h,onDismissSheet:A}),n.createElement(B.Y,null,l?n.createElement(n.Fragment,null,n.createElement(Re,null),n.createElement(S.N,{margin:{blockstart:"six"}},n.createElement(P.w,{columns:3,space:{column:"twelve",row:"six"}},n.createElement(ge,null)))):n.createElement(i.IntersectionTracker,{referrerId:null!=(E=null==y?void 0:y.referrerId)?E:"",linkName:null!=(p=null==y?void 0:y.linkName)?p:""},n.createElement(De,{data:f}),n.createElement(S.N,{margin:{blockstart:"six"}},n.createElement(P.w,{columns:3,space:{column:"twelve",row:"six"}},null==v?void 0:v.map((e,t)=>{var a;return n.createElement(x.T,{key:`${null==(a=e.graphic)?void 0:a.__typename}-${t}`,justifySelf:"center"},n.createElement(de,{data:e,setToastText:D}))})))),n.createElement($.N,{onDismiss:k,show:!!C},C)))))};be.fragment=xe,be.displayName="CustomShareSheet";var Fe={PROPERTY:be,REQUEST_TO_JOIN_TRIP:be,TRIP_INVITE:be},_e={H:"LODGING",P:"PACKAGES",F:"FLIGHT",C:"CAR",CR:"CRUISES",A:"ACTIVITIES",U:"UNCLASSIFIED",R:"RAILS",GT:"GROUNDTRANSFERS"},Oe=r.gql`
+  fragment SocialShareErrorFragment on SocialShareErrorToast {
+    analytics {
+      referrerId
+      linkName
+    }
+    text
+  }
+`,Le=({data:e,closeRef:t,onToastDismiss:a})=>{const{text:r,analytics:l}=e;return n.createElement(i.IntersectionTracker,{trackOnce:!0,referrerId:l.referrerId,linkName:l.linkName},n.createElement($.N,{show:!0,onDismiss:a,autoHideTimer:$._.long,onCloseRef:t},r))};Le.fragment=Oe,Le.displayName="SocialShareErrorBanner";var Be=(e,t)=>{if(t){const e=/(?:\w*)[Dd]ialog(?:\w*)/g,a=["abov","preview","cache","tName","pwaOverlay","x_pwa","reviewId"];new URLSearchParams(t).forEach((n,r)=>{(r.match(e)||a.includes(r))&&t.delete(r)})}return`${e}${t.size>0?`?${t}`:""}`},$e=r.gql`
+  query SocialShareActionQuery(
+    $context: ContextInput!
+    $destinationContext: ShareDestinationContextInput!
+    $lineOfBusiness: LineOfBusinessDomain!
+    $strategy: SocialShareStrategy!
+    $referrerUrl: String
+    $optionalPageId: String
+  ) {
+    socialShareAction(
+      context: $context
+      destinationContext: $destinationContext
+      lineOfBusiness: $lineOfBusiness
+      strategy: $strategy
+      referrerUrl: $referrerUrl
+      optionalPageId: $optionalPageId
+    ) {
+      analytics {
+        ...SocialShareAnalyticsFragment
+      }
+      shareContent {
+        ...NativeShareSheetFragment
+      }
+      shareSheet {
+        ...CustomShareSheetFragment
+      }
+      serverSideErrorToast {
+        ...SocialShareErrorFragment
+      }
+    }
+  }
+
+  ${Ee}
+  ${Ae.fragment}
+  ${be.fragment}
+  ${Le.fragment}
+`,Ge=({className:e,clientSideErrorToast:t,customPopoverProps:a,dialogId:i,triggerRef:c,sheetTypeFromButton:s,inputs:u,wasDialogPreviouslyOpenRef:d})=>{var g,E;const{lineOfBusiness:S,optionalPageId:p,destinationContext:f,strategy:y}=u,{context:v}=(0,l.R)(),{pathname:h,search:I}=(0,w.zy)(),{data:T,loading:N,error:R}=(0,r.useQuery)($e,{context:{shouldLogPerformance:!0},variables:{context:v,lineOfBusiness:S,strategy:y,optionalPageId:p,destinationContext:f,referrerUrl:Be(h,new URLSearchParams(I))}}),[,C]=(0,o.useDialog)(null!=i?i:"share-this-page-dialog","SocialSharePropertyDialog"),[D,k]=n.useState(!1),{setShouldLoadSaveItemPrompt:A}=(0,G.hI)();if(R||(null==(g=null==T?void 0:T.socialShareAction)?void 0:g.serverSideErrorToast)||D){const e=(null==(E=null==T?void 0:T.socialShareAction)?void 0:E.serverSideErrorToast)||t;if(e)return n.createElement(Le,{data:e,closeRef:c,onToastDismiss:()=>{C.closeDialog()}})}if(!(T&&T.socialShareAction||N))return null;const{socialShareAction:P}=null!=T?T:{},{shareContent:x,shareSheet:b,analytics:_}=null!=P?P:{},O=()=>{A(!0)};if(!!navigator.share&&"DESKTOP"!==v.device.type)return!x||N?n.createElement(F.Y,{visible:N}):n.createElement(m.LM,null,n.createElement(m.NP,null,n.createElement(Ae,{data:x,analytics:null!=_?_:null,onChangeState:C.closeDialog,onDismissCallback:O})));const L=Fe[y];if(!L)return null;return n.createElement(L,{data:b,loading:N,triggerRef:c,onDismissSheetCB:(e=!1)=>{e&&(null==d?void 0:d.current)&&A(!0),k(!1)},dialogId:i,customPopoverProps:a,className:e,sheetTypeFromButton:s})};Ge.displayName="SocialShareSheetWrapper";var we=r.gql`
+  query SocialShareButtonQuery($context: ContextInput!, $strategy: SocialShareStrategy!) {
+    socialShareButton(context: $context, strategy: $strategy) {
+      strategy
+      sheetType
+      button {
+        ...ShareButtonTypesFragment
+      }
+      clickAnalytics {
+        referrerId
+        linkName
+      }
+      clientSideErrorToast {
+        ...SocialShareErrorFragment
+      }
+    }
+  }
+
+  ${ie.fragment}
+  ${Le.fragment}
+`,Ue=({inputs:e,skipSsr:t,dialogId:a})=>{var c,s,m,u,d;const g=(0,i.useClickTracker)(),{context:E}=(0,l.R)(),{strategy:S,destinationContext:p,optionalPageId:f}=e,y=n.useRef(!1),{setShouldLoadSaveItemPrompt:v}=(0,G.hI)(),[h,I]=(0,o.useDialog)(null!=a?a:"share-this-page-dialog","SocialSharePropertyDialog",void 0,()=>{y.current&&v(!0)}),T=n.useRef(null),{data:N,loading:R,error:C}=(0,r.useQuery)(we,{context:{shouldLogPerformance:!0},variables:{context:E,strategy:S},ssr:!t});if(n.useEffect(()=>{y.current=h},[h]),!N||R||C)return null;const{socialShareButton:{button:D,clickAnalytics:k,clientSideErrorToast:A,sheetType:P}}=N,{pageId:x,lineOfBusiness:b}=(e=>{var t;const a=null==e?void 0:e.split(",").map(e=>e.trim());return{pageId:null==a?void 0:a[0],lineOfBusiness:_e[null!=(t=null==a?void 0:a[1])?t:""]||"UNCLASSIFIED"}})(f),F=null!=(c=N.socialShareButton.strategy)?c:"PROPERTY";return n.createElement(n.Fragment,null,D&&n.createElement(i.IntersectionTracker,{trackOnce:!0,referrerId:null!=(m=null==(s=null==D?void 0:D.analytics)?void 0:s.referrerId)?m:"",linkName:null!=(d=null==(u=null==D?void 0:D.analytics)?void 0:u.linkName)?d:""},n.createElement(ie,{data:D,onClick:()=>{y.current=h,setTimeout(()=>{I.toggleDialog({closeAllDialogs:!0})}),k&&g(k.referrerId,k.linkName)},domRef:T,expanded:h}),h&&n.createElement(Ge,{clientSideErrorToast:A,triggerRef:T,sheetTypeFromButton:P,dialogId:a,inputs:{strategy:F,lineOfBusiness:b,destinationContext:p,optionalPageId:x},wasDialogPreviouslyOpenRef:y})))};Ue.displayName="sharedui-ShareButton"}}]);
+//# sourceMappingURL=https://bernie-assets.s3.us-west-2.amazonaws.com/shopping-pwa/shared-ui-retail-social-share-social-share-button.834db0930595ec99c701.js.map

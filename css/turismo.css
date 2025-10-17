@@ -1,0 +1,24 @@
+.card{
+
+ margin: 0.2PX;
+  padding: 20px;
+ box-sizing: border-box;
+  font-family: sans-serif;
+
+}
+
+
+
+.card-container{
+    
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 100px;
+
+}
+
+h3{
+        color: #004cb0;
+        text-align: left;
+       }
