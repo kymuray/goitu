@@ -173,174 +173,321 @@
     </nav>
 </nav>
 
-<div class="container mt-5">
-    <h1 style="color:  #073169;">Calendário de Eventos em Itu</h1>
-    <p>Clique em um mês para ver a programação de turismo!</p>
+<style>
+    :root {
+      --azul-escuro: #073169;
+      --azul-claro: #dbe7ff;
+      --azul-medio: #a8c9ff;
+      --fundo-claro: #f5f9ff;
+      --texto: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--fundo-claro);
+      color: var(--texto);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .titulo-calendario {
+      color: var(--azul-escuro);
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo-calendario {
+      text-align: center;
+      color: #3a5a99;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+    }
+
+    .carousel-container {
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      min-width: 600px;
+    }
+
+    .month-item {
+      background-color: var(--azul-claro);
+      color: var(--azul-escuro);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+    }
+
+    .month-item:hover {
+      background-color: var(--azul-medio);
+    }
+
+    .month-item.active {
+      background-color: var(--azul-escuro);
+      color: #fff;
+      border-color: #052554;
+    }
+
+    #events-content {
+      margin-top: 30px;
+    }
+
+    .events-section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .events-section.active {
+      display: block;
+    }
+
+    .events-section h2 {
+      color: var(--azul-escuro);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .event-card {
+      background-color: #fff;
+      border-left: 5px solid var(--azul-escuro);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(7, 49, 105, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02);
+    }
+
+    .event-card h3 {
+      color: var(--azul-escuro);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .event-card p {
+      margin: 6px 0;
+    }
+
+    .no-events {
+      background-color: #eef3fb;
+      border: 2px dashed var(--azul-medio);
+      border-radius: 6px;
+      padding: 20px;
+      text-align: center;
+      font-style: italic;
+      color: var(--azul-escuro);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .carousel {
+        min-width: unset;
+        overflow-x: auto;
+      }
+
+      .month-item {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="titulo-calendario">Calendário de Eventos em Itu</h1>
+    <p class="subtitulo-calendario">Clique em um mês para ver a programação turística!</p>
 
     <div class="carousel-container">
-        <div class="carousel" id="month-carousel">
-            <div class="month-item" data-month="janeiro">Janeiro</div> 
-            <div class="month-item" data-month="fevereiro">Fevereiro</div>
-            <div class="month-item" data-month="marco">Março</div>
-            <div class="month-item" data-month="abril">Abril</div>
-            <div class="month-item" data-month="maio">Maio</div>
-            <div class="month-item" data-month="junho">Junho</div>
-            <div class="month-item" data-month="julho">Julho</div>
-            <div class="month-item" data-month="agosto">Agosto</div>
-            <div class="month-item" data-month="setembro">Setembro</div>
-            <div class="month-item" data-month="outubro">Outubro</div>
-            <div class="month-item" data-month="novembro">Novembro</div>
-            <div class="month-item" data-month="dezembro">Dezembro</div>
-        </div>
+      <div class="carousel" id="month-carousel">
+        <div class="month-item" data-month="janeiro">Janeiro</div>
+        <div class="month-item" data-month="fevereiro">Fevereiro</div>
+        <div class="month-item" data-month="marco">Março</div>
+        <div class="month-item" data-month="abril">Abril</div>
+        <div class="month-item" data-month="maio">Maio</div>
+        <div class="month-item" data-month="junho">Junho</div>
+        <div class="month-item" data-month="julho">Julho</div>
+        <div class="month-item" data-month="agosto">Agosto</div>
+        <div class="month-item" data-month="setembro">Setembro</div>
+        <div class="month-item" data-month="outubro">Outubro</div>
+        <div class="month-item" data-month="novembro">Novembro</div>
+        <div class="month-item" data-month="dezembro">Dezembro</div>
+      </div>
     </div>
 
     <div id="events-content">
-        <div class="events-section active" id="eventos-janeiro">
-            <h2 style="color:  #073169;">Eventos de Janeiro</h2>
-            <div class="event-card">
-                <h3>Passeio de Maria Fumaça</h3>
-                <p><strong>Data:</strong> Todos os sábados e domingos.</p>
-                <p><strong>Descrição:</strong> Um passeio imperdível entre as cidades de Itu e Salto, revivendo a história da ferrovia. Perfeito para toda a família.</p>
-            </div>
-            <div class="event-card">
-                <h3>Festival Gastronômico de Verão</h3>
-                <p><strong>Data:</strong> 15 a 30 de janeiro.</p>
-                <p><strong>Descrição:</strong> Os principais restaurantes da cidade oferecem pratos especiais com a temática de verão. Uma ótima oportunidade para conhecer a culinária local.</p>
-            </div>
-        </div>
 
-        <div class="events-section" id="eventos-fevereiro">
-            <h2 style="color:  #073169;">Eventos de Fevereiro</h2>
-            <div class="event-card">
-                <h3>Carnaval Histórico de Itu</h3>
-                <p><strong>Data:</strong> Durante o feriado de Carnaval.</p>
-                <p><strong>Descrição:</strong> Desfiles de blocos e shows ao vivo no centro da cidade, com uma atmosfera familiar e festiva.</p>
-            </div>
+      <!-- Janeiro -->
+      <div class="events-section active" id="eventos-janeiro">
+        <h2>Eventos de Janeiro</h2>
+        <div class="event-card">
+          <h3>Passeio de Maria Fumaça</h3>
+          <p><strong>Data:</strong> Todos os sábados e domingos.</p>
+          <p><strong>Descrição:</strong> Um passeio imperdível entre as cidades de Itu e Salto, revivendo a história da ferrovia. Perfeito para toda a família.</p>
         </div>
-        
-        <div class="events-section" id="eventos-marco">
-            <h2 style="color:  #073169;">Eventos de Março</h2>
-            <div class="no-events">
-                <p>Nenhum evento programado para este mês.</p>
-            </div>
+        <div class="event-card">
+          <h3>Festival Gastronômico de Verão</h3>
+          <p><strong>Data:</strong> 15 a 30 de janeiro.</p>
+          <p><strong>Descrição:</strong> Pratos especiais com temática de verão nos melhores restaurantes da cidade.</p>
         </div>
+      </div>
 
-        <div class="events-section" id="eventos-abril">
-            <h2 style="color:  #073169;">Eventos de Abril</h2>
-            <div class="event-card">
-                <h3>Festa da Uva e Morango</h3>
-                <p><strong>Data:</strong> 5 a 15 de abril.</p>
-                <p><strong>Descrição:</strong> Celebração da colheita com degustação, venda de produtos locais e apresentações culturais.</p>
-            </div>
+      <!-- Fevereiro -->
+      <div class="events-section" id="eventos-fevereiro">
+        <h2>Eventos de Fevereiro</h2>
+        <div class="event-card">
+          <h3>Carnaval Histórico de Itu</h3>
+          <p><strong>Data:</strong> Durante o feriado de Carnaval.</p>
+          <p><strong>Descrição:</strong> Desfiles de blocos e shows no centro da cidade.</p>
         </div>
+      </div>
 
-        <div class="events-section" id="eventos-maio">
-            <h2 style="color:  #073169;">Eventos de Maio</h2>
-            <div class="no-events">
-                <p>Nenhum evento programado para este mês.</p>
-            </div>
-        </div>
+      <!-- Março -->
+      <div class="events-section" id="eventos-marco">
+        <h2>Eventos de Março</h2>
+        <div class="no-events">Nenhum evento programado para este mês.</div>
+      </div>
 
-        <div class="events-section" id="eventos-junho">
-            <h2 style="color:  #073169;">Eventos de Junho</h2>
-            <div class="event-card">
-                <h3>Festa Junina do Centro Histórico</h3>
-                <p><strong>Data:</strong> 10 a 30 de junho.</p>
-                <p><strong>Descrição:</strong> Comidas típicas, quadrilha, música e decorações temáticas no Largo da Matriz.</p>
-            </div>
+      <!-- Abril -->
+      <div class="events-section" id="eventos-abril">
+        <h2>Eventos de Abril</h2>
+        <div class="event-card">
+          <h3>Festa da Uva e Morango</h3>
+          <p><strong>Data:</strong> 5 a 15 de abril.</p>
+          <p><strong>Descrição:</strong> Degustação de frutas, feira local e atrações culturais.</p>
         </div>
-        
-        <div class="events-section" id="eventos-julho">
-            <h2 style="color:  #073169;">Eventos de Julho</h2>
-            <div class="event-card">
-                <h3>Férias de Inverno na Fazenda do Chocolate</h3>
-                <p><strong>Data:</strong> Todo o mês de julho.</p>
-                <p><strong>Descrição:</strong> Programação especial para as férias escolares, com oficinas de chocolate, passeios a cavalo e atividades ao ar livre.</p>
-            </div>
-        </div>
+      </div>
 
-        <div class="events-section" id="eventos-agosto">
-            <h2 style="color:  #073169;">Eventos de Agosto</h2>
-            <div class="event-card">
-                <h3>Aniversário da Cidade de Itu</h3>
-                <p><strong>Data:</strong> 2 de agosto.</p>
-                <p><strong>Descrição:</strong> Programação especial com shows, exposições e homenagens em comemoração ao aniversário da cidade.</p>
-            </div>
-        </div>
+      <!-- Maio -->
+      <div class="events-section" id="eventos-maio">
+        <h2>Eventos de Maio</h2>
+        <div class="no-events">Nenhum evento programado para este mês.</div>
+      </div>
 
-        <div class="events-section" id="eventos-setembro">
-            <h2 style="color:  #073169;">Eventos de Setembro</h2>
-            <div class="no-events">
-                <p>Nenhum evento programado para este mês.</p>
-            </div>
+      <!-- Junho -->
+      <div class="events-section" id="eventos-junho">
+        <h2>Eventos de Junho</h2>
+        <div class="event-card">
+          <h3>Festa Junina do Centro Histórico</h3>
+          <p><strong>Data:</strong> 10 a 30 de junho.</p>
+          <p><strong>Descrição:</strong> Comidas típicas, quadrilhas e apresentações.</p>
         </div>
+      </div>
 
-        <div class="events-section" id="eventos-outubro">
-            <h2 style="color:  #073169;">Eventos de Outubro</h2>
-            <div class="event-card">
-                <h3>Semana da Criança</h3>
-                <p><strong>Data:</strong> 10 a 17 de outubro.</p>
-                <p><strong>Descrição:</strong> Atividades recreativas, peças de teatro e contação de histórias para os pequenos em diversos pontos da cidade.</p>
-            </div>
+      <!-- Julho -->
+      <div class="events-section" id="eventos-julho">
+        <h2>Eventos de Julho</h2>
+        <div class="event-card">
+          <h3>Férias de Inverno na Fazenda do Chocolate</h3>
+          <p><strong>Data:</strong> Todo o mês de julho.</p>
+          <p><strong>Descrição:</strong> Atividades para crianças, oficinas e passeios.</p>
         </div>
+      </div>
 
-        <div class="events-section" id="eventos-novembro">
-            <h2 style="color:  #073169;">Eventos de Novembro</h2>
-            <div class="event-card">
-                <h3>Feriado da Consciência Negra</h3>
-                <p><strong>Data:</strong> 20 de novembro.</p>
-                <p><strong>Descrição:</strong> Programação cultural com apresentações de música e dança afro-brasileira em homenagem à data.</p>
-            </div>
+      <!-- Agosto -->
+      <div class="events-section" id="eventos-agosto">
+        <h2>Eventos de Agosto</h2>
+        <div class="event-card">
+          <h3>Aniversário da Cidade de Itu</h3>
+          <p><strong>Data:</strong> 2 de agosto.</p>
+          <p><strong>Descrição:</strong> Shows, homenagens e eventos históricos.</p>
         </div>
+      </div>
 
-        <div class="events-section" id="eventos-dezembro">
-            <h2 style="color:  #073169;">Eventos de Dezembro</h2>
-            <div class="event-card">
-                <h3>Natal Gigante de Itu</h3>
-                <p><strong>Data:</strong> Durante todo o mês de dezembro.</p>
-                <p><strong>Descrição:</strong> Decoração natalina especial por toda a cidade, com a famosa árvore de Natal gigante e casa do Papai Noel.</p>
-            </div>
+      <!-- Setembro -->
+      <div class="events-section" id="eventos-setembro">
+        <h2>Eventos de Setembro</h2>
+        <div class="no-events">Nenhum evento programado para este mês.</div>
+      </div>
+
+      <!-- Outubro -->
+      <div class="events-section" id="eventos-outubro">
+        <h2>Eventos de Outubro</h2>
+        <div class="event-card">
+          <h3>Semana da Criança</h3>
+          <p><strong>Data:</strong> 10 a 17 de outubro.</p>
+          <p><strong>Descrição:</strong> Teatro, contação de histórias e atividades infantis.</p>
         </div>
+      </div>
+
+      <!-- Novembro -->
+      <div class="events-section" id="eventos-novembro">
+        <h2>Eventos de Novembro</h2>
+        <div class="event-card">
+          <h3>Feriado da Consciência Negra</h3>
+          <p><strong>Data:</strong> 20 de novembro.</p>
+          <p><strong>Descrição:</strong> Apresentações afro-brasileiras e cultura popular.</p>
+        </div>
+      </div>
+
+      <!-- Dezembro -->
+      <div class="events-section" id="eventos-dezembro">
+        <h2>Eventos de Dezembro</h2>
+        <div class="event-card">
+          <h3>Natal Gigante de Itu</h3>
+          <p><strong>Data:</strong> Durante todo o mês de dezembro.</p>
+          <p><strong>Descrição:</strong> Decoração natalina, árvore gigante e casa do Papai Noel.</p>
+        </div>
+      </div>
+
     </div>
-</div>
+  </div>
 
-<script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const monthItems = document.querySelectorAll('.month-item');
-        const eventSections = document.querySelectorAll('.events-section');
+      const monthItems = document.querySelectorAll('.month-item');
+      const eventSections = document.querySelectorAll('.events-section');
 
-        function showEvents(month) {
-            eventSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            monthItems.forEach(item => {
-                item.classList.remove('active');
-            });
+      function showEvents(month) {
+        eventSections.forEach(section => section.classList.remove('active'));
+        monthItems.forEach(item => item.classList.remove('active'));
 
-            const targetId = `eventos-${month}`;
-            const targetSection = document.getElementById(targetId);
-            const currentMonthItem = document.querySelector(`[data-month="${month}"]`);
+        const targetId = `eventos-${month}`;
+        const targetSection = document.getElementById(targetId);
+        const currentMonthItem = document.querySelector(`[data-month="${month}"]`);
 
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            if (currentMonthItem) {
-                currentMonthItem.classList.add('active');
-            }
-        }
-        
-        monthItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const month = item.getAttribute('data-month');
-                showEvents(month);
-            });
+        if (targetSection) targetSection.classList.add('active');
+        if (currentMonthItem) currentMonthItem.classList.add('active');
+      }
+
+      monthItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const month = item.getAttribute('data-month');
+          showEvents(month);
         });
+      });
 
-        showEvents('janeiro');
+      showEvents('janeiro'); // Mês padrão
     });
-</script>
+  </script>
 
 <!-- Footer -->
 <footer class="footer bg-dark-blue text-white mt-5">
