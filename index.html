@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +14,7 @@
     <style>
         body {
             padding-top: 90px;
+            font-family: Arial, sans-serif;
         }
 
         .transparent-navbar {
@@ -31,30 +31,45 @@
             font-size: 1rem;
         }
 
-        /* botoes categorias */
-        .btn-circle {
-            width:70px; height:70px;
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:1.5rem;
-            color:#fff;
-            background-color:#6f42c1;
-            margin:0 10px;
-            text-decoration:none;
-            transition:transform 0.3s, background-color 0.3s;
+        /* hero section */
+        .hero {
+            background-image: url('imagens/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px 80px 20px;
         }
 
-        .btn-circle:hover {
-            background-color:#563d7c;
-            transform:scale(1.1);
+        .btn-hero {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            background-color: #073169;
+            border: none;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* botoes categorias */
+        .btn-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #073169;
+            margin: 0 15px;
+            text-decoration: none;
         }
 
         /* carousel cards */
         .card img {
-            height:200px;
-            object-fit:cover;
+            height: 200px;
+            object-fit: cover;
         }
 
         /* abinhas conteudo */
@@ -62,12 +77,27 @@
             padding: 60px 0;
         }
 
+        .abinha img {
+            border: 4px solid #073169;
+        }
+
         .footer-link {
             color: #fff;
             text-decoration: none;
         }
+
         .footer-link:hover {
             text-decoration: underline;
+        }
+
+        /* pequenos ajustes */
+        h2 {
+            color: #073169;
+        }
+
+        .text-section {
+            padding: 40px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -114,26 +144,24 @@
 </nav>
 
 <!-- hero section -->
-<section class="py-5 text-center" 
-    style="background-image:url('imagens/hero.jpg'); background-size:cover; background-position:center; color:#fff;">
-    <div class="container">
-        <h1>Descubra Itu</h1>
-        <p>Explore os melhores atrativos, gastronomia, eventos e hospedagem na cidade de Itu/SP</p>
-        
-        <!-- botao descubra -->
-        <a href="turismo.html" class="btn btn-primary btn-lg mt-3">
-            Explorar Agora
-        </a>
-    </div>
+<section class="hero">
+    <h1>Descubra Itu</h1>
+    <p>Explore os melhores atrativos, gastronomia, eventos e hospedagem na cidade de Itu/SP</p>
+    <a href="turismo.html" class="btn-hero">Descubra Itu</a>
 </section>
 
 <!-- botoes categorias -->
-<section id="categorias" class="py-5">
-    <div class="container d-flex justify-content-center flex-wrap">
-        <a href="gastronomia.html" class="btn-circle" title="Restaurantes"><i class="fas fa-utensils"></i></a>
-        <a href="hoteis.html" class="btn-circle" title="Hotéis"><i class="fas fa-hotel"></i></a>
-        <a href="eventos.html" class="btn-circle" title="Eventos"><i class="fas fa-calendar-alt"></i></a>
-        <a href="atrativos.html" class="btn-circle" title="Atrativos"><i class="fas fa-map-marked-alt"></i></a>
+<section id="categorias" class="py-5 text-center">
+    <a href="gastronomia.html" class="btn-circle" title="Restaurantes"><i class="fas fa-utensils"></i></a>
+    <a href="hoteis.html" class="btn-circle" title="Hoteis"><i class="fas fa-hotel"></i></a>
+    <a href="eventos.html" class="btn-circle" title="Eventos"><i class="fas fa-calendar-alt"></i></a>
+    <a href="atrativos.html" class="btn-circle" title="Atrativos"><i class="fas fa-map-marked-alt"></i></a>
+</section>
+
+<!-- pequeno texto sobre itu -->
+<section class="text-section">
+    <div class="container">
+        <p>Itu é uma cidade histórica de São Paulo, famosa por seu patrimônio cultural, eventos e atrações turísticas únicas. Explore, divirta-se e conheça cada cantinho dessa cidade encantadora!</p>
     </div>
 </section>
 
@@ -146,26 +174,26 @@
 
                 <div class="carousel-item active">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas1.jpg" class="card-img-top" alt="Beleza 1">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">Beleza 1</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas2.jpg" class="card-img-top" alt="Beleza 2">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">Beleza 2</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas3.jpg" class="card-img-top" alt="Beleza 3">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">Beleza 3</h5>
                                 </div>
                             </div>
@@ -175,105 +203,22 @@
 
                 <div class="carousel-item">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas4.jpg" class="card-img-top" alt="Beleza 4">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">Beleza 4</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas5.jpg" class="card-img-top" alt="Beleza 5">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">Beleza 5</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img src="imagens/belezas6.jpg" class="card-img-top" alt="Beleza 6">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Beleza 6</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselBelezas" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselBelezas" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- abinhas conteudo -->
-<section class="abinha bg-light">
-    <div class="container">
-        <div class="row align-items-center mb-4">
-            <div class="col-md-5 text-center">
-                <img src="imagens/sectiom.jfif" class="img-fluid" style="border:4px solid #6f42c1;" alt="o que fazemos">
-            </div>
-            <div class="col-md-7">
-                <h2>O que fazemos?</h2>
-                <p>A Go Itu é dedicada a promover o turismo em Itu, SP. Mostramos atrativos, cultura, eventos e dicas para explorar a cidade de forma prática.</p>
-            </div>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-md-7">
-                <h2>Centro de Atendimento ao Turista – Itu/SP</h2>
-                <p>Localizado no coração da cidade, o centro oferece informações sobre passeios, roteiros culturais, eventos e gastronomia. Mapas, folhetos e guias ajudam no planejamento de passeios.</p>
-            </div>
-            <div class="col-md-5 text-center">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117296.55590271033!2d-47.44569185664061!3d-23.260643399999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf5187d4fd00a3%3A0xafec41ac60a75f80!2sSecretaria%20de%20Turismo!5e0!3m2!1spt-BR!2sbr!4v1757124107852!5m2!1spt-BR!2sbr" width="400" height="300" style="border:4px solid #6f42c1;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- footer -->
-<footer class="footer bg-dark text-white py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <h5>Contato</h5>
-                <p>Email: contato@goitu.com.br</p>
-                <p>Tel: (11) 99999-9999</p>
-            </div>
-            <div class="col-md-4 mb-3 text-center">
-                <h5>Sobre nós</h5>
-                <p class="small">A Go Itu é o guia oficial para descobrir o melhor de Itu. Cultura, história e passeios em um só lugar.</p>
-                <p class="mb-0">&copy; 2025</p>
-            </div>
-            <div class="col-md-4 text-md-right text-center">
-                <h5>Menu</h5>
-                <ul class="list-unstyled">
-                    <li><a class="footer-link" href="index.html">Home</a></li>
-                    <li><a class="footer-link" href="historia.html">História</a></li>
-                    <li><a class="footer-link" href="turismo.html">Turismo</a></li>
-                    <li><a class="footer-link" href="hoteis.html">Hospedagem</a></li>
-                    <li><a class="footer-link" href="eventos.html">Eventos</a></li>
-                    <li><a class="footer-link" href="gastronomia.html">Gastronomia</a></li>
-                    <li><a class="footer-link" href="atrativos.html">Atrativos</a></li>
-                    <li><a class="footer-link" href="pi.html">O que é PI?</a></li>
-                    <li><a class="footer-link" href="membros.html">Integrantes</a></li>
-                    <li><a class="footer-link" href="redessociais.html">Redes Sociais</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-</body>
-</html>
