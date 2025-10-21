@@ -202,5 +202,12 @@ footer .col-md-4 {
   footer .col-md-4 {
     text-align: center;
   }
+
+.carousel-title {
+  color: var(--darkblue);
+  font-family: "Ruda", sans-serif;
+  font-weight: 700; /* Deixa o texto mais forte */
+  text-align: center; /* Centraliza (opcional) */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6); /* realce leve */
 }
 
