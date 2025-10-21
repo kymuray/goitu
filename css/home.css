@@ -153,4 +153,54 @@ footer {
   margin: 0;
   padding: 0;
 }
+/* Footer */
+footer {
+  width: 100%;
+  padding: 40px 15px;
+  background-color: var(--darkblue); /* Fundo azul seguro */
+  color: var(--white); /* Texto padrão branco */
+  text-align: center;
+  font-family: "Ruda", sans-serif; /* Fonte personalizada */
+  font-size: 16px;
+}
+
+footer h5 {
+  font-weight: 700;
+  color: var(--azure); /* Títulos em azul claro */
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family: "Ruda", sans-serif;
+}
+
+footer p, footer li {
+  color: var(--white); /* Textos e listas em branco */
+  font-family: "Ruda", sans-serif;
+}
+
+footer a.footer-link {
+  color: var(--white); /* Links em branco */
+  text-decoration: none;
+  transition: color 0.3s;
+  font-family: "Ruda", sans-serif;
+}
+
+footer a.footer-link:hover {
+  color: var(--azure); /* Link ao passar o mouse fica azul claro */
+  text-decoration: underline;
+}
+
+footer .row {
+  flex-wrap: wrap; /* Para responsividade */
+}
+
+footer .col-md-4 {
+  margin-bottom: 20px; /* Espaçamento em telas pequenas */
+}
+
+/* Centraliza o conteúdo em telas menores */
+@media (max-width: 768px) {
+  footer .col-md-4 {
+    text-align: center;
+  }
+}
 
