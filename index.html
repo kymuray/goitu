@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Go Itu - Home</title>
 
   <!-- Bootstrap e Font Awesome -->
@@ -16,10 +16,9 @@
       padding-top: 90px; /* altura da navbar fixa */
     }
 
-    /* Navbar fixa */
     .transparent-navbar {
       background-color: rgba(0,0,0,0.3);
-      padding: 25px 0;
+      padding: 15px 0;
       position: fixed;
       top: 0;
       width: 100%;
@@ -31,13 +30,8 @@
       font-weight: 600;
     }
 
-    .transparent-navbar .nav-link:hover {
-      color: #dcdcdc !important;
-    }
-
-    /* Hero section */
     .hero-section {
-      background-image: url('imagens/feira_natal_itu.jpeg');
+      background-image: url('imagens/hero.jpg');
       background-size: cover;
       background-position: center;
       height: 50vh;
@@ -48,10 +42,11 @@
       color: white;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
       text-align: center;
+      padding: 0 15px;
     }
 
     .hero-section h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: bold;
     }
 
@@ -61,8 +56,8 @@
       border: none;
       border-radius: 30px;
       color: #fff;
-      padding: 12px 30px;
-      font-size: 1.2rem;
+      padding: 10px 25px;
+      font-size: 1rem;
       transition: 0.3s;
     }
 
@@ -70,22 +65,21 @@
       background-color: #3379d1;
     }
 
-    /* Botões quadrados */
     .square-buttons {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
-      padding: 50px 0;
+      padding: 50px 15px;
       background-color: #f8f9fa;
     }
 
     .square-btn {
       background-color: #3f8efc;
       color: #fff;
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
@@ -94,11 +88,12 @@
       text-decoration: none;
       font-weight: 600;
       transition: transform 0.3s ease, background-color 0.3s;
+      text-align: center;
     }
 
     .square-btn i {
-      font-size: 2rem;
-      margin-bottom: 8px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
     }
 
     .square-btn:hover {
@@ -107,9 +102,9 @@
       color: #fff;
     }
 
-    /* Carrossel */
     .carousel-item img {
-      height: 400px;
+      width: 100%;
+      height: auto;
       object-fit: cover;
     }
 
@@ -117,18 +112,33 @@
       text-align: center;
       margin-top: 60px;
       margin-bottom: 20px;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: bold;
     }
 
-    /* Seções finais */
     .abinha {
-      padding: 60px 0;
+      padding: 40px 15px;
     }
 
-    .abinha img,
-    .abinha iframe {
+    .abinha img, .abinha iframe {
       border: 4px solid #007bff;
+      max-width: 100%;
+      height: auto;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 40px 15px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -174,42 +184,30 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <h1>Descubra Itu</h1>
-    <a href="atrativos.html" class="btn">Explorar!</a>
+    <a href="#botoes" class="btn">Descobrir Tudo</a>
   </section>
 
   <!-- Botões quadrados -->
   <section id="botoes" class="square-buttons">
-    <a href="gastronomia.html" class="square-btn">
-      <i class="fas fa-utensils"></i>
-      Gastronomia
-    </a>
-    <a href="hoteis.html" class="square-btn">
-      <i class="fas fa-hotel"></i>
-      Hospedagem
-    </a>
-    <a href="eventos.html" class="square-btn">
-      <i class="fas fa-calendar-alt"></i>
-      Eventos
-    </a>
-    <a href="atrativos.html" class="square-btn">
-      <i class="fas fa-map-marked-alt"></i>
-      Atrativos
-    </a>
+    <a href="gastronomia.html" class="square-btn"><i class="fas fa-utensils"></i> Gastronomia</a>
+    <a href="hospedagem.html" class="square-btn"><i class="fas fa-hotel"></i> Hospedagem</a>
+    <a href="eventos.html" class="square-btn"><i class="fas fa-calendar-alt"></i> Eventos</a>
+    <a href="atrativos.html" class="square-btn"><i class="fas fa-map-marked-alt"></i> Atrativos</a>
   </section>
 
   <!-- Carrossel -->
   <h2 class="carousel-title">Belezas de Itu</h2>
   <div id="carouselBelezas" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active"><img src="imagens-atrativos/turismo-itu.jpg" class="d-block w-100" alt="Beleza 1"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/Praca-dos-Exageros-3-2048x1365.webp" class="d-block w-100" alt="Beleza 2"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/3R0G3831-b-scaled.jpg" class="d-block w-100" alt="Beleza 3"></div>
-      <div class="carousel-item"><img src="imagens/maeda.jpg" alt="Beleza 4"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/images (1).jpg" class="d-block w-100" alt="Beleza 5"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/concerto-e-feira-marcam-30-anos-do-parque-do-varvito-em-itu-68b8e71f9d0b7.jpg" class="d-block w-100" alt="Beleza 6"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/TremRep6.webp" class="d-block w-100" alt="Beleza 7"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/115b978b650c4043bf45b9f4ee6e1f83.jpg" class="d-block w-100" alt="Beleza 8"></div>
-      <div class="carousel-item"><img src="imagens-atrativos/chacara_do_rosario_turismo_em_itu_1.jpg" class="d-block w-100" alt="Beleza 9"></div>
+      <div class="carousel-item active"><img src="imagens/belezas1.jpg" alt="Beleza 1"></div>
+      <div class="carousel-item"><img src="imagens/belezas2.jpg" alt="Beleza 2"></div>
+      <div class="carousel-item"><img src="imagens/belezas3.jpg" alt="Beleza 3"></div>
+      <div class="carousel-item"><img src="imagens/belezas4.jpg" alt="Beleza 4"></div>
+      <div class="carousel-item"><img src="imagens/belezas5.jpg" alt="Beleza 5"></div>
+      <div class="carousel-item"><img src="imagens/belezas6.jpg" alt="Beleza 6"></div>
+      <div class="carousel-item"><img src="imagens/belezas7.jpg" alt="Beleza 7"></div>
+      <div class="carousel-item"><img src="imagens/belezas8.jpg" alt="Beleza 8"></div>
+      <div class="carousel-item"><img src="imagens/belezas9.jpg" alt="Beleza 9"></div>
     </div>
     <a class="carousel-control-prev" href="#carouselBelezas" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -226,7 +224,7 @@
     <div class="container">
       <div class="row align-items-center mb-4">
         <div class="col-md-5 text-center">
-          <img src="imagens/sectiom.jfif" class="img-fluid" alt="O que fazemos">
+          <img src="imagens/sectiom.jfif" alt="O que fazemos">
         </div>
         <div class="col-md-7">
           <h2>O que fazemos?</h2>
@@ -239,59 +237,45 @@
           <p>Localizado no coração da cidade, o centro oferece informações sobre passeios, roteiros culturais, eventos e gastronomia. Mapas, folhetos e guias ajudam no planejamento de passeios.</p>
         </div>
         <div class="col-md-5 text-center">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.5249062420276!2d-47.48850832548882!3d-21.87585390184033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8033642d34f05%3A0xfb87096c89e3f2bf!2sCentro%20de%20Atendimento%20ao%20Turista%201%20-%20Jos%C3%A9%20Vaz%20Vaz!5e0!3m2!1spt-BR!2sbr!4v1761002594909!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="400" height="300" style="border:4px solid #007bff;" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117296.55590271033!2d-47.44569185664061!3d-23.260643399999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf5187d4fd00a3%3A0xafec41ac60a75f80!2sSecretaria%20de%20Turismo!5e0!3m2!1spt-BR!2sbr!4v1757124107852!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:4px solid #007bff;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </div>
   </section>
+
   <!-- Footer -->
-<footer class="footer bg-dark-blue text-white mt-5">
-  <div class="container- fluid py-5">
-    <div class="row">
-
-      <!-- Coluna 1: Contato -->
-      <div class="col-12 col-md-4 mb-4 mb-md-0">
-        <h5>Contato</h5>
-        <p>Email: contato@goitu.com.br</p>
-        <p>Tel: (11) 99999-9999</p>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Contato</h5>
+          <p>Email: contato@goitu.com.br</p>
+          <p>Tel: (11) 99999-9999</p>
+        </div>
+        <div class="col-md-4 mb-3 text-center">
+          <h5>Sobre nós</h5>
+          <p class="small">A Go Itu é o guia oficial para descobrir o melhor de Itu. Cultura, história e passeios em um só lugar.</p>
+          <p class="mb-0">&copy; 2025</p>
+        </div>
+        <div class="col-md-4 text-md-right text-center">
+          <h5>Menu</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="turismo.html">Turismo</a></li>
+            <li><a href="hoteis.html">Hospedagem</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="gastronomia.html">Gastronomia</a></li>
+            <li><a href="atrativos.html">Atrativos</a></li>
+            <li><a href="pi.html">O que é PI?</a></li>
+            <li><a href="membros.html">Integrantes</a></li>
+            <li><a href="redessociais.html">Redes Sociais</a></li>
+          </ul>
+        </div>
       </div>
-
-      <!-- Coluna 2: Sobre nós -->
-      <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
-        <h5>Sobre nós</h5>
-        <p class="small">
-          A Go Itu é o seu guia oficial para descobrir o melhor de Itu (SP).  
-          Cultura, história e passeios em um só lugar — vem explorar com a gente!
-        </p>
-        <p class="mb-0">&copy; 2025</p>
-      </div>
-
-      <!-- Coluna 3: Menu -->
-      <div class="col-12 col-md-4 text-md-right text-center">
-        <h5>Menu</h5>
-        <ul class="list-unstyled">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="historia.html" class="footer-link">História</a></li>
-          <li><a href="turismo.html" class="footer-link">Turismo</a></li>
-           <li><a href="hoteis.html" class="footer-link">Hospedagem</a></li> 
-            <li><a href="eventos.html" class="footer-link">Eventos</a></li>
-            <li><a href="gastronomia.html" class="footer-link">Gastronomia</a></li>
-            <li><a href="atrativos.html" class="footer-link">Atrativos</a></li>
-          <li><a href="pi.html" class="footer-link">O que é PI?</a></li>
-            <li><a href="membros.html" class="footer-link">Integrantes</a></li>
-          <li><a href="redessociais.html" class="footer-link">Redes Sociais</a></li>
-        </ul>
-      </div>
-
     </div>
-  </div>
-</footer>
-      <script src="scripts.js"></script>
-    </body>
+  </footer>
 
-</html>
-
-  <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
